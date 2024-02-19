@@ -58,11 +58,11 @@ public class Zebra {
     }
     
     
-    public static abstract sealed class TypeBoxed permits TypeBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface TypeBoxed permits TypeBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class TypeBoxedString extends TypeBoxed {
+    public static final class TypeBoxedString implements TypeBoxed {
         public final String data;
         private TypeBoxedString(String data) {
             this.data = data;
@@ -146,11 +146,11 @@ public class Zebra {
     }
     
     
-    public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ClassNameBoxed permits ClassNameBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ClassNameBoxedString extends ClassNameBoxed {
+    public static final class ClassNameBoxedString implements ClassNameBoxed {
         public final String data;
         private ClassNameBoxedString(String data) {
             this.data = data;
@@ -401,11 +401,11 @@ public class Zebra {
     }
     
     
-    public static abstract sealed class Zebra1Boxed permits Zebra1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Zebra1Boxed permits Zebra1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Zebra1BoxedMap extends Zebra1Boxed {
+    public static final class Zebra1BoxedMap implements Zebra1Boxed {
         public final ZebraMap data;
         private Zebra1BoxedMap(ZebraMap data) {
             this.data = data;

@@ -114,11 +114,11 @@ public class ObjWithRequiredPropsBase {
     }
     
     
-    public static abstract sealed class ObjWithRequiredPropsBase1Boxed permits ObjWithRequiredPropsBase1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ObjWithRequiredPropsBase1Boxed permits ObjWithRequiredPropsBase1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ObjWithRequiredPropsBase1BoxedMap extends ObjWithRequiredPropsBase1Boxed {
+    public static final class ObjWithRequiredPropsBase1BoxedMap implements ObjWithRequiredPropsBase1Boxed {
         public final ObjWithRequiredPropsBaseMap data;
         private ObjWithRequiredPropsBase1BoxedMap(ObjWithRequiredPropsBaseMap data) {
             this.data = data;

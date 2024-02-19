@@ -143,11 +143,11 @@ public class ReadOnlyFirst {
     }
     
     
-    public static abstract sealed class ReadOnlyFirst1Boxed permits ReadOnlyFirst1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ReadOnlyFirst1Boxed permits ReadOnlyFirst1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ReadOnlyFirst1BoxedMap extends ReadOnlyFirst1Boxed {
+    public static final class ReadOnlyFirst1BoxedMap implements ReadOnlyFirst1Boxed {
         public final ReadOnlyFirstMap data;
         private ReadOnlyFirst1BoxedMap(ReadOnlyFirstMap data) {
             this.data = data;

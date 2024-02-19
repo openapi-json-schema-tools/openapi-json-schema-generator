@@ -4,7 +4,7 @@ public class MapTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -50,15 +50,15 @@ A class that contains necessary nested
 | static class | [MapTest.AdditionalProperties1](#additionalproperties1)<br> schema class |
 
 ## MapTest1Boxed
-public static abstract sealed class MapTest1Boxed<br>
+public sealed interface MapTest1Boxed<br>
 permits<br>
 [MapTest1BoxedMap](#maptest1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MapTest1BoxedMap
 public static final class MapTest1BoxedMap<br>
-extends [MapTest1Boxed](#maptest1boxed)
+implements [MapTest1Boxed](#maptest1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -189,15 +189,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## DirectMapBoxed
-public static abstract sealed class DirectMapBoxed<br>
+public sealed interface DirectMapBoxed<br>
 permits<br>
 [DirectMapBoxedMap](#directmapboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DirectMapBoxedMap
 public static final class DirectMapBoxedMap<br>
-extends [DirectMapBoxed](#directmapboxed)
+implements [DirectMapBoxed](#directmapboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -285,15 +285,15 @@ A class to store validated Map payloads
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties3Boxed
-public static abstract sealed class AdditionalProperties3Boxed<br>
+public sealed interface AdditionalProperties3Boxed<br>
 permits<br>
 [AdditionalProperties3BoxedBoolean](#additionalproperties3boxedboolean)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalProperties3BoxedBoolean
 public static final class AdditionalProperties3BoxedBoolean<br>
-extends [AdditionalProperties3Boxed](#additionalproperties3boxed)
+implements [AdditionalProperties3Boxed](#additionalproperties3boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -319,15 +319,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## MapOfEnumStringBoxed
-public static abstract sealed class MapOfEnumStringBoxed<br>
+public sealed interface MapOfEnumStringBoxed<br>
 permits<br>
 [MapOfEnumStringBoxedMap](#mapofenumstringboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MapOfEnumStringBoxedMap
 public static final class MapOfEnumStringBoxedMap<br>
-extends [MapOfEnumStringBoxed](#mapofenumstringboxed)
+implements [MapOfEnumStringBoxed](#mapofenumstringboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -416,15 +416,15 @@ A class to store validated Map payloads
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties2Boxed
-public static abstract sealed class AdditionalProperties2Boxed<br>
+public sealed interface AdditionalProperties2Boxed<br>
 permits<br>
 [AdditionalProperties2BoxedString](#additionalproperties2boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalProperties2BoxedString
 public static final class AdditionalProperties2BoxedString<br>
-extends [AdditionalProperties2Boxed](#additionalproperties2boxed)
+implements [AdditionalProperties2Boxed](#additionalproperties2boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -492,15 +492,15 @@ A class that stores String enum values
 | LOWER | value = "lower" |
 
 ## MapMapOfStringBoxed
-public static abstract sealed class MapMapOfStringBoxed<br>
+public sealed interface MapMapOfStringBoxed<br>
 permits<br>
 [MapMapOfStringBoxedMap](#mapmapofstringboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MapMapOfStringBoxedMap
 public static final class MapMapOfStringBoxedMap<br>
-extends [MapMapOfStringBoxed](#mapmapofstringboxed)
+implements [MapMapOfStringBoxed](#mapmapofstringboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -595,15 +595,15 @@ A class to store validated Map payloads
 | [AdditionalPropertiesMap](#additionalpropertiesmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalPropertiesBoxed
-public static abstract sealed class AdditionalPropertiesBoxed<br>
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedMap
 public static final class AdditionalPropertiesBoxedMap<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -691,15 +691,15 @@ A class to store validated Map payloads
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties1Boxed
-public static abstract sealed class AdditionalProperties1Boxed<br>
+public sealed interface AdditionalProperties1Boxed<br>
 permits<br>
 [AdditionalProperties1BoxedString](#additionalproperties1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalProperties1BoxedString
 public static final class AdditionalProperties1BoxedString<br>
-extends [AdditionalProperties1Boxed](#additionalproperties1boxed)
+implements [AdditionalProperties1Boxed](#additionalproperties1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -3,7 +3,7 @@ public class ApplicationjsonSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -21,15 +21,15 @@ A class that contains necessary nested
 | static class | [ApplicationjsonSchema.ApplicationjsonAdditionalProperties](#applicationjsonadditionalproperties)<br> schema class |
 
 ## ApplicationjsonSchema1Boxed
-public static abstract sealed class ApplicationjsonSchema1Boxed<br>
+public sealed interface ApplicationjsonSchema1Boxed<br>
 permits<br>
 [ApplicationjsonSchema1BoxedMap](#applicationjsonschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationjsonSchema1BoxedMap
 public static final class ApplicationjsonSchema1BoxedMap<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -118,15 +118,15 @@ A class to store validated Map payloads
 | Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ApplicationjsonAdditionalPropertiesBoxed
-public static abstract sealed class ApplicationjsonAdditionalPropertiesBoxed<br>
+public sealed interface ApplicationjsonAdditionalPropertiesBoxed<br>
 permits<br>
 [ApplicationjsonAdditionalPropertiesBoxedNumber](#applicationjsonadditionalpropertiesboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationjsonAdditionalPropertiesBoxedNumber
 public static final class ApplicationjsonAdditionalPropertiesBoxedNumber<br>
-extends [ApplicationjsonAdditionalPropertiesBoxed](#applicationjsonadditionalpropertiesboxed)
+implements [ApplicationjsonAdditionalPropertiesBoxed](#applicationjsonadditionalpropertiesboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

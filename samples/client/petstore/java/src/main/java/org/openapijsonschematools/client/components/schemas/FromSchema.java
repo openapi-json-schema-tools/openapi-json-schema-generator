@@ -162,11 +162,11 @@ public class FromSchema {
     }
     
     
-    public static abstract sealed class FromSchema1Boxed permits FromSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface FromSchema1Boxed permits FromSchema1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class FromSchema1BoxedMap extends FromSchema1Boxed {
+    public static final class FromSchema1BoxedMap implements FromSchema1Boxed {
         public final FromSchemaMap data;
         private FromSchema1BoxedMap(FromSchemaMap data) {
             this.data = data;

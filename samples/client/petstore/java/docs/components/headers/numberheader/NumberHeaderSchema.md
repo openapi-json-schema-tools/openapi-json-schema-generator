@@ -3,7 +3,7 @@ public class NumberHeaderSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -14,15 +14,15 @@ A class that contains necessary nested
 | static class | [NumberHeaderSchema.NumberHeaderSchema1](#numberheaderschema1)<br> schema class |
 
 ## NumberHeaderSchema1Boxed
-public static abstract sealed class NumberHeaderSchema1Boxed<br>
+public sealed interface NumberHeaderSchema1Boxed<br>
 permits<br>
 [NumberHeaderSchema1BoxedString](#numberheaderschema1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NumberHeaderSchema1BoxedString
 public static final class NumberHeaderSchema1BoxedString<br>
-extends [NumberHeaderSchema1Boxed](#numberheaderschema1boxed)
+implements [NumberHeaderSchema1Boxed](#numberheaderschema1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

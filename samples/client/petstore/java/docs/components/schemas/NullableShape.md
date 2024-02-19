@@ -4,7 +4,7 @@ public class NullableShape<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -23,7 +23,7 @@ A class that contains necessary nested
 | static class | [NullableShape.Schema2](#schema2)<br> schema class |
 
 ## NullableShape1Boxed
-public static abstract sealed class NullableShape1Boxed<br>
+public sealed interface NullableShape1Boxed<br>
 permits<br>
 [NullableShape1BoxedVoid](#nullableshape1boxedvoid),
 [NullableShape1BoxedBoolean](#nullableshape1boxedboolean),
@@ -32,11 +32,11 @@ permits<br>
 [NullableShape1BoxedList](#nullableshape1boxedlist),
 [NullableShape1BoxedMap](#nullableshape1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NullableShape1BoxedVoid
 public static final class NullableShape1BoxedVoid<br>
-extends [NullableShape1Boxed](#nullableshape1boxed)
+implements [NullableShape1Boxed](#nullableshape1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -52,7 +52,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## NullableShape1BoxedBoolean
 public static final class NullableShape1BoxedBoolean<br>
-extends [NullableShape1Boxed](#nullableshape1boxed)
+implements [NullableShape1Boxed](#nullableshape1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -68,7 +68,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## NullableShape1BoxedNumber
 public static final class NullableShape1BoxedNumber<br>
-extends [NullableShape1Boxed](#nullableshape1boxed)
+implements [NullableShape1Boxed](#nullableshape1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -84,7 +84,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## NullableShape1BoxedString
 public static final class NullableShape1BoxedString<br>
-extends [NullableShape1Boxed](#nullableshape1boxed)
+implements [NullableShape1Boxed](#nullableshape1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -100,7 +100,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## NullableShape1BoxedList
 public static final class NullableShape1BoxedList<br>
-extends [NullableShape1Boxed](#nullableshape1boxed)
+implements [NullableShape1Boxed](#nullableshape1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -116,7 +116,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## NullableShape1BoxedMap
 public static final class NullableShape1BoxedMap<br>
-extends [NullableShape1Boxed](#nullableshape1boxed)
+implements [NullableShape1Boxed](#nullableshape1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -165,15 +165,15 @@ The value may be a shape or the &#x27;null&#x27; value. For a composed schema to
 | [NullableShape1BoxedList](#nullableshape1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema2Boxed
-public static abstract sealed class Schema2Boxed<br>
+public sealed interface Schema2Boxed<br>
 permits<br>
 [Schema2BoxedVoid](#schema2boxedvoid)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema2BoxedVoid
 public static final class Schema2BoxedVoid<br>
-extends [Schema2Boxed](#schema2boxed)
+implements [Schema2Boxed](#schema2boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 

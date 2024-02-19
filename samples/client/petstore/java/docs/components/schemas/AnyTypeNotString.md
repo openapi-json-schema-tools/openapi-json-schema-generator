@@ -4,7 +4,7 @@ public class AnyTypeNotString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -23,7 +23,7 @@ A class that contains necessary nested
 | static class | [AnyTypeNotString.Not](#not)<br> schema class |
 
 ## AnyTypeNotString1Boxed
-public static abstract sealed class AnyTypeNotString1Boxed<br>
+public sealed interface AnyTypeNotString1Boxed<br>
 permits<br>
 [AnyTypeNotString1BoxedVoid](#anytypenotstring1boxedvoid),
 [AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean),
@@ -32,11 +32,11 @@ permits<br>
 [AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist),
 [AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AnyTypeNotString1BoxedVoid
 public static final class AnyTypeNotString1BoxedVoid<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -52,7 +52,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AnyTypeNotString1BoxedBoolean
 public static final class AnyTypeNotString1BoxedBoolean<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -68,7 +68,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## AnyTypeNotString1BoxedNumber
 public static final class AnyTypeNotString1BoxedNumber<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -84,7 +84,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## AnyTypeNotString1BoxedString
 public static final class AnyTypeNotString1BoxedString<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -100,7 +100,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## AnyTypeNotString1BoxedList
 public static final class AnyTypeNotString1BoxedList<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -116,7 +116,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## AnyTypeNotString1BoxedMap
 public static final class AnyTypeNotString1BoxedMap<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -162,15 +162,15 @@ A schema class that validates payloads
 | [AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NotBoxed
-public static abstract sealed class NotBoxed<br>
+public sealed interface NotBoxed<br>
 permits<br>
 [NotBoxedString](#notboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NotBoxedString
 public static final class NotBoxedString<br>
-extends [NotBoxed](#notboxed)
+implements [NotBoxed](#notboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -4,7 +4,7 @@ public class Bar<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [Bar.Bar1](#bar1)<br> schema class |
 
 ## Bar1Boxed
-public static abstract sealed class Bar1Boxed<br>
+public sealed interface Bar1Boxed<br>
 permits<br>
 [Bar1BoxedString](#bar1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Bar1BoxedString
 public static final class Bar1BoxedString<br>
-extends [Bar1Boxed](#bar1boxed)
+implements [Bar1Boxed](#bar1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

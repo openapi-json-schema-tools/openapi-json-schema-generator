@@ -187,11 +187,11 @@ public class QueryParameters {
     }
     
     
-    public static abstract sealed class QueryParameters1Boxed permits QueryParameters1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface QueryParameters1Boxed permits QueryParameters1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class QueryParameters1BoxedMap extends QueryParameters1Boxed {
+    public static final class QueryParameters1BoxedMap implements QueryParameters1Boxed {
         public final QueryParametersMap data;
         private QueryParameters1BoxedMap(QueryParametersMap data) {
             this.data = data;

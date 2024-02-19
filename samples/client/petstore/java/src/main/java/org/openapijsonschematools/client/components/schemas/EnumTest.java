@@ -56,11 +56,11 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumStringBoxed permits EnumStringBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface EnumStringBoxed permits EnumStringBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class EnumStringBoxedString extends EnumStringBoxed {
+    public static final class EnumStringBoxedString implements EnumStringBoxed {
         public final String data;
         private EnumStringBoxedString(String data) {
             this.data = data;
@@ -146,11 +146,11 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class EnumStringRequiredBoxedString extends EnumStringRequiredBoxed {
+    public static final class EnumStringRequiredBoxedString implements EnumStringRequiredBoxed {
         public final String data;
         private EnumStringRequiredBoxedString(String data) {
             this.data = data;
@@ -274,11 +274,11 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumIntegerBoxed permits EnumIntegerBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface EnumIntegerBoxed permits EnumIntegerBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class EnumIntegerBoxedNumber extends EnumIntegerBoxed {
+    public static final class EnumIntegerBoxedNumber implements EnumIntegerBoxed {
         public final Number data;
         private EnumIntegerBoxedNumber(Number data) {
             this.data = data;
@@ -402,11 +402,11 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumNumberBoxed permits EnumNumberBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface EnumNumberBoxed permits EnumNumberBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class EnumNumberBoxedNumber extends EnumNumberBoxed {
+    public static final class EnumNumberBoxedNumber implements EnumNumberBoxed {
         public final Number data;
         private EnumNumberBoxedNumber(Number data) {
             this.data = data;
@@ -994,11 +994,11 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumTest1Boxed permits EnumTest1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface EnumTest1Boxed permits EnumTest1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class EnumTest1BoxedMap extends EnumTest1Boxed {
+    public static final class EnumTest1BoxedMap implements EnumTest1Boxed {
         public final EnumTestMap data;
         private EnumTest1BoxedMap(EnumTestMap data) {
             this.data = data;

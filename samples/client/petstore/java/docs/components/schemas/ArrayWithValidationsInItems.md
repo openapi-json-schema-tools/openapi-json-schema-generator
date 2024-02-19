@@ -4,7 +4,7 @@ public class ArrayWithValidationsInItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [ArrayWithValidationsInItems.Items](#items)<br> schema class |
 
 ## ArrayWithValidationsInItems1Boxed
-public static abstract sealed class ArrayWithValidationsInItems1Boxed<br>
+public sealed interface ArrayWithValidationsInItems1Boxed<br>
 permits<br>
 [ArrayWithValidationsInItems1BoxedList](#arraywithvalidationsinitems1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayWithValidationsInItems1BoxedList
 public static final class ArrayWithValidationsInItems1BoxedList<br>
-extends [ArrayWithValidationsInItems1Boxed](#arraywithvalidationsinitems1boxed)
+implements [ArrayWithValidationsInItems1Boxed](#arraywithvalidationsinitems1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -122,15 +122,15 @@ A class to store validated List payloads
 | static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of([List<Number>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedNumber](#itemsboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedNumber
 public static final class ItemsBoxedNumber<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

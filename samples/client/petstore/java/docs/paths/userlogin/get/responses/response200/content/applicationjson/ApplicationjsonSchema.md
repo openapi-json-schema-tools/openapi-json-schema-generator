@@ -3,7 +3,7 @@ public class ApplicationjsonSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -14,15 +14,15 @@ A class that contains necessary nested
 | static class | [ApplicationjsonSchema.ApplicationjsonSchema1](#applicationjsonschema1)<br> schema class |
 
 ## ApplicationjsonSchema1Boxed
-public static abstract sealed class ApplicationjsonSchema1Boxed<br>
+public sealed interface ApplicationjsonSchema1Boxed<br>
 permits<br>
 [ApplicationjsonSchema1BoxedString](#applicationjsonschema1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationjsonSchema1BoxedString
 public static final class ApplicationjsonSchema1BoxedString<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

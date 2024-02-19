@@ -39,11 +39,11 @@ public class EnumClass {
     }
     
     
-    public static abstract sealed class EnumClass1Boxed permits EnumClass1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface EnumClass1Boxed permits EnumClass1BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class EnumClass1BoxedString extends EnumClass1Boxed {
+    public static final class EnumClass1BoxedString implements EnumClass1Boxed {
         public final String data;
         private EnumClass1BoxedString(String data) {
             this.data = data;

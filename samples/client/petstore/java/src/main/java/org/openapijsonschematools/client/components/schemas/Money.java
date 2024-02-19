@@ -171,11 +171,11 @@ public class Money {
     }
     
     
-    public static abstract sealed class Money1Boxed permits Money1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Money1Boxed permits Money1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Money1BoxedMap extends Money1Boxed {
+    public static final class Money1BoxedMap implements Money1Boxed {
         public final MoneyMap data;
         private Money1BoxedMap(MoneyMap data) {
             this.data = data;

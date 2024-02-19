@@ -51,11 +51,11 @@ public class Schema5 {
     }
     
     
-    public static abstract sealed class Schema51Boxed permits Schema51BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface Schema51Boxed permits Schema51BoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class Schema51BoxedNumber extends Schema51Boxed {
+    public static final class Schema51BoxedNumber implements Schema51Boxed {
         public final Number data;
         private Schema51BoxedNumber(Number data) {
             this.data = data;

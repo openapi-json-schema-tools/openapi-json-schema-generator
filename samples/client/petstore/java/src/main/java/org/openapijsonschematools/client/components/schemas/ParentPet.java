@@ -26,11 +26,11 @@ public class ParentPet {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ParentPet1Boxed permits ParentPet1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ParentPet1Boxed permits ParentPet1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ParentPet1BoxedMap extends ParentPet1Boxed {
+    public static final class ParentPet1BoxedMap implements ParentPet1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ParentPet1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

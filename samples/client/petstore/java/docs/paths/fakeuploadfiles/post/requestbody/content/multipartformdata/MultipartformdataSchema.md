@@ -3,7 +3,7 @@ public class MultipartformdataSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -27,15 +27,15 @@ A class that contains necessary nested
 | static class | [MultipartformdataSchema.MultipartformdataItems](#multipartformdataitems)<br> schema class |
 
 ## MultipartformdataSchema1Boxed
-public static abstract sealed class MultipartformdataSchema1Boxed<br>
+public sealed interface MultipartformdataSchema1Boxed<br>
 permits<br>
 [MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataSchema1BoxedMap
 public static final class MultipartformdataSchema1BoxedMap<br>
-extends [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)
+implements [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -136,15 +136,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MultipartformdataFilesBoxed
-public static abstract sealed class MultipartformdataFilesBoxed<br>
+public sealed interface MultipartformdataFilesBoxed<br>
 permits<br>
 [MultipartformdataFilesBoxedList](#multipartformdatafilesboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataFilesBoxedList
 public static final class MultipartformdataFilesBoxedList<br>
-extends [MultipartformdataFilesBoxed](#multipartformdatafilesboxed)
+implements [MultipartformdataFilesBoxed](#multipartformdatafilesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -232,10 +232,10 @@ A class to store validated List payloads
 | static [MultipartformdataFilesList](#multipartformdatafileslist) | of([List<String>](#multipartformdatafileslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## MultipartformdataItemsBoxed
-public static abstract sealed class MultipartformdataItemsBoxed<br>
+public sealed interface MultipartformdataItemsBoxed<br>
 permits<br>
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataItems
 public static class MultipartformdataItems<br>

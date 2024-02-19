@@ -4,7 +4,7 @@ public class Animal<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -25,15 +25,15 @@ A class that contains necessary nested
 | static class | [Animal.ClassName](#classname)<br> schema class |
 
 ## Animal1Boxed
-public static abstract sealed class Animal1Boxed<br>
+public sealed interface Animal1Boxed<br>
 permits<br>
 [Animal1BoxedMap](#animal1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Animal1BoxedMap
 public static final class Animal1BoxedMap<br>
-extends [Animal1Boxed](#animal1boxed)
+implements [Animal1Boxed](#animal1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -151,15 +151,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ColorBoxed
-public static abstract sealed class ColorBoxed<br>
+public sealed interface ColorBoxed<br>
 permits<br>
 [ColorBoxedString](#colorboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ColorBoxedString
 public static final class ColorBoxedString<br>
-extends [ColorBoxed](#colorboxed)
+implements [ColorBoxed](#colorboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -214,15 +214,15 @@ String validatedPayload = Animal.Color.validate(
 | [ColorBoxedString](#colorboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClassNameBoxed
-public static abstract sealed class ClassNameBoxed<br>
+public sealed interface ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ClassNameBoxedString
 public static final class ClassNameBoxedString<br>
-extends [ClassNameBoxed](#classnameboxed)
+implements [ClassNameBoxed](#classnameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

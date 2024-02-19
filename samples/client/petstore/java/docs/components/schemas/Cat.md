@@ -4,7 +4,7 @@ public class Cat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -30,7 +30,7 @@ A class that contains necessary nested
 | static class | [Cat.Declawed](#declawed)<br> schema class |
 
 ## Cat1Boxed
-public static abstract sealed class Cat1Boxed<br>
+public sealed interface Cat1Boxed<br>
 permits<br>
 [Cat1BoxedVoid](#cat1boxedvoid),
 [Cat1BoxedBoolean](#cat1boxedboolean),
@@ -39,11 +39,11 @@ permits<br>
 [Cat1BoxedList](#cat1boxedlist),
 [Cat1BoxedMap](#cat1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Cat1BoxedVoid
 public static final class Cat1BoxedVoid<br>
-extends [Cat1Boxed](#cat1boxed)
+implements [Cat1Boxed](#cat1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -59,7 +59,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Cat1BoxedBoolean
 public static final class Cat1BoxedBoolean<br>
-extends [Cat1Boxed](#cat1boxed)
+implements [Cat1Boxed](#cat1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -75,7 +75,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Cat1BoxedNumber
 public static final class Cat1BoxedNumber<br>
-extends [Cat1Boxed](#cat1boxed)
+implements [Cat1Boxed](#cat1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -91,7 +91,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Cat1BoxedString
 public static final class Cat1BoxedString<br>
-extends [Cat1Boxed](#cat1boxed)
+implements [Cat1Boxed](#cat1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -107,7 +107,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Cat1BoxedList
 public static final class Cat1BoxedList<br>
-extends [Cat1Boxed](#cat1boxed)
+implements [Cat1Boxed](#cat1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -123,7 +123,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Cat1BoxedMap
 public static final class Cat1BoxedMap<br>
-extends [Cat1Boxed](#cat1boxed)
+implements [Cat1Boxed](#cat1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -169,15 +169,15 @@ A schema class that validates payloads
 | [Cat1BoxedList](#cat1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
-public static abstract sealed class Schema1Boxed<br>
+public sealed interface Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
 public static final class Schema1BoxedMap<br>
-extends [Schema1Boxed](#schema1boxed)
+implements [Schema1Boxed](#schema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -275,15 +275,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## DeclawedBoxed
-public static abstract sealed class DeclawedBoxed<br>
+public sealed interface DeclawedBoxed<br>
 permits<br>
 [DeclawedBoxedBoolean](#declawedboxedboolean)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DeclawedBoxedBoolean
 public static final class DeclawedBoxedBoolean<br>
-extends [DeclawedBoxed](#declawedboxed)
+implements [DeclawedBoxed](#declawedboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 

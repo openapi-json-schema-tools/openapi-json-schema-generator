@@ -35,11 +35,11 @@ public class Quadrilateral {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Quadrilateral1Boxed permits Quadrilateral1BoxedVoid, Quadrilateral1BoxedBoolean, Quadrilateral1BoxedNumber, Quadrilateral1BoxedString, Quadrilateral1BoxedList, Quadrilateral1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Quadrilateral1Boxed permits Quadrilateral1BoxedVoid, Quadrilateral1BoxedBoolean, Quadrilateral1BoxedNumber, Quadrilateral1BoxedString, Quadrilateral1BoxedList, Quadrilateral1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Quadrilateral1BoxedVoid extends Quadrilateral1Boxed {
+    public static final class Quadrilateral1BoxedVoid implements Quadrilateral1Boxed {
         public final Void data;
         private Quadrilateral1BoxedVoid(Void data) {
             this.data = data;
@@ -50,7 +50,7 @@ public class Quadrilateral {
         }
     }
     
-    public static final class Quadrilateral1BoxedBoolean extends Quadrilateral1Boxed {
+    public static final class Quadrilateral1BoxedBoolean implements Quadrilateral1Boxed {
         public final boolean data;
         private Quadrilateral1BoxedBoolean(boolean data) {
             this.data = data;
@@ -61,7 +61,7 @@ public class Quadrilateral {
         }
     }
     
-    public static final class Quadrilateral1BoxedNumber extends Quadrilateral1Boxed {
+    public static final class Quadrilateral1BoxedNumber implements Quadrilateral1Boxed {
         public final Number data;
         private Quadrilateral1BoxedNumber(Number data) {
             this.data = data;
@@ -72,7 +72,7 @@ public class Quadrilateral {
         }
     }
     
-    public static final class Quadrilateral1BoxedString extends Quadrilateral1Boxed {
+    public static final class Quadrilateral1BoxedString implements Quadrilateral1Boxed {
         public final String data;
         private Quadrilateral1BoxedString(String data) {
             this.data = data;
@@ -83,7 +83,7 @@ public class Quadrilateral {
         }
     }
     
-    public static final class Quadrilateral1BoxedList extends Quadrilateral1Boxed {
+    public static final class Quadrilateral1BoxedList implements Quadrilateral1Boxed {
         public final FrozenList<@Nullable Object> data;
         private Quadrilateral1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -94,7 +94,7 @@ public class Quadrilateral {
         }
     }
     
-    public static final class Quadrilateral1BoxedMap extends Quadrilateral1Boxed {
+    public static final class Quadrilateral1BoxedMap implements Quadrilateral1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Quadrilateral1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

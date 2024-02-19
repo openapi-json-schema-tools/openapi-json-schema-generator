@@ -47,11 +47,11 @@ public class FruitReq {
     }
     
     
-    public static abstract sealed class FruitReq1Boxed permits FruitReq1BoxedVoid, FruitReq1BoxedBoolean, FruitReq1BoxedNumber, FruitReq1BoxedString, FruitReq1BoxedList, FruitReq1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface FruitReq1Boxed permits FruitReq1BoxedVoid, FruitReq1BoxedBoolean, FruitReq1BoxedNumber, FruitReq1BoxedString, FruitReq1BoxedList, FruitReq1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class FruitReq1BoxedVoid extends FruitReq1Boxed {
+    public static final class FruitReq1BoxedVoid implements FruitReq1Boxed {
         public final Void data;
         private FruitReq1BoxedVoid(Void data) {
             this.data = data;
@@ -62,7 +62,7 @@ public class FruitReq {
         }
     }
     
-    public static final class FruitReq1BoxedBoolean extends FruitReq1Boxed {
+    public static final class FruitReq1BoxedBoolean implements FruitReq1Boxed {
         public final boolean data;
         private FruitReq1BoxedBoolean(boolean data) {
             this.data = data;
@@ -73,7 +73,7 @@ public class FruitReq {
         }
     }
     
-    public static final class FruitReq1BoxedNumber extends FruitReq1Boxed {
+    public static final class FruitReq1BoxedNumber implements FruitReq1Boxed {
         public final Number data;
         private FruitReq1BoxedNumber(Number data) {
             this.data = data;
@@ -84,7 +84,7 @@ public class FruitReq {
         }
     }
     
-    public static final class FruitReq1BoxedString extends FruitReq1Boxed {
+    public static final class FruitReq1BoxedString implements FruitReq1Boxed {
         public final String data;
         private FruitReq1BoxedString(String data) {
             this.data = data;
@@ -95,7 +95,7 @@ public class FruitReq {
         }
     }
     
-    public static final class FruitReq1BoxedList extends FruitReq1Boxed {
+    public static final class FruitReq1BoxedList implements FruitReq1Boxed {
         public final FrozenList<@Nullable Object> data;
         private FruitReq1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -106,7 +106,7 @@ public class FruitReq {
         }
     }
     
-    public static final class FruitReq1BoxedMap extends FruitReq1Boxed {
+    public static final class FruitReq1BoxedMap implements FruitReq1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private FruitReq1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

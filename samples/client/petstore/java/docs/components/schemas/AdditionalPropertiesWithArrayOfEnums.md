@@ -4,7 +4,7 @@ public class AdditionalPropertiesWithArrayOfEnums<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -26,15 +26,15 @@ A class that contains necessary nested
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList](#additionalpropertieslist)<br> output class for List payloads |
 
 ## AdditionalPropertiesWithArrayOfEnums1Boxed
-public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed<br>
+public sealed interface AdditionalPropertiesWithArrayOfEnums1Boxed<br>
 permits<br>
 [AdditionalPropertiesWithArrayOfEnums1BoxedMap](#additionalpropertieswitharrayofenums1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesWithArrayOfEnums1BoxedMap
 public static final class AdditionalPropertiesWithArrayOfEnums1BoxedMap<br>
-extends [AdditionalPropertiesWithArrayOfEnums1Boxed](#additionalpropertieswitharrayofenums1boxed)
+implements [AdditionalPropertiesWithArrayOfEnums1Boxed](#additionalpropertieswitharrayofenums1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -126,15 +126,15 @@ A class to store validated Map payloads
 | [AdditionalPropertiesList](#additionalpropertieslist) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalPropertiesBoxed
-public static abstract sealed class AdditionalPropertiesBoxed<br>
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedList
 public static final class AdditionalPropertiesBoxedList<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 

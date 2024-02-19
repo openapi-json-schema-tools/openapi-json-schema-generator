@@ -4,7 +4,7 @@ public class JSONPatchRequest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -27,15 +27,15 @@ A class that contains necessary nested
 | static class | [JSONPatchRequest.Items](#items)<br> schema class |
 
 ## JSONPatchRequest1Boxed
-public static abstract sealed class JSONPatchRequest1Boxed<br>
+public sealed interface JSONPatchRequest1Boxed<br>
 permits<br>
 [JSONPatchRequest1BoxedList](#jsonpatchrequest1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## JSONPatchRequest1BoxedList
 public static final class JSONPatchRequest1BoxedList<br>
-extends [JSONPatchRequest1Boxed](#jsonpatchrequest1boxed)
+implements [JSONPatchRequest1Boxed](#jsonpatchrequest1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -129,7 +129,7 @@ A class to store validated List payloads
 | static [JSONPatchRequestList](#jsonpatchrequestlist) | of([List<? extends @Nullable Object>](#jsonpatchrequestlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedVoid](#itemsboxedvoid),
 [ItemsBoxedBoolean](#itemsboxedboolean),
@@ -138,11 +138,11 @@ permits<br>
 [ItemsBoxedList](#itemsboxedlist),
 [ItemsBoxedMap](#itemsboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedVoid
 public static final class ItemsBoxedVoid<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -158,7 +158,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ItemsBoxedBoolean
 public static final class ItemsBoxedBoolean<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -174,7 +174,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ItemsBoxedNumber
 public static final class ItemsBoxedNumber<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -190,7 +190,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ItemsBoxedString
 public static final class ItemsBoxedString<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -206,7 +206,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ItemsBoxedList
 public static final class ItemsBoxedList<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -222,7 +222,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ItemsBoxedMap
 public static final class ItemsBoxedMap<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

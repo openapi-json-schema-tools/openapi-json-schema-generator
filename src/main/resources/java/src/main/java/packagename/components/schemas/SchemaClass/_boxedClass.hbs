@@ -1,6 +1,6 @@
 {{#if forDocs}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "Boxed" "")) }}
-public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed<br>
+public sealed interface {{jsonPathPiece.pascalCase}}Boxed<br>
 permits<br>
 {{#each types}}
     {{#eq this "null"}}
@@ -29,11 +29,11 @@ permits<br>
 [{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}})
 {{/each}}
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 {{else}}
-public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed permits {{#each types}}{{jsonPathPiece.pascalCase}}Boxed{{#eq this "null"}}Void{{/eq}}{{#eq this "boolean"}}Boolean{{/eq}}{{#or (eq this "number") (eq this "integer")}}Number{{/or}}{{#and (eq this "string") (neq ../format "binary") }}String{{/and}}{{#eq this "array"}}List{{/eq}}{{#eq this "object"}}Map{{/eq}}{{#unless @last}}, {{/unless}}{{else}}{{jsonPathPiece.pascalCase}}BoxedVoid, {{jsonPathPiece.pascalCase}}BoxedBoolean, {{jsonPathPiece.pascalCase}}BoxedNumber, {{jsonPathPiece.pascalCase}}BoxedString, {{jsonPathPiece.pascalCase}}BoxedList, {{jsonPathPiece.pascalCase}}BoxedMap{{/each}} {
-    public abstract @Nullable Object data();
+public sealed interface {{jsonPathPiece.pascalCase}}Boxed permits {{#each types}}{{jsonPathPiece.pascalCase}}Boxed{{#eq this "null"}}Void{{/eq}}{{#eq this "boolean"}}Boolean{{/eq}}{{#or (eq this "number") (eq this "integer")}}Number{{/or}}{{#and (eq this "string") (neq ../format "binary") }}String{{/and}}{{#eq this "array"}}List{{/eq}}{{#eq this "object"}}Map{{/eq}}{{#unless @last}}, {{/unless}}{{else}}{{jsonPathPiece.pascalCase}}BoxedVoid, {{jsonPathPiece.pascalCase}}BoxedBoolean, {{jsonPathPiece.pascalCase}}BoxedNumber, {{jsonPathPiece.pascalCase}}BoxedString, {{jsonPathPiece.pascalCase}}BoxedList, {{jsonPathPiece.pascalCase}}BoxedMap{{/each}} {
+    @Nullable Object data();
 }
 
 {{/if}}

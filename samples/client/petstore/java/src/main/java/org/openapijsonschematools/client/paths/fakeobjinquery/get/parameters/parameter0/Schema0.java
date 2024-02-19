@@ -106,11 +106,11 @@ public class Schema0 {
     }
     
     
-    public static abstract sealed class Schema01Boxed permits Schema01BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Schema01Boxed permits Schema01BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Schema01BoxedMap extends Schema01Boxed {
+    public static final class Schema01BoxedMap implements Schema01Boxed {
         public final SchemaMap0 data;
         private Schema01BoxedMap(SchemaMap0 data) {
             this.data = data;

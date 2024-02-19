@@ -4,7 +4,7 @@ public class HasOnlyReadOnly<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -25,15 +25,15 @@ A class that contains necessary nested
 | static class | [HasOnlyReadOnly.Bar](#bar)<br> schema class |
 
 ## HasOnlyReadOnly1Boxed
-public static abstract sealed class HasOnlyReadOnly1Boxed<br>
+public sealed interface HasOnlyReadOnly1Boxed<br>
 permits<br>
 [HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## HasOnlyReadOnly1BoxedMap
 public static final class HasOnlyReadOnly1BoxedMap<br>
-extends [HasOnlyReadOnly1Boxed](#hasonlyreadonly1boxed)
+implements [HasOnlyReadOnly1Boxed](#hasonlyreadonly1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -135,15 +135,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## FooBoxed
-public static abstract sealed class FooBoxed<br>
+public sealed interface FooBoxed<br>
 permits<br>
 [FooBoxedString](#fooboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FooBoxedString
 public static final class FooBoxedString<br>
-extends [FooBoxed](#fooboxed)
+implements [FooBoxed](#fooboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -169,15 +169,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## BarBoxed
-public static abstract sealed class BarBoxed<br>
+public sealed interface BarBoxed<br>
 permits<br>
 [BarBoxedString](#barboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BarBoxedString
 public static final class BarBoxedString<br>
-extends [BarBoxed](#barboxed)
+implements [BarBoxed](#barboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -4,7 +4,7 @@ public class ObjectWithInvalidNamedRefedProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -19,15 +19,15 @@ A class that contains necessary nested
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap)<br> output class for Map payloads |
 
 ## ObjectWithInvalidNamedRefedProperties1Boxed
-public static abstract sealed class ObjectWithInvalidNamedRefedProperties1Boxed<br>
+public sealed interface ObjectWithInvalidNamedRefedProperties1Boxed<br>
 permits<br>
 [ObjectWithInvalidNamedRefedProperties1BoxedMap](#objectwithinvalidnamedrefedproperties1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithInvalidNamedRefedProperties1BoxedMap
 public static final class ObjectWithInvalidNamedRefedProperties1BoxedMap<br>
-extends [ObjectWithInvalidNamedRefedProperties1Boxed](#objectwithinvalidnamedrefedproperties1boxed)
+implements [ObjectWithInvalidNamedRefedProperties1Boxed](#objectwithinvalidnamedrefedproperties1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

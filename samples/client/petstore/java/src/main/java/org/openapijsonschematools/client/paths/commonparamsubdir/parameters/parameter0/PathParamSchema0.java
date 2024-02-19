@@ -35,11 +35,11 @@ public class PathParamSchema0 {
     }
     
     
-    public static abstract sealed class PathParamSchema01Boxed permits PathParamSchema01BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface PathParamSchema01Boxed permits PathParamSchema01BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class PathParamSchema01BoxedString extends PathParamSchema01Boxed {
+    public static final class PathParamSchema01BoxedString implements PathParamSchema01Boxed {
         public final String data;
         private PathParamSchema01BoxedString(String data) {
             this.data = data;

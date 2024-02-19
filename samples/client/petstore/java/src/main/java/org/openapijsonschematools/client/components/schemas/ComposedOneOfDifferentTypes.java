@@ -61,11 +61,11 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public static abstract sealed class Schema4Boxed permits Schema4BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Schema4Boxed permits Schema4BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Schema4BoxedMap extends Schema4Boxed {
+    public static final class Schema4BoxedMap implements Schema4Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema4BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -233,11 +233,11 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public static abstract sealed class Schema5Boxed permits Schema5BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface Schema5Boxed permits Schema5BoxedList {
+        @Nullable Object data();
     }
     
-    public static final class Schema5BoxedList extends Schema5Boxed {
+    public static final class Schema5BoxedList implements Schema5Boxed {
         public final Schema5List data;
         private Schema5BoxedList(Schema5List data) {
             this.data = data;
@@ -319,11 +319,11 @@ public class ComposedOneOfDifferentTypes {
         }
     }    
     
-    public static abstract sealed class Schema6Boxed permits Schema6BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface Schema6Boxed permits Schema6BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class Schema6BoxedString extends Schema6Boxed {
+    public static final class Schema6BoxedString implements Schema6Boxed {
         public final String data;
         private Schema6BoxedString(String data) {
             this.data = data;
@@ -389,11 +389,11 @@ public class ComposedOneOfDifferentTypes {
         }
     }    
     
-    public static abstract sealed class ComposedOneOfDifferentTypes1Boxed permits ComposedOneOfDifferentTypes1BoxedVoid, ComposedOneOfDifferentTypes1BoxedBoolean, ComposedOneOfDifferentTypes1BoxedNumber, ComposedOneOfDifferentTypes1BoxedString, ComposedOneOfDifferentTypes1BoxedList, ComposedOneOfDifferentTypes1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ComposedOneOfDifferentTypes1Boxed permits ComposedOneOfDifferentTypes1BoxedVoid, ComposedOneOfDifferentTypes1BoxedBoolean, ComposedOneOfDifferentTypes1BoxedNumber, ComposedOneOfDifferentTypes1BoxedString, ComposedOneOfDifferentTypes1BoxedList, ComposedOneOfDifferentTypes1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedVoid extends ComposedOneOfDifferentTypes1Boxed {
+    public static final class ComposedOneOfDifferentTypes1BoxedVoid implements ComposedOneOfDifferentTypes1Boxed {
         public final Void data;
         private ComposedOneOfDifferentTypes1BoxedVoid(Void data) {
             this.data = data;
@@ -404,7 +404,7 @@ public class ComposedOneOfDifferentTypes {
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedBoolean extends ComposedOneOfDifferentTypes1Boxed {
+    public static final class ComposedOneOfDifferentTypes1BoxedBoolean implements ComposedOneOfDifferentTypes1Boxed {
         public final boolean data;
         private ComposedOneOfDifferentTypes1BoxedBoolean(boolean data) {
             this.data = data;
@@ -415,7 +415,7 @@ public class ComposedOneOfDifferentTypes {
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedNumber extends ComposedOneOfDifferentTypes1Boxed {
+    public static final class ComposedOneOfDifferentTypes1BoxedNumber implements ComposedOneOfDifferentTypes1Boxed {
         public final Number data;
         private ComposedOneOfDifferentTypes1BoxedNumber(Number data) {
             this.data = data;
@@ -426,7 +426,7 @@ public class ComposedOneOfDifferentTypes {
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedString extends ComposedOneOfDifferentTypes1Boxed {
+    public static final class ComposedOneOfDifferentTypes1BoxedString implements ComposedOneOfDifferentTypes1Boxed {
         public final String data;
         private ComposedOneOfDifferentTypes1BoxedString(String data) {
             this.data = data;
@@ -437,7 +437,7 @@ public class ComposedOneOfDifferentTypes {
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedList extends ComposedOneOfDifferentTypes1Boxed {
+    public static final class ComposedOneOfDifferentTypes1BoxedList implements ComposedOneOfDifferentTypes1Boxed {
         public final FrozenList<@Nullable Object> data;
         private ComposedOneOfDifferentTypes1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -448,7 +448,7 @@ public class ComposedOneOfDifferentTypes {
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedMap extends ComposedOneOfDifferentTypes1Boxed {
+    public static final class ComposedOneOfDifferentTypes1BoxedMap implements ComposedOneOfDifferentTypes1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ComposedOneOfDifferentTypes1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

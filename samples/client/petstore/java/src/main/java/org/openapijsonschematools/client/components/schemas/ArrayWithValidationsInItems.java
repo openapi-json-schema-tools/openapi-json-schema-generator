@@ -23,11 +23,11 @@ public class ArrayWithValidationsInItems {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ItemsBoxed permits ItemsBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ItemsBoxed permits ItemsBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class ItemsBoxedNumber extends ItemsBoxed {
+    public static final class ItemsBoxedNumber implements ItemsBoxed {
         public final Number data;
         private ItemsBoxedNumber(Number data) {
             this.data = data;
@@ -157,11 +157,11 @@ public class ArrayWithValidationsInItems {
     }
     
     
-    public static abstract sealed class ArrayWithValidationsInItems1Boxed permits ArrayWithValidationsInItems1BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ArrayWithValidationsInItems1Boxed permits ArrayWithValidationsInItems1BoxedList {
+        @Nullable Object data();
     }
     
-    public static final class ArrayWithValidationsInItems1BoxedList extends ArrayWithValidationsInItems1Boxed {
+    public static final class ArrayWithValidationsInItems1BoxedList implements ArrayWithValidationsInItems1Boxed {
         public final ArrayWithValidationsInItemsList data;
         private ArrayWithValidationsInItems1BoxedList(ArrayWithValidationsInItemsList data) {
             this.data = data;

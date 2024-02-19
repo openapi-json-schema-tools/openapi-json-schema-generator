@@ -85,11 +85,11 @@ public class IntegerEnumBig {
     }
     
     
-    public static abstract sealed class IntegerEnumBig1Boxed permits IntegerEnumBig1BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface IntegerEnumBig1Boxed permits IntegerEnumBig1BoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class IntegerEnumBig1BoxedNumber extends IntegerEnumBig1Boxed {
+    public static final class IntegerEnumBig1BoxedNumber implements IntegerEnumBig1Boxed {
         public final Number data;
         private IntegerEnumBig1BoxedNumber(Number data) {
             this.data = data;

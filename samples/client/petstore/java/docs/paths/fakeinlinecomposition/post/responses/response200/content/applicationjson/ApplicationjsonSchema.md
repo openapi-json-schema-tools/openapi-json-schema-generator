@@ -3,7 +3,7 @@ public class ApplicationjsonSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -22,7 +22,7 @@ A class that contains necessary nested
 | static class | [ApplicationjsonSchema.Applicationjson0](#applicationjson0)<br> schema class |
 
 ## ApplicationjsonSchema1Boxed
-public static abstract sealed class ApplicationjsonSchema1Boxed<br>
+public sealed interface ApplicationjsonSchema1Boxed<br>
 permits<br>
 [ApplicationjsonSchema1BoxedVoid](#applicationjsonschema1boxedvoid),
 [ApplicationjsonSchema1BoxedBoolean](#applicationjsonschema1boxedboolean),
@@ -31,11 +31,11 @@ permits<br>
 [ApplicationjsonSchema1BoxedList](#applicationjsonschema1boxedlist),
 [ApplicationjsonSchema1BoxedMap](#applicationjsonschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationjsonSchema1BoxedVoid
 public static final class ApplicationjsonSchema1BoxedVoid<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -51,7 +51,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ApplicationjsonSchema1BoxedBoolean
 public static final class ApplicationjsonSchema1BoxedBoolean<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -67,7 +67,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ApplicationjsonSchema1BoxedNumber
 public static final class ApplicationjsonSchema1BoxedNumber<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -83,7 +83,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ApplicationjsonSchema1BoxedString
 public static final class ApplicationjsonSchema1BoxedString<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -99,7 +99,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ApplicationjsonSchema1BoxedList
 public static final class ApplicationjsonSchema1BoxedList<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -115,7 +115,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ApplicationjsonSchema1BoxedMap
 public static final class ApplicationjsonSchema1BoxedMap<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -161,15 +161,15 @@ A schema class that validates payloads
 | [ApplicationjsonSchema1BoxedList](#applicationjsonschema1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Applicationjson0Boxed
-public static abstract sealed class Applicationjson0Boxed<br>
+public sealed interface Applicationjson0Boxed<br>
 permits<br>
 [Applicationjson0BoxedString](#applicationjson0boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Applicationjson0BoxedString
 public static final class Applicationjson0BoxedString<br>
-extends [Applicationjson0Boxed](#applicationjson0boxed)
+implements [Applicationjson0Boxed](#applicationjson0boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

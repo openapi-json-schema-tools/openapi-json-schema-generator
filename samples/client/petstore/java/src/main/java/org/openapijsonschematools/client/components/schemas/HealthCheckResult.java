@@ -30,11 +30,11 @@ public class HealthCheckResult {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class NullableMessageBoxed permits NullableMessageBoxedVoid, NullableMessageBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface NullableMessageBoxed permits NullableMessageBoxedVoid, NullableMessageBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class NullableMessageBoxedVoid extends NullableMessageBoxed {
+    public static final class NullableMessageBoxedVoid implements NullableMessageBoxed {
         public final Void data;
         private NullableMessageBoxedVoid(Void data) {
             this.data = data;
@@ -45,7 +45,7 @@ public class HealthCheckResult {
         }
     }
     
-    public static final class NullableMessageBoxedString extends NullableMessageBoxed {
+    public static final class NullableMessageBoxedString implements NullableMessageBoxed {
         public final String data;
         private NullableMessageBoxedString(String data) {
             this.data = data;
@@ -199,11 +199,11 @@ public class HealthCheckResult {
     }
     
     
-    public static abstract sealed class HealthCheckResult1Boxed permits HealthCheckResult1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface HealthCheckResult1Boxed permits HealthCheckResult1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class HealthCheckResult1BoxedMap extends HealthCheckResult1Boxed {
+    public static final class HealthCheckResult1BoxedMap implements HealthCheckResult1Boxed {
         public final HealthCheckResultMap data;
         private HealthCheckResult1BoxedMap(HealthCheckResultMap data) {
             this.data = data;

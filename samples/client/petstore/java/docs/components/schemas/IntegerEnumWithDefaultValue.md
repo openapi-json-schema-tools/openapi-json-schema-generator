@@ -4,7 +4,7 @@ public class IntegerEnumWithDefaultValue<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
@@ -20,15 +20,15 @@ A class that contains necessary nested
 | enum | [IntegerEnumWithDefaultValue.DoubleIntegerEnumWithDefaultValueEnums](#doubleintegerenumwithdefaultvalueenums)<br>Double enum |
 
 ## IntegerEnumWithDefaultValue1Boxed
-public static abstract sealed class IntegerEnumWithDefaultValue1Boxed<br>
+public sealed interface IntegerEnumWithDefaultValue1Boxed<br>
 permits<br>
 [IntegerEnumWithDefaultValue1BoxedNumber](#integerenumwithdefaultvalue1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IntegerEnumWithDefaultValue1BoxedNumber
 public static final class IntegerEnumWithDefaultValue1BoxedNumber<br>
-extends [IntegerEnumWithDefaultValue1Boxed](#integerenumwithdefaultvalue1boxed)
+implements [IntegerEnumWithDefaultValue1Boxed](#integerenumwithdefaultvalue1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

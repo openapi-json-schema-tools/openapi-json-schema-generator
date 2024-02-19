@@ -142,11 +142,11 @@ public class User {
     }
     
     
-    public static abstract sealed class ObjectWithNoDeclaredPropsNullableBoxed permits ObjectWithNoDeclaredPropsNullableBoxedVoid, ObjectWithNoDeclaredPropsNullableBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ObjectWithNoDeclaredPropsNullableBoxed permits ObjectWithNoDeclaredPropsNullableBoxedVoid, ObjectWithNoDeclaredPropsNullableBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ObjectWithNoDeclaredPropsNullableBoxedVoid extends ObjectWithNoDeclaredPropsNullableBoxed {
+    public static final class ObjectWithNoDeclaredPropsNullableBoxedVoid implements ObjectWithNoDeclaredPropsNullableBoxed {
         public final Void data;
         private ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data) {
             this.data = data;
@@ -157,7 +157,7 @@ public class User {
         }
     }
     
-    public static final class ObjectWithNoDeclaredPropsNullableBoxedMap extends ObjectWithNoDeclaredPropsNullableBoxed {
+    public static final class ObjectWithNoDeclaredPropsNullableBoxedMap implements ObjectWithNoDeclaredPropsNullableBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -283,11 +283,11 @@ public class User {
     }
     
     
-    public static abstract sealed class AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class AnyTypeExceptNullPropBoxedVoid extends AnyTypeExceptNullPropBoxed {
+    public static final class AnyTypeExceptNullPropBoxedVoid implements AnyTypeExceptNullPropBoxed {
         public final Void data;
         private AnyTypeExceptNullPropBoxedVoid(Void data) {
             this.data = data;
@@ -298,7 +298,7 @@ public class User {
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedBoolean extends AnyTypeExceptNullPropBoxed {
+    public static final class AnyTypeExceptNullPropBoxedBoolean implements AnyTypeExceptNullPropBoxed {
         public final boolean data;
         private AnyTypeExceptNullPropBoxedBoolean(boolean data) {
             this.data = data;
@@ -309,7 +309,7 @@ public class User {
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedNumber extends AnyTypeExceptNullPropBoxed {
+    public static final class AnyTypeExceptNullPropBoxedNumber implements AnyTypeExceptNullPropBoxed {
         public final Number data;
         private AnyTypeExceptNullPropBoxedNumber(Number data) {
             this.data = data;
@@ -320,7 +320,7 @@ public class User {
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedString extends AnyTypeExceptNullPropBoxed {
+    public static final class AnyTypeExceptNullPropBoxedString implements AnyTypeExceptNullPropBoxed {
         public final String data;
         private AnyTypeExceptNullPropBoxedString(String data) {
             this.data = data;
@@ -331,7 +331,7 @@ public class User {
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedList extends AnyTypeExceptNullPropBoxed {
+    public static final class AnyTypeExceptNullPropBoxedList implements AnyTypeExceptNullPropBoxed {
         public final FrozenList<@Nullable Object> data;
         private AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -342,7 +342,7 @@ public class User {
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedMap extends AnyTypeExceptNullPropBoxed {
+    public static final class AnyTypeExceptNullPropBoxedMap implements AnyTypeExceptNullPropBoxed {
         public final FrozenMap<@Nullable Object> data;
         private AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -1118,11 +1118,11 @@ public class User {
     }
     
     
-    public static abstract sealed class User1Boxed permits User1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface User1Boxed permits User1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class User1BoxedMap extends User1Boxed {
+    public static final class User1BoxedMap implements User1Boxed {
         public final UserMap data;
         private User1BoxedMap(UserMap data) {
             this.data = data;

@@ -4,7 +4,7 @@ public class ShapeOrNull<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -23,7 +23,7 @@ A class that contains necessary nested
 | static class | [ShapeOrNull.Schema0](#schema0)<br> schema class |
 
 ## ShapeOrNull1Boxed
-public static abstract sealed class ShapeOrNull1Boxed<br>
+public sealed interface ShapeOrNull1Boxed<br>
 permits<br>
 [ShapeOrNull1BoxedVoid](#shapeornull1boxedvoid),
 [ShapeOrNull1BoxedBoolean](#shapeornull1boxedboolean),
@@ -32,11 +32,11 @@ permits<br>
 [ShapeOrNull1BoxedList](#shapeornull1boxedlist),
 [ShapeOrNull1BoxedMap](#shapeornull1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ShapeOrNull1BoxedVoid
 public static final class ShapeOrNull1BoxedVoid<br>
-extends [ShapeOrNull1Boxed](#shapeornull1boxed)
+implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -52,7 +52,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ShapeOrNull1BoxedBoolean
 public static final class ShapeOrNull1BoxedBoolean<br>
-extends [ShapeOrNull1Boxed](#shapeornull1boxed)
+implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -68,7 +68,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ShapeOrNull1BoxedNumber
 public static final class ShapeOrNull1BoxedNumber<br>
-extends [ShapeOrNull1Boxed](#shapeornull1boxed)
+implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -84,7 +84,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ShapeOrNull1BoxedString
 public static final class ShapeOrNull1BoxedString<br>
-extends [ShapeOrNull1Boxed](#shapeornull1boxed)
+implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -100,7 +100,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ShapeOrNull1BoxedList
 public static final class ShapeOrNull1BoxedList<br>
-extends [ShapeOrNull1Boxed](#shapeornull1boxed)
+implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -116,7 +116,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ShapeOrNull1BoxedMap
 public static final class ShapeOrNull1BoxedMap<br>
-extends [ShapeOrNull1Boxed](#shapeornull1boxed)
+implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -165,15 +165,15 @@ The value may be a shape or the &#x27;null&#x27; value. This is introduced in OA
 | [ShapeOrNull1BoxedList](#shapeornull1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
-public static abstract sealed class Schema0Boxed<br>
+public sealed interface Schema0Boxed<br>
 permits<br>
 [Schema0BoxedVoid](#schema0boxedvoid)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedVoid
 public static final class Schema0BoxedVoid<br>
-extends [Schema0Boxed](#schema0boxed)
+implements [Schema0Boxed](#schema0boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 

@@ -4,7 +4,7 @@ public class File<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [File.SourceURI](#sourceuri)<br> schema class |
 
 ## File1Boxed
-public static abstract sealed class File1Boxed<br>
+public sealed interface File1Boxed<br>
 permits<br>
 [File1BoxedMap](#file1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## File1BoxedMap
 public static final class File1BoxedMap<br>
-extends [File1Boxed](#file1boxed)
+implements [File1Boxed](#file1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -131,15 +131,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## SourceURIBoxed
-public static abstract sealed class SourceURIBoxed<br>
+public sealed interface SourceURIBoxed<br>
 permits<br>
 [SourceURIBoxedString](#sourceuriboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SourceURIBoxedString
 public static final class SourceURIBoxedString<br>
-extends [SourceURIBoxed](#sourceuriboxed)
+implements [SourceURIBoxed](#sourceuriboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

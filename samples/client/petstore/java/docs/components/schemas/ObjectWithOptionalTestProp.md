@@ -4,7 +4,7 @@ public class ObjectWithOptionalTestProp<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [ObjectWithOptionalTestProp.Test](#test)<br> schema class |
 
 ## ObjectWithOptionalTestProp1Boxed
-public static abstract sealed class ObjectWithOptionalTestProp1Boxed<br>
+public sealed interface ObjectWithOptionalTestProp1Boxed<br>
 permits<br>
 [ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithOptionalTestProp1BoxedMap
 public static final class ObjectWithOptionalTestProp1BoxedMap<br>
-extends [ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed)
+implements [ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -128,15 +128,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## TestBoxed
-public static abstract sealed class TestBoxed<br>
+public sealed interface TestBoxed<br>
 permits<br>
 [TestBoxedString](#testboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## TestBoxedString
 public static final class TestBoxedString<br>
-extends [TestBoxed](#testboxed)
+implements [TestBoxed](#testboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

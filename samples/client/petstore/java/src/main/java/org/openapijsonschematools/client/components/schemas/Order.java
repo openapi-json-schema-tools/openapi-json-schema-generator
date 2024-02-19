@@ -94,11 +94,11 @@ public class Order {
     }
     
     
-    public static abstract sealed class StatusBoxed permits StatusBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface StatusBoxed permits StatusBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class StatusBoxedString extends StatusBoxed {
+    public static final class StatusBoxedString implements StatusBoxed {
         public final String data;
         private StatusBoxedString(String data) {
             this.data = data;
@@ -425,11 +425,11 @@ public class Order {
     }
     
     
-    public static abstract sealed class Order1Boxed permits Order1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Order1Boxed permits Order1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Order1BoxedMap extends Order1Boxed {
+    public static final class Order1BoxedMap implements Order1Boxed {
         public final OrderMap data;
         private Order1BoxedMap(OrderMap data) {
             this.data = data;

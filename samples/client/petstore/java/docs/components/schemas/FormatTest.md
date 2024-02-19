@@ -4,7 +4,7 @@ public class FormatTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -88,15 +88,15 @@ A class that contains necessary nested
 | static class | [FormatTest.IntegerSchema](#integerschema)<br> schema class |
 
 ## FormatTest1Boxed
-public static abstract sealed class FormatTest1Boxed<br>
+public sealed interface FormatTest1Boxed<br>
 permits<br>
 [FormatTest1BoxedMap](#formattest1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FormatTest1BoxedMap
 public static final class FormatTest1BoxedMap<br>
-extends [FormatTest1Boxed](#formattest1boxed)
+implements [FormatTest1Boxed](#formattest1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -569,15 +569,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NonePropBoxed
-public static abstract sealed class NonePropBoxed<br>
+public sealed interface NonePropBoxed<br>
 permits<br>
 [NonePropBoxedVoid](#nonepropboxedvoid)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NonePropBoxedVoid
 public static final class NonePropBoxedVoid<br>
-extends [NonePropBoxed](#nonepropboxed)
+implements [NonePropBoxed](#nonepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -603,15 +603,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## PatternWithDigitsAndDelimiterBoxed
-public static abstract sealed class PatternWithDigitsAndDelimiterBoxed<br>
+public sealed interface PatternWithDigitsAndDelimiterBoxed<br>
 permits<br>
 [PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PatternWithDigitsAndDelimiterBoxedString
 public static final class PatternWithDigitsAndDelimiterBoxedString<br>
-extends [PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed)
+implements [PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -669,15 +669,15 @@ String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
 | [PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PatternWithDigitsBoxed
-public static abstract sealed class PatternWithDigitsBoxed<br>
+public sealed interface PatternWithDigitsBoxed<br>
 permits<br>
 [PatternWithDigitsBoxedString](#patternwithdigitsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PatternWithDigitsBoxedString
 public static final class PatternWithDigitsBoxedString<br>
-extends [PatternWithDigitsBoxed](#patternwithdigitsboxed)
+implements [PatternWithDigitsBoxed](#patternwithdigitsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -735,15 +735,15 @@ String validatedPayload = FormatTest.PatternWithDigits.validate(
 | [PatternWithDigitsBoxedString](#patternwithdigitsboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PasswordBoxed
-public static abstract sealed class PasswordBoxed<br>
+public sealed interface PasswordBoxed<br>
 permits<br>
 [PasswordBoxedString](#passwordboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PasswordBoxedString
 public static final class PasswordBoxedString<br>
-extends [PasswordBoxed](#passwordboxed)
+implements [PasswordBoxed](#passwordboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -800,15 +800,15 @@ String validatedPayload = FormatTest.Password.validate(
 | [PasswordBoxedString](#passwordboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UuidNoExampleBoxed
-public static abstract sealed class UuidNoExampleBoxed<br>
+public sealed interface UuidNoExampleBoxed<br>
 permits<br>
 [UuidNoExampleBoxedString](#uuidnoexampleboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## UuidNoExampleBoxedString
 public static final class UuidNoExampleBoxedString<br>
-extends [UuidNoExampleBoxed](#uuidnoexampleboxed)
+implements [UuidNoExampleBoxed](#uuidnoexampleboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -834,15 +834,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## UuidSchemaBoxed
-public static abstract sealed class UuidSchemaBoxed<br>
+public sealed interface UuidSchemaBoxed<br>
 permits<br>
 [UuidSchemaBoxedString](#uuidschemaboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## UuidSchemaBoxedString
 public static final class UuidSchemaBoxedString<br>
-extends [UuidSchemaBoxed](#uuidschemaboxed)
+implements [UuidSchemaBoxed](#uuidschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -868,15 +868,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## DateTimeBoxed
-public static abstract sealed class DateTimeBoxed<br>
+public sealed interface DateTimeBoxed<br>
 permits<br>
 [DateTimeBoxedString](#datetimeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DateTimeBoxedString
 public static final class DateTimeBoxedString<br>
-extends [DateTimeBoxed](#datetimeboxed)
+implements [DateTimeBoxed](#datetimeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -902,15 +902,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## DateBoxed
-public static abstract sealed class DateBoxed<br>
+public sealed interface DateBoxed<br>
 permits<br>
 [DateBoxedString](#dateboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DateBoxedString
 public static final class DateBoxedString<br>
-extends [DateBoxed](#dateboxed)
+implements [DateBoxed](#dateboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -936,10 +936,10 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## BinaryBoxed
-public static abstract sealed class BinaryBoxed<br>
+public sealed interface BinaryBoxed<br>
 permits<br>
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Binary
 public static class Binary<br>
@@ -948,15 +948,15 @@ extends JsonSchema
 A schema class that validates payloads
 
 ## ByteSchemaBoxed
-public static abstract sealed class ByteSchemaBoxed<br>
+public sealed interface ByteSchemaBoxed<br>
 permits<br>
 [ByteSchemaBoxedString](#byteschemaboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ByteSchemaBoxedString
 public static final class ByteSchemaBoxedString<br>
-extends [ByteSchemaBoxed](#byteschemaboxed)
+implements [ByteSchemaBoxed](#byteschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -977,15 +977,15 @@ extends StringJsonSchema.StringJsonSchema1
 A schema class that validates payloads
 
 ## StringSchemaBoxed
-public static abstract sealed class StringSchemaBoxed<br>
+public sealed interface StringSchemaBoxed<br>
 permits<br>
 [StringSchemaBoxedString](#stringschemaboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## StringSchemaBoxedString
 public static final class StringSchemaBoxedString<br>
-extends [StringSchemaBoxed](#stringschemaboxed)
+implements [StringSchemaBoxed](#stringschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -1040,15 +1040,15 @@ String validatedPayload = FormatTest.StringSchema.validate(
 | [StringSchemaBoxedString](#stringschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayWithUniqueItemsBoxed
-public static abstract sealed class ArrayWithUniqueItemsBoxed<br>
+public sealed interface ArrayWithUniqueItemsBoxed<br>
 permits<br>
 [ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayWithUniqueItemsBoxedList
 public static final class ArrayWithUniqueItemsBoxedList<br>
-extends [ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)
+implements [ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -1140,15 +1140,15 @@ A class to store validated List payloads
 | static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([List<Number>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedNumber](#itemsboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedNumber
 public static final class ItemsBoxedNumber<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1174,15 +1174,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## Float64Boxed
-public static abstract sealed class Float64Boxed<br>
+public sealed interface Float64Boxed<br>
 permits<br>
 [Float64BoxedNumber](#float64boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Float64BoxedNumber
 public static final class Float64BoxedNumber<br>
-extends [Float64Boxed](#float64boxed)
+implements [Float64Boxed](#float64boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1208,15 +1208,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## DoubleSchemaBoxed
-public static abstract sealed class DoubleSchemaBoxed<br>
+public sealed interface DoubleSchemaBoxed<br>
 permits<br>
 [DoubleSchemaBoxedNumber](#doubleschemaboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DoubleSchemaBoxedNumber
 public static final class DoubleSchemaBoxedNumber<br>
-extends [DoubleSchemaBoxed](#doubleschemaboxed)
+implements [DoubleSchemaBoxed](#doubleschemaboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1273,15 +1273,15 @@ double validatedPayload = FormatTest.DoubleSchema.validate(
 | [DoubleSchemaBoxedNumber](#doubleschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Float32Boxed
-public static abstract sealed class Float32Boxed<br>
+public sealed interface Float32Boxed<br>
 permits<br>
 [Float32BoxedNumber](#float32boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Float32BoxedNumber
 public static final class Float32BoxedNumber<br>
-extends [Float32Boxed](#float32boxed)
+implements [Float32Boxed](#float32boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1307,15 +1307,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## FloatSchemaBoxed
-public static abstract sealed class FloatSchemaBoxed<br>
+public sealed interface FloatSchemaBoxed<br>
 permits<br>
 [FloatSchemaBoxedNumber](#floatschemaboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FloatSchemaBoxedNumber
 public static final class FloatSchemaBoxedNumber<br>
-extends [FloatSchemaBoxed](#floatschemaboxed)
+implements [FloatSchemaBoxed](#floatschemaboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1375,15 +1375,15 @@ float validatedPayload = FormatTest.FloatSchema.validate(
 | [FloatSchemaBoxedNumber](#floatschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberSchemaBoxed
-public static abstract sealed class NumberSchemaBoxed<br>
+public sealed interface NumberSchemaBoxed<br>
 permits<br>
 [NumberSchemaBoxedNumber](#numberschemaboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NumberSchemaBoxedNumber
 public static final class NumberSchemaBoxedNumber<br>
-extends [NumberSchemaBoxed](#numberschemaboxed)
+implements [NumberSchemaBoxed](#numberschemaboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1440,15 +1440,15 @@ int validatedPayload = FormatTest.NumberSchema.validate(
 | [NumberSchemaBoxedNumber](#numberschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int64Boxed
-public static abstract sealed class Int64Boxed<br>
+public sealed interface Int64Boxed<br>
 permits<br>
 [Int64BoxedNumber](#int64boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Int64BoxedNumber
 public static final class Int64BoxedNumber<br>
-extends [Int64Boxed](#int64boxed)
+implements [Int64Boxed](#int64boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1474,15 +1474,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## Int32withValidationsBoxed
-public static abstract sealed class Int32withValidationsBoxed<br>
+public sealed interface Int32withValidationsBoxed<br>
 permits<br>
 [Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Int32withValidationsBoxedNumber
 public static final class Int32withValidationsBoxedNumber<br>
-extends [Int32withValidationsBoxed](#int32withvalidationsboxed)
+implements [Int32withValidationsBoxed](#int32withvalidationsboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1539,15 +1539,15 @@ int validatedPayload = FormatTest.Int32withValidations.validate(
 | [Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int32Boxed
-public static abstract sealed class Int32Boxed<br>
+public sealed interface Int32Boxed<br>
 permits<br>
 [Int32BoxedNumber](#int32boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Int32BoxedNumber
 public static final class Int32BoxedNumber<br>
-extends [Int32Boxed](#int32boxed)
+implements [Int32Boxed](#int32boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1573,15 +1573,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## IntegerSchemaBoxed
-public static abstract sealed class IntegerSchemaBoxed<br>
+public sealed interface IntegerSchemaBoxed<br>
 permits<br>
 [IntegerSchemaBoxedNumber](#integerschemaboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IntegerSchemaBoxedNumber
 public static final class IntegerSchemaBoxedNumber<br>
-extends [IntegerSchemaBoxed](#integerschemaboxed)
+implements [IntegerSchemaBoxed](#integerschemaboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

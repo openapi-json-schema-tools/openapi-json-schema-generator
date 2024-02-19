@@ -4,7 +4,7 @@ public class ParentPet<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [ParentPet.ParentPet1](#parentpet1)<br> schema class |
 
 ## ParentPet1Boxed
-public static abstract sealed class ParentPet1Boxed<br>
+public sealed interface ParentPet1Boxed<br>
 permits<br>
 [ParentPet1BoxedMap](#parentpet1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ParentPet1BoxedMap
 public static final class ParentPet1BoxedMap<br>
-extends [ParentPet1Boxed](#parentpet1boxed)
+implements [ParentPet1Boxed](#parentpet1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

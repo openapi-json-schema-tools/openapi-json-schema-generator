@@ -37,11 +37,11 @@ public class AnyTypeAndFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class UuidSchemaBoxed permits UuidSchemaBoxedVoid, UuidSchemaBoxedBoolean, UuidSchemaBoxedNumber, UuidSchemaBoxedString, UuidSchemaBoxedList, UuidSchemaBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface UuidSchemaBoxed permits UuidSchemaBoxedVoid, UuidSchemaBoxedBoolean, UuidSchemaBoxedNumber, UuidSchemaBoxedString, UuidSchemaBoxedList, UuidSchemaBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class UuidSchemaBoxedVoid extends UuidSchemaBoxed {
+    public static final class UuidSchemaBoxedVoid implements UuidSchemaBoxed {
         public final Void data;
         private UuidSchemaBoxedVoid(Void data) {
             this.data = data;
@@ -52,7 +52,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class UuidSchemaBoxedBoolean extends UuidSchemaBoxed {
+    public static final class UuidSchemaBoxedBoolean implements UuidSchemaBoxed {
         public final boolean data;
         private UuidSchemaBoxedBoolean(boolean data) {
             this.data = data;
@@ -63,7 +63,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class UuidSchemaBoxedNumber extends UuidSchemaBoxed {
+    public static final class UuidSchemaBoxedNumber implements UuidSchemaBoxed {
         public final Number data;
         private UuidSchemaBoxedNumber(Number data) {
             this.data = data;
@@ -74,7 +74,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class UuidSchemaBoxedString extends UuidSchemaBoxed {
+    public static final class UuidSchemaBoxedString implements UuidSchemaBoxed {
         public final String data;
         private UuidSchemaBoxedString(String data) {
             this.data = data;
@@ -85,7 +85,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class UuidSchemaBoxedList extends UuidSchemaBoxed {
+    public static final class UuidSchemaBoxedList implements UuidSchemaBoxed {
         public final FrozenList<@Nullable Object> data;
         private UuidSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -96,7 +96,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class UuidSchemaBoxedMap extends UuidSchemaBoxed {
+    public static final class UuidSchemaBoxedMap implements UuidSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private UuidSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -327,11 +327,11 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static abstract sealed class DateBoxed permits DateBoxedVoid, DateBoxedBoolean, DateBoxedNumber, DateBoxedString, DateBoxedList, DateBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface DateBoxed permits DateBoxedVoid, DateBoxedBoolean, DateBoxedNumber, DateBoxedString, DateBoxedList, DateBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class DateBoxedVoid extends DateBoxed {
+    public static final class DateBoxedVoid implements DateBoxed {
         public final Void data;
         private DateBoxedVoid(Void data) {
             this.data = data;
@@ -342,7 +342,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DateBoxedBoolean extends DateBoxed {
+    public static final class DateBoxedBoolean implements DateBoxed {
         public final boolean data;
         private DateBoxedBoolean(boolean data) {
             this.data = data;
@@ -353,7 +353,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DateBoxedNumber extends DateBoxed {
+    public static final class DateBoxedNumber implements DateBoxed {
         public final Number data;
         private DateBoxedNumber(Number data) {
             this.data = data;
@@ -364,7 +364,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DateBoxedString extends DateBoxed {
+    public static final class DateBoxedString implements DateBoxed {
         public final String data;
         private DateBoxedString(String data) {
             this.data = data;
@@ -375,7 +375,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DateBoxedList extends DateBoxed {
+    public static final class DateBoxedList implements DateBoxed {
         public final FrozenList<@Nullable Object> data;
         private DateBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -386,7 +386,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DateBoxedMap extends DateBoxed {
+    public static final class DateBoxedMap implements DateBoxed {
         public final FrozenMap<@Nullable Object> data;
         private DateBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -617,11 +617,11 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static abstract sealed class DatetimeBoxed permits DatetimeBoxedVoid, DatetimeBoxedBoolean, DatetimeBoxedNumber, DatetimeBoxedString, DatetimeBoxedList, DatetimeBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface DatetimeBoxed permits DatetimeBoxedVoid, DatetimeBoxedBoolean, DatetimeBoxedNumber, DatetimeBoxedString, DatetimeBoxedList, DatetimeBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class DatetimeBoxedVoid extends DatetimeBoxed {
+    public static final class DatetimeBoxedVoid implements DatetimeBoxed {
         public final Void data;
         private DatetimeBoxedVoid(Void data) {
             this.data = data;
@@ -632,7 +632,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DatetimeBoxedBoolean extends DatetimeBoxed {
+    public static final class DatetimeBoxedBoolean implements DatetimeBoxed {
         public final boolean data;
         private DatetimeBoxedBoolean(boolean data) {
             this.data = data;
@@ -643,7 +643,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DatetimeBoxedNumber extends DatetimeBoxed {
+    public static final class DatetimeBoxedNumber implements DatetimeBoxed {
         public final Number data;
         private DatetimeBoxedNumber(Number data) {
             this.data = data;
@@ -654,7 +654,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DatetimeBoxedString extends DatetimeBoxed {
+    public static final class DatetimeBoxedString implements DatetimeBoxed {
         public final String data;
         private DatetimeBoxedString(String data) {
             this.data = data;
@@ -665,7 +665,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DatetimeBoxedList extends DatetimeBoxed {
+    public static final class DatetimeBoxedList implements DatetimeBoxed {
         public final FrozenList<@Nullable Object> data;
         private DatetimeBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -676,7 +676,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DatetimeBoxedMap extends DatetimeBoxed {
+    public static final class DatetimeBoxedMap implements DatetimeBoxed {
         public final FrozenMap<@Nullable Object> data;
         private DatetimeBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -907,11 +907,11 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static abstract sealed class NumberSchemaBoxed permits NumberSchemaBoxedVoid, NumberSchemaBoxedBoolean, NumberSchemaBoxedNumber, NumberSchemaBoxedString, NumberSchemaBoxedList, NumberSchemaBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface NumberSchemaBoxed permits NumberSchemaBoxedVoid, NumberSchemaBoxedBoolean, NumberSchemaBoxedNumber, NumberSchemaBoxedString, NumberSchemaBoxedList, NumberSchemaBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class NumberSchemaBoxedVoid extends NumberSchemaBoxed {
+    public static final class NumberSchemaBoxedVoid implements NumberSchemaBoxed {
         public final Void data;
         private NumberSchemaBoxedVoid(Void data) {
             this.data = data;
@@ -922,7 +922,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class NumberSchemaBoxedBoolean extends NumberSchemaBoxed {
+    public static final class NumberSchemaBoxedBoolean implements NumberSchemaBoxed {
         public final boolean data;
         private NumberSchemaBoxedBoolean(boolean data) {
             this.data = data;
@@ -933,7 +933,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class NumberSchemaBoxedNumber extends NumberSchemaBoxed {
+    public static final class NumberSchemaBoxedNumber implements NumberSchemaBoxed {
         public final Number data;
         private NumberSchemaBoxedNumber(Number data) {
             this.data = data;
@@ -944,7 +944,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class NumberSchemaBoxedString extends NumberSchemaBoxed {
+    public static final class NumberSchemaBoxedString implements NumberSchemaBoxed {
         public final String data;
         private NumberSchemaBoxedString(String data) {
             this.data = data;
@@ -955,7 +955,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class NumberSchemaBoxedList extends NumberSchemaBoxed {
+    public static final class NumberSchemaBoxedList implements NumberSchemaBoxed {
         public final FrozenList<@Nullable Object> data;
         private NumberSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -966,7 +966,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class NumberSchemaBoxedMap extends NumberSchemaBoxed {
+    public static final class NumberSchemaBoxedMap implements NumberSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private NumberSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -1197,11 +1197,11 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static abstract sealed class BinaryBoxed permits BinaryBoxedVoid, BinaryBoxedBoolean, BinaryBoxedNumber, BinaryBoxedString, BinaryBoxedList, BinaryBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface BinaryBoxed permits BinaryBoxedVoid, BinaryBoxedBoolean, BinaryBoxedNumber, BinaryBoxedString, BinaryBoxedList, BinaryBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class BinaryBoxedVoid extends BinaryBoxed {
+    public static final class BinaryBoxedVoid implements BinaryBoxed {
         public final Void data;
         private BinaryBoxedVoid(Void data) {
             this.data = data;
@@ -1212,7 +1212,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class BinaryBoxedBoolean extends BinaryBoxed {
+    public static final class BinaryBoxedBoolean implements BinaryBoxed {
         public final boolean data;
         private BinaryBoxedBoolean(boolean data) {
             this.data = data;
@@ -1223,7 +1223,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class BinaryBoxedNumber extends BinaryBoxed {
+    public static final class BinaryBoxedNumber implements BinaryBoxed {
         public final Number data;
         private BinaryBoxedNumber(Number data) {
             this.data = data;
@@ -1234,7 +1234,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class BinaryBoxedString extends BinaryBoxed {
+    public static final class BinaryBoxedString implements BinaryBoxed {
         public final String data;
         private BinaryBoxedString(String data) {
             this.data = data;
@@ -1245,7 +1245,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class BinaryBoxedList extends BinaryBoxed {
+    public static final class BinaryBoxedList implements BinaryBoxed {
         public final FrozenList<@Nullable Object> data;
         private BinaryBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -1256,7 +1256,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class BinaryBoxedMap extends BinaryBoxed {
+    public static final class BinaryBoxedMap implements BinaryBoxed {
         public final FrozenMap<@Nullable Object> data;
         private BinaryBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -1487,11 +1487,11 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static abstract sealed class Int32Boxed permits Int32BoxedVoid, Int32BoxedBoolean, Int32BoxedNumber, Int32BoxedString, Int32BoxedList, Int32BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Int32Boxed permits Int32BoxedVoid, Int32BoxedBoolean, Int32BoxedNumber, Int32BoxedString, Int32BoxedList, Int32BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Int32BoxedVoid extends Int32Boxed {
+    public static final class Int32BoxedVoid implements Int32Boxed {
         public final Void data;
         private Int32BoxedVoid(Void data) {
             this.data = data;
@@ -1502,7 +1502,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int32BoxedBoolean extends Int32Boxed {
+    public static final class Int32BoxedBoolean implements Int32Boxed {
         public final boolean data;
         private Int32BoxedBoolean(boolean data) {
             this.data = data;
@@ -1513,7 +1513,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int32BoxedNumber extends Int32Boxed {
+    public static final class Int32BoxedNumber implements Int32Boxed {
         public final Number data;
         private Int32BoxedNumber(Number data) {
             this.data = data;
@@ -1524,7 +1524,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int32BoxedString extends Int32Boxed {
+    public static final class Int32BoxedString implements Int32Boxed {
         public final String data;
         private Int32BoxedString(String data) {
             this.data = data;
@@ -1535,7 +1535,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int32BoxedList extends Int32Boxed {
+    public static final class Int32BoxedList implements Int32Boxed {
         public final FrozenList<@Nullable Object> data;
         private Int32BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -1546,7 +1546,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int32BoxedMap extends Int32Boxed {
+    public static final class Int32BoxedMap implements Int32Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Int32BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -1777,11 +1777,11 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static abstract sealed class Int64Boxed permits Int64BoxedVoid, Int64BoxedBoolean, Int64BoxedNumber, Int64BoxedString, Int64BoxedList, Int64BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Int64Boxed permits Int64BoxedVoid, Int64BoxedBoolean, Int64BoxedNumber, Int64BoxedString, Int64BoxedList, Int64BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Int64BoxedVoid extends Int64Boxed {
+    public static final class Int64BoxedVoid implements Int64Boxed {
         public final Void data;
         private Int64BoxedVoid(Void data) {
             this.data = data;
@@ -1792,7 +1792,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int64BoxedBoolean extends Int64Boxed {
+    public static final class Int64BoxedBoolean implements Int64Boxed {
         public final boolean data;
         private Int64BoxedBoolean(boolean data) {
             this.data = data;
@@ -1803,7 +1803,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int64BoxedNumber extends Int64Boxed {
+    public static final class Int64BoxedNumber implements Int64Boxed {
         public final Number data;
         private Int64BoxedNumber(Number data) {
             this.data = data;
@@ -1814,7 +1814,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int64BoxedString extends Int64Boxed {
+    public static final class Int64BoxedString implements Int64Boxed {
         public final String data;
         private Int64BoxedString(String data) {
             this.data = data;
@@ -1825,7 +1825,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int64BoxedList extends Int64Boxed {
+    public static final class Int64BoxedList implements Int64Boxed {
         public final FrozenList<@Nullable Object> data;
         private Int64BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -1836,7 +1836,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class Int64BoxedMap extends Int64Boxed {
+    public static final class Int64BoxedMap implements Int64Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Int64BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -2067,11 +2067,11 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static abstract sealed class DoubleSchemaBoxed permits DoubleSchemaBoxedVoid, DoubleSchemaBoxedBoolean, DoubleSchemaBoxedNumber, DoubleSchemaBoxedString, DoubleSchemaBoxedList, DoubleSchemaBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface DoubleSchemaBoxed permits DoubleSchemaBoxedVoid, DoubleSchemaBoxedBoolean, DoubleSchemaBoxedNumber, DoubleSchemaBoxedString, DoubleSchemaBoxedList, DoubleSchemaBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class DoubleSchemaBoxedVoid extends DoubleSchemaBoxed {
+    public static final class DoubleSchemaBoxedVoid implements DoubleSchemaBoxed {
         public final Void data;
         private DoubleSchemaBoxedVoid(Void data) {
             this.data = data;
@@ -2082,7 +2082,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DoubleSchemaBoxedBoolean extends DoubleSchemaBoxed {
+    public static final class DoubleSchemaBoxedBoolean implements DoubleSchemaBoxed {
         public final boolean data;
         private DoubleSchemaBoxedBoolean(boolean data) {
             this.data = data;
@@ -2093,7 +2093,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DoubleSchemaBoxedNumber extends DoubleSchemaBoxed {
+    public static final class DoubleSchemaBoxedNumber implements DoubleSchemaBoxed {
         public final Number data;
         private DoubleSchemaBoxedNumber(Number data) {
             this.data = data;
@@ -2104,7 +2104,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DoubleSchemaBoxedString extends DoubleSchemaBoxed {
+    public static final class DoubleSchemaBoxedString implements DoubleSchemaBoxed {
         public final String data;
         private DoubleSchemaBoxedString(String data) {
             this.data = data;
@@ -2115,7 +2115,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DoubleSchemaBoxedList extends DoubleSchemaBoxed {
+    public static final class DoubleSchemaBoxedList implements DoubleSchemaBoxed {
         public final FrozenList<@Nullable Object> data;
         private DoubleSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -2126,7 +2126,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class DoubleSchemaBoxedMap extends DoubleSchemaBoxed {
+    public static final class DoubleSchemaBoxedMap implements DoubleSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private DoubleSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -2357,11 +2357,11 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static abstract sealed class FloatSchemaBoxed permits FloatSchemaBoxedVoid, FloatSchemaBoxedBoolean, FloatSchemaBoxedNumber, FloatSchemaBoxedString, FloatSchemaBoxedList, FloatSchemaBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface FloatSchemaBoxed permits FloatSchemaBoxedVoid, FloatSchemaBoxedBoolean, FloatSchemaBoxedNumber, FloatSchemaBoxedString, FloatSchemaBoxedList, FloatSchemaBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class FloatSchemaBoxedVoid extends FloatSchemaBoxed {
+    public static final class FloatSchemaBoxedVoid implements FloatSchemaBoxed {
         public final Void data;
         private FloatSchemaBoxedVoid(Void data) {
             this.data = data;
@@ -2372,7 +2372,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class FloatSchemaBoxedBoolean extends FloatSchemaBoxed {
+    public static final class FloatSchemaBoxedBoolean implements FloatSchemaBoxed {
         public final boolean data;
         private FloatSchemaBoxedBoolean(boolean data) {
             this.data = data;
@@ -2383,7 +2383,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class FloatSchemaBoxedNumber extends FloatSchemaBoxed {
+    public static final class FloatSchemaBoxedNumber implements FloatSchemaBoxed {
         public final Number data;
         private FloatSchemaBoxedNumber(Number data) {
             this.data = data;
@@ -2394,7 +2394,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class FloatSchemaBoxedString extends FloatSchemaBoxed {
+    public static final class FloatSchemaBoxedString implements FloatSchemaBoxed {
         public final String data;
         private FloatSchemaBoxedString(String data) {
             this.data = data;
@@ -2405,7 +2405,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class FloatSchemaBoxedList extends FloatSchemaBoxed {
+    public static final class FloatSchemaBoxedList implements FloatSchemaBoxed {
         public final FrozenList<@Nullable Object> data;
         private FloatSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -2416,7 +2416,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static final class FloatSchemaBoxedMap extends FloatSchemaBoxed {
+    public static final class FloatSchemaBoxedMap implements FloatSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private FloatSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -3279,11 +3279,11 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static abstract sealed class AnyTypeAndFormat1Boxed permits AnyTypeAndFormat1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AnyTypeAndFormat1Boxed permits AnyTypeAndFormat1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class AnyTypeAndFormat1BoxedMap extends AnyTypeAndFormat1Boxed {
+    public static final class AnyTypeAndFormat1BoxedMap implements AnyTypeAndFormat1Boxed {
         public final AnyTypeAndFormatMap data;
         private AnyTypeAndFormat1BoxedMap(AnyTypeAndFormatMap data) {
             this.data = data;

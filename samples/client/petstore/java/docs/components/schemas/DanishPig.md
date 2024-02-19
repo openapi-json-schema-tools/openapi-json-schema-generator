@@ -4,7 +4,7 @@ public class DanishPig<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -24,15 +24,15 @@ A class that contains necessary nested
 | enum | [DanishPig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 
 ## DanishPig1Boxed
-public static abstract sealed class DanishPig1Boxed<br>
+public sealed interface DanishPig1Boxed<br>
 permits<br>
 [DanishPig1BoxedMap](#danishpig1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DanishPig1BoxedMap
 public static final class DanishPig1BoxedMap<br>
-extends [DanishPig1Boxed](#danishpig1boxed)
+implements [DanishPig1Boxed](#danishpig1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -147,15 +147,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassNameBoxed
-public static abstract sealed class ClassNameBoxed<br>
+public sealed interface ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ClassNameBoxedString
 public static final class ClassNameBoxedString<br>
-extends [ClassNameBoxed](#classnameboxed)
+implements [ClassNameBoxed](#classnameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

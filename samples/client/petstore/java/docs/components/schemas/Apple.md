@@ -4,7 +4,7 @@ public class Apple<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -26,16 +26,16 @@ A class that contains necessary nested
 | static class | [Apple.Cultivar](#cultivar)<br> schema class |
 
 ## Apple1Boxed
-public static abstract sealed class Apple1Boxed<br>
+public sealed interface Apple1Boxed<br>
 permits<br>
 [Apple1BoxedVoid](#apple1boxedvoid),
 [Apple1BoxedMap](#apple1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Apple1BoxedVoid
 public static final class Apple1BoxedVoid<br>
-extends [Apple1Boxed](#apple1boxed)
+implements [Apple1Boxed](#apple1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -51,7 +51,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Apple1BoxedMap
 public static final class Apple1BoxedMap<br>
-extends [Apple1Boxed](#apple1boxed)
+implements [Apple1Boxed](#apple1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -177,15 +177,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## OriginBoxed
-public static abstract sealed class OriginBoxed<br>
+public sealed interface OriginBoxed<br>
 permits<br>
 [OriginBoxedString](#originboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## OriginBoxedString
 public static final class OriginBoxedString<br>
-extends [OriginBoxed](#originboxed)
+implements [OriginBoxed](#originboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -240,15 +240,15 @@ String validatedPayload = Apple.Origin.validate(
 | [OriginBoxedString](#originboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CultivarBoxed
-public static abstract sealed class CultivarBoxed<br>
+public sealed interface CultivarBoxed<br>
 permits<br>
 [CultivarBoxedString](#cultivarboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## CultivarBoxedString
 public static final class CultivarBoxedString<br>
-extends [CultivarBoxed](#cultivarboxed)
+implements [CultivarBoxed](#cultivarboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -4,7 +4,7 @@ public class BooleanEnum<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
@@ -17,15 +17,15 @@ A class that contains necessary nested
 | enum | [BooleanEnum.BooleanBooleanEnumEnums](#booleanbooleanenumenums)<br>boolean enum |
 
 ## BooleanEnum1Boxed
-public static abstract sealed class BooleanEnum1Boxed<br>
+public sealed interface BooleanEnum1Boxed<br>
 permits<br>
 [BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BooleanEnum1BoxedBoolean
 public static final class BooleanEnum1BoxedBoolean<br>
-extends [BooleanEnum1Boxed](#booleanenum1boxed)
+implements [BooleanEnum1Boxed](#booleanenum1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 

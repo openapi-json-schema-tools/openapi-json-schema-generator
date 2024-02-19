@@ -3,7 +3,7 @@ public class Schema4<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
@@ -16,15 +16,15 @@ A class that contains necessary nested
 | enum | [Schema4.StringSchemaEnums4](#stringschemaenums4)<br>String enum |
 
 ## Schema41Boxed
-public static abstract sealed class Schema41Boxed<br>
+public sealed interface Schema41Boxed<br>
 permits<br>
 [Schema41BoxedString](#schema41boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema41BoxedString
 public static final class Schema41BoxedString<br>
-extends [Schema41Boxed](#schema41boxed)
+implements [Schema41Boxed](#schema41boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

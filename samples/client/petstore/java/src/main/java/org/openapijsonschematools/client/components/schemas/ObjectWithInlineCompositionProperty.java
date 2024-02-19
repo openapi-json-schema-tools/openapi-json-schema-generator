@@ -37,11 +37,11 @@ public class ObjectWithInlineCompositionProperty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface Schema0Boxed permits Schema0BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class Schema0BoxedString extends Schema0Boxed {
+    public static final class Schema0BoxedString implements Schema0Boxed {
         public final String data;
         private Schema0BoxedString(String data) {
             this.data = data;
@@ -104,11 +104,11 @@ public class ObjectWithInlineCompositionProperty {
         }
     }    
     
-    public static abstract sealed class SomePropBoxed permits SomePropBoxedVoid, SomePropBoxedBoolean, SomePropBoxedNumber, SomePropBoxedString, SomePropBoxedList, SomePropBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface SomePropBoxed permits SomePropBoxedVoid, SomePropBoxedBoolean, SomePropBoxedNumber, SomePropBoxedString, SomePropBoxedList, SomePropBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class SomePropBoxedVoid extends SomePropBoxed {
+    public static final class SomePropBoxedVoid implements SomePropBoxed {
         public final Void data;
         private SomePropBoxedVoid(Void data) {
             this.data = data;
@@ -119,7 +119,7 @@ public class ObjectWithInlineCompositionProperty {
         }
     }
     
-    public static final class SomePropBoxedBoolean extends SomePropBoxed {
+    public static final class SomePropBoxedBoolean implements SomePropBoxed {
         public final boolean data;
         private SomePropBoxedBoolean(boolean data) {
             this.data = data;
@@ -130,7 +130,7 @@ public class ObjectWithInlineCompositionProperty {
         }
     }
     
-    public static final class SomePropBoxedNumber extends SomePropBoxed {
+    public static final class SomePropBoxedNumber implements SomePropBoxed {
         public final Number data;
         private SomePropBoxedNumber(Number data) {
             this.data = data;
@@ -141,7 +141,7 @@ public class ObjectWithInlineCompositionProperty {
         }
     }
     
-    public static final class SomePropBoxedString extends SomePropBoxed {
+    public static final class SomePropBoxedString implements SomePropBoxed {
         public final String data;
         private SomePropBoxedString(String data) {
             this.data = data;
@@ -152,7 +152,7 @@ public class ObjectWithInlineCompositionProperty {
         }
     }
     
-    public static final class SomePropBoxedList extends SomePropBoxed {
+    public static final class SomePropBoxedList implements SomePropBoxed {
         public final FrozenList<@Nullable Object> data;
         private SomePropBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -163,7 +163,7 @@ public class ObjectWithInlineCompositionProperty {
         }
     }
     
-    public static final class SomePropBoxedMap extends SomePropBoxed {
+    public static final class SomePropBoxedMap implements SomePropBoxed {
         public final FrozenMap<@Nullable Object> data;
         private SomePropBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
@@ -504,11 +504,11 @@ public class ObjectWithInlineCompositionProperty {
     }
     
     
-    public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed permits ObjectWithInlineCompositionProperty1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ObjectWithInlineCompositionProperty1Boxed permits ObjectWithInlineCompositionProperty1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ObjectWithInlineCompositionProperty1BoxedMap extends ObjectWithInlineCompositionProperty1Boxed {
+    public static final class ObjectWithInlineCompositionProperty1BoxedMap implements ObjectWithInlineCompositionProperty1Boxed {
         public final ObjectWithInlineCompositionPropertyMap data;
         private ObjectWithInlineCompositionProperty1BoxedMap(ObjectWithInlineCompositionPropertyMap data) {
             this.data = data;

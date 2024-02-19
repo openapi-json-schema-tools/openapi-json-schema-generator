@@ -4,7 +4,7 @@ public class IntegerEnumBig<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
@@ -20,15 +20,15 @@ A class that contains necessary nested
 | enum | [IntegerEnumBig.DoubleIntegerEnumBigEnums](#doubleintegerenumbigenums)<br>Double enum |
 
 ## IntegerEnumBig1Boxed
-public static abstract sealed class IntegerEnumBig1Boxed<br>
+public sealed interface IntegerEnumBig1Boxed<br>
 permits<br>
 [IntegerEnumBig1BoxedNumber](#integerenumbig1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IntegerEnumBig1BoxedNumber
 public static final class IntegerEnumBig1BoxedNumber<br>
-extends [IntegerEnumBig1Boxed](#integerenumbig1boxed)
+implements [IntegerEnumBig1Boxed](#integerenumbig1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

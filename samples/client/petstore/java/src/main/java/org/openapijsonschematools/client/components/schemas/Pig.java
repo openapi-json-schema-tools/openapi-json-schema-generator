@@ -35,11 +35,11 @@ public class Pig {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Pig1Boxed permits Pig1BoxedVoid, Pig1BoxedBoolean, Pig1BoxedNumber, Pig1BoxedString, Pig1BoxedList, Pig1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Pig1Boxed permits Pig1BoxedVoid, Pig1BoxedBoolean, Pig1BoxedNumber, Pig1BoxedString, Pig1BoxedList, Pig1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Pig1BoxedVoid extends Pig1Boxed {
+    public static final class Pig1BoxedVoid implements Pig1Boxed {
         public final Void data;
         private Pig1BoxedVoid(Void data) {
             this.data = data;
@@ -50,7 +50,7 @@ public class Pig {
         }
     }
     
-    public static final class Pig1BoxedBoolean extends Pig1Boxed {
+    public static final class Pig1BoxedBoolean implements Pig1Boxed {
         public final boolean data;
         private Pig1BoxedBoolean(boolean data) {
             this.data = data;
@@ -61,7 +61,7 @@ public class Pig {
         }
     }
     
-    public static final class Pig1BoxedNumber extends Pig1Boxed {
+    public static final class Pig1BoxedNumber implements Pig1Boxed {
         public final Number data;
         private Pig1BoxedNumber(Number data) {
             this.data = data;
@@ -72,7 +72,7 @@ public class Pig {
         }
     }
     
-    public static final class Pig1BoxedString extends Pig1Boxed {
+    public static final class Pig1BoxedString implements Pig1Boxed {
         public final String data;
         private Pig1BoxedString(String data) {
             this.data = data;
@@ -83,7 +83,7 @@ public class Pig {
         }
     }
     
-    public static final class Pig1BoxedList extends Pig1Boxed {
+    public static final class Pig1BoxedList implements Pig1Boxed {
         public final FrozenList<@Nullable Object> data;
         private Pig1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -94,7 +94,7 @@ public class Pig {
         }
     }
     
-    public static final class Pig1BoxedMap extends Pig1Boxed {
+    public static final class Pig1BoxedMap implements Pig1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Pig1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

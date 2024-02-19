@@ -3,7 +3,7 @@ public class Applicationjsoncharsetutf8Schema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -19,7 +19,7 @@ A class that contains necessary nested
 | static class | [Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1](#applicationjsoncharsetutf8schema1)<br> schema class |
 
 ## Applicationjsoncharsetutf8Schema1Boxed
-public static abstract sealed class Applicationjsoncharsetutf8Schema1Boxed<br>
+public sealed interface Applicationjsoncharsetutf8Schema1Boxed<br>
 permits<br>
 [Applicationjsoncharsetutf8Schema1BoxedVoid](#applicationjsoncharsetutf8schema1boxedvoid),
 [Applicationjsoncharsetutf8Schema1BoxedBoolean](#applicationjsoncharsetutf8schema1boxedboolean),
@@ -28,11 +28,11 @@ permits<br>
 [Applicationjsoncharsetutf8Schema1BoxedList](#applicationjsoncharsetutf8schema1boxedlist),
 [Applicationjsoncharsetutf8Schema1BoxedMap](#applicationjsoncharsetutf8schema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Applicationjsoncharsetutf8Schema1BoxedVoid
 public static final class Applicationjsoncharsetutf8Schema1BoxedVoid<br>
-extends [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
+implements [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -48,7 +48,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Applicationjsoncharsetutf8Schema1BoxedBoolean
 public static final class Applicationjsoncharsetutf8Schema1BoxedBoolean<br>
-extends [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
+implements [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -64,7 +64,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Applicationjsoncharsetutf8Schema1BoxedNumber
 public static final class Applicationjsoncharsetutf8Schema1BoxedNumber<br>
-extends [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
+implements [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -80,7 +80,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Applicationjsoncharsetutf8Schema1BoxedString
 public static final class Applicationjsoncharsetutf8Schema1BoxedString<br>
-extends [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
+implements [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -96,7 +96,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Applicationjsoncharsetutf8Schema1BoxedList
 public static final class Applicationjsoncharsetutf8Schema1BoxedList<br>
-extends [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
+implements [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -112,7 +112,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Applicationjsoncharsetutf8Schema1BoxedMap
 public static final class Applicationjsoncharsetutf8Schema1BoxedMap<br>
-extends [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
+implements [Applicationjsoncharsetutf8Schema1Boxed](#applicationjsoncharsetutf8schema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

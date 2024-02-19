@@ -48,11 +48,11 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedItemsBoxed permits ApplicationxwwwformurlencodedItemsBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedItemsBoxed permits ApplicationxwwwformurlencodedItemsBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedItemsBoxedString extends ApplicationxwwwformurlencodedItemsBoxed {
+    public static final class ApplicationxwwwformurlencodedItemsBoxedString implements ApplicationxwwwformurlencodedItemsBoxed {
         public final String data;
         private ApplicationxwwwformurlencodedItemsBoxedString(String data) {
             this.data = data;
@@ -167,11 +167,11 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedEnumFormStringArrayBoxed permits ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedEnumFormStringArrayBoxed permits ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList extends ApplicationxwwwformurlencodedEnumFormStringArrayBoxed {
+    public static final class ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList implements ApplicationxwwwformurlencodedEnumFormStringArrayBoxed {
         public final ApplicationxwwwformurlencodedEnumFormStringArrayList data;
         private ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList(ApplicationxwwwformurlencodedEnumFormStringArrayList data) {
             this.data = data;
@@ -268,11 +268,11 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedEnumFormStringBoxed permits ApplicationxwwwformurlencodedEnumFormStringBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedEnumFormStringBoxed permits ApplicationxwwwformurlencodedEnumFormStringBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedEnumFormStringBoxedString extends ApplicationxwwwformurlencodedEnumFormStringBoxed {
+    public static final class ApplicationxwwwformurlencodedEnumFormStringBoxedString implements ApplicationxwwwformurlencodedEnumFormStringBoxed {
         public final String data;
         private ApplicationxwwwformurlencodedEnumFormStringBoxedString(String data) {
             this.data = data;
@@ -449,11 +449,11 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap extends ApplicationxwwwformurlencodedSchema1Boxed {
+    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap implements ApplicationxwwwformurlencodedSchema1Boxed {
         public final ApplicationxwwwformurlencodedSchemaMap data;
         private ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) {
             this.data = data;

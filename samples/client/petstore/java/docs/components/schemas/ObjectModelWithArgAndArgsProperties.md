@@ -4,7 +4,7 @@ public class ObjectModelWithArgAndArgsProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -25,15 +25,15 @@ A class that contains necessary nested
 | static class | [ObjectModelWithArgAndArgsProperties.Arg](#arg)<br> schema class |
 
 ## ObjectModelWithArgAndArgsProperties1Boxed
-public static abstract sealed class ObjectModelWithArgAndArgsProperties1Boxed<br>
+public sealed interface ObjectModelWithArgAndArgsProperties1Boxed<br>
 permits<br>
 [ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ObjectModelWithArgAndArgsProperties1BoxedMap
 public static final class ObjectModelWithArgAndArgsProperties1BoxedMap<br>
-extends [ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)
+implements [ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -183,15 +183,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArgsBoxed
-public static abstract sealed class ArgsBoxed<br>
+public sealed interface ArgsBoxed<br>
 permits<br>
 [ArgsBoxedString](#argsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArgsBoxedString
 public static final class ArgsBoxedString<br>
-extends [ArgsBoxed](#argsboxed)
+implements [ArgsBoxed](#argsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -217,15 +217,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## ArgBoxed
-public static abstract sealed class ArgBoxed<br>
+public sealed interface ArgBoxed<br>
 permits<br>
 [ArgBoxedString](#argboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArgBoxedString
 public static final class ArgBoxedString<br>
-extends [ArgBoxed](#argboxed)
+implements [ArgBoxed](#argboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

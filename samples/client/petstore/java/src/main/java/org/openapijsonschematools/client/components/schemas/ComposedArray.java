@@ -107,11 +107,11 @@ public class ComposedArray {
     }
     
     
-    public static abstract sealed class ComposedArray1Boxed permits ComposedArray1BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ComposedArray1Boxed permits ComposedArray1BoxedList {
+        @Nullable Object data();
     }
     
-    public static final class ComposedArray1BoxedList extends ComposedArray1Boxed {
+    public static final class ComposedArray1BoxedList implements ComposedArray1Boxed {
         public final ComposedArrayList data;
         private ComposedArray1BoxedList(ComposedArrayList data) {
             this.data = data;

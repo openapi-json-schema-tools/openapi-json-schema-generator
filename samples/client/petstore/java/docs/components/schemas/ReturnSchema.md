@@ -4,7 +4,7 @@ public class ReturnSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -27,7 +27,7 @@ A class that contains necessary nested
 | static class | [ReturnSchema.ReturnSchema2](#returnschema2)<br> schema class |
 
 ## ReturnSchema1Boxed
-public static abstract sealed class ReturnSchema1Boxed<br>
+public sealed interface ReturnSchema1Boxed<br>
 permits<br>
 [ReturnSchema1BoxedVoid](#returnschema1boxedvoid),
 [ReturnSchema1BoxedBoolean](#returnschema1boxedboolean),
@@ -36,11 +36,11 @@ permits<br>
 [ReturnSchema1BoxedList](#returnschema1boxedlist),
 [ReturnSchema1BoxedMap](#returnschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ReturnSchema1BoxedVoid
 public static final class ReturnSchema1BoxedVoid<br>
-extends [ReturnSchema1Boxed](#returnschema1boxed)
+implements [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -56,7 +56,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ReturnSchema1BoxedBoolean
 public static final class ReturnSchema1BoxedBoolean<br>
-extends [ReturnSchema1Boxed](#returnschema1boxed)
+implements [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -72,7 +72,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ReturnSchema1BoxedNumber
 public static final class ReturnSchema1BoxedNumber<br>
-extends [ReturnSchema1Boxed](#returnschema1boxed)
+implements [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -88,7 +88,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ReturnSchema1BoxedString
 public static final class ReturnSchema1BoxedString<br>
-extends [ReturnSchema1Boxed](#returnschema1boxed)
+implements [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -104,7 +104,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ReturnSchema1BoxedList
 public static final class ReturnSchema1BoxedList<br>
-extends [ReturnSchema1Boxed](#returnschema1boxed)
+implements [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -120,7 +120,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ReturnSchema1BoxedMap
 public static final class ReturnSchema1BoxedMap<br>
-extends [ReturnSchema1Boxed](#returnschema1boxed)
+implements [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -209,15 +209,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ReturnSchema2Boxed
-public static abstract sealed class ReturnSchema2Boxed<br>
+public sealed interface ReturnSchema2Boxed<br>
 permits<br>
 [ReturnSchema2BoxedNumber](#returnschema2boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ReturnSchema2BoxedNumber
 public static final class ReturnSchema2BoxedNumber<br>
-extends [ReturnSchema2Boxed](#returnschema2boxed)
+implements [ReturnSchema2Boxed](#returnschema2boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

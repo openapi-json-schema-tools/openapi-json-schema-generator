@@ -4,7 +4,7 @@ public class NullableString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -16,16 +16,16 @@ A class that contains necessary nested
 | static class | [NullableString.NullableString1](#nullablestring1)<br> schema class |
 
 ## NullableString1Boxed
-public static abstract sealed class NullableString1Boxed<br>
+public sealed interface NullableString1Boxed<br>
 permits<br>
 [NullableString1BoxedVoid](#nullablestring1boxedvoid),
 [NullableString1BoxedString](#nullablestring1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NullableString1BoxedVoid
 public static final class NullableString1BoxedVoid<br>
-extends [NullableString1Boxed](#nullablestring1boxed)
+implements [NullableString1Boxed](#nullablestring1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -41,7 +41,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## NullableString1BoxedString
 public static final class NullableString1BoxedString<br>
-extends [NullableString1Boxed](#nullablestring1boxed)
+implements [NullableString1Boxed](#nullablestring1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

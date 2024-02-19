@@ -4,7 +4,7 @@ public class FruitReq<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -23,7 +23,7 @@ A class that contains necessary nested
 | static class | [FruitReq.Schema0](#schema0)<br> schema class |
 
 ## FruitReq1Boxed
-public static abstract sealed class FruitReq1Boxed<br>
+public sealed interface FruitReq1Boxed<br>
 permits<br>
 [FruitReq1BoxedVoid](#fruitreq1boxedvoid),
 [FruitReq1BoxedBoolean](#fruitreq1boxedboolean),
@@ -32,11 +32,11 @@ permits<br>
 [FruitReq1BoxedList](#fruitreq1boxedlist),
 [FruitReq1BoxedMap](#fruitreq1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FruitReq1BoxedVoid
 public static final class FruitReq1BoxedVoid<br>
-extends [FruitReq1Boxed](#fruitreq1boxed)
+implements [FruitReq1Boxed](#fruitreq1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -52,7 +52,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## FruitReq1BoxedBoolean
 public static final class FruitReq1BoxedBoolean<br>
-extends [FruitReq1Boxed](#fruitreq1boxed)
+implements [FruitReq1Boxed](#fruitreq1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -68,7 +68,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## FruitReq1BoxedNumber
 public static final class FruitReq1BoxedNumber<br>
-extends [FruitReq1Boxed](#fruitreq1boxed)
+implements [FruitReq1Boxed](#fruitreq1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -84,7 +84,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## FruitReq1BoxedString
 public static final class FruitReq1BoxedString<br>
-extends [FruitReq1Boxed](#fruitreq1boxed)
+implements [FruitReq1Boxed](#fruitreq1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -100,7 +100,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## FruitReq1BoxedList
 public static final class FruitReq1BoxedList<br>
-extends [FruitReq1Boxed](#fruitreq1boxed)
+implements [FruitReq1Boxed](#fruitreq1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -116,7 +116,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## FruitReq1BoxedMap
 public static final class FruitReq1BoxedMap<br>
-extends [FruitReq1Boxed](#fruitreq1boxed)
+implements [FruitReq1Boxed](#fruitreq1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -162,15 +162,15 @@ A schema class that validates payloads
 | [FruitReq1BoxedList](#fruitreq1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
-public static abstract sealed class Schema0Boxed<br>
+public sealed interface Schema0Boxed<br>
 permits<br>
 [Schema0BoxedVoid](#schema0boxedvoid)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedVoid
 public static final class Schema0BoxedVoid<br>
-extends [Schema0Boxed](#schema0boxed)
+implements [Schema0Boxed](#schema0boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 

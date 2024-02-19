@@ -143,11 +143,11 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap extends ApplicationxwwwformurlencodedSchema1Boxed {
+    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap implements ApplicationxwwwformurlencodedSchema1Boxed {
         public final ApplicationxwwwformurlencodedSchemaMap data;
         private ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) {
             this.data = data;

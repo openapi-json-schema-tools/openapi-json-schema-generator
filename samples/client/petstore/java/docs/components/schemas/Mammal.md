@@ -4,7 +4,7 @@ public class Mammal<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -20,7 +20,7 @@ A class that contains necessary nested
 | static class | [Mammal.Mammal1](#mammal1)<br> schema class |
 
 ## Mammal1Boxed
-public static abstract sealed class Mammal1Boxed<br>
+public sealed interface Mammal1Boxed<br>
 permits<br>
 [Mammal1BoxedVoid](#mammal1boxedvoid),
 [Mammal1BoxedBoolean](#mammal1boxedboolean),
@@ -29,11 +29,11 @@ permits<br>
 [Mammal1BoxedList](#mammal1boxedlist),
 [Mammal1BoxedMap](#mammal1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Mammal1BoxedVoid
 public static final class Mammal1BoxedVoid<br>
-extends [Mammal1Boxed](#mammal1boxed)
+implements [Mammal1Boxed](#mammal1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -49,7 +49,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Mammal1BoxedBoolean
 public static final class Mammal1BoxedBoolean<br>
-extends [Mammal1Boxed](#mammal1boxed)
+implements [Mammal1Boxed](#mammal1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -65,7 +65,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Mammal1BoxedNumber
 public static final class Mammal1BoxedNumber<br>
-extends [Mammal1Boxed](#mammal1boxed)
+implements [Mammal1Boxed](#mammal1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -81,7 +81,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Mammal1BoxedString
 public static final class Mammal1BoxedString<br>
-extends [Mammal1Boxed](#mammal1boxed)
+implements [Mammal1Boxed](#mammal1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -97,7 +97,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Mammal1BoxedList
 public static final class Mammal1BoxedList<br>
-extends [Mammal1Boxed](#mammal1boxed)
+implements [Mammal1Boxed](#mammal1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -113,7 +113,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Mammal1BoxedMap
 public static final class Mammal1BoxedMap<br>
-extends [Mammal1Boxed](#mammal1boxed)
+implements [Mammal1Boxed](#mammal1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

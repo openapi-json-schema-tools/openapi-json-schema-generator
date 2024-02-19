@@ -21,11 +21,11 @@ public class NullableString {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class NullableString1Boxed permits NullableString1BoxedVoid, NullableString1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface NullableString1Boxed permits NullableString1BoxedVoid, NullableString1BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class NullableString1BoxedVoid extends NullableString1Boxed {
+    public static final class NullableString1BoxedVoid implements NullableString1Boxed {
         public final Void data;
         private NullableString1BoxedVoid(Void data) {
             this.data = data;
@@ -36,7 +36,7 @@ public class NullableString {
         }
     }
     
-    public static final class NullableString1BoxedString extends NullableString1Boxed {
+    public static final class NullableString1BoxedString implements NullableString1Boxed {
         public final String data;
         private NullableString1BoxedString(String data) {
             this.data = data;

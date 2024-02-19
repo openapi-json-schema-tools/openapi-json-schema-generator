@@ -4,7 +4,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -30,15 +30,15 @@ A class that contains necessary nested
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchema](#uuidschema)<br> schema class |
 
 ## MixedPropertiesAndAdditionalPropertiesClass1Boxed
-public static abstract sealed class MixedPropertiesAndAdditionalPropertiesClass1Boxed<br>
+public sealed interface MixedPropertiesAndAdditionalPropertiesClass1Boxed<br>
 permits<br>
 [MixedPropertiesAndAdditionalPropertiesClass1BoxedMap](#mixedpropertiesandadditionalpropertiesclass1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MixedPropertiesAndAdditionalPropertiesClass1BoxedMap
 public static final class MixedPropertiesAndAdditionalPropertiesClass1BoxedMap<br>
-extends [MixedPropertiesAndAdditionalPropertiesClass1Boxed](#mixedpropertiesandadditionalpropertiesclass1boxed)
+implements [MixedPropertiesAndAdditionalPropertiesClass1Boxed](#mixedpropertiesandadditionalpropertiesclass1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -158,15 +158,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MapSchemaBoxed
-public static abstract sealed class MapSchemaBoxed<br>
+public sealed interface MapSchemaBoxed<br>
 permits<br>
 [MapSchemaBoxedMap](#mapschemaboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MapSchemaBoxedMap
 public static final class MapSchemaBoxedMap<br>
-extends [MapSchemaBoxed](#mapschemaboxed)
+implements [MapSchemaBoxed](#mapschemaboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -265,15 +265,15 @@ A class to store validated Map payloads
 | [Animal.AnimalMap](../../components/schemas/Animal.md#animalmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## DateTimeBoxed
-public static abstract sealed class DateTimeBoxed<br>
+public sealed interface DateTimeBoxed<br>
 permits<br>
 [DateTimeBoxedString](#datetimeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DateTimeBoxedString
 public static final class DateTimeBoxedString<br>
-extends [DateTimeBoxed](#datetimeboxed)
+implements [DateTimeBoxed](#datetimeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -299,15 +299,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## UuidSchemaBoxed
-public static abstract sealed class UuidSchemaBoxed<br>
+public sealed interface UuidSchemaBoxed<br>
 permits<br>
 [UuidSchemaBoxedString](#uuidschemaboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## UuidSchemaBoxedString
 public static final class UuidSchemaBoxedString<br>
-extends [UuidSchemaBoxed](#uuidschemaboxed)
+implements [UuidSchemaBoxed](#uuidschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

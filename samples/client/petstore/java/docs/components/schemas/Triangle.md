@@ -4,7 +4,7 @@ public class Triangle<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -20,7 +20,7 @@ A class that contains necessary nested
 | static class | [Triangle.Triangle1](#triangle1)<br> schema class |
 
 ## Triangle1Boxed
-public static abstract sealed class Triangle1Boxed<br>
+public sealed interface Triangle1Boxed<br>
 permits<br>
 [Triangle1BoxedVoid](#triangle1boxedvoid),
 [Triangle1BoxedBoolean](#triangle1boxedboolean),
@@ -29,11 +29,11 @@ permits<br>
 [Triangle1BoxedList](#triangle1boxedlist),
 [Triangle1BoxedMap](#triangle1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Triangle1BoxedVoid
 public static final class Triangle1BoxedVoid<br>
-extends [Triangle1Boxed](#triangle1boxed)
+implements [Triangle1Boxed](#triangle1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -49,7 +49,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Triangle1BoxedBoolean
 public static final class Triangle1BoxedBoolean<br>
-extends [Triangle1Boxed](#triangle1boxed)
+implements [Triangle1Boxed](#triangle1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -65,7 +65,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Triangle1BoxedNumber
 public static final class Triangle1BoxedNumber<br>
-extends [Triangle1Boxed](#triangle1boxed)
+implements [Triangle1Boxed](#triangle1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -81,7 +81,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Triangle1BoxedString
 public static final class Triangle1BoxedString<br>
-extends [Triangle1Boxed](#triangle1boxed)
+implements [Triangle1Boxed](#triangle1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -97,7 +97,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Triangle1BoxedList
 public static final class Triangle1BoxedList<br>
-extends [Triangle1Boxed](#triangle1boxed)
+implements [Triangle1Boxed](#triangle1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -113,7 +113,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Triangle1BoxedMap
 public static final class Triangle1BoxedMap<br>
-extends [Triangle1Boxed](#triangle1boxed)
+implements [Triangle1Boxed](#triangle1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

@@ -337,11 +337,11 @@ public class AbstractStepMessage {
     }
     
     
-    public static abstract sealed class AbstractStepMessage1Boxed permits AbstractStepMessage1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AbstractStepMessage1Boxed permits AbstractStepMessage1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class AbstractStepMessage1BoxedMap extends AbstractStepMessage1Boxed {
+    public static final class AbstractStepMessage1BoxedMap implements AbstractStepMessage1Boxed {
         public final AbstractStepMessageMap data;
         private AbstractStepMessage1BoxedMap(AbstractStepMessageMap data) {
             this.data = data;

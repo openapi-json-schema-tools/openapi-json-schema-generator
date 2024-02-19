@@ -4,7 +4,7 @@ public class ArrayOfNumberOnly<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -29,15 +29,15 @@ A class that contains necessary nested
 | static class | [ArrayOfNumberOnly.Items](#items)<br> schema class |
 
 ## ArrayOfNumberOnly1Boxed
-public static abstract sealed class ArrayOfNumberOnly1Boxed<br>
+public sealed interface ArrayOfNumberOnly1Boxed<br>
 permits<br>
 [ArrayOfNumberOnly1BoxedMap](#arrayofnumberonly1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayOfNumberOnly1BoxedMap
 public static final class ArrayOfNumberOnly1BoxedMap<br>
-extends [ArrayOfNumberOnly1Boxed](#arrayofnumberonly1boxed)
+implements [ArrayOfNumberOnly1Boxed](#arrayofnumberonly1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -138,15 +138,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayNumberBoxed
-public static abstract sealed class ArrayNumberBoxed<br>
+public sealed interface ArrayNumberBoxed<br>
 permits<br>
 [ArrayNumberBoxedList](#arraynumberboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayNumberBoxedList
 public static final class ArrayNumberBoxedList<br>
-extends [ArrayNumberBoxed](#arraynumberboxed)
+implements [ArrayNumberBoxed](#arraynumberboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -237,15 +237,15 @@ A class to store validated List payloads
 | static [ArrayNumberList](#arraynumberlist) | of([List<Number>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedNumber](#itemsboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedNumber
 public static final class ItemsBoxedNumber<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

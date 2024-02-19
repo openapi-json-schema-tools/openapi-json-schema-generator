@@ -4,7 +4,7 @@ public class StringWithValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [StringWithValidation.StringWithValidation1](#stringwithvalidation1)<br> schema class |
 
 ## StringWithValidation1Boxed
-public static abstract sealed class StringWithValidation1Boxed<br>
+public sealed interface StringWithValidation1Boxed<br>
 permits<br>
 [StringWithValidation1BoxedString](#stringwithvalidation1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## StringWithValidation1BoxedString
 public static final class StringWithValidation1BoxedString<br>
-extends [StringWithValidation1Boxed](#stringwithvalidation1boxed)
+implements [StringWithValidation1Boxed](#stringwithvalidation1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

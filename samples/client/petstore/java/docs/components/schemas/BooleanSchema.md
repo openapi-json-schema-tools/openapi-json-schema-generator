@@ -4,7 +4,7 @@ public class BooleanSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [BooleanSchema.BooleanSchema1](#booleanschema1)<br> schema class |
 
 ## BooleanSchema1Boxed
-public static abstract sealed class BooleanSchema1Boxed<br>
+public sealed interface BooleanSchema1Boxed<br>
 permits<br>
 [BooleanSchema1BoxedBoolean](#booleanschema1boxedboolean)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BooleanSchema1BoxedBoolean
 public static final class BooleanSchema1BoxedBoolean<br>
-extends [BooleanSchema1Boxed](#booleanschema1boxed)
+implements [BooleanSchema1Boxed](#booleanschema1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 

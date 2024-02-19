@@ -106,11 +106,11 @@ public class ObjectWithOptionalTestProp {
     }
     
     
-    public static abstract sealed class ObjectWithOptionalTestProp1Boxed permits ObjectWithOptionalTestProp1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ObjectWithOptionalTestProp1Boxed permits ObjectWithOptionalTestProp1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ObjectWithOptionalTestProp1BoxedMap extends ObjectWithOptionalTestProp1Boxed {
+    public static final class ObjectWithOptionalTestProp1BoxedMap implements ObjectWithOptionalTestProp1Boxed {
         public final ObjectWithOptionalTestPropMap data;
         private ObjectWithOptionalTestProp1BoxedMap(ObjectWithOptionalTestPropMap data) {
             this.data = data;

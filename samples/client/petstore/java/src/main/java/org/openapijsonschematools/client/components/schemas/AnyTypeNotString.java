@@ -47,11 +47,11 @@ public class AnyTypeNotString {
     }
     
     
-    public static abstract sealed class AnyTypeNotString1Boxed permits AnyTypeNotString1BoxedVoid, AnyTypeNotString1BoxedBoolean, AnyTypeNotString1BoxedNumber, AnyTypeNotString1BoxedString, AnyTypeNotString1BoxedList, AnyTypeNotString1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AnyTypeNotString1Boxed permits AnyTypeNotString1BoxedVoid, AnyTypeNotString1BoxedBoolean, AnyTypeNotString1BoxedNumber, AnyTypeNotString1BoxedString, AnyTypeNotString1BoxedList, AnyTypeNotString1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class AnyTypeNotString1BoxedVoid extends AnyTypeNotString1Boxed {
+    public static final class AnyTypeNotString1BoxedVoid implements AnyTypeNotString1Boxed {
         public final Void data;
         private AnyTypeNotString1BoxedVoid(Void data) {
             this.data = data;
@@ -62,7 +62,7 @@ public class AnyTypeNotString {
         }
     }
     
-    public static final class AnyTypeNotString1BoxedBoolean extends AnyTypeNotString1Boxed {
+    public static final class AnyTypeNotString1BoxedBoolean implements AnyTypeNotString1Boxed {
         public final boolean data;
         private AnyTypeNotString1BoxedBoolean(boolean data) {
             this.data = data;
@@ -73,7 +73,7 @@ public class AnyTypeNotString {
         }
     }
     
-    public static final class AnyTypeNotString1BoxedNumber extends AnyTypeNotString1Boxed {
+    public static final class AnyTypeNotString1BoxedNumber implements AnyTypeNotString1Boxed {
         public final Number data;
         private AnyTypeNotString1BoxedNumber(Number data) {
             this.data = data;
@@ -84,7 +84,7 @@ public class AnyTypeNotString {
         }
     }
     
-    public static final class AnyTypeNotString1BoxedString extends AnyTypeNotString1Boxed {
+    public static final class AnyTypeNotString1BoxedString implements AnyTypeNotString1Boxed {
         public final String data;
         private AnyTypeNotString1BoxedString(String data) {
             this.data = data;
@@ -95,7 +95,7 @@ public class AnyTypeNotString {
         }
     }
     
-    public static final class AnyTypeNotString1BoxedList extends AnyTypeNotString1Boxed {
+    public static final class AnyTypeNotString1BoxedList implements AnyTypeNotString1Boxed {
         public final FrozenList<@Nullable Object> data;
         private AnyTypeNotString1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -106,7 +106,7 @@ public class AnyTypeNotString {
         }
     }
     
-    public static final class AnyTypeNotString1BoxedMap extends AnyTypeNotString1Boxed {
+    public static final class AnyTypeNotString1BoxedMap implements AnyTypeNotString1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AnyTypeNotString1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

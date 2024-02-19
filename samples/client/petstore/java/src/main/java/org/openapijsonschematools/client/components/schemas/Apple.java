@@ -31,11 +31,11 @@ public class Apple {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class CultivarBoxed permits CultivarBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface CultivarBoxed permits CultivarBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class CultivarBoxedString extends CultivarBoxed {
+    public static final class CultivarBoxedString implements CultivarBoxed {
         public final String data;
         private CultivarBoxedString(String data) {
             this.data = data;
@@ -100,11 +100,11 @@ public class Apple {
         }
     }    
     
-    public static abstract sealed class OriginBoxed permits OriginBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface OriginBoxed permits OriginBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class OriginBoxedString extends OriginBoxed {
+    public static final class OriginBoxedString implements OriginBoxed {
         public final String data;
         private OriginBoxedString(String data) {
             this.data = data;
@@ -271,11 +271,11 @@ public class Apple {
     }
     
     
-    public static abstract sealed class Apple1Boxed permits Apple1BoxedVoid, Apple1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Apple1Boxed permits Apple1BoxedVoid, Apple1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Apple1BoxedVoid extends Apple1Boxed {
+    public static final class Apple1BoxedVoid implements Apple1Boxed {
         public final Void data;
         private Apple1BoxedVoid(Void data) {
             this.data = data;
@@ -286,7 +286,7 @@ public class Apple {
         }
     }
     
-    public static final class Apple1BoxedMap extends Apple1Boxed {
+    public static final class Apple1BoxedMap implements Apple1Boxed {
         public final AppleMap data;
         private Apple1BoxedMap(AppleMap data) {
             this.data = data;

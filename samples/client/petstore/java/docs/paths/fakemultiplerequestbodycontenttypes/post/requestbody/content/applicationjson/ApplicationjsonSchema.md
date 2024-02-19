@@ -3,7 +3,7 @@ public class ApplicationjsonSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -21,15 +21,15 @@ A class that contains necessary nested
 | static class | [ApplicationjsonSchema.ApplicationjsonA](#applicationjsona)<br> schema class |
 
 ## ApplicationjsonSchema1Boxed
-public static abstract sealed class ApplicationjsonSchema1Boxed<br>
+public sealed interface ApplicationjsonSchema1Boxed<br>
 permits<br>
 [ApplicationjsonSchema1BoxedMap](#applicationjsonschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationjsonSchema1BoxedMap
 public static final class ApplicationjsonSchema1BoxedMap<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -127,15 +127,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ApplicationjsonABoxed
-public static abstract sealed class ApplicationjsonABoxed<br>
+public sealed interface ApplicationjsonABoxed<br>
 permits<br>
 [ApplicationjsonABoxedString](#applicationjsonaboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationjsonABoxedString
 public static final class ApplicationjsonABoxedString<br>
-extends [ApplicationjsonABoxed](#applicationjsonaboxed)
+implements [ApplicationjsonABoxed](#applicationjsonaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

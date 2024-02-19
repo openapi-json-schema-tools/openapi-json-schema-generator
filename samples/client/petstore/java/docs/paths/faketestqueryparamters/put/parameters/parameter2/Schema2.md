@@ -3,7 +3,7 @@ public class Schema2<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -21,15 +21,15 @@ A class that contains necessary nested
 | static class | [Schema2.Items2](#items2)<br> schema class |
 
 ## Schema21Boxed
-public static abstract sealed class Schema21Boxed<br>
+public sealed interface Schema21Boxed<br>
 permits<br>
 [Schema21BoxedList](#schema21boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema21BoxedList
 public static final class Schema21BoxedList<br>
-extends [Schema21Boxed](#schema21boxed)
+implements [Schema21Boxed](#schema21boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -117,15 +117,15 @@ A class to store validated List payloads
 | static [SchemaList2](#schemalist2) | of([List<String>](#schemalistbuilder2) arg, SchemaConfiguration configuration) |
 
 ## Items2Boxed
-public static abstract sealed class Items2Boxed<br>
+public sealed interface Items2Boxed<br>
 permits<br>
 [Items2BoxedString](#items2boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Items2BoxedString
 public static final class Items2BoxedString<br>
-extends [Items2Boxed](#items2boxed)
+implements [Items2Boxed](#items2boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

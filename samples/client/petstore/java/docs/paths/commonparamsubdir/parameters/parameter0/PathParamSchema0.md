@@ -3,7 +3,7 @@ public class PathParamSchema0<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
@@ -16,15 +16,15 @@ A class that contains necessary nested
 | enum | [PathParamSchema0.StringPathParamSchemaEnums0](#stringpathparamschemaenums0)<br>String enum |
 
 ## PathParamSchema01Boxed
-public static abstract sealed class PathParamSchema01Boxed<br>
+public sealed interface PathParamSchema01Boxed<br>
 permits<br>
 [PathParamSchema01BoxedString](#pathparamschema01boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PathParamSchema01BoxedString
 public static final class PathParamSchema01BoxedString<br>
-extends [PathParamSchema01Boxed](#pathparamschema01boxed)
+implements [PathParamSchema01Boxed](#pathparamschema01boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -4,7 +4,7 @@ public class Pet<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -45,15 +45,15 @@ A class that contains necessary nested
 | static class | [Pet.Id](#id)<br> schema class |
 
 ## Pet1Boxed
-public static abstract sealed class Pet1Boxed<br>
+public sealed interface Pet1Boxed<br>
 permits<br>
 [Pet1BoxedMap](#pet1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Pet1BoxedMap
 public static final class Pet1BoxedMap<br>
-extends [Pet1Boxed](#pet1boxed)
+implements [Pet1Boxed](#pet1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -247,15 +247,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## TagsBoxed
-public static abstract sealed class TagsBoxed<br>
+public sealed interface TagsBoxed<br>
 permits<br>
 [TagsBoxedList](#tagsboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## TagsBoxedList
 public static final class TagsBoxedList<br>
-extends [TagsBoxed](#tagsboxed)
+implements [TagsBoxed](#tagsboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -353,15 +353,15 @@ A class to store validated List payloads
 | static [TagsList](#tagslist) | of([List<Map<String, ? extends @Nullable Object>>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## StatusBoxed
-public static abstract sealed class StatusBoxed<br>
+public sealed interface StatusBoxed<br>
 permits<br>
 [StatusBoxedString](#statusboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## StatusBoxedString
 public static final class StatusBoxedString<br>
-extends [StatusBoxed](#statusboxed)
+implements [StatusBoxed](#statusboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -433,15 +433,15 @@ A class that stores String enum values
 | SOLD | value = "sold" |
 
 ## PhotoUrlsBoxed
-public static abstract sealed class PhotoUrlsBoxed<br>
+public sealed interface PhotoUrlsBoxed<br>
 permits<br>
 [PhotoUrlsBoxedList](#photourlsboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PhotoUrlsBoxedList
 public static final class PhotoUrlsBoxedList<br>
-extends [PhotoUrlsBoxed](#photourlsboxed)
+implements [PhotoUrlsBoxed](#photourlsboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -529,15 +529,15 @@ A class to store validated List payloads
 | static [PhotoUrlsList](#photourlslist) | of([List<String>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedString](#itemsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedString
 public static final class ItemsBoxedString<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -563,15 +563,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## NameBoxed
-public static abstract sealed class NameBoxed<br>
+public sealed interface NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NameBoxedString
 public static final class NameBoxedString<br>
-extends [NameBoxed](#nameboxed)
+implements [NameBoxed](#nameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -597,15 +597,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## IdBoxed
-public static abstract sealed class IdBoxed<br>
+public sealed interface IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
 public static final class IdBoxedNumber<br>
-extends [IdBoxed](#idboxed)
+implements [IdBoxed](#idboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

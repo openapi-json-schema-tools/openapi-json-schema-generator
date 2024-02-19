@@ -4,7 +4,7 @@ public class Whale<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -30,15 +30,15 @@ A class that contains necessary nested
 | static class | [Whale.HasBaleen](#hasbaleen)<br> schema class |
 
 ## Whale1Boxed
-public static abstract sealed class Whale1Boxed<br>
+public sealed interface Whale1Boxed<br>
 permits<br>
 [Whale1BoxedMap](#whale1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Whale1BoxedMap
 public static final class Whale1BoxedMap<br>
-extends [Whale1Boxed](#whale1boxed)
+implements [Whale1Boxed](#whale1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -161,15 +161,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassNameBoxed
-public static abstract sealed class ClassNameBoxed<br>
+public sealed interface ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ClassNameBoxedString
 public static final class ClassNameBoxedString<br>
-extends [ClassNameBoxed](#classnameboxed)
+implements [ClassNameBoxed](#classnameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -236,15 +236,15 @@ A class that stores String enum values
 | WHALE | value = "whale" |
 
 ## HasTeethBoxed
-public static abstract sealed class HasTeethBoxed<br>
+public sealed interface HasTeethBoxed<br>
 permits<br>
 [HasTeethBoxedBoolean](#hasteethboxedboolean)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## HasTeethBoxedBoolean
 public static final class HasTeethBoxedBoolean<br>
-extends [HasTeethBoxed](#hasteethboxed)
+implements [HasTeethBoxed](#hasteethboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -270,15 +270,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## HasBaleenBoxed
-public static abstract sealed class HasBaleenBoxed<br>
+public sealed interface HasBaleenBoxed<br>
 permits<br>
 [HasBaleenBoxedBoolean](#hasbaleenboxedboolean)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## HasBaleenBoxedBoolean
 public static final class HasBaleenBoxedBoolean<br>
-extends [HasBaleenBoxed](#hasbaleenboxed)
+implements [HasBaleenBoxed](#hasbaleenboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 

@@ -4,7 +4,7 @@ public class Capitalization<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -37,15 +37,15 @@ A class that contains necessary nested
 | static class | [Capitalization.SmallCamel](#smallcamel)<br> schema class |
 
 ## Capitalization1Boxed
-public static abstract sealed class Capitalization1Boxed<br>
+public sealed interface Capitalization1Boxed<br>
 permits<br>
 [Capitalization1BoxedMap](#capitalization1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Capitalization1BoxedMap
 public static final class Capitalization1BoxedMap<br>
-extends [Capitalization1Boxed](#capitalization1boxed)
+implements [Capitalization1Boxed](#capitalization1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -163,15 +163,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ATTNAMEBoxed
-public static abstract sealed class ATTNAMEBoxed<br>
+public sealed interface ATTNAMEBoxed<br>
 permits<br>
 [ATTNAMEBoxedString](#attnameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ATTNAMEBoxedString
 public static final class ATTNAMEBoxedString<br>
-extends [ATTNAMEBoxed](#attnameboxed)
+implements [ATTNAMEBoxed](#attnameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -200,15 +200,15 @@ Name of the pet<br>
 | validateAndBox                                                     |
 
 ## SCAETHFlowPointsBoxed
-public static abstract sealed class SCAETHFlowPointsBoxed<br>
+public sealed interface SCAETHFlowPointsBoxed<br>
 permits<br>
 [SCAETHFlowPointsBoxedString](#scaethflowpointsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SCAETHFlowPointsBoxedString
 public static final class SCAETHFlowPointsBoxedString<br>
-extends [SCAETHFlowPointsBoxed](#scaethflowpointsboxed)
+implements [SCAETHFlowPointsBoxed](#scaethflowpointsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -234,15 +234,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## CapitalSnakeBoxed
-public static abstract sealed class CapitalSnakeBoxed<br>
+public sealed interface CapitalSnakeBoxed<br>
 permits<br>
 [CapitalSnakeBoxedString](#capitalsnakeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## CapitalSnakeBoxedString
 public static final class CapitalSnakeBoxedString<br>
-extends [CapitalSnakeBoxed](#capitalsnakeboxed)
+implements [CapitalSnakeBoxed](#capitalsnakeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -268,15 +268,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## SmallSnakeBoxed
-public static abstract sealed class SmallSnakeBoxed<br>
+public sealed interface SmallSnakeBoxed<br>
 permits<br>
 [SmallSnakeBoxedString](#smallsnakeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SmallSnakeBoxedString
 public static final class SmallSnakeBoxedString<br>
-extends [SmallSnakeBoxed](#smallsnakeboxed)
+implements [SmallSnakeBoxed](#smallsnakeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -302,15 +302,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## CapitalCamelBoxed
-public static abstract sealed class CapitalCamelBoxed<br>
+public sealed interface CapitalCamelBoxed<br>
 permits<br>
 [CapitalCamelBoxedString](#capitalcamelboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## CapitalCamelBoxedString
 public static final class CapitalCamelBoxedString<br>
-extends [CapitalCamelBoxed](#capitalcamelboxed)
+implements [CapitalCamelBoxed](#capitalcamelboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -336,15 +336,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## SmallCamelBoxed
-public static abstract sealed class SmallCamelBoxed<br>
+public sealed interface SmallCamelBoxed<br>
 permits<br>
 [SmallCamelBoxedString](#smallcamelboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SmallCamelBoxedString
 public static final class SmallCamelBoxedString<br>
-extends [SmallCamelBoxed](#smallcamelboxed)
+implements [SmallCamelBoxed](#smallcamelboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

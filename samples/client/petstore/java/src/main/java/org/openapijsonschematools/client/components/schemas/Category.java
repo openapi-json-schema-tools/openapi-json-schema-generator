@@ -42,11 +42,11 @@ public class Category {
     }
     
     
-    public static abstract sealed class NameBoxed permits NameBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface NameBoxed permits NameBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class NameBoxedString extends NameBoxed {
+    public static final class NameBoxedString implements NameBoxed {
         public final String data;
         private NameBoxedString(String data) {
             this.data = data;
@@ -234,11 +234,11 @@ public class Category {
     }
     
     
-    public static abstract sealed class Category1Boxed permits Category1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Category1Boxed permits Category1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Category1BoxedMap extends Category1Boxed {
+    public static final class Category1BoxedMap implements Category1Boxed {
         public final CategoryMap data;
         private Category1BoxedMap(CategoryMap data) {
             this.data = data;

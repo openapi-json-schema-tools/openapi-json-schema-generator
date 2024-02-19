@@ -4,7 +4,7 @@ public class HealthCheckResult<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -23,15 +23,15 @@ A class that contains necessary nested
 | static class | [HealthCheckResult.NullableMessage](#nullablemessage)<br> schema class |
 
 ## HealthCheckResult1Boxed
-public static abstract sealed class HealthCheckResult1Boxed<br>
+public sealed interface HealthCheckResult1Boxed<br>
 permits<br>
 [HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## HealthCheckResult1BoxedMap
 public static final class HealthCheckResult1BoxedMap<br>
-extends [HealthCheckResult1Boxed](#healthcheckresult1boxed)
+implements [HealthCheckResult1Boxed](#healthcheckresult1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -133,16 +133,16 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NullableMessageBoxed
-public static abstract sealed class NullableMessageBoxed<br>
+public sealed interface NullableMessageBoxed<br>
 permits<br>
 [NullableMessageBoxedVoid](#nullablemessageboxedvoid),
 [NullableMessageBoxedString](#nullablemessageboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NullableMessageBoxedVoid
 public static final class NullableMessageBoxedVoid<br>
-extends [NullableMessageBoxed](#nullablemessageboxed)
+implements [NullableMessageBoxed](#nullablemessageboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -158,7 +158,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## NullableMessageBoxedString
 public static final class NullableMessageBoxedString<br>
-extends [NullableMessageBoxed](#nullablemessageboxed)
+implements [NullableMessageBoxed](#nullablemessageboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

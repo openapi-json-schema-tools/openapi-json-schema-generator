@@ -115,11 +115,11 @@ public class GmFruit {
     }
     
     
-    public static abstract sealed class GmFruit1Boxed permits GmFruit1BoxedVoid, GmFruit1BoxedBoolean, GmFruit1BoxedNumber, GmFruit1BoxedString, GmFruit1BoxedList, GmFruit1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface GmFruit1Boxed permits GmFruit1BoxedVoid, GmFruit1BoxedBoolean, GmFruit1BoxedNumber, GmFruit1BoxedString, GmFruit1BoxedList, GmFruit1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class GmFruit1BoxedVoid extends GmFruit1Boxed {
+    public static final class GmFruit1BoxedVoid implements GmFruit1Boxed {
         public final Void data;
         private GmFruit1BoxedVoid(Void data) {
             this.data = data;
@@ -130,7 +130,7 @@ public class GmFruit {
         }
     }
     
-    public static final class GmFruit1BoxedBoolean extends GmFruit1Boxed {
+    public static final class GmFruit1BoxedBoolean implements GmFruit1Boxed {
         public final boolean data;
         private GmFruit1BoxedBoolean(boolean data) {
             this.data = data;
@@ -141,7 +141,7 @@ public class GmFruit {
         }
     }
     
-    public static final class GmFruit1BoxedNumber extends GmFruit1Boxed {
+    public static final class GmFruit1BoxedNumber implements GmFruit1Boxed {
         public final Number data;
         private GmFruit1BoxedNumber(Number data) {
             this.data = data;
@@ -152,7 +152,7 @@ public class GmFruit {
         }
     }
     
-    public static final class GmFruit1BoxedString extends GmFruit1Boxed {
+    public static final class GmFruit1BoxedString implements GmFruit1Boxed {
         public final String data;
         private GmFruit1BoxedString(String data) {
             this.data = data;
@@ -163,7 +163,7 @@ public class GmFruit {
         }
     }
     
-    public static final class GmFruit1BoxedList extends GmFruit1Boxed {
+    public static final class GmFruit1BoxedList implements GmFruit1Boxed {
         public final FrozenList<@Nullable Object> data;
         private GmFruit1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -174,7 +174,7 @@ public class GmFruit {
         }
     }
     
-    public static final class GmFruit1BoxedMap extends GmFruit1Boxed {
+    public static final class GmFruit1BoxedMap implements GmFruit1Boxed {
         public final GmFruitMap data;
         private GmFruit1BoxedMap(GmFruitMap data) {
             this.data = data;

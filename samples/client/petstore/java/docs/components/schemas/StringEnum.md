@@ -4,7 +4,7 @@ public class StringEnum<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
@@ -19,16 +19,16 @@ A class that contains necessary nested
 | enum | [StringEnum.NullStringEnumEnums](#nullstringenumenums)<br>null enum |
 
 ## StringEnum1Boxed
-public static abstract sealed class StringEnum1Boxed<br>
+public sealed interface StringEnum1Boxed<br>
 permits<br>
 [StringEnum1BoxedVoid](#stringenum1boxedvoid),
 [StringEnum1BoxedString](#stringenum1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## StringEnum1BoxedVoid
 public static final class StringEnum1BoxedVoid<br>
-extends [StringEnum1Boxed](#stringenum1boxed)
+implements [StringEnum1Boxed](#stringenum1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -44,7 +44,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## StringEnum1BoxedString
 public static final class StringEnum1BoxedString<br>
-extends [StringEnum1Boxed](#stringenum1boxed)
+implements [StringEnum1Boxed](#stringenum1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

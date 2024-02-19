@@ -35,11 +35,11 @@ public class SomeObject {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class SomeObject1Boxed permits SomeObject1BoxedVoid, SomeObject1BoxedBoolean, SomeObject1BoxedNumber, SomeObject1BoxedString, SomeObject1BoxedList, SomeObject1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface SomeObject1Boxed permits SomeObject1BoxedVoid, SomeObject1BoxedBoolean, SomeObject1BoxedNumber, SomeObject1BoxedString, SomeObject1BoxedList, SomeObject1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class SomeObject1BoxedVoid extends SomeObject1Boxed {
+    public static final class SomeObject1BoxedVoid implements SomeObject1Boxed {
         public final Void data;
         private SomeObject1BoxedVoid(Void data) {
             this.data = data;
@@ -50,7 +50,7 @@ public class SomeObject {
         }
     }
     
-    public static final class SomeObject1BoxedBoolean extends SomeObject1Boxed {
+    public static final class SomeObject1BoxedBoolean implements SomeObject1Boxed {
         public final boolean data;
         private SomeObject1BoxedBoolean(boolean data) {
             this.data = data;
@@ -61,7 +61,7 @@ public class SomeObject {
         }
     }
     
-    public static final class SomeObject1BoxedNumber extends SomeObject1Boxed {
+    public static final class SomeObject1BoxedNumber implements SomeObject1Boxed {
         public final Number data;
         private SomeObject1BoxedNumber(Number data) {
             this.data = data;
@@ -72,7 +72,7 @@ public class SomeObject {
         }
     }
     
-    public static final class SomeObject1BoxedString extends SomeObject1Boxed {
+    public static final class SomeObject1BoxedString implements SomeObject1Boxed {
         public final String data;
         private SomeObject1BoxedString(String data) {
             this.data = data;
@@ -83,7 +83,7 @@ public class SomeObject {
         }
     }
     
-    public static final class SomeObject1BoxedList extends SomeObject1Boxed {
+    public static final class SomeObject1BoxedList implements SomeObject1Boxed {
         public final FrozenList<@Nullable Object> data;
         private SomeObject1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -94,7 +94,7 @@ public class SomeObject {
         }
     }
     
-    public static final class SomeObject1BoxedMap extends SomeObject1Boxed {
+    public static final class SomeObject1BoxedMap implements SomeObject1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private SomeObject1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

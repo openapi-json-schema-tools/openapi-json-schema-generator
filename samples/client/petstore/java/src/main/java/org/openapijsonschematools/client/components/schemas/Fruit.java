@@ -115,11 +115,11 @@ public class Fruit {
     }
     
     
-    public static abstract sealed class Fruit1Boxed permits Fruit1BoxedVoid, Fruit1BoxedBoolean, Fruit1BoxedNumber, Fruit1BoxedString, Fruit1BoxedList, Fruit1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Fruit1Boxed permits Fruit1BoxedVoid, Fruit1BoxedBoolean, Fruit1BoxedNumber, Fruit1BoxedString, Fruit1BoxedList, Fruit1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Fruit1BoxedVoid extends Fruit1Boxed {
+    public static final class Fruit1BoxedVoid implements Fruit1Boxed {
         public final Void data;
         private Fruit1BoxedVoid(Void data) {
             this.data = data;
@@ -130,7 +130,7 @@ public class Fruit {
         }
     }
     
-    public static final class Fruit1BoxedBoolean extends Fruit1Boxed {
+    public static final class Fruit1BoxedBoolean implements Fruit1Boxed {
         public final boolean data;
         private Fruit1BoxedBoolean(boolean data) {
             this.data = data;
@@ -141,7 +141,7 @@ public class Fruit {
         }
     }
     
-    public static final class Fruit1BoxedNumber extends Fruit1Boxed {
+    public static final class Fruit1BoxedNumber implements Fruit1Boxed {
         public final Number data;
         private Fruit1BoxedNumber(Number data) {
             this.data = data;
@@ -152,7 +152,7 @@ public class Fruit {
         }
     }
     
-    public static final class Fruit1BoxedString extends Fruit1Boxed {
+    public static final class Fruit1BoxedString implements Fruit1Boxed {
         public final String data;
         private Fruit1BoxedString(String data) {
             this.data = data;
@@ -163,7 +163,7 @@ public class Fruit {
         }
     }
     
-    public static final class Fruit1BoxedList extends Fruit1Boxed {
+    public static final class Fruit1BoxedList implements Fruit1Boxed {
         public final FrozenList<@Nullable Object> data;
         private Fruit1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -174,7 +174,7 @@ public class Fruit {
         }
     }
     
-    public static final class Fruit1BoxedMap extends Fruit1Boxed {
+    public static final class Fruit1BoxedMap implements Fruit1Boxed {
         public final FruitMap data;
         private Fruit1BoxedMap(FruitMap data) {
             this.data = data;

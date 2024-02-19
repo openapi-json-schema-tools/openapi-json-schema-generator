@@ -4,7 +4,7 @@ public class ClassModel<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -27,7 +27,7 @@ A class that contains necessary nested
 | static class | [ClassModel.ClassSchema](#classschema)<br> schema class |
 
 ## ClassModel1Boxed
-public static abstract sealed class ClassModel1Boxed<br>
+public sealed interface ClassModel1Boxed<br>
 permits<br>
 [ClassModel1BoxedVoid](#classmodel1boxedvoid),
 [ClassModel1BoxedBoolean](#classmodel1boxedboolean),
@@ -36,11 +36,11 @@ permits<br>
 [ClassModel1BoxedList](#classmodel1boxedlist),
 [ClassModel1BoxedMap](#classmodel1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ClassModel1BoxedVoid
 public static final class ClassModel1BoxedVoid<br>
-extends [ClassModel1Boxed](#classmodel1boxed)
+implements [ClassModel1Boxed](#classmodel1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -56,7 +56,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ClassModel1BoxedBoolean
 public static final class ClassModel1BoxedBoolean<br>
-extends [ClassModel1Boxed](#classmodel1boxed)
+implements [ClassModel1Boxed](#classmodel1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -72,7 +72,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ClassModel1BoxedNumber
 public static final class ClassModel1BoxedNumber<br>
-extends [ClassModel1Boxed](#classmodel1boxed)
+implements [ClassModel1Boxed](#classmodel1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -88,7 +88,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ClassModel1BoxedString
 public static final class ClassModel1BoxedString<br>
-extends [ClassModel1Boxed](#classmodel1boxed)
+implements [ClassModel1Boxed](#classmodel1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -104,7 +104,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ClassModel1BoxedList
 public static final class ClassModel1BoxedList<br>
-extends [ClassModel1Boxed](#classmodel1boxed)
+implements [ClassModel1Boxed](#classmodel1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -120,7 +120,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ClassModel1BoxedMap
 public static final class ClassModel1BoxedMap<br>
-extends [ClassModel1Boxed](#classmodel1boxed)
+implements [ClassModel1Boxed](#classmodel1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -208,15 +208,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassSchemaBoxed
-public static abstract sealed class ClassSchemaBoxed<br>
+public sealed interface ClassSchemaBoxed<br>
 permits<br>
 [ClassSchemaBoxedString](#classschemaboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ClassSchemaBoxedString
 public static final class ClassSchemaBoxedString<br>
-extends [ClassSchemaBoxed](#classschemaboxed)
+implements [ClassSchemaBoxed](#classschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -4,7 +4,7 @@ public class IntegerMax10<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [IntegerMax10.IntegerMax101](#integermax101)<br> schema class |
 
 ## IntegerMax101Boxed
-public static abstract sealed class IntegerMax101Boxed<br>
+public sealed interface IntegerMax101Boxed<br>
 permits<br>
 [IntegerMax101BoxedNumber](#integermax101boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IntegerMax101BoxedNumber
 public static final class IntegerMax101BoxedNumber<br>
-extends [IntegerMax101Boxed](#integermax101boxed)
+implements [IntegerMax101Boxed](#integermax101boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

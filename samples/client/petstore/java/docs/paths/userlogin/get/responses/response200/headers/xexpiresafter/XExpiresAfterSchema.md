@@ -3,7 +3,7 @@ public class XExpiresAfterSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -14,15 +14,15 @@ A class that contains necessary nested
 | static class | [XExpiresAfterSchema.XExpiresAfterSchema1](#xexpiresafterschema1)<br> schema class |
 
 ## XExpiresAfterSchema1Boxed
-public static abstract sealed class XExpiresAfterSchema1Boxed<br>
+public sealed interface XExpiresAfterSchema1Boxed<br>
 permits<br>
 [XExpiresAfterSchema1BoxedString](#xexpiresafterschema1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## XExpiresAfterSchema1BoxedString
 public static final class XExpiresAfterSchema1BoxedString<br>
-extends [XExpiresAfterSchema1Boxed](#xexpiresafterschema1boxed)
+implements [XExpiresAfterSchema1Boxed](#xexpiresafterschema1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

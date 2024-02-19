@@ -19,11 +19,11 @@ public class IntegerMax10 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class IntegerMax101Boxed permits IntegerMax101BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface IntegerMax101Boxed permits IntegerMax101BoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class IntegerMax101BoxedNumber extends IntegerMax101Boxed {
+    public static final class IntegerMax101BoxedNumber implements IntegerMax101Boxed {
         public final Number data;
         private IntegerMax101BoxedNumber(Number data) {
             this.data = data;

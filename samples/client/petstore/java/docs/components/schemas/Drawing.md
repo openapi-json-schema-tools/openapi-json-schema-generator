@@ -4,7 +4,7 @@ public class Drawing<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -26,15 +26,15 @@ A class that contains necessary nested
 | static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |
 
 ## Drawing1Boxed
-public static abstract sealed class Drawing1Boxed<br>
+public sealed interface Drawing1Boxed<br>
 permits<br>
 [Drawing1BoxedMap](#drawing1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Drawing1BoxedMap
 public static final class Drawing1BoxedMap<br>
-extends [Drawing1Boxed](#drawing1boxed)
+implements [Drawing1Boxed](#drawing1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -165,15 +165,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ShapesBoxed
-public static abstract sealed class ShapesBoxed<br>
+public sealed interface ShapesBoxed<br>
 permits<br>
 [ShapesBoxedList](#shapesboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ShapesBoxedList
 public static final class ShapesBoxedList<br>
-extends [ShapesBoxed](#shapesboxed)
+implements [ShapesBoxed](#shapesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 

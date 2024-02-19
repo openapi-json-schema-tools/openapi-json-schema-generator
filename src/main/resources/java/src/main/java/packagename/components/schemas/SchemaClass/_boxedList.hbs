@@ -1,7 +1,7 @@
 {{#if forDocs}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "BoxedList" "")) }}
 public static final class {{jsonPathPiece.pascalCase}}BoxedList<br>
-extends [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
+implements [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -16,7 +16,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | {{#if arrayOutputJsonPathPiece}}[{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}){{else}}FrozenList<@Nullable Object>{{/if}} | data<br>validated payload |
 
 {{else}}
-public static final class {{jsonPathPiece.pascalCase}}BoxedList extends {{jsonPathPiece.pascalCase}}Boxed {
+public static final class {{jsonPathPiece.pascalCase}}BoxedList implements {{jsonPathPiece.pascalCase}}Boxed {
     public final {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}} data;
     private {{jsonPathPiece.pascalCase}}BoxedList({{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}} data) {
         this.data = data;

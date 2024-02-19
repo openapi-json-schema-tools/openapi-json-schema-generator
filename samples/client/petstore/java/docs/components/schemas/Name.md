@@ -4,7 +4,7 @@ public class Name<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -33,7 +33,7 @@ A class that contains necessary nested
 | static class | [Name.Name2](#name2)<br> schema class |
 
 ## Name1Boxed
-public static abstract sealed class Name1Boxed<br>
+public sealed interface Name1Boxed<br>
 permits<br>
 [Name1BoxedVoid](#name1boxedvoid),
 [Name1BoxedBoolean](#name1boxedboolean),
@@ -42,11 +42,11 @@ permits<br>
 [Name1BoxedList](#name1boxedlist),
 [Name1BoxedMap](#name1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Name1BoxedVoid
 public static final class Name1BoxedVoid<br>
-extends [Name1Boxed](#name1boxed)
+implements [Name1Boxed](#name1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -62,7 +62,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Name1BoxedBoolean
 public static final class Name1BoxedBoolean<br>
-extends [Name1Boxed](#name1boxed)
+implements [Name1Boxed](#name1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -78,7 +78,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Name1BoxedNumber
 public static final class Name1BoxedNumber<br>
-extends [Name1Boxed](#name1boxed)
+implements [Name1Boxed](#name1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -94,7 +94,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Name1BoxedString
 public static final class Name1BoxedString<br>
-extends [Name1Boxed](#name1boxed)
+implements [Name1Boxed](#name1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -110,7 +110,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Name1BoxedList
 public static final class Name1BoxedList<br>
-extends [Name1Boxed](#name1boxed)
+implements [Name1Boxed](#name1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -126,7 +126,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Name1BoxedMap
 public static final class Name1BoxedMap<br>
-extends [Name1Boxed](#name1boxed)
+implements [Name1Boxed](#name1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -236,15 +236,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## PropertyBoxed
-public static abstract sealed class PropertyBoxed<br>
+public sealed interface PropertyBoxed<br>
 permits<br>
 [PropertyBoxedString](#propertyboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PropertyBoxedString
 public static final class PropertyBoxedString<br>
-extends [PropertyBoxed](#propertyboxed)
+implements [PropertyBoxed](#propertyboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -273,15 +273,15 @@ this is a reserved python keyword
 | validateAndBox                                                     |
 
 ## SnakeCaseBoxed
-public static abstract sealed class SnakeCaseBoxed<br>
+public sealed interface SnakeCaseBoxed<br>
 permits<br>
 [SnakeCaseBoxedNumber](#snakecaseboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SnakeCaseBoxedNumber
 public static final class SnakeCaseBoxedNumber<br>
-extends [SnakeCaseBoxed](#snakecaseboxed)
+implements [SnakeCaseBoxed](#snakecaseboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -307,15 +307,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## Name2Boxed
-public static abstract sealed class Name2Boxed<br>
+public sealed interface Name2Boxed<br>
 permits<br>
 [Name2BoxedNumber](#name2boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Name2BoxedNumber
 public static final class Name2BoxedNumber<br>
-extends [Name2Boxed](#name2boxed)
+implements [Name2Boxed](#name2boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

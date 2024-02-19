@@ -4,7 +4,7 @@ public class SelfReferencingArrayModel<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -19,15 +19,15 @@ A class that contains necessary nested
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModelList](#selfreferencingarraymodellist)<br> output class for List payloads |
 
 ## SelfReferencingArrayModel1Boxed
-public static abstract sealed class SelfReferencingArrayModel1Boxed<br>
+public sealed interface SelfReferencingArrayModel1Boxed<br>
 permits<br>
 [SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SelfReferencingArrayModel1BoxedList
 public static final class SelfReferencingArrayModel1BoxedList<br>
-extends [SelfReferencingArrayModel1Boxed](#selfreferencingarraymodel1boxed)
+implements [SelfReferencingArrayModel1Boxed](#selfreferencingarraymodel1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 

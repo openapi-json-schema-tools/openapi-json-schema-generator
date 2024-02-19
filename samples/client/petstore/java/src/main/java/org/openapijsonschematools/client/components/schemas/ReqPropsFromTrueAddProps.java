@@ -315,11 +315,11 @@ public class ReqPropsFromTrueAddProps {
     }
     
     
-    public static abstract sealed class ReqPropsFromTrueAddProps1Boxed permits ReqPropsFromTrueAddProps1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ReqPropsFromTrueAddProps1Boxed permits ReqPropsFromTrueAddProps1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ReqPropsFromTrueAddProps1BoxedMap extends ReqPropsFromTrueAddProps1Boxed {
+    public static final class ReqPropsFromTrueAddProps1BoxedMap implements ReqPropsFromTrueAddProps1Boxed {
         public final ReqPropsFromTrueAddPropsMap data;
         private ReqPropsFromTrueAddProps1BoxedMap(ReqPropsFromTrueAddPropsMap data) {
             this.data = data;

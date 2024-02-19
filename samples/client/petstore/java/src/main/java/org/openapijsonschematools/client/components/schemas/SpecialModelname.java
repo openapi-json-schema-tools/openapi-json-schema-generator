@@ -106,11 +106,11 @@ public class SpecialModelname {
     }
     
     
-    public static abstract sealed class SpecialModelname1Boxed permits SpecialModelname1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface SpecialModelname1Boxed permits SpecialModelname1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class SpecialModelname1BoxedMap extends SpecialModelname1Boxed {
+    public static final class SpecialModelname1BoxedMap implements SpecialModelname1Boxed {
         public final SpecialModelnameMap data;
         private SpecialModelname1BoxedMap(SpecialModelnameMap data) {
             this.data = data;

@@ -3,7 +3,7 @@ public class ApplicationxmlSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -18,15 +18,15 @@ A class that contains necessary nested
 | static class | [ApplicationxmlSchema.ApplicationxmlSchemaList](#applicationxmlschemalist)<br> output class for List payloads |
 
 ## ApplicationxmlSchema1Boxed
-public static abstract sealed class ApplicationxmlSchema1Boxed<br>
+public sealed interface ApplicationxmlSchema1Boxed<br>
 permits<br>
 [ApplicationxmlSchema1BoxedList](#applicationxmlschema1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxmlSchema1BoxedList
 public static final class ApplicationxmlSchema1BoxedList<br>
-extends [ApplicationxmlSchema1Boxed](#applicationxmlschema1boxed)
+implements [ApplicationxmlSchema1Boxed](#applicationxmlschema1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 

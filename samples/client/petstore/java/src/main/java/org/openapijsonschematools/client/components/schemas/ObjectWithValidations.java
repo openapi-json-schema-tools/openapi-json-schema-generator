@@ -26,11 +26,11 @@ public class ObjectWithValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ObjectWithValidations1Boxed permits ObjectWithValidations1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ObjectWithValidations1Boxed permits ObjectWithValidations1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ObjectWithValidations1BoxedMap extends ObjectWithValidations1Boxed {
+    public static final class ObjectWithValidations1BoxedMap implements ObjectWithValidations1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ObjectWithValidations1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

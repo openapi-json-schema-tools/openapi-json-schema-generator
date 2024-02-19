@@ -95,11 +95,11 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class AdditionalPropertiesBoxedMap extends AdditionalPropertiesBoxed {
+    public static final class AdditionalPropertiesBoxedMap implements AdditionalPropertiesBoxed {
         public final AdditionalPropertiesMap data;
         private AdditionalPropertiesBoxedMap(AdditionalPropertiesMap data) {
             this.data = data;
@@ -235,11 +235,11 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class MapMapOfStringBoxed permits MapMapOfStringBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MapMapOfStringBoxed permits MapMapOfStringBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class MapMapOfStringBoxedMap extends MapMapOfStringBoxed {
+    public static final class MapMapOfStringBoxedMap implements MapMapOfStringBoxed {
         public final MapMapOfStringMap data;
         private MapMapOfStringBoxedMap(MapMapOfStringMap data) {
             this.data = data;
@@ -339,11 +339,11 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
+    public static final class AdditionalProperties2BoxedString implements AdditionalProperties2Boxed {
         public final String data;
         private AdditionalProperties2BoxedString(String data) {
             this.data = data;
@@ -470,11 +470,11 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class MapOfEnumStringBoxed permits MapOfEnumStringBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MapOfEnumStringBoxed permits MapOfEnumStringBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class MapOfEnumStringBoxedMap extends MapOfEnumStringBoxed {
+    public static final class MapOfEnumStringBoxedMap implements MapOfEnumStringBoxed {
         public final MapOfEnumStringMap data;
         private MapOfEnumStringBoxedMap(MapOfEnumStringMap data) {
             this.data = data;
@@ -626,11 +626,11 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class DirectMapBoxed permits DirectMapBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface DirectMapBoxed permits DirectMapBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class DirectMapBoxedMap extends DirectMapBoxed {
+    public static final class DirectMapBoxedMap implements DirectMapBoxed {
         public final DirectMapMap data;
         private DirectMapBoxedMap(DirectMapMap data) {
             this.data = data;
@@ -861,11 +861,11 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class MapTest1Boxed permits MapTest1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MapTest1Boxed permits MapTest1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class MapTest1BoxedMap extends MapTest1Boxed {
+    public static final class MapTest1BoxedMap implements MapTest1Boxed {
         public final MapTestMap data;
         private MapTest1BoxedMap(MapTestMap data) {
             this.data = data;

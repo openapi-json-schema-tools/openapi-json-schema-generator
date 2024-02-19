@@ -4,7 +4,7 @@ public class EnumArrays<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -35,15 +35,15 @@ A class that contains necessary nested
 | enum | [EnumArrays.StringJustSymbolEnums](#stringjustsymbolenums)<br>String enum |
 
 ## EnumArrays1Boxed
-public static abstract sealed class EnumArrays1Boxed<br>
+public sealed interface EnumArrays1Boxed<br>
 permits<br>
 [EnumArrays1BoxedMap](#enumarrays1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumArrays1BoxedMap
 public static final class EnumArrays1BoxedMap<br>
-extends [EnumArrays1Boxed](#enumarrays1boxed)
+implements [EnumArrays1Boxed](#enumarrays1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -149,15 +149,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayEnumBoxed
-public static abstract sealed class ArrayEnumBoxed<br>
+public sealed interface ArrayEnumBoxed<br>
 permits<br>
 [ArrayEnumBoxedList](#arrayenumboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayEnumBoxedList
 public static final class ArrayEnumBoxedList<br>
-extends [ArrayEnumBoxed](#arrayenumboxed)
+implements [ArrayEnumBoxed](#arrayenumboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -246,15 +246,15 @@ A class to store validated List payloads
 | static [ArrayEnumList](#arrayenumlist) | of([List<String>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedString](#itemsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedString
 public static final class ItemsBoxedString<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -322,15 +322,15 @@ A class that stores String enum values
 | CRAB | value = "crab" |
 
 ## JustSymbolBoxed
-public static abstract sealed class JustSymbolBoxed<br>
+public sealed interface JustSymbolBoxed<br>
 permits<br>
 [JustSymbolBoxedString](#justsymbolboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## JustSymbolBoxedString
 public static final class JustSymbolBoxedString<br>
-extends [JustSymbolBoxed](#justsymbolboxed)
+implements [JustSymbolBoxed](#justsymbolboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

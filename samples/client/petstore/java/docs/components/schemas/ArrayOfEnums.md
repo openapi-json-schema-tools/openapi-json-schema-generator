@@ -4,7 +4,7 @@ public class ArrayOfEnums<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -19,15 +19,15 @@ A class that contains necessary nested
 | static class | [ArrayOfEnums.ArrayOfEnumsList](#arrayofenumslist)<br> output class for List payloads |
 
 ## ArrayOfEnums1Boxed
-public static abstract sealed class ArrayOfEnums1Boxed<br>
+public sealed interface ArrayOfEnums1Boxed<br>
 permits<br>
 [ArrayOfEnums1BoxedList](#arrayofenums1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayOfEnums1BoxedList
 public static final class ArrayOfEnums1BoxedList<br>
-extends [ArrayOfEnums1Boxed](#arrayofenums1boxed)
+implements [ArrayOfEnums1Boxed](#arrayofenums1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 

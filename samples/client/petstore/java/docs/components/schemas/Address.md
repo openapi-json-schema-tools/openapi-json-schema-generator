@@ -4,7 +4,7 @@ public class Address<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Address1Boxed
-public static abstract sealed class Address1Boxed<br>
+public sealed interface Address1Boxed<br>
 permits<br>
 [Address1BoxedMap](#address1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Address1BoxedMap
 public static final class Address1BoxedMap<br>
-extends [Address1Boxed](#address1boxed)
+implements [Address1Boxed](#address1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -121,15 +121,15 @@ A class to store validated Map payloads
 | Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalPropertiesBoxed
-public static abstract sealed class AdditionalPropertiesBoxed<br>
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedNumber
 public static final class AdditionalPropertiesBoxedNumber<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

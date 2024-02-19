@@ -21,11 +21,11 @@ public class DateTimeTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class DateTimeTest1Boxed permits DateTimeTest1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface DateTimeTest1Boxed permits DateTimeTest1BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class DateTimeTest1BoxedString extends DateTimeTest1Boxed {
+    public static final class DateTimeTest1BoxedString implements DateTimeTest1Boxed {
         public final String data;
         private DateTimeTest1BoxedString(String data) {
             this.data = data;

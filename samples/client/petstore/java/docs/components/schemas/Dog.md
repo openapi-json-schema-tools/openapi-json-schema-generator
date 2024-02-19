@@ -4,7 +4,7 @@ public class Dog<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -30,7 +30,7 @@ A class that contains necessary nested
 | static class | [Dog.Breed](#breed)<br> schema class |
 
 ## Dog1Boxed
-public static abstract sealed class Dog1Boxed<br>
+public sealed interface Dog1Boxed<br>
 permits<br>
 [Dog1BoxedVoid](#dog1boxedvoid),
 [Dog1BoxedBoolean](#dog1boxedboolean),
@@ -39,11 +39,11 @@ permits<br>
 [Dog1BoxedList](#dog1boxedlist),
 [Dog1BoxedMap](#dog1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Dog1BoxedVoid
 public static final class Dog1BoxedVoid<br>
-extends [Dog1Boxed](#dog1boxed)
+implements [Dog1Boxed](#dog1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -59,7 +59,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Dog1BoxedBoolean
 public static final class Dog1BoxedBoolean<br>
-extends [Dog1Boxed](#dog1boxed)
+implements [Dog1Boxed](#dog1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -75,7 +75,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Dog1BoxedNumber
 public static final class Dog1BoxedNumber<br>
-extends [Dog1Boxed](#dog1boxed)
+implements [Dog1Boxed](#dog1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -91,7 +91,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Dog1BoxedString
 public static final class Dog1BoxedString<br>
-extends [Dog1Boxed](#dog1boxed)
+implements [Dog1Boxed](#dog1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -107,7 +107,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Dog1BoxedList
 public static final class Dog1BoxedList<br>
-extends [Dog1Boxed](#dog1boxed)
+implements [Dog1Boxed](#dog1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -123,7 +123,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Dog1BoxedMap
 public static final class Dog1BoxedMap<br>
-extends [Dog1Boxed](#dog1boxed)
+implements [Dog1Boxed](#dog1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -169,15 +169,15 @@ A schema class that validates payloads
 | [Dog1BoxedList](#dog1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
-public static abstract sealed class Schema1Boxed<br>
+public sealed interface Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
 public static final class Schema1BoxedMap<br>
-extends [Schema1Boxed](#schema1boxed)
+implements [Schema1Boxed](#schema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -275,15 +275,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## BreedBoxed
-public static abstract sealed class BreedBoxed<br>
+public sealed interface BreedBoxed<br>
 permits<br>
 [BreedBoxedString](#breedboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BreedBoxedString
 public static final class BreedBoxedString<br>
-extends [BreedBoxed](#breedboxed)
+implements [BreedBoxed](#breedboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

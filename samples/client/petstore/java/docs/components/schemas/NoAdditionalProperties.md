@@ -4,7 +4,7 @@ public class NoAdditionalProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -33,15 +33,15 @@ A class that contains necessary nested
 | static class | [NoAdditionalProperties.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## NoAdditionalProperties1Boxed
-public static abstract sealed class NoAdditionalProperties1Boxed<br>
+public sealed interface NoAdditionalProperties1Boxed<br>
 permits<br>
 [NoAdditionalProperties1BoxedMap](#noadditionalproperties1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NoAdditionalProperties1BoxedMap
 public static final class NoAdditionalProperties1BoxedMap<br>
-extends [NoAdditionalProperties1Boxed](#noadditionalproperties1boxed)
+implements [NoAdditionalProperties1Boxed](#noadditionalproperties1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -156,15 +156,15 @@ A class to store validated Map payloads
 | Number | petId()<br>[optional] value must be a 64 bit integer |
 
 ## PetIdBoxed
-public static abstract sealed class PetIdBoxed<br>
+public sealed interface PetIdBoxed<br>
 permits<br>
 [PetIdBoxedNumber](#petidboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PetIdBoxedNumber
 public static final class PetIdBoxedNumber<br>
-extends [PetIdBoxed](#petidboxed)
+implements [PetIdBoxed](#petidboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -190,15 +190,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## IdBoxed
-public static abstract sealed class IdBoxed<br>
+public sealed interface IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
 public static final class IdBoxedNumber<br>
-extends [IdBoxed](#idboxed)
+implements [IdBoxed](#idboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -224,7 +224,7 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## AdditionalPropertiesBoxed
-public static abstract sealed class AdditionalPropertiesBoxed<br>
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
 [AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
@@ -233,11 +233,11 @@ permits<br>
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedVoid
 public static final class AdditionalPropertiesBoxedVoid<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -253,7 +253,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedBoolean
 public static final class AdditionalPropertiesBoxedBoolean<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -269,7 +269,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## AdditionalPropertiesBoxedNumber
 public static final class AdditionalPropertiesBoxedNumber<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -285,7 +285,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedString
 public static final class AdditionalPropertiesBoxedString<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -301,7 +301,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedList
 public static final class AdditionalPropertiesBoxedList<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -317,7 +317,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedMap
 public static final class AdditionalPropertiesBoxedMap<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

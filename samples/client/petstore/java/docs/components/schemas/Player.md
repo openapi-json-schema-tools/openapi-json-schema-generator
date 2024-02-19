@@ -4,7 +4,7 @@ public class Player<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [Player.Name](#name)<br> schema class |
 
 ## Player1Boxed
-public static abstract sealed class Player1Boxed<br>
+public sealed interface Player1Boxed<br>
 permits<br>
 [Player1BoxedMap](#player1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Player1BoxedMap
 public static final class Player1BoxedMap<br>
-extends [Player1Boxed](#player1boxed)
+implements [Player1Boxed](#player1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -133,15 +133,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NameBoxed
-public static abstract sealed class NameBoxed<br>
+public sealed interface NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NameBoxedString
 public static final class NameBoxedString<br>
-extends [NameBoxed](#nameboxed)
+implements [NameBoxed](#nameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

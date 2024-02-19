@@ -132,11 +132,11 @@ public class Player {
     }
     
     
-    public static abstract sealed class Player1Boxed permits Player1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Player1Boxed permits Player1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Player1BoxedMap extends Player1Boxed {
+    public static final class Player1BoxedMap implements Player1Boxed {
         public final PlayerMap data;
         private Player1BoxedMap(PlayerMap data) {
             this.data = data;

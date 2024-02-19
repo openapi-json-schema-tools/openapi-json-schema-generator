@@ -4,7 +4,7 @@ public class GrandparentAnimal<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
 
 ## GrandparentAnimal1Boxed
-public static abstract sealed class GrandparentAnimal1Boxed<br>
+public sealed interface GrandparentAnimal1Boxed<br>
 permits<br>
 [GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## GrandparentAnimal1BoxedMap
 public static final class GrandparentAnimal1BoxedMap<br>
-extends [GrandparentAnimal1Boxed](#grandparentanimal1boxed)
+implements [GrandparentAnimal1Boxed](#grandparentanimal1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -144,15 +144,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## PetTypeBoxed
-public static abstract sealed class PetTypeBoxed<br>
+public sealed interface PetTypeBoxed<br>
 permits<br>
 [PetTypeBoxedString](#pettypeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PetTypeBoxedString
 public static final class PetTypeBoxedString<br>
-extends [PetTypeBoxed](#pettypeboxed)
+implements [PetTypeBoxed](#pettypeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

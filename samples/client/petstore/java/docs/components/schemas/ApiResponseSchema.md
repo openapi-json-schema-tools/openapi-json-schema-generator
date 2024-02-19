@@ -4,7 +4,7 @@ public class ApiResponseSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -28,15 +28,15 @@ A class that contains necessary nested
 | static class | [ApiResponseSchema.Code](#code)<br> schema class |
 
 ## ApiResponseSchema1Boxed
-public static abstract sealed class ApiResponseSchema1Boxed<br>
+public sealed interface ApiResponseSchema1Boxed<br>
 permits<br>
 [ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApiResponseSchema1BoxedMap
 public static final class ApiResponseSchema1BoxedMap<br>
-extends [ApiResponseSchema1Boxed](#apiresponseschema1boxed)
+implements [ApiResponseSchema1Boxed](#apiresponseschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -143,15 +143,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MessageBoxed
-public static abstract sealed class MessageBoxed<br>
+public sealed interface MessageBoxed<br>
 permits<br>
 [MessageBoxedString](#messageboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MessageBoxedString
 public static final class MessageBoxedString<br>
-extends [MessageBoxed](#messageboxed)
+implements [MessageBoxed](#messageboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -177,15 +177,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## TypeBoxed
-public static abstract sealed class TypeBoxed<br>
+public sealed interface TypeBoxed<br>
 permits<br>
 [TypeBoxedString](#typeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## TypeBoxedString
 public static final class TypeBoxedString<br>
-extends [TypeBoxed](#typeboxed)
+implements [TypeBoxed](#typeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -211,15 +211,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## CodeBoxed
-public static abstract sealed class CodeBoxed<br>
+public sealed interface CodeBoxed<br>
 permits<br>
 [CodeBoxedNumber](#codeboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## CodeBoxedNumber
 public static final class CodeBoxedNumber<br>
-extends [CodeBoxed](#codeboxed)
+implements [CodeBoxed](#codeboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

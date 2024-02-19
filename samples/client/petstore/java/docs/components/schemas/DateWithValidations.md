@@ -4,7 +4,7 @@ public class DateWithValidations<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [DateWithValidations.DateWithValidations1](#datewithvalidations1)<br> schema class |
 
 ## DateWithValidations1Boxed
-public static abstract sealed class DateWithValidations1Boxed<br>
+public sealed interface DateWithValidations1Boxed<br>
 permits<br>
 [DateWithValidations1BoxedString](#datewithvalidations1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DateWithValidations1BoxedString
 public static final class DateWithValidations1BoxedString<br>
-extends [DateWithValidations1Boxed](#datewithvalidations1boxed)
+implements [DateWithValidations1Boxed](#datewithvalidations1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -4,7 +4,7 @@ public class FromSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -25,15 +25,15 @@ A class that contains necessary nested
 | static class | [FromSchema.Data](#data)<br> schema class |
 
 ## FromSchema1Boxed
-public static abstract sealed class FromSchema1Boxed<br>
+public sealed interface FromSchema1Boxed<br>
 permits<br>
 [FromSchema1BoxedMap](#fromschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FromSchema1BoxedMap
 public static final class FromSchema1BoxedMap<br>
-extends [FromSchema1Boxed](#fromschema1boxed)
+implements [FromSchema1Boxed](#fromschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -138,15 +138,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## IdBoxed
-public static abstract sealed class IdBoxed<br>
+public sealed interface IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
 public static final class IdBoxedNumber<br>
-extends [IdBoxed](#idboxed)
+implements [IdBoxed](#idboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -172,15 +172,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## DataBoxed
-public static abstract sealed class DataBoxed<br>
+public sealed interface DataBoxed<br>
 permits<br>
 [DataBoxedString](#databoxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DataBoxedString
 public static final class DataBoxedString<br>
-extends [DataBoxed](#databoxed)
+implements [DataBoxed](#databoxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

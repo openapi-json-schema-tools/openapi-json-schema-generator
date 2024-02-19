@@ -713,11 +713,11 @@ public class PathParameters {
     }
     
     
-    public static abstract sealed class PathParameters1Boxed permits PathParameters1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface PathParameters1Boxed permits PathParameters1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class PathParameters1BoxedMap extends PathParameters1Boxed {
+    public static final class PathParameters1BoxedMap implements PathParameters1Boxed {
         public final PathParametersMap data;
         private PathParameters1BoxedMap(PathParametersMap data) {
             this.data = data;

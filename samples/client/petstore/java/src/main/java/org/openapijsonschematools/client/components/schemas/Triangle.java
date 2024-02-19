@@ -35,11 +35,11 @@ public class Triangle {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Triangle1Boxed permits Triangle1BoxedVoid, Triangle1BoxedBoolean, Triangle1BoxedNumber, Triangle1BoxedString, Triangle1BoxedList, Triangle1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Triangle1Boxed permits Triangle1BoxedVoid, Triangle1BoxedBoolean, Triangle1BoxedNumber, Triangle1BoxedString, Triangle1BoxedList, Triangle1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Triangle1BoxedVoid extends Triangle1Boxed {
+    public static final class Triangle1BoxedVoid implements Triangle1Boxed {
         public final Void data;
         private Triangle1BoxedVoid(Void data) {
             this.data = data;
@@ -50,7 +50,7 @@ public class Triangle {
         }
     }
     
-    public static final class Triangle1BoxedBoolean extends Triangle1Boxed {
+    public static final class Triangle1BoxedBoolean implements Triangle1Boxed {
         public final boolean data;
         private Triangle1BoxedBoolean(boolean data) {
             this.data = data;
@@ -61,7 +61,7 @@ public class Triangle {
         }
     }
     
-    public static final class Triangle1BoxedNumber extends Triangle1Boxed {
+    public static final class Triangle1BoxedNumber implements Triangle1Boxed {
         public final Number data;
         private Triangle1BoxedNumber(Number data) {
             this.data = data;
@@ -72,7 +72,7 @@ public class Triangle {
         }
     }
     
-    public static final class Triangle1BoxedString extends Triangle1Boxed {
+    public static final class Triangle1BoxedString implements Triangle1Boxed {
         public final String data;
         private Triangle1BoxedString(String data) {
             this.data = data;
@@ -83,7 +83,7 @@ public class Triangle {
         }
     }
     
-    public static final class Triangle1BoxedList extends Triangle1Boxed {
+    public static final class Triangle1BoxedList implements Triangle1Boxed {
         public final FrozenList<@Nullable Object> data;
         private Triangle1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -94,7 +94,7 @@ public class Triangle {
         }
     }
     
-    public static final class Triangle1BoxedMap extends Triangle1Boxed {
+    public static final class Triangle1BoxedMap implements Triangle1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Triangle1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

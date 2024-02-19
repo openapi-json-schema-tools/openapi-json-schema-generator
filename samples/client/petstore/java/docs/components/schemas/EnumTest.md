@@ -4,7 +4,7 @@ public class EnumTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -40,15 +40,15 @@ A class that contains necessary nested
 | enum | [EnumTest.StringEnumStringEnums](#stringenumstringenums)<br>String enum |
 
 ## EnumTest1Boxed
-public static abstract sealed class EnumTest1Boxed<br>
+public sealed interface EnumTest1Boxed<br>
 permits<br>
 [EnumTest1BoxedMap](#enumtest1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumTest1BoxedMap
 public static final class EnumTest1BoxedMap<br>
-extends [EnumTest1Boxed](#enumtest1boxed)
+implements [EnumTest1Boxed](#enumtest1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -221,15 +221,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## EnumNumberBoxed
-public static abstract sealed class EnumNumberBoxed<br>
+public sealed interface EnumNumberBoxed<br>
 permits<br>
 [EnumNumberBoxedNumber](#enumnumberboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumNumberBoxedNumber
 public static final class EnumNumberBoxedNumber<br>
-extends [EnumNumberBoxed](#enumnumberboxed)
+implements [EnumNumberBoxed](#enumnumberboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -309,15 +309,15 @@ A class that stores Float enum values
 | NEGATIVE_1_PT_2 | value = -1.2f |
 
 ## EnumIntegerBoxed
-public static abstract sealed class EnumIntegerBoxed<br>
+public sealed interface EnumIntegerBoxed<br>
 permits<br>
 [EnumIntegerBoxedNumber](#enumintegerboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumIntegerBoxedNumber
 public static final class EnumIntegerBoxedNumber<br>
-extends [EnumIntegerBoxed](#enumintegerboxed)
+implements [EnumIntegerBoxed](#enumintegerboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -421,15 +421,15 @@ A class that stores Double enum values
 | NEGATIVE_1 | value = -1.0d |
 
 ## EnumStringRequiredBoxed
-public static abstract sealed class EnumStringRequiredBoxed<br>
+public sealed interface EnumStringRequiredBoxed<br>
 permits<br>
 [EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumStringRequiredBoxedString
 public static final class EnumStringRequiredBoxedString<br>
-extends [EnumStringRequiredBoxed](#enumstringrequiredboxed)
+implements [EnumStringRequiredBoxed](#enumstringrequiredboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -498,15 +498,15 @@ A class that stores String enum values
 | EMPTY | value = "" |
 
 ## EnumStringBoxed
-public static abstract sealed class EnumStringBoxed<br>
+public sealed interface EnumStringBoxed<br>
 permits<br>
 [EnumStringBoxedString](#enumstringboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumStringBoxedString
 public static final class EnumStringBoxedString<br>
-extends [EnumStringBoxed](#enumstringboxed)
+implements [EnumStringBoxed](#enumstringboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

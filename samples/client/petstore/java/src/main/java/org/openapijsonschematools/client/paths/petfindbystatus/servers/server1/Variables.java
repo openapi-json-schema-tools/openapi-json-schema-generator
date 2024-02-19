@@ -59,11 +59,11 @@ public class Variables {
     }
     
     
-    public static abstract sealed class VersionBoxed permits VersionBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface VersionBoxed permits VersionBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class VersionBoxedString extends VersionBoxed {
+    public static final class VersionBoxedString implements VersionBoxed {
         public final String data;
         private VersionBoxedString(String data) {
             this.data = data;
@@ -205,11 +205,11 @@ public class Variables {
     }
     
     
-    public static abstract sealed class Variables1Boxed permits Variables1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Variables1Boxed permits Variables1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Variables1BoxedMap extends Variables1Boxed {
+    public static final class Variables1BoxedMap implements Variables1Boxed {
         public final VariablesMap data;
         private Variables1BoxedMap(VariablesMap data) {
             this.data = data;

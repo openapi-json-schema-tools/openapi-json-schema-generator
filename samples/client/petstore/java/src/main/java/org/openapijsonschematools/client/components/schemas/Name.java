@@ -211,11 +211,11 @@ public class Name {
     }
     
     
-    public static abstract sealed class Name1Boxed permits Name1BoxedVoid, Name1BoxedBoolean, Name1BoxedNumber, Name1BoxedString, Name1BoxedList, Name1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Name1Boxed permits Name1BoxedVoid, Name1BoxedBoolean, Name1BoxedNumber, Name1BoxedString, Name1BoxedList, Name1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Name1BoxedVoid extends Name1Boxed {
+    public static final class Name1BoxedVoid implements Name1Boxed {
         public final Void data;
         private Name1BoxedVoid(Void data) {
             this.data = data;
@@ -226,7 +226,7 @@ public class Name {
         }
     }
     
-    public static final class Name1BoxedBoolean extends Name1Boxed {
+    public static final class Name1BoxedBoolean implements Name1Boxed {
         public final boolean data;
         private Name1BoxedBoolean(boolean data) {
             this.data = data;
@@ -237,7 +237,7 @@ public class Name {
         }
     }
     
-    public static final class Name1BoxedNumber extends Name1Boxed {
+    public static final class Name1BoxedNumber implements Name1Boxed {
         public final Number data;
         private Name1BoxedNumber(Number data) {
             this.data = data;
@@ -248,7 +248,7 @@ public class Name {
         }
     }
     
-    public static final class Name1BoxedString extends Name1Boxed {
+    public static final class Name1BoxedString implements Name1Boxed {
         public final String data;
         private Name1BoxedString(String data) {
             this.data = data;
@@ -259,7 +259,7 @@ public class Name {
         }
     }
     
-    public static final class Name1BoxedList extends Name1Boxed {
+    public static final class Name1BoxedList implements Name1Boxed {
         public final FrozenList<@Nullable Object> data;
         private Name1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -270,7 +270,7 @@ public class Name {
         }
     }
     
-    public static final class Name1BoxedMap extends Name1Boxed {
+    public static final class Name1BoxedMap implements Name1Boxed {
         public final NameMap data;
         private Name1BoxedMap(NameMap data) {
             this.data = data;

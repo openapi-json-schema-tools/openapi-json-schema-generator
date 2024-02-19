@@ -3,7 +3,7 @@ public class ApplicationxwwwformurlencodedSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -24,15 +24,15 @@ A class that contains necessary nested
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedParam](#applicationxwwwformurlencodedparam)<br> schema class |
 
 ## ApplicationxwwwformurlencodedSchema1Boxed
-public static abstract sealed class ApplicationxwwwformurlencodedSchema1Boxed<br>
+public sealed interface ApplicationxwwwformurlencodedSchema1Boxed<br>
 permits<br>
 [ApplicationxwwwformurlencodedSchema1BoxedMap](#applicationxwwwformurlencodedschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedSchema1BoxedMap
 public static final class ApplicationxwwwformurlencodedSchema1BoxedMap<br>
-extends [ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed)
+implements [ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -182,15 +182,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ApplicationxwwwformurlencodedParam2Boxed
-public static abstract sealed class ApplicationxwwwformurlencodedParam2Boxed<br>
+public sealed interface ApplicationxwwwformurlencodedParam2Boxed<br>
 permits<br>
 [ApplicationxwwwformurlencodedParam2BoxedString](#applicationxwwwformurlencodedparam2boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedParam2BoxedString
 public static final class ApplicationxwwwformurlencodedParam2BoxedString<br>
-extends [ApplicationxwwwformurlencodedParam2Boxed](#applicationxwwwformurlencodedparam2boxed)
+implements [ApplicationxwwwformurlencodedParam2Boxed](#applicationxwwwformurlencodedparam2boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -219,15 +219,15 @@ field2
 | validateAndBox                                                     |
 
 ## ApplicationxwwwformurlencodedParamBoxed
-public static abstract sealed class ApplicationxwwwformurlencodedParamBoxed<br>
+public sealed interface ApplicationxwwwformurlencodedParamBoxed<br>
 permits<br>
 [ApplicationxwwwformurlencodedParamBoxedString](#applicationxwwwformurlencodedparamboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedParamBoxedString
 public static final class ApplicationxwwwformurlencodedParamBoxedString<br>
-extends [ApplicationxwwwformurlencodedParamBoxed](#applicationxwwwformurlencodedparamboxed)
+implements [ApplicationxwwwformurlencodedParamBoxed](#applicationxwwwformurlencodedparamboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

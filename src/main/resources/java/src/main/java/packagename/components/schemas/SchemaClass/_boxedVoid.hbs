@@ -1,7 +1,7 @@
 {{#if forDocs}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "BoxedVoid" "")) }}
 public static final class {{jsonPathPiece.pascalCase}}BoxedVoid<br>
-extends [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
+implements [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -16,7 +16,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | Void | data<br>validated payload |
 
 {{else}}
-public static final class {{jsonPathPiece.pascalCase}}BoxedVoid extends {{jsonPathPiece.pascalCase}}Boxed {
+public static final class {{jsonPathPiece.pascalCase}}BoxedVoid implements {{jsonPathPiece.pascalCase}}Boxed {
     public final Void data;
     private {{jsonPathPiece.pascalCase}}BoxedVoid(Void data) {
         this.data = data;

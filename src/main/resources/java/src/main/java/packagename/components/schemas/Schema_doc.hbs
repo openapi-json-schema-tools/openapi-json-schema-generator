@@ -14,7 +14,7 @@ extends [{{refInfo.refClass}}]({{docRoot}}{{#with refInfo.ref}}{{pathFromDocRoot
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 {{#if containsArrayOutputClass}}
 - classes to store validated list payloads, extends FrozenList

@@ -4,7 +4,7 @@ public class SpecialModelname<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [SpecialModelname.A](#a)<br> schema class |
 
 ## SpecialModelname1Boxed
-public static abstract sealed class SpecialModelname1Boxed<br>
+public sealed interface SpecialModelname1Boxed<br>
 permits<br>
 [SpecialModelname1BoxedMap](#specialmodelname1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SpecialModelname1BoxedMap
 public static final class SpecialModelname1BoxedMap<br>
-extends [SpecialModelname1Boxed](#specialmodelname1boxed)
+implements [SpecialModelname1Boxed](#specialmodelname1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -131,15 +131,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ABoxed
-public static abstract sealed class ABoxed<br>
+public sealed interface ABoxed<br>
 permits<br>
 [ABoxedString](#aboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ABoxedString
 public static final class ABoxedString<br>
-extends [ABoxed](#aboxed)
+implements [ABoxed](#aboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

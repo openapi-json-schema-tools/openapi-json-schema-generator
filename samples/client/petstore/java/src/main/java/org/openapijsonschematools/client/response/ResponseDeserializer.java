@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.gson.Gson;
+
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.mediatype.MediaType;
 

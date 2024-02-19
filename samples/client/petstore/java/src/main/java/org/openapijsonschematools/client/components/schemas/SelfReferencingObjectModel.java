@@ -110,11 +110,11 @@ public class SelfReferencingObjectModel {
     }
     
     
-    public static abstract sealed class SelfReferencingObjectModel1Boxed permits SelfReferencingObjectModel1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface SelfReferencingObjectModel1Boxed permits SelfReferencingObjectModel1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class SelfReferencingObjectModel1BoxedMap extends SelfReferencingObjectModel1Boxed {
+    public static final class SelfReferencingObjectModel1BoxedMap implements SelfReferencingObjectModel1Boxed {
         public final SelfReferencingObjectModelMap data;
         private SelfReferencingObjectModel1BoxedMap(SelfReferencingObjectModelMap data) {
             this.data = data;

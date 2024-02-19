@@ -3,7 +3,7 @@ public class MultipartformdataSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -29,15 +29,15 @@ A class that contains necessary nested
 | static class | [MultipartformdataSchema.Multipartformdata0](#multipartformdata0)<br> schema class |
 
 ## MultipartformdataSchema1Boxed
-public static abstract sealed class MultipartformdataSchema1Boxed<br>
+public sealed interface MultipartformdataSchema1Boxed<br>
 permits<br>
 [MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataSchema1BoxedMap
 public static final class MultipartformdataSchema1BoxedMap<br>
-extends [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)
+implements [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -141,7 +141,7 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MultipartformdataSomePropBoxed
-public static abstract sealed class MultipartformdataSomePropBoxed<br>
+public sealed interface MultipartformdataSomePropBoxed<br>
 permits<br>
 [MultipartformdataSomePropBoxedVoid](#multipartformdatasomepropboxedvoid),
 [MultipartformdataSomePropBoxedBoolean](#multipartformdatasomepropboxedboolean),
@@ -150,11 +150,11 @@ permits<br>
 [MultipartformdataSomePropBoxedList](#multipartformdatasomepropboxedlist),
 [MultipartformdataSomePropBoxedMap](#multipartformdatasomepropboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataSomePropBoxedVoid
 public static final class MultipartformdataSomePropBoxedVoid<br>
-extends [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
+implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -170,7 +170,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## MultipartformdataSomePropBoxedBoolean
 public static final class MultipartformdataSomePropBoxedBoolean<br>
-extends [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
+implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -186,7 +186,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## MultipartformdataSomePropBoxedNumber
 public static final class MultipartformdataSomePropBoxedNumber<br>
-extends [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
+implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -202,7 +202,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## MultipartformdataSomePropBoxedString
 public static final class MultipartformdataSomePropBoxedString<br>
-extends [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
+implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -218,7 +218,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## MultipartformdataSomePropBoxedList
 public static final class MultipartformdataSomePropBoxedList<br>
-extends [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
+implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -234,7 +234,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## MultipartformdataSomePropBoxedMap
 public static final class MultipartformdataSomePropBoxedMap<br>
-extends [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
+implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -280,15 +280,15 @@ A schema class that validates payloads
 | [MultipartformdataSomePropBoxedList](#multipartformdatasomepropboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Multipartformdata0Boxed
-public static abstract sealed class Multipartformdata0Boxed<br>
+public sealed interface Multipartformdata0Boxed<br>
 permits<br>
 [Multipartformdata0BoxedString](#multipartformdata0boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Multipartformdata0BoxedString
 public static final class Multipartformdata0BoxedString<br>
-extends [Multipartformdata0Boxed](#multipartformdata0boxed)
+implements [Multipartformdata0Boxed](#multipartformdata0boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

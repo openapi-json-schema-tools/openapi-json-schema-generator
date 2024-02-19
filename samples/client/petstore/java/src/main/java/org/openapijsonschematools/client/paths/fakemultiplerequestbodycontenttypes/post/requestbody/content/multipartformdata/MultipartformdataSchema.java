@@ -106,11 +106,11 @@ public class MultipartformdataSchema {
     }
     
     
-    public static abstract sealed class MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class MultipartformdataSchema1BoxedMap extends MultipartformdataSchema1Boxed {
+    public static final class MultipartformdataSchema1BoxedMap implements MultipartformdataSchema1Boxed {
         public final MultipartformdataSchemaMap data;
         private MultipartformdataSchema1BoxedMap(MultipartformdataSchemaMap data) {
             this.data = data;

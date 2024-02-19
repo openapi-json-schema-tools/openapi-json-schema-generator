@@ -4,7 +4,7 @@ public class ArrayTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -52,15 +52,15 @@ A class that contains necessary nested
 | static class | [ArrayTest.Items](#items)<br> schema class |
 
 ## ArrayTest1Boxed
-public static abstract sealed class ArrayTest1Boxed<br>
+public sealed interface ArrayTest1Boxed<br>
 permits<br>
 [ArrayTest1BoxedMap](#arraytest1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayTest1BoxedMap
 public static final class ArrayTest1BoxedMap<br>
-extends [ArrayTest1Boxed](#arraytest1boxed)
+implements [ArrayTest1Boxed](#arraytest1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -188,15 +188,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayArrayOfModelBoxed
-public static abstract sealed class ArrayArrayOfModelBoxed<br>
+public sealed interface ArrayArrayOfModelBoxed<br>
 permits<br>
 [ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayArrayOfModelBoxedList
 public static final class ArrayArrayOfModelBoxedList<br>
-extends [ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed)
+implements [ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -296,15 +296,15 @@ A class to store validated List payloads
 | static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of([List<List<Map<String, ? extends @Nullable Object>>>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items3Boxed
-public static abstract sealed class Items3Boxed<br>
+public sealed interface Items3Boxed<br>
 permits<br>
 [Items3BoxedList](#items3boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Items3BoxedList
 public static final class Items3BoxedList<br>
-extends [Items3Boxed](#items3boxed)
+implements [Items3Boxed](#items3boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -402,15 +402,15 @@ A class to store validated List payloads
 | static [ItemsList1](#itemslist1) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfIntegerBoxed
-public static abstract sealed class ArrayArrayOfIntegerBoxed<br>
+public sealed interface ArrayArrayOfIntegerBoxed<br>
 permits<br>
 [ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayArrayOfIntegerBoxedList
 public static final class ArrayArrayOfIntegerBoxedList<br>
-extends [ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed)
+implements [ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -501,15 +501,15 @@ A class to store validated List payloads
 | static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | of([List<List<Number>>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items1Boxed
-public static abstract sealed class Items1Boxed<br>
+public sealed interface Items1Boxed<br>
 permits<br>
 [Items1BoxedList](#items1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Items1BoxedList
 public static final class Items1BoxedList<br>
-extends [Items1Boxed](#items1boxed)
+implements [Items1Boxed](#items1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -600,15 +600,15 @@ A class to store validated List payloads
 | static [ItemsList](#itemslist) | of([List<Number>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items2Boxed
-public static abstract sealed class Items2Boxed<br>
+public sealed interface Items2Boxed<br>
 permits<br>
 [Items2BoxedNumber](#items2boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Items2BoxedNumber
 public static final class Items2BoxedNumber<br>
-extends [Items2Boxed](#items2boxed)
+implements [Items2Boxed](#items2boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -634,15 +634,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## ArrayOfStringBoxed
-public static abstract sealed class ArrayOfStringBoxed<br>
+public sealed interface ArrayOfStringBoxed<br>
 permits<br>
 [ArrayOfStringBoxedList](#arrayofstringboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayOfStringBoxedList
 public static final class ArrayOfStringBoxedList<br>
-extends [ArrayOfStringBoxed](#arrayofstringboxed)
+implements [ArrayOfStringBoxed](#arrayofstringboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -730,15 +730,15 @@ A class to store validated List payloads
 | static [ArrayOfStringList](#arrayofstringlist) | of([List<String>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedString](#itemsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedString
 public static final class ItemsBoxedString<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

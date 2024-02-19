@@ -3,7 +3,7 @@ public class ApplicationxwwwformurlencodedSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -34,15 +34,15 @@ A class that contains necessary nested
 | enum | [ApplicationxwwwformurlencodedSchema.StringApplicationxwwwformurlencodedItemsEnums](#stringapplicationxwwwformurlencodeditemsenums)<br>String enum |
 
 ## ApplicationxwwwformurlencodedSchema1Boxed
-public static abstract sealed class ApplicationxwwwformurlencodedSchema1Boxed<br>
+public sealed interface ApplicationxwwwformurlencodedSchema1Boxed<br>
 permits<br>
 [ApplicationxwwwformurlencodedSchema1BoxedMap](#applicationxwwwformurlencodedschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedSchema1BoxedMap
 public static final class ApplicationxwwwformurlencodedSchema1BoxedMap<br>
-extends [ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed)
+implements [ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -148,15 +148,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ApplicationxwwwformurlencodedEnumFormStringBoxed
-public static abstract sealed class ApplicationxwwwformurlencodedEnumFormStringBoxed<br>
+public sealed interface ApplicationxwwwformurlencodedEnumFormStringBoxed<br>
 permits<br>
 [ApplicationxwwwformurlencodedEnumFormStringBoxedString](#applicationxwwwformurlencodedenumformstringboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedEnumFormStringBoxedString
 public static final class ApplicationxwwwformurlencodedEnumFormStringBoxedString<br>
-extends [ApplicationxwwwformurlencodedEnumFormStringBoxed](#applicationxwwwformurlencodedenumformstringboxed)
+implements [ApplicationxwwwformurlencodedEnumFormStringBoxed](#applicationxwwwformurlencodedenumformstringboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -229,15 +229,15 @@ A class that stores String enum values
 | LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS | value = "(xyz)" |
 
 ## ApplicationxwwwformurlencodedEnumFormStringArrayBoxed
-public static abstract sealed class ApplicationxwwwformurlencodedEnumFormStringArrayBoxed<br>
+public sealed interface ApplicationxwwwformurlencodedEnumFormStringArrayBoxed<br>
 permits<br>
 [ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList](#applicationxwwwformurlencodedenumformstringarrayboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList
 public static final class ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList<br>
-extends [ApplicationxwwwformurlencodedEnumFormStringArrayBoxed](#applicationxwwwformurlencodedenumformstringarrayboxed)
+implements [ApplicationxwwwformurlencodedEnumFormStringArrayBoxed](#applicationxwwwformurlencodedenumformstringarrayboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -329,15 +329,15 @@ A class to store validated List payloads
 | static [ApplicationxwwwformurlencodedEnumFormStringArrayList](#applicationxwwwformurlencodedenumformstringarraylist) | of([List<String>](#applicationxwwwformurlencodedenumformstringarraylistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ApplicationxwwwformurlencodedItemsBoxed
-public static abstract sealed class ApplicationxwwwformurlencodedItemsBoxed<br>
+public sealed interface ApplicationxwwwformurlencodedItemsBoxed<br>
 permits<br>
 [ApplicationxwwwformurlencodedItemsBoxedString](#applicationxwwwformurlencodeditemsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedItemsBoxedString
 public static final class ApplicationxwwwformurlencodedItemsBoxedString<br>
-extends [ApplicationxwwwformurlencodedItemsBoxed](#applicationxwwwformurlencodeditemsboxed)
+implements [ApplicationxwwwformurlencodedItemsBoxed](#applicationxwwwformurlencodeditemsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

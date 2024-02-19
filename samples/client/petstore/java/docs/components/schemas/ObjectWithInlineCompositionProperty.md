@@ -4,7 +4,7 @@ public class ObjectWithInlineCompositionProperty<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -30,15 +30,15 @@ A class that contains necessary nested
 | static class | [ObjectWithInlineCompositionProperty.Schema0](#schema0)<br> schema class |
 
 ## ObjectWithInlineCompositionProperty1Boxed
-public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed<br>
+public sealed interface ObjectWithInlineCompositionProperty1Boxed<br>
 permits<br>
 [ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithInlineCompositionProperty1BoxedMap
 public static final class ObjectWithInlineCompositionProperty1BoxedMap<br>
-extends [ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)
+implements [ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -142,7 +142,7 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## SomePropBoxed
-public static abstract sealed class SomePropBoxed<br>
+public sealed interface SomePropBoxed<br>
 permits<br>
 [SomePropBoxedVoid](#somepropboxedvoid),
 [SomePropBoxedBoolean](#somepropboxedboolean),
@@ -151,11 +151,11 @@ permits<br>
 [SomePropBoxedList](#somepropboxedlist),
 [SomePropBoxedMap](#somepropboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SomePropBoxedVoid
 public static final class SomePropBoxedVoid<br>
-extends [SomePropBoxed](#somepropboxed)
+implements [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -171,7 +171,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## SomePropBoxedBoolean
 public static final class SomePropBoxedBoolean<br>
-extends [SomePropBoxed](#somepropboxed)
+implements [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -187,7 +187,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## SomePropBoxedNumber
 public static final class SomePropBoxedNumber<br>
-extends [SomePropBoxed](#somepropboxed)
+implements [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -203,7 +203,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## SomePropBoxedString
 public static final class SomePropBoxedString<br>
-extends [SomePropBoxed](#somepropboxed)
+implements [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -219,7 +219,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## SomePropBoxedList
 public static final class SomePropBoxedList<br>
-extends [SomePropBoxed](#somepropboxed)
+implements [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -235,7 +235,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## SomePropBoxedMap
 public static final class SomePropBoxedMap<br>
-extends [SomePropBoxed](#somepropboxed)
+implements [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -281,15 +281,15 @@ A schema class that validates payloads
 | [SomePropBoxedList](#somepropboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
-public static abstract sealed class Schema0Boxed<br>
+public sealed interface Schema0Boxed<br>
 permits<br>
 [Schema0BoxedString](#schema0boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedString
 public static final class Schema0BoxedString<br>
-extends [Schema0Boxed](#schema0boxed)
+implements [Schema0Boxed](#schema0boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

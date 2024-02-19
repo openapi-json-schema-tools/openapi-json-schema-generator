@@ -4,7 +4,7 @@ public class ComposedOneOfDifferentTypes<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -47,7 +47,7 @@ A class that contains necessary nested
 | static class | [ComposedOneOfDifferentTypes.Schema2](#schema2)<br> schema class |
 
 ## ComposedOneOfDifferentTypes1Boxed
-public static abstract sealed class ComposedOneOfDifferentTypes1Boxed<br>
+public sealed interface ComposedOneOfDifferentTypes1Boxed<br>
 permits<br>
 [ComposedOneOfDifferentTypes1BoxedVoid](#composedoneofdifferenttypes1boxedvoid),
 [ComposedOneOfDifferentTypes1BoxedBoolean](#composedoneofdifferenttypes1boxedboolean),
@@ -56,11 +56,11 @@ permits<br>
 [ComposedOneOfDifferentTypes1BoxedList](#composedoneofdifferenttypes1boxedlist),
 [ComposedOneOfDifferentTypes1BoxedMap](#composedoneofdifferenttypes1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ComposedOneOfDifferentTypes1BoxedVoid
 public static final class ComposedOneOfDifferentTypes1BoxedVoid<br>
-extends [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
+implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -76,7 +76,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ComposedOneOfDifferentTypes1BoxedBoolean
 public static final class ComposedOneOfDifferentTypes1BoxedBoolean<br>
-extends [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
+implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -92,7 +92,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ComposedOneOfDifferentTypes1BoxedNumber
 public static final class ComposedOneOfDifferentTypes1BoxedNumber<br>
-extends [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
+implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -108,7 +108,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ComposedOneOfDifferentTypes1BoxedString
 public static final class ComposedOneOfDifferentTypes1BoxedString<br>
-extends [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
+implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -124,7 +124,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ComposedOneOfDifferentTypes1BoxedList
 public static final class ComposedOneOfDifferentTypes1BoxedList<br>
-extends [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
+implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -140,7 +140,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ComposedOneOfDifferentTypes1BoxedMap
 public static final class ComposedOneOfDifferentTypes1BoxedMap<br>
-extends [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
+implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -189,15 +189,15 @@ this is a model that allows payloads of type object or number
 | [ComposedOneOfDifferentTypes1BoxedList](#composedoneofdifferenttypes1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema6Boxed
-public static abstract sealed class Schema6Boxed<br>
+public sealed interface Schema6Boxed<br>
 permits<br>
 [Schema6BoxedString](#schema6boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema6BoxedString
 public static final class Schema6BoxedString<br>
-extends [Schema6Boxed](#schema6boxed)
+implements [Schema6Boxed](#schema6boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -253,15 +253,15 @@ String validatedPayload = ComposedOneOfDifferentTypes.Schema6.validate(
 | [Schema6BoxedString](#schema6boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema5Boxed
-public static abstract sealed class Schema5Boxed<br>
+public sealed interface Schema5Boxed<br>
 permits<br>
 [Schema5BoxedList](#schema5boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema5BoxedList
 public static final class Schema5BoxedList<br>
-extends [Schema5Boxed](#schema5boxed)
+implements [Schema5Boxed](#schema5boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -357,7 +357,7 @@ A class to store validated List payloads
 | static [Schema5List](#schema5list) | of([List<? extends @Nullable Object>](#schema5listbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedVoid](#itemsboxedvoid),
 [ItemsBoxedBoolean](#itemsboxedboolean),
@@ -366,11 +366,11 @@ permits<br>
 [ItemsBoxedList](#itemsboxedlist),
 [ItemsBoxedMap](#itemsboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedVoid
 public static final class ItemsBoxedVoid<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -386,7 +386,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ItemsBoxedBoolean
 public static final class ItemsBoxedBoolean<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -402,7 +402,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ItemsBoxedNumber
 public static final class ItemsBoxedNumber<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -418,7 +418,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ItemsBoxedString
 public static final class ItemsBoxedString<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -434,7 +434,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ItemsBoxedList
 public static final class ItemsBoxedList<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -450,7 +450,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ItemsBoxedMap
 public static final class ItemsBoxedMap<br>
-extends [ItemsBoxed](#itemsboxed)
+implements [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -476,15 +476,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## Schema4Boxed
-public static abstract sealed class Schema4Boxed<br>
+public sealed interface Schema4Boxed<br>
 permits<br>
 [Schema4BoxedMap](#schema4boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema4BoxedMap
 public static final class Schema4BoxedMap<br>
-extends [Schema4Boxed](#schema4boxed)
+implements [Schema4Boxed](#schema4boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -518,15 +518,15 @@ A schema class that validates payloads
 | [Schema4BoxedMap](#schema4boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema3Boxed
-public static abstract sealed class Schema3Boxed<br>
+public sealed interface Schema3Boxed<br>
 permits<br>
 [Schema3BoxedString](#schema3boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema3BoxedString
 public static final class Schema3BoxedString<br>
-extends [Schema3Boxed](#schema3boxed)
+implements [Schema3Boxed](#schema3boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -552,15 +552,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## Schema2Boxed
-public static abstract sealed class Schema2Boxed<br>
+public sealed interface Schema2Boxed<br>
 permits<br>
 [Schema2BoxedVoid](#schema2boxedvoid)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema2BoxedVoid
 public static final class Schema2BoxedVoid<br>
-extends [Schema2Boxed](#schema2boxed)
+implements [Schema2Boxed](#schema2boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 

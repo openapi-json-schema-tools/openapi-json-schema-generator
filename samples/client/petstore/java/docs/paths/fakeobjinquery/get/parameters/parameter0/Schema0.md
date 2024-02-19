@@ -3,7 +3,7 @@ public class Schema0<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -21,15 +21,15 @@ A class that contains necessary nested
 | static class | [Schema0.Keyword0](#keyword0)<br> schema class |
 
 ## Schema01Boxed
-public static abstract sealed class Schema01Boxed<br>
+public sealed interface Schema01Boxed<br>
 permits<br>
 [Schema01BoxedMap](#schema01boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema01BoxedMap
 public static final class Schema01BoxedMap<br>
-extends [Schema01Boxed](#schema01boxed)
+implements [Schema01Boxed](#schema01boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -127,15 +127,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Keyword0Boxed
-public static abstract sealed class Keyword0Boxed<br>
+public sealed interface Keyword0Boxed<br>
 permits<br>
 [Keyword0BoxedString](#keyword0boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Keyword0BoxedString
 public static final class Keyword0BoxedString<br>
-extends [Keyword0Boxed](#keyword0boxed)
+implements [Keyword0Boxed](#keyword0boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

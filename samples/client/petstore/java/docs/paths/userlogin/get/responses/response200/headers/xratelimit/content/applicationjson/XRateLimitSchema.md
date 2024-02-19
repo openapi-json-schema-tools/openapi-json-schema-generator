@@ -3,7 +3,7 @@ public class XRateLimitSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -14,15 +14,15 @@ A class that contains necessary nested
 | static class | [XRateLimitSchema.XRateLimitSchema1](#xratelimitschema1)<br> schema class |
 
 ## XRateLimitSchema1Boxed
-public static abstract sealed class XRateLimitSchema1Boxed<br>
+public sealed interface XRateLimitSchema1Boxed<br>
 permits<br>
 [XRateLimitSchema1BoxedNumber](#xratelimitschema1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## XRateLimitSchema1BoxedNumber
 public static final class XRateLimitSchema1BoxedNumber<br>
-extends [XRateLimitSchema1Boxed](#xratelimitschema1boxed)
+implements [XRateLimitSchema1Boxed](#xratelimitschema1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

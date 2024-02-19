@@ -3,7 +3,7 @@ public class MultipartformdataSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -21,15 +21,15 @@ A class that contains necessary nested
 | static class | [MultipartformdataSchema.MultipartformdataB](#multipartformdatab)<br> schema class |
 
 ## MultipartformdataSchema1Boxed
-public static abstract sealed class MultipartformdataSchema1Boxed<br>
+public sealed interface MultipartformdataSchema1Boxed<br>
 permits<br>
 [MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataSchema1BoxedMap
 public static final class MultipartformdataSchema1BoxedMap<br>
-extends [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)
+implements [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -127,15 +127,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MultipartformdataBBoxed
-public static abstract sealed class MultipartformdataBBoxed<br>
+public sealed interface MultipartformdataBBoxed<br>
 permits<br>
 [MultipartformdataBBoxedString](#multipartformdatabboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataBBoxedString
 public static final class MultipartformdataBBoxedString<br>
-extends [MultipartformdataBBoxed](#multipartformdatabboxed)
+implements [MultipartformdataBBoxed](#multipartformdatabboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

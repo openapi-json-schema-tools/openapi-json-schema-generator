@@ -66,11 +66,11 @@ public class Schema2 {
     }
     
     
-    public static abstract sealed class Schema21Boxed permits Schema21BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface Schema21Boxed permits Schema21BoxedList {
+        @Nullable Object data();
     }
     
-    public static final class Schema21BoxedList extends Schema21Boxed {
+    public static final class Schema21BoxedList implements Schema21Boxed {
         public final SchemaList2 data;
         private Schema21BoxedList(SchemaList2 data) {
             this.data = data;

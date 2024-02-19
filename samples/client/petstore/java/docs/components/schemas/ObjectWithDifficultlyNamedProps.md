@@ -4,7 +4,7 @@ public class ObjectWithDifficultlyNamedProps<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -28,15 +28,15 @@ A class that contains necessary nested
 | static class | [ObjectWithDifficultlyNamedProps.Specialpropertyname](#specialpropertyname)<br> schema class |
 
 ## ObjectWithDifficultlyNamedProps1Boxed
-public static abstract sealed class ObjectWithDifficultlyNamedProps1Boxed<br>
+public sealed interface ObjectWithDifficultlyNamedProps1Boxed<br>
 permits<br>
 [ObjectWithDifficultlyNamedProps1BoxedMap](#objectwithdifficultlynamedprops1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithDifficultlyNamedProps1BoxedMap
 public static final class ObjectWithDifficultlyNamedProps1BoxedMap<br>
-extends [ObjectWithDifficultlyNamedProps1Boxed](#objectwithdifficultlynamedprops1boxed)
+implements [ObjectWithDifficultlyNamedProps1Boxed](#objectwithdifficultlynamedprops1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -165,15 +165,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Schema123NumberBoxed
-public static abstract sealed class Schema123NumberBoxed<br>
+public sealed interface Schema123NumberBoxed<br>
 permits<br>
 [Schema123NumberBoxedNumber](#schema123numberboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema123NumberBoxedNumber
 public static final class Schema123NumberBoxedNumber<br>
-extends [Schema123NumberBoxed](#schema123numberboxed)
+implements [Schema123NumberBoxed](#schema123numberboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -199,15 +199,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## Schema123listBoxed
-public static abstract sealed class Schema123listBoxed<br>
+public sealed interface Schema123listBoxed<br>
 permits<br>
 [Schema123listBoxedString](#schema123listboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema123listBoxedString
 public static final class Schema123listBoxedString<br>
-extends [Schema123listBoxed](#schema123listboxed)
+implements [Schema123listBoxed](#schema123listboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -233,15 +233,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## SpecialpropertynameBoxed
-public static abstract sealed class SpecialpropertynameBoxed<br>
+public sealed interface SpecialpropertynameBoxed<br>
 permits<br>
 [SpecialpropertynameBoxedNumber](#specialpropertynameboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SpecialpropertynameBoxedNumber
 public static final class SpecialpropertynameBoxedNumber<br>
-extends [SpecialpropertynameBoxed](#specialpropertynameboxed)
+implements [SpecialpropertynameBoxed](#specialpropertynameboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

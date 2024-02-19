@@ -47,11 +47,11 @@ public class NullableShape {
     }
     
     
-    public static abstract sealed class NullableShape1Boxed permits NullableShape1BoxedVoid, NullableShape1BoxedBoolean, NullableShape1BoxedNumber, NullableShape1BoxedString, NullableShape1BoxedList, NullableShape1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface NullableShape1Boxed permits NullableShape1BoxedVoid, NullableShape1BoxedBoolean, NullableShape1BoxedNumber, NullableShape1BoxedString, NullableShape1BoxedList, NullableShape1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class NullableShape1BoxedVoid extends NullableShape1Boxed {
+    public static final class NullableShape1BoxedVoid implements NullableShape1Boxed {
         public final Void data;
         private NullableShape1BoxedVoid(Void data) {
             this.data = data;
@@ -62,7 +62,7 @@ public class NullableShape {
         }
     }
     
-    public static final class NullableShape1BoxedBoolean extends NullableShape1Boxed {
+    public static final class NullableShape1BoxedBoolean implements NullableShape1Boxed {
         public final boolean data;
         private NullableShape1BoxedBoolean(boolean data) {
             this.data = data;
@@ -73,7 +73,7 @@ public class NullableShape {
         }
     }
     
-    public static final class NullableShape1BoxedNumber extends NullableShape1Boxed {
+    public static final class NullableShape1BoxedNumber implements NullableShape1Boxed {
         public final Number data;
         private NullableShape1BoxedNumber(Number data) {
             this.data = data;
@@ -84,7 +84,7 @@ public class NullableShape {
         }
     }
     
-    public static final class NullableShape1BoxedString extends NullableShape1Boxed {
+    public static final class NullableShape1BoxedString implements NullableShape1Boxed {
         public final String data;
         private NullableShape1BoxedString(String data) {
             this.data = data;
@@ -95,7 +95,7 @@ public class NullableShape {
         }
     }
     
-    public static final class NullableShape1BoxedList extends NullableShape1Boxed {
+    public static final class NullableShape1BoxedList implements NullableShape1Boxed {
         public final FrozenList<@Nullable Object> data;
         private NullableShape1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -106,7 +106,7 @@ public class NullableShape {
         }
     }
     
-    public static final class NullableShape1BoxedMap extends NullableShape1Boxed {
+    public static final class NullableShape1BoxedMap implements NullableShape1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private NullableShape1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

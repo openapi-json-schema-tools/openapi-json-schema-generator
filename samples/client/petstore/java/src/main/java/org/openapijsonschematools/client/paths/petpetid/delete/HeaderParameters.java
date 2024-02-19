@@ -93,11 +93,11 @@ public class HeaderParameters {
     }
     
     
-    public static abstract sealed class HeaderParameters1Boxed permits HeaderParameters1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface HeaderParameters1Boxed permits HeaderParameters1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class HeaderParameters1BoxedMap extends HeaderParameters1Boxed {
+    public static final class HeaderParameters1BoxedMap implements HeaderParameters1Boxed {
         public final HeaderParametersMap data;
         private HeaderParameters1BoxedMap(HeaderParametersMap data) {
             this.data = data;

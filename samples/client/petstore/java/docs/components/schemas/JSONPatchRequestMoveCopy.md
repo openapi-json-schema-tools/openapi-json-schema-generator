@@ -4,7 +4,7 @@ public class JSONPatchRequestMoveCopy<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -38,15 +38,15 @@ A class that contains necessary nested
 | static class | [JSONPatchRequestMoveCopy.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## JSONPatchRequestMoveCopy1Boxed
-public static abstract sealed class JSONPatchRequestMoveCopy1Boxed<br>
+public sealed interface JSONPatchRequestMoveCopy1Boxed<br>
 permits<br>
 [JSONPatchRequestMoveCopy1BoxedMap](#jsonpatchrequestmovecopy1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## JSONPatchRequestMoveCopy1BoxedMap
 public static final class JSONPatchRequestMoveCopy1BoxedMap<br>
-extends [JSONPatchRequestMoveCopy1Boxed](#jsonpatchrequestmovecopy1boxed)
+implements [JSONPatchRequestMoveCopy1Boxed](#jsonpatchrequestmovecopy1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -262,15 +262,15 @@ A class to store validated Map payloads
 | String | path()<br> |
 
 ## OpBoxed
-public static abstract sealed class OpBoxed<br>
+public sealed interface OpBoxed<br>
 permits<br>
 [OpBoxedString](#opboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## OpBoxedString
 public static final class OpBoxedString<br>
-extends [OpBoxed](#opboxed)
+implements [OpBoxed](#opboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -341,15 +341,15 @@ A class that stores String enum values
 | COPY | value = "copy" |
 
 ## PathBoxed
-public static abstract sealed class PathBoxed<br>
+public sealed interface PathBoxed<br>
 permits<br>
 [PathBoxedString](#pathboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PathBoxedString
 public static final class PathBoxedString<br>
-extends [PathBoxed](#pathboxed)
+implements [PathBoxed](#pathboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -378,15 +378,15 @@ A JSON Pointer path.
 | validateAndBox                                                     |
 
 ## FromBoxed
-public static abstract sealed class FromBoxed<br>
+public sealed interface FromBoxed<br>
 permits<br>
 [FromBoxedString](#fromboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FromBoxedString
 public static final class FromBoxedString<br>
-extends [FromBoxed](#fromboxed)
+implements [FromBoxed](#fromboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -415,7 +415,7 @@ A JSON Pointer path.
 | validateAndBox                                                     |
 
 ## AdditionalPropertiesBoxed
-public static abstract sealed class AdditionalPropertiesBoxed<br>
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
 [AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
@@ -424,11 +424,11 @@ permits<br>
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedVoid
 public static final class AdditionalPropertiesBoxedVoid<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -444,7 +444,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedBoolean
 public static final class AdditionalPropertiesBoxedBoolean<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -460,7 +460,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## AdditionalPropertiesBoxedNumber
 public static final class AdditionalPropertiesBoxedNumber<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -476,7 +476,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedString
 public static final class AdditionalPropertiesBoxedString<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -492,7 +492,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedList
 public static final class AdditionalPropertiesBoxedList<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -508,7 +508,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedMap
 public static final class AdditionalPropertiesBoxedMap<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

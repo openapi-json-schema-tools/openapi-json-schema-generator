@@ -44,11 +44,11 @@ public class DanishPig {
     }
     
     
-    public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ClassNameBoxed permits ClassNameBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ClassNameBoxedString extends ClassNameBoxed {
+    public static final class ClassNameBoxedString implements ClassNameBoxed {
         public final String data;
         private ClassNameBoxedString(String data) {
             this.data = data;
@@ -198,11 +198,11 @@ public class DanishPig {
     }
     
     
-    public static abstract sealed class DanishPig1Boxed permits DanishPig1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface DanishPig1Boxed permits DanishPig1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class DanishPig1BoxedMap extends DanishPig1Boxed {
+    public static final class DanishPig1BoxedMap implements DanishPig1Boxed {
         public final DanishPigMap data;
         private DanishPig1BoxedMap(DanishPigMap data) {
             this.data = data;

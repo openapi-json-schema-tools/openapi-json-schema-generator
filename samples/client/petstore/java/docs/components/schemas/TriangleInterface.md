@@ -4,7 +4,7 @@ public class TriangleInterface<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -32,7 +32,7 @@ A class that contains necessary nested
 | enum | [TriangleInterface.StringShapeTypeEnums](#stringshapetypeenums)<br>String enum |
 
 ## TriangleInterface1Boxed
-public static abstract sealed class TriangleInterface1Boxed<br>
+public sealed interface TriangleInterface1Boxed<br>
 permits<br>
 [TriangleInterface1BoxedVoid](#triangleinterface1boxedvoid),
 [TriangleInterface1BoxedBoolean](#triangleinterface1boxedboolean),
@@ -41,11 +41,11 @@ permits<br>
 [TriangleInterface1BoxedList](#triangleinterface1boxedlist),
 [TriangleInterface1BoxedMap](#triangleinterface1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## TriangleInterface1BoxedVoid
 public static final class TriangleInterface1BoxedVoid<br>
-extends [TriangleInterface1Boxed](#triangleinterface1boxed)
+implements [TriangleInterface1Boxed](#triangleinterface1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -61,7 +61,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## TriangleInterface1BoxedBoolean
 public static final class TriangleInterface1BoxedBoolean<br>
-extends [TriangleInterface1Boxed](#triangleinterface1boxed)
+implements [TriangleInterface1Boxed](#triangleinterface1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -77,7 +77,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## TriangleInterface1BoxedNumber
 public static final class TriangleInterface1BoxedNumber<br>
-extends [TriangleInterface1Boxed](#triangleinterface1boxed)
+implements [TriangleInterface1Boxed](#triangleinterface1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -93,7 +93,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## TriangleInterface1BoxedString
 public static final class TriangleInterface1BoxedString<br>
-extends [TriangleInterface1Boxed](#triangleinterface1boxed)
+implements [TriangleInterface1Boxed](#triangleinterface1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -109,7 +109,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## TriangleInterface1BoxedList
 public static final class TriangleInterface1BoxedList<br>
-extends [TriangleInterface1Boxed](#triangleinterface1boxed)
+implements [TriangleInterface1Boxed](#triangleinterface1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -125,7 +125,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## TriangleInterface1BoxedMap
 public static final class TriangleInterface1BoxedMap<br>
-extends [TriangleInterface1Boxed](#triangleinterface1boxed)
+implements [TriangleInterface1Boxed](#triangleinterface1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -262,15 +262,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## TriangleTypeBoxed
-public static abstract sealed class TriangleTypeBoxed<br>
+public sealed interface TriangleTypeBoxed<br>
 permits<br>
 [TriangleTypeBoxedString](#triangletypeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## TriangleTypeBoxedString
 public static final class TriangleTypeBoxedString<br>
-extends [TriangleTypeBoxed](#triangletypeboxed)
+implements [TriangleTypeBoxed](#triangletypeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -296,15 +296,15 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## ShapeTypeBoxed
-public static abstract sealed class ShapeTypeBoxed<br>
+public sealed interface ShapeTypeBoxed<br>
 permits<br>
 [ShapeTypeBoxedString](#shapetypeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ShapeTypeBoxedString
 public static final class ShapeTypeBoxedString<br>
-extends [ShapeTypeBoxed](#shapetypeboxed)
+implements [ShapeTypeBoxed](#shapetypeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

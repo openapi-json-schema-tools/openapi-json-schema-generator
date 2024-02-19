@@ -187,11 +187,11 @@ public class CookieParameters {
     }
     
     
-    public static abstract sealed class CookieParameters1Boxed permits CookieParameters1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface CookieParameters1Boxed permits CookieParameters1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class CookieParameters1BoxedMap extends CookieParameters1Boxed {
+    public static final class CookieParameters1BoxedMap implements CookieParameters1Boxed {
         public final CookieParametersMap data;
         private CookieParameters1BoxedMap(CookieParametersMap data) {
             this.data = data;

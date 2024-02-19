@@ -4,7 +4,7 @@ public class Items<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [Items.Items2](#items2)<br> schema class |
 
 ## Items1Boxed
-public static abstract sealed class Items1Boxed<br>
+public sealed interface Items1Boxed<br>
 permits<br>
 [Items1BoxedList](#items1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Items1BoxedList
 public static final class Items1BoxedList<br>
-extends [Items1Boxed](#items1boxed)
+implements [Items1Boxed](#items1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -119,15 +119,15 @@ A class to store validated List payloads
 | static [ItemsList](#itemslist) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items2Boxed
-public static abstract sealed class Items2Boxed<br>
+public sealed interface Items2Boxed<br>
 permits<br>
 [Items2BoxedMap](#items2boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Items2BoxedMap
 public static final class Items2BoxedMap<br>
-extends [Items2Boxed](#items2boxed)
+implements [Items2Boxed](#items2boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

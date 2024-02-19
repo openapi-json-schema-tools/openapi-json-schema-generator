@@ -163,11 +163,11 @@ public class ReqPropsFromExplicitAddProps {
     }
     
     
-    public static abstract sealed class ReqPropsFromExplicitAddProps1Boxed permits ReqPropsFromExplicitAddProps1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ReqPropsFromExplicitAddProps1Boxed permits ReqPropsFromExplicitAddProps1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ReqPropsFromExplicitAddProps1BoxedMap extends ReqPropsFromExplicitAddProps1Boxed {
+    public static final class ReqPropsFromExplicitAddProps1BoxedMap implements ReqPropsFromExplicitAddProps1Boxed {
         public final ReqPropsFromExplicitAddPropsMap data;
         private ReqPropsFromExplicitAddProps1BoxedMap(ReqPropsFromExplicitAddPropsMap data) {
             this.data = data;

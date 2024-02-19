@@ -4,7 +4,7 @@ public class DecimalPayload<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [DecimalPayload.DecimalPayload1](#decimalpayload1)<br> schema class |
 
 ## DecimalPayload1Boxed
-public static abstract sealed class DecimalPayload1Boxed<br>
+public sealed interface DecimalPayload1Boxed<br>
 permits<br>
 [DecimalPayload1BoxedString](#decimalpayload1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DecimalPayload1BoxedString
 public static final class DecimalPayload1BoxedString<br>
-extends [DecimalPayload1Boxed](#decimalpayload1boxed)
+implements [DecimalPayload1Boxed](#decimalpayload1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

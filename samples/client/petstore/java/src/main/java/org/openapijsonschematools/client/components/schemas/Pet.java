@@ -101,11 +101,11 @@ public class Pet {
     }
     
     
-    public static abstract sealed class PhotoUrlsBoxed permits PhotoUrlsBoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface PhotoUrlsBoxed permits PhotoUrlsBoxedList {
+        @Nullable Object data();
     }
     
-    public static final class PhotoUrlsBoxedList extends PhotoUrlsBoxed {
+    public static final class PhotoUrlsBoxedList implements PhotoUrlsBoxed {
         public final PhotoUrlsList data;
         private PhotoUrlsBoxedList(PhotoUrlsList data) {
             this.data = data;
@@ -202,11 +202,11 @@ public class Pet {
     }
     
     
-    public static abstract sealed class StatusBoxed permits StatusBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface StatusBoxed permits StatusBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class StatusBoxedString extends StatusBoxed {
+    public static final class StatusBoxedString implements StatusBoxed {
         public final String data;
         private StatusBoxedString(String data) {
             this.data = data;
@@ -310,11 +310,11 @@ public class Pet {
     }
     
     
-    public static abstract sealed class TagsBoxed permits TagsBoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface TagsBoxed permits TagsBoxedList {
+        @Nullable Object data();
     }
     
-    public static final class TagsBoxedList extends TagsBoxed {
+    public static final class TagsBoxedList implements TagsBoxed {
         public final TagsList data;
         private TagsBoxedList(TagsList data) {
             this.data = data;
@@ -650,11 +650,11 @@ public class Pet {
     }
     
     
-    public static abstract sealed class Pet1Boxed permits Pet1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Pet1Boxed permits Pet1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Pet1BoxedMap extends Pet1Boxed {
+    public static final class Pet1BoxedMap implements Pet1Boxed {
         public final PetMap data;
         private Pet1BoxedMap(PetMap data) {
             this.data = data;

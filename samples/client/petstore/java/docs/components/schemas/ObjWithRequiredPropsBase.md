@@ -4,7 +4,7 @@ public class ObjWithRequiredPropsBase<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [ObjWithRequiredPropsBase.B](#b)<br> schema class |
 
 ## ObjWithRequiredPropsBase1Boxed
-public static abstract sealed class ObjWithRequiredPropsBase1Boxed<br>
+public sealed interface ObjWithRequiredPropsBase1Boxed<br>
 permits<br>
 [ObjWithRequiredPropsBase1BoxedMap](#objwithrequiredpropsbase1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ObjWithRequiredPropsBase1BoxedMap
 public static final class ObjWithRequiredPropsBase1BoxedMap<br>
-extends [ObjWithRequiredPropsBase1Boxed](#objwithrequiredpropsbase1boxed)
+implements [ObjWithRequiredPropsBase1Boxed](#objwithrequiredpropsbase1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -144,15 +144,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## BBoxed
-public static abstract sealed class BBoxed<br>
+public sealed interface BBoxed<br>
 permits<br>
 [BBoxedString](#bboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BBoxedString
 public static final class BBoxedString<br>
-extends [BBoxed](#bboxed)
+implements [BBoxed](#bboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

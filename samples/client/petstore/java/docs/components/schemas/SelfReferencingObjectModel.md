@@ -4,7 +4,7 @@ public class SelfReferencingObjectModel<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -19,15 +19,15 @@ A class that contains necessary nested
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap)<br> output class for Map payloads |
 
 ## SelfReferencingObjectModel1Boxed
-public static abstract sealed class SelfReferencingObjectModel1Boxed<br>
+public sealed interface SelfReferencingObjectModel1Boxed<br>
 permits<br>
 [SelfReferencingObjectModel1BoxedMap](#selfreferencingobjectmodel1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SelfReferencingObjectModel1BoxedMap
 public static final class SelfReferencingObjectModel1BoxedMap<br>
-extends [SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed)
+implements [SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

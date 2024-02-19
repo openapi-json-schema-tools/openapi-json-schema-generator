@@ -44,11 +44,11 @@ public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class IntegerSchemaBoxed permits IntegerSchemaBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface IntegerSchemaBoxed permits IntegerSchemaBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class IntegerSchemaBoxedNumber extends IntegerSchemaBoxed {
+    public static final class IntegerSchemaBoxedNumber implements IntegerSchemaBoxed {
         public final Number data;
         private IntegerSchemaBoxedNumber(Number data) {
             this.data = data;
@@ -144,11 +144,11 @@ public class FormatTest {
     }
     
     
-    public static abstract sealed class Int32withValidationsBoxed permits Int32withValidationsBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface Int32withValidationsBoxed permits Int32withValidationsBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class Int32withValidationsBoxedNumber extends Int32withValidationsBoxed {
+    public static final class Int32withValidationsBoxedNumber implements Int32withValidationsBoxed {
         public final Number data;
         private Int32withValidationsBoxedNumber(Number data) {
             this.data = data;
@@ -235,11 +235,11 @@ public class FormatTest {
     }
     
     
-    public static abstract sealed class NumberSchemaBoxed permits NumberSchemaBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface NumberSchemaBoxed permits NumberSchemaBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class NumberSchemaBoxedNumber extends NumberSchemaBoxed {
+    public static final class NumberSchemaBoxedNumber implements NumberSchemaBoxed {
         public final Number data;
         private NumberSchemaBoxedNumber(Number data) {
             this.data = data;
@@ -323,11 +323,11 @@ public class FormatTest {
         }
     }    
     
-    public static abstract sealed class FloatSchemaBoxed permits FloatSchemaBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface FloatSchemaBoxed permits FloatSchemaBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class FloatSchemaBoxedNumber extends FloatSchemaBoxed {
+    public static final class FloatSchemaBoxedNumber implements FloatSchemaBoxed {
         public final Number data;
         private FloatSchemaBoxedNumber(Number data) {
             this.data = data;
@@ -409,11 +409,11 @@ public class FormatTest {
     }
     
     
-    public static abstract sealed class DoubleSchemaBoxed permits DoubleSchemaBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface DoubleSchemaBoxed permits DoubleSchemaBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class DoubleSchemaBoxedNumber extends DoubleSchemaBoxed {
+    public static final class DoubleSchemaBoxedNumber implements DoubleSchemaBoxed {
         public final Number data;
         private DoubleSchemaBoxedNumber(Number data) {
             this.data = data;
@@ -553,11 +553,11 @@ public class FormatTest {
     }
     
     
-    public static abstract sealed class ArrayWithUniqueItemsBoxed permits ArrayWithUniqueItemsBoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ArrayWithUniqueItemsBoxed permits ArrayWithUniqueItemsBoxedList {
+        @Nullable Object data();
     }
     
-    public static final class ArrayWithUniqueItemsBoxedList extends ArrayWithUniqueItemsBoxed {
+    public static final class ArrayWithUniqueItemsBoxedList implements ArrayWithUniqueItemsBoxed {
         public final ArrayWithUniqueItemsList data;
         private ArrayWithUniqueItemsBoxedList(ArrayWithUniqueItemsList data) {
             this.data = data;
@@ -641,11 +641,11 @@ public class FormatTest {
         }
     }    
     
-    public static abstract sealed class StringSchemaBoxed permits StringSchemaBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface StringSchemaBoxed permits StringSchemaBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class StringSchemaBoxedString extends StringSchemaBoxed {
+    public static final class StringSchemaBoxedString implements StringSchemaBoxed {
         public final String data;
         private StringSchemaBoxedString(String data) {
             this.data = data;
@@ -778,11 +778,11 @@ public class FormatTest {
     }
     
     
-    public static abstract sealed class PasswordBoxed permits PasswordBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface PasswordBoxed permits PasswordBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class PasswordBoxedString extends PasswordBoxed {
+    public static final class PasswordBoxedString implements PasswordBoxed {
         public final String data;
         private PasswordBoxedString(String data) {
             this.data = data;
@@ -847,11 +847,11 @@ public class FormatTest {
         }
     }    
     
-    public static abstract sealed class PatternWithDigitsBoxed permits PatternWithDigitsBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface PatternWithDigitsBoxed permits PatternWithDigitsBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class PatternWithDigitsBoxedString extends PatternWithDigitsBoxed {
+    public static final class PatternWithDigitsBoxedString implements PatternWithDigitsBoxed {
         public final String data;
         private PatternWithDigitsBoxedString(String data) {
             this.data = data;
@@ -916,11 +916,11 @@ public class FormatTest {
         }
     }    
     
-    public static abstract sealed class PatternWithDigitsAndDelimiterBoxed permits PatternWithDigitsAndDelimiterBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface PatternWithDigitsAndDelimiterBoxed permits PatternWithDigitsAndDelimiterBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class PatternWithDigitsAndDelimiterBoxedString extends PatternWithDigitsAndDelimiterBoxed {
+    public static final class PatternWithDigitsAndDelimiterBoxedString implements PatternWithDigitsAndDelimiterBoxed {
         public final String data;
         private PatternWithDigitsAndDelimiterBoxedString(String data) {
             this.data = data;
@@ -1882,11 +1882,11 @@ public class FormatTest {
     }
     
     
-    public static abstract sealed class FormatTest1Boxed permits FormatTest1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface FormatTest1Boxed permits FormatTest1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class FormatTest1BoxedMap extends FormatTest1Boxed {
+    public static final class FormatTest1BoxedMap implements FormatTest1Boxed {
         public final FormatTestMap data;
         private FormatTest1BoxedMap(FormatTestMap data) {
             this.data = data;

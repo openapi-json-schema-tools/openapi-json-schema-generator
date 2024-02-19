@@ -34,11 +34,11 @@ public class BooleanEnum {
     }
     
     
-    public static abstract sealed class BooleanEnum1Boxed permits BooleanEnum1BoxedBoolean {
-        public abstract @Nullable Object data();
+    public sealed interface BooleanEnum1Boxed permits BooleanEnum1BoxedBoolean {
+        @Nullable Object data();
     }
     
-    public static final class BooleanEnum1BoxedBoolean extends BooleanEnum1Boxed {
+    public static final class BooleanEnum1BoxedBoolean implements BooleanEnum1Boxed {
         public final boolean data;
         private BooleanEnum1BoxedBoolean(boolean data) {
             this.data = data;

@@ -58,11 +58,11 @@ public class ApplicationjsonSchema {
     }
     
     
-    public static abstract sealed class ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedList {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationjsonSchema1BoxedList extends ApplicationjsonSchema1Boxed {
+    public static final class ApplicationjsonSchema1BoxedList implements ApplicationjsonSchema1Boxed {
         public final ApplicationjsonSchemaList data;
         private ApplicationjsonSchema1BoxedList(ApplicationjsonSchemaList data) {
             this.data = data;

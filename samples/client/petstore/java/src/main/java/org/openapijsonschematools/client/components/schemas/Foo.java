@@ -94,11 +94,11 @@ public class Foo {
     }
     
     
-    public static abstract sealed class Foo1Boxed permits Foo1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Foo1Boxed permits Foo1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Foo1BoxedMap extends Foo1Boxed {
+    public static final class Foo1BoxedMap implements Foo1Boxed {
         public final FooMap data;
         private Foo1BoxedMap(FooMap data) {
             this.data = data;

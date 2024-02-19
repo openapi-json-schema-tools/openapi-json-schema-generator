@@ -104,11 +104,11 @@ public class MyObjectDto {
     }
     
     
-    public static abstract sealed class MyObjectDto1Boxed permits MyObjectDto1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MyObjectDto1Boxed permits MyObjectDto1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class MyObjectDto1BoxedMap extends MyObjectDto1Boxed {
+    public static final class MyObjectDto1BoxedMap implements MyObjectDto1Boxed {
         public final MyObjectDtoMap data;
         private MyObjectDto1BoxedMap(MyObjectDtoMap data) {
             this.data = data;

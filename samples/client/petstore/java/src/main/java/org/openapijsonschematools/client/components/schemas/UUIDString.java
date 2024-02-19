@@ -20,11 +20,11 @@ public class UUIDString {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class UUIDString1Boxed permits UUIDString1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface UUIDString1Boxed permits UUIDString1BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class UUIDString1BoxedString extends UUIDString1Boxed {
+    public static final class UUIDString1BoxedString implements UUIDString1Boxed {
         public final String data;
         private UUIDString1BoxedString(String data) {
             this.data = data;

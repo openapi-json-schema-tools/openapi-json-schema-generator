@@ -152,11 +152,11 @@ public class ObjectWithNonIntersectingValues {
     }
     
     
-    public static abstract sealed class ObjectWithNonIntersectingValues1Boxed permits ObjectWithNonIntersectingValues1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ObjectWithNonIntersectingValues1Boxed permits ObjectWithNonIntersectingValues1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ObjectWithNonIntersectingValues1BoxedMap extends ObjectWithNonIntersectingValues1Boxed {
+    public static final class ObjectWithNonIntersectingValues1BoxedMap implements ObjectWithNonIntersectingValues1Boxed {
         public final ObjectWithNonIntersectingValuesMap data;
         private ObjectWithNonIntersectingValues1BoxedMap(ObjectWithNonIntersectingValuesMap data) {
             this.data = data;

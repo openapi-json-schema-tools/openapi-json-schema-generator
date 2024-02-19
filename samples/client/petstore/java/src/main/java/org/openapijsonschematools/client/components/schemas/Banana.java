@@ -132,11 +132,11 @@ public class Banana {
     }
     
     
-    public static abstract sealed class Banana1Boxed permits Banana1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Banana1Boxed permits Banana1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Banana1BoxedMap extends Banana1Boxed {
+    public static final class Banana1BoxedMap implements Banana1Boxed {
         public final BananaMap data;
         private Banana1BoxedMap(BananaMap data) {
             this.data = data;

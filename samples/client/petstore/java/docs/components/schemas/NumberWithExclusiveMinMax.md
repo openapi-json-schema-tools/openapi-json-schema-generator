@@ -4,7 +4,7 @@ public class NumberWithExclusiveMinMax<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1](#numberwithexclusiveminmax1)<br> schema class |
 
 ## NumberWithExclusiveMinMax1Boxed
-public static abstract sealed class NumberWithExclusiveMinMax1Boxed<br>
+public sealed interface NumberWithExclusiveMinMax1Boxed<br>
 permits<br>
 [NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NumberWithExclusiveMinMax1BoxedNumber
 public static final class NumberWithExclusiveMinMax1BoxedNumber<br>
-extends [NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)
+implements [NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

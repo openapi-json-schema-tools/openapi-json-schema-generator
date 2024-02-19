@@ -69,11 +69,11 @@ public class JSONPatchRequestRemove {
     }
     
     
-    public static abstract sealed class OpBoxed permits OpBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface OpBoxed permits OpBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class OpBoxedString extends OpBoxed {
+    public static final class OpBoxedString implements OpBoxed {
         public final String data;
         private OpBoxedString(String data) {
             this.data = data;
@@ -257,11 +257,11 @@ public class JSONPatchRequestRemove {
     }
     
     
-    public static abstract sealed class JSONPatchRequestRemove1Boxed permits JSONPatchRequestRemove1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface JSONPatchRequestRemove1Boxed permits JSONPatchRequestRemove1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class JSONPatchRequestRemove1BoxedMap extends JSONPatchRequestRemove1Boxed {
+    public static final class JSONPatchRequestRemove1BoxedMap implements JSONPatchRequestRemove1Boxed {
         public final JSONPatchRequestRemoveMap data;
         private JSONPatchRequestRemove1BoxedMap(JSONPatchRequestRemoveMap data) {
             this.data = data;

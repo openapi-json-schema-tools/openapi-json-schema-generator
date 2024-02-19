@@ -4,7 +4,7 @@ public class NumberOnly<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [NumberOnly.JustNumber](#justnumber)<br> schema class |
 
 ## NumberOnly1Boxed
-public static abstract sealed class NumberOnly1Boxed<br>
+public sealed interface NumberOnly1Boxed<br>
 permits<br>
 [NumberOnly1BoxedMap](#numberonly1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NumberOnly1BoxedMap
 public static final class NumberOnly1BoxedMap<br>
-extends [NumberOnly1Boxed](#numberonly1boxed)
+implements [NumberOnly1Boxed](#numberonly1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -131,15 +131,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## JustNumberBoxed
-public static abstract sealed class JustNumberBoxed<br>
+public sealed interface JustNumberBoxed<br>
 permits<br>
 [JustNumberBoxedNumber](#justnumberboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## JustNumberBoxedNumber
 public static final class JustNumberBoxedNumber<br>
-extends [JustNumberBoxed](#justnumberboxed)
+implements [JustNumberBoxed](#justnumberboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

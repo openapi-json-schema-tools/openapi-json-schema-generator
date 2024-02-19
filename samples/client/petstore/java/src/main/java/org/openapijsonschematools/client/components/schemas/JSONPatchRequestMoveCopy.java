@@ -81,11 +81,11 @@ public class JSONPatchRequestMoveCopy {
     }
     
     
-    public static abstract sealed class OpBoxed permits OpBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface OpBoxed permits OpBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class OpBoxedString extends OpBoxed {
+    public static final class OpBoxedString implements OpBoxed {
         public final String data;
         private OpBoxedString(String data) {
             this.data = data;
@@ -351,11 +351,11 @@ public class JSONPatchRequestMoveCopy {
     }
     
     
-    public static abstract sealed class JSONPatchRequestMoveCopy1Boxed permits JSONPatchRequestMoveCopy1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface JSONPatchRequestMoveCopy1Boxed permits JSONPatchRequestMoveCopy1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class JSONPatchRequestMoveCopy1BoxedMap extends JSONPatchRequestMoveCopy1Boxed {
+    public static final class JSONPatchRequestMoveCopy1BoxedMap implements JSONPatchRequestMoveCopy1Boxed {
         public final JSONPatchRequestMoveCopyMap data;
         private JSONPatchRequestMoveCopy1BoxedMap(JSONPatchRequestMoveCopyMap data) {
             this.data = data;

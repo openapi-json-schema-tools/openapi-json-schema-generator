@@ -31,11 +31,11 @@ public class ComposedString {
     }
     
     
-    public static abstract sealed class ComposedString1Boxed permits ComposedString1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ComposedString1Boxed permits ComposedString1BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ComposedString1BoxedString extends ComposedString1Boxed {
+    public static final class ComposedString1BoxedString implements ComposedString1Boxed {
         public final String data;
         private ComposedString1BoxedString(String data) {
             this.data = data;

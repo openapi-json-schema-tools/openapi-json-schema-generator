@@ -4,7 +4,7 @@ public class AnimalFarm<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -19,15 +19,15 @@ A class that contains necessary nested
 | static class | [AnimalFarm.AnimalFarmList](#animalfarmlist)<br> output class for List payloads |
 
 ## AnimalFarm1Boxed
-public static abstract sealed class AnimalFarm1Boxed<br>
+public sealed interface AnimalFarm1Boxed<br>
 permits<br>
 [AnimalFarm1BoxedList](#animalfarm1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AnimalFarm1BoxedList
 public static final class AnimalFarm1BoxedList<br>
-extends [AnimalFarm1Boxed](#animalfarm1boxed)
+implements [AnimalFarm1Boxed](#animalfarm1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 

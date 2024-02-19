@@ -35,11 +35,11 @@ public class Mammal {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Mammal1Boxed permits Mammal1BoxedVoid, Mammal1BoxedBoolean, Mammal1BoxedNumber, Mammal1BoxedString, Mammal1BoxedList, Mammal1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Mammal1Boxed permits Mammal1BoxedVoid, Mammal1BoxedBoolean, Mammal1BoxedNumber, Mammal1BoxedString, Mammal1BoxedList, Mammal1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Mammal1BoxedVoid extends Mammal1Boxed {
+    public static final class Mammal1BoxedVoid implements Mammal1Boxed {
         public final Void data;
         private Mammal1BoxedVoid(Void data) {
             this.data = data;
@@ -50,7 +50,7 @@ public class Mammal {
         }
     }
     
-    public static final class Mammal1BoxedBoolean extends Mammal1Boxed {
+    public static final class Mammal1BoxedBoolean implements Mammal1Boxed {
         public final boolean data;
         private Mammal1BoxedBoolean(boolean data) {
             this.data = data;
@@ -61,7 +61,7 @@ public class Mammal {
         }
     }
     
-    public static final class Mammal1BoxedNumber extends Mammal1Boxed {
+    public static final class Mammal1BoxedNumber implements Mammal1Boxed {
         public final Number data;
         private Mammal1BoxedNumber(Number data) {
             this.data = data;
@@ -72,7 +72,7 @@ public class Mammal {
         }
     }
     
-    public static final class Mammal1BoxedString extends Mammal1Boxed {
+    public static final class Mammal1BoxedString implements Mammal1Boxed {
         public final String data;
         private Mammal1BoxedString(String data) {
             this.data = data;
@@ -83,7 +83,7 @@ public class Mammal {
         }
     }
     
-    public static final class Mammal1BoxedList extends Mammal1Boxed {
+    public static final class Mammal1BoxedList implements Mammal1Boxed {
         public final FrozenList<@Nullable Object> data;
         private Mammal1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -94,7 +94,7 @@ public class Mammal {
         }
     }
     
-    public static final class Mammal1BoxedMap extends Mammal1Boxed {
+    public static final class Mammal1BoxedMap implements Mammal1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Mammal1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

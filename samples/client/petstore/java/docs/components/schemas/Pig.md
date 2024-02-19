@@ -4,7 +4,7 @@ public class Pig<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -20,7 +20,7 @@ A class that contains necessary nested
 | static class | [Pig.Pig1](#pig1)<br> schema class |
 
 ## Pig1Boxed
-public static abstract sealed class Pig1Boxed<br>
+public sealed interface Pig1Boxed<br>
 permits<br>
 [Pig1BoxedVoid](#pig1boxedvoid),
 [Pig1BoxedBoolean](#pig1boxedboolean),
@@ -29,11 +29,11 @@ permits<br>
 [Pig1BoxedList](#pig1boxedlist),
 [Pig1BoxedMap](#pig1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Pig1BoxedVoid
 public static final class Pig1BoxedVoid<br>
-extends [Pig1Boxed](#pig1boxed)
+implements [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -49,7 +49,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Pig1BoxedBoolean
 public static final class Pig1BoxedBoolean<br>
-extends [Pig1Boxed](#pig1boxed)
+implements [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -65,7 +65,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Pig1BoxedNumber
 public static final class Pig1BoxedNumber<br>
-extends [Pig1Boxed](#pig1boxed)
+implements [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -81,7 +81,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Pig1BoxedString
 public static final class Pig1BoxedString<br>
-extends [Pig1Boxed](#pig1boxed)
+implements [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -97,7 +97,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Pig1BoxedList
 public static final class Pig1BoxedList<br>
-extends [Pig1Boxed](#pig1boxed)
+implements [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -113,7 +113,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Pig1BoxedMap
 public static final class Pig1BoxedMap<br>
-extends [Pig1Boxed](#pig1boxed)
+implements [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

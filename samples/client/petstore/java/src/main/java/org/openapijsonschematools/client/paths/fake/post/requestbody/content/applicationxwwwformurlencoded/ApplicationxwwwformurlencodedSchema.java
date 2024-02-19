@@ -36,11 +36,11 @@ public class ApplicationxwwwformurlencodedSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedIntegerBoxed permits ApplicationxwwwformurlencodedIntegerBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedIntegerBoxed permits ApplicationxwwwformurlencodedIntegerBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedIntegerBoxedNumber extends ApplicationxwwwformurlencodedIntegerBoxed {
+    public static final class ApplicationxwwwformurlencodedIntegerBoxedNumber implements ApplicationxwwwformurlencodedIntegerBoxed {
         public final Number data;
         private ApplicationxwwwformurlencodedIntegerBoxedNumber(Number data) {
             this.data = data;
@@ -124,11 +124,11 @@ public class ApplicationxwwwformurlencodedSchema {
         }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedInt32Boxed permits ApplicationxwwwformurlencodedInt32BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedInt32Boxed permits ApplicationxwwwformurlencodedInt32BoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedInt32BoxedNumber extends ApplicationxwwwformurlencodedInt32Boxed {
+    public static final class ApplicationxwwwformurlencodedInt32BoxedNumber implements ApplicationxwwwformurlencodedInt32Boxed {
         public final Number data;
         private ApplicationxwwwformurlencodedInt32BoxedNumber(Number data) {
             this.data = data;
@@ -215,11 +215,11 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedNumberBoxed permits ApplicationxwwwformurlencodedNumberBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedNumberBoxed permits ApplicationxwwwformurlencodedNumberBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedNumberBoxedNumber extends ApplicationxwwwformurlencodedNumberBoxed {
+    public static final class ApplicationxwwwformurlencodedNumberBoxedNumber implements ApplicationxwwwformurlencodedNumberBoxed {
         public final Number data;
         private ApplicationxwwwformurlencodedNumberBoxedNumber(Number data) {
             this.data = data;
@@ -302,11 +302,11 @@ public class ApplicationxwwwformurlencodedSchema {
         }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedFloatBoxed permits ApplicationxwwwformurlencodedFloatBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedFloatBoxed permits ApplicationxwwwformurlencodedFloatBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedFloatBoxedNumber extends ApplicationxwwwformurlencodedFloatBoxed {
+    public static final class ApplicationxwwwformurlencodedFloatBoxedNumber implements ApplicationxwwwformurlencodedFloatBoxed {
         public final Number data;
         private ApplicationxwwwformurlencodedFloatBoxedNumber(Number data) {
             this.data = data;
@@ -376,11 +376,11 @@ public class ApplicationxwwwformurlencodedSchema {
         }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedDoubleBoxed permits ApplicationxwwwformurlencodedDoubleBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedDoubleBoxed permits ApplicationxwwwformurlencodedDoubleBoxedNumber {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedDoubleBoxedNumber extends ApplicationxwwwformurlencodedDoubleBoxed {
+    public static final class ApplicationxwwwformurlencodedDoubleBoxedNumber implements ApplicationxwwwformurlencodedDoubleBoxed {
         public final Number data;
         private ApplicationxwwwformurlencodedDoubleBoxedNumber(Number data) {
             this.data = data;
@@ -451,11 +451,11 @@ public class ApplicationxwwwformurlencodedSchema {
         }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedStringBoxed permits ApplicationxwwwformurlencodedStringBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedStringBoxed permits ApplicationxwwwformurlencodedStringBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedStringBoxedString extends ApplicationxwwwformurlencodedStringBoxed {
+    public static final class ApplicationxwwwformurlencodedStringBoxedString implements ApplicationxwwwformurlencodedStringBoxed {
         public final String data;
         private ApplicationxwwwformurlencodedStringBoxedString(String data) {
             this.data = data;
@@ -521,11 +521,11 @@ public class ApplicationxwwwformurlencodedSchema {
         }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed permits ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed permits ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString extends ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed {
+    public static final class ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString implements ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed {
         public final String data;
         private ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString(String data) {
             this.data = data;
@@ -624,11 +624,11 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedDateTimeBoxed permits ApplicationxwwwformurlencodedDateTimeBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedDateTimeBoxed permits ApplicationxwwwformurlencodedDateTimeBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedDateTimeBoxedString extends ApplicationxwwwformurlencodedDateTimeBoxed {
+    public static final class ApplicationxwwwformurlencodedDateTimeBoxedString implements ApplicationxwwwformurlencodedDateTimeBoxed {
         public final String data;
         private ApplicationxwwwformurlencodedDateTimeBoxedString(String data) {
             this.data = data;
@@ -698,11 +698,11 @@ public class ApplicationxwwwformurlencodedSchema {
         }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedPasswordBoxed permits ApplicationxwwwformurlencodedPasswordBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedPasswordBoxed permits ApplicationxwwwformurlencodedPasswordBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedPasswordBoxedString extends ApplicationxwwwformurlencodedPasswordBoxed {
+    public static final class ApplicationxwwwformurlencodedPasswordBoxedString implements ApplicationxwwwformurlencodedPasswordBoxed {
         public final String data;
         private ApplicationxwwwformurlencodedPasswordBoxedString(String data) {
             this.data = data;
@@ -1451,11 +1451,11 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap extends ApplicationxwwwformurlencodedSchema1Boxed {
+    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap implements ApplicationxwwwformurlencodedSchema1Boxed {
         public final ApplicationxwwwformurlencodedSchemaMap data;
         private ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) {
             this.data = data;

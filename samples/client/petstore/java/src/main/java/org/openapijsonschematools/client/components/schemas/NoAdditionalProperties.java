@@ -182,11 +182,11 @@ public class NoAdditionalProperties {
     }
     
     
-    public static abstract sealed class NoAdditionalProperties1Boxed permits NoAdditionalProperties1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface NoAdditionalProperties1Boxed permits NoAdditionalProperties1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class NoAdditionalProperties1BoxedMap extends NoAdditionalProperties1Boxed {
+    public static final class NoAdditionalProperties1BoxedMap implements NoAdditionalProperties1Boxed {
         public final NoAdditionalPropertiesMap data;
         private NoAdditionalProperties1BoxedMap(NoAdditionalPropertiesMap data) {
             this.data = data;

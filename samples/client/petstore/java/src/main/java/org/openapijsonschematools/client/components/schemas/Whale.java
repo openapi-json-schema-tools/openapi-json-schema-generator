@@ -67,11 +67,11 @@ public class Whale {
     }
     
     
-    public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ClassNameBoxed permits ClassNameBoxedString {
+        @Nullable Object data();
     }
     
-    public static final class ClassNameBoxedString extends ClassNameBoxed {
+    public static final class ClassNameBoxedString implements ClassNameBoxed {
         public final String data;
         private ClassNameBoxedString(String data) {
             this.data = data;
@@ -274,11 +274,11 @@ public class Whale {
     }
     
     
-    public static abstract sealed class Whale1Boxed permits Whale1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Whale1Boxed permits Whale1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class Whale1BoxedMap extends Whale1Boxed {
+    public static final class Whale1BoxedMap implements Whale1Boxed {
         public final WhaleMap data;
         private Whale1BoxedMap(WhaleMap data) {
             this.data = data;

@@ -4,7 +4,7 @@ public class PublicKey<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [PublicKey.Key](#key)<br> schema class |
 
 ## PublicKey1Boxed
-public static abstract sealed class PublicKey1Boxed<br>
+public sealed interface PublicKey1Boxed<br>
 permits<br>
 [PublicKey1BoxedMap](#publickey1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PublicKey1BoxedMap
 public static final class PublicKey1BoxedMap<br>
-extends [PublicKey1Boxed](#publickey1boxed)
+implements [PublicKey1Boxed](#publickey1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -131,15 +131,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## KeyBoxed
-public static abstract sealed class KeyBoxed<br>
+public sealed interface KeyBoxed<br>
 permits<br>
 [KeyBoxedString](#keyboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## KeyBoxedString
 public static final class KeyBoxedString<br>
-extends [KeyBoxed](#keyboxed)
+implements [KeyBoxed](#keyboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

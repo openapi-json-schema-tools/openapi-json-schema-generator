@@ -4,7 +4,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -30,7 +30,7 @@ A class that contains necessary nested
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Name](#name)<br> schema class |
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
-public static abstract sealed class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed<br>
+public sealed interface ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed<br>
 permits<br>
 [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid](#objectwithallofwithreqtestpropfromunsetaddprop1boxedvoid),
 [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean](#objectwithallofwithreqtestpropfromunsetaddprop1boxedboolean),
@@ -39,11 +39,11 @@ permits<br>
 [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList](#objectwithallofwithreqtestpropfromunsetaddprop1boxedlist),
 [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap](#objectwithallofwithreqtestpropfromunsetaddprop1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid<br>
-extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
+implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -59,7 +59,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean<br>
-extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
+implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -75,7 +75,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber<br>
-extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
+implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -91,7 +91,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString<br>
-extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
+implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -107,7 +107,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList<br>
-extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
+implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -123,7 +123,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap<br>
-extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
+implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -169,15 +169,15 @@ A schema class that validates payloads
 | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList](#objectwithallofwithreqtestpropfromunsetaddprop1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
-public static abstract sealed class Schema1Boxed<br>
+public sealed interface Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
 public static final class Schema1BoxedMap<br>
-extends [Schema1Boxed](#schema1boxed)
+implements [Schema1Boxed](#schema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -301,15 +301,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NameBoxed
-public static abstract sealed class NameBoxed<br>
+public sealed interface NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NameBoxedString
 public static final class NameBoxedString<br>
-extends [NameBoxed](#nameboxed)
+implements [NameBoxed](#nameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

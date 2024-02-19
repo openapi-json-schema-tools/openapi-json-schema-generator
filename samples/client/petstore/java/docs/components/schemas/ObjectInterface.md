@@ -4,7 +4,7 @@ public class ObjectInterface<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [ObjectInterface.ObjectInterface1](#objectinterface1)<br> schema class |
 
 ## ObjectInterface1Boxed
-public static abstract sealed class ObjectInterface1Boxed<br>
+public sealed interface ObjectInterface1Boxed<br>
 permits<br>
 [ObjectInterface1BoxedMap](#objectinterface1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ObjectInterface1BoxedMap
 public static final class ObjectInterface1BoxedMap<br>
-extends [ObjectInterface1Boxed](#objectinterface1boxed)
+implements [ObjectInterface1Boxed](#objectinterface1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

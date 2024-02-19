@@ -3,7 +3,7 @@ public class Int32JsonContentTypeHeaderSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -14,15 +14,15 @@ A class that contains necessary nested
 | static class | [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1](#int32jsoncontenttypeheaderschema1)<br> schema class |
 
 ## Int32JsonContentTypeHeaderSchema1Boxed
-public static abstract sealed class Int32JsonContentTypeHeaderSchema1Boxed<br>
+public sealed interface Int32JsonContentTypeHeaderSchema1Boxed<br>
 permits<br>
 [Int32JsonContentTypeHeaderSchema1BoxedNumber](#int32jsoncontenttypeheaderschema1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Int32JsonContentTypeHeaderSchema1BoxedNumber
 public static final class Int32JsonContentTypeHeaderSchema1BoxedNumber<br>
-extends [Int32JsonContentTypeHeaderSchema1Boxed](#int32jsoncontenttypeheaderschema1boxed)
+implements [Int32JsonContentTypeHeaderSchema1Boxed](#int32jsoncontenttypeheaderschema1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

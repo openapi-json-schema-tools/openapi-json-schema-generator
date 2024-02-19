@@ -3,7 +3,7 @@ public class Schema0<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -19,7 +19,7 @@ A class that contains necessary nested
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 
 ## Schema01Boxed
-public static abstract sealed class Schema01Boxed<br>
+public sealed interface Schema01Boxed<br>
 permits<br>
 [Schema01BoxedVoid](#schema01boxedvoid),
 [Schema01BoxedBoolean](#schema01boxedboolean),
@@ -28,11 +28,11 @@ permits<br>
 [Schema01BoxedList](#schema01boxedlist),
 [Schema01BoxedMap](#schema01boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema01BoxedVoid
 public static final class Schema01BoxedVoid<br>
-extends [Schema01Boxed](#schema01boxed)
+implements [Schema01Boxed](#schema01boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -48,7 +48,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Schema01BoxedBoolean
 public static final class Schema01BoxedBoolean<br>
-extends [Schema01Boxed](#schema01boxed)
+implements [Schema01Boxed](#schema01boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -64,7 +64,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Schema01BoxedNumber
 public static final class Schema01BoxedNumber<br>
-extends [Schema01Boxed](#schema01boxed)
+implements [Schema01Boxed](#schema01boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -80,7 +80,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Schema01BoxedString
 public static final class Schema01BoxedString<br>
-extends [Schema01Boxed](#schema01boxed)
+implements [Schema01Boxed](#schema01boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -96,7 +96,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Schema01BoxedList
 public static final class Schema01BoxedList<br>
-extends [Schema01Boxed](#schema01boxed)
+implements [Schema01Boxed](#schema01boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -112,7 +112,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Schema01BoxedMap
 public static final class Schema01BoxedMap<br>
-extends [Schema01Boxed](#schema01boxed)
+implements [Schema01Boxed](#schema01boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

@@ -124,11 +124,11 @@ public class NumberOnly {
     }
     
     
-    public static abstract sealed class NumberOnly1Boxed permits NumberOnly1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface NumberOnly1Boxed permits NumberOnly1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class NumberOnly1BoxedMap extends NumberOnly1Boxed {
+    public static final class NumberOnly1BoxedMap implements NumberOnly1Boxed {
         public final NumberOnlyMap data;
         private NumberOnly1BoxedMap(NumberOnlyMap data) {
             this.data = data;

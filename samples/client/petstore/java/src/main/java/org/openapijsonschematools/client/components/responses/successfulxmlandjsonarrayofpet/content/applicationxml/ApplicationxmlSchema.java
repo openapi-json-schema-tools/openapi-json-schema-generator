@@ -57,11 +57,11 @@ public class ApplicationxmlSchema {
     }
     
     
-    public static abstract sealed class ApplicationxmlSchema1Boxed permits ApplicationxmlSchema1BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxmlSchema1Boxed permits ApplicationxmlSchema1BoxedList {
+        @Nullable Object data();
     }
     
-    public static final class ApplicationxmlSchema1BoxedList extends ApplicationxmlSchema1Boxed {
+    public static final class ApplicationxmlSchema1BoxedList implements ApplicationxmlSchema1Boxed {
         public final ApplicationxmlSchemaList data;
         private ApplicationxmlSchema1BoxedList(ApplicationxmlSchemaList data) {
             this.data = data;

@@ -4,7 +4,7 @@ public class Foo<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -19,15 +19,15 @@ A class that contains necessary nested
 | static class | [Foo.FooMap](#foomap)<br> output class for Map payloads |
 
 ## Foo1Boxed
-public static abstract sealed class Foo1Boxed<br>
+public sealed interface Foo1Boxed<br>
 permits<br>
 [Foo1BoxedMap](#foo1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Foo1BoxedMap
 public static final class Foo1BoxedMap<br>
-extends [Foo1Boxed](#foo1boxed)
+implements [Foo1Boxed](#foo1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

@@ -19,11 +19,11 @@ public class StringWithValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class StringWithValidation1Boxed permits StringWithValidation1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface StringWithValidation1Boxed permits StringWithValidation1BoxedString {
+        @Nullable Object data();
     }
     
-    public static final class StringWithValidation1BoxedString extends StringWithValidation1Boxed {
+    public static final class StringWithValidation1BoxedString implements StringWithValidation1Boxed {
         public final String data;
         private StringWithValidation1BoxedString(String data) {
             this.data = data;

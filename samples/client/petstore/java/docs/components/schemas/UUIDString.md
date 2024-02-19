@@ -4,7 +4,7 @@ public class UUIDString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [UUIDString.UUIDString1](#uuidstring1)<br> schema class |
 
 ## UUIDString1Boxed
-public static abstract sealed class UUIDString1Boxed<br>
+public sealed interface UUIDString1Boxed<br>
 permits<br>
 [UUIDString1BoxedString](#uuidstring1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## UUIDString1BoxedString
 public static final class UUIDString1BoxedString<br>
-extends [UUIDString1Boxed](#uuidstring1boxed)
+implements [UUIDString1Boxed](#uuidstring1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

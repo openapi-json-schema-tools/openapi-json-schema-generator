@@ -4,7 +4,7 @@ public class Banana<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -22,15 +22,15 @@ A class that contains necessary nested
 | static class | [Banana.LengthCm](#lengthcm)<br> schema class |
 
 ## Banana1Boxed
-public static abstract sealed class Banana1Boxed<br>
+public sealed interface Banana1Boxed<br>
 permits<br>
 [Banana1BoxedMap](#banana1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Banana1BoxedMap
 public static final class Banana1BoxedMap<br>
-extends [Banana1Boxed](#banana1boxed)
+implements [Banana1Boxed](#banana1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -147,15 +147,15 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## LengthCmBoxed
-public static abstract sealed class LengthCmBoxed<br>
+public sealed interface LengthCmBoxed<br>
 permits<br>
 [LengthCmBoxedNumber](#lengthcmboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## LengthCmBoxedNumber
 public static final class LengthCmBoxedNumber<br>
-extends [LengthCmBoxed](#lengthcmboxed)
+implements [LengthCmBoxed](#lengthcmboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

@@ -93,11 +93,11 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static abstract sealed class MapPropertyBoxed permits MapPropertyBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MapPropertyBoxed permits MapPropertyBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class MapPropertyBoxedMap extends MapPropertyBoxed {
+    public static final class MapPropertyBoxedMap implements MapPropertyBoxed {
         public final MapPropertyMap data;
         private MapPropertyBoxedMap(MapPropertyMap data) {
             this.data = data;
@@ -244,11 +244,11 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AdditionalProperties1Boxed permits AdditionalProperties1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class AdditionalProperties1BoxedMap extends AdditionalProperties1Boxed {
+    public static final class AdditionalProperties1BoxedMap implements AdditionalProperties1Boxed {
         public final AdditionalPropertiesMap data;
         private AdditionalProperties1BoxedMap(AdditionalPropertiesMap data) {
             this.data = data;
@@ -384,11 +384,11 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static abstract sealed class MapOfMapPropertyBoxed permits MapOfMapPropertyBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MapOfMapPropertyBoxed permits MapOfMapPropertyBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class MapOfMapPropertyBoxedMap extends MapOfMapPropertyBoxed {
+    public static final class MapOfMapPropertyBoxedMap implements MapOfMapPropertyBoxed {
         public final MapOfMapPropertyMap data;
         private MapOfMapPropertyBoxedMap(MapOfMapPropertyMap data) {
             this.data = data;
@@ -624,11 +624,11 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static abstract sealed class MapWithUndeclaredPropertiesAnytype3Boxed permits MapWithUndeclaredPropertiesAnytype3BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MapWithUndeclaredPropertiesAnytype3Boxed permits MapWithUndeclaredPropertiesAnytype3BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class MapWithUndeclaredPropertiesAnytype3BoxedMap extends MapWithUndeclaredPropertiesAnytype3Boxed {
+    public static final class MapWithUndeclaredPropertiesAnytype3BoxedMap implements MapWithUndeclaredPropertiesAnytype3Boxed {
         public final MapWithUndeclaredPropertiesAnytype3Map data;
         private MapWithUndeclaredPropertiesAnytype3BoxedMap(MapWithUndeclaredPropertiesAnytype3Map data) {
             this.data = data;
@@ -751,11 +751,11 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static abstract sealed class EmptyMapBoxed permits EmptyMapBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface EmptyMapBoxed permits EmptyMapBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class EmptyMapBoxedMap extends EmptyMapBoxed {
+    public static final class EmptyMapBoxedMap implements EmptyMapBoxed {
         public final EmptyMapMap data;
         private EmptyMapBoxedMap(EmptyMapMap data) {
             this.data = data;
@@ -899,11 +899,11 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static abstract sealed class MapWithUndeclaredPropertiesStringBoxed permits MapWithUndeclaredPropertiesStringBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MapWithUndeclaredPropertiesStringBoxed permits MapWithUndeclaredPropertiesStringBoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class MapWithUndeclaredPropertiesStringBoxedMap extends MapWithUndeclaredPropertiesStringBoxed {
+    public static final class MapWithUndeclaredPropertiesStringBoxedMap implements MapWithUndeclaredPropertiesStringBoxed {
         public final MapWithUndeclaredPropertiesStringMap data;
         private MapWithUndeclaredPropertiesStringBoxedMap(MapWithUndeclaredPropertiesStringMap data) {
             this.data = data;
@@ -1280,11 +1280,11 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static abstract sealed class AdditionalPropertiesClass1Boxed permits AdditionalPropertiesClass1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AdditionalPropertiesClass1Boxed permits AdditionalPropertiesClass1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class AdditionalPropertiesClass1BoxedMap extends AdditionalPropertiesClass1Boxed {
+    public static final class AdditionalPropertiesClass1BoxedMap implements AdditionalPropertiesClass1Boxed {
         public final AdditionalPropertiesClassMap data;
         private AdditionalPropertiesClass1BoxedMap(AdditionalPropertiesClassMap data) {
             this.data = data;

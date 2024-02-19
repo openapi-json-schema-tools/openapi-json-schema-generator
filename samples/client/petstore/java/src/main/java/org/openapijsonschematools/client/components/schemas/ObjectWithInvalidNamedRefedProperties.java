@@ -144,11 +144,11 @@ public class ObjectWithInvalidNamedRefedProperties {
     }
     
     
-    public static abstract sealed class ObjectWithInvalidNamedRefedProperties1Boxed permits ObjectWithInvalidNamedRefedProperties1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ObjectWithInvalidNamedRefedProperties1Boxed permits ObjectWithInvalidNamedRefedProperties1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class ObjectWithInvalidNamedRefedProperties1BoxedMap extends ObjectWithInvalidNamedRefedProperties1Boxed {
+    public static final class ObjectWithInvalidNamedRefedProperties1BoxedMap implements ObjectWithInvalidNamedRefedProperties1Boxed {
         public final ObjectWithInvalidNamedRefedPropertiesMap data;
         private ObjectWithInvalidNamedRefedProperties1BoxedMap(ObjectWithInvalidNamedRefedPropertiesMap data) {
             this.data = data;

@@ -4,7 +4,7 @@ public class NumberWithValidations<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -15,15 +15,15 @@ A class that contains necessary nested
 | static class | [NumberWithValidations.NumberWithValidations1](#numberwithvalidations1)<br> schema class |
 
 ## NumberWithValidations1Boxed
-public static abstract sealed class NumberWithValidations1Boxed<br>
+public sealed interface NumberWithValidations1Boxed<br>
 permits<br>
 [NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NumberWithValidations1BoxedNumber
 public static final class NumberWithValidations1BoxedNumber<br>
-extends [NumberWithValidations1Boxed](#numberwithvalidations1boxed)
+implements [NumberWithValidations1Boxed](#numberwithvalidations1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

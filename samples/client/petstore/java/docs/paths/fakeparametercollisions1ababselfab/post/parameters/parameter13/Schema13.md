@@ -3,7 +3,7 @@ public class Schema13<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- abstract sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
@@ -14,15 +14,15 @@ A class that contains necessary nested
 | static class | [Schema13.Schema131](#schema131)<br> schema class |
 
 ## Schema131Boxed
-public static abstract sealed class Schema131Boxed<br>
+public sealed interface Schema131Boxed<br>
 permits<br>
 [Schema131BoxedString](#schema131boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema131BoxedString
 public static final class Schema131BoxedString<br>
-extends [Schema131Boxed](#schema131boxed)
+implements [Schema131Boxed](#schema131boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

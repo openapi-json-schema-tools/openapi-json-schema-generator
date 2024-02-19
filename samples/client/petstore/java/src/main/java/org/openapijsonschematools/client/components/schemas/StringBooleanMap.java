@@ -93,11 +93,11 @@ public class StringBooleanMap {
     }
     
     
-    public static abstract sealed class StringBooleanMap1Boxed permits StringBooleanMap1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface StringBooleanMap1Boxed permits StringBooleanMap1BoxedMap {
+        @Nullable Object data();
     }
     
-    public static final class StringBooleanMap1BoxedMap extends StringBooleanMap1Boxed {
+    public static final class StringBooleanMap1BoxedMap implements StringBooleanMap1Boxed {
         public final StringBooleanMapMap data;
         private StringBooleanMap1BoxedMap(StringBooleanMapMap data) {
             this.data = data;
