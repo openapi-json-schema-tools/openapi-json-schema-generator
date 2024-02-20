@@ -391,5 +391,23 @@ public class GmFruit {
         public GmFruit1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new GmFruit1BoxedMap(validate(arg, configuration));
         }
+        public GmFruit1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }
 }

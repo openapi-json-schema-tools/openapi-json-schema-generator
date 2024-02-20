@@ -114,5 +114,13 @@ public class NullableString {
         public NullableString1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NullableString1BoxedString(validate(arg, configuration));
         }
+        public NullableString1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }
 }

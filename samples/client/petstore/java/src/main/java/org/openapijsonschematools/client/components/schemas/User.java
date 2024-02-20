@@ -251,6 +251,14 @@ public class User {
         public ObjectWithNoDeclaredPropsNullableBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ObjectWithNoDeclaredPropsNullableBoxedMap(validate(arg, configuration));
         }
+        public ObjectWithNoDeclaredPropsNullableBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class AnyTypeProp extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
@@ -538,6 +546,24 @@ public class User {
         @Override
         public AnyTypeExceptNullPropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedMap(validate(arg, configuration));
+        }
+        public AnyTypeExceptNullPropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     

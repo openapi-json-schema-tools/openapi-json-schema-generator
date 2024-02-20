@@ -502,6 +502,24 @@ public class AdditionalPropertiesSchema {
         public AdditionalProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties1BoxedMap(validate(arg, configuration));
         }
+        public AdditionalProperties1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class Schema1Map extends FrozenMap<@Nullable Object> {
@@ -956,6 +974,24 @@ public class AdditionalPropertiesSchema {
         @Override
         public AdditionalProperties2BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties2BoxedMap(validate(arg, configuration));
+        }
+        public AdditionalProperties2Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     

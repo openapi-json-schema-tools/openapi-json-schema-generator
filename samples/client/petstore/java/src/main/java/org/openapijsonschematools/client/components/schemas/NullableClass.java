@@ -147,6 +147,14 @@ public class NullableClass {
         public AdditionalProperties3BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties3BoxedMap(validate(arg, configuration));
         }
+        public AdditionalProperties3Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface IntegerPropBoxed permits IntegerPropBoxedVoid, IntegerPropBoxedNumber {
@@ -256,6 +264,14 @@ public class NullableClass {
         public IntegerPropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new IntegerPropBoxedNumber(validate(arg, configuration));
         }
+        public IntegerPropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface NumberPropBoxed permits NumberPropBoxedVoid, NumberPropBoxedNumber {
@@ -364,6 +380,14 @@ public class NullableClass {
         public NumberPropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NumberPropBoxedNumber(validate(arg, configuration));
         }
+        public NumberPropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface BooleanPropBoxed permits BooleanPropBoxedVoid, BooleanPropBoxedBoolean {
@@ -455,6 +479,15 @@ public class NullableClass {
         public BooleanPropBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BooleanPropBoxedBoolean(validate(arg, configuration));
         }
+        public BooleanPropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface StringPropBoxed permits StringPropBoxedVoid, StringPropBoxedString {
@@ -543,6 +576,14 @@ public class NullableClass {
         @Override
         public StringPropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new StringPropBoxedString(validate(arg, configuration));
+        }
+        public StringPropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -634,6 +675,14 @@ public class NullableClass {
         public DatePropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DatePropBoxedString(validate(arg, configuration));
         }
+        public DatePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface DatetimePropBoxed permits DatetimePropBoxedVoid, DatetimePropBoxedString {
@@ -723,6 +772,14 @@ public class NullableClass {
         @Override
         public DatetimePropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DatetimePropBoxedString(validate(arg, configuration));
+        }
+        public DatetimePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -879,6 +936,14 @@ public class NullableClass {
         public ArrayNullablePropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ArrayNullablePropBoxedList(validate(arg, configuration));
         }
+        public ArrayNullablePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface Items1Boxed permits Items1BoxedVoid, Items1BoxedMap {
@@ -989,6 +1054,14 @@ public class NullableClass {
         @Override
         public Items1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Items1BoxedMap(validate(arg, configuration));
+        }
+        public Items1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -1139,6 +1212,14 @@ public class NullableClass {
         public ArrayAndItemsNullablePropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ArrayAndItemsNullablePropBoxedList(validate(arg, configuration));
         }
+        public ArrayAndItemsNullablePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface Items2Boxed permits Items2BoxedVoid, Items2BoxedMap {
@@ -1249,6 +1330,14 @@ public class NullableClass {
         @Override
         public Items2BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Items2BoxedMap(validate(arg, configuration));
+        }
+        public Items2Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -1545,6 +1634,14 @@ public class NullableClass {
         public ObjectNullablePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ObjectNullablePropBoxedMap(validate(arg, configuration));
         }
+        public ObjectNullablePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface AdditionalProperties1Boxed permits AdditionalProperties1BoxedVoid, AdditionalProperties1BoxedMap {
@@ -1655,6 +1752,14 @@ public class NullableClass {
         @Override
         public AdditionalProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties1BoxedMap(validate(arg, configuration));
+        }
+        public AdditionalProperties1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -1827,6 +1932,14 @@ public class NullableClass {
         public ObjectAndItemsNullablePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ObjectAndItemsNullablePropBoxedMap(validate(arg, configuration));
         }
+        public ObjectAndItemsNullablePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface AdditionalProperties2Boxed permits AdditionalProperties2BoxedVoid, AdditionalProperties2BoxedMap {
@@ -1937,6 +2050,14 @@ public class NullableClass {
         @Override
         public AdditionalProperties2BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties2BoxedMap(validate(arg, configuration));
+        }
+        public AdditionalProperties2Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     

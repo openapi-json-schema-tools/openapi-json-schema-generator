@@ -366,6 +366,24 @@ public class ObjectWithInlineCompositionProperty {
         public SomePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomePropBoxedMap(validate(arg, configuration));
         }
+        public SomePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class ObjectWithInlineCompositionPropertyMap extends FrozenMap<@Nullable Object> {
