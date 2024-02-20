@@ -3775,8 +3775,7 @@ public class DefaultGenerator implements Generator {
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
-            String responseJsonPath = "#/components/responses/" + pathPieces[3];
-            pathPieces[3] = toResponseModuleName(pathPieces[3], responseJsonPath);
+            pathPieces[3] = toResponseModuleName(pathPieces[3], jsonPath);
 
             if (pathPieces.length == 5 && pathPieces[4].equals("Headers")) {
                 // synthetic json path
@@ -3900,8 +3899,7 @@ public class DefaultGenerator implements Generator {
                 return;
             }
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
-            String responseJsonPath = "#/paths/" + path + "/" + pathPieces[3] + "/responses/" +  pathPieces[5];
-            pathPieces[5] = toResponseModuleName(pathPieces[5], responseJsonPath);
+            pathPieces[5] = toResponseModuleName(pathPieces[5], jsonPath);
             if (pathPieces.length == 7 && pathPieces[6].equals("Headers")) {
                 // synthetic json path
                 // #/paths/user_login/get/responses/200/Headers

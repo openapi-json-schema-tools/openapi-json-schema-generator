@@ -892,10 +892,19 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
         if (jsonPath.startsWith("#/components/responses/")) {
+            if (pathPieces.length == 4) {
+                // #/components/responses/SomeResponse
+                return toModelName(componentName, null);
+            }
             return toModuleFilename(componentName, jsonPath);
         }
-        return toModuleFilename("response"+componentName, jsonPath);
+        if (pathPieces.length == 6) {
+            // #/paths/somePath/verb/responses/200
+            return toModelName("Code"+componentName+"Response", null);
+        }
+        return toModuleFilename("code"+componentName+"response", null);
     }
 
     @Override
