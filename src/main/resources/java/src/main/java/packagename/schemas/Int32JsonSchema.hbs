@@ -19,15 +19,11 @@ import java.util.Set;
 
 public class Int32JsonSchema {
     public sealed interface Int32JsonSchema1Boxed permits Int32JsonSchema1BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class Int32JsonSchema1BoxedNumber implements Int32JsonSchema1Boxed {
-        public final Number data;
-        private Int32JsonSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Int32JsonSchema1BoxedNumber(Number data) implements Int32JsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -16,13 +16,9 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | Void | data<br>validated payload |
 
 {{else}}
-public static final class {{jsonPathPiece.pascalCase}}BoxedVoid implements {{jsonPathPiece.pascalCase}}Boxed {
-    public final Void data;
-    private {{jsonPathPiece.pascalCase}}BoxedVoid(Void data) {
-        this.data = data;
-    }
+public record {{jsonPathPiece.pascalCase}}BoxedVoid(Void data) implements {{jsonPathPiece.pascalCase}}Boxed {
     @Override
-    public @Nullable Object data() {
+    public @Nullable Object getData() {
         return data;
     }
 }

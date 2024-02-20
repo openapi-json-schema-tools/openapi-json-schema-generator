@@ -51,7 +51,7 @@ public class {{jsonPathPiece.pascalCase}} {
     {{#eq content.size 1}}
         {{#each content}}
             {{@key.pascalCase}}RequestBody requestBody{{@index}} = ({{@key.pascalCase}}RequestBody) requestBody;
-            return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().data());
+            return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().getData());
         {{/each}}
     {{else}}
         {{#each content}}
@@ -65,7 +65,7 @@ public class {{jsonPathPiece.pascalCase}} {
             } else if (requestBody instanceof {{@key.pascalCase}}RequestBody requestBody{{@index}}) {
                 {{/if}}
             {{/if}}
-                return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().data());
+                return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().getData());
         {{/each}}
             }
     {{/eq}}

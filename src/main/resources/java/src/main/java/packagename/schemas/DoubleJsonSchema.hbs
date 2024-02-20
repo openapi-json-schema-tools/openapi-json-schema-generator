@@ -19,15 +19,11 @@ import java.util.Set;
 
 public class DoubleJsonSchema {
     public sealed interface DoubleJsonSchema1Boxed permits DoubleJsonSchema1BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class DoubleJsonSchema1BoxedNumber implements DoubleJsonSchema1Boxed {
-        public final Number data;
-        private DoubleJsonSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record DoubleJsonSchema1BoxedNumber(Number data) implements DoubleJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -22,15 +22,11 @@ import java.util.UUID;
 
 public class StringJsonSchema {
     public sealed interface StringJsonSchema1Boxed permits StringJsonSchema1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class StringJsonSchema1BoxedString implements StringJsonSchema1Boxed {
-        public final String data;
-        private StringJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record StringJsonSchema1BoxedString(String data) implements StringJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

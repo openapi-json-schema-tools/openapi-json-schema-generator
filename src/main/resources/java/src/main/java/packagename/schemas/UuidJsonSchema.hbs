@@ -20,15 +20,11 @@ import java.util.UUID;
 
 public class UuidJsonSchema {
     public sealed interface UuidJsonSchema1Boxed permits UuidJsonSchema1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class UuidJsonSchema1BoxedString implements UuidJsonSchema1Boxed {
-        public final String data;
-        private UuidJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record UuidJsonSchema1BoxedString(String data) implements UuidJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -16,13 +16,9 @@ a boxed class to store validated Map payloads, sealed permits class implementati
 | {{#if mapOutputJsonPathPiece}}[{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}){{else}}FrozenMap<@Nullable Object>{{/if}} | data<br>validated payload |
 
 {{else}}
-public static final class {{jsonPathPiece.pascalCase}}BoxedMap implements {{jsonPathPiece.pascalCase}}Boxed {
-    public final {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} data;
-    private {{jsonPathPiece.pascalCase}}BoxedMap({{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} data) {
-        this.data = data;
-    }
+public record {{jsonPathPiece.pascalCase}}BoxedMap({{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} data) implements {{jsonPathPiece.pascalCase}}Boxed {
     @Override
-    public @Nullable Object data() {
+    public @Nullable Object getData() {
         return data;
     }
 }

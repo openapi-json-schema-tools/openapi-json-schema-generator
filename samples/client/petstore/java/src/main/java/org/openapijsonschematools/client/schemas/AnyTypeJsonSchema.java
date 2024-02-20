@@ -32,15 +32,11 @@ import java.util.UUID;
 
 public class AnyTypeJsonSchema {
     public sealed interface AnyTypeJsonSchema1Boxed permits AnyTypeJsonSchema1BoxedVoid, AnyTypeJsonSchema1BoxedBoolean, AnyTypeJsonSchema1BoxedNumber, AnyTypeJsonSchema1BoxedString, AnyTypeJsonSchema1BoxedList, AnyTypeJsonSchema1BoxedMap {
-        public abstract @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class AnyTypeJsonSchema1BoxedVoid implements AnyTypeJsonSchema1Boxed {
-        public final Void data;
-        private AnyTypeJsonSchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AnyTypeJsonSchema1BoxedVoid(Void data) implements AnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

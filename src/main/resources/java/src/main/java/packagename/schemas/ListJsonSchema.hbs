@@ -22,15 +22,11 @@ import java.util.Set;
 
 public class ListJsonSchema {
     public sealed interface ListJsonSchema1Boxed permits ListJsonSchema1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class ListJsonSchema1BoxedList implements ListJsonSchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ListJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ListJsonSchema1BoxedList(FrozenList<@Nullable Object> data) implements ListJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

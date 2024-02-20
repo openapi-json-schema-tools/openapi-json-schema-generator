@@ -16,13 +16,9 @@ a boxed class to store validated Number payloads, sealed permits class implement
 | Number | data<br>validated payload |
 
 {{else}}
-public static final class {{jsonPathPiece.pascalCase}}BoxedNumber implements {{jsonPathPiece.pascalCase}}Boxed {
-    public final Number data;
-    private {{jsonPathPiece.pascalCase}}BoxedNumber(Number data) {
-        this.data = data;
-    }
+public record {{jsonPathPiece.pascalCase}}BoxedNumber(Number data) implements {{jsonPathPiece.pascalCase}}Boxed {
     @Override
-    public @Nullable Object data() {
+    public @Nullable Object getData() {
         return data;
     }
 }

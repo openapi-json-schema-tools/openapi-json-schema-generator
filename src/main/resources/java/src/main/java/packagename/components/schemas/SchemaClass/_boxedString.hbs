@@ -16,13 +16,9 @@ a boxed class to store validated String payloads, sealed permits class implement
 | String | data<br>validated payload |
 
 {{else}}
-public static final class {{jsonPathPiece.pascalCase}}BoxedString implements {{jsonPathPiece.pascalCase}}Boxed {
-    public final String data;
-    private {{jsonPathPiece.pascalCase}}BoxedString(String data) {
-        this.data = data;
-    }
+public record {{jsonPathPiece.pascalCase}}BoxedString(String data) implements {{jsonPathPiece.pascalCase}}Boxed {
     @Override
-    public @Nullable Object data() {
+    public @Nullable Object getData() {
         return data;
     }
 }

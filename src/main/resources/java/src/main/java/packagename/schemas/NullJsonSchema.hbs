@@ -19,15 +19,11 @@ import java.util.Set;
 
 public class NullJsonSchema {
     public sealed interface NullJsonSchema1Boxed permits NullJsonSchema1BoxedVoid {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class NullJsonSchema1BoxedVoid implements NullJsonSchema1Boxed {
-        public final Void data;
-        private NullJsonSchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NullJsonSchema1BoxedVoid(Void data) implements NullJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

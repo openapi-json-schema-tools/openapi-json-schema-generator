@@ -19,15 +19,11 @@ import java.util.Set;
 
 public class FloatJsonSchema {
     public sealed interface FloatJsonSchema1Boxed permits FloatJsonSchema1BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class FloatJsonSchema1BoxedNumber implements FloatJsonSchema1Boxed {
-        public final Number data;
-        private FloatJsonSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record FloatJsonSchema1BoxedNumber(Number data) implements FloatJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

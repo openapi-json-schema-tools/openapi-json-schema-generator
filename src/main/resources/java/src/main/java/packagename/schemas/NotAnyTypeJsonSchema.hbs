@@ -32,65 +32,41 @@ import java.util.UUID;
 
 public class NotAnyTypeJsonSchema {
     public sealed interface NotAnyTypeJsonSchema1Boxed permits NotAnyTypeJsonSchema1BoxedVoid, NotAnyTypeJsonSchema1BoxedBoolean, NotAnyTypeJsonSchema1BoxedNumber, NotAnyTypeJsonSchema1BoxedString, NotAnyTypeJsonSchema1BoxedList, NotAnyTypeJsonSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class NotAnyTypeJsonSchema1BoxedVoid implements NotAnyTypeJsonSchema1Boxed {
-        public final Void data;
-        private NotAnyTypeJsonSchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedVoid(Void data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedBoolean implements NotAnyTypeJsonSchema1Boxed {
-        public final boolean data;
-        private NotAnyTypeJsonSchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedBoolean(boolean data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedNumber implements NotAnyTypeJsonSchema1Boxed {
-        public final Number data;
-        private NotAnyTypeJsonSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedNumber(Number data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedString implements NotAnyTypeJsonSchema1Boxed {
-        public final String data;
-        private NotAnyTypeJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedString(String data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedList implements NotAnyTypeJsonSchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private NotAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedMap implements NotAnyTypeJsonSchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private NotAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
