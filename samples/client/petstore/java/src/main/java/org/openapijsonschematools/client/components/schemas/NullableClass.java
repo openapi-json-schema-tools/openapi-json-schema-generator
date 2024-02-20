@@ -153,6 +153,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -270,6 +271,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -386,6 +388,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -486,6 +489,7 @@ public class NullableClass {
             } else if (arg instanceof Boolean booleanArg) {
                 boolean castArg = booleanArg;
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -583,6 +587,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -681,6 +686,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -779,6 +785,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -942,6 +949,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof List<?> castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -1061,6 +1069,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -1218,6 +1227,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof List<?> castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -1337,6 +1347,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -1640,6 +1651,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -1759,6 +1771,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -1938,6 +1951,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
@@ -2057,6 +2071,7 @@ public class NullableClass {
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    

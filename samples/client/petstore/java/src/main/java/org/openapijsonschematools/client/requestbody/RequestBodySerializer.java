@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.mediatype.MediaType;
 import java.net.http.HttpRequest;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.gson.Gson;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -40,7 +41,7 @@ public abstract class RequestBodySerializer<T> {
         if (body instanceof String stringBody) {
             return new SerializedRequestBody(contentType, HttpRequest.BodyPublishers.ofString(stringBody));
         }
-        throw new RuntimeException("Invalid non-string data type of "+body.getClass().getName()+" for text/plain body serialization");
+        throw new RuntimeException("Invalid non-string data type of "+ JsonSchema.getClass(body) +" for text/plain body serialization");
     }
 
     protected SerializedRequestBody serialize(String contentType, @Nullable Object body) {

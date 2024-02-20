@@ -91,6 +91,7 @@ public class Int32JsonSchema {
         public Int32JsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
+            }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
