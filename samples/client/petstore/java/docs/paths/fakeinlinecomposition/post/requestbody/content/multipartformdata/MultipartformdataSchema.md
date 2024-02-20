@@ -50,7 +50,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MultipartformdataSchemaMap](#multipartformdataschemamap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipartformdataSchema1
 public static class MultipartformdataSchema1<br>
@@ -93,7 +93,9 @@ MultipartformdataSchema.MultipartformdataSchemaMap validatedPayload =
 | ----------------- | ---------------------- |
 | [MultipartformdataSchemaMap](#multipartformdataschemamap) | validate([Map&lt;?, ?&gt;](#multipartformdataschemamapbuilder) arg, SchemaConfiguration configuration) |
 | [MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#multipartformdataschemamapbuilder) arg, SchemaConfiguration configuration) |
+| [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MultipartformdataSchemaMapBuilder
 public class MultipartformdataSchemaMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -168,7 +170,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipartformdataSomePropBoxedBoolean
 public record MultipartformdataSomePropBoxedBoolean<br>
@@ -185,7 +187,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipartformdataSomePropBoxedNumber
 public record MultipartformdataSomePropBoxedNumber<br>
@@ -202,7 +204,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipartformdataSomePropBoxedString
 public record MultipartformdataSomePropBoxedString<br>
@@ -219,7 +221,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipartformdataSomePropBoxedList
 public record MultipartformdataSomePropBoxedList<br>
@@ -236,7 +238,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipartformdataSomePropBoxedMap
 public record MultipartformdataSomePropBoxedMap<br>
@@ -253,7 +255,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipartformdataSomeProp
 public static class MultipartformdataSomeProp<br>
@@ -285,7 +287,9 @@ A schema class that validates payloads
 | [MultipartformdataSomePropBoxedBoolean](#multipartformdatasomepropboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [MultipartformdataSomePropBoxedMap](#multipartformdatasomepropboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [MultipartformdataSomePropBoxedList](#multipartformdatasomepropboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Multipartformdata0Boxed
 public sealed interface Multipartformdata0Boxed<br>
 permits<br>
@@ -308,7 +312,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Multipartformdata0
 public static class Multipartformdata0<br>
@@ -349,4 +353,5 @@ String validatedPayload = MultipartformdataSchema.Multipartformdata0.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [Multipartformdata0BoxedString](#multipartformdata0boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Multipartformdata0Boxed](#multipartformdata0boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

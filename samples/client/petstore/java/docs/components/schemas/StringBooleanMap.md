@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [StringBooleanMapMap](#stringbooleanmapmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## StringBooleanMap1
 public static class StringBooleanMap1<br>
@@ -88,7 +88,9 @@ StringBooleanMap.StringBooleanMapMap validatedPayload =
 | ----------------- | ---------------------- |
 | [StringBooleanMapMap](#stringbooleanmapmap) | validate([Map&lt;?, ?&gt;](#stringbooleanmapmapbuilder) arg, SchemaConfiguration configuration) |
 | [StringBooleanMap1BoxedMap](#stringbooleanmap1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#stringbooleanmapmapbuilder) arg, SchemaConfiguration configuration) |
+| [StringBooleanMap1Boxed](#stringbooleanmap1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringBooleanMapMapBuilder
 public class StringBooleanMapMapBuilder<br>
 builder for `Map<String, Boolean>`
@@ -140,7 +142,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

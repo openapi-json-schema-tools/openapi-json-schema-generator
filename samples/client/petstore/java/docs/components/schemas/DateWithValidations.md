@@ -36,7 +36,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DateWithValidations1
 public static class DateWithValidations1<br>
@@ -78,5 +78,7 @@ String validatedPayload = DateWithValidations.DateWithValidations1.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [DateWithValidations1BoxedString](#datewithvalidations1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [DateWithValidations1Boxed](#datewithvalidations1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

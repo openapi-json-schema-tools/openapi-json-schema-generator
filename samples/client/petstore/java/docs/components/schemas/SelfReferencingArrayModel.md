@@ -40,7 +40,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SelfReferencingArrayModel1
 public static class SelfReferencingArrayModel1<br>
@@ -83,7 +83,9 @@ SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
 | ----------------- | ---------------------- |
 | [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<?>](#selfreferencingarraymodellistbuilder) arg, SchemaConfiguration configuration) |
 | [SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist) | validateAndBox([List<?>](#selfreferencingarraymodellistbuilder) arg, SchemaConfiguration configuration) |
+| [SelfReferencingArrayModel1Boxed](#selfreferencingarraymodel1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## SelfReferencingArrayModelListBuilder
 public class SelfReferencingArrayModelListBuilder<br>
 builder for `List<List<?>>`

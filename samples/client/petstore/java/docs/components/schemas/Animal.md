@@ -46,7 +46,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AnimalMap](#animalmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Animal1
 public static class Animal1<br>
@@ -94,7 +94,9 @@ Animal.AnimalMap validatedPayload =
 | ----------------- | ---------------------- |
 | [AnimalMap](#animalmap) | validate([Map&lt;?, ?&gt;](#animalmapbuilder) arg, SchemaConfiguration configuration) |
 | [Animal1BoxedMap](#animal1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#animalmapbuilder) arg, SchemaConfiguration configuration) |
+| [Animal1Boxed](#animal1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AnimalMap0Builder
 public class AnimalMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -173,7 +175,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Color
 public static class Color<br>
@@ -214,7 +216,9 @@ String validatedPayload = Animal.Color.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [ColorBoxedString](#colorboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ColorBoxed](#colorboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ClassNameBoxed
 public sealed interface ClassNameBoxed<br>
 permits<br>
@@ -237,7 +241,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassName
 public static class ClassName<br>

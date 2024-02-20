@@ -57,7 +57,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ZebraMap](#zebramap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Zebra1
 public static class Zebra1<br>
@@ -106,7 +106,9 @@ Zebra.ZebraMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ZebraMap](#zebramap) | validate([Map&lt;?, ?&gt;](#zebramapbuilder) arg, SchemaConfiguration configuration) |
 | [Zebra1BoxedMap](#zebra1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#zebramapbuilder) arg, SchemaConfiguration configuration) |
+| [Zebra1Boxed](#zebra1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ZebraMap0Builder
 public class ZebraMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -187,7 +189,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassName
 public static class ClassName<br>
@@ -229,7 +231,9 @@ String validatedPayload = Zebra.ClassName.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
 | [ClassNameBoxedString](#classnameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ClassNameBoxed](#classnameboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringClassNameEnums
 public enum StringClassNameEnums<br>
 extends `Enum<StringClassNameEnums>`
@@ -263,7 +267,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Type
 public static class Type<br>
@@ -305,7 +309,9 @@ String validatedPayload = Zebra.Type.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringTypeEnums](#stringtypeenums) arg, SchemaConfiguration configuration) |
 | [TypeBoxedString](#typeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [TypeBoxed](#typeboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringTypeEnums
 public enum StringTypeEnums<br>
 extends `Enum<StringTypeEnums>`
@@ -346,7 +352,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedBoolean
 public record AdditionalPropertiesBoxedBoolean<br>
@@ -363,7 +369,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedNumber
 public record AdditionalPropertiesBoxedNumber<br>
@@ -380,7 +386,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedString
 public record AdditionalPropertiesBoxedString<br>
@@ -397,7 +403,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedList
 public record AdditionalPropertiesBoxedList<br>
@@ -414,7 +420,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedMap
 public record AdditionalPropertiesBoxedMap<br>
@@ -431,7 +437,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

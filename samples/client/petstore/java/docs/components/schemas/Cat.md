@@ -56,7 +56,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Cat1BoxedBoolean
 public record Cat1BoxedBoolean<br>
@@ -73,7 +73,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Cat1BoxedNumber
 public record Cat1BoxedNumber<br>
@@ -90,7 +90,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Cat1BoxedString
 public record Cat1BoxedString<br>
@@ -107,7 +107,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Cat1BoxedList
 public record Cat1BoxedList<br>
@@ -124,7 +124,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Cat1BoxedMap
 public record Cat1BoxedMap<br>
@@ -141,7 +141,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Cat1
 public static class Cat1<br>
@@ -173,7 +173,9 @@ A schema class that validates payloads
 | [Cat1BoxedBoolean](#cat1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [Cat1BoxedMap](#cat1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [Cat1BoxedList](#cat1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [Cat1Boxed](#cat1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema1Boxed
 public sealed interface Schema1Boxed<br>
 permits<br>
@@ -196,7 +198,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -241,7 +243,9 @@ Cat.Schema1Map validatedPayload =
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1Boxed](#schema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -303,7 +307,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Declawed
 public static class Declawed<br>

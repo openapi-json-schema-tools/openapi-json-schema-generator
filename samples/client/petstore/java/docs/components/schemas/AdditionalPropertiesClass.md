@@ -109,7 +109,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesClass1
 public static class AdditionalPropertiesClass1<br>
@@ -189,7 +189,9 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate([Map&lt;?, ?&gt;](#additionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
 | [AdditionalPropertiesClass1BoxedMap](#additionalpropertiesclass1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesClass1Boxed](#additionalpropertiesclass1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AdditionalPropertiesClassMapBuilder
 public class AdditionalPropertiesClassMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -273,7 +275,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapWithUndeclaredPropertiesString
 public static class MapWithUndeclaredPropertiesString<br>
@@ -318,7 +320,9 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap validatedPayload 
 | ----------------- | ---------------------- |
 | [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | validate([Map&lt;?, ?&gt;](#mapwithundeclaredpropertiesstringmapbuilder) arg, SchemaConfiguration configuration) |
 | [MapWithUndeclaredPropertiesStringBoxedMap](#mapwithundeclaredpropertiesstringboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapwithundeclaredpropertiesstringmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapWithUndeclaredPropertiesStringBoxed](#mapwithundeclaredpropertiesstringboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MapWithUndeclaredPropertiesStringMapBuilder
 public class MapWithUndeclaredPropertiesStringMapBuilder<br>
 builder for `Map<String, String>`
@@ -370,7 +374,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties5
 public static class AdditionalProperties5<br>
@@ -405,7 +409,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [EmptyMapMap](#emptymapmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EmptyMap
 public static class EmptyMap<br>
@@ -451,7 +455,9 @@ AdditionalPropertiesClass.EmptyMapMap validatedPayload =
 | ----------------- | ---------------------- |
 | [EmptyMapMap](#emptymapmap) | validate([Map&lt;?, ?&gt;](#emptymapmapbuilder) arg, SchemaConfiguration configuration) |
 | [EmptyMapBoxedMap](#emptymapboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#emptymapmapbuilder) arg, SchemaConfiguration configuration) |
+| [EmptyMapBoxed](#emptymapboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## EmptyMapMapBuilder
 public class EmptyMapMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -506,7 +512,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties4BoxedBoolean
 public record AdditionalProperties4BoxedBoolean<br>
@@ -523,7 +529,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties4BoxedNumber
 public record AdditionalProperties4BoxedNumber<br>
@@ -540,7 +546,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties4BoxedString
 public record AdditionalProperties4BoxedString<br>
@@ -557,7 +563,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties4BoxedList
 public record AdditionalProperties4BoxedList<br>
@@ -574,7 +580,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties4BoxedMap
 public record AdditionalProperties4BoxedMap<br>
@@ -591,7 +597,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
@@ -626,7 +632,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapWithUndeclaredPropertiesAnytype3
 public static class MapWithUndeclaredPropertiesAnytype3<br>
@@ -669,7 +675,9 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map validatedPayloa
 | ----------------- | ---------------------- |
 | [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate([Map&lt;?, ?&gt;](#mapwithundeclaredpropertiesanytype3mapbuilder) arg, SchemaConfiguration configuration) |
 | [MapWithUndeclaredPropertiesAnytype3BoxedMap](#mapwithundeclaredpropertiesanytype3boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapwithundeclaredpropertiesanytype3mapbuilder) arg, SchemaConfiguration configuration) |
+| [MapWithUndeclaredPropertiesAnytype3Boxed](#mapwithundeclaredpropertiesanytype3boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MapWithUndeclaredPropertiesAnytype3MapBuilder
 public class MapWithUndeclaredPropertiesAnytype3MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -734,7 +742,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties3BoxedBoolean
 public record AdditionalProperties3BoxedBoolean<br>
@@ -751,7 +759,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties3BoxedNumber
 public record AdditionalProperties3BoxedNumber<br>
@@ -768,7 +776,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties3BoxedString
 public record AdditionalProperties3BoxedString<br>
@@ -785,7 +793,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties3BoxedList
 public record AdditionalProperties3BoxedList<br>
@@ -802,7 +810,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties3BoxedMap
 public record AdditionalProperties3BoxedMap<br>
@@ -819,7 +827,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
@@ -854,7 +862,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapWithUndeclaredPropertiesAnytype2
 public static class MapWithUndeclaredPropertiesAnytype2<br>
@@ -889,7 +897,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapWithUndeclaredPropertiesAnytype1
 public static class MapWithUndeclaredPropertiesAnytype1<br>
@@ -929,7 +937,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Anytype1BoxedBoolean
 public record Anytype1BoxedBoolean<br>
@@ -946,7 +954,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Anytype1BoxedNumber
 public record Anytype1BoxedNumber<br>
@@ -963,7 +971,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Anytype1BoxedString
 public record Anytype1BoxedString<br>
@@ -980,7 +988,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Anytype1BoxedList
 public record Anytype1BoxedList<br>
@@ -997,7 +1005,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Anytype1BoxedMap
 public record Anytype1BoxedMap<br>
@@ -1014,7 +1022,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Anytype1
 public static class Anytype1<br>
@@ -1049,7 +1057,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapOfMapPropertyMap](#mapofmappropertymap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapOfMapProperty
 public static class MapOfMapProperty<br>
@@ -1101,7 +1109,9 @@ AdditionalPropertiesClass.MapOfMapPropertyMap validatedPayload =
 | ----------------- | ---------------------- |
 | [MapOfMapPropertyMap](#mapofmappropertymap) | validate([Map&lt;?, ?&gt;](#mapofmappropertymapbuilder) arg, SchemaConfiguration configuration) |
 | [MapOfMapPropertyBoxedMap](#mapofmappropertyboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapofmappropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [MapOfMapPropertyBoxed](#mapofmappropertyboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MapOfMapPropertyMapBuilder
 public class MapOfMapPropertyMapBuilder<br>
 builder for `Map<String, Map<String, String>>`
@@ -1153,7 +1163,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesMap](#additionalpropertiesmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -1198,7 +1208,9 @@ AdditionalPropertiesClass.AdditionalPropertiesMap validatedPayload =
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map&lt;?, ?&gt;](#additionalpropertiesmapbuilder2) arg, SchemaConfiguration configuration) |
 | [AdditionalProperties1BoxedMap](#additionalproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertiesmapbuilder2) arg, SchemaConfiguration configuration) |
+| [AdditionalProperties1Boxed](#additionalproperties1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AdditionalPropertiesMapBuilder2
 public class AdditionalPropertiesMapBuilder2<br>
 builder for `Map<String, String>`
@@ -1250,7 +1262,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -1285,7 +1297,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapPropertyMap](#mappropertymap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapProperty
 public static class MapProperty<br>
@@ -1330,7 +1342,9 @@ AdditionalPropertiesClass.MapPropertyMap validatedPayload =
 | ----------------- | ---------------------- |
 | [MapPropertyMap](#mappropertymap) | validate([Map&lt;?, ?&gt;](#mappropertymapbuilder) arg, SchemaConfiguration configuration) |
 | [MapPropertyBoxedMap](#mappropertyboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mappropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [MapPropertyBoxed](#mappropertyboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MapPropertyMapBuilder
 public class MapPropertyMapBuilder<br>
 builder for `Map<String, String>`
@@ -1382,7 +1396,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

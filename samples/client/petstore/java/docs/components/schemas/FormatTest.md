@@ -109,7 +109,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap](#formattestmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FormatTest1
 public static class FormatTest1<br>
@@ -198,7 +198,9 @@ FormatTest.FormatTestMap validatedPayload =
 | ----------------- | ---------------------- |
 | [FormatTestMap](#formattestmap) | validate([Map&lt;?, ?&gt;](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | [FormatTest1BoxedMap](#formattest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
+| [FormatTest1Boxed](#formattest1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## FormatTestMap0000Builder
 public class FormatTestMap0000Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -591,7 +593,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NoneProp
 public static class NoneProp<br>
@@ -626,7 +628,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
@@ -670,7 +672,9 @@ String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## PatternWithDigitsBoxed
 public sealed interface PatternWithDigitsBoxed<br>
 permits<br>
@@ -693,7 +697,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PatternWithDigits
 public static class PatternWithDigits<br>
@@ -737,7 +741,9 @@ String validatedPayload = FormatTest.PatternWithDigits.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [PatternWithDigitsBoxedString](#patternwithdigitsboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [PatternWithDigitsBoxed](#patternwithdigitsboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## PasswordBoxed
 public sealed interface PasswordBoxed<br>
 permits<br>
@@ -760,7 +766,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Password
 public static class Password<br>
@@ -803,7 +809,9 @@ String validatedPayload = FormatTest.Password.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [PasswordBoxedString](#passwordboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [PasswordBoxed](#passwordboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## UuidNoExampleBoxed
 public sealed interface UuidNoExampleBoxed<br>
 permits<br>
@@ -826,7 +834,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UuidNoExample
 public static class UuidNoExample<br>
@@ -861,7 +869,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>
@@ -896,7 +904,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DateTime
 public static class DateTime<br>
@@ -931,7 +939,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Date
 public static class Date<br>
@@ -978,7 +986,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ByteSchema
 public static class ByteSchema<br>
@@ -1008,7 +1016,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## StringSchema
 public static class StringSchema<br>
@@ -1049,7 +1057,9 @@ String validatedPayload = FormatTest.StringSchema.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [StringSchemaBoxedString](#stringschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [StringSchemaBoxed](#stringschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayWithUniqueItemsBoxed
 public sealed interface ArrayWithUniqueItemsBoxed<br>
 permits<br>
@@ -1072,7 +1082,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayWithUniqueItems
 public static class ArrayWithUniqueItems<br>
@@ -1118,7 +1128,9 @@ FormatTest.ArrayWithUniqueItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate([List<?>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist) | validateAndBox([List<?>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayWithUniqueItemsListBuilder
 public class ArrayWithUniqueItemsListBuilder<br>
 builder for `List<Number>`
@@ -1173,7 +1185,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>
@@ -1208,7 +1220,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Float64
 public static class Float64<br>
@@ -1243,7 +1255,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -1286,7 +1298,9 @@ double validatedPayload = FormatTest.DoubleSchema.validate(
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | [DoubleSchemaBoxedNumber](#doubleschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [DoubleSchemaBoxed](#doubleschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Float32Boxed
 public sealed interface Float32Boxed<br>
 permits<br>
@@ -1309,7 +1323,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Float32
 public static class Float32<br>
@@ -1344,7 +1358,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -1390,7 +1404,9 @@ float validatedPayload = FormatTest.FloatSchema.validate(
 | ----------------- | ---------------------- |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | [FloatSchemaBoxedNumber](#floatschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [FloatSchemaBoxed](#floatschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## NumberSchemaBoxed
 public sealed interface NumberSchemaBoxed<br>
 permits<br>
@@ -1413,7 +1429,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -1456,7 +1472,9 @@ int validatedPayload = FormatTest.NumberSchema.validate(
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | [NumberSchemaBoxedNumber](#numberschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [NumberSchemaBoxed](#numberschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Int64Boxed
 public sealed interface Int64Boxed<br>
 permits<br>
@@ -1479,7 +1497,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int64
 public static class Int64<br>
@@ -1514,7 +1532,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int32withValidations
 public static class Int32withValidations<br>
@@ -1557,7 +1575,9 @@ int validatedPayload = FormatTest.Int32withValidations.validate(
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
 | [Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [Int32withValidationsBoxed](#int32withvalidationsboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Int32Boxed
 public sealed interface Int32Boxed<br>
 permits<br>
@@ -1580,7 +1600,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int32
 public static class Int32<br>
@@ -1615,7 +1635,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IntegerSchema
 public static class IntegerSchema<br>
@@ -1659,5 +1679,7 @@ int validatedPayload = FormatTest.IntegerSchema.validate(
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | [IntegerSchemaBoxedNumber](#integerschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [IntegerSchemaBoxed](#integerschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

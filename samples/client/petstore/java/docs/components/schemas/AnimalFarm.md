@@ -40,7 +40,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AnimalFarmList](#animalfarmlist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AnimalFarm1
 public static class AnimalFarm1<br>
@@ -95,7 +95,9 @@ AnimalFarm.AnimalFarmList validatedPayload =
 | ----------------- | ---------------------- |
 | [AnimalFarmList](#animalfarmlist) | validate([List<?>](#animalfarmlistbuilder) arg, SchemaConfiguration configuration) |
 | [AnimalFarm1BoxedList](#animalfarm1boxedlist) | validateAndBox([List<?>](#animalfarmlistbuilder) arg, SchemaConfiguration configuration) |
+| [AnimalFarm1Boxed](#animalfarm1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AnimalFarmListBuilder
 public class AnimalFarmListBuilder<br>
 builder for `List<Map<String, @Nullable Object>>`

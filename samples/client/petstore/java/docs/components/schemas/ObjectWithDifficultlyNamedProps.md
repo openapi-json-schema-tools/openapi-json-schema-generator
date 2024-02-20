@@ -49,7 +49,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectWithDifficultlyNamedProps1
 public static class ObjectWithDifficultlyNamedProps1<br>
@@ -102,7 +102,9 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
 | ----------------- | ---------------------- |
 | [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map&lt;?, ?&gt;](#objectwithdifficultlynamedpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjectWithDifficultlyNamedProps1BoxedMap](#objectwithdifficultlynamedprops1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithdifficultlynamedpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithDifficultlyNamedProps1Boxed](#objectwithdifficultlynamedprops1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjectWithDifficultlyNamedPropsMap0Builder
 public class ObjectWithDifficultlyNamedPropsMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -187,7 +189,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema123Number
 public static class Schema123Number<br>
@@ -222,7 +224,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema123list
 public static class Schema123list<br>
@@ -257,7 +259,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Specialpropertyname
 public static class Specialpropertyname<br>

@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectWithDecimalProperties1
 public static class ObjectWithDecimalProperties1<br>
@@ -102,7 +102,9 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map&lt;?, ?&gt;](#objectwithdecimalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithdecimalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithDecimalProperties1Boxed](#objectwithdecimalproperties1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjectWithDecimalPropertiesMapBuilder
 public class ObjectWithDecimalPropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -168,7 +170,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Width
 public static class Width<br>

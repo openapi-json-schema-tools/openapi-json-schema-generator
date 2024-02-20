@@ -51,7 +51,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MixedPropertiesAndAdditionalPropertiesClass1
 public static class MixedPropertiesAndAdditionalPropertiesClass1<br>
@@ -115,7 +115,9 @@ MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalProperti
 | ----------------- | ---------------------- |
 | [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | validate([Map&lt;?, ?&gt;](#mixedpropertiesandadditionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
 | [MixedPropertiesAndAdditionalPropertiesClass1BoxedMap](#mixedpropertiesandadditionalpropertiesclass1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mixedpropertiesandadditionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
+| [MixedPropertiesAndAdditionalPropertiesClass1Boxed](#mixedpropertiesandadditionalpropertiesclass1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MixedPropertiesAndAdditionalPropertiesClassMapBuilder
 public class MixedPropertiesAndAdditionalPropertiesClassMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -180,7 +182,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapMap](#mapmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapSchema
 public static class MapSchema<br>
@@ -236,7 +238,9 @@ MixedPropertiesAndAdditionalPropertiesClass.MapMap validatedPayload =
 | ----------------- | ---------------------- |
 | [MapMap](#mapmap) | validate([Map&lt;?, ?&gt;](#mapmapbuilder) arg, SchemaConfiguration configuration) |
 | [MapSchemaBoxedMap](#mapschemaboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapSchemaBoxed](#mapschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MapMapBuilder
 public class MapMapBuilder<br>
 builder for `Map<String, Map<String, @Nullable Object>>`
@@ -288,7 +292,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DateTime
 public static class DateTime<br>
@@ -323,7 +327,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>

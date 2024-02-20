@@ -47,7 +47,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesWithArrayOfEnums1
 public static class AdditionalPropertiesWithArrayOfEnums1<br>
@@ -96,7 +96,9 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap val
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate([Map&lt;?, ?&gt;](#additionalpropertieswitharrayofenumsmapbuilder) arg, SchemaConfiguration configuration) |
 | [AdditionalPropertiesWithArrayOfEnums1BoxedMap](#additionalpropertieswitharrayofenums1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertieswitharrayofenumsmapbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesWithArrayOfEnums1Boxed](#additionalpropertieswitharrayofenums1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AdditionalPropertiesWithArrayOfEnumsMapBuilder
 public class AdditionalPropertiesWithArrayOfEnumsMapBuilder<br>
 builder for `Map<String, List<String>>`
@@ -148,7 +150,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesList](#additionalpropertieslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
@@ -193,7 +195,9 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesList](#additionalpropertieslist) | validate([List<?>](#additionalpropertieslistbuilder) arg, SchemaConfiguration configuration) |
 | [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist) | validateAndBox([List<?>](#additionalpropertieslistbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesBoxed](#additionalpropertiesboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AdditionalPropertiesListBuilder
 public class AdditionalPropertiesListBuilder<br>
 builder for `List<String>`

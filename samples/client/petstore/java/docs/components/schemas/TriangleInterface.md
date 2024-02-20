@@ -58,7 +58,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## TriangleInterface1BoxedBoolean
 public record TriangleInterface1BoxedBoolean<br>
@@ -75,7 +75,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## TriangleInterface1BoxedNumber
 public record TriangleInterface1BoxedNumber<br>
@@ -92,7 +92,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## TriangleInterface1BoxedString
 public record TriangleInterface1BoxedString<br>
@@ -109,7 +109,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## TriangleInterface1BoxedList
 public record TriangleInterface1BoxedList<br>
@@ -126,7 +126,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## TriangleInterface1BoxedMap
 public record TriangleInterface1BoxedMap<br>
@@ -143,7 +143,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [TriangleInterfaceMap](#triangleinterfacemap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## TriangleInterface1
 public static class TriangleInterface1<br>
@@ -176,7 +176,9 @@ A schema class that validates payloads
 | [TriangleInterface1BoxedBoolean](#triangleinterface1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [TriangleInterface1BoxedMap](#triangleinterface1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#triangleinterfacemapbuilder) arg, SchemaConfiguration configuration) |
 | [TriangleInterface1BoxedList](#triangleinterface1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [TriangleInterface1Boxed](#triangleinterface1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## TriangleInterfaceMap00Builder
 public class TriangleInterfaceMap00Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -289,7 +291,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## TriangleType
 public static class TriangleType<br>
@@ -324,7 +326,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ShapeType
 public static class ShapeType<br>
@@ -366,7 +368,9 @@ String validatedPayload = TriangleInterface.ShapeType.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringShapeTypeEnums](#stringshapetypeenums) arg, SchemaConfiguration configuration) |
 | [ShapeTypeBoxedString](#shapetypeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ShapeTypeBoxed](#shapetypeboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringShapeTypeEnums
 public enum StringShapeTypeEnums<br>
 extends `Enum<StringShapeTypeEnums>`

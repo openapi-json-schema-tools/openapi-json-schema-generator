@@ -49,7 +49,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ShapeOrNull1BoxedBoolean
 public record ShapeOrNull1BoxedBoolean<br>
@@ -66,7 +66,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ShapeOrNull1BoxedNumber
 public record ShapeOrNull1BoxedNumber<br>
@@ -83,7 +83,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ShapeOrNull1BoxedString
 public record ShapeOrNull1BoxedString<br>
@@ -100,7 +100,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ShapeOrNull1BoxedList
 public record ShapeOrNull1BoxedList<br>
@@ -117,7 +117,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ShapeOrNull1BoxedMap
 public record ShapeOrNull1BoxedMap<br>
@@ -134,7 +134,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ShapeOrNull1
 public static class ShapeOrNull1<br>
@@ -169,7 +169,9 @@ The value may be a shape or the &#x27;null&#x27; value. This is introduced in OA
 | [ShapeOrNull1BoxedBoolean](#shapeornull1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [ShapeOrNull1BoxedMap](#shapeornull1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [ShapeOrNull1BoxedList](#shapeornull1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ShapeOrNull1Boxed](#shapeornull1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema0Boxed
 public sealed interface Schema0Boxed<br>
 permits<br>
@@ -192,7 +194,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>

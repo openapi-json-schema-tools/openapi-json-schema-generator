@@ -53,7 +53,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## GmFruit1BoxedBoolean
 public record GmFruit1BoxedBoolean<br>
@@ -70,7 +70,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## GmFruit1BoxedNumber
 public record GmFruit1BoxedNumber<br>
@@ -87,7 +87,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## GmFruit1BoxedString
 public record GmFruit1BoxedString<br>
@@ -104,7 +104,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## GmFruit1BoxedList
 public record GmFruit1BoxedList<br>
@@ -121,7 +121,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## GmFruit1BoxedMap
 public record GmFruit1BoxedMap<br>
@@ -138,7 +138,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GmFruitMap](#gmfruitmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## GmFruit1
 public static class GmFruit1<br>
@@ -171,7 +171,9 @@ A schema class that validates payloads
 | [GmFruit1BoxedBoolean](#gmfruit1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [GmFruit1BoxedMap](#gmfruit1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#gmfruitmapbuilder) arg, SchemaConfiguration configuration) |
 | [GmFruit1BoxedList](#gmfruit1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [GmFruit1Boxed](#gmfruit1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## GmFruitMapBuilder
 public class GmFruitMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -233,7 +235,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Color
 public static class Color<br>

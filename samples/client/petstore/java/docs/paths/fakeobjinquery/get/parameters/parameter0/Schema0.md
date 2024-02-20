@@ -42,7 +42,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap0](#schemamap0) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema01
 public static class Schema01<br>
@@ -87,7 +87,9 @@ Schema0.SchemaMap0 validatedPayload =
 | ----------------- | ---------------------- |
 | [SchemaMap0](#schemamap0) | validate([Map&lt;?, ?&gt;](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
 | [Schema01BoxedMap](#schema01boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
+| [Schema01Boxed](#schema01boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## SchemaMapBuilder0
 public class SchemaMapBuilder0<br>
 builder for `Map<String, @Nullable Object>`
@@ -149,7 +151,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Keyword0
 public static class Keyword0<br>

@@ -46,7 +46,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectModelWithArgAndArgsProperties1
 public static class ObjectModelWithArgAndArgsProperties1<br>
@@ -94,7 +94,9 @@ ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap valid
 | ----------------- | ---------------------- |
 | [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map&lt;?, ?&gt;](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjectModelWithArgAndArgsPropertiesMap00Builder
 public class ObjectModelWithArgAndArgsPropertiesMap00Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -205,7 +207,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Args
 public static class Args<br>
@@ -240,7 +242,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Arg
 public static class Arg<br>

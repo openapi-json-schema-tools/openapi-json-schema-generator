@@ -45,7 +45,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ApplicationxwwwformurlencodedSchemaMap](#applicationxwwwformurlencodedschemamap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedSchema1
 public static class ApplicationxwwwformurlencodedSchema1<br>
@@ -93,7 +93,9 @@ ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMap valid
 | ----------------- | ---------------------- |
 | [ApplicationxwwwformurlencodedSchemaMap](#applicationxwwwformurlencodedschemamap) | validate([Map&lt;?, ?&gt;](#applicationxwwwformurlencodedschemamapbuilder) arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedSchema1BoxedMap](#applicationxwwwformurlencodedschema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#applicationxwwwformurlencodedschemamapbuilder) arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedSchemaMap00Builder
 public class ApplicationxwwwformurlencodedSchemaMap00Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -204,7 +206,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedParam2
 public static class ApplicationxwwwformurlencodedParam2<br>
@@ -242,7 +244,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedParam
 public static class ApplicationxwwwformurlencodedParam<br>

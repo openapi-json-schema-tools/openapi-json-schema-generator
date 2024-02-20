@@ -64,7 +64,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## JSONPatchRequestAddReplaceTest1
 public static class JSONPatchRequestAddReplaceTest1<br>
@@ -113,7 +113,9 @@ JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap validatedPayloa
 | ----------------- | ---------------------- |
 | [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map&lt;?, ?&gt;](#jsonpatchrequestaddreplacetestmapbuilder) arg, SchemaConfiguration configuration) |
 | [JSONPatchRequestAddReplaceTest1BoxedMap](#jsonpatchrequestaddreplacetest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#jsonpatchrequestaddreplacetestmapbuilder) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestAddReplaceTest1Boxed](#jsonpatchrequestaddreplacetest1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## JSONPatchRequestAddReplaceTestMap000Builder
 public class JSONPatchRequestAddReplaceTestMap000Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -319,7 +321,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Op
 public static class Op<br>
@@ -364,7 +366,9 @@ String validatedPayload = JSONPatchRequestAddReplaceTest.Op.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringOpEnums](#stringopenums) arg, SchemaConfiguration configuration) |
 | [OpBoxedString](#opboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [OpBoxed](#opboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringOpEnums
 public enum StringOpEnums<br>
 extends `Enum<StringOpEnums>`
@@ -405,7 +409,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ValueBoxedBoolean
 public record ValueBoxedBoolean<br>
@@ -422,7 +426,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ValueBoxedNumber
 public record ValueBoxedNumber<br>
@@ -439,7 +443,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ValueBoxedString
 public record ValueBoxedString<br>
@@ -456,7 +460,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ValueBoxedList
 public record ValueBoxedList<br>
@@ -473,7 +477,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ValueBoxedMap
 public record ValueBoxedMap<br>
@@ -490,7 +494,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Value
 public static class Value<br>
@@ -528,7 +532,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Path
 public static class Path<br>
@@ -571,7 +575,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedBoolean
 public record AdditionalPropertiesBoxedBoolean<br>
@@ -588,7 +592,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedNumber
 public record AdditionalPropertiesBoxedNumber<br>
@@ -605,7 +609,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedString
 public record AdditionalPropertiesBoxedString<br>
@@ -622,7 +626,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedList
 public record AdditionalPropertiesBoxedList<br>
@@ -639,7 +643,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedMap
 public record AdditionalPropertiesBoxedMap<br>
@@ -656,7 +660,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -53,7 +53,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassModel1BoxedBoolean
 public record ClassModel1BoxedBoolean<br>
@@ -70,7 +70,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassModel1BoxedNumber
 public record ClassModel1BoxedNumber<br>
@@ -87,7 +87,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassModel1BoxedString
 public record ClassModel1BoxedString<br>
@@ -104,7 +104,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassModel1BoxedList
 public record ClassModel1BoxedList<br>
@@ -121,7 +121,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassModel1BoxedMap
 public record ClassModel1BoxedMap<br>
@@ -138,7 +138,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ClassModelMap](#classmodelmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassModel1
 public static class ClassModel1<br>
@@ -173,7 +173,9 @@ Model for testing model with &quot;_class&quot; property
 | [ClassModel1BoxedBoolean](#classmodel1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [ClassModel1BoxedMap](#classmodel1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | [ClassModel1BoxedList](#classmodel1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ClassModel1Boxed](#classmodel1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ClassModelMapBuilder
 public class ClassModelMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -235,7 +237,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassSchema
 public static class ClassSchema<br>

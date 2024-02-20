@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AddressMap](#addressmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Address1
 public static class Address1<br>
@@ -88,7 +88,9 @@ Address.AddressMap validatedPayload =
 | ----------------- | ---------------------- |
 | [AddressMap](#addressmap) | validate([Map&lt;?, ?&gt;](#addressmapbuilder) arg, SchemaConfiguration configuration) |
 | [Address1BoxedMap](#address1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#addressmapbuilder) arg, SchemaConfiguration configuration) |
+| [Address1Boxed](#address1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AddressMapBuilder
 public class AddressMapBuilder<br>
 builder for `Map<String, Number>`
@@ -143,7 +145,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

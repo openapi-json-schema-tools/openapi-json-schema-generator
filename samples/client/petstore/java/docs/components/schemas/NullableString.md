@@ -38,7 +38,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NullableString1BoxedString
 public record NullableString1BoxedString<br>
@@ -55,7 +55,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NullableString1
 public static class NullableString1<br>
@@ -103,5 +103,7 @@ String validatedPayload = NullableString.NullableString1.validate(
 | [NullableString1BoxedVoid](#nullablestring1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [NullableString1BoxedString](#nullablestring1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [NullableString1Boxed](#nullablestring1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -58,7 +58,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SimpleQuadrilateral1BoxedBoolean
 public record SimpleQuadrilateral1BoxedBoolean<br>
@@ -75,7 +75,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SimpleQuadrilateral1BoxedNumber
 public record SimpleQuadrilateral1BoxedNumber<br>
@@ -92,7 +92,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SimpleQuadrilateral1BoxedString
 public record SimpleQuadrilateral1BoxedString<br>
@@ -109,7 +109,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SimpleQuadrilateral1BoxedList
 public record SimpleQuadrilateral1BoxedList<br>
@@ -126,7 +126,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SimpleQuadrilateral1BoxedMap
 public record SimpleQuadrilateral1BoxedMap<br>
@@ -143,7 +143,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SimpleQuadrilateral1
 public static class SimpleQuadrilateral1<br>
@@ -175,7 +175,9 @@ A schema class that validates payloads
 | [SimpleQuadrilateral1BoxedBoolean](#simplequadrilateral1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [SimpleQuadrilateral1BoxedMap](#simplequadrilateral1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [SimpleQuadrilateral1BoxedList](#simplequadrilateral1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema1Boxed
 public sealed interface Schema1Boxed<br>
 permits<br>
@@ -198,7 +200,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -243,7 +245,9 @@ SimpleQuadrilateral.Schema1Map validatedPayload =
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1Boxed](#schema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -306,7 +310,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## QuadrilateralType
 public static class QuadrilateralType<br>
@@ -348,7 +352,9 @@ String validatedPayload = SimpleQuadrilateral.QuadrilateralType.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums) arg, SchemaConfiguration configuration) |
 | [QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [QuadrilateralTypeBoxed](#quadrilateraltypeboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringQuadrilateralTypeEnums
 public enum StringQuadrilateralTypeEnums<br>
 extends `Enum<StringQuadrilateralTypeEnums>`

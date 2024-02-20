@@ -40,7 +40,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectWithInvalidNamedRefedProperties1
 public static class ObjectWithInvalidNamedRefedProperties1<br>
@@ -101,7 +101,9 @@ ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap v
 | ----------------- | ---------------------- |
 | [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate([Map&lt;?, ?&gt;](#objectwithinvalidnamedrefedpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjectWithInvalidNamedRefedProperties1BoxedMap](#objectwithinvalidnamedrefedproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithinvalidnamedrefedpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithInvalidNamedRefedProperties1Boxed](#objectwithinvalidnamedrefedproperties1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjectWithInvalidNamedRefedPropertiesMap00Builder
 public class ObjectWithInvalidNamedRefedPropertiesMap00Builder<br>
 builder for `Map<String, @Nullable Object>`

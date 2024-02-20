@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PlayerMap](#playermap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Player1
 public static class Player1<br>
@@ -91,7 +91,9 @@ Player.PlayerMap validatedPayload =
 | ----------------- | ---------------------- |
 | [PlayerMap](#playermap) | validate([Map&lt;?, ?&gt;](#playermapbuilder) arg, SchemaConfiguration configuration) |
 | [Player1BoxedMap](#player1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#playermapbuilder) arg, SchemaConfiguration configuration) |
+| [Player1Boxed](#player1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## PlayerMapBuilder
 public class PlayerMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -155,7 +157,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name
 public static class Name<br>

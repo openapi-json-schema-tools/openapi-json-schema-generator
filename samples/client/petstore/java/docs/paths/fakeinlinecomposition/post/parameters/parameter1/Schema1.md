@@ -50,7 +50,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap1](#schemamap1) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema11
 public static class Schema11<br>
@@ -93,7 +93,9 @@ Schema1.SchemaMap1 validatedPayload =
 | ----------------- | ---------------------- |
 | [SchemaMap1](#schemamap1) | validate([Map&lt;?, ?&gt;](#schemamapbuilder1) arg, SchemaConfiguration configuration) |
 | [Schema11BoxedMap](#schema11boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schemamapbuilder1) arg, SchemaConfiguration configuration) |
+| [Schema11Boxed](#schema11boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## SchemaMapBuilder1
 public class SchemaMapBuilder1<br>
 builder for `Map<String, @Nullable Object>`
@@ -168,7 +170,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeProp1BoxedBoolean
 public record SomeProp1BoxedBoolean<br>
@@ -185,7 +187,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeProp1BoxedNumber
 public record SomeProp1BoxedNumber<br>
@@ -202,7 +204,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeProp1BoxedString
 public record SomeProp1BoxedString<br>
@@ -219,7 +221,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeProp1BoxedList
 public record SomeProp1BoxedList<br>
@@ -236,7 +238,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeProp1BoxedMap
 public record SomeProp1BoxedMap<br>
@@ -253,7 +255,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeProp1
 public static class SomeProp1<br>
@@ -285,7 +287,9 @@ A schema class that validates payloads
 | [SomeProp1BoxedBoolean](#someprop1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [SomeProp1BoxedMap](#someprop1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [SomeProp1BoxedList](#someprop1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [SomeProp1Boxed](#someprop1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema01Boxed
 public sealed interface Schema01Boxed<br>
 permits<br>
@@ -308,7 +312,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema01
 public static class Schema01<br>
@@ -349,4 +353,5 @@ String validatedPayload = Schema1.Schema01.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [Schema01BoxedString](#schema01boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Schema01Boxed](#schema01boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

@@ -77,7 +77,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [VariablesMap](#variablesmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ### Variables1
 public static class Variables1<br>
@@ -126,7 +126,9 @@ Variables.VariablesMap validatedPayload =
 | ----------------- | ---------------------- |
 | [VariablesMap](#variablesmap) | validate([Map&lt;?, ?&gt;](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
 | [Variables1BoxedMap](#variables1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
+| [Variables1Boxed](#variables1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ### VariablesMap00Builder
 public class VariablesMap00Builder<br>
 builder for `Map<String, String>`
@@ -231,7 +233,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ### Port
 public static class Port<br>
@@ -277,7 +279,9 @@ String validatedPayload = Variables.Port.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringPortEnums](#stringportenums) arg, SchemaConfiguration configuration) |
 | [PortBoxedString](#portboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [PortBoxed](#portboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ### StringPortEnums
 public enum StringPortEnums<br>
 extends `Enum<StringPortEnums>`
@@ -312,7 +316,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ### Server
 public static class Server<br>
@@ -358,7 +362,9 @@ String validatedPayload = Variables.Server.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringServerEnums](#stringserverenums) arg, SchemaConfiguration configuration) |
 | [ServerBoxedString](#serverboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ServerBoxed](#serverboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ### StringServerEnums
 public enum StringServerEnums<br>
 extends `Enum<StringServerEnums>`
@@ -399,7 +405,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ### AdditionalPropertiesBoxedBoolean
 public record AdditionalPropertiesBoxedBoolean<br>
@@ -416,7 +422,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ### AdditionalPropertiesBoxedNumber
 public record AdditionalPropertiesBoxedNumber<br>
@@ -433,7 +439,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ### AdditionalPropertiesBoxedString
 public record AdditionalPropertiesBoxedString<br>
@@ -450,7 +456,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ### AdditionalPropertiesBoxedList
 public record AdditionalPropertiesBoxedList<br>
@@ -467,7 +473,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ### AdditionalPropertiesBoxedMap
 public record AdditionalPropertiesBoxedMap<br>
@@ -484,7 +490,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ### AdditionalProperties
 public static class AdditionalProperties<br>

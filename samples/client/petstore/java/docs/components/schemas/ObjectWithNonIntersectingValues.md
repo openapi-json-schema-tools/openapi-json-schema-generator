@@ -46,7 +46,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectWithNonIntersectingValues1
 public static class ObjectWithNonIntersectingValues1<br>
@@ -94,7 +94,9 @@ ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayl
 | ----------------- | ---------------------- |
 | [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map&lt;?, ?&gt;](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjectWithNonIntersectingValuesMapBuilder
 public class ObjectWithNonIntersectingValuesMapBuilder<br>
 builder for `Map<String, Object>`
@@ -151,7 +153,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## A
 public static class A<br>
@@ -186,7 +188,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

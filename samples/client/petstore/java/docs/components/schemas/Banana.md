@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [BananaMap](#bananamap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Banana1
 public static class Banana1<br>
@@ -89,7 +89,9 @@ Banana.BananaMap validatedPayload =
 | ----------------- | ---------------------- |
 | [BananaMap](#bananamap) | validate([Map&lt;?, ?&gt;](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | [Banana1BoxedMap](#banana1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#bananamapbuilder) arg, SchemaConfiguration configuration) |
+| [Banana1Boxed](#banana1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BananaMap0Builder
 public class BananaMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -169,7 +171,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## LengthCm
 public static class LengthCm<br>

@@ -59,7 +59,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedBoolean
 public record Name1BoxedBoolean<br>
@@ -76,7 +76,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedNumber
 public record Name1BoxedNumber<br>
@@ -93,7 +93,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedString
 public record Name1BoxedString<br>
@@ -110,7 +110,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedList
 public record Name1BoxedList<br>
@@ -127,7 +127,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedMap
 public record Name1BoxedMap<br>
@@ -144,7 +144,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [NameMap](#namemap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1
 public static class Name1<br>
@@ -180,7 +180,9 @@ Model for testing model name same as property name
 | [Name1BoxedBoolean](#name1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [Name1BoxedMap](#name1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#namemapbuilder1) arg, SchemaConfiguration configuration) |
 | [Name1BoxedList](#name1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [Name1Boxed](#name1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## NameMap0Builder
 public class NameMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -263,7 +265,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Property
 public static class Property<br>
@@ -301,7 +303,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SnakeCase
 public static class SnakeCase<br>
@@ -336,7 +338,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name2
 public static class Name2<br>

@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ReqPropsFromExplicitAddProps1
 public static class ReqPropsFromExplicitAddProps1<br>
@@ -89,7 +89,9 @@ ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate([Map&lt;?, ?&gt;](#reqpropsfromexplicitaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | [ReqPropsFromExplicitAddProps1BoxedMap](#reqpropsfromexplicitaddprops1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#reqpropsfromexplicitaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromExplicitAddProps1Boxed](#reqpropsfromexplicitaddprops1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ReqPropsFromExplicitAddPropsMap00Builder
 public class ReqPropsFromExplicitAddPropsMap00Builder<br>
 builder for `Map<String, String>`
@@ -192,7 +194,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

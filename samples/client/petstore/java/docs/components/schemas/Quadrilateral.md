@@ -46,7 +46,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Quadrilateral1BoxedBoolean
 public record Quadrilateral1BoxedBoolean<br>
@@ -63,7 +63,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Quadrilateral1BoxedNumber
 public record Quadrilateral1BoxedNumber<br>
@@ -80,7 +80,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Quadrilateral1BoxedString
 public record Quadrilateral1BoxedString<br>
@@ -97,7 +97,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Quadrilateral1BoxedList
 public record Quadrilateral1BoxedList<br>
@@ -114,7 +114,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Quadrilateral1BoxedMap
 public record Quadrilateral1BoxedMap<br>
@@ -131,7 +131,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Quadrilateral1
 public static class Quadrilateral1<br>
@@ -163,5 +163,7 @@ A schema class that validates payloads
 | [Quadrilateral1BoxedBoolean](#quadrilateral1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [Quadrilateral1BoxedMap](#quadrilateral1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [Quadrilateral1BoxedList](#quadrilateral1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [Quadrilateral1Boxed](#quadrilateral1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

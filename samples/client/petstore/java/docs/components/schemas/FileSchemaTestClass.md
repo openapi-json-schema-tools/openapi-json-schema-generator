@@ -47,7 +47,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FileSchemaTestClassMap](#fileschematestclassmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FileSchemaTestClass1
 public static class FileSchemaTestClass1<br>
@@ -94,7 +94,9 @@ FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
 | ----------------- | ---------------------- |
 | [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map&lt;?, ?&gt;](#fileschematestclassmapbuilder) arg, SchemaConfiguration configuration) |
 | [FileSchemaTestClass1BoxedMap](#fileschematestclass1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fileschematestclassmapbuilder) arg, SchemaConfiguration configuration) |
+| [FileSchemaTestClass1Boxed](#fileschematestclass1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## FileSchemaTestClassMapBuilder
 public class FileSchemaTestClassMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -158,7 +160,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FilesList](#fileslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Files
 public static class Files<br>
@@ -201,7 +203,9 @@ FileSchemaTestClass.FilesList validatedPayload =
 | ----------------- | ---------------------- |
 | [FilesList](#fileslist) | validate([List<?>](#fileslistbuilder) arg, SchemaConfiguration configuration) |
 | [FilesBoxedList](#filesboxedlist) | validateAndBox([List<?>](#fileslistbuilder) arg, SchemaConfiguration configuration) |
+| [FilesBoxed](#filesboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## FilesListBuilder
 public class FilesListBuilder<br>
 builder for `List<Map<String, @Nullable Object>>`

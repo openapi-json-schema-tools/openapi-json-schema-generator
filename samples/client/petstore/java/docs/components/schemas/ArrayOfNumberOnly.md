@@ -50,7 +50,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayOfNumberOnly1
 public static class ArrayOfNumberOnly1<br>
@@ -98,7 +98,9 @@ ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | validate([Map&lt;?, ?&gt;](#arrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayOfNumberOnly1BoxedMap](#arrayofnumberonly1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#arrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayOfNumberOnly1Boxed](#arrayofnumberonly1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayOfNumberOnlyMapBuilder
 public class ArrayOfNumberOnlyMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -160,7 +162,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayNumberList](#arraynumberlist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayNumber
 public static class ArrayNumber<br>
@@ -205,7 +207,9 @@ ArrayOfNumberOnly.ArrayNumberList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayNumberList](#arraynumberlist) | validate([List<?>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayNumberBoxedList](#arraynumberboxedlist) | validateAndBox([List<?>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayNumberBoxed](#arraynumberboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayNumberListBuilder
 public class ArrayNumberListBuilder<br>
 builder for `List<Number>`
@@ -260,7 +264,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>

@@ -56,7 +56,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [EnumArraysMap](#enumarraysmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumArrays1
 public static class EnumArrays1<br>
@@ -106,7 +106,9 @@ EnumArrays.EnumArraysMap validatedPayload =
 | ----------------- | ---------------------- |
 | [EnumArraysMap](#enumarraysmap) | validate([Map&lt;?, ?&gt;](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
 | [EnumArrays1BoxedMap](#enumarrays1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumArrays1Boxed](#enumarrays1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## EnumArraysMapBuilder
 public class EnumArraysMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -171,7 +173,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayEnumList](#arrayenumlist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayEnum
 public static class ArrayEnum<br>
@@ -216,7 +218,9 @@ EnumArrays.ArrayEnumList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayEnumList](#arrayenumlist) | validate([List<?>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayEnumBoxedList](#arrayenumboxedlist) | validateAndBox([List<?>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayEnumBoxed](#arrayenumboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayEnumListBuilder
 public class ArrayEnumListBuilder<br>
 builder for `List<String>`
@@ -269,7 +273,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>
@@ -311,7 +315,9 @@ String validatedPayload = EnumArrays.Items.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringItemsEnums](#stringitemsenums) arg, SchemaConfiguration configuration) |
 | [ItemsBoxedString](#itemsboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ItemsBoxed](#itemsboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringItemsEnums
 public enum StringItemsEnums<br>
 extends `Enum<StringItemsEnums>`
@@ -346,7 +352,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## JustSymbol
 public static class JustSymbol<br>
@@ -388,7 +394,9 @@ String validatedPayload = EnumArrays.JustSymbol.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringJustSymbolEnums](#stringjustsymbolenums) arg, SchemaConfiguration configuration) |
 | [JustSymbolBoxedString](#justsymbolboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [JustSymbolBoxed](#justsymbolboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringJustSymbolEnums
 public enum StringJustSymbolEnums<br>
 extends `Enum<StringJustSymbolEnums>`

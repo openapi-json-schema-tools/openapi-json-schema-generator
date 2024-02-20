@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjWithRequiredPropsMap](#objwithrequiredpropsmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjWithRequiredProps1
 public static class ObjWithRequiredProps1<br>
@@ -90,7 +90,9 @@ ObjWithRequiredProps.ObjWithRequiredPropsMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ObjWithRequiredPropsMap](#objwithrequiredpropsmap) | validate([Map&lt;?, ?&gt;](#objwithrequiredpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjWithRequiredProps1BoxedMap](#objwithrequiredprops1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objwithrequiredpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjWithRequiredProps1Boxed](#objwithrequiredprops1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjWithRequiredPropsMap0Builder
 public class ObjWithRequiredPropsMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -167,7 +169,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## A
 public static class A<br>

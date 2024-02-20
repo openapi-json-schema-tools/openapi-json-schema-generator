@@ -38,7 +38,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Currency1
 public static class Currency1<br>
@@ -80,7 +80,9 @@ String validatedPayload = Currency.Currency1.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringCurrencyEnums](#stringcurrencyenums) arg, SchemaConfiguration configuration) |
 | [Currency1BoxedString](#currency1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Currency1Boxed](#currency1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringCurrencyEnums
 public enum StringCurrencyEnums<br>
 extends `Enum<StringCurrencyEnums>`

@@ -48,7 +48,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationjsonSchema1BoxedBoolean
 public record ApplicationjsonSchema1BoxedBoolean<br>
@@ -65,7 +65,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationjsonSchema1BoxedNumber
 public record ApplicationjsonSchema1BoxedNumber<br>
@@ -82,7 +82,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationjsonSchema1BoxedString
 public record ApplicationjsonSchema1BoxedString<br>
@@ -99,7 +99,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationjsonSchema1BoxedList
 public record ApplicationjsonSchema1BoxedList<br>
@@ -116,7 +116,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationjsonSchema1BoxedMap
 public record ApplicationjsonSchema1BoxedMap<br>
@@ -133,7 +133,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
@@ -165,7 +165,9 @@ A schema class that validates payloads
 | [ApplicationjsonSchema1BoxedBoolean](#applicationjsonschema1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [ApplicationjsonSchema1BoxedMap](#applicationjsonschema1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [ApplicationjsonSchema1BoxedList](#applicationjsonschema1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Applicationjson0Boxed
 public sealed interface Applicationjson0Boxed<br>
 permits<br>
@@ -188,7 +190,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Applicationjson0
 public static class Applicationjson0<br>
@@ -229,4 +231,5 @@ String validatedPayload = ApplicationjsonSchema.Applicationjson0.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [Applicationjson0BoxedString](#applicationjson0boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Applicationjson0Boxed](#applicationjson0boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

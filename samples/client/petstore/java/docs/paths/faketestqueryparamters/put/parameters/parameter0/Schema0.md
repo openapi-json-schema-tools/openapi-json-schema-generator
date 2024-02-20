@@ -42,7 +42,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaList0](#schemalist0) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema01
 public static class Schema01<br>
@@ -87,7 +87,9 @@ Schema0.SchemaList0 validatedPayload =
 | ----------------- | ---------------------- |
 | [SchemaList0](#schemalist0) | validate([List<?>](#schemalistbuilder0) arg, SchemaConfiguration configuration) |
 | [Schema01BoxedList](#schema01boxedlist) | validateAndBox([List<?>](#schemalistbuilder0) arg, SchemaConfiguration configuration) |
+| [Schema01Boxed](#schema01boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## SchemaListBuilder0
 public class SchemaListBuilder0<br>
 builder for `List<String>`
@@ -139,7 +141,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items0
 public static class Items0<br>

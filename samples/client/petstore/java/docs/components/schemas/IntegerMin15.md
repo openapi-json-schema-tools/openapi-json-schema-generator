@@ -36,7 +36,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IntegerMin151
 public static class IntegerMin151<br>
@@ -78,5 +78,7 @@ long validatedPayload = IntegerMin15.IntegerMin151.validate(
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | [IntegerMin151BoxedNumber](#integermin151boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [IntegerMin151Boxed](#integermin151boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

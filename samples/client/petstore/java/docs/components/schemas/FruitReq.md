@@ -49,7 +49,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FruitReq1BoxedBoolean
 public record FruitReq1BoxedBoolean<br>
@@ -66,7 +66,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FruitReq1BoxedNumber
 public record FruitReq1BoxedNumber<br>
@@ -83,7 +83,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FruitReq1BoxedString
 public record FruitReq1BoxedString<br>
@@ -100,7 +100,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FruitReq1BoxedList
 public record FruitReq1BoxedList<br>
@@ -117,7 +117,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FruitReq1BoxedMap
 public record FruitReq1BoxedMap<br>
@@ -134,7 +134,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FruitReq1
 public static class FruitReq1<br>
@@ -166,7 +166,9 @@ A schema class that validates payloads
 | [FruitReq1BoxedBoolean](#fruitreq1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [FruitReq1BoxedMap](#fruitreq1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [FruitReq1BoxedList](#fruitreq1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [FruitReq1Boxed](#fruitreq1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema0Boxed
 public sealed interface Schema0Boxed<br>
 permits<br>
@@ -189,7 +191,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>

@@ -38,7 +38,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BooleanEnum1
 public static class BooleanEnum1<br>
@@ -80,7 +80,9 @@ boolean validatedPayload = BooleanEnum.BooleanEnum1.validate(
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | boolean | validate([BooleanBooleanEnumEnums](#booleanbooleanenumenums) arg, SchemaConfiguration configuration) |
 | [BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [BooleanEnum1Boxed](#booleanenum1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BooleanBooleanEnumEnums
 public enum BooleanBooleanEnumEnums<br>
 extends `Enum<BooleanBooleanEnumEnums>`

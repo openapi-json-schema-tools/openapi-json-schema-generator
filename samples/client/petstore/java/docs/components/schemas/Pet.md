@@ -66,7 +66,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PetMap](#petmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Pet1
 public static class Pet1<br>
@@ -146,7 +146,9 @@ Pet.PetMap validatedPayload =
 | ----------------- | ---------------------- |
 | [PetMap](#petmap) | validate([Map&lt;?, ?&gt;](#petmapbuilder) arg, SchemaConfiguration configuration) |
 | [Pet1BoxedMap](#pet1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#petmapbuilder) arg, SchemaConfiguration configuration) |
+| [Pet1Boxed](#pet1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## PetMap00Builder
 public class PetMap00Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -269,7 +271,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [TagsList](#tagslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Tags
 public static class Tags<br>
@@ -324,7 +326,9 @@ Pet.TagsList validatedPayload =
 | ----------------- | ---------------------- |
 | [TagsList](#tagslist) | validate([List<?>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
 | [TagsBoxedList](#tagsboxedlist) | validateAndBox([List<?>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
+| [TagsBoxed](#tagsboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## TagsListBuilder
 public class TagsListBuilder<br>
 builder for `List<Map<String, @Nullable Object>>`
@@ -376,7 +380,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Status
 public static class Status<br>
@@ -421,7 +425,9 @@ String validatedPayload = Pet.Status.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStatusEnums](#stringstatusenums) arg, SchemaConfiguration configuration) |
 | [StatusBoxedString](#statusboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [StatusBoxed](#statusboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringStatusEnums
 public enum StringStatusEnums<br>
 extends `Enum<StringStatusEnums>`
@@ -457,7 +463,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PhotoUrlsList](#photourlslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PhotoUrls
 public static class PhotoUrls<br>
@@ -502,7 +508,9 @@ Pet.PhotoUrlsList validatedPayload =
 | ----------------- | ---------------------- |
 | [PhotoUrlsList](#photourlslist) | validate([List<?>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
 | [PhotoUrlsBoxedList](#photourlsboxedlist) | validateAndBox([List<?>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
+| [PhotoUrlsBoxed](#photourlsboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## PhotoUrlsListBuilder
 public class PhotoUrlsListBuilder<br>
 builder for `List<String>`
@@ -554,7 +562,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>
@@ -589,7 +597,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name
 public static class Name<br>
@@ -624,7 +632,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Id
 public static class Id<br>

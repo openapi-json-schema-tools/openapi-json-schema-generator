@@ -14,7 +14,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | {{#if mapOutputJsonPathPiece}}[{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}){{else}}FrozenMap<@Nullable Object>{{/if}} | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 {{else}}
 public record {{jsonPathPiece.pascalCase}}BoxedMap({{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} data) implements {{jsonPathPiece.pascalCase}}Boxed {

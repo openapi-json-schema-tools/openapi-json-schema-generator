@@ -45,7 +45,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [BasquePigMap](#basquepigmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BasquePig1
 public static class BasquePig1<br>
@@ -91,7 +91,9 @@ BasquePig.BasquePigMap validatedPayload =
 | ----------------- | ---------------------- |
 | [BasquePigMap](#basquepigmap) | validate([Map&lt;?, ?&gt;](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
 | [BasquePig1BoxedMap](#basquepig1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
+| [BasquePig1Boxed](#basquepig1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BasquePigMap0Builder
 public class BasquePigMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -169,7 +171,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassName
 public static class ClassName<br>
@@ -211,7 +213,9 @@ String validatedPayload = BasquePig.ClassName.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
 | [ClassNameBoxedString](#classnameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ClassNameBoxed](#classnameboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringClassNameEnums
 public enum StringClassNameEnums<br>
 extends `Enum<StringClassNameEnums>`

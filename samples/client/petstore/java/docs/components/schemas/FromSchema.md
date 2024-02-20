@@ -46,7 +46,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FromSchemaMap](#fromschemamap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FromSchema1
 public static class FromSchema1<br>
@@ -93,7 +93,9 @@ FromSchema.FromSchemaMap validatedPayload =
 | ----------------- | ---------------------- |
 | [FromSchemaMap](#fromschemamap) | validate([Map&lt;?, ?&gt;](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
 | [FromSchema1BoxedMap](#fromschema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
+| [FromSchema1Boxed](#fromschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## FromSchemaMapBuilder
 public class FromSchemaMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -160,7 +162,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Id
 public static class Id<br>
@@ -195,7 +197,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Data
 public static class Data<br>

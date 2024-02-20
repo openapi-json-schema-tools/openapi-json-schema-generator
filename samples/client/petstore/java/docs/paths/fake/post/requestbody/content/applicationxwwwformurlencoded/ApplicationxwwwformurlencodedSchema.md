@@ -80,7 +80,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ApplicationxwwwformurlencodedSchemaMap](#applicationxwwwformurlencodedschemamap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedSchema1
 public static class ApplicationxwwwformurlencodedSchema1<br>
@@ -152,7 +152,9 @@ ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMap valid
 | ----------------- | ---------------------- |
 | [ApplicationxwwwformurlencodedSchemaMap](#applicationxwwwformurlencodedschemamap) | validate([Map&lt;?, ?&gt;](#applicationxwwwformurlencodedschemamapbuilder) arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedSchema1BoxedMap](#applicationxwwwformurlencodedschema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#applicationxwwwformurlencodedschemamapbuilder) arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedSchemaMap0000Builder
 public class ApplicationxwwwformurlencodedSchemaMap0000Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -546,7 +548,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedCallback
 public static class ApplicationxwwwformurlencodedCallback<br>
@@ -584,7 +586,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedPassword
 public static class ApplicationxwwwformurlencodedPassword<br>
@@ -630,7 +632,9 @@ String validatedPayload = ApplicationxwwwformurlencodedSchema.Applicationxwwwfor
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedPasswordBoxedString](#applicationxwwwformurlencodedpasswordboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedPasswordBoxed](#applicationxwwwformurlencodedpasswordboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedDateTimeBoxed
 public sealed interface ApplicationxwwwformurlencodedDateTimeBoxed<br>
 permits<br>
@@ -653,7 +657,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedDateTime
 public static class ApplicationxwwwformurlencodedDateTime<br>
@@ -698,7 +702,9 @@ String validatedPayload = ApplicationxwwwformurlencodedSchema.Applicationxwwwfor
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedDateTimeBoxedString](#applicationxwwwformurlencodeddatetimeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedDateTimeBoxed](#applicationxwwwformurlencodeddatetimeboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedDateBoxed
 public sealed interface ApplicationxwwwformurlencodedDateBoxed<br>
 permits<br>
@@ -721,7 +727,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedDate
 public static class ApplicationxwwwformurlencodedDate<br>
@@ -774,7 +780,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedByte
 public static class ApplicationxwwwformurlencodedByte<br>
@@ -807,7 +813,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedPatternWithoutDelimiter
 public static class ApplicationxwwwformurlencodedPatternWithoutDelimiter<br>
@@ -851,7 +857,9 @@ String validatedPayload = ApplicationxwwwformurlencodedSchema.Applicationxwwwfor
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString](#applicationxwwwformurlencodedpatternwithoutdelimiterboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed](#applicationxwwwformurlencodedpatternwithoutdelimiterboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedStringBoxed
 public sealed interface ApplicationxwwwformurlencodedStringBoxed<br>
 permits<br>
@@ -874,7 +882,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedString
 public static class ApplicationxwwwformurlencodedString<br>
@@ -918,7 +926,9 @@ String validatedPayload = ApplicationxwwwformurlencodedSchema.Applicationxwwwfor
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedStringBoxedString](#applicationxwwwformurlencodedstringboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedStringBoxed](#applicationxwwwformurlencodedstringboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedDoubleBoxed
 public sealed interface ApplicationxwwwformurlencodedDoubleBoxed<br>
 permits<br>
@@ -941,7 +951,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedDouble
 public static class ApplicationxwwwformurlencodedDouble<br>
@@ -987,7 +997,9 @@ double validatedPayload = ApplicationxwwwformurlencodedSchema.Applicationxwwwfor
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedDoubleBoxedNumber](#applicationxwwwformurlencodeddoubleboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedDoubleBoxed](#applicationxwwwformurlencodeddoubleboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedFloatBoxed
 public sealed interface ApplicationxwwwformurlencodedFloatBoxed<br>
 permits<br>
@@ -1010,7 +1022,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedFloat
 public static class ApplicationxwwwformurlencodedFloat<br>
@@ -1055,7 +1067,9 @@ float validatedPayload = ApplicationxwwwformurlencodedSchema.Applicationxwwwform
 | ----------------- | ---------------------- |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedFloatBoxedNumber](#applicationxwwwformurlencodedfloatboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedFloatBoxed](#applicationxwwwformurlencodedfloatboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedNumberBoxed
 public sealed interface ApplicationxwwwformurlencodedNumberBoxed<br>
 permits<br>
@@ -1078,7 +1092,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedNumber
 public static class ApplicationxwwwformurlencodedNumber<br>
@@ -1123,7 +1137,9 @@ int validatedPayload = ApplicationxwwwformurlencodedSchema.Applicationxwwwformur
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedNumberBoxedNumber](#applicationxwwwformurlencodednumberboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedNumberBoxed](#applicationxwwwformurlencodednumberboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedInt64Boxed
 public sealed interface ApplicationxwwwformurlencodedInt64Boxed<br>
 permits<br>
@@ -1146,7 +1162,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedInt64
 public static class ApplicationxwwwformurlencodedInt64<br>
@@ -1184,7 +1200,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedInt32
 public static class ApplicationxwwwformurlencodedInt32<br>
@@ -1230,7 +1246,9 @@ int validatedPayload = ApplicationxwwwformurlencodedSchema.Applicationxwwwformur
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedInt32BoxedNumber](#applicationxwwwformurlencodedint32boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedInt32Boxed](#applicationxwwwformurlencodedint32boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxwwwformurlencodedIntegerBoxed
 public sealed interface ApplicationxwwwformurlencodedIntegerBoxed<br>
 permits<br>
@@ -1253,7 +1271,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxwwwformurlencodedInteger
 public static class ApplicationxwwwformurlencodedInteger<br>
@@ -1299,4 +1317,5 @@ int validatedPayload = ApplicationxwwwformurlencodedSchema.Applicationxwwwformur
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | [ApplicationxwwwformurlencodedIntegerBoxedNumber](#applicationxwwwformurlencodedintegerboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ApplicationxwwwformurlencodedIntegerBoxed](#applicationxwwwformurlencodedintegerboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

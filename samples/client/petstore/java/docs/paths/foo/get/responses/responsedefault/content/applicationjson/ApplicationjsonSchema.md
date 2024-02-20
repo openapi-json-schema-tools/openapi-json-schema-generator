@@ -39,7 +39,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ApplicationjsonSchemaMap](#applicationjsonschemamap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
@@ -90,7 +90,9 @@ ApplicationjsonSchema.ApplicationjsonSchemaMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ApplicationjsonSchemaMap](#applicationjsonschemamap) | validate([Map&lt;?, ?&gt;](#applicationjsonschemamapbuilder) arg, SchemaConfiguration configuration) |
 | [ApplicationjsonSchema1BoxedMap](#applicationjsonschema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#applicationjsonschemamapbuilder) arg, SchemaConfiguration configuration) |
+| [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationjsonSchemaMapBuilder
 public class ApplicationjsonSchemaMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

@@ -40,7 +40,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema41
 public static class Schema41<br>
@@ -82,7 +82,9 @@ int validatedPayload = Schema4.Schema41.validate(
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
 | [Schema41BoxedNumber](#schema41boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [Schema41Boxed](#schema41boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## IntegerSchemaEnums4
 public enum IntegerSchemaEnums4<br>
 extends `Enum<IntegerSchemaEnums4>`

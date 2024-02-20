@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GrandparentAnimalMap](#grandparentanimalmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## GrandparentAnimal1
 public static class GrandparentAnimal1<br>
@@ -89,7 +89,9 @@ GrandparentAnimal.GrandparentAnimalMap validatedPayload =
 | ----------------- | ---------------------- |
 | [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map&lt;?, ?&gt;](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
 | [GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
+| [GrandparentAnimal1Boxed](#grandparentanimal1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## GrandparentAnimalMap0Builder
 public class GrandparentAnimalMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -166,7 +168,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PetType
 public static class PetType<br>

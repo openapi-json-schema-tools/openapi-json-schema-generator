@@ -37,7 +37,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema11
 public static class Schema11<br>
@@ -79,7 +79,9 @@ String validatedPayload = Schema1.Schema11.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringSchemaEnums1](#stringschemaenums1) arg, SchemaConfiguration configuration) |
 | [Schema11BoxedString](#schema11boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Schema11Boxed](#schema11boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringSchemaEnums1
 public enum StringSchemaEnums1<br>
 extends `Enum<StringSchemaEnums1>`

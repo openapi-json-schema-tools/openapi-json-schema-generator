@@ -41,7 +41,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## StringEnum1BoxedString
 public record StringEnum1BoxedString<br>
@@ -58,7 +58,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## StringEnum1
 public static class StringEnum1<br>
@@ -109,7 +109,9 @@ String validatedPayload = StringEnum.StringEnum1.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStringEnumEnums](#stringstringenumenums) arg, SchemaConfiguration configuration) |
 | [StringEnum1BoxedString](#stringenum1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [StringEnum1Boxed](#stringenum1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringStringEnumEnums
 public enum StringStringEnumEnums<br>
 extends `Enum<StringStringEnumEnums>`

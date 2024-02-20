@@ -73,7 +73,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayTestMap](#arraytestmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayTest1
 public static class ArrayTest1<br>
@@ -144,7 +144,9 @@ ArrayTest.ArrayTestMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayTestMap](#arraytestmap) | validate([Map&lt;?, ?&gt;](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayTest1BoxedMap](#arraytest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayTest1Boxed](#arraytest1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayTestMapBuilder
 public class ArrayTestMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -210,7 +212,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayArrayOfModelList](#arrayarrayofmodellist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayArrayOfModel
 public static class ArrayArrayOfModel<br>
@@ -267,7 +269,9 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([List<?>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist) | validateAndBox([List<?>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayArrayOfModelListBuilder
 public class ArrayArrayOfModelListBuilder<br>
 builder for `List<List<Map<String, @Nullable Object>>>`
@@ -319,7 +323,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList1](#itemslist1) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items3
 public static class Items3<br>
@@ -374,7 +378,9 @@ ArrayTest.ItemsList1 validatedPayload =
 | ----------------- | ---------------------- |
 | [ItemsList1](#itemslist1) | validate([List<?>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
 | [Items3BoxedList](#items3boxedlist) | validateAndBox([List<?>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
+| [Items3Boxed](#items3boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ItemsListBuilder1
 public class ItemsListBuilder1<br>
 builder for `List<Map<String, @Nullable Object>>`
@@ -426,7 +432,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayArrayOfInteger
 public static class ArrayArrayOfInteger<br>
@@ -474,7 +480,9 @@ ArrayTest.ArrayArrayOfIntegerList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate([List<?>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist) | validateAndBox([List<?>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayArrayOfIntegerListBuilder
 public class ArrayArrayOfIntegerListBuilder<br>
 builder for `List<List<Number>>`
@@ -526,7 +534,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList](#itemslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items1
 public static class Items1<br>
@@ -571,7 +579,9 @@ ArrayTest.ItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | [ItemsList](#itemslist) | validate([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 | [Items1BoxedList](#items1boxedlist) | validateAndBox([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
+| [Items1Boxed](#items1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ItemsListBuilder
 public class ItemsListBuilder<br>
 builder for `List<Number>`
@@ -626,7 +636,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items2
 public static class Items2<br>
@@ -661,7 +671,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayOfStringList](#arrayofstringlist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayOfString
 public static class ArrayOfString<br>
@@ -706,7 +716,9 @@ ArrayTest.ArrayOfStringList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayOfStringList](#arrayofstringlist) | validate([List<?>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayOfStringBoxedList](#arrayofstringboxedlist) | validateAndBox([List<?>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayOfStringBoxed](#arrayofstringboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayOfStringListBuilder
 public class ArrayOfStringListBuilder<br>
 builder for `List<String>`
@@ -758,7 +770,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>

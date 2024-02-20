@@ -14,7 +14,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 {{else}}
 public record {{jsonPathPiece.pascalCase}}BoxedBoolean(boolean data) implements {{jsonPathPiece.pascalCase}}Boxed {

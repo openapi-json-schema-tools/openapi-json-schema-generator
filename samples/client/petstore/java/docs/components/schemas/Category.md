@@ -46,7 +46,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [CategoryMap](#categorymap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Category1
 public static class Category1<br>
@@ -94,7 +94,9 @@ Category.CategoryMap validatedPayload =
 | ----------------- | ---------------------- |
 | [CategoryMap](#categorymap) | validate([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
 | [Category1BoxedMap](#category1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
+| [Category1Boxed](#category1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## CategoryMap0Builder
 public class CategoryMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -176,7 +178,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name
 public static class Name<br>
@@ -217,7 +219,9 @@ String validatedPayload = Category.Name.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [NameBoxedString](#nameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [NameBoxed](#nameboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## IdBoxed
 public sealed interface IdBoxed<br>
 permits<br>
@@ -240,7 +244,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Id
 public static class Id<br>

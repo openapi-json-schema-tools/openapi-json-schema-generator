@@ -48,7 +48,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MultipartformdataSchemaMap](#multipartformdataschemamap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipartformdataSchema1
 public static class MultipartformdataSchema1<br>
@@ -96,7 +96,9 @@ MultipartformdataSchema.MultipartformdataSchemaMap validatedPayload =
 | ----------------- | ---------------------- |
 | [MultipartformdataSchemaMap](#multipartformdataschemamap) | validate([Map&lt;?, ?&gt;](#multipartformdataschemamapbuilder) arg, SchemaConfiguration configuration) |
 | [MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#multipartformdataschemamapbuilder) arg, SchemaConfiguration configuration) |
+| [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MultipartformdataSchemaMapBuilder
 public class MultipartformdataSchemaMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -158,7 +160,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MultipartformdataFilesList](#multipartformdatafileslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipartformdataFiles
 public static class MultipartformdataFiles<br>
@@ -203,7 +205,9 @@ MultipartformdataSchema.MultipartformdataFilesList validatedPayload =
 | ----------------- | ---------------------- |
 | [MultipartformdataFilesList](#multipartformdatafileslist) | validate([List<?>](#multipartformdatafileslistbuilder) arg, SchemaConfiguration configuration) |
 | [MultipartformdataFilesBoxedList](#multipartformdatafilesboxedlist) | validateAndBox([List<?>](#multipartformdatafileslistbuilder) arg, SchemaConfiguration configuration) |
+| [MultipartformdataFilesBoxed](#multipartformdatafilesboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MultipartformdataFilesListBuilder
 public class MultipartformdataFilesListBuilder<br>
 builder for `List<String>`

@@ -41,7 +41,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IntegerEnum1
 public static class IntegerEnum1<br>
@@ -83,7 +83,9 @@ int validatedPayload = IntegerEnum.IntegerEnum1.validate(
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | [IntegerEnum1BoxedNumber](#integerenum1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [IntegerEnum1Boxed](#integerenum1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## IntegerIntegerEnumEnums
 public enum IntegerIntegerEnumEnums<br>
 extends `Enum<IntegerIntegerEnumEnums>`

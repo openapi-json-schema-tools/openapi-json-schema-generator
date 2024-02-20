@@ -38,7 +38,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## StringEnumWithDefaultValue1
 public static class StringEnumWithDefaultValue1<br>
@@ -81,7 +81,9 @@ String validatedPayload = StringEnumWithDefaultValue.StringEnumWithDefaultValue1
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStringEnumWithDefaultValueEnums](#stringstringenumwithdefaultvalueenums) arg, SchemaConfiguration configuration) |
 | [StringEnumWithDefaultValue1BoxedString](#stringenumwithdefaultvalue1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [StringEnumWithDefaultValue1Boxed](#stringenumwithdefaultvalue1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringStringEnumWithDefaultValueEnums
 public enum StringStringEnumWithDefaultValueEnums<br>
 extends `Enum<StringStringEnumWithDefaultValueEnums>`

@@ -47,7 +47,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DrawingMap](#drawingmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Drawing1
 public static class Drawing1<br>
@@ -95,7 +95,9 @@ Drawing.DrawingMap validatedPayload =
 | ----------------- | ---------------------- |
 | [DrawingMap](#drawingmap) | validate([Map&lt;?, ?&gt;](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
 | [Drawing1BoxedMap](#drawing1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
+| [Drawing1Boxed](#drawing1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## DrawingMapBuilder
 public class DrawingMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -187,7 +189,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ShapesList](#shapeslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Shapes
 public static class Shapes<br>
@@ -230,7 +232,9 @@ Drawing.ShapesList validatedPayload =
 | ----------------- | ---------------------- |
 | [ShapesList](#shapeslist) | validate([List<?>](#shapeslistbuilder) arg, SchemaConfiguration configuration) |
 | [ShapesBoxedList](#shapesboxedlist) | validateAndBox([List<?>](#shapeslistbuilder) arg, SchemaConfiguration configuration) |
+| [ShapesBoxed](#shapesboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ShapesListBuilder
 public class ShapesListBuilder<br>
 builder for `List<@Nullable Object>`

@@ -40,7 +40,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectModelWithRefProps1
 public static class ObjectModelWithRefProps1<br>
@@ -86,7 +86,9 @@ ObjectModelWithRefProps.ObjectModelWithRefPropsMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map&lt;?, ?&gt;](#objectmodelwithrefpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjectModelWithRefProps1BoxedMap](#objectmodelwithrefprops1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectmodelwithrefpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectModelWithRefProps1Boxed](#objectmodelwithrefprops1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjectModelWithRefPropsMapBuilder
 public class ObjectModelWithRefPropsMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

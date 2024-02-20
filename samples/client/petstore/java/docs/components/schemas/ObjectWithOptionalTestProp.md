@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectWithOptionalTestProp1
 public static class ObjectWithOptionalTestProp1<br>
@@ -88,7 +88,9 @@ ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map&lt;?, ?&gt;](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjectWithOptionalTestPropMapBuilder
 public class ObjectWithOptionalTestPropMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -150,7 +152,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Test
 public static class Test<br>

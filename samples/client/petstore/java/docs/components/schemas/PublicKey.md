@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PublicKeyMap](#publickeymap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PublicKey1
 public static class PublicKey1<br>
@@ -91,7 +91,9 @@ PublicKey.PublicKeyMap validatedPayload =
 | ----------------- | ---------------------- |
 | [PublicKeyMap](#publickeymap) | validate([Map&lt;?, ?&gt;](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
 | [PublicKey1BoxedMap](#publickey1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
+| [PublicKey1Boxed](#publickey1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## PublicKeyMapBuilder
 public class PublicKeyMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -153,7 +155,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Key
 public static class Key<br>

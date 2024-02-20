@@ -71,7 +71,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapTestMap](#maptestmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapTest1
 public static class MapTest1<br>
@@ -143,7 +143,9 @@ MapTest.MapTestMap validatedPayload =
 | ----------------- | ---------------------- |
 | [MapTestMap](#maptestmap) | validate([Map&lt;?, ?&gt;](#maptestmapbuilder) arg, SchemaConfiguration configuration) |
 | [MapTest1BoxedMap](#maptest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#maptestmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapTest1Boxed](#maptest1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MapTestMapBuilder
 public class MapTestMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -211,7 +213,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DirectMapMap](#directmapmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DirectMap
 public static class DirectMap<br>
@@ -256,7 +258,9 @@ MapTest.DirectMapMap validatedPayload =
 | ----------------- | ---------------------- |
 | [DirectMapMap](#directmapmap) | validate([Map&lt;?, ?&gt;](#directmapmapbuilder) arg, SchemaConfiguration configuration) |
 | [DirectMapBoxedMap](#directmapboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#directmapmapbuilder) arg, SchemaConfiguration configuration) |
+| [DirectMapBoxed](#directmapboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## DirectMapMapBuilder
 public class DirectMapMapBuilder<br>
 builder for `Map<String, Boolean>`
@@ -308,7 +312,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
@@ -343,7 +347,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapOfEnumStringMap](#mapofenumstringmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapOfEnumString
 public static class MapOfEnumString<br>
@@ -388,7 +392,9 @@ MapTest.MapOfEnumStringMap validatedPayload =
 | ----------------- | ---------------------- |
 | [MapOfEnumStringMap](#mapofenumstringmap) | validate([Map&lt;?, ?&gt;](#mapofenumstringmapbuilder) arg, SchemaConfiguration configuration) |
 | [MapOfEnumStringBoxedMap](#mapofenumstringboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapofenumstringmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapOfEnumStringBoxed](#mapofenumstringboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MapOfEnumStringMapBuilder
 public class MapOfEnumStringMapBuilder<br>
 builder for `Map<String, String>`
@@ -441,7 +447,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -483,7 +489,9 @@ String validatedPayload = MapTest.AdditionalProperties2.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringAdditionalPropertiesEnums](#stringadditionalpropertiesenums) arg, SchemaConfiguration configuration) |
 | [AdditionalProperties2BoxedString](#additionalproperties2boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [AdditionalProperties2Boxed](#additionalproperties2boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringAdditionalPropertiesEnums
 public enum StringAdditionalPropertiesEnums<br>
 extends `Enum<StringAdditionalPropertiesEnums>`
@@ -518,7 +526,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapMapOfStringMap](#mapmapofstringmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MapMapOfString
 public static class MapMapOfString<br>
@@ -570,7 +578,9 @@ MapTest.MapMapOfStringMap validatedPayload =
 | ----------------- | ---------------------- |
 | [MapMapOfStringMap](#mapmapofstringmap) | validate([Map&lt;?, ?&gt;](#mapmapofstringmapbuilder) arg, SchemaConfiguration configuration) |
 | [MapMapOfStringBoxedMap](#mapmapofstringboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapmapofstringmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapMapOfStringBoxed](#mapmapofstringboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## MapMapOfStringMapBuilder
 public class MapMapOfStringMapBuilder<br>
 builder for `Map<String, Map<String, String>>`
@@ -622,7 +632,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesMap](#additionalpropertiesmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
@@ -667,7 +677,9 @@ MapTest.AdditionalPropertiesMap validatedPayload =
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map&lt;?, ?&gt;](#additionalpropertiesmapbuilder1) arg, SchemaConfiguration configuration) |
 | [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertiesmapbuilder1) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesBoxed](#additionalpropertiesboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AdditionalPropertiesMapBuilder1
 public class AdditionalPropertiesMapBuilder1<br>
 builder for `Map<String, String>`
@@ -719,7 +731,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>

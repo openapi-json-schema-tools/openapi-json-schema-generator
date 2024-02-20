@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SpecialModelnameMap](#specialmodelnamemap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SpecialModelname1
 public static class SpecialModelname1<br>
@@ -91,7 +91,9 @@ SpecialModelname.SpecialModelnameMap validatedPayload =
 | ----------------- | ---------------------- |
 | [SpecialModelnameMap](#specialmodelnamemap) | validate([Map&lt;?, ?&gt;](#specialmodelnamemapbuilder) arg, SchemaConfiguration configuration) |
 | [SpecialModelname1BoxedMap](#specialmodelname1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#specialmodelnamemapbuilder) arg, SchemaConfiguration configuration) |
+| [SpecialModelname1Boxed](#specialmodelname1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## SpecialModelnameMapBuilder
 public class SpecialModelnameMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -153,7 +155,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## A
 public static class A<br>

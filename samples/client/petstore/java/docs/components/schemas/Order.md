@@ -60,7 +60,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [OrderMap](#ordermap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Order1
 public static class Order1<br>
@@ -115,7 +115,9 @@ Order.OrderMap validatedPayload =
 | ----------------- | ---------------------- |
 | [OrderMap](#ordermap) | validate([Map&lt;?, ?&gt;](#ordermapbuilder) arg, SchemaConfiguration configuration) |
 | [Order1BoxedMap](#order1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#ordermapbuilder) arg, SchemaConfiguration configuration) |
+| [Order1Boxed](#order1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## OrderMapBuilder
 public class OrderMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -195,7 +197,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Complete
 public static class Complete<br>
@@ -230,7 +232,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Status
 public static class Status<br>
@@ -275,7 +277,9 @@ String validatedPayload = Order.Status.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStatusEnums](#stringstatusenums) arg, SchemaConfiguration configuration) |
 | [StatusBoxedString](#statusboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [StatusBoxed](#statusboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringStatusEnums
 public enum StringStatusEnums<br>
 extends `Enum<StringStatusEnums>`
@@ -311,7 +315,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ShipDate
 public static class ShipDate<br>
@@ -346,7 +350,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Quantity
 public static class Quantity<br>
@@ -381,7 +385,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PetId
 public static class PetId<br>
@@ -416,7 +420,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Id
 public static class Id<br>

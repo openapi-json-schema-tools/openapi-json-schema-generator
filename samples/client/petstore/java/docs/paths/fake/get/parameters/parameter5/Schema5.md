@@ -38,7 +38,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema51
 public static class Schema51<br>
@@ -80,7 +80,9 @@ double validatedPayload = Schema5.Schema51.validate(
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | [Schema51BoxedNumber](#schema51boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [Schema51Boxed](#schema51boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## DoubleSchemaEnums5
 public enum DoubleSchemaEnums5<br>
 extends `Enum<DoubleSchemaEnums5>`

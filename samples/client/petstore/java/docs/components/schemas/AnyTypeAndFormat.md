@@ -112,7 +112,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AnyTypeAndFormatMap](#anytypeandformatmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AnyTypeAndFormat1
 public static class AnyTypeAndFormat1<br>
@@ -155,7 +155,9 @@ AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
 | ----------------- | ---------------------- |
 | [AnyTypeAndFormatMap](#anytypeandformatmap) | validate([Map&lt;?, ?&gt;](#anytypeandformatmapbuilder) arg, SchemaConfiguration configuration) |
 | [AnyTypeAndFormat1BoxedMap](#anytypeandformat1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#anytypeandformatmapbuilder) arg, SchemaConfiguration configuration) |
+| [AnyTypeAndFormat1Boxed](#anytypeandformat1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AnyTypeAndFormatMapBuilder
 public class AnyTypeAndFormatMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -306,7 +308,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FloatSchemaBoxedBoolean
 public record FloatSchemaBoxedBoolean<br>
@@ -323,7 +325,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FloatSchemaBoxedNumber
 public record FloatSchemaBoxedNumber<br>
@@ -340,7 +342,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FloatSchemaBoxedString
 public record FloatSchemaBoxedString<br>
@@ -357,7 +359,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FloatSchemaBoxedList
 public record FloatSchemaBoxedList<br>
@@ -374,7 +376,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FloatSchemaBoxedMap
 public record FloatSchemaBoxedMap<br>
@@ -391,7 +393,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -423,7 +425,9 @@ A schema class that validates payloads
 | [FloatSchemaBoxedBoolean](#floatschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [FloatSchemaBoxedMap](#floatschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [FloatSchemaBoxedList](#floatschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [FloatSchemaBoxed](#floatschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## DoubleSchemaBoxed
 public sealed interface DoubleSchemaBoxed<br>
 permits<br>
@@ -451,7 +455,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DoubleSchemaBoxedBoolean
 public record DoubleSchemaBoxedBoolean<br>
@@ -468,7 +472,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DoubleSchemaBoxedNumber
 public record DoubleSchemaBoxedNumber<br>
@@ -485,7 +489,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DoubleSchemaBoxedString
 public record DoubleSchemaBoxedString<br>
@@ -502,7 +506,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DoubleSchemaBoxedList
 public record DoubleSchemaBoxedList<br>
@@ -519,7 +523,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DoubleSchemaBoxedMap
 public record DoubleSchemaBoxedMap<br>
@@ -536,7 +540,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -568,7 +572,9 @@ A schema class that validates payloads
 | [DoubleSchemaBoxedBoolean](#doubleschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [DoubleSchemaBoxedMap](#doubleschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [DoubleSchemaBoxedList](#doubleschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [DoubleSchemaBoxed](#doubleschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Int64Boxed
 public sealed interface Int64Boxed<br>
 permits<br>
@@ -596,7 +602,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int64BoxedBoolean
 public record Int64BoxedBoolean<br>
@@ -613,7 +619,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int64BoxedNumber
 public record Int64BoxedNumber<br>
@@ -630,7 +636,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int64BoxedString
 public record Int64BoxedString<br>
@@ -647,7 +653,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int64BoxedList
 public record Int64BoxedList<br>
@@ -664,7 +670,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int64BoxedMap
 public record Int64BoxedMap<br>
@@ -681,7 +687,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int64
 public static class Int64<br>
@@ -713,7 +719,9 @@ A schema class that validates payloads
 | [Int64BoxedBoolean](#int64boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [Int64BoxedMap](#int64boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [Int64BoxedList](#int64boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [Int64Boxed](#int64boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Int32Boxed
 public sealed interface Int32Boxed<br>
 permits<br>
@@ -741,7 +749,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int32BoxedBoolean
 public record Int32BoxedBoolean<br>
@@ -758,7 +766,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int32BoxedNumber
 public record Int32BoxedNumber<br>
@@ -775,7 +783,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int32BoxedString
 public record Int32BoxedString<br>
@@ -792,7 +800,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int32BoxedList
 public record Int32BoxedList<br>
@@ -809,7 +817,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int32BoxedMap
 public record Int32BoxedMap<br>
@@ -826,7 +834,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int32
 public static class Int32<br>
@@ -858,7 +866,9 @@ A schema class that validates payloads
 | [Int32BoxedBoolean](#int32boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [Int32BoxedMap](#int32boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [Int32BoxedList](#int32boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [Int32Boxed](#int32boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BinaryBoxed
 public sealed interface BinaryBoxed<br>
 permits<br>
@@ -886,7 +896,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BinaryBoxedBoolean
 public record BinaryBoxedBoolean<br>
@@ -903,7 +913,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BinaryBoxedNumber
 public record BinaryBoxedNumber<br>
@@ -920,7 +930,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BinaryBoxedString
 public record BinaryBoxedString<br>
@@ -937,7 +947,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BinaryBoxedList
 public record BinaryBoxedList<br>
@@ -954,7 +964,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BinaryBoxedMap
 public record BinaryBoxedMap<br>
@@ -971,7 +981,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Binary
 public static class Binary<br>
@@ -1003,7 +1013,9 @@ A schema class that validates payloads
 | [BinaryBoxedBoolean](#binaryboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [BinaryBoxedMap](#binaryboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [BinaryBoxedList](#binaryboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [BinaryBoxed](#binaryboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## NumberSchemaBoxed
 public sealed interface NumberSchemaBoxed<br>
 permits<br>
@@ -1031,7 +1043,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NumberSchemaBoxedBoolean
 public record NumberSchemaBoxedBoolean<br>
@@ -1048,7 +1060,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NumberSchemaBoxedNumber
 public record NumberSchemaBoxedNumber<br>
@@ -1065,7 +1077,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NumberSchemaBoxedString
 public record NumberSchemaBoxedString<br>
@@ -1082,7 +1094,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NumberSchemaBoxedList
 public record NumberSchemaBoxedList<br>
@@ -1099,7 +1111,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NumberSchemaBoxedMap
 public record NumberSchemaBoxedMap<br>
@@ -1116,7 +1128,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -1148,7 +1160,9 @@ A schema class that validates payloads
 | [NumberSchemaBoxedBoolean](#numberschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [NumberSchemaBoxedMap](#numberschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [NumberSchemaBoxedList](#numberschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [NumberSchemaBoxed](#numberschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## DatetimeBoxed
 public sealed interface DatetimeBoxed<br>
 permits<br>
@@ -1176,7 +1190,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DatetimeBoxedBoolean
 public record DatetimeBoxedBoolean<br>
@@ -1193,7 +1207,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DatetimeBoxedNumber
 public record DatetimeBoxedNumber<br>
@@ -1210,7 +1224,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DatetimeBoxedString
 public record DatetimeBoxedString<br>
@@ -1227,7 +1241,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DatetimeBoxedList
 public record DatetimeBoxedList<br>
@@ -1244,7 +1258,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DatetimeBoxedMap
 public record DatetimeBoxedMap<br>
@@ -1261,7 +1275,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Datetime
 public static class Datetime<br>
@@ -1293,7 +1307,9 @@ A schema class that validates payloads
 | [DatetimeBoxedBoolean](#datetimeboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [DatetimeBoxedMap](#datetimeboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [DatetimeBoxedList](#datetimeboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [DatetimeBoxed](#datetimeboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## DateBoxed
 public sealed interface DateBoxed<br>
 permits<br>
@@ -1321,7 +1337,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DateBoxedBoolean
 public record DateBoxedBoolean<br>
@@ -1338,7 +1354,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DateBoxedNumber
 public record DateBoxedNumber<br>
@@ -1355,7 +1371,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DateBoxedString
 public record DateBoxedString<br>
@@ -1372,7 +1388,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DateBoxedList
 public record DateBoxedList<br>
@@ -1389,7 +1405,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DateBoxedMap
 public record DateBoxedMap<br>
@@ -1406,7 +1422,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Date
 public static class Date<br>
@@ -1438,7 +1454,9 @@ A schema class that validates payloads
 | [DateBoxedBoolean](#dateboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [DateBoxedMap](#dateboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [DateBoxedList](#dateboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [DateBoxed](#dateboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## UuidSchemaBoxed
 public sealed interface UuidSchemaBoxed<br>
 permits<br>
@@ -1466,7 +1484,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UuidSchemaBoxedBoolean
 public record UuidSchemaBoxedBoolean<br>
@@ -1483,7 +1501,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UuidSchemaBoxedNumber
 public record UuidSchemaBoxedNumber<br>
@@ -1500,7 +1518,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UuidSchemaBoxedString
 public record UuidSchemaBoxedString<br>
@@ -1517,7 +1535,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UuidSchemaBoxedList
 public record UuidSchemaBoxedList<br>
@@ -1534,7 +1552,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UuidSchemaBoxedMap
 public record UuidSchemaBoxedMap<br>
@@ -1551,7 +1569,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>
@@ -1583,5 +1601,7 @@ A schema class that validates payloads
 | [UuidSchemaBoxedBoolean](#uuidschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [UuidSchemaBoxedMap](#uuidschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [UuidSchemaBoxedList](#uuidschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [UuidSchemaBoxed](#uuidschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

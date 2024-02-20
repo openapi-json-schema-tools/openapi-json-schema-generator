@@ -40,7 +40,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ReqPropsFromUnsetAddProps1
 public static class ReqPropsFromUnsetAddProps1<br>
@@ -83,7 +83,9 @@ ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map&lt;?, ?&gt;](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | [ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ReqPropsFromUnsetAddPropsMap00Builder
 public class ReqPropsFromUnsetAddPropsMap00Builder<br>
 builder for `Map<String, @Nullable Object>`

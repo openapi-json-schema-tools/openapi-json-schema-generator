@@ -46,7 +46,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## HasOnlyReadOnly1
 public static class HasOnlyReadOnly1<br>
@@ -93,7 +93,9 @@ HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
 | ----------------- | ---------------------- |
 | [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map&lt;?, ?&gt;](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
 | [HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [HasOnlyReadOnly1Boxed](#hasonlyreadonly1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## HasOnlyReadOnlyMapBuilder
 public class HasOnlyReadOnlyMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -157,7 +159,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Foo
 public static class Foo<br>
@@ -192,7 +194,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Bar
 public static class Bar<br>

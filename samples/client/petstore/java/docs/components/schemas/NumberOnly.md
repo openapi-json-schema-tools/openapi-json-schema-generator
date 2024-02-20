@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [NumberOnlyMap](#numberonlymap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NumberOnly1
 public static class NumberOnly1<br>
@@ -88,7 +88,9 @@ NumberOnly.NumberOnlyMap validatedPayload =
 | ----------------- | ---------------------- |
 | [NumberOnlyMap](#numberonlymap) | validate([Map&lt;?, ?&gt;](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | [NumberOnly1BoxedMap](#numberonly1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [NumberOnly1Boxed](#numberonly1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## NumberOnlyMapBuilder
 public class NumberOnlyMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -153,7 +155,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## JustNumber
 public static class JustNumber<br>

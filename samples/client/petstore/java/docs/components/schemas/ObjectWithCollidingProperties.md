@@ -46,7 +46,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectWithCollidingProperties1
 public static class ObjectWithCollidingProperties1<br>
@@ -92,7 +92,9 @@ ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap validatedPayload 
 | ----------------- | ---------------------- |
 | [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map&lt;?, ?&gt;](#objectwithcollidingpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjectWithCollidingProperties1BoxedMap](#objectwithcollidingproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithcollidingpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithCollidingProperties1Boxed](#objectwithcollidingproperties1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjectWithCollidingPropertiesMapBuilder
 public class ObjectWithCollidingPropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -156,7 +158,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Someprop
 public static class Someprop<br>
@@ -191,7 +193,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeProp
 public static class SomeProp<br>

@@ -14,7 +14,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | {{#if arrayOutputJsonPathPiece}}[{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}){{else}}FrozenList<@Nullable Object>{{/if}} | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 {{else}}
 public record {{jsonPathPiece.pascalCase}}BoxedList({{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}} data) implements {{jsonPathPiece.pascalCase}}Boxed {

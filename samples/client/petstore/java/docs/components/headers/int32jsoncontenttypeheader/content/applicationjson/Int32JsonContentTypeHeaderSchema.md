@@ -35,7 +35,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Int32JsonContentTypeHeaderSchema1
 public static class Int32JsonContentTypeHeaderSchema1<br>

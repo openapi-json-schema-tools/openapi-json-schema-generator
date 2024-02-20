@@ -51,7 +51,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectWithInlineCompositionProperty1
 public static class ObjectWithInlineCompositionProperty1<br>
@@ -94,7 +94,9 @@ ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap valid
 | ----------------- | ---------------------- |
 | [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map&lt;?, ?&gt;](#objectwithinlinecompositionpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | [ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithinlinecompositionpropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ObjectWithInlineCompositionPropertyMapBuilder
 public class ObjectWithInlineCompositionPropertyMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -169,7 +171,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomePropBoxedBoolean
 public record SomePropBoxedBoolean<br>
@@ -186,7 +188,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomePropBoxedNumber
 public record SomePropBoxedNumber<br>
@@ -203,7 +205,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomePropBoxedString
 public record SomePropBoxedString<br>
@@ -220,7 +222,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomePropBoxedList
 public record SomePropBoxedList<br>
@@ -237,7 +239,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomePropBoxedMap
 public record SomePropBoxedMap<br>
@@ -254,7 +256,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeProp
 public static class SomeProp<br>
@@ -286,7 +288,9 @@ A schema class that validates payloads
 | [SomePropBoxedBoolean](#somepropboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [SomePropBoxedMap](#somepropboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [SomePropBoxedList](#somepropboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [SomePropBoxed](#somepropboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema0Boxed
 public sealed interface Schema0Boxed<br>
 permits<br>
@@ -309,7 +313,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>
@@ -350,5 +354,7 @@ String validatedPayload = ObjectWithInlineCompositionProperty.Schema0.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [Schema0BoxedString](#schema0boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Schema0Boxed](#schema0boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

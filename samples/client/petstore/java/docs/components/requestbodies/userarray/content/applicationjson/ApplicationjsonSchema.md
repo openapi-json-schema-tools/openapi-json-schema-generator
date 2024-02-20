@@ -39,7 +39,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ApplicationjsonSchemaList](#applicationjsonschemalist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
@@ -122,7 +122,9 @@ ApplicationjsonSchema.ApplicationjsonSchemaList validatedPayload =
 | ----------------- | ---------------------- |
 | [ApplicationjsonSchemaList](#applicationjsonschemalist) | validate([List<?>](#applicationjsonschemalistbuilder) arg, SchemaConfiguration configuration) |
 | [ApplicationjsonSchema1BoxedList](#applicationjsonschema1boxedlist) | validateAndBox([List<?>](#applicationjsonschemalistbuilder) arg, SchemaConfiguration configuration) |
+| [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationjsonSchemaListBuilder
 public class ApplicationjsonSchemaListBuilder<br>
 builder for `List<Map<String, @Nullable Object>>`

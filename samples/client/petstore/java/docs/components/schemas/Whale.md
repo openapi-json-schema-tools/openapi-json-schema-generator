@@ -51,7 +51,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [WhaleMap](#whalemap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Whale1
 public static class Whale1<br>
@@ -101,7 +101,9 @@ Whale.WhaleMap validatedPayload =
 | ----------------- | ---------------------- |
 | [WhaleMap](#whalemap) | validate([Map&lt;?, ?&gt;](#whalemapbuilder) arg, SchemaConfiguration configuration) |
 | [Whale1BoxedMap](#whale1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#whalemapbuilder) arg, SchemaConfiguration configuration) |
+| [Whale1Boxed](#whale1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## WhaleMap0Builder
 public class WhaleMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -183,7 +185,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassName
 public static class ClassName<br>
@@ -225,7 +227,9 @@ String validatedPayload = Whale.ClassName.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
 | [ClassNameBoxedString](#classnameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ClassNameBoxed](#classnameboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringClassNameEnums
 public enum StringClassNameEnums<br>
 extends `Enum<StringClassNameEnums>`
@@ -259,7 +263,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## HasTeeth
 public static class HasTeeth<br>
@@ -294,7 +298,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## HasBaleen
 public static class HasBaleen<br>

@@ -46,7 +46,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeObject1BoxedBoolean
 public record SomeObject1BoxedBoolean<br>
@@ -63,7 +63,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeObject1BoxedNumber
 public record SomeObject1BoxedNumber<br>
@@ -80,7 +80,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeObject1BoxedString
 public record SomeObject1BoxedString<br>
@@ -97,7 +97,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeObject1BoxedList
 public record SomeObject1BoxedList<br>
@@ -114,7 +114,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeObject1BoxedMap
 public record SomeObject1BoxedMap<br>
@@ -131,7 +131,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeObject1
 public static class SomeObject1<br>
@@ -163,5 +163,7 @@ A schema class that validates payloads
 | [SomeObject1BoxedBoolean](#someobject1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [SomeObject1BoxedMap](#someobject1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [SomeObject1BoxedList](#someobject1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [SomeObject1Boxed](#someobject1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

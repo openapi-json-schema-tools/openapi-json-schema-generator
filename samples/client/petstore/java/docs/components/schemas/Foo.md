@@ -40,7 +40,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FooMap](#foomap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Foo1
 public static class Foo1<br>
@@ -83,7 +83,9 @@ Foo.FooMap validatedPayload =
 | ----------------- | ---------------------- |
 | [FooMap](#foomap) | validate([Map&lt;?, ?&gt;](#foomapbuilder) arg, SchemaConfiguration configuration) |
 | [Foo1BoxedMap](#foo1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#foomapbuilder) arg, SchemaConfiguration configuration) |
+| [Foo1Boxed](#foo1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## FooMapBuilder
 public class FooMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

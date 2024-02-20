@@ -48,7 +48,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Apple1BoxedMap
 public record Apple1BoxedMap<br>
@@ -65,7 +65,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AppleMap](#applemap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Apple1
 public static class Apple1<br>
@@ -121,7 +121,9 @@ Apple.AppleMap validatedPayload =
 | [Apple1BoxedVoid](#apple1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [AppleMap](#applemap) | validate([Map&lt;?, ?&gt;](#applemapbuilder) arg, SchemaConfiguration configuration) |
 | [Apple1BoxedMap](#apple1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#applemapbuilder) arg, SchemaConfiguration configuration) |
+| [Apple1Boxed](#apple1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AppleMap0Builder
 public class AppleMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -200,7 +202,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Origin
 public static class Origin<br>
@@ -241,7 +243,9 @@ String validatedPayload = Apple.Origin.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [OriginBoxedString](#originboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [OriginBoxed](#originboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## CultivarBoxed
 public sealed interface CultivarBoxed<br>
 permits<br>
@@ -264,7 +268,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Cultivar
 public static class Cultivar<br>
@@ -305,5 +309,7 @@ String validatedPayload = Apple.Cultivar.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [CultivarBoxedString](#cultivarboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [CultivarBoxed](#cultivarboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

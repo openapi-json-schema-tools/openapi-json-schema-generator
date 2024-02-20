@@ -43,7 +43,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ClientMap](#clientmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Client1
 public static class Client1<br>
@@ -88,7 +88,9 @@ Client.ClientMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ClientMap](#clientmap) | validate([Map&lt;?, ?&gt;](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
 | [Client1BoxedMap](#client1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
+| [Client1Boxed](#client1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ClientMapBuilder1
 public class ClientMapBuilder1<br>
 builder for `Map<String, @Nullable Object>`
@@ -150,7 +152,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Client2
 public static class Client2<br>

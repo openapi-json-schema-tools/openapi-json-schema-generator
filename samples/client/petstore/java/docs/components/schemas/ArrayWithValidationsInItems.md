@@ -43,7 +43,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayWithValidationsInItems1
 public static class ArrayWithValidationsInItems1<br>
@@ -89,7 +89,9 @@ ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate([List<?>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayWithValidationsInItems1BoxedList](#arraywithvalidationsinitems1boxedlist) | validateAndBox([List<?>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayWithValidationsInItems1Boxed](#arraywithvalidationsinitems1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayWithValidationsInItemsListBuilder
 public class ArrayWithValidationsInItemsListBuilder<br>
 builder for `List<Number>`
@@ -144,7 +146,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>
@@ -186,5 +188,7 @@ long validatedPayload = ArrayWithValidationsInItems.Items.validate(
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | [ItemsBoxedNumber](#itemsboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ItemsBoxed](#itemsboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

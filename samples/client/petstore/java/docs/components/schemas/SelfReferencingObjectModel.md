@@ -40,7 +40,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SelfReferencingObjectModel1
 public static class SelfReferencingObjectModel1<br>
@@ -84,7 +84,9 @@ SelfReferencingObjectModel.SelfReferencingObjectModelMap validatedPayload =
 | ----------------- | ---------------------- |
 | [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map&lt;?, ?&gt;](#selfreferencingobjectmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | [SelfReferencingObjectModel1BoxedMap](#selfreferencingobjectmodel1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#selfreferencingobjectmodelmapbuilder) arg, SchemaConfiguration configuration) |
+| [SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## SelfReferencingObjectModelMapBuilder
 public class SelfReferencingObjectModelMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

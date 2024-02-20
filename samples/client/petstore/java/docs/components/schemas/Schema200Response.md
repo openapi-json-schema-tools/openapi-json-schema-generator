@@ -56,7 +56,7 @@ record that stores validated null payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema200Response1BoxedBoolean
 public record Schema200Response1BoxedBoolean<br>
@@ -73,7 +73,7 @@ record that stores validated boolean payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema200Response1BoxedNumber
 public record Schema200Response1BoxedNumber<br>
@@ -90,7 +90,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema200Response1BoxedString
 public record Schema200Response1BoxedString<br>
@@ -107,7 +107,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema200Response1BoxedList
 public record Schema200Response1BoxedList<br>
@@ -124,7 +124,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema200Response1BoxedMap
 public record Schema200Response1BoxedMap<br>
@@ -141,7 +141,7 @@ record that stores validated Map payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema200ResponseMap](#schema200responsemap) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema200Response1
 public static class Schema200Response1<br>
@@ -176,7 +176,9 @@ model with an invalid class name for python, starts with a number
 | [Schema200Response1BoxedBoolean](#schema200response1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [Schema200Response1BoxedMap](#schema200response1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
 | [Schema200Response1BoxedList](#schema200response1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [Schema200Response1Boxed](#schema200response1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema200ResponseMapBuilder
 public class Schema200ResponseMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -241,7 +243,7 @@ record that stores validated String payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassSchema
 public static class ClassSchema<br>
@@ -279,7 +281,7 @@ record that stores validated Number payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name
 public static class Name<br>

@@ -40,7 +40,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayOfEnumsList](#arrayofenumslist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayOfEnums1
 public static class ArrayOfEnums1<br>
@@ -85,7 +85,9 @@ ArrayOfEnums.ArrayOfEnumsList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayOfEnumsList](#arrayofenumslist) | validate([List<?>](#arrayofenumslistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayOfEnums1BoxedList](#arrayofenums1boxedlist) | validateAndBox([List<?>](#arrayofenumslistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayOfEnums1Boxed](#arrayofenums1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayOfEnumsListBuilder
 public class ArrayOfEnumsListBuilder<br>
 builder for `List<@Nullable String>`

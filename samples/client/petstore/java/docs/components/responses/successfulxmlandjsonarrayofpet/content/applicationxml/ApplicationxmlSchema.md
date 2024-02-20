@@ -39,7 +39,7 @@ record that stores validated List payloads, sealed permits implementation
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ApplicationxmlSchemaList](#applicationxmlschemalist) | data()<br>validated payload |
-| @Nullable Object | getData()validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationxmlSchema1
 public static class ApplicationxmlSchema1<br>
@@ -128,7 +128,9 @@ ApplicationxmlSchema.ApplicationxmlSchemaList validatedPayload =
 | ----------------- | ---------------------- |
 | [ApplicationxmlSchemaList](#applicationxmlschemalist) | validate([List<?>](#applicationxmlschemalistbuilder) arg, SchemaConfiguration configuration) |
 | [ApplicationxmlSchema1BoxedList](#applicationxmlschema1boxedlist) | validateAndBox([List<?>](#applicationxmlschemalistbuilder) arg, SchemaConfiguration configuration) |
+| [ApplicationxmlSchema1Boxed](#applicationxmlschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationxmlSchemaListBuilder
 public class ApplicationxmlSchemaListBuilder<br>
 builder for `List<Map<String, @Nullable Object>>`
