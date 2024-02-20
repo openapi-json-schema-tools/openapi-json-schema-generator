@@ -1,5 +1,6 @@
-package org.openapijsonschematools.client.;
+package org.openapijsonschematools.client.paths.fakejsonformdata.get.responses;
 
+import org.openapijsonschematools.client.components.responses.successdescriptiononly;
 
 public class Model200 extends successdescriptiononly {
     public static class Model2001 extends successdescriptiononly1 {}

@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.;
+package org.openapijsonschematools.client.components.responses;
 
 
 public class RefSuccessfulXmlAndJsonArrayOfPet extends successfulxmlandjsonarrayofpet {

@@ -3109,7 +3109,8 @@ public class DefaultGenerator implements Generator {
         TreeSet<String> finalImports = imports;
         CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath + "/" + "Headers", sourceJsonPath + "/" + "Headers");
         String pathFromDocRoot = responsePathFromDocRoot(sourceJsonPath);
-        r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule, pathFromDocRoot);
+        String subpackage = getSubpackage(sourceJsonPath);
+        r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule, pathFromDocRoot, subpackage);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }

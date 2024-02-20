@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.;
+package org.openapijsonschematools.client.paths.petfindbytags.get.responses;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ApiResponse;

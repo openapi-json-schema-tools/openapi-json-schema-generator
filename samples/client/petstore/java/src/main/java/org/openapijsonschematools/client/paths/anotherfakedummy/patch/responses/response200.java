@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.;
+package org.openapijsonschematools.client.paths.anotherfakedummy.patch.responses;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ApiResponse;
