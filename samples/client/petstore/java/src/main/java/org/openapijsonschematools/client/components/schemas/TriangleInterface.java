@@ -54,16 +54,12 @@ public class TriangleInterface {
     
     
     public sealed interface ShapeTypeBoxed permits ShapeTypeBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ShapeTypeBoxedString implements ShapeTypeBoxed {
-        public final String data;
-        private ShapeTypeBoxedString(String data) {
-            this.data = data;
-        }
+    public record ShapeTypeBoxedString(String data) implements ShapeTypeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -269,71 +265,47 @@ public class TriangleInterface {
     
     
     public sealed interface TriangleInterface1Boxed permits TriangleInterface1BoxedVoid, TriangleInterface1BoxedBoolean, TriangleInterface1BoxedNumber, TriangleInterface1BoxedString, TriangleInterface1BoxedList, TriangleInterface1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class TriangleInterface1BoxedVoid implements TriangleInterface1Boxed {
-        public final Void data;
-        private TriangleInterface1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedVoid(Void data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedBoolean implements TriangleInterface1Boxed {
-        public final boolean data;
-        private TriangleInterface1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedBoolean(boolean data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedNumber implements TriangleInterface1Boxed {
-        public final Number data;
-        private TriangleInterface1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedNumber(Number data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedString implements TriangleInterface1Boxed {
-        public final String data;
-        private TriangleInterface1BoxedString(String data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedString(String data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedList implements TriangleInterface1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private TriangleInterface1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedList(FrozenList<@Nullable Object> data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedMap implements TriangleInterface1Boxed {
-        public final TriangleInterfaceMap data;
-        private TriangleInterface1BoxedMap(TriangleInterfaceMap data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedMap(TriangleInterfaceMap data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

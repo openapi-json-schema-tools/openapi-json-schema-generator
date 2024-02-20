@@ -76,16 +76,12 @@ public class ArrayTest {
     
     
     public sealed interface ArrayOfStringBoxed permits ArrayOfStringBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayOfStringBoxedList implements ArrayOfStringBoxed {
-        public final ArrayOfStringList data;
-        private ArrayOfStringBoxedList(ArrayOfStringList data) {
-            this.data = data;
-        }
+    public record ArrayOfStringBoxedList(ArrayOfStringList data) implements ArrayOfStringBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -221,16 +217,12 @@ public class ArrayTest {
     
     
     public sealed interface Items1Boxed permits Items1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Items1BoxedList implements Items1Boxed {
-        public final ItemsList data;
-        private Items1BoxedList(ItemsList data) {
-            this.data = data;
-        }
+    public record Items1BoxedList(ItemsList data) implements Items1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -340,16 +332,12 @@ public class ArrayTest {
     
     
     public sealed interface ArrayArrayOfIntegerBoxed permits ArrayArrayOfIntegerBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayArrayOfIntegerBoxedList implements ArrayArrayOfIntegerBoxed {
-        public final ArrayArrayOfIntegerList data;
-        private ArrayArrayOfIntegerBoxedList(ArrayArrayOfIntegerList data) {
-            this.data = data;
-        }
+    public record ArrayArrayOfIntegerBoxedList(ArrayArrayOfIntegerList data) implements ArrayArrayOfIntegerBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -459,16 +447,12 @@ public class ArrayTest {
     
     
     public sealed interface Items3Boxed permits Items3BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Items3BoxedList implements Items3Boxed {
-        public final ItemsList1 data;
-        private Items3BoxedList(ItemsList1 data) {
-            this.data = data;
-        }
+    public record Items3BoxedList(ItemsList1 data) implements Items3Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -578,16 +562,12 @@ public class ArrayTest {
     
     
     public sealed interface ArrayArrayOfModelBoxed permits ArrayArrayOfModelBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayArrayOfModelBoxedList implements ArrayArrayOfModelBoxed {
-        public final ArrayArrayOfModelList data;
-        private ArrayArrayOfModelBoxedList(ArrayArrayOfModelList data) {
-            this.data = data;
-        }
+    public record ArrayArrayOfModelBoxedList(ArrayArrayOfModelList data) implements ArrayArrayOfModelBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -783,16 +763,12 @@ public class ArrayTest {
     
     
     public sealed interface ArrayTest1Boxed permits ArrayTest1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayTest1BoxedMap implements ArrayTest1Boxed {
-        public final ArrayTestMap data;
-        private ArrayTest1BoxedMap(ArrayTestMap data) {
-            this.data = data;
-        }
+    public record ArrayTest1BoxedMap(ArrayTestMap data) implements ArrayTest1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

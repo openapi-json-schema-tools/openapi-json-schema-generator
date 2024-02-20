@@ -163,16 +163,12 @@ public class FromSchema {
     
     
     public sealed interface FromSchema1Boxed permits FromSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class FromSchema1BoxedMap implements FromSchema1Boxed {
-        public final FromSchemaMap data;
-        private FromSchema1BoxedMap(FromSchemaMap data) {
-            this.data = data;
-        }
+    public record FromSchema1BoxedMap(FromSchemaMap data) implements FromSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

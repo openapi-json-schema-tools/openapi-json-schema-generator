@@ -153,16 +153,12 @@ public class ObjectWithNonIntersectingValues {
     
     
     public sealed interface ObjectWithNonIntersectingValues1Boxed permits ObjectWithNonIntersectingValues1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithNonIntersectingValues1BoxedMap implements ObjectWithNonIntersectingValues1Boxed {
-        public final ObjectWithNonIntersectingValuesMap data;
-        private ObjectWithNonIntersectingValues1BoxedMap(ObjectWithNonIntersectingValuesMap data) {
-            this.data = data;
-        }
+    public record ObjectWithNonIntersectingValues1BoxedMap(ObjectWithNonIntersectingValuesMap data) implements ObjectWithNonIntersectingValues1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

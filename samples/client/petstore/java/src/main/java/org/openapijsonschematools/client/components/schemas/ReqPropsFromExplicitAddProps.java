@@ -164,16 +164,12 @@ public class ReqPropsFromExplicitAddProps {
     
     
     public sealed interface ReqPropsFromExplicitAddProps1Boxed permits ReqPropsFromExplicitAddProps1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ReqPropsFromExplicitAddProps1BoxedMap implements ReqPropsFromExplicitAddProps1Boxed {
-        public final ReqPropsFromExplicitAddPropsMap data;
-        private ReqPropsFromExplicitAddProps1BoxedMap(ReqPropsFromExplicitAddPropsMap data) {
-            this.data = data;
-        }
+    public record ReqPropsFromExplicitAddProps1BoxedMap(ReqPropsFromExplicitAddPropsMap data) implements ReqPropsFromExplicitAddProps1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

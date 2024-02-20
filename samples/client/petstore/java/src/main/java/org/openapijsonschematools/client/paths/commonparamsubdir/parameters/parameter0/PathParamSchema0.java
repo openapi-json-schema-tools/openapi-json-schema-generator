@@ -36,16 +36,12 @@ public class PathParamSchema0 {
     
     
     public sealed interface PathParamSchema01Boxed permits PathParamSchema01BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class PathParamSchema01BoxedString implements PathParamSchema01Boxed {
-        public final String data;
-        private PathParamSchema01BoxedString(String data) {
-            this.data = data;
-        }
+    public record PathParamSchema01BoxedString(String data) implements PathParamSchema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

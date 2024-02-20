@@ -90,16 +90,12 @@ public class ArrayOfNumberOnly {
     
     
     public sealed interface ArrayNumberBoxed permits ArrayNumberBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayNumberBoxedList implements ArrayNumberBoxed {
-        public final ArrayNumberList data;
-        private ArrayNumberBoxedList(ArrayNumberList data) {
-            this.data = data;
-        }
+    public record ArrayNumberBoxedList(ArrayNumberList data) implements ArrayNumberBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -243,16 +239,12 @@ public class ArrayOfNumberOnly {
     
     
     public sealed interface ArrayOfNumberOnly1Boxed permits ArrayOfNumberOnly1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayOfNumberOnly1BoxedMap implements ArrayOfNumberOnly1Boxed {
-        public final ArrayOfNumberOnlyMap data;
-        private ArrayOfNumberOnly1BoxedMap(ArrayOfNumberOnlyMap data) {
-            this.data = data;
-        }
+    public record ArrayOfNumberOnly1BoxedMap(ArrayOfNumberOnlyMap data) implements ArrayOfNumberOnly1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

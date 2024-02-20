@@ -133,16 +133,12 @@ public class Player {
     
     
     public sealed interface Player1Boxed permits Player1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Player1BoxedMap implements Player1Boxed {
-        public final PlayerMap data;
-        private Player1BoxedMap(PlayerMap data) {
-            this.data = data;
-        }
+    public record Player1BoxedMap(PlayerMap data) implements Player1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

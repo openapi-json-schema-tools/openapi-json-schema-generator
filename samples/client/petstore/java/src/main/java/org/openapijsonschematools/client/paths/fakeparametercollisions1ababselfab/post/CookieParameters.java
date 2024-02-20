@@ -188,16 +188,12 @@ public class CookieParameters {
     
     
     public sealed interface CookieParameters1Boxed permits CookieParameters1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class CookieParameters1BoxedMap implements CookieParameters1Boxed {
-        public final CookieParametersMap data;
-        private CookieParameters1BoxedMap(CookieParametersMap data) {
-            this.data = data;
-        }
+    public record CookieParameters1BoxedMap(CookieParametersMap data) implements CookieParameters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

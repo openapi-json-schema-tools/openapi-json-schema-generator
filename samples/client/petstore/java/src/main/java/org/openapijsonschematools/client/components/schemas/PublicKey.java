@@ -107,16 +107,12 @@ public class PublicKey {
     
     
     public sealed interface PublicKey1Boxed permits PublicKey1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class PublicKey1BoxedMap implements PublicKey1Boxed {
-        public final PublicKeyMap data;
-        private PublicKey1BoxedMap(PublicKeyMap data) {
-            this.data = data;
-        }
+    public record PublicKey1BoxedMap(PublicKeyMap data) implements PublicKey1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

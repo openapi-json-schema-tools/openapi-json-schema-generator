@@ -94,16 +94,12 @@ public class AdditionalPropertiesClass {
     
     
     public sealed interface MapPropertyBoxed permits MapPropertyBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MapPropertyBoxedMap implements MapPropertyBoxed {
-        public final MapPropertyMap data;
-        private MapPropertyBoxedMap(MapPropertyMap data) {
-            this.data = data;
-        }
+    public record MapPropertyBoxedMap(MapPropertyMap data) implements MapPropertyBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -245,16 +241,12 @@ public class AdditionalPropertiesClass {
     
     
     public sealed interface AdditionalProperties1Boxed permits AdditionalProperties1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalProperties1BoxedMap implements AdditionalProperties1Boxed {
-        public final AdditionalPropertiesMap data;
-        private AdditionalProperties1BoxedMap(AdditionalPropertiesMap data) {
-            this.data = data;
-        }
+    public record AdditionalProperties1BoxedMap(AdditionalPropertiesMap data) implements AdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -385,16 +377,12 @@ public class AdditionalPropertiesClass {
     
     
     public sealed interface MapOfMapPropertyBoxed permits MapOfMapPropertyBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MapOfMapPropertyBoxedMap implements MapOfMapPropertyBoxed {
-        public final MapOfMapPropertyMap data;
-        private MapOfMapPropertyBoxedMap(MapOfMapPropertyMap data) {
-            this.data = data;
-        }
+    public record MapOfMapPropertyBoxedMap(MapOfMapPropertyMap data) implements MapOfMapPropertyBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -625,16 +613,12 @@ public class AdditionalPropertiesClass {
     
     
     public sealed interface MapWithUndeclaredPropertiesAnytype3Boxed permits MapWithUndeclaredPropertiesAnytype3BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MapWithUndeclaredPropertiesAnytype3BoxedMap implements MapWithUndeclaredPropertiesAnytype3Boxed {
-        public final MapWithUndeclaredPropertiesAnytype3Map data;
-        private MapWithUndeclaredPropertiesAnytype3BoxedMap(MapWithUndeclaredPropertiesAnytype3Map data) {
-            this.data = data;
-        }
+    public record MapWithUndeclaredPropertiesAnytype3BoxedMap(MapWithUndeclaredPropertiesAnytype3Map data) implements MapWithUndeclaredPropertiesAnytype3Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -752,16 +736,12 @@ public class AdditionalPropertiesClass {
     
     
     public sealed interface EmptyMapBoxed permits EmptyMapBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class EmptyMapBoxedMap implements EmptyMapBoxed {
-        public final EmptyMapMap data;
-        private EmptyMapBoxedMap(EmptyMapMap data) {
-            this.data = data;
-        }
+    public record EmptyMapBoxedMap(EmptyMapMap data) implements EmptyMapBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -900,16 +880,12 @@ public class AdditionalPropertiesClass {
     
     
     public sealed interface MapWithUndeclaredPropertiesStringBoxed permits MapWithUndeclaredPropertiesStringBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MapWithUndeclaredPropertiesStringBoxedMap implements MapWithUndeclaredPropertiesStringBoxed {
-        public final MapWithUndeclaredPropertiesStringMap data;
-        private MapWithUndeclaredPropertiesStringBoxedMap(MapWithUndeclaredPropertiesStringMap data) {
-            this.data = data;
-        }
+    public record MapWithUndeclaredPropertiesStringBoxedMap(MapWithUndeclaredPropertiesStringMap data) implements MapWithUndeclaredPropertiesStringBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1281,16 +1257,12 @@ public class AdditionalPropertiesClass {
     
     
     public sealed interface AdditionalPropertiesClass1Boxed permits AdditionalPropertiesClass1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalPropertiesClass1BoxedMap implements AdditionalPropertiesClass1Boxed {
-        public final AdditionalPropertiesClassMap data;
-        private AdditionalPropertiesClass1BoxedMap(AdditionalPropertiesClassMap data) {
-            this.data = data;
-        }
+    public record AdditionalPropertiesClass1BoxedMap(AdditionalPropertiesClassMap data) implements AdditionalPropertiesClass1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

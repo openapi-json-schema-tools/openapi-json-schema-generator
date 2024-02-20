@@ -107,16 +107,12 @@ public class ObjectWithOptionalTestProp {
     
     
     public sealed interface ObjectWithOptionalTestProp1Boxed permits ObjectWithOptionalTestProp1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithOptionalTestProp1BoxedMap implements ObjectWithOptionalTestProp1Boxed {
-        public final ObjectWithOptionalTestPropMap data;
-        private ObjectWithOptionalTestProp1BoxedMap(ObjectWithOptionalTestPropMap data) {
-            this.data = data;
-        }
+    public record ObjectWithOptionalTestProp1BoxedMap(ObjectWithOptionalTestPropMap data) implements ObjectWithOptionalTestProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

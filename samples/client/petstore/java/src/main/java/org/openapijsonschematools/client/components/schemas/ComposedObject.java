@@ -39,16 +39,12 @@ public class ComposedObject {
     
     
     public sealed interface ComposedObject1Boxed permits ComposedObject1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ComposedObject1BoxedMap implements ComposedObject1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ComposedObject1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ComposedObject1BoxedMap(FrozenMap<@Nullable Object> data) implements ComposedObject1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

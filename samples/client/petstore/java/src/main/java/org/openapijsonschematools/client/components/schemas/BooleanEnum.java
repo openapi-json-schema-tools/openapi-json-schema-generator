@@ -35,16 +35,12 @@ public class BooleanEnum {
     
     
     public sealed interface BooleanEnum1Boxed permits BooleanEnum1BoxedBoolean {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class BooleanEnum1BoxedBoolean implements BooleanEnum1Boxed {
-        public final boolean data;
-        private BooleanEnum1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record BooleanEnum1BoxedBoolean(boolean data) implements BooleanEnum1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

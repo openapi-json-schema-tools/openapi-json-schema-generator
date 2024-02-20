@@ -59,16 +59,12 @@ public class Zebra {
     
     
     public sealed interface TypeBoxed permits TypeBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class TypeBoxedString implements TypeBoxed {
-        public final String data;
-        private TypeBoxedString(String data) {
-            this.data = data;
-        }
+    public record TypeBoxedString(String data) implements TypeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -147,16 +143,12 @@ public class Zebra {
     
     
     public sealed interface ClassNameBoxed permits ClassNameBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ClassNameBoxedString implements ClassNameBoxed {
-        public final String data;
-        private ClassNameBoxedString(String data) {
-            this.data = data;
-        }
+    public record ClassNameBoxedString(String data) implements ClassNameBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -402,16 +394,12 @@ public class Zebra {
     
     
     public sealed interface Zebra1Boxed permits Zebra1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Zebra1BoxedMap implements Zebra1Boxed {
-        public final ZebraMap data;
-        private Zebra1BoxedMap(ZebraMap data) {
-            this.data = data;
-        }
+    public record Zebra1BoxedMap(ZebraMap data) implements Zebra1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

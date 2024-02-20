@@ -54,16 +54,12 @@ public class QuadrilateralInterface {
     
     
     public sealed interface ShapeTypeBoxed permits ShapeTypeBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ShapeTypeBoxedString implements ShapeTypeBoxed {
-        public final String data;
-        private ShapeTypeBoxedString(String data) {
-            this.data = data;
-        }
+    public record ShapeTypeBoxedString(String data) implements ShapeTypeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -269,71 +265,47 @@ public class QuadrilateralInterface {
     
     
     public sealed interface QuadrilateralInterface1Boxed permits QuadrilateralInterface1BoxedVoid, QuadrilateralInterface1BoxedBoolean, QuadrilateralInterface1BoxedNumber, QuadrilateralInterface1BoxedString, QuadrilateralInterface1BoxedList, QuadrilateralInterface1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class QuadrilateralInterface1BoxedVoid implements QuadrilateralInterface1Boxed {
-        public final Void data;
-        private QuadrilateralInterface1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record QuadrilateralInterface1BoxedVoid(Void data) implements QuadrilateralInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class QuadrilateralInterface1BoxedBoolean implements QuadrilateralInterface1Boxed {
-        public final boolean data;
-        private QuadrilateralInterface1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record QuadrilateralInterface1BoxedBoolean(boolean data) implements QuadrilateralInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class QuadrilateralInterface1BoxedNumber implements QuadrilateralInterface1Boxed {
-        public final Number data;
-        private QuadrilateralInterface1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record QuadrilateralInterface1BoxedNumber(Number data) implements QuadrilateralInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class QuadrilateralInterface1BoxedString implements QuadrilateralInterface1Boxed {
-        public final String data;
-        private QuadrilateralInterface1BoxedString(String data) {
-            this.data = data;
-        }
+    public record QuadrilateralInterface1BoxedString(String data) implements QuadrilateralInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class QuadrilateralInterface1BoxedList implements QuadrilateralInterface1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private QuadrilateralInterface1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record QuadrilateralInterface1BoxedList(FrozenList<@Nullable Object> data) implements QuadrilateralInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class QuadrilateralInterface1BoxedMap implements QuadrilateralInterface1Boxed {
-        public final QuadrilateralInterfaceMap data;
-        private QuadrilateralInterface1BoxedMap(QuadrilateralInterfaceMap data) {
-            this.data = data;
-        }
+    public record QuadrilateralInterface1BoxedMap(QuadrilateralInterfaceMap data) implements QuadrilateralInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

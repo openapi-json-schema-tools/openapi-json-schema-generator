@@ -31,27 +31,19 @@ public class HealthCheckResult {
     
     
     public sealed interface NullableMessageBoxed permits NullableMessageBoxedVoid, NullableMessageBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NullableMessageBoxedVoid implements NullableMessageBoxed {
-        public final Void data;
-        private NullableMessageBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NullableMessageBoxedVoid(Void data) implements NullableMessageBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NullableMessageBoxedString implements NullableMessageBoxed {
-        public final String data;
-        private NullableMessageBoxedString(String data) {
-            this.data = data;
-        }
+    public record NullableMessageBoxedString(String data) implements NullableMessageBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -200,16 +192,12 @@ public class HealthCheckResult {
     
     
     public sealed interface HealthCheckResult1Boxed permits HealthCheckResult1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class HealthCheckResult1BoxedMap implements HealthCheckResult1Boxed {
-        public final HealthCheckResultMap data;
-        private HealthCheckResult1BoxedMap(HealthCheckResultMap data) {
-            this.data = data;
-        }
+    public record HealthCheckResult1BoxedMap(HealthCheckResultMap data) implements HealthCheckResult1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

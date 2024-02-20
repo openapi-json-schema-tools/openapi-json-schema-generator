@@ -53,16 +53,12 @@ public class SimpleQuadrilateral {
     
     
     public sealed interface QuadrilateralTypeBoxed permits QuadrilateralTypeBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class QuadrilateralTypeBoxedString implements QuadrilateralTypeBoxed {
-        public final String data;
-        private QuadrilateralTypeBoxedString(String data) {
-            this.data = data;
-        }
+    public record QuadrilateralTypeBoxedString(String data) implements QuadrilateralTypeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -199,16 +195,12 @@ public class SimpleQuadrilateral {
     
     
     public sealed interface Schema1Boxed permits Schema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap implements Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -289,71 +281,47 @@ public class SimpleQuadrilateral {
     
     
     public sealed interface SimpleQuadrilateral1Boxed permits SimpleQuadrilateral1BoxedVoid, SimpleQuadrilateral1BoxedBoolean, SimpleQuadrilateral1BoxedNumber, SimpleQuadrilateral1BoxedString, SimpleQuadrilateral1BoxedList, SimpleQuadrilateral1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class SimpleQuadrilateral1BoxedVoid implements SimpleQuadrilateral1Boxed {
-        public final Void data;
-        private SimpleQuadrilateral1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record SimpleQuadrilateral1BoxedVoid(Void data) implements SimpleQuadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SimpleQuadrilateral1BoxedBoolean implements SimpleQuadrilateral1Boxed {
-        public final boolean data;
-        private SimpleQuadrilateral1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record SimpleQuadrilateral1BoxedBoolean(boolean data) implements SimpleQuadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SimpleQuadrilateral1BoxedNumber implements SimpleQuadrilateral1Boxed {
-        public final Number data;
-        private SimpleQuadrilateral1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record SimpleQuadrilateral1BoxedNumber(Number data) implements SimpleQuadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SimpleQuadrilateral1BoxedString implements SimpleQuadrilateral1Boxed {
-        public final String data;
-        private SimpleQuadrilateral1BoxedString(String data) {
-            this.data = data;
-        }
+    public record SimpleQuadrilateral1BoxedString(String data) implements SimpleQuadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SimpleQuadrilateral1BoxedList implements SimpleQuadrilateral1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private SimpleQuadrilateral1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SimpleQuadrilateral1BoxedList(FrozenList<@Nullable Object> data) implements SimpleQuadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SimpleQuadrilateral1BoxedMap implements SimpleQuadrilateral1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private SimpleQuadrilateral1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SimpleQuadrilateral1BoxedMap(FrozenMap<@Nullable Object> data) implements SimpleQuadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

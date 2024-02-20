@@ -24,16 +24,12 @@ public class ArrayWithValidationsInItems {
     
     
     public sealed interface ItemsBoxed permits ItemsBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ItemsBoxedNumber implements ItemsBoxed {
-        public final Number data;
-        private ItemsBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ItemsBoxedNumber(Number data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -158,16 +154,12 @@ public class ArrayWithValidationsInItems {
     
     
     public sealed interface ArrayWithValidationsInItems1Boxed permits ArrayWithValidationsInItems1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayWithValidationsInItems1BoxedList implements ArrayWithValidationsInItems1Boxed {
-        public final ArrayWithValidationsInItemsList data;
-        private ArrayWithValidationsInItems1BoxedList(ArrayWithValidationsInItemsList data) {
-            this.data = data;
-        }
+    public record ArrayWithValidationsInItems1BoxedList(ArrayWithValidationsInItemsList data) implements ArrayWithValidationsInItems1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

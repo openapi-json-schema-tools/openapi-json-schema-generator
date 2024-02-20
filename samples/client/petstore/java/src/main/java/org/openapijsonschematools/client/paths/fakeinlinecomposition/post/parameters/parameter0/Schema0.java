@@ -36,16 +36,12 @@ public class Schema0 {
     
     
     public sealed interface Schema00Boxed permits Schema00BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema00BoxedString implements Schema00Boxed {
-        public final String data;
-        private Schema00BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema00BoxedString(String data) implements Schema00Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -103,71 +99,47 @@ public class Schema0 {
     }    
     
     public sealed interface Schema01Boxed permits Schema01BoxedVoid, Schema01BoxedBoolean, Schema01BoxedNumber, Schema01BoxedString, Schema01BoxedList, Schema01BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema01BoxedVoid implements Schema01Boxed {
-        public final Void data;
-        private Schema01BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Schema01BoxedVoid(Void data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedBoolean implements Schema01Boxed {
-        public final boolean data;
-        private Schema01BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Schema01BoxedBoolean(boolean data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedNumber implements Schema01Boxed {
-        public final Number data;
-        private Schema01BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Schema01BoxedNumber(Number data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedString implements Schema01Boxed {
-        public final String data;
-        private Schema01BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema01BoxedString(String data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedList implements Schema01Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Schema01BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Schema01BoxedList(FrozenList<@Nullable Object> data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedMap implements Schema01Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Schema01BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Schema01BoxedMap(FrozenMap<@Nullable Object> data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -83,16 +83,12 @@ public class JSONPatchRequestAddReplaceTest {
     
     
     public sealed interface OpBoxed permits OpBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class OpBoxedString implements OpBoxed {
-        public final String data;
-        private OpBoxedString(String data) {
-            this.data = data;
-        }
+    public record OpBoxedString(String data) implements OpBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -406,16 +402,12 @@ public class JSONPatchRequestAddReplaceTest {
     
     
     public sealed interface JSONPatchRequestAddReplaceTest1Boxed permits JSONPatchRequestAddReplaceTest1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class JSONPatchRequestAddReplaceTest1BoxedMap implements JSONPatchRequestAddReplaceTest1Boxed {
-        public final JSONPatchRequestAddReplaceTestMap data;
-        private JSONPatchRequestAddReplaceTest1BoxedMap(JSONPatchRequestAddReplaceTestMap data) {
-            this.data = data;
-        }
+    public record JSONPatchRequestAddReplaceTest1BoxedMap(JSONPatchRequestAddReplaceTestMap data) implements JSONPatchRequestAddReplaceTest1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

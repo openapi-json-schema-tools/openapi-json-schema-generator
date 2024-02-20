@@ -36,71 +36,47 @@ public class Pig {
     
     
     public sealed interface Pig1Boxed permits Pig1BoxedVoid, Pig1BoxedBoolean, Pig1BoxedNumber, Pig1BoxedString, Pig1BoxedList, Pig1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Pig1BoxedVoid implements Pig1Boxed {
-        public final Void data;
-        private Pig1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Pig1BoxedVoid(Void data) implements Pig1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Pig1BoxedBoolean implements Pig1Boxed {
-        public final boolean data;
-        private Pig1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Pig1BoxedBoolean(boolean data) implements Pig1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Pig1BoxedNumber implements Pig1Boxed {
-        public final Number data;
-        private Pig1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Pig1BoxedNumber(Number data) implements Pig1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Pig1BoxedString implements Pig1Boxed {
-        public final String data;
-        private Pig1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Pig1BoxedString(String data) implements Pig1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Pig1BoxedList implements Pig1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Pig1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Pig1BoxedList(FrozenList<@Nullable Object> data) implements Pig1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Pig1BoxedMap implements Pig1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Pig1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Pig1BoxedMap(FrozenMap<@Nullable Object> data) implements Pig1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -40,16 +40,12 @@ public class EnumClass {
     
     
     public sealed interface EnumClass1Boxed permits EnumClass1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class EnumClass1BoxedString implements EnumClass1Boxed {
-        public final String data;
-        private EnumClass1BoxedString(String data) {
-            this.data = data;
-        }
+    public record EnumClass1BoxedString(String data) implements EnumClass1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

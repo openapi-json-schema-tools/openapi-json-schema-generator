@@ -20,16 +20,12 @@ public class StringWithValidation {
     
     
     public sealed interface StringWithValidation1Boxed permits StringWithValidation1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class StringWithValidation1BoxedString implements StringWithValidation1Boxed {
-        public final String data;
-        private StringWithValidation1BoxedString(String data) {
-            this.data = data;
-        }
+    public record StringWithValidation1BoxedString(String data) implements StringWithValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

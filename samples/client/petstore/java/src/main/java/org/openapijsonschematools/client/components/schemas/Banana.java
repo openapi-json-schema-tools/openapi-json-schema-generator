@@ -133,16 +133,12 @@ public class Banana {
     
     
     public sealed interface Banana1Boxed permits Banana1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Banana1BoxedMap implements Banana1Boxed {
-        public final BananaMap data;
-        private Banana1BoxedMap(BananaMap data) {
-            this.data = data;
-        }
+    public record Banana1BoxedMap(BananaMap data) implements Banana1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

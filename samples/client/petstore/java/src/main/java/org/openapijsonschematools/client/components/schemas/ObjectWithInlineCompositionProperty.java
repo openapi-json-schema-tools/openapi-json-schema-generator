@@ -38,16 +38,12 @@ public class ObjectWithInlineCompositionProperty {
     
     
     public sealed interface Schema0Boxed permits Schema0BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema0BoxedString implements Schema0Boxed {
-        public final String data;
-        private Schema0BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema0BoxedString(String data) implements Schema0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -105,71 +101,47 @@ public class ObjectWithInlineCompositionProperty {
     }    
     
     public sealed interface SomePropBoxed permits SomePropBoxedVoid, SomePropBoxedBoolean, SomePropBoxedNumber, SomePropBoxedString, SomePropBoxedList, SomePropBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class SomePropBoxedVoid implements SomePropBoxed {
-        public final Void data;
-        private SomePropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record SomePropBoxedVoid(Void data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedBoolean implements SomePropBoxed {
-        public final boolean data;
-        private SomePropBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record SomePropBoxedBoolean(boolean data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedNumber implements SomePropBoxed {
-        public final Number data;
-        private SomePropBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record SomePropBoxedNumber(Number data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedString implements SomePropBoxed {
-        public final String data;
-        private SomePropBoxedString(String data) {
-            this.data = data;
-        }
+    public record SomePropBoxedString(String data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedList implements SomePropBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private SomePropBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SomePropBoxedList(FrozenList<@Nullable Object> data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedMap implements SomePropBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private SomePropBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SomePropBoxedMap(FrozenMap<@Nullable Object> data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -505,16 +477,12 @@ public class ObjectWithInlineCompositionProperty {
     
     
     public sealed interface ObjectWithInlineCompositionProperty1Boxed permits ObjectWithInlineCompositionProperty1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithInlineCompositionProperty1BoxedMap implements ObjectWithInlineCompositionProperty1Boxed {
-        public final ObjectWithInlineCompositionPropertyMap data;
-        private ObjectWithInlineCompositionProperty1BoxedMap(ObjectWithInlineCompositionPropertyMap data) {
-            this.data = data;
-        }
+    public record ObjectWithInlineCompositionProperty1BoxedMap(ObjectWithInlineCompositionPropertyMap data) implements ObjectWithInlineCompositionProperty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

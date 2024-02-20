@@ -112,71 +112,47 @@ public class ReturnSchema {
     
     
     public sealed interface ReturnSchema1Boxed permits ReturnSchema1BoxedVoid, ReturnSchema1BoxedBoolean, ReturnSchema1BoxedNumber, ReturnSchema1BoxedString, ReturnSchema1BoxedList, ReturnSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ReturnSchema1BoxedVoid implements ReturnSchema1Boxed {
-        public final Void data;
-        private ReturnSchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ReturnSchema1BoxedVoid(Void data) implements ReturnSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ReturnSchema1BoxedBoolean implements ReturnSchema1Boxed {
-        public final boolean data;
-        private ReturnSchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ReturnSchema1BoxedBoolean(boolean data) implements ReturnSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ReturnSchema1BoxedNumber implements ReturnSchema1Boxed {
-        public final Number data;
-        private ReturnSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ReturnSchema1BoxedNumber(Number data) implements ReturnSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ReturnSchema1BoxedString implements ReturnSchema1Boxed {
-        public final String data;
-        private ReturnSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ReturnSchema1BoxedString(String data) implements ReturnSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ReturnSchema1BoxedList implements ReturnSchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ReturnSchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ReturnSchema1BoxedList(FrozenList<@Nullable Object> data) implements ReturnSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ReturnSchema1BoxedMap implements ReturnSchema1Boxed {
-        public final ReturnMap data;
-        private ReturnSchema1BoxedMap(ReturnMap data) {
-            this.data = data;
-        }
+    public record ReturnSchema1BoxedMap(ReturnMap data) implements ReturnSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

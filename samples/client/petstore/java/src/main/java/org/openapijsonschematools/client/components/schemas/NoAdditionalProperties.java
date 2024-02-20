@@ -183,16 +183,12 @@ public class NoAdditionalProperties {
     
     
     public sealed interface NoAdditionalProperties1Boxed permits NoAdditionalProperties1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NoAdditionalProperties1BoxedMap implements NoAdditionalProperties1Boxed {
-        public final NoAdditionalPropertiesMap data;
-        private NoAdditionalProperties1BoxedMap(NoAdditionalPropertiesMap data) {
-            this.data = data;
-        }
+    public record NoAdditionalProperties1BoxedMap(NoAdditionalPropertiesMap data) implements NoAdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

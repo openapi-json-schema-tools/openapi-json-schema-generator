@@ -144,16 +144,12 @@ public class ObjectWithCollidingProperties {
     
     
     public sealed interface ObjectWithCollidingProperties1Boxed permits ObjectWithCollidingProperties1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithCollidingProperties1BoxedMap implements ObjectWithCollidingProperties1Boxed {
-        public final ObjectWithCollidingPropertiesMap data;
-        private ObjectWithCollidingProperties1BoxedMap(ObjectWithCollidingPropertiesMap data) {
-            this.data = data;
-        }
+    public record ObjectWithCollidingProperties1BoxedMap(ObjectWithCollidingPropertiesMap data) implements ObjectWithCollidingProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

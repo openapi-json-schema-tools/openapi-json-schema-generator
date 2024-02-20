@@ -38,16 +38,12 @@ public class Schema1 {
     
     
     public sealed interface Schema01Boxed permits Schema01BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema01BoxedString implements Schema01Boxed {
-        public final String data;
-        private Schema01BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema01BoxedString(String data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -105,71 +101,47 @@ public class Schema1 {
     }    
     
     public sealed interface SomeProp1Boxed permits SomeProp1BoxedVoid, SomeProp1BoxedBoolean, SomeProp1BoxedNumber, SomeProp1BoxedString, SomeProp1BoxedList, SomeProp1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class SomeProp1BoxedVoid implements SomeProp1Boxed {
-        public final Void data;
-        private SomeProp1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record SomeProp1BoxedVoid(Void data) implements SomeProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeProp1BoxedBoolean implements SomeProp1Boxed {
-        public final boolean data;
-        private SomeProp1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record SomeProp1BoxedBoolean(boolean data) implements SomeProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeProp1BoxedNumber implements SomeProp1Boxed {
-        public final Number data;
-        private SomeProp1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record SomeProp1BoxedNumber(Number data) implements SomeProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeProp1BoxedString implements SomeProp1Boxed {
-        public final String data;
-        private SomeProp1BoxedString(String data) {
-            this.data = data;
-        }
+    public record SomeProp1BoxedString(String data) implements SomeProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeProp1BoxedList implements SomeProp1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private SomeProp1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SomeProp1BoxedList(FrozenList<@Nullable Object> data) implements SomeProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeProp1BoxedMap implements SomeProp1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private SomeProp1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SomeProp1BoxedMap(FrozenMap<@Nullable Object> data) implements SomeProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -505,16 +477,12 @@ public class Schema1 {
     
     
     public sealed interface Schema11Boxed permits Schema11BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema11BoxedMap implements Schema11Boxed {
-        public final SchemaMap1 data;
-        private Schema11BoxedMap(SchemaMap1 data) {
-            this.data = data;
-        }
+    public record Schema11BoxedMap(SchemaMap1 data) implements Schema11Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

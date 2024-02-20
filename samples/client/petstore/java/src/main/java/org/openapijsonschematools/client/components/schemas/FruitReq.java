@@ -48,71 +48,47 @@ public class FruitReq {
     
     
     public sealed interface FruitReq1Boxed permits FruitReq1BoxedVoid, FruitReq1BoxedBoolean, FruitReq1BoxedNumber, FruitReq1BoxedString, FruitReq1BoxedList, FruitReq1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class FruitReq1BoxedVoid implements FruitReq1Boxed {
-        public final Void data;
-        private FruitReq1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record FruitReq1BoxedVoid(Void data) implements FruitReq1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FruitReq1BoxedBoolean implements FruitReq1Boxed {
-        public final boolean data;
-        private FruitReq1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record FruitReq1BoxedBoolean(boolean data) implements FruitReq1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FruitReq1BoxedNumber implements FruitReq1Boxed {
-        public final Number data;
-        private FruitReq1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record FruitReq1BoxedNumber(Number data) implements FruitReq1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FruitReq1BoxedString implements FruitReq1Boxed {
-        public final String data;
-        private FruitReq1BoxedString(String data) {
-            this.data = data;
-        }
+    public record FruitReq1BoxedString(String data) implements FruitReq1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FruitReq1BoxedList implements FruitReq1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private FruitReq1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FruitReq1BoxedList(FrozenList<@Nullable Object> data) implements FruitReq1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FruitReq1BoxedMap implements FruitReq1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private FruitReq1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FruitReq1BoxedMap(FrozenMap<@Nullable Object> data) implements FruitReq1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

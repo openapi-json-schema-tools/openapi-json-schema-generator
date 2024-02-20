@@ -105,16 +105,12 @@ public class MyObjectDto {
     
     
     public sealed interface MyObjectDto1Boxed permits MyObjectDto1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MyObjectDto1BoxedMap implements MyObjectDto1Boxed {
-        public final MyObjectDtoMap data;
-        private MyObjectDto1BoxedMap(MyObjectDtoMap data) {
-            this.data = data;
-        }
+    public record MyObjectDto1BoxedMap(MyObjectDtoMap data) implements MyObjectDto1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

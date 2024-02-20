@@ -116,16 +116,12 @@ public class Dog {
     
     
     public sealed interface Schema1Boxed permits Schema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap implements Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -206,71 +202,47 @@ public class Dog {
     
     
     public sealed interface Dog1Boxed permits Dog1BoxedVoid, Dog1BoxedBoolean, Dog1BoxedNumber, Dog1BoxedString, Dog1BoxedList, Dog1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Dog1BoxedVoid implements Dog1Boxed {
-        public final Void data;
-        private Dog1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Dog1BoxedVoid(Void data) implements Dog1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Dog1BoxedBoolean implements Dog1Boxed {
-        public final boolean data;
-        private Dog1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Dog1BoxedBoolean(boolean data) implements Dog1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Dog1BoxedNumber implements Dog1Boxed {
-        public final Number data;
-        private Dog1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Dog1BoxedNumber(Number data) implements Dog1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Dog1BoxedString implements Dog1Boxed {
-        public final String data;
-        private Dog1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Dog1BoxedString(String data) implements Dog1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Dog1BoxedList implements Dog1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Dog1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Dog1BoxedList(FrozenList<@Nullable Object> data) implements Dog1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Dog1BoxedMap implements Dog1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Dog1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Dog1BoxedMap(FrozenMap<@Nullable Object> data) implements Dog1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

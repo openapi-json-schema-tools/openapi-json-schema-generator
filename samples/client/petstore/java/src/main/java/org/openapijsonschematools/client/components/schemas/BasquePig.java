@@ -45,16 +45,12 @@ public class BasquePig {
     
     
     public sealed interface ClassNameBoxed permits ClassNameBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ClassNameBoxedString implements ClassNameBoxed {
-        public final String data;
-        private ClassNameBoxedString(String data) {
-            this.data = data;
-        }
+    public record ClassNameBoxedString(String data) implements ClassNameBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -199,16 +195,12 @@ public class BasquePig {
     
     
     public sealed interface BasquePig1Boxed permits BasquePig1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class BasquePig1BoxedMap implements BasquePig1Boxed {
-        public final BasquePigMap data;
-        private BasquePig1BoxedMap(BasquePigMap data) {
-            this.data = data;
-        }
+    public record BasquePig1BoxedMap(BasquePigMap data) implements BasquePig1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

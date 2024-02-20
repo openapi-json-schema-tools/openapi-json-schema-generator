@@ -106,71 +106,47 @@ public class ClassModel {
     
     
     public sealed interface ClassModel1Boxed permits ClassModel1BoxedVoid, ClassModel1BoxedBoolean, ClassModel1BoxedNumber, ClassModel1BoxedString, ClassModel1BoxedList, ClassModel1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ClassModel1BoxedVoid implements ClassModel1Boxed {
-        public final Void data;
-        private ClassModel1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ClassModel1BoxedVoid(Void data) implements ClassModel1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ClassModel1BoxedBoolean implements ClassModel1Boxed {
-        public final boolean data;
-        private ClassModel1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ClassModel1BoxedBoolean(boolean data) implements ClassModel1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ClassModel1BoxedNumber implements ClassModel1Boxed {
-        public final Number data;
-        private ClassModel1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ClassModel1BoxedNumber(Number data) implements ClassModel1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ClassModel1BoxedString implements ClassModel1Boxed {
-        public final String data;
-        private ClassModel1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ClassModel1BoxedString(String data) implements ClassModel1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ClassModel1BoxedList implements ClassModel1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ClassModel1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ClassModel1BoxedList(FrozenList<@Nullable Object> data) implements ClassModel1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ClassModel1BoxedMap implements ClassModel1Boxed {
-        public final ClassModelMap data;
-        private ClassModel1BoxedMap(ClassModelMap data) {
-            this.data = data;
-        }
+    public record ClassModel1BoxedMap(ClassModelMap data) implements ClassModel1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

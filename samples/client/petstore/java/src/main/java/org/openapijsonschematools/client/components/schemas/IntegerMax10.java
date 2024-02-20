@@ -20,16 +20,12 @@ public class IntegerMax10 {
     
     
     public sealed interface IntegerMax101Boxed permits IntegerMax101BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class IntegerMax101BoxedNumber implements IntegerMax101Boxed {
-        public final Number data;
-        private IntegerMax101BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IntegerMax101BoxedNumber(Number data) implements IntegerMax101Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

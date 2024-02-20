@@ -116,16 +116,12 @@ public class Cat {
     
     
     public sealed interface Schema1Boxed permits Schema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap implements Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -206,71 +202,47 @@ public class Cat {
     
     
     public sealed interface Cat1Boxed permits Cat1BoxedVoid, Cat1BoxedBoolean, Cat1BoxedNumber, Cat1BoxedString, Cat1BoxedList, Cat1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Cat1BoxedVoid implements Cat1Boxed {
-        public final Void data;
-        private Cat1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Cat1BoxedVoid(Void data) implements Cat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Cat1BoxedBoolean implements Cat1Boxed {
-        public final boolean data;
-        private Cat1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Cat1BoxedBoolean(boolean data) implements Cat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Cat1BoxedNumber implements Cat1Boxed {
-        public final Number data;
-        private Cat1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Cat1BoxedNumber(Number data) implements Cat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Cat1BoxedString implements Cat1Boxed {
-        public final String data;
-        private Cat1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Cat1BoxedString(String data) implements Cat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Cat1BoxedList implements Cat1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Cat1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Cat1BoxedList(FrozenList<@Nullable Object> data) implements Cat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Cat1BoxedMap implements Cat1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Cat1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Cat1BoxedMap(FrozenMap<@Nullable Object> data) implements Cat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

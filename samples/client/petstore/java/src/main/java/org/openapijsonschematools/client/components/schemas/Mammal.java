@@ -36,71 +36,47 @@ public class Mammal {
     
     
     public sealed interface Mammal1Boxed permits Mammal1BoxedVoid, Mammal1BoxedBoolean, Mammal1BoxedNumber, Mammal1BoxedString, Mammal1BoxedList, Mammal1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Mammal1BoxedVoid implements Mammal1Boxed {
-        public final Void data;
-        private Mammal1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Mammal1BoxedVoid(Void data) implements Mammal1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Mammal1BoxedBoolean implements Mammal1Boxed {
-        public final boolean data;
-        private Mammal1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Mammal1BoxedBoolean(boolean data) implements Mammal1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Mammal1BoxedNumber implements Mammal1Boxed {
-        public final Number data;
-        private Mammal1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Mammal1BoxedNumber(Number data) implements Mammal1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Mammal1BoxedString implements Mammal1Boxed {
-        public final String data;
-        private Mammal1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Mammal1BoxedString(String data) implements Mammal1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Mammal1BoxedList implements Mammal1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Mammal1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Mammal1BoxedList(FrozenList<@Nullable Object> data) implements Mammal1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Mammal1BoxedMap implements Mammal1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Mammal1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Mammal1BoxedMap(FrozenMap<@Nullable Object> data) implements Mammal1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

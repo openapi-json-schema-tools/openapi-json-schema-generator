@@ -115,16 +115,12 @@ public class ObjWithRequiredPropsBase {
     
     
     public sealed interface ObjWithRequiredPropsBase1Boxed permits ObjWithRequiredPropsBase1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjWithRequiredPropsBase1BoxedMap implements ObjWithRequiredPropsBase1Boxed {
-        public final ObjWithRequiredPropsBaseMap data;
-        private ObjWithRequiredPropsBase1BoxedMap(ObjWithRequiredPropsBaseMap data) {
-            this.data = data;
-        }
+    public record ObjWithRequiredPropsBase1BoxedMap(ObjWithRequiredPropsBaseMap data) implements ObjWithRequiredPropsBase1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

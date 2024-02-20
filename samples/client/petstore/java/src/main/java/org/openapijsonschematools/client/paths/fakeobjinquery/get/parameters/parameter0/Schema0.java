@@ -107,16 +107,12 @@ public class Schema0 {
     
     
     public sealed interface Schema01Boxed permits Schema01BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema01BoxedMap implements Schema01Boxed {
-        public final SchemaMap0 data;
-        private Schema01BoxedMap(SchemaMap0 data) {
-            this.data = data;
-        }
+    public record Schema01BoxedMap(SchemaMap0 data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -176,16 +176,12 @@ public class BananaReq {
     
     
     public sealed interface BananaReq1Boxed permits BananaReq1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class BananaReq1BoxedMap implements BananaReq1Boxed {
-        public final BananaReqMap data;
-        private BananaReq1BoxedMap(BananaReqMap data) {
-            this.data = data;
-        }
+    public record BananaReq1BoxedMap(BananaReqMap data) implements BananaReq1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

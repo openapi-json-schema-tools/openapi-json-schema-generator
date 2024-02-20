@@ -70,16 +70,12 @@ public class ArrayOfEnums {
     
     
     public sealed interface ArrayOfEnums1Boxed permits ArrayOfEnums1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayOfEnums1BoxedList implements ArrayOfEnums1Boxed {
-        public final ArrayOfEnumsList data;
-        private ArrayOfEnums1BoxedList(ArrayOfEnumsList data) {
-            this.data = data;
-        }
+    public record ArrayOfEnums1BoxedList(ArrayOfEnumsList data) implements ArrayOfEnums1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

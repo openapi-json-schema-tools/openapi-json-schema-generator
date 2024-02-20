@@ -48,71 +48,47 @@ public class AnyTypeNotString {
     
     
     public sealed interface AnyTypeNotString1Boxed permits AnyTypeNotString1BoxedVoid, AnyTypeNotString1BoxedBoolean, AnyTypeNotString1BoxedNumber, AnyTypeNotString1BoxedString, AnyTypeNotString1BoxedList, AnyTypeNotString1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AnyTypeNotString1BoxedVoid implements AnyTypeNotString1Boxed {
-        public final Void data;
-        private AnyTypeNotString1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AnyTypeNotString1BoxedVoid(Void data) implements AnyTypeNotString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeNotString1BoxedBoolean implements AnyTypeNotString1Boxed {
-        public final boolean data;
-        private AnyTypeNotString1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AnyTypeNotString1BoxedBoolean(boolean data) implements AnyTypeNotString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeNotString1BoxedNumber implements AnyTypeNotString1Boxed {
-        public final Number data;
-        private AnyTypeNotString1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AnyTypeNotString1BoxedNumber(Number data) implements AnyTypeNotString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeNotString1BoxedString implements AnyTypeNotString1Boxed {
-        public final String data;
-        private AnyTypeNotString1BoxedString(String data) {
-            this.data = data;
-        }
+    public record AnyTypeNotString1BoxedString(String data) implements AnyTypeNotString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeNotString1BoxedList implements AnyTypeNotString1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private AnyTypeNotString1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyTypeNotString1BoxedList(FrozenList<@Nullable Object> data) implements AnyTypeNotString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeNotString1BoxedMap implements AnyTypeNotString1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AnyTypeNotString1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyTypeNotString1BoxedMap(FrozenMap<@Nullable Object> data) implements AnyTypeNotString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

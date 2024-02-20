@@ -150,71 +150,47 @@ public class Schema200Response {
     
     
     public sealed interface Schema200Response1Boxed permits Schema200Response1BoxedVoid, Schema200Response1BoxedBoolean, Schema200Response1BoxedNumber, Schema200Response1BoxedString, Schema200Response1BoxedList, Schema200Response1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema200Response1BoxedVoid implements Schema200Response1Boxed {
-        public final Void data;
-        private Schema200Response1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Schema200Response1BoxedVoid(Void data) implements Schema200Response1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema200Response1BoxedBoolean implements Schema200Response1Boxed {
-        public final boolean data;
-        private Schema200Response1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Schema200Response1BoxedBoolean(boolean data) implements Schema200Response1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema200Response1BoxedNumber implements Schema200Response1Boxed {
-        public final Number data;
-        private Schema200Response1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Schema200Response1BoxedNumber(Number data) implements Schema200Response1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema200Response1BoxedString implements Schema200Response1Boxed {
-        public final String data;
-        private Schema200Response1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema200Response1BoxedString(String data) implements Schema200Response1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema200Response1BoxedList implements Schema200Response1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Schema200Response1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Schema200Response1BoxedList(FrozenList<@Nullable Object> data) implements Schema200Response1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema200Response1BoxedMap implements Schema200Response1Boxed {
-        public final Schema200ResponseMap data;
-        private Schema200Response1BoxedMap(Schema200ResponseMap data) {
-            this.data = data;
-        }
+    public record Schema200Response1BoxedMap(Schema200ResponseMap data) implements Schema200Response1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

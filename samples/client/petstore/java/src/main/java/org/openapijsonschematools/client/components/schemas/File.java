@@ -107,16 +107,12 @@ public class File {
     
     
     public sealed interface File1Boxed permits File1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class File1BoxedMap implements File1Boxed {
-        public final FileMap data;
-        private File1BoxedMap(FileMap data) {
-            this.data = data;
-        }
+    public record File1BoxedMap(FileMap data) implements File1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

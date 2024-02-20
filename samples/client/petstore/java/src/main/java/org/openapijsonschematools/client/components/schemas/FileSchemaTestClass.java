@@ -63,16 +63,12 @@ public class FileSchemaTestClass {
     
     
     public sealed interface FilesBoxed permits FilesBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class FilesBoxedList implements FilesBoxed {
-        public final FilesList data;
-        private FilesBoxedList(FilesList data) {
-            this.data = data;
-        }
+    public record FilesBoxedList(FilesList data) implements FilesBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -242,16 +238,12 @@ public class FileSchemaTestClass {
     
     
     public sealed interface FileSchemaTestClass1Boxed permits FileSchemaTestClass1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class FileSchemaTestClass1BoxedMap implements FileSchemaTestClass1Boxed {
-        public final FileSchemaTestClassMap data;
-        private FileSchemaTestClass1BoxedMap(FileSchemaTestClassMap data) {
-            this.data = data;
-        }
+    public record FileSchemaTestClass1BoxedMap(FileSchemaTestClassMap data) implements FileSchemaTestClass1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -232,16 +232,12 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
     
     public sealed interface Schema9Boxed permits Schema9BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema9BoxedList implements Schema9Boxed {
-        public final Schema9List data;
-        private Schema9BoxedList(Schema9List data) {
-            this.data = data;
-        }
+    public record Schema9BoxedList(Schema9List data) implements Schema9Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -382,71 +378,47 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
     
     public sealed interface ComposedAnyOfDifferentTypesNoValidations1Boxed permits ComposedAnyOfDifferentTypesNoValidations1BoxedVoid, ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean, ComposedAnyOfDifferentTypesNoValidations1BoxedNumber, ComposedAnyOfDifferentTypesNoValidations1BoxedString, ComposedAnyOfDifferentTypesNoValidations1BoxedList, ComposedAnyOfDifferentTypesNoValidations1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedVoid implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final Void data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedVoid(Void data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final boolean data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean(boolean data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedNumber implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final Number data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedNumber(Number data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedString implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final String data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedString(String data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedList implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedList(FrozenList<@Nullable Object> data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedMap implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedMap(FrozenMap<@Nullable Object> data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

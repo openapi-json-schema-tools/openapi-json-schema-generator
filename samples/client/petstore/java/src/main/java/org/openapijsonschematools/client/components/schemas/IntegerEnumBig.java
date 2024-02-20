@@ -86,16 +86,12 @@ public class IntegerEnumBig {
     
     
     public sealed interface IntegerEnumBig1Boxed permits IntegerEnumBig1BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class IntegerEnumBig1BoxedNumber implements IntegerEnumBig1Boxed {
-        public final Number data;
-        private IntegerEnumBig1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IntegerEnumBig1BoxedNumber(Number data) implements IntegerEnumBig1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -38,16 +38,12 @@ public class Schema3 {
     
     
     public sealed interface Schema31Boxed permits Schema31BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema31BoxedString implements Schema31Boxed {
-        public final String data;
-        private Schema31BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema31BoxedString(String data) implements Schema31Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

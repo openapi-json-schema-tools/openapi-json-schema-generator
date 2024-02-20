@@ -88,16 +88,12 @@ public class PaginatedResultMyObjectDto {
     
     
     public sealed interface ResultsBoxed permits ResultsBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ResultsBoxedList implements ResultsBoxed {
-        public final ResultsList data;
-        private ResultsBoxedList(ResultsList data) {
-            this.data = data;
-        }
+    public record ResultsBoxedList(ResultsList data) implements ResultsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -305,16 +301,12 @@ public class PaginatedResultMyObjectDto {
     
     
     public sealed interface PaginatedResultMyObjectDto1Boxed permits PaginatedResultMyObjectDto1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class PaginatedResultMyObjectDto1BoxedMap implements PaginatedResultMyObjectDto1Boxed {
-        public final PaginatedResultMyObjectDtoMap data;
-        private PaginatedResultMyObjectDto1BoxedMap(PaginatedResultMyObjectDtoMap data) {
-            this.data = data;
-        }
+    public record PaginatedResultMyObjectDto1BoxedMap(PaginatedResultMyObjectDtoMap data) implements PaginatedResultMyObjectDto1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

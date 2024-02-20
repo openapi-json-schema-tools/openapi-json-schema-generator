@@ -20,16 +20,12 @@ public class NumberWithValidations {
     
     
     public sealed interface NumberWithValidations1Boxed permits NumberWithValidations1BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NumberWithValidations1BoxedNumber implements NumberWithValidations1Boxed {
-        public final Number data;
-        private NumberWithValidations1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NumberWithValidations1BoxedNumber(Number data) implements NumberWithValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

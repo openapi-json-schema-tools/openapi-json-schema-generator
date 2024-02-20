@@ -115,16 +115,12 @@ public class GrandparentAnimal {
     
     
     public sealed interface GrandparentAnimal1Boxed permits GrandparentAnimal1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class GrandparentAnimal1BoxedMap implements GrandparentAnimal1Boxed {
-        public final GrandparentAnimalMap data;
-        private GrandparentAnimal1BoxedMap(GrandparentAnimalMap data) {
-            this.data = data;
-        }
+    public record GrandparentAnimal1BoxedMap(GrandparentAnimalMap data) implements GrandparentAnimal1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -67,16 +67,12 @@ public class Schema2 {
     
     
     public sealed interface Schema21Boxed permits Schema21BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema21BoxedList implements Schema21Boxed {
-        public final SchemaList2 data;
-        private Schema21BoxedList(SchemaList2 data) {
-            this.data = data;
-        }
+    public record Schema21BoxedList(SchemaList2 data) implements Schema21Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

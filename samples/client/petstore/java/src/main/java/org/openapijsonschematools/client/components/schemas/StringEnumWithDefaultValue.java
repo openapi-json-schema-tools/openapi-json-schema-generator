@@ -38,16 +38,12 @@ public class StringEnumWithDefaultValue {
     
     
     public sealed interface StringEnumWithDefaultValue1Boxed permits StringEnumWithDefaultValue1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class StringEnumWithDefaultValue1BoxedString implements StringEnumWithDefaultValue1Boxed {
-        public final String data;
-        private StringEnumWithDefaultValue1BoxedString(String data) {
-            this.data = data;
-        }
+    public record StringEnumWithDefaultValue1BoxedString(String data) implements StringEnumWithDefaultValue1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

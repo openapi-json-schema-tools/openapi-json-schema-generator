@@ -48,71 +48,47 @@ public class NullableShape {
     
     
     public sealed interface NullableShape1Boxed permits NullableShape1BoxedVoid, NullableShape1BoxedBoolean, NullableShape1BoxedNumber, NullableShape1BoxedString, NullableShape1BoxedList, NullableShape1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NullableShape1BoxedVoid implements NullableShape1Boxed {
-        public final Void data;
-        private NullableShape1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NullableShape1BoxedVoid(Void data) implements NullableShape1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NullableShape1BoxedBoolean implements NullableShape1Boxed {
-        public final boolean data;
-        private NullableShape1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record NullableShape1BoxedBoolean(boolean data) implements NullableShape1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NullableShape1BoxedNumber implements NullableShape1Boxed {
-        public final Number data;
-        private NullableShape1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NullableShape1BoxedNumber(Number data) implements NullableShape1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NullableShape1BoxedString implements NullableShape1Boxed {
-        public final String data;
-        private NullableShape1BoxedString(String data) {
-            this.data = data;
-        }
+    public record NullableShape1BoxedString(String data) implements NullableShape1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NullableShape1BoxedList implements NullableShape1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private NullableShape1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NullableShape1BoxedList(FrozenList<@Nullable Object> data) implements NullableShape1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NullableShape1BoxedMap implements NullableShape1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private NullableShape1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NullableShape1BoxedMap(FrozenMap<@Nullable Object> data) implements NullableShape1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

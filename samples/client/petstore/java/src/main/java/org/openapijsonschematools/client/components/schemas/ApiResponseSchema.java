@@ -188,16 +188,12 @@ public class ApiResponseSchema {
     
     
     public sealed interface ApiResponseSchema1Boxed permits ApiResponseSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApiResponseSchema1BoxedMap implements ApiResponseSchema1Boxed {
-        public final ApiResponseMap data;
-        private ApiResponseSchema1BoxedMap(ApiResponseMap data) {
-            this.data = data;
-        }
+    public record ApiResponseSchema1BoxedMap(ApiResponseMap data) implements ApiResponseSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -19,15 +19,11 @@ import java.util.Set;
 
 public class BooleanJsonSchema {
     public sealed interface BooleanJsonSchema1Boxed permits BooleanJsonSchema1BoxedBoolean {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class BooleanJsonSchema1BoxedBoolean implements BooleanJsonSchema1Boxed {
-        public final boolean data;
-        private BooleanJsonSchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record BooleanJsonSchema1BoxedBoolean(boolean data) implements BooleanJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

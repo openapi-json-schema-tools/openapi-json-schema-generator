@@ -32,16 +32,12 @@ public class ComposedBool {
     
     
     public sealed interface ComposedBool1Boxed permits ComposedBool1BoxedBoolean {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ComposedBool1BoxedBoolean implements ComposedBool1Boxed {
-        public final boolean data;
-        private ComposedBool1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ComposedBool1BoxedBoolean(boolean data) implements ComposedBool1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

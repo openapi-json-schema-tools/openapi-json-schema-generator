@@ -21,16 +21,12 @@ public class Bar {
     
     
     public sealed interface Bar1Boxed permits Bar1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Bar1BoxedString implements Bar1Boxed {
-        public final String data;
-        private Bar1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Bar1BoxedString(String data) implements Bar1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

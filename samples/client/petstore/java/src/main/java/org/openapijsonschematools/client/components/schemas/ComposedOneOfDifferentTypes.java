@@ -62,16 +62,12 @@ public class ComposedOneOfDifferentTypes {
     
     
     public sealed interface Schema4Boxed permits Schema4BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema4BoxedMap implements Schema4Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Schema4BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Schema4BoxedMap(FrozenMap<@Nullable Object> data) implements Schema4Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -234,16 +230,12 @@ public class ComposedOneOfDifferentTypes {
     
     
     public sealed interface Schema5Boxed permits Schema5BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema5BoxedList implements Schema5Boxed {
-        public final Schema5List data;
-        private Schema5BoxedList(Schema5List data) {
-            this.data = data;
-        }
+    public record Schema5BoxedList(Schema5List data) implements Schema5Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -320,16 +312,12 @@ public class ComposedOneOfDifferentTypes {
     }    
     
     public sealed interface Schema6Boxed permits Schema6BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema6BoxedString implements Schema6Boxed {
-        public final String data;
-        private Schema6BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema6BoxedString(String data) implements Schema6Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -390,71 +378,47 @@ public class ComposedOneOfDifferentTypes {
     }    
     
     public sealed interface ComposedOneOfDifferentTypes1Boxed permits ComposedOneOfDifferentTypes1BoxedVoid, ComposedOneOfDifferentTypes1BoxedBoolean, ComposedOneOfDifferentTypes1BoxedNumber, ComposedOneOfDifferentTypes1BoxedString, ComposedOneOfDifferentTypes1BoxedList, ComposedOneOfDifferentTypes1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedVoid implements ComposedOneOfDifferentTypes1Boxed {
-        public final Void data;
-        private ComposedOneOfDifferentTypes1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ComposedOneOfDifferentTypes1BoxedVoid(Void data) implements ComposedOneOfDifferentTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedBoolean implements ComposedOneOfDifferentTypes1Boxed {
-        public final boolean data;
-        private ComposedOneOfDifferentTypes1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ComposedOneOfDifferentTypes1BoxedBoolean(boolean data) implements ComposedOneOfDifferentTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedNumber implements ComposedOneOfDifferentTypes1Boxed {
-        public final Number data;
-        private ComposedOneOfDifferentTypes1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ComposedOneOfDifferentTypes1BoxedNumber(Number data) implements ComposedOneOfDifferentTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedString implements ComposedOneOfDifferentTypes1Boxed {
-        public final String data;
-        private ComposedOneOfDifferentTypes1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ComposedOneOfDifferentTypes1BoxedString(String data) implements ComposedOneOfDifferentTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedList implements ComposedOneOfDifferentTypes1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ComposedOneOfDifferentTypes1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ComposedOneOfDifferentTypes1BoxedList(FrozenList<@Nullable Object> data) implements ComposedOneOfDifferentTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedOneOfDifferentTypes1BoxedMap implements ComposedOneOfDifferentTypes1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ComposedOneOfDifferentTypes1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ComposedOneOfDifferentTypes1BoxedMap(FrozenMap<@Nullable Object> data) implements ComposedOneOfDifferentTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -103,16 +103,12 @@ public class Drawing {
     
     
     public sealed interface ShapesBoxed permits ShapesBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ShapesBoxedList implements ShapesBoxed {
-        public final ShapesList data;
-        private ShapesBoxedList(ShapesList data) {
-            this.data = data;
-        }
+    public record ShapesBoxedList(ShapesList data) implements ShapesBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -550,16 +546,12 @@ public class Drawing {
     
     
     public sealed interface Drawing1Boxed permits Drawing1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Drawing1BoxedMap implements Drawing1Boxed {
-        public final DrawingMap data;
-        private Drawing1BoxedMap(DrawingMap data) {
-            this.data = data;
-        }
+    public record Drawing1BoxedMap(DrawingMap data) implements Drawing1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

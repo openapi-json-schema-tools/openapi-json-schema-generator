@@ -110,16 +110,12 @@ public class Address {
     
     
     public sealed interface Address1Boxed permits Address1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Address1BoxedMap implements Address1Boxed {
-        public final AddressMap data;
-        private Address1BoxedMap(AddressMap data) {
-            this.data = data;
-        }
+    public record Address1BoxedMap(AddressMap data) implements Address1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

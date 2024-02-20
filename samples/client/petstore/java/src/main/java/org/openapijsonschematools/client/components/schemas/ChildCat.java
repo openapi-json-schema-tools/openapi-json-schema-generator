@@ -116,16 +116,12 @@ public class ChildCat {
     
     
     public sealed interface Schema1Boxed permits Schema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap implements Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -206,71 +202,47 @@ public class ChildCat {
     
     
     public sealed interface ChildCat1Boxed permits ChildCat1BoxedVoid, ChildCat1BoxedBoolean, ChildCat1BoxedNumber, ChildCat1BoxedString, ChildCat1BoxedList, ChildCat1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ChildCat1BoxedVoid implements ChildCat1Boxed {
-        public final Void data;
-        private ChildCat1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedVoid(Void data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedBoolean implements ChildCat1Boxed {
-        public final boolean data;
-        private ChildCat1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedBoolean(boolean data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedNumber implements ChildCat1Boxed {
-        public final Number data;
-        private ChildCat1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedNumber(Number data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedString implements ChildCat1Boxed {
-        public final String data;
-        private ChildCat1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedString(String data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedList implements ChildCat1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ChildCat1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedList(FrozenList<@Nullable Object> data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedMap implements ChildCat1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ChildCat1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedMap(FrozenMap<@Nullable Object> data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

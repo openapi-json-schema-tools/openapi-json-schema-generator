@@ -316,16 +316,12 @@ public class ReqPropsFromTrueAddProps {
     
     
     public sealed interface ReqPropsFromTrueAddProps1Boxed permits ReqPropsFromTrueAddProps1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ReqPropsFromTrueAddProps1BoxedMap implements ReqPropsFromTrueAddProps1Boxed {
-        public final ReqPropsFromTrueAddPropsMap data;
-        private ReqPropsFromTrueAddProps1BoxedMap(ReqPropsFromTrueAddPropsMap data) {
-            this.data = data;
-        }
+    public record ReqPropsFromTrueAddProps1BoxedMap(ReqPropsFromTrueAddPropsMap data) implements ReqPropsFromTrueAddProps1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

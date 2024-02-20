@@ -37,16 +37,12 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     public sealed interface ApplicationxwwwformurlencodedIntegerBoxed permits ApplicationxwwwformurlencodedIntegerBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedIntegerBoxedNumber implements ApplicationxwwwformurlencodedIntegerBoxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedIntegerBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedIntegerBoxedNumber(Number data) implements ApplicationxwwwformurlencodedIntegerBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -125,16 +121,12 @@ public class ApplicationxwwwformurlencodedSchema {
     }    
     
     public sealed interface ApplicationxwwwformurlencodedInt32Boxed permits ApplicationxwwwformurlencodedInt32BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedInt32BoxedNumber implements ApplicationxwwwformurlencodedInt32Boxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedInt32BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedInt32BoxedNumber(Number data) implements ApplicationxwwwformurlencodedInt32Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -216,16 +208,12 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     public sealed interface ApplicationxwwwformurlencodedNumberBoxed permits ApplicationxwwwformurlencodedNumberBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedNumberBoxedNumber implements ApplicationxwwwformurlencodedNumberBoxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedNumberBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedNumberBoxedNumber(Number data) implements ApplicationxwwwformurlencodedNumberBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -303,16 +291,12 @@ public class ApplicationxwwwformurlencodedSchema {
     }    
     
     public sealed interface ApplicationxwwwformurlencodedFloatBoxed permits ApplicationxwwwformurlencodedFloatBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedFloatBoxedNumber implements ApplicationxwwwformurlencodedFloatBoxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedFloatBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedFloatBoxedNumber(Number data) implements ApplicationxwwwformurlencodedFloatBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -377,16 +361,12 @@ public class ApplicationxwwwformurlencodedSchema {
     }    
     
     public sealed interface ApplicationxwwwformurlencodedDoubleBoxed permits ApplicationxwwwformurlencodedDoubleBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedDoubleBoxedNumber implements ApplicationxwwwformurlencodedDoubleBoxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedDoubleBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedDoubleBoxedNumber(Number data) implements ApplicationxwwwformurlencodedDoubleBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -452,16 +432,12 @@ public class ApplicationxwwwformurlencodedSchema {
     }    
     
     public sealed interface ApplicationxwwwformurlencodedStringBoxed permits ApplicationxwwwformurlencodedStringBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedStringBoxedString implements ApplicationxwwwformurlencodedStringBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedStringBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedStringBoxedString(String data) implements ApplicationxwwwformurlencodedStringBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -522,16 +498,12 @@ public class ApplicationxwwwformurlencodedSchema {
     }    
     
     public sealed interface ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed permits ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString implements ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString(String data) implements ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -625,16 +597,12 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     public sealed interface ApplicationxwwwformurlencodedDateTimeBoxed permits ApplicationxwwwformurlencodedDateTimeBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedDateTimeBoxedString implements ApplicationxwwwformurlencodedDateTimeBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedDateTimeBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedDateTimeBoxedString(String data) implements ApplicationxwwwformurlencodedDateTimeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -699,16 +667,12 @@ public class ApplicationxwwwformurlencodedSchema {
     }    
     
     public sealed interface ApplicationxwwwformurlencodedPasswordBoxed permits ApplicationxwwwformurlencodedPasswordBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedPasswordBoxedString implements ApplicationxwwwformurlencodedPasswordBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedPasswordBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedPasswordBoxedString(String data) implements ApplicationxwwwformurlencodedPasswordBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1452,16 +1416,12 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     public sealed interface ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap implements ApplicationxwwwformurlencodedSchema1Boxed {
-        public final ApplicationxwwwformurlencodedSchemaMap data;
-        private ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) implements ApplicationxwwwformurlencodedSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

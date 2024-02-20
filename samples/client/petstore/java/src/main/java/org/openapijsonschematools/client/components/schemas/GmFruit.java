@@ -116,71 +116,47 @@ public class GmFruit {
     
     
     public sealed interface GmFruit1Boxed permits GmFruit1BoxedVoid, GmFruit1BoxedBoolean, GmFruit1BoxedNumber, GmFruit1BoxedString, GmFruit1BoxedList, GmFruit1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class GmFruit1BoxedVoid implements GmFruit1Boxed {
-        public final Void data;
-        private GmFruit1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record GmFruit1BoxedVoid(Void data) implements GmFruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class GmFruit1BoxedBoolean implements GmFruit1Boxed {
-        public final boolean data;
-        private GmFruit1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record GmFruit1BoxedBoolean(boolean data) implements GmFruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class GmFruit1BoxedNumber implements GmFruit1Boxed {
-        public final Number data;
-        private GmFruit1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record GmFruit1BoxedNumber(Number data) implements GmFruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class GmFruit1BoxedString implements GmFruit1Boxed {
-        public final String data;
-        private GmFruit1BoxedString(String data) {
-            this.data = data;
-        }
+    public record GmFruit1BoxedString(String data) implements GmFruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class GmFruit1BoxedList implements GmFruit1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private GmFruit1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record GmFruit1BoxedList(FrozenList<@Nullable Object> data) implements GmFruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class GmFruit1BoxedMap implements GmFruit1Boxed {
-        public final GmFruitMap data;
-        private GmFruit1BoxedMap(GmFruitMap data) {
-            this.data = data;
-        }
+    public record GmFruit1BoxedMap(GmFruitMap data) implements GmFruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

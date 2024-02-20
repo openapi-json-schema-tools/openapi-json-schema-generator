@@ -45,16 +45,12 @@ public class FormatTest {
     
     
     public sealed interface IntegerSchemaBoxed permits IntegerSchemaBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class IntegerSchemaBoxedNumber implements IntegerSchemaBoxed {
-        public final Number data;
-        private IntegerSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IntegerSchemaBoxedNumber(Number data) implements IntegerSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -145,16 +141,12 @@ public class FormatTest {
     
     
     public sealed interface Int32withValidationsBoxed permits Int32withValidationsBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Int32withValidationsBoxedNumber implements Int32withValidationsBoxed {
-        public final Number data;
-        private Int32withValidationsBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Int32withValidationsBoxedNumber(Number data) implements Int32withValidationsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -236,16 +228,12 @@ public class FormatTest {
     
     
     public sealed interface NumberSchemaBoxed permits NumberSchemaBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NumberSchemaBoxedNumber implements NumberSchemaBoxed {
-        public final Number data;
-        private NumberSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NumberSchemaBoxedNumber(Number data) implements NumberSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -324,16 +312,12 @@ public class FormatTest {
     }    
     
     public sealed interface FloatSchemaBoxed permits FloatSchemaBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class FloatSchemaBoxedNumber implements FloatSchemaBoxed {
-        public final Number data;
-        private FloatSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record FloatSchemaBoxedNumber(Number data) implements FloatSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -410,16 +394,12 @@ public class FormatTest {
     
     
     public sealed interface DoubleSchemaBoxed permits DoubleSchemaBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class DoubleSchemaBoxedNumber implements DoubleSchemaBoxed {
-        public final Number data;
-        private DoubleSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record DoubleSchemaBoxedNumber(Number data) implements DoubleSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -554,16 +534,12 @@ public class FormatTest {
     
     
     public sealed interface ArrayWithUniqueItemsBoxed permits ArrayWithUniqueItemsBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayWithUniqueItemsBoxedList implements ArrayWithUniqueItemsBoxed {
-        public final ArrayWithUniqueItemsList data;
-        private ArrayWithUniqueItemsBoxedList(ArrayWithUniqueItemsList data) {
-            this.data = data;
-        }
+    public record ArrayWithUniqueItemsBoxedList(ArrayWithUniqueItemsList data) implements ArrayWithUniqueItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -642,16 +618,12 @@ public class FormatTest {
     }    
     
     public sealed interface StringSchemaBoxed permits StringSchemaBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class StringSchemaBoxedString implements StringSchemaBoxed {
-        public final String data;
-        private StringSchemaBoxedString(String data) {
-            this.data = data;
-        }
+    public record StringSchemaBoxedString(String data) implements StringSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -779,16 +751,12 @@ public class FormatTest {
     
     
     public sealed interface PasswordBoxed permits PasswordBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class PasswordBoxedString implements PasswordBoxed {
-        public final String data;
-        private PasswordBoxedString(String data) {
-            this.data = data;
-        }
+    public record PasswordBoxedString(String data) implements PasswordBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -848,16 +816,12 @@ public class FormatTest {
     }    
     
     public sealed interface PatternWithDigitsBoxed permits PatternWithDigitsBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class PatternWithDigitsBoxedString implements PatternWithDigitsBoxed {
-        public final String data;
-        private PatternWithDigitsBoxedString(String data) {
-            this.data = data;
-        }
+    public record PatternWithDigitsBoxedString(String data) implements PatternWithDigitsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -917,16 +881,12 @@ public class FormatTest {
     }    
     
     public sealed interface PatternWithDigitsAndDelimiterBoxed permits PatternWithDigitsAndDelimiterBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class PatternWithDigitsAndDelimiterBoxedString implements PatternWithDigitsAndDelimiterBoxed {
-        public final String data;
-        private PatternWithDigitsAndDelimiterBoxedString(String data) {
-            this.data = data;
-        }
+    public record PatternWithDigitsAndDelimiterBoxedString(String data) implements PatternWithDigitsAndDelimiterBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1883,16 +1843,12 @@ public class FormatTest {
     
     
     public sealed interface FormatTest1Boxed permits FormatTest1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class FormatTest1BoxedMap implements FormatTest1Boxed {
-        public final FormatTestMap data;
-        private FormatTest1BoxedMap(FormatTestMap data) {
-            this.data = data;
-        }
+    public record FormatTest1BoxedMap(FormatTestMap data) implements FormatTest1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

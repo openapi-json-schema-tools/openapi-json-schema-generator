@@ -60,16 +60,12 @@ public class Variables {
     
     
     public sealed interface VersionBoxed permits VersionBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class VersionBoxedString implements VersionBoxed {
-        public final String data;
-        private VersionBoxedString(String data) {
-            this.data = data;
-        }
+    public record VersionBoxedString(String data) implements VersionBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -206,16 +202,12 @@ public class Variables {
     
     
     public sealed interface Variables1Boxed permits Variables1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Variables1BoxedMap implements Variables1Boxed {
-        public final VariablesMap data;
-        private Variables1BoxedMap(VariablesMap data) {
-            this.data = data;
-        }
+    public record Variables1BoxedMap(VariablesMap data) implements Variables1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

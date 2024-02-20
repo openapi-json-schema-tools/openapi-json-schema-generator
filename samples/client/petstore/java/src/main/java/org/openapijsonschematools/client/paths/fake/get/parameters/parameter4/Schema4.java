@@ -82,16 +82,12 @@ public class Schema4 {
     
     
     public sealed interface Schema41Boxed permits Schema41BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema41BoxedNumber implements Schema41Boxed {
-        public final Number data;
-        private Schema41BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Schema41BoxedNumber(Number data) implements Schema41Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

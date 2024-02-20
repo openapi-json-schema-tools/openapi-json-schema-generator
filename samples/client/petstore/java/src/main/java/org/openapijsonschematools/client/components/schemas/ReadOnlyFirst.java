@@ -144,16 +144,12 @@ public class ReadOnlyFirst {
     
     
     public sealed interface ReadOnlyFirst1Boxed permits ReadOnlyFirst1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ReadOnlyFirst1BoxedMap implements ReadOnlyFirst1Boxed {
-        public final ReadOnlyFirstMap data;
-        private ReadOnlyFirst1BoxedMap(ReadOnlyFirstMap data) {
-            this.data = data;
-        }
+    public record ReadOnlyFirst1BoxedMap(ReadOnlyFirstMap data) implements ReadOnlyFirst1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

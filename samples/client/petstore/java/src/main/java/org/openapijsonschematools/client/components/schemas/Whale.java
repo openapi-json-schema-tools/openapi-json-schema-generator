@@ -68,16 +68,12 @@ public class Whale {
     
     
     public sealed interface ClassNameBoxed permits ClassNameBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ClassNameBoxedString implements ClassNameBoxed {
-        public final String data;
-        private ClassNameBoxedString(String data) {
-            this.data = data;
-        }
+    public record ClassNameBoxedString(String data) implements ClassNameBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -275,16 +271,12 @@ public class Whale {
     
     
     public sealed interface Whale1Boxed permits Whale1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Whale1BoxedMap implements Whale1Boxed {
-        public final WhaleMap data;
-        private Whale1BoxedMap(WhaleMap data) {
-            this.data = data;
-        }
+    public record Whale1BoxedMap(WhaleMap data) implements Whale1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

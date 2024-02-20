@@ -58,16 +58,12 @@ public class ApplicationjsonSchema {
     
     
     public sealed interface ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationjsonSchema1BoxedList implements ApplicationjsonSchema1Boxed {
-        public final ApplicationjsonSchemaList data;
-        private ApplicationjsonSchema1BoxedList(ApplicationjsonSchemaList data) {
-            this.data = data;
-        }
+    public record ApplicationjsonSchema1BoxedList(ApplicationjsonSchemaList data) implements ApplicationjsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

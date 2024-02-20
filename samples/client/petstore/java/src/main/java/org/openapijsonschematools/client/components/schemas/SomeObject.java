@@ -36,71 +36,47 @@ public class SomeObject {
     
     
     public sealed interface SomeObject1Boxed permits SomeObject1BoxedVoid, SomeObject1BoxedBoolean, SomeObject1BoxedNumber, SomeObject1BoxedString, SomeObject1BoxedList, SomeObject1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class SomeObject1BoxedVoid implements SomeObject1Boxed {
-        public final Void data;
-        private SomeObject1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record SomeObject1BoxedVoid(Void data) implements SomeObject1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeObject1BoxedBoolean implements SomeObject1Boxed {
-        public final boolean data;
-        private SomeObject1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record SomeObject1BoxedBoolean(boolean data) implements SomeObject1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeObject1BoxedNumber implements SomeObject1Boxed {
-        public final Number data;
-        private SomeObject1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record SomeObject1BoxedNumber(Number data) implements SomeObject1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeObject1BoxedString implements SomeObject1Boxed {
-        public final String data;
-        private SomeObject1BoxedString(String data) {
-            this.data = data;
-        }
+    public record SomeObject1BoxedString(String data) implements SomeObject1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeObject1BoxedList implements SomeObject1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private SomeObject1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SomeObject1BoxedList(FrozenList<@Nullable Object> data) implements SomeObject1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomeObject1BoxedMap implements SomeObject1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private SomeObject1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SomeObject1BoxedMap(FrozenMap<@Nullable Object> data) implements SomeObject1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

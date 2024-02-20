@@ -78,16 +78,12 @@ public class IntegerEnumOneValue {
     
     
     public sealed interface IntegerEnumOneValue1Boxed permits IntegerEnumOneValue1BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class IntegerEnumOneValue1BoxedNumber implements IntegerEnumOneValue1Boxed {
-        public final Number data;
-        private IntegerEnumOneValue1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IntegerEnumOneValue1BoxedNumber(Number data) implements IntegerEnumOneValue1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

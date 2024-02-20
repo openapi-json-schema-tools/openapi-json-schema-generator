@@ -32,16 +32,12 @@ public class ComposedNone {
     
     
     public sealed interface ComposedNone1Boxed permits ComposedNone1BoxedVoid {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ComposedNone1BoxedVoid implements ComposedNone1Boxed {
-        public final Void data;
-        private ComposedNone1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ComposedNone1BoxedVoid(Void data) implements ComposedNone1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -158,16 +158,12 @@ public class AppleReq {
     
     
     public sealed interface AppleReq1Boxed permits AppleReq1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AppleReq1BoxedMap implements AppleReq1Boxed {
-        public final AppleReqMap data;
-        private AppleReq1BoxedMap(AppleReqMap data) {
-            this.data = data;
-        }
+    public record AppleReq1BoxedMap(AppleReqMap data) implements AppleReq1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

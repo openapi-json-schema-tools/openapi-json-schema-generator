@@ -195,16 +195,12 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     
     
     public sealed interface Schema1Boxed permits Schema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap implements Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -288,71 +284,47 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     
     
     public sealed interface ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed permits ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final Void data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid(Void data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final boolean data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean(boolean data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final Number data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber(Number data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final String data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString(String data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList(FrozenList<@Nullable Object> data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

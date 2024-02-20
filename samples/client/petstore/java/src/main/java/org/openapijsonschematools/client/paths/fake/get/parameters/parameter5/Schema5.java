@@ -52,16 +52,12 @@ public class Schema5 {
     
     
     public sealed interface Schema51Boxed permits Schema51BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema51BoxedNumber implements Schema51Boxed {
-        public final Number data;
-        private Schema51BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Schema51BoxedNumber(Number data) implements Schema51Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

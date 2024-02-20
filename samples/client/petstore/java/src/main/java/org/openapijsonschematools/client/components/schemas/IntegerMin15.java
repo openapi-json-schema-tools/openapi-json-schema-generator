@@ -20,16 +20,12 @@ public class IntegerMin15 {
     
     
     public sealed interface IntegerMin151Boxed permits IntegerMin151BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class IntegerMin151BoxedNumber implements IntegerMin151Boxed {
-        public final Number data;
-        private IntegerMin151BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IntegerMin151BoxedNumber(Number data) implements IntegerMin151Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

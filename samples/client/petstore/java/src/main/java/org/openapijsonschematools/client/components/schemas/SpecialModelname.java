@@ -107,16 +107,12 @@ public class SpecialModelname {
     
     
     public sealed interface SpecialModelname1Boxed permits SpecialModelname1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class SpecialModelname1BoxedMap implements SpecialModelname1Boxed {
-        public final SpecialModelnameMap data;
-        private SpecialModelname1BoxedMap(SpecialModelnameMap data) {
-            this.data = data;
-        }
+    public record SpecialModelname1BoxedMap(SpecialModelnameMap data) implements SpecialModelname1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

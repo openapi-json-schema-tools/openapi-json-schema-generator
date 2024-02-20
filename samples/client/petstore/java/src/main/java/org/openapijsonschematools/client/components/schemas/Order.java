@@ -95,16 +95,12 @@ public class Order {
     
     
     public sealed interface StatusBoxed permits StatusBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class StatusBoxedString implements StatusBoxed {
-        public final String data;
-        private StatusBoxedString(String data) {
-            this.data = data;
-        }
+    public record StatusBoxedString(String data) implements StatusBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -426,16 +422,12 @@ public class Order {
     
     
     public sealed interface Order1Boxed permits Order1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Order1BoxedMap implements Order1Boxed {
-        public final OrderMap data;
-        private Order1BoxedMap(OrderMap data) {
-            this.data = data;
-        }
+    public record Order1BoxedMap(OrderMap data) implements Order1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

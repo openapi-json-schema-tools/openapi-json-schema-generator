@@ -156,16 +156,12 @@ public class QueryParameters {
     
     
     public sealed interface QueryParameters1Boxed permits QueryParameters1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class QueryParameters1BoxedMap implements QueryParameters1Boxed {
-        public final QueryParametersMap data;
-        private QueryParameters1BoxedMap(QueryParametersMap data) {
-            this.data = data;
-        }
+    public record QueryParameters1BoxedMap(QueryParametersMap data) implements QueryParameters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

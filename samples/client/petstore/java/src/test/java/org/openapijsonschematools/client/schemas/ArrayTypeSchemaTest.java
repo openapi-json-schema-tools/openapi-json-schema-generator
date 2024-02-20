@@ -31,13 +31,9 @@ public class ArrayTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static abstract sealed class ArrayWithItemsSchemaBoxed permits ArrayWithItemsSchemaBoxedList {
+    public sealed interface ArrayWithItemsSchemaBoxed permits ArrayWithItemsSchemaBoxedList {
     }
-    public static final class ArrayWithItemsSchemaBoxedList extends ArrayWithItemsSchemaBoxed {
-        public final FrozenList<String> data;
-        private ArrayWithItemsSchemaBoxedList(FrozenList<String> data) {
-            this.data = data;
-        }
+    public record ArrayWithItemsSchemaBoxedList(FrozenList<String> data) implements ArrayWithItemsSchemaBoxed {
     }
 
     public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
@@ -112,13 +108,9 @@ public class ArrayTypeSchemaTest {
         }
     }
 
-    public static abstract sealed class ArrayWithOutputClsSchemaBoxed permits ArrayWithOutputClsSchemaBoxedList {
+    public sealed interface ArrayWithOutputClsSchemaBoxed permits ArrayWithOutputClsSchemaBoxedList {
     }
-    public static final class ArrayWithOutputClsSchemaBoxedList extends ArrayWithOutputClsSchemaBoxed {
-        public final ArrayWithOutputClsSchemaList data;
-        private ArrayWithOutputClsSchemaBoxedList(ArrayWithOutputClsSchemaList data) {
-            this.data = data;
-        }
+    public record ArrayWithOutputClsSchemaBoxedList(ArrayWithOutputClsSchemaList data) implements ArrayWithOutputClsSchemaBoxed {
     }
     public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
         public ArrayWithOutputClsSchema() {

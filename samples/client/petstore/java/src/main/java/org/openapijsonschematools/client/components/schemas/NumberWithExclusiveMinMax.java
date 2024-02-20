@@ -20,16 +20,12 @@ public class NumberWithExclusiveMinMax {
     
     
     public sealed interface NumberWithExclusiveMinMax1Boxed permits NumberWithExclusiveMinMax1BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NumberWithExclusiveMinMax1BoxedNumber implements NumberWithExclusiveMinMax1Boxed {
-        public final Number data;
-        private NumberWithExclusiveMinMax1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NumberWithExclusiveMinMax1BoxedNumber(Number data) implements NumberWithExclusiveMinMax1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

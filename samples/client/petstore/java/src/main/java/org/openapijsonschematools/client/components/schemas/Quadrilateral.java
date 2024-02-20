@@ -36,71 +36,47 @@ public class Quadrilateral {
     
     
     public sealed interface Quadrilateral1Boxed permits Quadrilateral1BoxedVoid, Quadrilateral1BoxedBoolean, Quadrilateral1BoxedNumber, Quadrilateral1BoxedString, Quadrilateral1BoxedList, Quadrilateral1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Quadrilateral1BoxedVoid implements Quadrilateral1Boxed {
-        public final Void data;
-        private Quadrilateral1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Quadrilateral1BoxedVoid(Void data) implements Quadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Quadrilateral1BoxedBoolean implements Quadrilateral1Boxed {
-        public final boolean data;
-        private Quadrilateral1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Quadrilateral1BoxedBoolean(boolean data) implements Quadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Quadrilateral1BoxedNumber implements Quadrilateral1Boxed {
-        public final Number data;
-        private Quadrilateral1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Quadrilateral1BoxedNumber(Number data) implements Quadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Quadrilateral1BoxedString implements Quadrilateral1Boxed {
-        public final String data;
-        private Quadrilateral1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Quadrilateral1BoxedString(String data) implements Quadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Quadrilateral1BoxedList implements Quadrilateral1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Quadrilateral1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Quadrilateral1BoxedList(FrozenList<@Nullable Object> data) implements Quadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Quadrilateral1BoxedMap implements Quadrilateral1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Quadrilateral1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Quadrilateral1BoxedMap(FrozenMap<@Nullable Object> data) implements Quadrilateral1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

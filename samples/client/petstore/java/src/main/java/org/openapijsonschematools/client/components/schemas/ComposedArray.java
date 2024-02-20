@@ -108,16 +108,12 @@ public class ComposedArray {
     
     
     public sealed interface ComposedArray1Boxed permits ComposedArray1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ComposedArray1BoxedList implements ComposedArray1Boxed {
-        public final ComposedArrayList data;
-        private ComposedArray1BoxedList(ComposedArrayList data) {
-            this.data = data;
-        }
+    public record ComposedArray1BoxedList(ComposedArrayList data) implements ComposedArray1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

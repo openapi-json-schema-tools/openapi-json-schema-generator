@@ -23,15 +23,11 @@ import java.util.Set;
 
 public class MapJsonSchema {
     public sealed interface MapJsonSchema1Boxed permits MapJsonSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class MapJsonSchema1BoxedMap implements MapJsonSchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private MapJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MapJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) implements MapJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -94,16 +94,12 @@ public class StringBooleanMap {
     
     
     public sealed interface StringBooleanMap1Boxed permits StringBooleanMap1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class StringBooleanMap1BoxedMap implements StringBooleanMap1Boxed {
-        public final StringBooleanMapMap data;
-        private StringBooleanMap1BoxedMap(StringBooleanMapMap data) {
-            this.data = data;
-        }
+    public record StringBooleanMap1BoxedMap(StringBooleanMapMap data) implements StringBooleanMap1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

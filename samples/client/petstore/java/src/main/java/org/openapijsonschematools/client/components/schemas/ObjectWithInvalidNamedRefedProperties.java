@@ -145,16 +145,12 @@ public class ObjectWithInvalidNamedRefedProperties {
     
     
     public sealed interface ObjectWithInvalidNamedRefedProperties1Boxed permits ObjectWithInvalidNamedRefedProperties1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithInvalidNamedRefedProperties1BoxedMap implements ObjectWithInvalidNamedRefedProperties1Boxed {
-        public final ObjectWithInvalidNamedRefedPropertiesMap data;
-        private ObjectWithInvalidNamedRefedProperties1BoxedMap(ObjectWithInvalidNamedRefedPropertiesMap data) {
-            this.data = data;
-        }
+    public record ObjectWithInvalidNamedRefedProperties1BoxedMap(ObjectWithInvalidNamedRefedPropertiesMap data) implements ObjectWithInvalidNamedRefedProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

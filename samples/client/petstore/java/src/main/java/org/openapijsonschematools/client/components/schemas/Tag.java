@@ -163,16 +163,12 @@ public class Tag {
     
     
     public sealed interface Tag1Boxed permits Tag1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Tag1BoxedMap implements Tag1Boxed {
-        public final TagMap data;
-        private Tag1BoxedMap(TagMap data) {
-            this.data = data;
-        }
+    public record Tag1BoxedMap(TagMap data) implements Tag1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

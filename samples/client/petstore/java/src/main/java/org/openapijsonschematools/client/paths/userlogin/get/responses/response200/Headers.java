@@ -286,16 +286,12 @@ public class Headers {
     
     
     public sealed interface Headers1Boxed permits Headers1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Headers1BoxedMap implements Headers1Boxed {
-        public final HeadersMap data;
-        private Headers1BoxedMap(HeadersMap data) {
-            this.data = data;
-        }
+    public record Headers1BoxedMap(HeadersMap data) implements Headers1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

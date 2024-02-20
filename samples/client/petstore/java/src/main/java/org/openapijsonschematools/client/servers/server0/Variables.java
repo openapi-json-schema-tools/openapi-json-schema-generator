@@ -61,16 +61,12 @@ public class Variables {
     
     
     public sealed interface ServerBoxed permits ServerBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ServerBoxedString implements ServerBoxed {
-        public final String data;
-        private ServerBoxedString(String data) {
-            this.data = data;
-        }
+    public record ServerBoxedString(String data) implements ServerBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -157,16 +153,12 @@ public class Variables {
     
     
     public sealed interface PortBoxed permits PortBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class PortBoxedString implements PortBoxed {
-        public final String data;
-        private PortBoxedString(String data) {
-            this.data = data;
-        }
+    public record PortBoxedString(String data) implements PortBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -363,16 +355,12 @@ public class Variables {
     
     
     public sealed interface Variables1Boxed permits Variables1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Variables1BoxedMap implements Variables1Boxed {
-        public final VariablesMap data;
-        private Variables1BoxedMap(VariablesMap data) {
-            this.data = data;
-        }
+    public record Variables1BoxedMap(VariablesMap data) implements Variables1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

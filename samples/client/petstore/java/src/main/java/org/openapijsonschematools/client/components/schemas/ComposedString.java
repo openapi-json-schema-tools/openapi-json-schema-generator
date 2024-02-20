@@ -32,16 +32,12 @@ public class ComposedString {
     
     
     public sealed interface ComposedString1Boxed permits ComposedString1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ComposedString1BoxedString implements ComposedString1Boxed {
-        public final String data;
-        private ComposedString1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ComposedString1BoxedString(String data) implements ComposedString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -176,16 +176,12 @@ public class ObjectModelWithArgAndArgsProperties {
     
     
     public sealed interface ObjectModelWithArgAndArgsProperties1Boxed permits ObjectModelWithArgAndArgsProperties1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectModelWithArgAndArgsProperties1BoxedMap implements ObjectModelWithArgAndArgsProperties1Boxed {
-        public final ObjectModelWithArgAndArgsPropertiesMap data;
-        private ObjectModelWithArgAndArgsProperties1BoxedMap(ObjectModelWithArgAndArgsPropertiesMap data) {
-            this.data = data;
-        }
+    public record ObjectModelWithArgAndArgsProperties1BoxedMap(ObjectModelWithArgAndArgsPropertiesMap data) implements ObjectModelWithArgAndArgsProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

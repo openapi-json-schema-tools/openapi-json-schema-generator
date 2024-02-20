@@ -22,16 +22,12 @@ public class DateTimeTest {
     
     
     public sealed interface DateTimeTest1Boxed permits DateTimeTest1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class DateTimeTest1BoxedString implements DateTimeTest1Boxed {
-        public final String data;
-        private DateTimeTest1BoxedString(String data) {
-            this.data = data;
-        }
+    public record DateTimeTest1BoxedString(String data) implements DateTimeTest1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

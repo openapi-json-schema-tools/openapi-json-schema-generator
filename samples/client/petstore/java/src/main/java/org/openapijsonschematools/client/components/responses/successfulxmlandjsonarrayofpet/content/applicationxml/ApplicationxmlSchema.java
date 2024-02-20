@@ -58,16 +58,12 @@ public class ApplicationxmlSchema {
     
     
     public sealed interface ApplicationxmlSchema1Boxed permits ApplicationxmlSchema1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxmlSchema1BoxedList implements ApplicationxmlSchema1Boxed {
-        public final ApplicationxmlSchemaList data;
-        private ApplicationxmlSchema1BoxedList(ApplicationxmlSchemaList data) {
-            this.data = data;
-        }
+    public record ApplicationxmlSchema1BoxedList(ApplicationxmlSchemaList data) implements ApplicationxmlSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

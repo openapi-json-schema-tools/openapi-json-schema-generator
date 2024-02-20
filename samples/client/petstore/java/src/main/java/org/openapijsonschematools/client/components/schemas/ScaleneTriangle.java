@@ -53,16 +53,12 @@ public class ScaleneTriangle {
     
     
     public sealed interface TriangleTypeBoxed permits TriangleTypeBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class TriangleTypeBoxedString implements TriangleTypeBoxed {
-        public final String data;
-        private TriangleTypeBoxedString(String data) {
-            this.data = data;
-        }
+    public record TriangleTypeBoxedString(String data) implements TriangleTypeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -199,16 +195,12 @@ public class ScaleneTriangle {
     
     
     public sealed interface Schema1Boxed permits Schema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap implements Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -289,71 +281,47 @@ public class ScaleneTriangle {
     
     
     public sealed interface ScaleneTriangle1Boxed permits ScaleneTriangle1BoxedVoid, ScaleneTriangle1BoxedBoolean, ScaleneTriangle1BoxedNumber, ScaleneTriangle1BoxedString, ScaleneTriangle1BoxedList, ScaleneTriangle1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ScaleneTriangle1BoxedVoid implements ScaleneTriangle1Boxed {
-        public final Void data;
-        private ScaleneTriangle1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ScaleneTriangle1BoxedVoid(Void data) implements ScaleneTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ScaleneTriangle1BoxedBoolean implements ScaleneTriangle1Boxed {
-        public final boolean data;
-        private ScaleneTriangle1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ScaleneTriangle1BoxedBoolean(boolean data) implements ScaleneTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ScaleneTriangle1BoxedNumber implements ScaleneTriangle1Boxed {
-        public final Number data;
-        private ScaleneTriangle1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ScaleneTriangle1BoxedNumber(Number data) implements ScaleneTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ScaleneTriangle1BoxedString implements ScaleneTriangle1Boxed {
-        public final String data;
-        private ScaleneTriangle1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ScaleneTriangle1BoxedString(String data) implements ScaleneTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ScaleneTriangle1BoxedList implements ScaleneTriangle1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ScaleneTriangle1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ScaleneTriangle1BoxedList(FrozenList<@Nullable Object> data) implements ScaleneTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ScaleneTriangle1BoxedMap implements ScaleneTriangle1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ScaleneTriangle1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ScaleneTriangle1BoxedMap(FrozenMap<@Nullable Object> data) implements ScaleneTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

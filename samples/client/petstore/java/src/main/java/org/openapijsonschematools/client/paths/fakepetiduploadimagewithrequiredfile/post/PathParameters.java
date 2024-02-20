@@ -119,16 +119,12 @@ public class PathParameters {
     
     
     public sealed interface PathParameters1Boxed permits PathParameters1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class PathParameters1BoxedMap implements PathParameters1Boxed {
-        public final PathParametersMap data;
-        private PathParameters1BoxedMap(PathParametersMap data) {
-            this.data = data;
-        }
+    public record PathParameters1BoxedMap(PathParametersMap data) implements PathParameters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

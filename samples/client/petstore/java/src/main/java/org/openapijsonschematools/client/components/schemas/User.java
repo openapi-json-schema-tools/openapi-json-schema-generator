@@ -143,27 +143,19 @@ public class User {
     
     
     public sealed interface ObjectWithNoDeclaredPropsNullableBoxed permits ObjectWithNoDeclaredPropsNullableBoxedVoid, ObjectWithNoDeclaredPropsNullableBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithNoDeclaredPropsNullableBoxedVoid implements ObjectWithNoDeclaredPropsNullableBoxed {
-        public final Void data;
-        private ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data) implements ObjectWithNoDeclaredPropsNullableBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithNoDeclaredPropsNullableBoxedMap implements ObjectWithNoDeclaredPropsNullableBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithNoDeclaredPropsNullableBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -284,71 +276,47 @@ public class User {
     
     
     public sealed interface AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AnyTypeExceptNullPropBoxedVoid implements AnyTypeExceptNullPropBoxed {
-        public final Void data;
-        private AnyTypeExceptNullPropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedVoid(Void data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedBoolean implements AnyTypeExceptNullPropBoxed {
-        public final boolean data;
-        private AnyTypeExceptNullPropBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedBoolean(boolean data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedNumber implements AnyTypeExceptNullPropBoxed {
-        public final Number data;
-        private AnyTypeExceptNullPropBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedNumber(Number data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedString implements AnyTypeExceptNullPropBoxed {
-        public final String data;
-        private AnyTypeExceptNullPropBoxedString(String data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedString(String data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedList implements AnyTypeExceptNullPropBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedMap implements AnyTypeExceptNullPropBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1119,16 +1087,12 @@ public class User {
     
     
     public sealed interface User1Boxed permits User1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class User1BoxedMap implements User1Boxed {
-        public final UserMap data;
-        private User1BoxedMap(UserMap data) {
-            this.data = data;
-        }
+    public record User1BoxedMap(UserMap data) implements User1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

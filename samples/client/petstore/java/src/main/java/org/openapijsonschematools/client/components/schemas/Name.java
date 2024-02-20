@@ -212,71 +212,47 @@ public class Name {
     
     
     public sealed interface Name1Boxed permits Name1BoxedVoid, Name1BoxedBoolean, Name1BoxedNumber, Name1BoxedString, Name1BoxedList, Name1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Name1BoxedVoid implements Name1Boxed {
-        public final Void data;
-        private Name1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Name1BoxedVoid(Void data) implements Name1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Name1BoxedBoolean implements Name1Boxed {
-        public final boolean data;
-        private Name1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Name1BoxedBoolean(boolean data) implements Name1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Name1BoxedNumber implements Name1Boxed {
-        public final Number data;
-        private Name1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Name1BoxedNumber(Number data) implements Name1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Name1BoxedString implements Name1Boxed {
-        public final String data;
-        private Name1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Name1BoxedString(String data) implements Name1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Name1BoxedList implements Name1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Name1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Name1BoxedList(FrozenList<@Nullable Object> data) implements Name1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Name1BoxedMap implements Name1Boxed {
-        public final NameMap data;
-        private Name1BoxedMap(NameMap data) {
-            this.data = data;
-        }
+    public record Name1BoxedMap(NameMap data) implements Name1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

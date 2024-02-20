@@ -36,16 +36,12 @@ public class Currency {
     
     
     public sealed interface Currency1Boxed permits Currency1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Currency1BoxedString implements Currency1Boxed {
-        public final String data;
-        private Currency1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Currency1BoxedString(String data) implements Currency1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -20,15 +20,11 @@ import java.util.Set;
 
 public class DateJsonSchema {
     public sealed interface DateJsonSchema1Boxed permits DateJsonSchema1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class DateJsonSchema1BoxedString implements DateJsonSchema1Boxed {
-        public final String data;
-        private DateJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record DateJsonSchema1BoxedString(String data) implements DateJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -53,16 +53,12 @@ public class EquilateralTriangle {
     
     
     public sealed interface TriangleTypeBoxed permits TriangleTypeBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class TriangleTypeBoxedString implements TriangleTypeBoxed {
-        public final String data;
-        private TriangleTypeBoxedString(String data) {
-            this.data = data;
-        }
+    public record TriangleTypeBoxedString(String data) implements TriangleTypeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -199,16 +195,12 @@ public class EquilateralTriangle {
     
     
     public sealed interface Schema1Boxed permits Schema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap implements Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -289,71 +281,47 @@ public class EquilateralTriangle {
     
     
     public sealed interface EquilateralTriangle1Boxed permits EquilateralTriangle1BoxedVoid, EquilateralTriangle1BoxedBoolean, EquilateralTriangle1BoxedNumber, EquilateralTriangle1BoxedString, EquilateralTriangle1BoxedList, EquilateralTriangle1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class EquilateralTriangle1BoxedVoid implements EquilateralTriangle1Boxed {
-        public final Void data;
-        private EquilateralTriangle1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record EquilateralTriangle1BoxedVoid(Void data) implements EquilateralTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class EquilateralTriangle1BoxedBoolean implements EquilateralTriangle1Boxed {
-        public final boolean data;
-        private EquilateralTriangle1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record EquilateralTriangle1BoxedBoolean(boolean data) implements EquilateralTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class EquilateralTriangle1BoxedNumber implements EquilateralTriangle1Boxed {
-        public final Number data;
-        private EquilateralTriangle1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record EquilateralTriangle1BoxedNumber(Number data) implements EquilateralTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class EquilateralTriangle1BoxedString implements EquilateralTriangle1Boxed {
-        public final String data;
-        private EquilateralTriangle1BoxedString(String data) {
-            this.data = data;
-        }
+    public record EquilateralTriangle1BoxedString(String data) implements EquilateralTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class EquilateralTriangle1BoxedList implements EquilateralTriangle1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private EquilateralTriangle1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record EquilateralTriangle1BoxedList(FrozenList<@Nullable Object> data) implements EquilateralTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class EquilateralTriangle1BoxedMap implements EquilateralTriangle1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private EquilateralTriangle1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record EquilateralTriangle1BoxedMap(FrozenMap<@Nullable Object> data) implements EquilateralTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

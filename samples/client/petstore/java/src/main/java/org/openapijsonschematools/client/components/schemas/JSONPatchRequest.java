@@ -36,71 +36,47 @@ public class JSONPatchRequest {
     
     
     public sealed interface ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ItemsBoxedVoid implements ItemsBoxed {
-        public final Void data;
-        private ItemsBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ItemsBoxedVoid(Void data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedBoolean implements ItemsBoxed {
-        public final boolean data;
-        private ItemsBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ItemsBoxedBoolean(boolean data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedNumber implements ItemsBoxed {
-        public final Number data;
-        private ItemsBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ItemsBoxedNumber(Number data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedString implements ItemsBoxed {
-        public final String data;
-        private ItemsBoxedString(String data) {
-            this.data = data;
-        }
+    public record ItemsBoxedString(String data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedList implements ItemsBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private ItemsBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ItemsBoxedList(FrozenList<@Nullable Object> data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedMap implements ItemsBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ItemsBoxedMap(FrozenMap<@Nullable Object> data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -402,16 +378,12 @@ public class JSONPatchRequest {
     
     
     public sealed interface JSONPatchRequest1Boxed permits JSONPatchRequest1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class JSONPatchRequest1BoxedList implements JSONPatchRequest1Boxed {
-        public final JSONPatchRequestList data;
-        private JSONPatchRequest1BoxedList(JSONPatchRequestList data) {
-            this.data = data;
-        }
+    public record JSONPatchRequest1BoxedList(JSONPatchRequestList data) implements JSONPatchRequest1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

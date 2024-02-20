@@ -292,16 +292,12 @@ public class Capitalization {
     
     
     public sealed interface Capitalization1Boxed permits Capitalization1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Capitalization1BoxedMap implements Capitalization1Boxed {
-        public final CapitalizationMap data;
-        private Capitalization1BoxedMap(CapitalizationMap data) {
-            this.data = data;
-        }
+    public record Capitalization1BoxedMap(CapitalizationMap data) implements Capitalization1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -338,16 +338,12 @@ public class AbstractStepMessage {
     
     
     public sealed interface AbstractStepMessage1Boxed permits AbstractStepMessage1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AbstractStepMessage1BoxedMap implements AbstractStepMessage1Boxed {
-        public final AbstractStepMessageMap data;
-        private AbstractStepMessage1BoxedMap(AbstractStepMessageMap data) {
-            this.data = data;
-        }
+    public record AbstractStepMessage1BoxedMap(AbstractStepMessageMap data) implements AbstractStepMessage1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

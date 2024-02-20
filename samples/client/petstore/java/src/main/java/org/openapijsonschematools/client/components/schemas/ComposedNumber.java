@@ -32,16 +32,12 @@ public class ComposedNumber {
     
     
     public sealed interface ComposedNumber1Boxed permits ComposedNumber1BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ComposedNumber1BoxedNumber implements ComposedNumber1Boxed {
-        public final Number data;
-        private ComposedNumber1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ComposedNumber1BoxedNumber(Number data) implements ComposedNumber1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

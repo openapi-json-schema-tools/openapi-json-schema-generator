@@ -116,71 +116,47 @@ public class Fruit {
     
     
     public sealed interface Fruit1Boxed permits Fruit1BoxedVoid, Fruit1BoxedBoolean, Fruit1BoxedNumber, Fruit1BoxedString, Fruit1BoxedList, Fruit1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Fruit1BoxedVoid implements Fruit1Boxed {
-        public final Void data;
-        private Fruit1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Fruit1BoxedVoid(Void data) implements Fruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Fruit1BoxedBoolean implements Fruit1Boxed {
-        public final boolean data;
-        private Fruit1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Fruit1BoxedBoolean(boolean data) implements Fruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Fruit1BoxedNumber implements Fruit1Boxed {
-        public final Number data;
-        private Fruit1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Fruit1BoxedNumber(Number data) implements Fruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Fruit1BoxedString implements Fruit1Boxed {
-        public final String data;
-        private Fruit1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Fruit1BoxedString(String data) implements Fruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Fruit1BoxedList implements Fruit1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Fruit1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Fruit1BoxedList(FrozenList<@Nullable Object> data) implements Fruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Fruit1BoxedMap implements Fruit1Boxed {
-        public final FruitMap data;
-        private Fruit1BoxedMap(FruitMap data) {
-            this.data = data;
-        }
+    public record Fruit1BoxedMap(FruitMap data) implements Fruit1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

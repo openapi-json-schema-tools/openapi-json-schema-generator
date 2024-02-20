@@ -48,16 +48,12 @@ public class EnumArrays {
     
     
     public sealed interface JustSymbolBoxed permits JustSymbolBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class JustSymbolBoxedString implements JustSymbolBoxed {
-        public final String data;
-        private JustSymbolBoxedString(String data) {
-            this.data = data;
-        }
+    public record JustSymbolBoxedString(String data) implements JustSymbolBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -136,16 +132,12 @@ public class EnumArrays {
     
     
     public sealed interface ItemsBoxed permits ItemsBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ItemsBoxedString implements ItemsBoxed {
-        public final String data;
-        private ItemsBoxedString(String data) {
-            this.data = data;
-        }
+    public record ItemsBoxedString(String data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -248,16 +240,12 @@ public class EnumArrays {
     
     
     public sealed interface ArrayEnumBoxed permits ArrayEnumBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayEnumBoxedList implements ArrayEnumBoxed {
-        public final ArrayEnumList data;
-        private ArrayEnumBoxedList(ArrayEnumList data) {
-            this.data = data;
-        }
+    public record ArrayEnumBoxedList(ArrayEnumList data) implements ArrayEnumBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -433,16 +421,12 @@ public class EnumArrays {
     
     
     public sealed interface EnumArrays1Boxed permits EnumArrays1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class EnumArrays1BoxedMap implements EnumArrays1Boxed {
-        public final EnumArraysMap data;
-        private EnumArrays1BoxedMap(EnumArraysMap data) {
-            this.data = data;
-        }
+    public record EnumArrays1BoxedMap(EnumArraysMap data) implements EnumArrays1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

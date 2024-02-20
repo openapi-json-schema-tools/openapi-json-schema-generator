@@ -125,16 +125,12 @@ public class NumberOnly {
     
     
     public sealed interface NumberOnly1Boxed permits NumberOnly1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NumberOnly1BoxedMap implements NumberOnly1Boxed {
-        public final NumberOnlyMap data;
-        private NumberOnly1BoxedMap(NumberOnlyMap data) {
-            this.data = data;
-        }
+    public record NumberOnly1BoxedMap(NumberOnlyMap data) implements NumberOnly1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

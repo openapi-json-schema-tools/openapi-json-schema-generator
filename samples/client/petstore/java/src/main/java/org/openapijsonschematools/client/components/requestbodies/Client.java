@@ -33,7 +33,7 @@ public class Client {
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             ApplicationjsonRequestBody requestBody0 = (ApplicationjsonRequestBody) requestBody;
-            return serialize(requestBody0.contentType(), requestBody0.body().data());
+            return serialize(requestBody0.contentType(), requestBody0.body().getData());
         }
     }
 

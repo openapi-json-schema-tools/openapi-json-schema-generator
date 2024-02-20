@@ -53,16 +53,12 @@ public class IsoscelesTriangle {
     
     
     public sealed interface TriangleTypeBoxed permits TriangleTypeBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class TriangleTypeBoxedString implements TriangleTypeBoxed {
-        public final String data;
-        private TriangleTypeBoxedString(String data) {
-            this.data = data;
-        }
+    public record TriangleTypeBoxedString(String data) implements TriangleTypeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -199,16 +195,12 @@ public class IsoscelesTriangle {
     
     
     public sealed interface Schema1Boxed permits Schema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap implements Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -289,71 +281,47 @@ public class IsoscelesTriangle {
     
     
     public sealed interface IsoscelesTriangle1Boxed permits IsoscelesTriangle1BoxedVoid, IsoscelesTriangle1BoxedBoolean, IsoscelesTriangle1BoxedNumber, IsoscelesTriangle1BoxedString, IsoscelesTriangle1BoxedList, IsoscelesTriangle1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class IsoscelesTriangle1BoxedVoid implements IsoscelesTriangle1Boxed {
-        public final Void data;
-        private IsoscelesTriangle1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record IsoscelesTriangle1BoxedVoid(Void data) implements IsoscelesTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IsoscelesTriangle1BoxedBoolean implements IsoscelesTriangle1Boxed {
-        public final boolean data;
-        private IsoscelesTriangle1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record IsoscelesTriangle1BoxedBoolean(boolean data) implements IsoscelesTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IsoscelesTriangle1BoxedNumber implements IsoscelesTriangle1Boxed {
-        public final Number data;
-        private IsoscelesTriangle1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IsoscelesTriangle1BoxedNumber(Number data) implements IsoscelesTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IsoscelesTriangle1BoxedString implements IsoscelesTriangle1Boxed {
-        public final String data;
-        private IsoscelesTriangle1BoxedString(String data) {
-            this.data = data;
-        }
+    public record IsoscelesTriangle1BoxedString(String data) implements IsoscelesTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IsoscelesTriangle1BoxedList implements IsoscelesTriangle1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private IsoscelesTriangle1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record IsoscelesTriangle1BoxedList(FrozenList<@Nullable Object> data) implements IsoscelesTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IsoscelesTriangle1BoxedMap implements IsoscelesTriangle1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private IsoscelesTriangle1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record IsoscelesTriangle1BoxedMap(FrozenMap<@Nullable Object> data) implements IsoscelesTriangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -57,16 +57,12 @@ public class AnimalFarm {
     
     
     public sealed interface AnimalFarm1Boxed permits AnimalFarm1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AnimalFarm1BoxedList implements AnimalFarm1Boxed {
-        public final AnimalFarmList data;
-        private AnimalFarm1BoxedList(AnimalFarmList data) {
-            this.data = data;
-        }
+    public record AnimalFarm1BoxedList(AnimalFarmList data) implements AnimalFarm1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

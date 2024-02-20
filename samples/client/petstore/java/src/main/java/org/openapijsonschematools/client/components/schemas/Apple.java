@@ -32,16 +32,12 @@ public class Apple {
     
     
     public sealed interface CultivarBoxed permits CultivarBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class CultivarBoxedString implements CultivarBoxed {
-        public final String data;
-        private CultivarBoxedString(String data) {
-            this.data = data;
-        }
+    public record CultivarBoxedString(String data) implements CultivarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -101,16 +97,12 @@ public class Apple {
     }    
     
     public sealed interface OriginBoxed permits OriginBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class OriginBoxedString implements OriginBoxed {
-        public final String data;
-        private OriginBoxedString(String data) {
-            this.data = data;
-        }
+    public record OriginBoxedString(String data) implements OriginBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -272,27 +264,19 @@ public class Apple {
     
     
     public sealed interface Apple1Boxed permits Apple1BoxedVoid, Apple1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Apple1BoxedVoid implements Apple1Boxed {
-        public final Void data;
-        private Apple1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Apple1BoxedVoid(Void data) implements Apple1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Apple1BoxedMap implements Apple1Boxed {
-        public final AppleMap data;
-        private Apple1BoxedMap(AppleMap data) {
-            this.data = data;
-        }
+    public record Apple1BoxedMap(AppleMap data) implements Apple1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

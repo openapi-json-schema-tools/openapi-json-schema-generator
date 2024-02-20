@@ -90,16 +90,12 @@ public class ArrayOfArrayOfNumberOnly {
     
     
     public sealed interface ItemsBoxed permits ItemsBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ItemsBoxedList implements ItemsBoxed {
-        public final ItemsList data;
-        private ItemsBoxedList(ItemsList data) {
-            this.data = data;
-        }
+    public record ItemsBoxedList(ItemsList data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -209,16 +205,12 @@ public class ArrayOfArrayOfNumberOnly {
     
     
     public sealed interface ArrayArrayNumberBoxed permits ArrayArrayNumberBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayArrayNumberBoxedList implements ArrayArrayNumberBoxed {
-        public final ArrayArrayNumberList data;
-        private ArrayArrayNumberBoxedList(ArrayArrayNumberList data) {
-            this.data = data;
-        }
+    public record ArrayArrayNumberBoxedList(ArrayArrayNumberList data) implements ArrayArrayNumberBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -362,16 +354,12 @@ public class ArrayOfArrayOfNumberOnly {
     
     
     public sealed interface ArrayOfArrayOfNumberOnly1Boxed permits ArrayOfArrayOfNumberOnly1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayOfArrayOfNumberOnly1BoxedMap implements ArrayOfArrayOfNumberOnly1Boxed {
-        public final ArrayOfArrayOfNumberOnlyMap data;
-        private ArrayOfArrayOfNumberOnly1BoxedMap(ArrayOfArrayOfNumberOnlyMap data) {
-            this.data = data;
-        }
+    public record ArrayOfArrayOfNumberOnly1BoxedMap(ArrayOfArrayOfNumberOnlyMap data) implements ArrayOfArrayOfNumberOnly1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

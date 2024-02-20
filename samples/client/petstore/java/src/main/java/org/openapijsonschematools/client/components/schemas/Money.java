@@ -172,16 +172,12 @@ public class Money {
     
     
     public sealed interface Money1Boxed permits Money1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Money1BoxedMap implements Money1Boxed {
-        public final MoneyMap data;
-        private Money1BoxedMap(MoneyMap data) {
-            this.data = data;
-        }
+    public record Money1BoxedMap(MoneyMap data) implements Money1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

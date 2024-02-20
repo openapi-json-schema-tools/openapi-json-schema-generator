@@ -236,16 +236,12 @@ public class ReqPropsFromUnsetAddProps {
     
     
     public sealed interface ReqPropsFromUnsetAddProps1Boxed permits ReqPropsFromUnsetAddProps1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ReqPropsFromUnsetAddProps1BoxedMap implements ReqPropsFromUnsetAddProps1Boxed {
-        public final ReqPropsFromUnsetAddPropsMap data;
-        private ReqPropsFromUnsetAddProps1BoxedMap(ReqPropsFromUnsetAddPropsMap data) {
-            this.data = data;
-        }
+    public record ReqPropsFromUnsetAddProps1BoxedMap(ReqPropsFromUnsetAddPropsMap data) implements ReqPropsFromUnsetAddProps1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

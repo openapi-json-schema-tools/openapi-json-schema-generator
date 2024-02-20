@@ -45,16 +45,12 @@ public class DanishPig {
     
     
     public sealed interface ClassNameBoxed permits ClassNameBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ClassNameBoxedString implements ClassNameBoxed {
-        public final String data;
-        private ClassNameBoxedString(String data) {
-            this.data = data;
-        }
+    public record ClassNameBoxedString(String data) implements ClassNameBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -199,16 +195,12 @@ public class DanishPig {
     
     
     public sealed interface DanishPig1Boxed permits DanishPig1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class DanishPig1BoxedMap implements DanishPig1Boxed {
-        public final DanishPigMap data;
-        private DanishPig1BoxedMap(DanishPigMap data) {
-            this.data = data;
-        }
+    public record DanishPig1BoxedMap(DanishPigMap data) implements DanishPig1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

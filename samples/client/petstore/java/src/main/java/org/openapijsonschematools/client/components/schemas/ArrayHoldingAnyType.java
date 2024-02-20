@@ -108,16 +108,12 @@ public class ArrayHoldingAnyType {
     
     
     public sealed interface ArrayHoldingAnyType1Boxed permits ArrayHoldingAnyType1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayHoldingAnyType1BoxedList implements ArrayHoldingAnyType1Boxed {
-        public final ArrayHoldingAnyTypeList data;
-        private ArrayHoldingAnyType1BoxedList(ArrayHoldingAnyTypeList data) {
-            this.data = data;
-        }
+    public record ArrayHoldingAnyType1BoxedList(ArrayHoldingAnyTypeList data) implements ArrayHoldingAnyType1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -95,16 +95,12 @@ public class Foo {
     
     
     public sealed interface Foo1Boxed permits Foo1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Foo1BoxedMap implements Foo1Boxed {
-        public final FooMap data;
-        private Foo1BoxedMap(FooMap data) {
-            this.data = data;
-        }
+    public record Foo1BoxedMap(FooMap data) implements Foo1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

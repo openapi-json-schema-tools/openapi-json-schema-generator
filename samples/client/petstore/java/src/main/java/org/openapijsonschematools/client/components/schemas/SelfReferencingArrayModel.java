@@ -56,16 +56,12 @@ public class SelfReferencingArrayModel {
     
     
     public sealed interface SelfReferencingArrayModel1Boxed permits SelfReferencingArrayModel1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class SelfReferencingArrayModel1BoxedList implements SelfReferencingArrayModel1Boxed {
-        public final SelfReferencingArrayModelList data;
-        private SelfReferencingArrayModel1BoxedList(SelfReferencingArrayModelList data) {
-            this.data = data;
-        }
+    public record SelfReferencingArrayModel1BoxedList(SelfReferencingArrayModelList data) implements SelfReferencingArrayModel1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

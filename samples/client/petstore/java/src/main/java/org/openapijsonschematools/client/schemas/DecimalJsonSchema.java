@@ -19,15 +19,11 @@ import java.util.Set;
 
 public class DecimalJsonSchema {
     public sealed interface DecimalJsonSchema1Boxed permits DecimalJsonSchema1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
-    public static final class DecimalJsonSchema1BoxedString implements DecimalJsonSchema1Boxed {
-        public final String data;
-        private DecimalJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record DecimalJsonSchema1BoxedString(String data) implements DecimalJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

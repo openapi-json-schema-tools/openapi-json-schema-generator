@@ -87,16 +87,12 @@ public class IntegerEnumWithDefaultValue {
     
     
     public sealed interface IntegerEnumWithDefaultValue1Boxed permits IntegerEnumWithDefaultValue1BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class IntegerEnumWithDefaultValue1BoxedNumber implements IntegerEnumWithDefaultValue1Boxed {
-        public final Number data;
-        private IntegerEnumWithDefaultValue1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IntegerEnumWithDefaultValue1BoxedNumber(Number data) implements IntegerEnumWithDefaultValue1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

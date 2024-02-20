@@ -38,71 +38,47 @@ public class AnyTypeAndFormat {
     
     
     public sealed interface UuidSchemaBoxed permits UuidSchemaBoxedVoid, UuidSchemaBoxedBoolean, UuidSchemaBoxedNumber, UuidSchemaBoxedString, UuidSchemaBoxedList, UuidSchemaBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class UuidSchemaBoxedVoid implements UuidSchemaBoxed {
-        public final Void data;
-        private UuidSchemaBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record UuidSchemaBoxedVoid(Void data) implements UuidSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UuidSchemaBoxedBoolean implements UuidSchemaBoxed {
-        public final boolean data;
-        private UuidSchemaBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record UuidSchemaBoxedBoolean(boolean data) implements UuidSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UuidSchemaBoxedNumber implements UuidSchemaBoxed {
-        public final Number data;
-        private UuidSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record UuidSchemaBoxedNumber(Number data) implements UuidSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UuidSchemaBoxedString implements UuidSchemaBoxed {
-        public final String data;
-        private UuidSchemaBoxedString(String data) {
-            this.data = data;
-        }
+    public record UuidSchemaBoxedString(String data) implements UuidSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UuidSchemaBoxedList implements UuidSchemaBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private UuidSchemaBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record UuidSchemaBoxedList(FrozenList<@Nullable Object> data) implements UuidSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UuidSchemaBoxedMap implements UuidSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private UuidSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record UuidSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements UuidSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -328,71 +304,47 @@ public class AnyTypeAndFormat {
     }    
     
     public sealed interface DateBoxed permits DateBoxedVoid, DateBoxedBoolean, DateBoxedNumber, DateBoxedString, DateBoxedList, DateBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class DateBoxedVoid implements DateBoxed {
-        public final Void data;
-        private DateBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record DateBoxedVoid(Void data) implements DateBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DateBoxedBoolean implements DateBoxed {
-        public final boolean data;
-        private DateBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record DateBoxedBoolean(boolean data) implements DateBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DateBoxedNumber implements DateBoxed {
-        public final Number data;
-        private DateBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record DateBoxedNumber(Number data) implements DateBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DateBoxedString implements DateBoxed {
-        public final String data;
-        private DateBoxedString(String data) {
-            this.data = data;
-        }
+    public record DateBoxedString(String data) implements DateBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DateBoxedList implements DateBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private DateBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DateBoxedList(FrozenList<@Nullable Object> data) implements DateBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DateBoxedMap implements DateBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private DateBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DateBoxedMap(FrozenMap<@Nullable Object> data) implements DateBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -618,71 +570,47 @@ public class AnyTypeAndFormat {
     }    
     
     public sealed interface DatetimeBoxed permits DatetimeBoxedVoid, DatetimeBoxedBoolean, DatetimeBoxedNumber, DatetimeBoxedString, DatetimeBoxedList, DatetimeBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class DatetimeBoxedVoid implements DatetimeBoxed {
-        public final Void data;
-        private DatetimeBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record DatetimeBoxedVoid(Void data) implements DatetimeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DatetimeBoxedBoolean implements DatetimeBoxed {
-        public final boolean data;
-        private DatetimeBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record DatetimeBoxedBoolean(boolean data) implements DatetimeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DatetimeBoxedNumber implements DatetimeBoxed {
-        public final Number data;
-        private DatetimeBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record DatetimeBoxedNumber(Number data) implements DatetimeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DatetimeBoxedString implements DatetimeBoxed {
-        public final String data;
-        private DatetimeBoxedString(String data) {
-            this.data = data;
-        }
+    public record DatetimeBoxedString(String data) implements DatetimeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DatetimeBoxedList implements DatetimeBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private DatetimeBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DatetimeBoxedList(FrozenList<@Nullable Object> data) implements DatetimeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DatetimeBoxedMap implements DatetimeBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private DatetimeBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DatetimeBoxedMap(FrozenMap<@Nullable Object> data) implements DatetimeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -908,71 +836,47 @@ public class AnyTypeAndFormat {
     }    
     
     public sealed interface NumberSchemaBoxed permits NumberSchemaBoxedVoid, NumberSchemaBoxedBoolean, NumberSchemaBoxedNumber, NumberSchemaBoxedString, NumberSchemaBoxedList, NumberSchemaBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NumberSchemaBoxedVoid implements NumberSchemaBoxed {
-        public final Void data;
-        private NumberSchemaBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NumberSchemaBoxedVoid(Void data) implements NumberSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NumberSchemaBoxedBoolean implements NumberSchemaBoxed {
-        public final boolean data;
-        private NumberSchemaBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record NumberSchemaBoxedBoolean(boolean data) implements NumberSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NumberSchemaBoxedNumber implements NumberSchemaBoxed {
-        public final Number data;
-        private NumberSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NumberSchemaBoxedNumber(Number data) implements NumberSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NumberSchemaBoxedString implements NumberSchemaBoxed {
-        public final String data;
-        private NumberSchemaBoxedString(String data) {
-            this.data = data;
-        }
+    public record NumberSchemaBoxedString(String data) implements NumberSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NumberSchemaBoxedList implements NumberSchemaBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private NumberSchemaBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NumberSchemaBoxedList(FrozenList<@Nullable Object> data) implements NumberSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NumberSchemaBoxedMap implements NumberSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private NumberSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NumberSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements NumberSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1198,71 +1102,47 @@ public class AnyTypeAndFormat {
     }    
     
     public sealed interface BinaryBoxed permits BinaryBoxedVoid, BinaryBoxedBoolean, BinaryBoxedNumber, BinaryBoxedString, BinaryBoxedList, BinaryBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class BinaryBoxedVoid implements BinaryBoxed {
-        public final Void data;
-        private BinaryBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record BinaryBoxedVoid(Void data) implements BinaryBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BinaryBoxedBoolean implements BinaryBoxed {
-        public final boolean data;
-        private BinaryBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record BinaryBoxedBoolean(boolean data) implements BinaryBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BinaryBoxedNumber implements BinaryBoxed {
-        public final Number data;
-        private BinaryBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record BinaryBoxedNumber(Number data) implements BinaryBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BinaryBoxedString implements BinaryBoxed {
-        public final String data;
-        private BinaryBoxedString(String data) {
-            this.data = data;
-        }
+    public record BinaryBoxedString(String data) implements BinaryBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BinaryBoxedList implements BinaryBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private BinaryBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record BinaryBoxedList(FrozenList<@Nullable Object> data) implements BinaryBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BinaryBoxedMap implements BinaryBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private BinaryBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record BinaryBoxedMap(FrozenMap<@Nullable Object> data) implements BinaryBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1488,71 +1368,47 @@ public class AnyTypeAndFormat {
     }    
     
     public sealed interface Int32Boxed permits Int32BoxedVoid, Int32BoxedBoolean, Int32BoxedNumber, Int32BoxedString, Int32BoxedList, Int32BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Int32BoxedVoid implements Int32Boxed {
-        public final Void data;
-        private Int32BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Int32BoxedVoid(Void data) implements Int32Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int32BoxedBoolean implements Int32Boxed {
-        public final boolean data;
-        private Int32BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Int32BoxedBoolean(boolean data) implements Int32Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int32BoxedNumber implements Int32Boxed {
-        public final Number data;
-        private Int32BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Int32BoxedNumber(Number data) implements Int32Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int32BoxedString implements Int32Boxed {
-        public final String data;
-        private Int32BoxedString(String data) {
-            this.data = data;
-        }
+    public record Int32BoxedString(String data) implements Int32Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int32BoxedList implements Int32Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Int32BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Int32BoxedList(FrozenList<@Nullable Object> data) implements Int32Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int32BoxedMap implements Int32Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Int32BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Int32BoxedMap(FrozenMap<@Nullable Object> data) implements Int32Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1778,71 +1634,47 @@ public class AnyTypeAndFormat {
     }    
     
     public sealed interface Int64Boxed permits Int64BoxedVoid, Int64BoxedBoolean, Int64BoxedNumber, Int64BoxedString, Int64BoxedList, Int64BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Int64BoxedVoid implements Int64Boxed {
-        public final Void data;
-        private Int64BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Int64BoxedVoid(Void data) implements Int64Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int64BoxedBoolean implements Int64Boxed {
-        public final boolean data;
-        private Int64BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Int64BoxedBoolean(boolean data) implements Int64Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int64BoxedNumber implements Int64Boxed {
-        public final Number data;
-        private Int64BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Int64BoxedNumber(Number data) implements Int64Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int64BoxedString implements Int64Boxed {
-        public final String data;
-        private Int64BoxedString(String data) {
-            this.data = data;
-        }
+    public record Int64BoxedString(String data) implements Int64Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int64BoxedList implements Int64Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Int64BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Int64BoxedList(FrozenList<@Nullable Object> data) implements Int64Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Int64BoxedMap implements Int64Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Int64BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Int64BoxedMap(FrozenMap<@Nullable Object> data) implements Int64Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -2068,71 +1900,47 @@ public class AnyTypeAndFormat {
     }    
     
     public sealed interface DoubleSchemaBoxed permits DoubleSchemaBoxedVoid, DoubleSchemaBoxedBoolean, DoubleSchemaBoxedNumber, DoubleSchemaBoxedString, DoubleSchemaBoxedList, DoubleSchemaBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class DoubleSchemaBoxedVoid implements DoubleSchemaBoxed {
-        public final Void data;
-        private DoubleSchemaBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record DoubleSchemaBoxedVoid(Void data) implements DoubleSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DoubleSchemaBoxedBoolean implements DoubleSchemaBoxed {
-        public final boolean data;
-        private DoubleSchemaBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record DoubleSchemaBoxedBoolean(boolean data) implements DoubleSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DoubleSchemaBoxedNumber implements DoubleSchemaBoxed {
-        public final Number data;
-        private DoubleSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record DoubleSchemaBoxedNumber(Number data) implements DoubleSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DoubleSchemaBoxedString implements DoubleSchemaBoxed {
-        public final String data;
-        private DoubleSchemaBoxedString(String data) {
-            this.data = data;
-        }
+    public record DoubleSchemaBoxedString(String data) implements DoubleSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DoubleSchemaBoxedList implements DoubleSchemaBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private DoubleSchemaBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DoubleSchemaBoxedList(FrozenList<@Nullable Object> data) implements DoubleSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DoubleSchemaBoxedMap implements DoubleSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private DoubleSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DoubleSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements DoubleSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -2358,71 +2166,47 @@ public class AnyTypeAndFormat {
     }    
     
     public sealed interface FloatSchemaBoxed permits FloatSchemaBoxedVoid, FloatSchemaBoxedBoolean, FloatSchemaBoxedNumber, FloatSchemaBoxedString, FloatSchemaBoxedList, FloatSchemaBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class FloatSchemaBoxedVoid implements FloatSchemaBoxed {
-        public final Void data;
-        private FloatSchemaBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record FloatSchemaBoxedVoid(Void data) implements FloatSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FloatSchemaBoxedBoolean implements FloatSchemaBoxed {
-        public final boolean data;
-        private FloatSchemaBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record FloatSchemaBoxedBoolean(boolean data) implements FloatSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FloatSchemaBoxedNumber implements FloatSchemaBoxed {
-        public final Number data;
-        private FloatSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record FloatSchemaBoxedNumber(Number data) implements FloatSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FloatSchemaBoxedString implements FloatSchemaBoxed {
-        public final String data;
-        private FloatSchemaBoxedString(String data) {
-            this.data = data;
-        }
+    public record FloatSchemaBoxedString(String data) implements FloatSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FloatSchemaBoxedList implements FloatSchemaBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private FloatSchemaBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FloatSchemaBoxedList(FrozenList<@Nullable Object> data) implements FloatSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FloatSchemaBoxedMap implements FloatSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private FloatSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FloatSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements FloatSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -3280,16 +3064,12 @@ public class AnyTypeAndFormat {
     
     
     public sealed interface AnyTypeAndFormat1Boxed permits AnyTypeAndFormat1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AnyTypeAndFormat1BoxedMap implements AnyTypeAndFormat1Boxed {
-        public final AnyTypeAndFormatMap data;
-        private AnyTypeAndFormat1BoxedMap(AnyTypeAndFormatMap data) {
-            this.data = data;
-        }
+    public record AnyTypeAndFormat1BoxedMap(AnyTypeAndFormatMap data) implements AnyTypeAndFormat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

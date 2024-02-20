@@ -36,16 +36,12 @@ public class ApplicationjsonSchema {
     
     
     public sealed interface Applicationjson0Boxed permits Applicationjson0BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Applicationjson0BoxedString implements Applicationjson0Boxed {
-        public final String data;
-        private Applicationjson0BoxedString(String data) {
-            this.data = data;
-        }
+    public record Applicationjson0BoxedString(String data) implements Applicationjson0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -103,71 +99,47 @@ public class ApplicationjsonSchema {
     }    
     
     public sealed interface ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedVoid, ApplicationjsonSchema1BoxedBoolean, ApplicationjsonSchema1BoxedNumber, ApplicationjsonSchema1BoxedString, ApplicationjsonSchema1BoxedList, ApplicationjsonSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationjsonSchema1BoxedVoid implements ApplicationjsonSchema1Boxed {
-        public final Void data;
-        private ApplicationjsonSchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ApplicationjsonSchema1BoxedVoid(Void data) implements ApplicationjsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ApplicationjsonSchema1BoxedBoolean implements ApplicationjsonSchema1Boxed {
-        public final boolean data;
-        private ApplicationjsonSchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ApplicationjsonSchema1BoxedBoolean(boolean data) implements ApplicationjsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ApplicationjsonSchema1BoxedNumber implements ApplicationjsonSchema1Boxed {
-        public final Number data;
-        private ApplicationjsonSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationjsonSchema1BoxedNumber(Number data) implements ApplicationjsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ApplicationjsonSchema1BoxedString implements ApplicationjsonSchema1Boxed {
-        public final String data;
-        private ApplicationjsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationjsonSchema1BoxedString(String data) implements ApplicationjsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ApplicationjsonSchema1BoxedList implements ApplicationjsonSchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ApplicationjsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ApplicationjsonSchema1BoxedList(FrozenList<@Nullable Object> data) implements ApplicationjsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ApplicationjsonSchema1BoxedMap implements ApplicationjsonSchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ApplicationjsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ApplicationjsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) implements ApplicationjsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

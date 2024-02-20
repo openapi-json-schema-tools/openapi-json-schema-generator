@@ -165,16 +165,12 @@ public class ObjectModelWithRefProps {
     
     
     public sealed interface ObjectModelWithRefProps1Boxed permits ObjectModelWithRefProps1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectModelWithRefProps1BoxedMap implements ObjectModelWithRefProps1Boxed {
-        public final ObjectModelWithRefPropsMap data;
-        private ObjectModelWithRefProps1BoxedMap(ObjectModelWithRefPropsMap data) {
-            this.data = data;
-        }
+    public record ObjectModelWithRefProps1BoxedMap(ObjectModelWithRefPropsMap data) implements ObjectModelWithRefProps1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

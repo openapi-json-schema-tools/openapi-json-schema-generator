@@ -133,16 +133,12 @@ public class HeaderParameters {
     
     
     public sealed interface HeaderParameters1Boxed permits HeaderParameters1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class HeaderParameters1BoxedMap implements HeaderParameters1Boxed {
-        public final HeaderParametersMap data;
-        private HeaderParameters1BoxedMap(HeaderParametersMap data) {
-            this.data = data;
-        }
+    public record HeaderParameters1BoxedMap(HeaderParametersMap data) implements HeaderParameters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

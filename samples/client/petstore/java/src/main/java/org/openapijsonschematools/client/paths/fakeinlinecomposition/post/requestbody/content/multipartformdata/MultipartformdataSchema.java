@@ -38,16 +38,12 @@ public class MultipartformdataSchema {
     
     
     public sealed interface Multipartformdata0Boxed permits Multipartformdata0BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Multipartformdata0BoxedString implements Multipartformdata0Boxed {
-        public final String data;
-        private Multipartformdata0BoxedString(String data) {
-            this.data = data;
-        }
+    public record Multipartformdata0BoxedString(String data) implements Multipartformdata0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -105,71 +101,47 @@ public class MultipartformdataSchema {
     }    
     
     public sealed interface MultipartformdataSomePropBoxed permits MultipartformdataSomePropBoxedVoid, MultipartformdataSomePropBoxedBoolean, MultipartformdataSomePropBoxedNumber, MultipartformdataSomePropBoxedString, MultipartformdataSomePropBoxedList, MultipartformdataSomePropBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MultipartformdataSomePropBoxedVoid implements MultipartformdataSomePropBoxed {
-        public final Void data;
-        private MultipartformdataSomePropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record MultipartformdataSomePropBoxedVoid(Void data) implements MultipartformdataSomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipartformdataSomePropBoxedBoolean implements MultipartformdataSomePropBoxed {
-        public final boolean data;
-        private MultipartformdataSomePropBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record MultipartformdataSomePropBoxedBoolean(boolean data) implements MultipartformdataSomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipartformdataSomePropBoxedNumber implements MultipartformdataSomePropBoxed {
-        public final Number data;
-        private MultipartformdataSomePropBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record MultipartformdataSomePropBoxedNumber(Number data) implements MultipartformdataSomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipartformdataSomePropBoxedString implements MultipartformdataSomePropBoxed {
-        public final String data;
-        private MultipartformdataSomePropBoxedString(String data) {
-            this.data = data;
-        }
+    public record MultipartformdataSomePropBoxedString(String data) implements MultipartformdataSomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipartformdataSomePropBoxedList implements MultipartformdataSomePropBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private MultipartformdataSomePropBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MultipartformdataSomePropBoxedList(FrozenList<@Nullable Object> data) implements MultipartformdataSomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipartformdataSomePropBoxedMap implements MultipartformdataSomePropBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private MultipartformdataSomePropBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MultipartformdataSomePropBoxedMap(FrozenMap<@Nullable Object> data) implements MultipartformdataSomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -505,16 +477,12 @@ public class MultipartformdataSchema {
     
     
     public sealed interface MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MultipartformdataSchema1BoxedMap implements MultipartformdataSchema1Boxed {
-        public final MultipartformdataSchemaMap data;
-        private MultipartformdataSchema1BoxedMap(MultipartformdataSchemaMap data) {
-            this.data = data;
-        }
+    public record MultipartformdataSchema1BoxedMap(MultipartformdataSchemaMap data) implements MultipartformdataSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

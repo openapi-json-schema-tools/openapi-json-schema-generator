@@ -40,53 +40,33 @@ public class AnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedBoolean implements AnyTypeJsonSchema1Boxed {
-        public final boolean data;
-        private AnyTypeJsonSchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AnyTypeJsonSchema1BoxedBoolean(boolean data) implements AnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedNumber implements AnyTypeJsonSchema1Boxed {
-        public final Number data;
-        private AnyTypeJsonSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AnyTypeJsonSchema1BoxedNumber(Number data) implements AnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedString implements AnyTypeJsonSchema1Boxed {
-        public final String data;
-        private AnyTypeJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record AnyTypeJsonSchema1BoxedString(String data) implements AnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedList implements AnyTypeJsonSchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private AnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) implements AnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedMap implements AnyTypeJsonSchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) implements AnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

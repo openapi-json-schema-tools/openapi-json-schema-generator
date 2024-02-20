@@ -56,27 +56,19 @@ public class StringEnum {
     
     
     public sealed interface StringEnum1Boxed permits StringEnum1BoxedVoid, StringEnum1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class StringEnum1BoxedVoid implements StringEnum1Boxed {
-        public final Void data;
-        private StringEnum1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record StringEnum1BoxedVoid(Void data) implements StringEnum1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class StringEnum1BoxedString implements StringEnum1Boxed {
-        public final String data;
-        private StringEnum1BoxedString(String data) {
-            this.data = data;
-        }
+    public record StringEnum1BoxedString(String data) implements StringEnum1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

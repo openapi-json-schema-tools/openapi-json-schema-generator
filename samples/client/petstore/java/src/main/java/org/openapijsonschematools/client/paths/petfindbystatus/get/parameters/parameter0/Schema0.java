@@ -42,16 +42,12 @@ public class Schema0 {
     
     
     public sealed interface Items0Boxed permits Items0BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Items0BoxedString implements Items0Boxed {
-        public final String data;
-        private Items0BoxedString(String data) {
-            this.data = data;
-        }
+    public record Items0BoxedString(String data) implements Items0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -162,16 +158,12 @@ public class Schema0 {
     
     
     public sealed interface Schema01Boxed permits Schema01BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema01BoxedList implements Schema01Boxed {
-        public final SchemaList0 data;
-        private Schema01BoxedList(SchemaList0 data) {
-            this.data = data;
-        }
+    public record Schema01BoxedList(SchemaList0 data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -107,16 +107,12 @@ public class Client {
     
     
     public sealed interface Client1Boxed permits Client1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Client1BoxedMap implements Client1Boxed {
-        public final ClientMap data;
-        private Client1BoxedMap(ClientMap data) {
-            this.data = data;
-        }
+    public record Client1BoxedMap(ClientMap data) implements Client1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

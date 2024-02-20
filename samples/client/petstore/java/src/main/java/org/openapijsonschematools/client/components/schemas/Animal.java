@@ -43,16 +43,12 @@ public class Animal {
     
     
     public sealed interface ColorBoxed permits ColorBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ColorBoxedString implements ColorBoxed {
-        public final String data;
-        private ColorBoxedString(String data) {
-            this.data = data;
-        }
+    public record ColorBoxedString(String data) implements ColorBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -217,16 +213,12 @@ public class Animal {
     
     
     public sealed interface Animal1Boxed permits Animal1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Animal1BoxedMap implements Animal1Boxed {
-        public final AnimalMap data;
-        private Animal1BoxedMap(AnimalMap data) {
-            this.data = data;
-        }
+    public record Animal1BoxedMap(AnimalMap data) implements Animal1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

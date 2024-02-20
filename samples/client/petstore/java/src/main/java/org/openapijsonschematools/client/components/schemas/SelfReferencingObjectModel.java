@@ -111,16 +111,12 @@ public class SelfReferencingObjectModel {
     
     
     public sealed interface SelfReferencingObjectModel1Boxed permits SelfReferencingObjectModel1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class SelfReferencingObjectModel1BoxedMap implements SelfReferencingObjectModel1Boxed {
-        public final SelfReferencingObjectModelMap data;
-        private SelfReferencingObjectModel1BoxedMap(SelfReferencingObjectModelMap data) {
-            this.data = data;
-        }
+    public record SelfReferencingObjectModel1BoxedMap(SelfReferencingObjectModelMap data) implements SelfReferencingObjectModel1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -69,16 +69,12 @@ public class Items {
     
     
     public sealed interface Items1Boxed permits Items1BoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Items1BoxedList implements Items1Boxed {
-        public final ItemsList data;
-        private Items1BoxedList(ItemsList data) {
-            this.data = data;
-        }
+    public record Items1BoxedList(ItemsList data) implements Items1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

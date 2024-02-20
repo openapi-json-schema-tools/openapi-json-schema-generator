@@ -76,16 +76,12 @@ public class MultipartformdataSchema {
     
     
     public sealed interface MultipartformdataFilesBoxed permits MultipartformdataFilesBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MultipartformdataFilesBoxedList implements MultipartformdataFilesBoxed {
-        public final MultipartformdataFilesList data;
-        private MultipartformdataFilesBoxedList(MultipartformdataFilesList data) {
-            this.data = data;
-        }
+    public record MultipartformdataFilesBoxedList(MultipartformdataFilesList data) implements MultipartformdataFilesBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -229,16 +225,12 @@ public class MultipartformdataSchema {
     
     
     public sealed interface MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MultipartformdataSchema1BoxedMap implements MultipartformdataSchema1Boxed {
-        public final MultipartformdataSchemaMap data;
-        private MultipartformdataSchema1BoxedMap(MultipartformdataSchemaMap data) {
-            this.data = data;
-        }
+    public record MultipartformdataSchema1BoxedMap(MultipartformdataSchemaMap data) implements MultipartformdataSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

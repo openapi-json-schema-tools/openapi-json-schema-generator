@@ -33,13 +33,9 @@ public class ObjectTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static abstract sealed class ObjectWithPropsSchemaBoxed permits ObjectWithPropsSchemaBoxedMap {
+    public sealed interface ObjectWithPropsSchemaBoxed permits ObjectWithPropsSchemaBoxedMap {
     }
-    public static final class ObjectWithPropsSchemaBoxedMap extends ObjectWithPropsSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ObjectWithPropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithPropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithPropsSchemaBoxed {
     }
     public static class ObjectWithPropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsSchemaBoxedMap> {
         private static @Nullable ObjectWithPropsSchema instance = null;
@@ -115,13 +111,9 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static abstract sealed class ObjectWithAddpropsSchemaBoxed permits ObjectWithAddpropsSchemaBoxedMap {
+    public sealed interface ObjectWithAddpropsSchemaBoxed permits ObjectWithAddpropsSchemaBoxedMap {
     }
-    public static final class ObjectWithAddpropsSchemaBoxedMap extends ObjectWithAddpropsSchemaBoxed {
-        public final FrozenMap<String> data;
-        private ObjectWithAddpropsSchemaBoxedMap(FrozenMap<String> data) {
-            this.data = data;
-        }
+    public record ObjectWithAddpropsSchemaBoxedMap(FrozenMap<String> data) implements ObjectWithAddpropsSchemaBoxed {
     }
 
     public static class ObjectWithAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
@@ -198,13 +190,9 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static abstract sealed class ObjectWithPropsAndAddpropsSchemaBoxed permits ObjectWithPropsAndAddpropsSchemaBoxedMap {
+    public sealed interface ObjectWithPropsAndAddpropsSchemaBoxed permits ObjectWithPropsAndAddpropsSchemaBoxedMap {
     }
-    public static final class ObjectWithPropsAndAddpropsSchemaBoxedMap extends ObjectWithPropsAndAddpropsSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ObjectWithPropsAndAddpropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithPropsAndAddpropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithPropsAndAddpropsSchemaBoxed {
     }
     public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
         private static @Nullable ObjectWithPropsAndAddpropsSchema instance = null;
@@ -290,13 +278,9 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static abstract sealed class ObjectWithOutputTypeSchemaBoxed permits ObjectWithOutputTypeSchemaBoxedMap {
+    public sealed interface ObjectWithOutputTypeSchemaBoxed permits ObjectWithOutputTypeSchemaBoxedMap {
     }
-    public static final class ObjectWithOutputTypeSchemaBoxedMap extends ObjectWithOutputTypeSchemaBoxed {
-        public final ObjectWithOutputTypeSchemaMap data;
-        private ObjectWithOutputTypeSchemaBoxedMap(ObjectWithOutputTypeSchemaMap data) {
-            this.data = data;
-        }
+    public record ObjectWithOutputTypeSchemaBoxedMap(ObjectWithOutputTypeSchemaMap data) implements ObjectWithOutputTypeSchemaBoxed {
     }
     public static class ObjectWithOutputTypeSchema extends JsonSchema implements MapSchemaValidator<ObjectWithOutputTypeSchemaMap, ObjectWithOutputTypeSchemaBoxedMap> {
         private static @Nullable ObjectWithOutputTypeSchema instance = null;

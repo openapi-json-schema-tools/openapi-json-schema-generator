@@ -144,16 +144,12 @@ public class HasOnlyReadOnly {
     
     
     public sealed interface HasOnlyReadOnly1Boxed permits HasOnlyReadOnly1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class HasOnlyReadOnly1BoxedMap implements HasOnlyReadOnly1Boxed {
-        public final HasOnlyReadOnlyMap data;
-        private HasOnlyReadOnly1BoxedMap(HasOnlyReadOnlyMap data) {
-            this.data = data;
-        }
+    public record HasOnlyReadOnly1BoxedMap(HasOnlyReadOnlyMap data) implements HasOnlyReadOnly1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

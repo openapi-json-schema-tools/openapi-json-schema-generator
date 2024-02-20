@@ -36,71 +36,47 @@ public class Triangle {
     
     
     public sealed interface Triangle1Boxed permits Triangle1BoxedVoid, Triangle1BoxedBoolean, Triangle1BoxedNumber, Triangle1BoxedString, Triangle1BoxedList, Triangle1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Triangle1BoxedVoid implements Triangle1Boxed {
-        public final Void data;
-        private Triangle1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Triangle1BoxedVoid(Void data) implements Triangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Triangle1BoxedBoolean implements Triangle1Boxed {
-        public final boolean data;
-        private Triangle1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Triangle1BoxedBoolean(boolean data) implements Triangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Triangle1BoxedNumber implements Triangle1Boxed {
-        public final Number data;
-        private Triangle1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Triangle1BoxedNumber(Number data) implements Triangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Triangle1BoxedString implements Triangle1Boxed {
-        public final String data;
-        private Triangle1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Triangle1BoxedString(String data) implements Triangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Triangle1BoxedList implements Triangle1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Triangle1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Triangle1BoxedList(FrozenList<@Nullable Object> data) implements Triangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Triangle1BoxedMap implements Triangle1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Triangle1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Triangle1BoxedMap(FrozenMap<@Nullable Object> data) implements Triangle1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

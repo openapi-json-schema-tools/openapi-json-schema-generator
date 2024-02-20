@@ -21,16 +21,12 @@ public class UUIDString {
     
     
     public sealed interface UUIDString1Boxed permits UUIDString1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class UUIDString1BoxedString implements UUIDString1Boxed {
-        public final String data;
-        private UUIDString1BoxedString(String data) {
-            this.data = data;
-        }
+    public record UUIDString1BoxedString(String data) implements UUIDString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -43,16 +43,12 @@ public class Category {
     
     
     public sealed interface NameBoxed permits NameBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NameBoxedString implements NameBoxed {
-        public final String data;
-        private NameBoxedString(String data) {
-            this.data = data;
-        }
+    public record NameBoxedString(String data) implements NameBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -235,16 +231,12 @@ public class Category {
     
     
     public sealed interface Category1Boxed permits Category1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Category1BoxedMap implements Category1Boxed {
-        public final CategoryMap data;
-        private Category1BoxedMap(CategoryMap data) {
-            this.data = data;
-        }
+    public record Category1BoxedMap(CategoryMap data) implements Category1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

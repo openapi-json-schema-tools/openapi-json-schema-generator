@@ -57,16 +57,12 @@ public class EnumTest {
     
     
     public sealed interface EnumStringBoxed permits EnumStringBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class EnumStringBoxedString implements EnumStringBoxed {
-        public final String data;
-        private EnumStringBoxedString(String data) {
-            this.data = data;
-        }
+    public record EnumStringBoxedString(String data) implements EnumStringBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -147,16 +143,12 @@ public class EnumTest {
     
     
     public sealed interface EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class EnumStringRequiredBoxedString implements EnumStringRequiredBoxed {
-        public final String data;
-        private EnumStringRequiredBoxedString(String data) {
-            this.data = data;
-        }
+    public record EnumStringRequiredBoxedString(String data) implements EnumStringRequiredBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -275,16 +267,12 @@ public class EnumTest {
     
     
     public sealed interface EnumIntegerBoxed permits EnumIntegerBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class EnumIntegerBoxedNumber implements EnumIntegerBoxed {
-        public final Number data;
-        private EnumIntegerBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record EnumIntegerBoxedNumber(Number data) implements EnumIntegerBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -403,16 +391,12 @@ public class EnumTest {
     
     
     public sealed interface EnumNumberBoxed permits EnumNumberBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class EnumNumberBoxedNumber implements EnumNumberBoxed {
-        public final Number data;
-        private EnumNumberBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record EnumNumberBoxedNumber(Number data) implements EnumNumberBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -995,16 +979,12 @@ public class EnumTest {
     
     
     public sealed interface EnumTest1Boxed permits EnumTest1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class EnumTest1BoxedMap implements EnumTest1Boxed {
-        public final EnumTestMap data;
-        private EnumTest1BoxedMap(EnumTestMap data) {
-            this.data = data;
-        }
+    public record EnumTest1BoxedMap(EnumTestMap data) implements EnumTest1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -159,16 +159,12 @@ public class ObjectWithDecimalProperties {
     
     
     public sealed interface ObjectWithDecimalProperties1Boxed permits ObjectWithDecimalProperties1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithDecimalProperties1BoxedMap implements ObjectWithDecimalProperties1Boxed {
-        public final ObjectWithDecimalPropertiesMap data;
-        private ObjectWithDecimalProperties1BoxedMap(ObjectWithDecimalPropertiesMap data) {
-            this.data = data;
-        }
+    public record ObjectWithDecimalProperties1BoxedMap(ObjectWithDecimalPropertiesMap data) implements ObjectWithDecimalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

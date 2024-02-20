@@ -39,27 +39,19 @@ public class NullableClass {
     
     
     public sealed interface AdditionalProperties3Boxed permits AdditionalProperties3BoxedVoid, AdditionalProperties3BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalProperties3BoxedVoid implements AdditionalProperties3Boxed {
-        public final Void data;
-        private AdditionalProperties3BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AdditionalProperties3BoxedVoid(Void data) implements AdditionalProperties3Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties3BoxedMap implements AdditionalProperties3Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AdditionalProperties3BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalProperties3BoxedMap(FrozenMap<@Nullable Object> data) implements AdditionalProperties3Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -158,27 +150,19 @@ public class NullableClass {
     }    
     
     public sealed interface IntegerPropBoxed permits IntegerPropBoxedVoid, IntegerPropBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class IntegerPropBoxedVoid implements IntegerPropBoxed {
-        public final Void data;
-        private IntegerPropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record IntegerPropBoxedVoid(Void data) implements IntegerPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IntegerPropBoxedNumber implements IntegerPropBoxed {
-        public final Number data;
-        private IntegerPropBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IntegerPropBoxedNumber(Number data) implements IntegerPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -275,27 +259,19 @@ public class NullableClass {
     }    
     
     public sealed interface NumberPropBoxed permits NumberPropBoxedVoid, NumberPropBoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NumberPropBoxedVoid implements NumberPropBoxed {
-        public final Void data;
-        private NumberPropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NumberPropBoxedVoid(Void data) implements NumberPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NumberPropBoxedNumber implements NumberPropBoxed {
-        public final Number data;
-        private NumberPropBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NumberPropBoxedNumber(Number data) implements NumberPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -391,27 +367,19 @@ public class NullableClass {
     }    
     
     public sealed interface BooleanPropBoxed permits BooleanPropBoxedVoid, BooleanPropBoxedBoolean {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class BooleanPropBoxedVoid implements BooleanPropBoxed {
-        public final Void data;
-        private BooleanPropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record BooleanPropBoxedVoid(Void data) implements BooleanPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BooleanPropBoxedBoolean implements BooleanPropBoxed {
-        public final boolean data;
-        private BooleanPropBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record BooleanPropBoxedBoolean(boolean data) implements BooleanPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -490,27 +458,19 @@ public class NullableClass {
     }    
     
     public sealed interface StringPropBoxed permits StringPropBoxedVoid, StringPropBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class StringPropBoxedVoid implements StringPropBoxed {
-        public final Void data;
-        private StringPropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record StringPropBoxedVoid(Void data) implements StringPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class StringPropBoxedString implements StringPropBoxed {
-        public final String data;
-        private StringPropBoxedString(String data) {
-            this.data = data;
-        }
+    public record StringPropBoxedString(String data) implements StringPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -587,27 +547,19 @@ public class NullableClass {
     }    
     
     public sealed interface DatePropBoxed permits DatePropBoxedVoid, DatePropBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class DatePropBoxedVoid implements DatePropBoxed {
-        public final Void data;
-        private DatePropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record DatePropBoxedVoid(Void data) implements DatePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DatePropBoxedString implements DatePropBoxed {
-        public final String data;
-        private DatePropBoxedString(String data) {
-            this.data = data;
-        }
+    public record DatePropBoxedString(String data) implements DatePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -685,27 +637,19 @@ public class NullableClass {
     }    
     
     public sealed interface DatetimePropBoxed permits DatetimePropBoxedVoid, DatetimePropBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class DatetimePropBoxedVoid implements DatetimePropBoxed {
-        public final Void data;
-        private DatetimePropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record DatetimePropBoxedVoid(Void data) implements DatetimePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DatetimePropBoxedString implements DatetimePropBoxed {
-        public final String data;
-        private DatetimePropBoxedString(String data) {
-            this.data = data;
-        }
+    public record DatetimePropBoxedString(String data) implements DatetimePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -826,27 +770,19 @@ public class NullableClass {
     
     
     public sealed interface ArrayNullablePropBoxed permits ArrayNullablePropBoxedVoid, ArrayNullablePropBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayNullablePropBoxedVoid implements ArrayNullablePropBoxed {
-        public final Void data;
-        private ArrayNullablePropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ArrayNullablePropBoxedVoid(Void data) implements ArrayNullablePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ArrayNullablePropBoxedList implements ArrayNullablePropBoxed {
-        public final ArrayNullablePropList data;
-        private ArrayNullablePropBoxedList(ArrayNullablePropList data) {
-            this.data = data;
-        }
+    public record ArrayNullablePropBoxedList(ArrayNullablePropList data) implements ArrayNullablePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -946,27 +882,19 @@ public class NullableClass {
     }    
     
     public sealed interface Items1Boxed permits Items1BoxedVoid, Items1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Items1BoxedVoid implements Items1Boxed {
-        public final Void data;
-        private Items1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Items1BoxedVoid(Void data) implements Items1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Items1BoxedMap implements Items1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Items1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Items1BoxedMap(FrozenMap<@Nullable Object> data) implements Items1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1102,27 +1030,19 @@ public class NullableClass {
     
     
     public sealed interface ArrayAndItemsNullablePropBoxed permits ArrayAndItemsNullablePropBoxedVoid, ArrayAndItemsNullablePropBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayAndItemsNullablePropBoxedVoid implements ArrayAndItemsNullablePropBoxed {
-        public final Void data;
-        private ArrayAndItemsNullablePropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ArrayAndItemsNullablePropBoxedVoid(Void data) implements ArrayAndItemsNullablePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ArrayAndItemsNullablePropBoxedList implements ArrayAndItemsNullablePropBoxed {
-        public final ArrayAndItemsNullablePropList data;
-        private ArrayAndItemsNullablePropBoxedList(ArrayAndItemsNullablePropList data) {
-            this.data = data;
-        }
+    public record ArrayAndItemsNullablePropBoxedList(ArrayAndItemsNullablePropList data) implements ArrayAndItemsNullablePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1222,27 +1142,19 @@ public class NullableClass {
     }    
     
     public sealed interface Items2Boxed permits Items2BoxedVoid, Items2BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Items2BoxedVoid implements Items2Boxed {
-        public final Void data;
-        private Items2BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Items2BoxedVoid(Void data) implements Items2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Items2BoxedMap implements Items2Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Items2BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Items2BoxedMap(FrozenMap<@Nullable Object> data) implements Items2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1378,16 +1290,12 @@ public class NullableClass {
     
     
     public sealed interface ArrayItemsNullableBoxed permits ArrayItemsNullableBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ArrayItemsNullableBoxedList implements ArrayItemsNullableBoxed {
-        public final ArrayItemsNullableList data;
-        private ArrayItemsNullableBoxedList(ArrayItemsNullableList data) {
-            this.data = data;
-        }
+    public record ArrayItemsNullableBoxedList(ArrayItemsNullableList data) implements ArrayItemsNullableBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1525,27 +1433,19 @@ public class NullableClass {
     
     
     public sealed interface ObjectNullablePropBoxed permits ObjectNullablePropBoxedVoid, ObjectNullablePropBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectNullablePropBoxedVoid implements ObjectNullablePropBoxed {
-        public final Void data;
-        private ObjectNullablePropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ObjectNullablePropBoxedVoid(Void data) implements ObjectNullablePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectNullablePropBoxedMap implements ObjectNullablePropBoxed {
-        public final ObjectNullablePropMap data;
-        private ObjectNullablePropBoxedMap(ObjectNullablePropMap data) {
-            this.data = data;
-        }
+    public record ObjectNullablePropBoxedMap(ObjectNullablePropMap data) implements ObjectNullablePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1648,27 +1548,19 @@ public class NullableClass {
     }    
     
     public sealed interface AdditionalProperties1Boxed permits AdditionalProperties1BoxedVoid, AdditionalProperties1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalProperties1BoxedVoid implements AdditionalProperties1Boxed {
-        public final Void data;
-        private AdditionalProperties1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AdditionalProperties1BoxedVoid(Void data) implements AdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties1BoxedMap implements AdditionalProperties1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data) implements AdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1823,27 +1715,19 @@ public class NullableClass {
     
     
     public sealed interface ObjectAndItemsNullablePropBoxed permits ObjectAndItemsNullablePropBoxedVoid, ObjectAndItemsNullablePropBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectAndItemsNullablePropBoxedVoid implements ObjectAndItemsNullablePropBoxed {
-        public final Void data;
-        private ObjectAndItemsNullablePropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ObjectAndItemsNullablePropBoxedVoid(Void data) implements ObjectAndItemsNullablePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectAndItemsNullablePropBoxedMap implements ObjectAndItemsNullablePropBoxed {
-        public final ObjectAndItemsNullablePropMap data;
-        private ObjectAndItemsNullablePropBoxedMap(ObjectAndItemsNullablePropMap data) {
-            this.data = data;
-        }
+    public record ObjectAndItemsNullablePropBoxedMap(ObjectAndItemsNullablePropMap data) implements ObjectAndItemsNullablePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1946,27 +1830,19 @@ public class NullableClass {
     }    
     
     public sealed interface AdditionalProperties2Boxed permits AdditionalProperties2BoxedVoid, AdditionalProperties2BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalProperties2BoxedVoid implements AdditionalProperties2Boxed {
-        public final Void data;
-        private AdditionalProperties2BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AdditionalProperties2BoxedVoid(Void data) implements AdditionalProperties2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties2BoxedMap implements AdditionalProperties2Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data) implements AdditionalProperties2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -2121,16 +1997,12 @@ public class NullableClass {
     
     
     public sealed interface ObjectItemsNullableBoxed permits ObjectItemsNullableBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectItemsNullableBoxedMap implements ObjectItemsNullableBoxed {
-        public final ObjectItemsNullableMap data;
-        private ObjectItemsNullableBoxedMap(ObjectItemsNullableMap data) {
-            this.data = data;
-        }
+    public record ObjectItemsNullableBoxedMap(ObjectItemsNullableMap data) implements ObjectItemsNullableBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -2683,16 +2555,12 @@ public class NullableClass {
     
     
     public sealed interface NullableClass1Boxed permits NullableClass1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NullableClass1BoxedMap implements NullableClass1Boxed {
-        public final NullableClassMap data;
-        private NullableClass1BoxedMap(NullableClassMap data) {
-            this.data = data;
-        }
+    public record NullableClass1BoxedMap(NullableClassMap data) implements NullableClass1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

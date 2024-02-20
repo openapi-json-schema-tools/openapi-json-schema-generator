@@ -33,7 +33,7 @@ public class RequestBody {
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             MultipartformdataRequestBody requestBody0 = (MultipartformdataRequestBody) requestBody;
-            return serialize(requestBody0.contentType(), requestBody0.body().data());
+            return serialize(requestBody0.contentType(), requestBody0.body().getData());
         }
     }
 

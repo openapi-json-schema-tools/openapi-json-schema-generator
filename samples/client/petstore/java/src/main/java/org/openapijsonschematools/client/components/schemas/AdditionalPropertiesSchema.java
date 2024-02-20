@@ -155,16 +155,12 @@ public class AdditionalPropertiesSchema {
     
     
     public sealed interface Schema0Boxed permits Schema0BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema0BoxedMap implements Schema0Boxed {
-        public final Schema0Map data;
-        private Schema0BoxedMap(Schema0Map data) {
-            this.data = data;
-        }
+    public record Schema0BoxedMap(Schema0Map data) implements Schema0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -243,71 +239,47 @@ public class AdditionalPropertiesSchema {
     
     
     public sealed interface AdditionalProperties1Boxed permits AdditionalProperties1BoxedVoid, AdditionalProperties1BoxedBoolean, AdditionalProperties1BoxedNumber, AdditionalProperties1BoxedString, AdditionalProperties1BoxedList, AdditionalProperties1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalProperties1BoxedVoid implements AdditionalProperties1Boxed {
-        public final Void data;
-        private AdditionalProperties1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AdditionalProperties1BoxedVoid(Void data) implements AdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties1BoxedBoolean implements AdditionalProperties1Boxed {
-        public final boolean data;
-        private AdditionalProperties1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AdditionalProperties1BoxedBoolean(boolean data) implements AdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties1BoxedNumber implements AdditionalProperties1Boxed {
-        public final Number data;
-        private AdditionalProperties1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AdditionalProperties1BoxedNumber(Number data) implements AdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties1BoxedString implements AdditionalProperties1Boxed {
-        public final String data;
-        private AdditionalProperties1BoxedString(String data) {
-            this.data = data;
-        }
+    public record AdditionalProperties1BoxedString(String data) implements AdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties1BoxedList implements AdditionalProperties1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private AdditionalProperties1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalProperties1BoxedList(FrozenList<@Nullable Object> data) implements AdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties1BoxedMap implements AdditionalProperties1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data) implements AdditionalProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -638,16 +610,12 @@ public class AdditionalPropertiesSchema {
     
     
     public sealed interface Schema1Boxed permits Schema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap implements Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -726,71 +694,47 @@ public class AdditionalPropertiesSchema {
     
     
     public sealed interface AdditionalProperties2Boxed permits AdditionalProperties2BoxedVoid, AdditionalProperties2BoxedBoolean, AdditionalProperties2BoxedNumber, AdditionalProperties2BoxedString, AdditionalProperties2BoxedList, AdditionalProperties2BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalProperties2BoxedVoid implements AdditionalProperties2Boxed {
-        public final Void data;
-        private AdditionalProperties2BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AdditionalProperties2BoxedVoid(Void data) implements AdditionalProperties2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties2BoxedBoolean implements AdditionalProperties2Boxed {
-        public final boolean data;
-        private AdditionalProperties2BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AdditionalProperties2BoxedBoolean(boolean data) implements AdditionalProperties2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties2BoxedNumber implements AdditionalProperties2Boxed {
-        public final Number data;
-        private AdditionalProperties2BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AdditionalProperties2BoxedNumber(Number data) implements AdditionalProperties2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties2BoxedString implements AdditionalProperties2Boxed {
-        public final String data;
-        private AdditionalProperties2BoxedString(String data) {
-            this.data = data;
-        }
+    public record AdditionalProperties2BoxedString(String data) implements AdditionalProperties2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties2BoxedList implements AdditionalProperties2Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private AdditionalProperties2BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalProperties2BoxedList(FrozenList<@Nullable Object> data) implements AdditionalProperties2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalProperties2BoxedMap implements AdditionalProperties2Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data) implements AdditionalProperties2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1121,16 +1065,12 @@ public class AdditionalPropertiesSchema {
     
     
     public sealed interface Schema2Boxed permits Schema2BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema2BoxedMap implements Schema2Boxed {
-        public final Schema2Map data;
-        private Schema2BoxedMap(Schema2Map data) {
-            this.data = data;
-        }
+    public record Schema2BoxedMap(Schema2Map data) implements Schema2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -1209,16 +1149,12 @@ public class AdditionalPropertiesSchema {
     
     
     public sealed interface AdditionalPropertiesSchema1Boxed permits AdditionalPropertiesSchema1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalPropertiesSchema1BoxedMap implements AdditionalPropertiesSchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AdditionalPropertiesSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalPropertiesSchema1BoxedMap(FrozenMap<@Nullable Object> data) implements AdditionalPropertiesSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

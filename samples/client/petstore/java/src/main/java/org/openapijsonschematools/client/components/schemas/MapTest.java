@@ -96,16 +96,12 @@ public class MapTest {
     
     
     public sealed interface AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalPropertiesBoxedMap implements AdditionalPropertiesBoxed {
-        public final AdditionalPropertiesMap data;
-        private AdditionalPropertiesBoxedMap(AdditionalPropertiesMap data) {
-            this.data = data;
-        }
+    public record AdditionalPropertiesBoxedMap(AdditionalPropertiesMap data) implements AdditionalPropertiesBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -236,16 +232,12 @@ public class MapTest {
     
     
     public sealed interface MapMapOfStringBoxed permits MapMapOfStringBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MapMapOfStringBoxedMap implements MapMapOfStringBoxed {
-        public final MapMapOfStringMap data;
-        private MapMapOfStringBoxedMap(MapMapOfStringMap data) {
-            this.data = data;
-        }
+    public record MapMapOfStringBoxedMap(MapMapOfStringMap data) implements MapMapOfStringBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -340,16 +332,12 @@ public class MapTest {
     
     
     public sealed interface AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalProperties2BoxedString implements AdditionalProperties2Boxed {
-        public final String data;
-        private AdditionalProperties2BoxedString(String data) {
-            this.data = data;
-        }
+    public record AdditionalProperties2BoxedString(String data) implements AdditionalProperties2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -471,16 +459,12 @@ public class MapTest {
     
     
     public sealed interface MapOfEnumStringBoxed permits MapOfEnumStringBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MapOfEnumStringBoxedMap implements MapOfEnumStringBoxed {
-        public final MapOfEnumStringMap data;
-        private MapOfEnumStringBoxedMap(MapOfEnumStringMap data) {
-            this.data = data;
-        }
+    public record MapOfEnumStringBoxedMap(MapOfEnumStringMap data) implements MapOfEnumStringBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -627,16 +611,12 @@ public class MapTest {
     
     
     public sealed interface DirectMapBoxed permits DirectMapBoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class DirectMapBoxedMap implements DirectMapBoxed {
-        public final DirectMapMap data;
-        private DirectMapBoxedMap(DirectMapMap data) {
-            this.data = data;
-        }
+    public record DirectMapBoxedMap(DirectMapMap data) implements DirectMapBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -862,16 +842,12 @@ public class MapTest {
     
     
     public sealed interface MapTest1Boxed permits MapTest1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class MapTest1BoxedMap implements MapTest1Boxed {
-        public final MapTestMap data;
-        private MapTest1BoxedMap(MapTestMap data) {
-            this.data = data;
-        }
+    public record MapTest1BoxedMap(MapTestMap data) implements MapTest1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

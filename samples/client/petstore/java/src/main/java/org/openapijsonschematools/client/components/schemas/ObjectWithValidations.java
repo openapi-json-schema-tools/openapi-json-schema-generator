@@ -27,16 +27,12 @@ public class ObjectWithValidations {
     
     
     public sealed interface ObjectWithValidations1Boxed permits ObjectWithValidations1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithValidations1BoxedMap implements ObjectWithValidations1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ObjectWithValidations1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithValidations1BoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

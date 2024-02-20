@@ -22,27 +22,19 @@ public class NullableString {
     
     
     public sealed interface NullableString1Boxed permits NullableString1BoxedVoid, NullableString1BoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class NullableString1BoxedVoid implements NullableString1Boxed {
-        public final Void data;
-        private NullableString1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NullableString1BoxedVoid(Void data) implements NullableString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NullableString1BoxedString implements NullableString1Boxed {
-        public final String data;
-        private NullableString1BoxedString(String data) {
-            this.data = data;
-        }
+    public record NullableString1BoxedString(String data) implements NullableString1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

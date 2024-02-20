@@ -20,16 +20,12 @@ public class Schema0 {
     
     
     public sealed interface Schema01Boxed permits Schema01BoxedNumber {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Schema01BoxedNumber implements Schema01Boxed {
-        public final Number data;
-        private Schema01BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Schema01BoxedNumber(Number data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

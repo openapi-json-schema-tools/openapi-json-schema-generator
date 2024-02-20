@@ -200,16 +200,12 @@ public class ObjectWithDifficultlyNamedProps {
     
     
     public sealed interface ObjectWithDifficultlyNamedProps1Boxed permits ObjectWithDifficultlyNamedProps1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithDifficultlyNamedProps1BoxedMap implements ObjectWithDifficultlyNamedProps1Boxed {
-        public final ObjectWithDifficultlyNamedPropsMap data;
-        private ObjectWithDifficultlyNamedProps1BoxedMap(ObjectWithDifficultlyNamedPropsMap data) {
-            this.data = data;
-        }
+    public record ObjectWithDifficultlyNamedProps1BoxedMap(ObjectWithDifficultlyNamedPropsMap data) implements ObjectWithDifficultlyNamedProps1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }

@@ -102,16 +102,12 @@ public class Pet {
     
     
     public sealed interface PhotoUrlsBoxed permits PhotoUrlsBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class PhotoUrlsBoxedList implements PhotoUrlsBoxed {
-        public final PhotoUrlsList data;
-        private PhotoUrlsBoxedList(PhotoUrlsList data) {
-            this.data = data;
-        }
+    public record PhotoUrlsBoxedList(PhotoUrlsList data) implements PhotoUrlsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -203,16 +199,12 @@ public class Pet {
     
     
     public sealed interface StatusBoxed permits StatusBoxedString {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class StatusBoxedString implements StatusBoxed {
-        public final String data;
-        private StatusBoxedString(String data) {
-            this.data = data;
-        }
+    public record StatusBoxedString(String data) implements StatusBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -311,16 +303,12 @@ public class Pet {
     
     
     public sealed interface TagsBoxed permits TagsBoxedList {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class TagsBoxedList implements TagsBoxed {
-        public final TagsList data;
-        private TagsBoxedList(TagsList data) {
-            this.data = data;
-        }
+    public record TagsBoxedList(TagsList data) implements TagsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
@@ -651,16 +639,12 @@ public class Pet {
     
     
     public sealed interface Pet1Boxed permits Pet1BoxedMap {
-        @Nullable Object data();
+        @Nullable Object getData();
     }
     
-    public static final class Pet1BoxedMap implements Pet1Boxed {
-        public final PetMap data;
-        private Pet1BoxedMap(PetMap data) {
-            this.data = data;
-        }
+    public record Pet1BoxedMap(PetMap data) implements Pet1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
