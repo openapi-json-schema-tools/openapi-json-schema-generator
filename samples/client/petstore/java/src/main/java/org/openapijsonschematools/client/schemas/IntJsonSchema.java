@@ -97,5 +97,11 @@ public class IntJsonSchema {
         public IntJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new IntJsonSchema1BoxedNumber(validate(arg, configuration));
         }
+
+        public IntJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }
 }
