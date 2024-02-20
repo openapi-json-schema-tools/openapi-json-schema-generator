@@ -6,9 +6,9 @@ package org.openapijsonschematools.client.paths.fakejsonpatch.patch;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.GenericRequestBody;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.requestbody.content.applicationjsonpatchjson.ApplicationjsonpatchjsonSchema;
-import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;

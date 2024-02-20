@@ -6,10 +6,10 @@ package org.openapijsonschematools.client.paths.fakeinlinecomposition.post;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.GenericRequestBody;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.requestbody.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.requestbody.content.multipartformdata.MultipartformdataSchema;
-import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;

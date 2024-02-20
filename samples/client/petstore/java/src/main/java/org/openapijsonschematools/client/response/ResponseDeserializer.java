@@ -43,6 +43,10 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass> {
         return jsonContentTypePattern.matcher(contentType).find();
     }
 
+    protected static boolean contentTypeIsTextPlain(String contentType) {
+        return textPlainContentType.equals(contentType);
+    }
+
 	public ApiResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
         Optional<String> contentTypeInfo = response.headers().firstValue("Content-Type");
         if (contentTypeInfo.isEmpty()) {

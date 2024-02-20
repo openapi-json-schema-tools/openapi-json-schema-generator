@@ -794,6 +794,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/requestbodies/RequestBodyDoc.hbs", ".md");
                 }}
         );
+        // responses
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/responses/Response.hbs", ".java");
+                }}
+        );
         // schema
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("src/main/java/packagename/components/schemas/Schema.hbs", ".java");

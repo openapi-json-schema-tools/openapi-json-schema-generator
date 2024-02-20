@@ -14,13 +14,13 @@ public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
 {{else}}
 import {{packageName}}.requestbody.RequestBodySerializer;
 import {{packageName}}.requestbody.GenericRequestBody;
+import {{packageName}}.requestbody.SerializedRequestBody;
 import {{packageName}}.mediatype.MediaType;
     {{#each content}}
         {{#with schema}}
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/each}}
-import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
