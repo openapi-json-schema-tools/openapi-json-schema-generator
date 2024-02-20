@@ -18,10 +18,10 @@ import java.util.Objects;
 import java.util.Set;
 
 public class FloatJsonSchema {
-    public static abstract sealed class FloatJsonSchema1Boxed permits FloatJsonSchema1BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface FloatJsonSchema1Boxed permits FloatJsonSchema1BoxedNumber {
+        @Nullable Object data();
     }
-    public static final class FloatJsonSchema1BoxedNumber extends FloatJsonSchema1Boxed {
+    public static final class FloatJsonSchema1BoxedNumber implements FloatJsonSchema1Boxed {
         public final Number data;
         private FloatJsonSchema1BoxedNumber(Number data) {
             this.data = data;

@@ -19,10 +19,10 @@ import java.util.Set;
 import java.util.UUID;
 
 public class UuidJsonSchema {
-    public static abstract sealed class UuidJsonSchema1Boxed permits UuidJsonSchema1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface UuidJsonSchema1Boxed permits UuidJsonSchema1BoxedString {
+        @Nullable Object data();
     }
-    public static final class UuidJsonSchema1BoxedString extends UuidJsonSchema1Boxed {
+    public static final class UuidJsonSchema1BoxedString implements UuidJsonSchema1Boxed {
         public final String data;
         private UuidJsonSchema1BoxedString(String data) {
             this.data = data;

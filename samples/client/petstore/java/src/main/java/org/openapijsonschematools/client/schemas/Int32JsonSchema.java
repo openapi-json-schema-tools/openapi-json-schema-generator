@@ -18,10 +18,10 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Int32JsonSchema {
-    public static abstract sealed class Int32JsonSchema1Boxed permits Int32JsonSchema1BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface Int32JsonSchema1Boxed permits Int32JsonSchema1BoxedNumber {
+        @Nullable Object data();
     }
-    public static final class Int32JsonSchema1BoxedNumber extends Int32JsonSchema1Boxed {
+    public static final class Int32JsonSchema1BoxedNumber implements Int32JsonSchema1Boxed {
         public final Number data;
         private Int32JsonSchema1BoxedNumber(Number data) {
             this.data = data;

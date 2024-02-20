@@ -18,10 +18,10 @@ import java.util.Objects;
 import java.util.Set;
 
 public class NullJsonSchema {
-    public static abstract sealed class NullJsonSchema1Boxed permits NullJsonSchema1BoxedVoid {
-        public abstract @Nullable Object data();
+    public sealed interface NullJsonSchema1Boxed permits NullJsonSchema1BoxedVoid {
+        @Nullable Object data();
     }
-    public static final class NullJsonSchema1BoxedVoid extends NullJsonSchema1Boxed {
+    public static final class NullJsonSchema1BoxedVoid implements NullJsonSchema1Boxed {
         public final Void data;
         private NullJsonSchema1BoxedVoid(Void data) {
             this.data = data;

@@ -31,10 +31,10 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class AnyTypeJsonSchema {
-    public static abstract sealed class AnyTypeJsonSchema1Boxed permits AnyTypeJsonSchema1BoxedVoid, AnyTypeJsonSchema1BoxedBoolean, AnyTypeJsonSchema1BoxedNumber, AnyTypeJsonSchema1BoxedString, AnyTypeJsonSchema1BoxedList, AnyTypeJsonSchema1BoxedMap {
+    public sealed interface AnyTypeJsonSchema1Boxed permits AnyTypeJsonSchema1BoxedVoid, AnyTypeJsonSchema1BoxedBoolean, AnyTypeJsonSchema1BoxedNumber, AnyTypeJsonSchema1BoxedString, AnyTypeJsonSchema1BoxedList, AnyTypeJsonSchema1BoxedMap {
         public abstract @Nullable Object data();
     }
-    public static final class AnyTypeJsonSchema1BoxedVoid extends AnyTypeJsonSchema1Boxed {
+    public static final class AnyTypeJsonSchema1BoxedVoid implements AnyTypeJsonSchema1Boxed {
         public final Void data;
         private AnyTypeJsonSchema1BoxedVoid(Void data) {
             this.data = data;
@@ -44,7 +44,7 @@ public class AnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedBoolean extends AnyTypeJsonSchema1Boxed {
+    public static final class AnyTypeJsonSchema1BoxedBoolean implements AnyTypeJsonSchema1Boxed {
         public final boolean data;
         private AnyTypeJsonSchema1BoxedBoolean(boolean data) {
             this.data = data;
@@ -54,7 +54,7 @@ public class AnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedNumber extends AnyTypeJsonSchema1Boxed {
+    public static final class AnyTypeJsonSchema1BoxedNumber implements AnyTypeJsonSchema1Boxed {
         public final Number data;
         private AnyTypeJsonSchema1BoxedNumber(Number data) {
             this.data = data;
@@ -64,7 +64,7 @@ public class AnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedString extends AnyTypeJsonSchema1Boxed {
+    public static final class AnyTypeJsonSchema1BoxedString implements AnyTypeJsonSchema1Boxed {
         public final String data;
         private AnyTypeJsonSchema1BoxedString(String data) {
             this.data = data;
@@ -74,7 +74,7 @@ public class AnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedList extends AnyTypeJsonSchema1Boxed {
+    public static final class AnyTypeJsonSchema1BoxedList implements AnyTypeJsonSchema1Boxed {
         public final FrozenList<@Nullable Object> data;
         private AnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -84,7 +84,7 @@ public class AnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class AnyTypeJsonSchema1BoxedMap extends AnyTypeJsonSchema1Boxed {
+    public static final class AnyTypeJsonSchema1BoxedMap implements AnyTypeJsonSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;

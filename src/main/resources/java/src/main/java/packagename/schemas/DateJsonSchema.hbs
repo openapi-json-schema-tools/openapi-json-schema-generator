@@ -19,10 +19,10 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DateJsonSchema {
-    public static abstract sealed class DateJsonSchema1Boxed permits DateJsonSchema1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface DateJsonSchema1Boxed permits DateJsonSchema1BoxedString {
+        @Nullable Object data();
     }
-    public static final class DateJsonSchema1BoxedString extends DateJsonSchema1Boxed {
+    public static final class DateJsonSchema1BoxedString implements DateJsonSchema1Boxed {
         public final String data;
         private DateJsonSchema1BoxedString(String data) {
             this.data = data;

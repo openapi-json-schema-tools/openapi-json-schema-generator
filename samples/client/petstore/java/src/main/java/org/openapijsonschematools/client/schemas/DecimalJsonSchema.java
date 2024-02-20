@@ -18,10 +18,10 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DecimalJsonSchema {
-    public static abstract sealed class DecimalJsonSchema1Boxed permits DecimalJsonSchema1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface DecimalJsonSchema1Boxed permits DecimalJsonSchema1BoxedString {
+        @Nullable Object data();
     }
-    public static final class DecimalJsonSchema1BoxedString extends DecimalJsonSchema1Boxed {
+    public static final class DecimalJsonSchema1BoxedString implements DecimalJsonSchema1Boxed {
         public final String data;
         private DecimalJsonSchema1BoxedString(String data) {
             this.data = data;

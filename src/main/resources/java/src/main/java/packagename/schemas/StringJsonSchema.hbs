@@ -21,10 +21,10 @@ import java.util.Set;
 import java.util.UUID;
 
 public class StringJsonSchema {
-    public static abstract sealed class StringJsonSchema1Boxed permits StringJsonSchema1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface StringJsonSchema1Boxed permits StringJsonSchema1BoxedString {
+        @Nullable Object data();
     }
-    public static final class StringJsonSchema1BoxedString extends StringJsonSchema1Boxed {
+    public static final class StringJsonSchema1BoxedString implements StringJsonSchema1Boxed {
         public final String data;
         private StringJsonSchema1BoxedString(String data) {
             this.data = data;

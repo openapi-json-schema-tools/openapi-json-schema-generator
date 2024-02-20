@@ -19,10 +19,10 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class UnsetAnyTypeJsonSchema {
-    public static abstract sealed class UnsetAnyTypeJsonSchema1Boxed permits UnsetAnyTypeJsonSchema1BoxedVoid, UnsetAnyTypeJsonSchema1BoxedBoolean, UnsetAnyTypeJsonSchema1BoxedNumber, UnsetAnyTypeJsonSchema1BoxedString, UnsetAnyTypeJsonSchema1BoxedList, UnsetAnyTypeJsonSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface UnsetAnyTypeJsonSchema1Boxed permits UnsetAnyTypeJsonSchema1BoxedVoid, UnsetAnyTypeJsonSchema1BoxedBoolean, UnsetAnyTypeJsonSchema1BoxedNumber, UnsetAnyTypeJsonSchema1BoxedString, UnsetAnyTypeJsonSchema1BoxedList, UnsetAnyTypeJsonSchema1BoxedMap {
+        @Nullable Object data();
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedVoid extends UnsetAnyTypeJsonSchema1Boxed {
+    public static final class UnsetAnyTypeJsonSchema1BoxedVoid implements UnsetAnyTypeJsonSchema1Boxed {
         public final Void data;
         private UnsetAnyTypeJsonSchema1BoxedVoid(Void data) {
             this.data = data;
@@ -32,7 +32,7 @@ public class UnsetAnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedBoolean extends UnsetAnyTypeJsonSchema1Boxed {
+    public static final class UnsetAnyTypeJsonSchema1BoxedBoolean implements UnsetAnyTypeJsonSchema1Boxed {
         public final boolean data;
         private UnsetAnyTypeJsonSchema1BoxedBoolean(boolean data) {
             this.data = data;
@@ -42,7 +42,7 @@ public class UnsetAnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedNumber extends UnsetAnyTypeJsonSchema1Boxed {
+    public static final class UnsetAnyTypeJsonSchema1BoxedNumber implements UnsetAnyTypeJsonSchema1Boxed {
         public final Number data;
         private UnsetAnyTypeJsonSchema1BoxedNumber(Number data) {
             this.data = data;
@@ -52,7 +52,7 @@ public class UnsetAnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedString extends UnsetAnyTypeJsonSchema1Boxed {
+    public static final class UnsetAnyTypeJsonSchema1BoxedString implements UnsetAnyTypeJsonSchema1Boxed {
         public final String data;
         private UnsetAnyTypeJsonSchema1BoxedString(String data) {
             this.data = data;
@@ -62,7 +62,7 @@ public class UnsetAnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedList extends UnsetAnyTypeJsonSchema1Boxed {
+    public static final class UnsetAnyTypeJsonSchema1BoxedList implements UnsetAnyTypeJsonSchema1Boxed {
         public final FrozenList<@Nullable Object> data;
         private UnsetAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
@@ -72,7 +72,7 @@ public class UnsetAnyTypeJsonSchema {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedMap extends UnsetAnyTypeJsonSchema1Boxed {
+    public static final class UnsetAnyTypeJsonSchema1BoxedMap implements UnsetAnyTypeJsonSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UnsetAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
