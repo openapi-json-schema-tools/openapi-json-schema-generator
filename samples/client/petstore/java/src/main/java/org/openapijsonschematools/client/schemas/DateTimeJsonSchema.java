@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DateTimeJsonSchema {
-    public sealed interfaceDateTimeJsonSchema1Boxed permits DateTimeJsonSchema1BoxedString {
+    public sealed interface DateTimeJsonSchema1Boxed permits DateTimeJsonSchema1BoxedString {
         @Nullable Object getData();
     }
     public record DateTimeJsonSchema1BoxedString(String data) implements DateTimeJsonSchema1Boxed {
