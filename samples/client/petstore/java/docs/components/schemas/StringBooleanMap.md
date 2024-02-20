@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [StringBooleanMap.StringBooleanMap1Boxed](#stringbooleanmap1boxed)<br> abstract sealed validated payload class |
-| static class | [StringBooleanMap.StringBooleanMap1BoxedMap](#stringbooleanmap1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [StringBooleanMap.StringBooleanMap1Boxed](#stringbooleanmap1boxed)<br> abstract sealed validated payload class |
+| record | [StringBooleanMap.StringBooleanMap1BoxedMap](#stringbooleanmap1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [StringBooleanMap.StringBooleanMap1](#stringbooleanmap1)<br> schema class |
 | static class | [StringBooleanMap.StringBooleanMapMapBuilder](#stringbooleanmapmapbuilder)<br> builder for Map payloads |
 | static class | [StringBooleanMap.StringBooleanMapMap](#stringbooleanmapmap)<br> output class for Map payloads |
-| static class | [StringBooleanMap.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
-| static class | [StringBooleanMap.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [StringBooleanMap.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| record | [StringBooleanMap.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [StringBooleanMap.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## StringBooleanMap1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## StringBooleanMap1BoxedMap
-public static final class StringBooleanMap1BoxedMap<br>
+public record StringBooleanMap1BoxedMap<br>
 implements [StringBooleanMap1Boxed](#stringbooleanmap1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringBooleanMap1BoxedMap([StringBooleanMapMap](#stringbooleanmapmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [StringBooleanMapMap](#stringbooleanmapmap) | data<br>validated payload |
+| [StringBooleanMapMap](#stringbooleanmapmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## StringBooleanMap1
 public static class StringBooleanMap1<br>
@@ -125,20 +126,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedBoolean
-public static final class AdditionalPropertiesBoxedBoolean<br>
+public record AdditionalPropertiesBoxedBoolean<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

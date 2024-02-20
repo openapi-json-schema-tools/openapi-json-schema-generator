@@ -13,20 +13,20 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Whale.Whale1Boxed](#whale1boxed)<br> abstract sealed validated payload class |
-| static class | [Whale.Whale1BoxedMap](#whale1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Whale.Whale1Boxed](#whale1boxed)<br> abstract sealed validated payload class |
+| record | [Whale.Whale1BoxedMap](#whale1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Whale.Whale1](#whale1)<br> schema class |
 | static class | [Whale.WhaleMapBuilder](#whalemapbuilder)<br> builder for Map payloads |
 | static class | [Whale.WhaleMap](#whalemap)<br> output class for Map payloads |
-| static class | [Whale.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
-| static class | [Whale.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Whale.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
+| record | [Whale.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Whale.ClassName](#classname)<br> schema class |
 | enum | [Whale.StringClassNameEnums](#stringclassnameenums)<br>String enum |
-| static class | [Whale.HasTeethBoxed](#hasteethboxed)<br> abstract sealed validated payload class |
-| static class | [Whale.HasTeethBoxedBoolean](#hasteethboxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [Whale.HasTeethBoxed](#hasteethboxed)<br> abstract sealed validated payload class |
+| record | [Whale.HasTeethBoxedBoolean](#hasteethboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Whale.HasTeeth](#hasteeth)<br> schema class |
-| static class | [Whale.HasBaleenBoxed](#hasbaleenboxed)<br> abstract sealed validated payload class |
-| static class | [Whale.HasBaleenBoxedBoolean](#hasbaleenboxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [Whale.HasBaleenBoxed](#hasbaleenboxed)<br> abstract sealed validated payload class |
+| record | [Whale.HasBaleenBoxedBoolean](#hasbaleenboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Whale.HasBaleen](#hasbaleen)<br> schema class |
 
 ## Whale1Boxed
@@ -37,20 +37,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Whale1BoxedMap
-public static final class Whale1BoxedMap<br>
+public record Whale1BoxedMap<br>
 implements [Whale1Boxed](#whale1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Whale1BoxedMap([WhaleMap](#whalemap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [WhaleMap](#whalemap) | data<br>validated payload |
+| [WhaleMap](#whalemap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Whale1
 public static class Whale1<br>
@@ -168,20 +169,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ClassNameBoxedString
-public static final class ClassNameBoxedString<br>
+public record ClassNameBoxedString<br>
 implements [ClassNameBoxed](#classnameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ClassNameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ClassName
 public static class ClassName<br>
@@ -243,20 +245,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## HasTeethBoxedBoolean
-public static final class HasTeethBoxedBoolean<br>
+public record HasTeethBoxedBoolean<br>
 implements [HasTeethBoxed](#hasteethboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | HasTeethBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## HasTeeth
 public static class HasTeeth<br>
@@ -277,20 +280,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## HasBaleenBoxedBoolean
-public static final class HasBaleenBoxedBoolean<br>
+public record HasBaleenBoxedBoolean<br>
 implements [HasBaleenBoxed](#hasbaleenboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | HasBaleenBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## HasBaleen
 public static class HasBaleen<br>

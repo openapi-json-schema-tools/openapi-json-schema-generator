@@ -12,14 +12,14 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [HealthCheckResult.HealthCheckResult1Boxed](#healthcheckresult1boxed)<br> abstract sealed validated payload class |
-| static class | [HealthCheckResult.HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [HealthCheckResult.HealthCheckResult1Boxed](#healthcheckresult1boxed)<br> abstract sealed validated payload class |
+| record | [HealthCheckResult.HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [HealthCheckResult.HealthCheckResult1](#healthcheckresult1)<br> schema class |
 | static class | [HealthCheckResult.HealthCheckResultMapBuilder](#healthcheckresultmapbuilder)<br> builder for Map payloads |
 | static class | [HealthCheckResult.HealthCheckResultMap](#healthcheckresultmap)<br> output class for Map payloads |
-| static class | [HealthCheckResult.NullableMessageBoxed](#nullablemessageboxed)<br> abstract sealed validated payload class |
-| static class | [HealthCheckResult.NullableMessageBoxedVoid](#nullablemessageboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [HealthCheckResult.NullableMessageBoxedString](#nullablemessageboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [HealthCheckResult.NullableMessageBoxed](#nullablemessageboxed)<br> abstract sealed validated payload class |
+| record | [HealthCheckResult.NullableMessageBoxedVoid](#nullablemessageboxedvoid)<br> boxed class to store validated null payloads |
+| record | [HealthCheckResult.NullableMessageBoxedString](#nullablemessageboxedstring)<br> boxed class to store validated String payloads |
 | static class | [HealthCheckResult.NullableMessage](#nullablemessage)<br> schema class |
 
 ## HealthCheckResult1Boxed
@@ -30,20 +30,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## HealthCheckResult1BoxedMap
-public static final class HealthCheckResult1BoxedMap<br>
+public record HealthCheckResult1BoxedMap<br>
 implements [HealthCheckResult1Boxed](#healthcheckresult1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | HealthCheckResult1BoxedMap([HealthCheckResultMap](#healthcheckresultmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [HealthCheckResultMap](#healthcheckresultmap) | data<br>validated payload |
+| [HealthCheckResultMap](#healthcheckresultmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## HealthCheckResult1
 public static class HealthCheckResult1<br>
@@ -141,36 +142,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NullableMessageBoxedVoid
-public static final class NullableMessageBoxedVoid<br>
+public record NullableMessageBoxedVoid<br>
 implements [NullableMessageBoxed](#nullablemessageboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NullableMessageBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## NullableMessageBoxedString
-public static final class NullableMessageBoxedString<br>
+public record NullableMessageBoxedString<br>
 implements [NullableMessageBoxed](#nullablemessageboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NullableMessageBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## NullableMessage
 public static class NullableMessage<br>

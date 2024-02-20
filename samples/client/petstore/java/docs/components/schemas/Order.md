@@ -13,29 +13,29 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Order.Order1Boxed](#order1boxed)<br> abstract sealed validated payload class |
-| static class | [Order.Order1BoxedMap](#order1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Order.Order1Boxed](#order1boxed)<br> abstract sealed validated payload class |
+| record | [Order.Order1BoxedMap](#order1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Order.Order1](#order1)<br> schema class |
 | static class | [Order.OrderMapBuilder](#ordermapbuilder)<br> builder for Map payloads |
 | static class | [Order.OrderMap](#ordermap)<br> output class for Map payloads |
-| static class | [Order.CompleteBoxed](#completeboxed)<br> abstract sealed validated payload class |
-| static class | [Order.CompleteBoxedBoolean](#completeboxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [Order.CompleteBoxed](#completeboxed)<br> abstract sealed validated payload class |
+| record | [Order.CompleteBoxedBoolean](#completeboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Order.Complete](#complete)<br> schema class |
-| static class | [Order.StatusBoxed](#statusboxed)<br> abstract sealed validated payload class |
-| static class | [Order.StatusBoxedString](#statusboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Order.StatusBoxed](#statusboxed)<br> abstract sealed validated payload class |
+| record | [Order.StatusBoxedString](#statusboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Order.Status](#status)<br> schema class |
 | enum | [Order.StringStatusEnums](#stringstatusenums)<br>String enum |
-| static class | [Order.ShipDateBoxed](#shipdateboxed)<br> abstract sealed validated payload class |
-| static class | [Order.ShipDateBoxedString](#shipdateboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Order.ShipDateBoxed](#shipdateboxed)<br> abstract sealed validated payload class |
+| record | [Order.ShipDateBoxedString](#shipdateboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Order.ShipDate](#shipdate)<br> schema class |
-| static class | [Order.QuantityBoxed](#quantityboxed)<br> abstract sealed validated payload class |
-| static class | [Order.QuantityBoxedNumber](#quantityboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Order.QuantityBoxed](#quantityboxed)<br> abstract sealed validated payload class |
+| record | [Order.QuantityBoxedNumber](#quantityboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Order.Quantity](#quantity)<br> schema class |
-| static class | [Order.PetIdBoxed](#petidboxed)<br> abstract sealed validated payload class |
-| static class | [Order.PetIdBoxedNumber](#petidboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Order.PetIdBoxed](#petidboxed)<br> abstract sealed validated payload class |
+| record | [Order.PetIdBoxedNumber](#petidboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Order.PetId](#petid)<br> schema class |
-| static class | [Order.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
-| static class | [Order.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Order.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| record | [Order.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Order.Id](#id)<br> schema class |
 
 ## Order1Boxed
@@ -46,20 +46,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Order1BoxedMap
-public static final class Order1BoxedMap<br>
+public record Order1BoxedMap<br>
 implements [Order1Boxed](#order1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Order1BoxedMap([OrderMap](#ordermap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [OrderMap](#ordermap) | data<br>validated payload |
+| [OrderMap](#ordermap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Order1
 public static class Order1<br>
@@ -180,20 +181,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## CompleteBoxedBoolean
-public static final class CompleteBoxedBoolean<br>
+public record CompleteBoxedBoolean<br>
 implements [CompleteBoxed](#completeboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CompleteBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Complete
 public static class Complete<br>
@@ -214,20 +216,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## StatusBoxedString
-public static final class StatusBoxedString<br>
+public record StatusBoxedString<br>
 implements [StatusBoxed](#statusboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StatusBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Status
 public static class Status<br>
@@ -294,20 +297,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ShipDateBoxedString
-public static final class ShipDateBoxedString<br>
+public record ShipDateBoxedString<br>
 implements [ShipDateBoxed](#shipdateboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShipDateBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ShipDate
 public static class ShipDate<br>
@@ -328,20 +332,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## QuantityBoxedNumber
-public static final class QuantityBoxedNumber<br>
+public record QuantityBoxedNumber<br>
 implements [QuantityBoxed](#quantityboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | QuantityBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Quantity
 public static class Quantity<br>
@@ -362,20 +367,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## PetIdBoxedNumber
-public static final class PetIdBoxedNumber<br>
+public record PetIdBoxedNumber<br>
 implements [PetIdBoxed](#petidboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PetIdBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## PetId
 public static class PetId<br>
@@ -396,20 +402,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
-public static final class IdBoxedNumber<br>
+public record IdBoxedNumber<br>
 implements [IdBoxed](#idboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Id
 public static class Id<br>

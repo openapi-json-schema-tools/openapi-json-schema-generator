@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [AbstractStepMessage.AbstractStepMessage1Boxed](#abstractstepmessage1boxed)<br> abstract sealed validated payload class |
-| static class | [AbstractStepMessage.AbstractStepMessage1BoxedMap](#abstractstepmessage1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [AbstractStepMessage.AbstractStepMessage1Boxed](#abstractstepmessage1boxed)<br> abstract sealed validated payload class |
+| record | [AbstractStepMessage.AbstractStepMessage1BoxedMap](#abstractstepmessage1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AbstractStepMessage.AbstractStepMessage1](#abstractstepmessage1)<br> schema class |
 | static class | [AbstractStepMessage.AbstractStepMessageMapBuilder](#abstractstepmessagemapbuilder)<br> builder for Map payloads |
 | static class | [AbstractStepMessage.AbstractStepMessageMap](#abstractstepmessagemap)<br> output class for Map payloads |
-| static class | [AbstractStepMessage.DiscriminatorBoxed](#discriminatorboxed)<br> abstract sealed validated payload class |
-| static class | [AbstractStepMessage.DiscriminatorBoxedString](#discriminatorboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [AbstractStepMessage.DiscriminatorBoxed](#discriminatorboxed)<br> abstract sealed validated payload class |
+| record | [AbstractStepMessage.DiscriminatorBoxedString](#discriminatorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [AbstractStepMessage.Discriminator](#discriminator)<br> schema class |
 
 ## AbstractStepMessage1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AbstractStepMessage1BoxedMap
-public static final class AbstractStepMessage1BoxedMap<br>
+public record AbstractStepMessage1BoxedMap<br>
 implements [AbstractStepMessage1Boxed](#abstractstepmessage1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AbstractStepMessage1BoxedMap([AbstractStepMessageMap](#abstractstepmessagemap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AbstractStepMessageMap](#abstractstepmessagemap) | data<br>validated payload |
+| [AbstractStepMessageMap](#abstractstepmessagemap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AbstractStepMessage1
 public static class AbstractStepMessage1<br>
@@ -322,20 +323,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DiscriminatorBoxedString
-public static final class DiscriminatorBoxedString<br>
+public record DiscriminatorBoxedString<br>
 implements [DiscriminatorBoxed](#discriminatorboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DiscriminatorBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Discriminator
 public static class Discriminator<br>

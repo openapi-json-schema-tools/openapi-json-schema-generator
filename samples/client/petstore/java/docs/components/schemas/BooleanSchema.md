@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [BooleanSchema.BooleanSchema1Boxed](#booleanschema1boxed)<br> abstract sealed validated payload class |
-| static class | [BooleanSchema.BooleanSchema1BoxedBoolean](#booleanschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [BooleanSchema.BooleanSchema1Boxed](#booleanschema1boxed)<br> abstract sealed validated payload class |
+| record | [BooleanSchema.BooleanSchema1BoxedBoolean](#booleanschema1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [BooleanSchema.BooleanSchema1](#booleanschema1)<br> schema class |
 
 ## BooleanSchema1Boxed
@@ -22,20 +22,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## BooleanSchema1BoxedBoolean
-public static final class BooleanSchema1BoxedBoolean<br>
+public record BooleanSchema1BoxedBoolean<br>
 implements [BooleanSchema1Boxed](#booleanschema1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BooleanSchema1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## BooleanSchema1
 public static class BooleanSchema1<br>

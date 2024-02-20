@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Items.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
-| static class | [Items.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [Items.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
+| record | [Items.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Items.Items1](#items1)<br> schema class |
 | static class | [Items.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [Items.ItemsList](#itemslist)<br> output class for List payloads |
-| static class | [Items.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
-| static class | [Items.Items2BoxedMap](#items2boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Items.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
+| record | [Items.Items2BoxedMap](#items2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Items.Items2](#items2)<br> schema class |
 
 ## Items1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Items1BoxedList
-public static final class Items1BoxedList<br>
+public record Items1BoxedList<br>
 implements [Items1Boxed](#items1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items1BoxedList([ItemsList](#itemslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ItemsList](#itemslist) | data<br>validated payload |
+| [ItemsList](#itemslist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items1
 public static class Items1<br>
@@ -126,20 +127,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Items2BoxedMap
-public static final class Items2BoxedMap<br>
+public record Items2BoxedMap<br>
 implements [Items2Boxed](#items2boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items2BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items2
 public static class Items2<br>

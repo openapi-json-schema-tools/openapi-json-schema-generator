@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerMax10.IntegerMax101Boxed](#integermax101boxed)<br> abstract sealed validated payload class |
-| static class | [IntegerMax10.IntegerMax101BoxedNumber](#integermax101boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [IntegerMax10.IntegerMax101Boxed](#integermax101boxed)<br> abstract sealed validated payload class |
+| record | [IntegerMax10.IntegerMax101BoxedNumber](#integermax101boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerMax10.IntegerMax101](#integermax101)<br> schema class |
 
 ## IntegerMax101Boxed
@@ -22,20 +22,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IntegerMax101BoxedNumber
-public static final class IntegerMax101BoxedNumber<br>
+public record IntegerMax101BoxedNumber<br>
 implements [IntegerMax101Boxed](#integermax101boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerMax101BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IntegerMax101
 public static class IntegerMax101<br>

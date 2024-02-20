@@ -13,21 +13,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [SimpleQuadrilateral.SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)<br> abstract sealed validated payload class |
-| static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedVoid](#simplequadrilateral1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedBoolean](#simplequadrilateral1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedNumber](#simplequadrilateral1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedString](#simplequadrilateral1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedList](#simplequadrilateral1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedMap](#simplequadrilateral1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [SimpleQuadrilateral.SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)<br> abstract sealed validated payload class |
+| record | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedVoid](#simplequadrilateral1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedBoolean](#simplequadrilateral1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedNumber](#simplequadrilateral1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedString](#simplequadrilateral1boxedstring)<br> boxed class to store validated String payloads |
+| record | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedList](#simplequadrilateral1boxedlist)<br> boxed class to store validated List payloads |
+| record | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedMap](#simplequadrilateral1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [SimpleQuadrilateral.SimpleQuadrilateral1](#simplequadrilateral1)<br> schema class |
-| static class | [SimpleQuadrilateral.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
-| static class | [SimpleQuadrilateral.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [SimpleQuadrilateral.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| record | [SimpleQuadrilateral.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [SimpleQuadrilateral.Schema1](#schema1)<br> schema class |
 | static class | [SimpleQuadrilateral.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [SimpleQuadrilateral.Schema1Map](#schema1map)<br> output class for Map payloads |
-| static class | [SimpleQuadrilateral.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> abstract sealed validated payload class |
-| static class | [SimpleQuadrilateral.QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [SimpleQuadrilateral.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> abstract sealed validated payload class |
+| record | [SimpleQuadrilateral.QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [SimpleQuadrilateral.QuadrilateralType](#quadrilateraltype)<br> schema class |
 | enum | [SimpleQuadrilateral.StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums)<br>String enum |
 
@@ -44,100 +44,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## SimpleQuadrilateral1BoxedVoid
-public static final class SimpleQuadrilateral1BoxedVoid<br>
+public record SimpleQuadrilateral1BoxedVoid<br>
 implements [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SimpleQuadrilateral1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SimpleQuadrilateral1BoxedBoolean
-public static final class SimpleQuadrilateral1BoxedBoolean<br>
+public record SimpleQuadrilateral1BoxedBoolean<br>
 implements [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SimpleQuadrilateral1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SimpleQuadrilateral1BoxedNumber
-public static final class SimpleQuadrilateral1BoxedNumber<br>
+public record SimpleQuadrilateral1BoxedNumber<br>
 implements [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SimpleQuadrilateral1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SimpleQuadrilateral1BoxedString
-public static final class SimpleQuadrilateral1BoxedString<br>
+public record SimpleQuadrilateral1BoxedString<br>
 implements [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SimpleQuadrilateral1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SimpleQuadrilateral1BoxedList
-public static final class SimpleQuadrilateral1BoxedList<br>
+public record SimpleQuadrilateral1BoxedList<br>
 implements [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SimpleQuadrilateral1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SimpleQuadrilateral1BoxedMap
-public static final class SimpleQuadrilateral1BoxedMap<br>
+public record SimpleQuadrilateral1BoxedMap<br>
 implements [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SimpleQuadrilateral1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SimpleQuadrilateral1
 public static class SimpleQuadrilateral1<br>
@@ -178,20 +184,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
-public static final class Schema1BoxedMap<br>
+public record Schema1BoxedMap<br>
 implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | data<br>validated payload |
+| [Schema1Map](#schema1map) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -285,20 +292,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## QuadrilateralTypeBoxedString
-public static final class QuadrilateralTypeBoxedString<br>
+public record QuadrilateralTypeBoxedString<br>
 implements [QuadrilateralTypeBoxed](#quadrilateraltypeboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | QuadrilateralTypeBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## QuadrilateralType
 public static class QuadrilateralType<br>

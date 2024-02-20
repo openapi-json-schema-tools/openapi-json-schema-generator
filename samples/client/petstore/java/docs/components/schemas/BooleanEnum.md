@@ -11,8 +11,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [BooleanEnum.BooleanEnum1Boxed](#booleanenum1boxed)<br> abstract sealed validated payload class |
-| static class | [BooleanEnum.BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [BooleanEnum.BooleanEnum1Boxed](#booleanenum1boxed)<br> abstract sealed validated payload class |
+| record | [BooleanEnum.BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [BooleanEnum.BooleanEnum1](#booleanenum1)<br> schema class |
 | enum | [BooleanEnum.BooleanBooleanEnumEnums](#booleanbooleanenumenums)<br>boolean enum |
 
@@ -24,20 +24,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## BooleanEnum1BoxedBoolean
-public static final class BooleanEnum1BoxedBoolean<br>
+public record BooleanEnum1BoxedBoolean<br>
 implements [BooleanEnum1Boxed](#booleanenum1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BooleanEnum1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## BooleanEnum1
 public static class BooleanEnum1<br>

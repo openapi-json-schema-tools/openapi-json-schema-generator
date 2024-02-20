@@ -37,22 +37,11 @@ public class RequestBody {
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationxpemfileRequestBody {}
-    public static final class ApplicationxpemfileRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationxpemfileSchema.StringJsonSchema1Boxed> {
-        private final String contentType;
-        private final ApplicationxpemfileSchema.StringJsonSchema1Boxed body;
-        public ApplicationxpemfileRequestBody(ApplicationxpemfileSchema.StringJsonSchema1Boxed body) {
-            contentType = "application/x-pem-file";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationxpemfileRequestBody {}
+    public record ApplicationxpemfileRequestBody(ApplicationxpemfileSchema.StringJsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationxpemfileSchema.StringJsonSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationxpemfileSchema.StringJsonSchema1Boxed body() {
-            return body;
+            return "application/x-pem-file";
         }
     }
 }

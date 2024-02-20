@@ -14,94 +14,94 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NullableClass.NullableClass1Boxed](#nullableclass1boxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.NullableClass1BoxedMap](#nullableclass1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.NullableClass1Boxed](#nullableclass1boxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.NullableClass1BoxedMap](#nullableclass1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.NullableClass1](#nullableclass1)<br> schema class |
 | static class | [NullableClass.NullableClassMapBuilder](#nullableclassmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.NullableClassMap](#nullableclassmap)<br> output class for Map payloads |
-| static class | [NullableClass.ObjectItemsNullableBoxed](#objectitemsnullableboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.ObjectItemsNullableBoxedMap](#objectitemsnullableboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.ObjectItemsNullableBoxed](#objectitemsnullableboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.ObjectItemsNullableBoxedMap](#objectitemsnullableboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.ObjectItemsNullable](#objectitemsnullable)<br> schema class |
 | static class | [NullableClass.ObjectItemsNullableMapBuilder](#objectitemsnullablemapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectItemsNullableMap](#objectitemsnullablemap)<br> output class for Map payloads |
-| static class | [NullableClass.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.AdditionalProperties2BoxedVoid](#additionalproperties2boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.AdditionalProperties2BoxedMap](#additionalproperties2boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.AdditionalProperties2BoxedVoid](#additionalproperties2boxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.AdditionalProperties2BoxedMap](#additionalproperties2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
-| static class | [NullableClass.ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.ObjectAndItemsNullablePropBoxedVoid](#objectanditemsnullablepropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.ObjectAndItemsNullablePropBoxedMap](#objectanditemsnullablepropboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.ObjectAndItemsNullablePropBoxedVoid](#objectanditemsnullablepropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.ObjectAndItemsNullablePropBoxedMap](#objectanditemsnullablepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.ObjectAndItemsNullableProp](#objectanditemsnullableprop)<br> schema class |
 | static class | [NullableClass.ObjectAndItemsNullablePropMapBuilder](#objectanditemsnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap)<br> output class for Map payloads |
-| static class | [NullableClass.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.AdditionalProperties1BoxedVoid](#additionalproperties1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.AdditionalProperties1BoxedVoid](#additionalproperties1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
-| static class | [NullableClass.ObjectNullablePropBoxed](#objectnullablepropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.ObjectNullablePropBoxedVoid](#objectnullablepropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.ObjectNullablePropBoxedMap](#objectnullablepropboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.ObjectNullablePropBoxed](#objectnullablepropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.ObjectNullablePropBoxedVoid](#objectnullablepropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.ObjectNullablePropBoxedMap](#objectnullablepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.ObjectNullableProp](#objectnullableprop)<br> schema class |
 | static class | [NullableClass.ObjectNullablePropMapBuilder](#objectnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectNullablePropMap](#objectnullablepropmap)<br> output class for Map payloads |
-| static class | [NullableClass.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties](#additionalproperties)<br> schema class |
-| static class | [NullableClass.ArrayItemsNullableBoxed](#arrayitemsnullableboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.ArrayItemsNullableBoxedList](#arrayitemsnullableboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [NullableClass.ArrayItemsNullableBoxed](#arrayitemsnullableboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.ArrayItemsNullableBoxedList](#arrayitemsnullableboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NullableClass.ArrayItemsNullable](#arrayitemsnullable)<br> schema class |
 | static class | [NullableClass.ArrayItemsNullableListBuilder](#arrayitemsnullablelistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayItemsNullableList](#arrayitemsnullablelist)<br> output class for List payloads |
-| static class | [NullableClass.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.Items2BoxedVoid](#items2boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.Items2BoxedMap](#items2boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.Items2BoxedVoid](#items2boxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.Items2BoxedMap](#items2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.Items2](#items2)<br> schema class |
-| static class | [NullableClass.ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.ArrayAndItemsNullablePropBoxedVoid](#arrayanditemsnullablepropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.ArrayAndItemsNullablePropBoxedList](#arrayanditemsnullablepropboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [NullableClass.ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.ArrayAndItemsNullablePropBoxedVoid](#arrayanditemsnullablepropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.ArrayAndItemsNullablePropBoxedList](#arrayanditemsnullablepropboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NullableClass.ArrayAndItemsNullableProp](#arrayanditemsnullableprop)<br> schema class |
 | static class | [NullableClass.ArrayAndItemsNullablePropListBuilder](#arrayanditemsnullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist)<br> output class for List payloads |
-| static class | [NullableClass.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.Items1BoxedVoid](#items1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.Items1BoxedMap](#items1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.Items1BoxedVoid](#items1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.Items1BoxedMap](#items1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.Items1](#items1)<br> schema class |
-| static class | [NullableClass.ArrayNullablePropBoxed](#arraynullablepropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.ArrayNullablePropBoxedVoid](#arraynullablepropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.ArrayNullablePropBoxedList](#arraynullablepropboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [NullableClass.ArrayNullablePropBoxed](#arraynullablepropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.ArrayNullablePropBoxedVoid](#arraynullablepropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.ArrayNullablePropBoxedList](#arraynullablepropboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NullableClass.ArrayNullableProp](#arraynullableprop)<br> schema class |
 | static class | [NullableClass.ArrayNullablePropListBuilder](#arraynullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayNullablePropList](#arraynullableproplist)<br> output class for List payloads |
-| static class | [NullableClass.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.Items](#items)<br> schema class |
-| static class | [NullableClass.DatetimePropBoxed](#datetimepropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.DatetimePropBoxedVoid](#datetimepropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.DatetimePropBoxedString](#datetimepropboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [NullableClass.DatetimePropBoxed](#datetimepropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.DatetimePropBoxedVoid](#datetimepropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.DatetimePropBoxedString](#datetimepropboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableClass.DatetimeProp](#datetimeprop)<br> schema class |
-| static class | [NullableClass.DatePropBoxed](#datepropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.DatePropBoxedVoid](#datepropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.DatePropBoxedString](#datepropboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [NullableClass.DatePropBoxed](#datepropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.DatePropBoxedVoid](#datepropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.DatePropBoxedString](#datepropboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableClass.DateProp](#dateprop)<br> schema class |
-| static class | [NullableClass.StringPropBoxed](#stringpropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.StringPropBoxedVoid](#stringpropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.StringPropBoxedString](#stringpropboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [NullableClass.StringPropBoxed](#stringpropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.StringPropBoxedVoid](#stringpropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.StringPropBoxedString](#stringpropboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableClass.StringProp](#stringprop)<br> schema class |
-| static class | [NullableClass.BooleanPropBoxed](#booleanpropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.BooleanPropBoxedVoid](#booleanpropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.BooleanPropBoxedBoolean](#booleanpropboxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [NullableClass.BooleanPropBoxed](#booleanpropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.BooleanPropBoxedVoid](#booleanpropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.BooleanPropBoxedBoolean](#booleanpropboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [NullableClass.BooleanProp](#booleanprop)<br> schema class |
-| static class | [NullableClass.NumberPropBoxed](#numberpropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.NumberPropBoxedVoid](#numberpropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.NumberPropBoxedNumber](#numberpropboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [NullableClass.NumberPropBoxed](#numberpropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.NumberPropBoxedVoid](#numberpropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.NumberPropBoxedNumber](#numberpropboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NullableClass.NumberProp](#numberprop)<br> schema class |
-| static class | [NullableClass.IntegerPropBoxed](#integerpropboxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.IntegerPropBoxedVoid](#integerpropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.IntegerPropBoxedNumber](#integerpropboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [NullableClass.IntegerPropBoxed](#integerpropboxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.IntegerPropBoxedVoid](#integerpropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.IntegerPropBoxedNumber](#integerpropboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NullableClass.IntegerProp](#integerprop)<br> schema class |
-| static class | [NullableClass.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> abstract sealed validated payload class |
-| static class | [NullableClass.AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableClass.AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NullableClass.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> abstract sealed validated payload class |
+| record | [NullableClass.AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableClass.AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties3](#additionalproperties3)<br> schema class |
 
 ## NullableClass1Boxed
@@ -112,20 +112,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NullableClass1BoxedMap
-public static final class NullableClass1BoxedMap<br>
+public record NullableClass1BoxedMap<br>
 implements [NullableClass1Boxed](#nullableclass1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NullableClass1BoxedMap([NullableClassMap](#nullableclassmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NullableClassMap](#nullableclassmap) | data<br>validated payload |
+| [NullableClassMap](#nullableclassmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## NullableClass1
 public static class NullableClass1<br>
@@ -283,20 +284,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectItemsNullableBoxedMap
-public static final class ObjectItemsNullableBoxedMap<br>
+public record ObjectItemsNullableBoxedMap<br>
 implements [ObjectItemsNullableBoxed](#objectitemsnullableboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectItemsNullableBoxedMap([ObjectItemsNullableMap](#objectitemsnullablemap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectItemsNullableMap](#objectitemsnullablemap) | data<br>validated payload |
+| [ObjectItemsNullableMap](#objectitemsnullablemap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectItemsNullable
 public static class ObjectItemsNullable<br>
@@ -381,36 +383,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalProperties2BoxedVoid
-public static final class AdditionalProperties2BoxedVoid<br>
+public record AdditionalProperties2BoxedVoid<br>
 implements [AdditionalProperties2Boxed](#additionalproperties2boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalProperties2BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties2BoxedMap
-public static final class AdditionalProperties2BoxedMap<br>
+public record AdditionalProperties2BoxedMap<br>
 implements [AdditionalProperties2Boxed](#additionalproperties2boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -462,36 +466,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectAndItemsNullablePropBoxedVoid
-public static final class ObjectAndItemsNullablePropBoxedVoid<br>
+public record ObjectAndItemsNullablePropBoxedVoid<br>
 implements [ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectAndItemsNullablePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectAndItemsNullablePropBoxedMap
-public static final class ObjectAndItemsNullablePropBoxedMap<br>
+public record ObjectAndItemsNullablePropBoxedMap<br>
 implements [ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectAndItemsNullablePropBoxedMap([ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | data<br>validated payload |
+| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectAndItemsNullableProp
 public static class ObjectAndItemsNullableProp<br>
@@ -584,36 +590,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalProperties1BoxedVoid
-public static final class AdditionalProperties1BoxedVoid<br>
+public record AdditionalProperties1BoxedVoid<br>
 implements [AdditionalProperties1Boxed](#additionalproperties1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalProperties1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties1BoxedMap
-public static final class AdditionalProperties1BoxedMap<br>
+public record AdditionalProperties1BoxedMap<br>
 implements [AdditionalProperties1Boxed](#additionalproperties1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -665,36 +673,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectNullablePropBoxedVoid
-public static final class ObjectNullablePropBoxedVoid<br>
+public record ObjectNullablePropBoxedVoid<br>
 implements [ObjectNullablePropBoxed](#objectnullablepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectNullablePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectNullablePropBoxedMap
-public static final class ObjectNullablePropBoxedMap<br>
+public record ObjectNullablePropBoxedMap<br>
 implements [ObjectNullablePropBoxed](#objectnullablepropboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectNullablePropBoxedMap([ObjectNullablePropMap](#objectnullablepropmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectNullablePropMap](#objectnullablepropmap) | data<br>validated payload |
+| [ObjectNullablePropMap](#objectnullablepropmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectNullableProp
 public static class ObjectNullableProp<br>
@@ -783,20 +793,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedMap
-public static final class AdditionalPropertiesBoxedMap<br>
+public record AdditionalPropertiesBoxedMap<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
@@ -817,20 +828,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArrayItemsNullableBoxedList
-public static final class ArrayItemsNullableBoxedList<br>
+public record ArrayItemsNullableBoxedList<br>
 implements [ArrayItemsNullableBoxed](#arrayitemsnullableboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayItemsNullableBoxedList([ArrayItemsNullableList](#arrayitemsnullablelist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayItemsNullableList](#arrayitemsnullablelist) | data<br>validated payload |
+| [ArrayItemsNullableList](#arrayitemsnullablelist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayItemsNullable
 public static class ArrayItemsNullable<br>
@@ -915,36 +927,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Items2BoxedVoid
-public static final class Items2BoxedVoid<br>
+public record Items2BoxedVoid<br>
 implements [Items2Boxed](#items2boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items2BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items2BoxedMap
-public static final class Items2BoxedMap<br>
+public record Items2BoxedMap<br>
 implements [Items2Boxed](#items2boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items2BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items2
 public static class Items2<br>
@@ -996,36 +1010,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArrayAndItemsNullablePropBoxedVoid
-public static final class ArrayAndItemsNullablePropBoxedVoid<br>
+public record ArrayAndItemsNullablePropBoxedVoid<br>
 implements [ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayAndItemsNullablePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayAndItemsNullablePropBoxedList
-public static final class ArrayAndItemsNullablePropBoxedList<br>
+public record ArrayAndItemsNullablePropBoxedList<br>
 implements [ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayAndItemsNullablePropBoxedList([ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | data<br>validated payload |
+| [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayAndItemsNullableProp
 public static class ArrayAndItemsNullableProp<br>
@@ -1118,36 +1134,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Items1BoxedVoid
-public static final class Items1BoxedVoid<br>
+public record Items1BoxedVoid<br>
 implements [Items1Boxed](#items1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items1BoxedMap
-public static final class Items1BoxedMap<br>
+public record Items1BoxedMap<br>
 implements [Items1Boxed](#items1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items1
 public static class Items1<br>
@@ -1199,36 +1217,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArrayNullablePropBoxedVoid
-public static final class ArrayNullablePropBoxedVoid<br>
+public record ArrayNullablePropBoxedVoid<br>
 implements [ArrayNullablePropBoxed](#arraynullablepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayNullablePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayNullablePropBoxedList
-public static final class ArrayNullablePropBoxedList<br>
+public record ArrayNullablePropBoxedList<br>
 implements [ArrayNullablePropBoxed](#arraynullablepropboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayNullablePropBoxedList([ArrayNullablePropList](#arraynullableproplist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayNullablePropList](#arraynullableproplist) | data<br>validated payload |
+| [ArrayNullablePropList](#arraynullableproplist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayNullableProp
 public static class ArrayNullableProp<br>
@@ -1317,20 +1337,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedMap
-public static final class ItemsBoxedMap<br>
+public record ItemsBoxedMap<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items
 public static class Items<br>
@@ -1352,36 +1373,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DatetimePropBoxedVoid
-public static final class DatetimePropBoxedVoid<br>
+public record DatetimePropBoxedVoid<br>
 implements [DatetimePropBoxed](#datetimepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DatetimePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DatetimePropBoxedString
-public static final class DatetimePropBoxedString<br>
+public record DatetimePropBoxedString<br>
 implements [DatetimePropBoxed](#datetimepropboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DatetimePropBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DatetimeProp
 public static class DatetimeProp<br>
@@ -1440,36 +1463,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DatePropBoxedVoid
-public static final class DatePropBoxedVoid<br>
+public record DatePropBoxedVoid<br>
 implements [DatePropBoxed](#datepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DatePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DatePropBoxedString
-public static final class DatePropBoxedString<br>
+public record DatePropBoxedString<br>
 implements [DatePropBoxed](#datepropboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DatePropBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DateProp
 public static class DateProp<br>
@@ -1528,36 +1553,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## StringPropBoxedVoid
-public static final class StringPropBoxedVoid<br>
+public record StringPropBoxedVoid<br>
 implements [StringPropBoxed](#stringpropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## StringPropBoxedString
-public static final class StringPropBoxedString<br>
+public record StringPropBoxedString<br>
 implements [StringPropBoxed](#stringpropboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringPropBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## StringProp
 public static class StringProp<br>
@@ -1615,36 +1642,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## BooleanPropBoxedVoid
-public static final class BooleanPropBoxedVoid<br>
+public record BooleanPropBoxedVoid<br>
 implements [BooleanPropBoxed](#booleanpropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BooleanPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## BooleanPropBoxedBoolean
-public static final class BooleanPropBoxedBoolean<br>
+public record BooleanPropBoxedBoolean<br>
 implements [BooleanPropBoxed](#booleanpropboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BooleanPropBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## BooleanProp
 public static class BooleanProp<br>
@@ -1702,36 +1731,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NumberPropBoxedVoid
-public static final class NumberPropBoxedVoid<br>
+public record NumberPropBoxedVoid<br>
 implements [NumberPropBoxed](#numberpropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NumberPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## NumberPropBoxedNumber
-public static final class NumberPropBoxedNumber<br>
+public record NumberPropBoxedNumber<br>
 implements [NumberPropBoxed](#numberpropboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NumberPropBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## NumberProp
 public static class NumberProp<br>
@@ -1789,36 +1820,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IntegerPropBoxedVoid
-public static final class IntegerPropBoxedVoid<br>
+public record IntegerPropBoxedVoid<br>
 implements [IntegerPropBoxed](#integerpropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IntegerPropBoxedNumber
-public static final class IntegerPropBoxedNumber<br>
+public record IntegerPropBoxedNumber<br>
 implements [IntegerPropBoxed](#integerpropboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerPropBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IntegerProp
 public static class IntegerProp<br>
@@ -1877,36 +1910,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalProperties3BoxedVoid
-public static final class AdditionalProperties3BoxedVoid<br>
+public record AdditionalProperties3BoxedVoid<br>
 implements [AdditionalProperties3Boxed](#additionalproperties3boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalProperties3BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties3BoxedMap
-public static final class AdditionalProperties3BoxedMap<br>
+public record AdditionalProperties3BoxedMap<br>
 implements [AdditionalProperties3Boxed](#additionalproperties3boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalProperties3BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>

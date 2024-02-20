@@ -12,16 +12,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Animal.Animal1Boxed](#animal1boxed)<br> abstract sealed validated payload class |
-| static class | [Animal.Animal1BoxedMap](#animal1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Animal.Animal1Boxed](#animal1boxed)<br> abstract sealed validated payload class |
+| record | [Animal.Animal1BoxedMap](#animal1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Animal.Animal1](#animal1)<br> schema class |
 | static class | [Animal.AnimalMapBuilder](#animalmapbuilder)<br> builder for Map payloads |
 | static class | [Animal.AnimalMap](#animalmap)<br> output class for Map payloads |
-| static class | [Animal.ColorBoxed](#colorboxed)<br> abstract sealed validated payload class |
-| static class | [Animal.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Animal.ColorBoxed](#colorboxed)<br> abstract sealed validated payload class |
+| record | [Animal.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Animal.Color](#color)<br> schema class |
-| static class | [Animal.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
-| static class | [Animal.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Animal.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
+| record | [Animal.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Animal.ClassName](#classname)<br> schema class |
 
 ## Animal1Boxed
@@ -32,20 +32,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Animal1BoxedMap
-public static final class Animal1BoxedMap<br>
+public record Animal1BoxedMap<br>
 implements [Animal1Boxed](#animal1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Animal1BoxedMap([AnimalMap](#animalmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnimalMap](#animalmap) | data<br>validated payload |
+| [AnimalMap](#animalmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Animal1
 public static class Animal1<br>
@@ -158,20 +159,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ColorBoxedString
-public static final class ColorBoxedString<br>
+public record ColorBoxedString<br>
 implements [ColorBoxed](#colorboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ColorBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Color
 public static class Color<br>
@@ -221,20 +223,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ClassNameBoxedString
-public static final class ClassNameBoxedString<br>
+public record ClassNameBoxedString<br>
 implements [ClassNameBoxed](#classnameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ClassNameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ClassName
 public static class ClassName<br>

@@ -11,8 +11,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerEnumOneValue.IntegerEnumOneValue1Boxed](#integerenumonevalue1boxed)<br> abstract sealed validated payload class |
-| static class | [IntegerEnumOneValue.IntegerEnumOneValue1BoxedNumber](#integerenumonevalue1boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [IntegerEnumOneValue.IntegerEnumOneValue1Boxed](#integerenumonevalue1boxed)<br> abstract sealed validated payload class |
+| record | [IntegerEnumOneValue.IntegerEnumOneValue1BoxedNumber](#integerenumonevalue1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerEnumOneValue.IntegerEnumOneValue1](#integerenumonevalue1)<br> schema class |
 | enum | [IntegerEnumOneValue.IntegerIntegerEnumOneValueEnums](#integerintegerenumonevalueenums)<br>Integer enum |
 | enum | [IntegerEnumOneValue.LongIntegerEnumOneValueEnums](#longintegerenumonevalueenums)<br>Long enum |
@@ -27,20 +27,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IntegerEnumOneValue1BoxedNumber
-public static final class IntegerEnumOneValue1BoxedNumber<br>
+public record IntegerEnumOneValue1BoxedNumber<br>
 implements [IntegerEnumOneValue1Boxed](#integerenumonevalue1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerEnumOneValue1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IntegerEnumOneValue1
 public static class IntegerEnumOneValue1<br>

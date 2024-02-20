@@ -10,16 +10,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [FruitReq.FruitReq1Boxed](#fruitreq1boxed)<br> abstract sealed validated payload class |
-| static class | [FruitReq.FruitReq1BoxedVoid](#fruitreq1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [FruitReq.FruitReq1BoxedBoolean](#fruitreq1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [FruitReq.FruitReq1BoxedNumber](#fruitreq1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [FruitReq.FruitReq1BoxedString](#fruitreq1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [FruitReq.FruitReq1BoxedList](#fruitreq1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [FruitReq.FruitReq1BoxedMap](#fruitreq1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [FruitReq.FruitReq1Boxed](#fruitreq1boxed)<br> abstract sealed validated payload class |
+| record | [FruitReq.FruitReq1BoxedVoid](#fruitreq1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [FruitReq.FruitReq1BoxedBoolean](#fruitreq1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [FruitReq.FruitReq1BoxedNumber](#fruitreq1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [FruitReq.FruitReq1BoxedString](#fruitreq1boxedstring)<br> boxed class to store validated String payloads |
+| record | [FruitReq.FruitReq1BoxedList](#fruitreq1boxedlist)<br> boxed class to store validated List payloads |
+| record | [FruitReq.FruitReq1BoxedMap](#fruitreq1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FruitReq.FruitReq1](#fruitreq1)<br> schema class |
-| static class | [FruitReq.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
-| static class | [FruitReq.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| sealed interface | [FruitReq.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
+| record | [FruitReq.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [FruitReq.Schema0](#schema0)<br> schema class |
 
 ## FruitReq1Boxed
@@ -35,100 +35,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## FruitReq1BoxedVoid
-public static final class FruitReq1BoxedVoid<br>
+public record FruitReq1BoxedVoid<br>
 implements [FruitReq1Boxed](#fruitreq1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FruitReq1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FruitReq1BoxedBoolean
-public static final class FruitReq1BoxedBoolean<br>
+public record FruitReq1BoxedBoolean<br>
 implements [FruitReq1Boxed](#fruitreq1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FruitReq1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FruitReq1BoxedNumber
-public static final class FruitReq1BoxedNumber<br>
+public record FruitReq1BoxedNumber<br>
 implements [FruitReq1Boxed](#fruitreq1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FruitReq1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FruitReq1BoxedString
-public static final class FruitReq1BoxedString<br>
+public record FruitReq1BoxedString<br>
 implements [FruitReq1Boxed](#fruitreq1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FruitReq1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FruitReq1BoxedList
-public static final class FruitReq1BoxedList<br>
+public record FruitReq1BoxedList<br>
 implements [FruitReq1Boxed](#fruitreq1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FruitReq1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FruitReq1BoxedMap
-public static final class FruitReq1BoxedMap<br>
+public record FruitReq1BoxedMap<br>
 implements [FruitReq1Boxed](#fruitreq1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FruitReq1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FruitReq1
 public static class FruitReq1<br>
@@ -169,20 +175,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedVoid
-public static final class Schema0BoxedVoid<br>
+public record Schema0BoxedVoid<br>
 implements [Schema0Boxed](#schema0boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema0
 public static class Schema0<br>

@@ -13,29 +13,29 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [EnumTest.EnumTest1Boxed](#enumtest1boxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumTest1BoxedMap](#enumtest1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [EnumTest.EnumTest1Boxed](#enumtest1boxed)<br> abstract sealed validated payload class |
+| record | [EnumTest.EnumTest1BoxedMap](#enumtest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EnumTest.EnumTest1](#enumtest1)<br> schema class |
 | static class | [EnumTest.EnumTestMapBuilder](#enumtestmapbuilder)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
-| static class | [EnumTest.EnumNumberBoxed](#enumnumberboxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumNumberBoxedNumber](#enumnumberboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [EnumTest.EnumNumberBoxed](#enumnumberboxed)<br> abstract sealed validated payload class |
+| record | [EnumTest.EnumNumberBoxedNumber](#enumnumberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
 | enum | [EnumTest.DoubleEnumNumberEnums](#doubleenumnumberenums)<br>Double enum |
 | enum | [EnumTest.FloatEnumNumberEnums](#floatenumnumberenums)<br>Float enum |
-| static class | [EnumTest.EnumIntegerBoxed](#enumintegerboxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumIntegerBoxedNumber](#enumintegerboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [EnumTest.EnumIntegerBoxed](#enumintegerboxed)<br> abstract sealed validated payload class |
+| record | [EnumTest.EnumIntegerBoxedNumber](#enumintegerboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
 | enum | [EnumTest.IntegerEnumIntegerEnums](#integerenumintegerenums)<br>Integer enum |
 | enum | [EnumTest.LongEnumIntegerEnums](#longenumintegerenums)<br>Long enum |
 | enum | [EnumTest.FloatEnumIntegerEnums](#floatenumintegerenums)<br>Float enum |
 | enum | [EnumTest.DoubleEnumIntegerEnums](#doubleenumintegerenums)<br>Double enum |
-| static class | [EnumTest.EnumStringRequiredBoxed](#enumstringrequiredboxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [EnumTest.EnumStringRequiredBoxed](#enumstringrequiredboxed)<br> abstract sealed validated payload class |
+| record | [EnumTest.EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumTest.EnumStringRequired](#enumstringrequired)<br> schema class |
 | enum | [EnumTest.StringEnumStringRequiredEnums](#stringenumstringrequiredenums)<br>String enum |
-| static class | [EnumTest.EnumStringBoxed](#enumstringboxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumStringBoxedString](#enumstringboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [EnumTest.EnumStringBoxed](#enumstringboxed)<br> abstract sealed validated payload class |
+| record | [EnumTest.EnumStringBoxedString](#enumstringboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumTest.EnumString](#enumstring)<br> schema class |
 | enum | [EnumTest.StringEnumStringEnums](#stringenumstringenums)<br>String enum |
 
@@ -47,20 +47,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## EnumTest1BoxedMap
-public static final class EnumTest1BoxedMap<br>
+public record EnumTest1BoxedMap<br>
 implements [EnumTest1Boxed](#enumtest1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumTest1BoxedMap([EnumTestMap](#enumtestmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumTestMap](#enumtestmap) | data<br>validated payload |
+| [EnumTestMap](#enumtestmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## EnumTest1
 public static class EnumTest1<br>
@@ -228,20 +229,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## EnumNumberBoxedNumber
-public static final class EnumNumberBoxedNumber<br>
+public record EnumNumberBoxedNumber<br>
 implements [EnumNumberBoxed](#enumnumberboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumNumberBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## EnumNumber
 public static class EnumNumber<br>
@@ -316,20 +318,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## EnumIntegerBoxedNumber
-public static final class EnumIntegerBoxedNumber<br>
+public record EnumIntegerBoxedNumber<br>
 implements [EnumIntegerBoxed](#enumintegerboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumIntegerBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## EnumInteger
 public static class EnumInteger<br>
@@ -428,20 +431,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## EnumStringRequiredBoxedString
-public static final class EnumStringRequiredBoxedString<br>
+public record EnumStringRequiredBoxedString<br>
 implements [EnumStringRequiredBoxed](#enumstringrequiredboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumStringRequiredBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## EnumStringRequired
 public static class EnumStringRequired<br>
@@ -505,20 +509,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## EnumStringBoxedString
-public static final class EnumStringBoxedString<br>
+public record EnumStringBoxedString<br>
 implements [EnumStringBoxed](#enumstringboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumStringBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## EnumString
 public static class EnumString<br>

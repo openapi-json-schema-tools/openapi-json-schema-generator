@@ -12,38 +12,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)<br> abstract sealed validated payload class |
-| static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedVoid](#composedoneofdifferenttypes1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedBoolean](#composedoneofdifferenttypes1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedNumber](#composedoneofdifferenttypes1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedString](#composedoneofdifferenttypes1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedList](#composedoneofdifferenttypes1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedMap](#composedoneofdifferenttypes1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)<br> abstract sealed validated payload class |
+| record | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedVoid](#composedoneofdifferenttypes1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedBoolean](#composedoneofdifferenttypes1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedNumber](#composedoneofdifferenttypes1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedString](#composedoneofdifferenttypes1boxedstring)<br> boxed class to store validated String payloads |
+| record | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedList](#composedoneofdifferenttypes1boxedlist)<br> boxed class to store validated List payloads |
+| record | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1BoxedMap](#composedoneofdifferenttypes1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](#composedoneofdifferenttypes1)<br> schema class |
-| static class | [ComposedOneOfDifferentTypes.Schema6Boxed](#schema6boxed)<br> abstract sealed validated payload class |
-| static class | [ComposedOneOfDifferentTypes.Schema6BoxedString](#schema6boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ComposedOneOfDifferentTypes.Schema6Boxed](#schema6boxed)<br> abstract sealed validated payload class |
+| record | [ComposedOneOfDifferentTypes.Schema6BoxedString](#schema6boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema6](#schema6)<br> schema class |
-| static class | [ComposedOneOfDifferentTypes.Schema5Boxed](#schema5boxed)<br> abstract sealed validated payload class |
-| static class | [ComposedOneOfDifferentTypes.Schema5BoxedList](#schema5boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ComposedOneOfDifferentTypes.Schema5Boxed](#schema5boxed)<br> abstract sealed validated payload class |
+| record | [ComposedOneOfDifferentTypes.Schema5BoxedList](#schema5boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema5](#schema5)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema5ListBuilder](#schema5listbuilder)<br> builder for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema5List](#schema5list)<br> output class for List payloads |
-| static class | [ComposedOneOfDifferentTypes.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [ComposedOneOfDifferentTypes.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ComposedOneOfDifferentTypes.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [ComposedOneOfDifferentTypes.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ComposedOneOfDifferentTypes.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
-| static class | [ComposedOneOfDifferentTypes.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
-| static class | [ComposedOneOfDifferentTypes.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ComposedOneOfDifferentTypes.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| record | [ComposedOneOfDifferentTypes.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| record | [ComposedOneOfDifferentTypes.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [ComposedOneOfDifferentTypes.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| record | [ComposedOneOfDifferentTypes.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| record | [ComposedOneOfDifferentTypes.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| record | [ComposedOneOfDifferentTypes.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedOneOfDifferentTypes.Items](#items)<br> schema class |
-| static class | [ComposedOneOfDifferentTypes.Schema4Boxed](#schema4boxed)<br> abstract sealed validated payload class |
-| static class | [ComposedOneOfDifferentTypes.Schema4BoxedMap](#schema4boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ComposedOneOfDifferentTypes.Schema4Boxed](#schema4boxed)<br> abstract sealed validated payload class |
+| record | [ComposedOneOfDifferentTypes.Schema4BoxedMap](#schema4boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema4](#schema4)<br> schema class |
-| static class | [ComposedOneOfDifferentTypes.Schema3Boxed](#schema3boxed)<br> abstract sealed validated payload class |
-| static class | [ComposedOneOfDifferentTypes.Schema3BoxedString](#schema3boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ComposedOneOfDifferentTypes.Schema3Boxed](#schema3boxed)<br> abstract sealed validated payload class |
+| record | [ComposedOneOfDifferentTypes.Schema3BoxedString](#schema3boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema3](#schema3)<br> schema class |
-| static class | [ComposedOneOfDifferentTypes.Schema2Boxed](#schema2boxed)<br> abstract sealed validated payload class |
-| static class | [ComposedOneOfDifferentTypes.Schema2BoxedVoid](#schema2boxedvoid)<br> boxed class to store validated null payloads |
+| sealed interface | [ComposedOneOfDifferentTypes.Schema2Boxed](#schema2boxed)<br> abstract sealed validated payload class |
+| record | [ComposedOneOfDifferentTypes.Schema2BoxedVoid](#schema2boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema2](#schema2)<br> schema class |
 
 ## ComposedOneOfDifferentTypes1Boxed
@@ -59,100 +59,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ComposedOneOfDifferentTypes1BoxedVoid
-public static final class ComposedOneOfDifferentTypes1BoxedVoid<br>
+public record ComposedOneOfDifferentTypes1BoxedVoid<br>
 implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ComposedOneOfDifferentTypes1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ComposedOneOfDifferentTypes1BoxedBoolean
-public static final class ComposedOneOfDifferentTypes1BoxedBoolean<br>
+public record ComposedOneOfDifferentTypes1BoxedBoolean<br>
 implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ComposedOneOfDifferentTypes1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ComposedOneOfDifferentTypes1BoxedNumber
-public static final class ComposedOneOfDifferentTypes1BoxedNumber<br>
+public record ComposedOneOfDifferentTypes1BoxedNumber<br>
 implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ComposedOneOfDifferentTypes1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ComposedOneOfDifferentTypes1BoxedString
-public static final class ComposedOneOfDifferentTypes1BoxedString<br>
+public record ComposedOneOfDifferentTypes1BoxedString<br>
 implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ComposedOneOfDifferentTypes1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ComposedOneOfDifferentTypes1BoxedList
-public static final class ComposedOneOfDifferentTypes1BoxedList<br>
+public record ComposedOneOfDifferentTypes1BoxedList<br>
 implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ComposedOneOfDifferentTypes1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ComposedOneOfDifferentTypes1BoxedMap
-public static final class ComposedOneOfDifferentTypes1BoxedMap<br>
+public record ComposedOneOfDifferentTypes1BoxedMap<br>
 implements [ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ComposedOneOfDifferentTypes1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ComposedOneOfDifferentTypes1
 public static class ComposedOneOfDifferentTypes1<br>
@@ -196,20 +202,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema6BoxedString
-public static final class Schema6BoxedString<br>
+public record Schema6BoxedString<br>
 implements [Schema6Boxed](#schema6boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema6BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema6
 public static class Schema6<br>
@@ -260,20 +267,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema5BoxedList
-public static final class Schema5BoxedList<br>
+public record Schema5BoxedList<br>
 implements [Schema5Boxed](#schema5boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema5BoxedList([Schema5List](#schema5list) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema5List](#schema5list) | data<br>validated payload |
+| [Schema5List](#schema5list) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema5
 public static class Schema5<br>
@@ -369,100 +377,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedVoid
-public static final class ItemsBoxedVoid<br>
+public record ItemsBoxedVoid<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedBoolean
-public static final class ItemsBoxedBoolean<br>
+public record ItemsBoxedBoolean<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedNumber
-public static final class ItemsBoxedNumber<br>
+public record ItemsBoxedNumber<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedString
-public static final class ItemsBoxedString<br>
+public record ItemsBoxedString<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedList
-public static final class ItemsBoxedList<br>
+public record ItemsBoxedList<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedMap
-public static final class ItemsBoxedMap<br>
+public record ItemsBoxedMap<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items
 public static class Items<br>
@@ -483,20 +497,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema4BoxedMap
-public static final class Schema4BoxedMap<br>
+public record Schema4BoxedMap<br>
 implements [Schema4Boxed](#schema4boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema4BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema4
 public static class Schema4<br>
@@ -525,20 +540,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema3BoxedString
-public static final class Schema3BoxedString<br>
+public record Schema3BoxedString<br>
 implements [Schema3Boxed](#schema3boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema3BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema3
 public static class Schema3<br>
@@ -559,20 +575,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema2BoxedVoid
-public static final class Schema2BoxedVoid<br>
+public record Schema2BoxedVoid<br>
 implements [Schema2Boxed](#schema2boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema2BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema2
 public static class Schema2<br>

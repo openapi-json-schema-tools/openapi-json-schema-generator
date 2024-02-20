@@ -9,8 +9,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema7.Schema71Boxed](#schema71boxed)<br> abstract sealed validated payload class |
-| static class | [Schema7.Schema71BoxedString](#schema71boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Schema7.Schema71Boxed](#schema71boxed)<br> abstract sealed validated payload class |
+| record | [Schema7.Schema71BoxedString](#schema71boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema7.Schema71](#schema71)<br> schema class |
 
 ## Schema71Boxed
@@ -21,20 +21,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema71BoxedString
-public static final class Schema71BoxedString<br>
+public record Schema71BoxedString<br>
 implements [Schema71Boxed](#schema71boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema71BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema71
 public static class Schema71<br>

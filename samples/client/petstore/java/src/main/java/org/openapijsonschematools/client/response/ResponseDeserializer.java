@@ -7,9 +7,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-import com.google.gson.GsonBuilder;
-import com.google.gson.ToNumberPolicy;
-import com.google.gson.ToNumberStrategy;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.gson.Gson;
 
@@ -22,10 +19,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass> {
     private static final Pattern jsonContentTypePattern = Pattern.compile(
             "application/[^+]*[+]?(json);?.*"
     );
-    private static final Gson gson = new GsonBuilder()
-            .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
-            .setNumberToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
-            .create();
+    private static final Gson gson = new Gson();
     protected static final String textPlainContentType = "text/plain";
 
     public ResponseDeserializer(@Nullable Map<String, MediaType<?>> content) {

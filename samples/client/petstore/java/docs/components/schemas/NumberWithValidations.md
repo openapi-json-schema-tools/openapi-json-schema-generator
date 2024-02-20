@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NumberWithValidations.NumberWithValidations1Boxed](#numberwithvalidations1boxed)<br> abstract sealed validated payload class |
-| static class | [NumberWithValidations.NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [NumberWithValidations.NumberWithValidations1Boxed](#numberwithvalidations1boxed)<br> abstract sealed validated payload class |
+| record | [NumberWithValidations.NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberWithValidations.NumberWithValidations1](#numberwithvalidations1)<br> schema class |
 
 ## NumberWithValidations1Boxed
@@ -22,20 +22,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NumberWithValidations1BoxedNumber
-public static final class NumberWithValidations1BoxedNumber<br>
+public record NumberWithValidations1BoxedNumber<br>
 implements [NumberWithValidations1Boxed](#numberwithvalidations1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NumberWithValidations1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## NumberWithValidations1
 public static class NumberWithValidations1<br>

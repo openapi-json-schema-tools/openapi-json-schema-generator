@@ -890,6 +890,7 @@ src/main/java/org/openapijsonschematools/client/servers/server0/Variables.java
 src/main/java/org/openapijsonschematools/client/servers/server1/Variables.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/requestbody/RequestBodySerializerTest.java
+src/test/java/org/openapijsonschematools/client/response/ResponseDeserializerTest.java
 src/test/java/org/openapijsonschematools/client/schemas/AnyTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/ArrayTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/BooleanSchemaTest.java

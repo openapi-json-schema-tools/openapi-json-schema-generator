@@ -12,68 +12,68 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [User.User1Boxed](#user1boxed)<br> abstract sealed validated payload class |
-| static class | [User.User1BoxedMap](#user1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [User.User1Boxed](#user1boxed)<br> abstract sealed validated payload class |
+| record | [User.User1BoxedMap](#user1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.User1](#user1)<br> schema class |
 | static class | [User.UserMapBuilder](#usermapbuilder)<br> builder for Map payloads |
 | static class | [User.UserMap](#usermap)<br> output class for Map payloads |
-| static class | [User.AnyTypePropNullableBoxed](#anytypepropnullableboxed)<br> abstract sealed validated payload class |
-| static class | [User.AnyTypePropNullableBoxedVoid](#anytypepropnullableboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [User.AnyTypePropNullableBoxedBoolean](#anytypepropnullableboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [User.AnyTypePropNullableBoxedNumber](#anytypepropnullableboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [User.AnyTypePropNullableBoxedString](#anytypepropnullableboxedstring)<br> boxed class to store validated String payloads |
-| static class | [User.AnyTypePropNullableBoxedList](#anytypepropnullableboxedlist)<br> boxed class to store validated List payloads |
-| static class | [User.AnyTypePropNullableBoxedMap](#anytypepropnullableboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [User.AnyTypePropNullableBoxed](#anytypepropnullableboxed)<br> abstract sealed validated payload class |
+| record | [User.AnyTypePropNullableBoxedVoid](#anytypepropnullableboxedvoid)<br> boxed class to store validated null payloads |
+| record | [User.AnyTypePropNullableBoxedBoolean](#anytypepropnullableboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [User.AnyTypePropNullableBoxedNumber](#anytypepropnullableboxednumber)<br> boxed class to store validated Number payloads |
+| record | [User.AnyTypePropNullableBoxedString](#anytypepropnullableboxedstring)<br> boxed class to store validated String payloads |
+| record | [User.AnyTypePropNullableBoxedList](#anytypepropnullableboxedlist)<br> boxed class to store validated List payloads |
+| record | [User.AnyTypePropNullableBoxedMap](#anytypepropnullableboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.AnyTypePropNullable](#anytypepropnullable)<br> schema class |
-| static class | [User.AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)<br> abstract sealed validated payload class |
-| static class | [User.AnyTypeExceptNullPropBoxedVoid](#anytypeexceptnullpropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [User.AnyTypeExceptNullPropBoxedBoolean](#anytypeexceptnullpropboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [User.AnyTypeExceptNullPropBoxedNumber](#anytypeexceptnullpropboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [User.AnyTypeExceptNullPropBoxedString](#anytypeexceptnullpropboxedstring)<br> boxed class to store validated String payloads |
-| static class | [User.AnyTypeExceptNullPropBoxedList](#anytypeexceptnullpropboxedlist)<br> boxed class to store validated List payloads |
-| static class | [User.AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [User.AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)<br> abstract sealed validated payload class |
+| record | [User.AnyTypeExceptNullPropBoxedVoid](#anytypeexceptnullpropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [User.AnyTypeExceptNullPropBoxedBoolean](#anytypeexceptnullpropboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [User.AnyTypeExceptNullPropBoxedNumber](#anytypeexceptnullpropboxednumber)<br> boxed class to store validated Number payloads |
+| record | [User.AnyTypeExceptNullPropBoxedString](#anytypeexceptnullpropboxedstring)<br> boxed class to store validated String payloads |
+| record | [User.AnyTypeExceptNullPropBoxedList](#anytypeexceptnullpropboxedlist)<br> boxed class to store validated List payloads |
+| record | [User.AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.AnyTypeExceptNullProp](#anytypeexceptnullprop)<br> schema class |
-| static class | [User.NotBoxed](#notboxed)<br> abstract sealed validated payload class |
-| static class | [User.NotBoxedVoid](#notboxedvoid)<br> boxed class to store validated null payloads |
+| sealed interface | [User.NotBoxed](#notboxed)<br> abstract sealed validated payload class |
+| record | [User.NotBoxedVoid](#notboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [User.Not](#not)<br> schema class |
-| static class | [User.AnyTypePropBoxed](#anytypepropboxed)<br> abstract sealed validated payload class |
-| static class | [User.AnyTypePropBoxedVoid](#anytypepropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [User.AnyTypePropBoxedBoolean](#anytypepropboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [User.AnyTypePropBoxedNumber](#anytypepropboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [User.AnyTypePropBoxedString](#anytypepropboxedstring)<br> boxed class to store validated String payloads |
-| static class | [User.AnyTypePropBoxedList](#anytypepropboxedlist)<br> boxed class to store validated List payloads |
-| static class | [User.AnyTypePropBoxedMap](#anytypepropboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [User.AnyTypePropBoxed](#anytypepropboxed)<br> abstract sealed validated payload class |
+| record | [User.AnyTypePropBoxedVoid](#anytypepropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [User.AnyTypePropBoxedBoolean](#anytypepropboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [User.AnyTypePropBoxedNumber](#anytypepropboxednumber)<br> boxed class to store validated Number payloads |
+| record | [User.AnyTypePropBoxedString](#anytypepropboxedstring)<br> boxed class to store validated String payloads |
+| record | [User.AnyTypePropBoxedList](#anytypepropboxedlist)<br> boxed class to store validated List payloads |
+| record | [User.AnyTypePropBoxedMap](#anytypepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.AnyTypeProp](#anytypeprop)<br> schema class |
-| static class | [User.ObjectWithNoDeclaredPropsNullableBoxed](#objectwithnodeclaredpropsnullableboxed)<br> abstract sealed validated payload class |
-| static class | [User.ObjectWithNoDeclaredPropsNullableBoxedVoid](#objectwithnodeclaredpropsnullableboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [User.ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [User.ObjectWithNoDeclaredPropsNullableBoxed](#objectwithnodeclaredpropsnullableboxed)<br> abstract sealed validated payload class |
+| record | [User.ObjectWithNoDeclaredPropsNullableBoxedVoid](#objectwithnodeclaredpropsnullableboxedvoid)<br> boxed class to store validated null payloads |
+| record | [User.ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.ObjectWithNoDeclaredPropsNullable](#objectwithnodeclaredpropsnullable)<br> schema class |
-| static class | [User.ObjectWithNoDeclaredPropsBoxed](#objectwithnodeclaredpropsboxed)<br> abstract sealed validated payload class |
-| static class | [User.ObjectWithNoDeclaredPropsBoxedMap](#objectwithnodeclaredpropsboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [User.ObjectWithNoDeclaredPropsBoxed](#objectwithnodeclaredpropsboxed)<br> abstract sealed validated payload class |
+| record | [User.ObjectWithNoDeclaredPropsBoxedMap](#objectwithnodeclaredpropsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.ObjectWithNoDeclaredProps](#objectwithnodeclaredprops)<br> schema class |
-| static class | [User.UserStatusBoxed](#userstatusboxed)<br> abstract sealed validated payload class |
-| static class | [User.UserStatusBoxedNumber](#userstatusboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [User.UserStatusBoxed](#userstatusboxed)<br> abstract sealed validated payload class |
+| record | [User.UserStatusBoxedNumber](#userstatusboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [User.UserStatus](#userstatus)<br> schema class |
-| static class | [User.PhoneBoxed](#phoneboxed)<br> abstract sealed validated payload class |
-| static class | [User.PhoneBoxedString](#phoneboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [User.PhoneBoxed](#phoneboxed)<br> abstract sealed validated payload class |
+| record | [User.PhoneBoxedString](#phoneboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Phone](#phone)<br> schema class |
-| static class | [User.PasswordBoxed](#passwordboxed)<br> abstract sealed validated payload class |
-| static class | [User.PasswordBoxedString](#passwordboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [User.PasswordBoxed](#passwordboxed)<br> abstract sealed validated payload class |
+| record | [User.PasswordBoxedString](#passwordboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Password](#password)<br> schema class |
-| static class | [User.EmailBoxed](#emailboxed)<br> abstract sealed validated payload class |
-| static class | [User.EmailBoxedString](#emailboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [User.EmailBoxed](#emailboxed)<br> abstract sealed validated payload class |
+| record | [User.EmailBoxedString](#emailboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Email](#email)<br> schema class |
-| static class | [User.LastNameBoxed](#lastnameboxed)<br> abstract sealed validated payload class |
-| static class | [User.LastNameBoxedString](#lastnameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [User.LastNameBoxed](#lastnameboxed)<br> abstract sealed validated payload class |
+| record | [User.LastNameBoxedString](#lastnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.LastName](#lastname)<br> schema class |
-| static class | [User.FirstNameBoxed](#firstnameboxed)<br> abstract sealed validated payload class |
-| static class | [User.FirstNameBoxedString](#firstnameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [User.FirstNameBoxed](#firstnameboxed)<br> abstract sealed validated payload class |
+| record | [User.FirstNameBoxedString](#firstnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.FirstName](#firstname)<br> schema class |
-| static class | [User.UsernameBoxed](#usernameboxed)<br> abstract sealed validated payload class |
-| static class | [User.UsernameBoxedString](#usernameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [User.UsernameBoxed](#usernameboxed)<br> abstract sealed validated payload class |
+| record | [User.UsernameBoxedString](#usernameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Username](#username)<br> schema class |
-| static class | [User.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
-| static class | [User.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [User.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| record | [User.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [User.Id](#id)<br> schema class |
 
 ## User1Boxed
@@ -84,20 +84,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## User1BoxedMap
-public static final class User1BoxedMap<br>
+public record User1BoxedMap<br>
 implements [User1Boxed](#user1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | User1BoxedMap([UserMap](#usermap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserMap](#usermap) | data<br>validated payload |
+| [UserMap](#usermap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## User1
 public static class User1<br>
@@ -264,100 +265,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AnyTypePropNullableBoxedVoid
-public static final class AnyTypePropNullableBoxedVoid<br>
+public record AnyTypePropNullableBoxedVoid<br>
 implements [AnyTypePropNullableBoxed](#anytypepropnullableboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropNullableBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropNullableBoxedBoolean
-public static final class AnyTypePropNullableBoxedBoolean<br>
+public record AnyTypePropNullableBoxedBoolean<br>
 implements [AnyTypePropNullableBoxed](#anytypepropnullableboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropNullableBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropNullableBoxedNumber
-public static final class AnyTypePropNullableBoxedNumber<br>
+public record AnyTypePropNullableBoxedNumber<br>
 implements [AnyTypePropNullableBoxed](#anytypepropnullableboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropNullableBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropNullableBoxedString
-public static final class AnyTypePropNullableBoxedString<br>
+public record AnyTypePropNullableBoxedString<br>
 implements [AnyTypePropNullableBoxed](#anytypepropnullableboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropNullableBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropNullableBoxedList
-public static final class AnyTypePropNullableBoxedList<br>
+public record AnyTypePropNullableBoxedList<br>
 implements [AnyTypePropNullableBoxed](#anytypepropnullableboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropNullableBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropNullableBoxedMap
-public static final class AnyTypePropNullableBoxedMap<br>
+public record AnyTypePropNullableBoxedMap<br>
 implements [AnyTypePropNullableBoxed](#anytypepropnullableboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropNullableBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>
@@ -386,100 +393,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AnyTypeExceptNullPropBoxedVoid
-public static final class AnyTypeExceptNullPropBoxedVoid<br>
+public record AnyTypeExceptNullPropBoxedVoid<br>
 implements [AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeExceptNullPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypeExceptNullPropBoxedBoolean
-public static final class AnyTypeExceptNullPropBoxedBoolean<br>
+public record AnyTypeExceptNullPropBoxedBoolean<br>
 implements [AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeExceptNullPropBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypeExceptNullPropBoxedNumber
-public static final class AnyTypeExceptNullPropBoxedNumber<br>
+public record AnyTypeExceptNullPropBoxedNumber<br>
 implements [AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeExceptNullPropBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypeExceptNullPropBoxedString
-public static final class AnyTypeExceptNullPropBoxedString<br>
+public record AnyTypeExceptNullPropBoxedString<br>
 implements [AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeExceptNullPropBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypeExceptNullPropBoxedList
-public static final class AnyTypeExceptNullPropBoxedList<br>
+public record AnyTypeExceptNullPropBoxedList<br>
 implements [AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypeExceptNullPropBoxedMap
-public static final class AnyTypeExceptNullPropBoxedMap<br>
+public record AnyTypeExceptNullPropBoxedMap<br>
 implements [AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -523,20 +536,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NotBoxedVoid
-public static final class NotBoxedVoid<br>
+public record NotBoxedVoid<br>
 implements [NotBoxed](#notboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NotBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Not
 public static class Not<br>
@@ -562,100 +576,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AnyTypePropBoxedVoid
-public static final class AnyTypePropBoxedVoid<br>
+public record AnyTypePropBoxedVoid<br>
 implements [AnyTypePropBoxed](#anytypepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropBoxedBoolean
-public static final class AnyTypePropBoxedBoolean<br>
+public record AnyTypePropBoxedBoolean<br>
 implements [AnyTypePropBoxed](#anytypepropboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropBoxedNumber
-public static final class AnyTypePropBoxedNumber<br>
+public record AnyTypePropBoxedNumber<br>
 implements [AnyTypePropBoxed](#anytypepropboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropBoxedString
-public static final class AnyTypePropBoxedString<br>
+public record AnyTypePropBoxedString<br>
 implements [AnyTypePropBoxed](#anytypepropboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropBoxedList
-public static final class AnyTypePropBoxedList<br>
+public record AnyTypePropBoxedList<br>
 implements [AnyTypePropBoxed](#anytypepropboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypePropBoxedMap
-public static final class AnyTypePropBoxedMap<br>
+public record AnyTypePropBoxedMap<br>
 implements [AnyTypePropBoxed](#anytypepropboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypePropBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnyTypeProp
 public static class AnyTypeProp<br>
@@ -680,36 +700,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithNoDeclaredPropsNullableBoxedVoid
-public static final class ObjectWithNoDeclaredPropsNullableBoxedVoid<br>
+public record ObjectWithNoDeclaredPropsNullableBoxedVoid<br>
 implements [ObjectWithNoDeclaredPropsNullableBoxed](#objectwithnodeclaredpropsnullableboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithNoDeclaredPropsNullableBoxedMap
-public static final class ObjectWithNoDeclaredPropsNullableBoxedMap<br>
+public record ObjectWithNoDeclaredPropsNullableBoxedMap<br>
 implements [ObjectWithNoDeclaredPropsNullableBoxed](#objectwithnodeclaredpropsnullableboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithNoDeclaredPropsNullable
 public static class ObjectWithNoDeclaredPropsNullable<br>
@@ -763,20 +785,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithNoDeclaredPropsBoxedMap
-public static final class ObjectWithNoDeclaredPropsBoxedMap<br>
+public record ObjectWithNoDeclaredPropsBoxedMap<br>
 implements [ObjectWithNoDeclaredPropsBoxed](#objectwithnodeclaredpropsboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithNoDeclaredPropsBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>
@@ -800,20 +823,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## UserStatusBoxedNumber
-public static final class UserStatusBoxedNumber<br>
+public record UserStatusBoxedNumber<br>
 implements [UserStatusBoxed](#userstatusboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UserStatusBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## UserStatus
 public static class UserStatus<br>
@@ -837,20 +861,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## PhoneBoxedString
-public static final class PhoneBoxedString<br>
+public record PhoneBoxedString<br>
 implements [PhoneBoxed](#phoneboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PhoneBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Phone
 public static class Phone<br>
@@ -871,20 +896,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## PasswordBoxedString
-public static final class PasswordBoxedString<br>
+public record PasswordBoxedString<br>
 implements [PasswordBoxed](#passwordboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PasswordBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Password
 public static class Password<br>
@@ -905,20 +931,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## EmailBoxedString
-public static final class EmailBoxedString<br>
+public record EmailBoxedString<br>
 implements [EmailBoxed](#emailboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EmailBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Email
 public static class Email<br>
@@ -939,20 +966,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## LastNameBoxedString
-public static final class LastNameBoxedString<br>
+public record LastNameBoxedString<br>
 implements [LastNameBoxed](#lastnameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | LastNameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## LastName
 public static class LastName<br>
@@ -973,20 +1001,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## FirstNameBoxedString
-public static final class FirstNameBoxedString<br>
+public record FirstNameBoxedString<br>
 implements [FirstNameBoxed](#firstnameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FirstNameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FirstName
 public static class FirstName<br>
@@ -1007,20 +1036,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## UsernameBoxedString
-public static final class UsernameBoxedString<br>
+public record UsernameBoxedString<br>
 implements [UsernameBoxed](#usernameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UsernameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Username
 public static class Username<br>
@@ -1041,20 +1071,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
-public static final class IdBoxedNumber<br>
+public record IdBoxedNumber<br>
 implements [IdBoxed](#idboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Id
 public static class Id<br>

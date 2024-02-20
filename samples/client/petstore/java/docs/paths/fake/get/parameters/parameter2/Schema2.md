@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema2.Schema21Boxed](#schema21boxed)<br> abstract sealed validated payload class |
-| static class | [Schema2.Schema21BoxedList](#schema21boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [Schema2.Schema21Boxed](#schema21boxed)<br> abstract sealed validated payload class |
+| record | [Schema2.Schema21BoxedList](#schema21boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema2.Schema21](#schema21)<br> schema class |
 | static class | [Schema2.SchemaListBuilder2](#schemalistbuilder2)<br> builder for List payloads |
 | static class | [Schema2.SchemaList2](#schemalist2)<br> output class for List payloads |
-| static class | [Schema2.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
-| static class | [Schema2.Items2BoxedString](#items2boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Schema2.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
+| record | [Schema2.Items2BoxedString](#items2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema2.Items2](#items2)<br> schema class |
 | enum | [Schema2.StringItemsEnums2](#stringitemsenums2)<br>String enum |
 
@@ -30,20 +30,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema21BoxedList
-public static final class Schema21BoxedList<br>
+public record Schema21BoxedList<br>
 implements [Schema21Boxed](#schema21boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema21BoxedList([SchemaList2](#schemalist2) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaList2](#schemalist2) | data<br>validated payload |
+| [SchemaList2](#schemalist2) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema21
 public static class Schema21<br>
@@ -127,20 +128,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Items2BoxedString
-public static final class Items2BoxedString<br>
+public record Items2BoxedString<br>
 implements [Items2Boxed](#items2boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items2BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items2
 public static class Items2<br>

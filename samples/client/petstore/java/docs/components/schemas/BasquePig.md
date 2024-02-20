@@ -13,13 +13,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [BasquePig.BasquePig1Boxed](#basquepig1boxed)<br> abstract sealed validated payload class |
-| static class | [BasquePig.BasquePig1BoxedMap](#basquepig1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [BasquePig.BasquePig1Boxed](#basquepig1boxed)<br> abstract sealed validated payload class |
+| record | [BasquePig.BasquePig1BoxedMap](#basquepig1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [BasquePig.BasquePig1](#basquepig1)<br> schema class |
 | static class | [BasquePig.BasquePigMapBuilder](#basquepigmapbuilder)<br> builder for Map payloads |
 | static class | [BasquePig.BasquePigMap](#basquepigmap)<br> output class for Map payloads |
-| static class | [BasquePig.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
-| static class | [BasquePig.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [BasquePig.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
+| record | [BasquePig.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [BasquePig.ClassName](#classname)<br> schema class |
 | enum | [BasquePig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 
@@ -31,20 +31,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## BasquePig1BoxedMap
-public static final class BasquePig1BoxedMap<br>
+public record BasquePig1BoxedMap<br>
 implements [BasquePig1Boxed](#basquepig1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BasquePig1BoxedMap([BasquePigMap](#basquepigmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [BasquePigMap](#basquepigmap) | data<br>validated payload |
+| [BasquePigMap](#basquepigmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## BasquePig1
 public static class BasquePig1<br>
@@ -154,20 +155,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ClassNameBoxedString
-public static final class ClassNameBoxedString<br>
+public record ClassNameBoxedString<br>
 implements [ClassNameBoxed](#classnameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ClassNameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ClassName
 public static class ClassName<br>

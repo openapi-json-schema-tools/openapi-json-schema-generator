@@ -13,40 +13,40 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [MapTest.MapTest1Boxed](#maptest1boxed)<br> abstract sealed validated payload class |
-| static class | [MapTest.MapTest1BoxedMap](#maptest1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MapTest.MapTest1Boxed](#maptest1boxed)<br> abstract sealed validated payload class |
+| record | [MapTest.MapTest1BoxedMap](#maptest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.MapTest1](#maptest1)<br> schema class |
 | static class | [MapTest.MapTestMapBuilder](#maptestmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.MapTestMap](#maptestmap)<br> output class for Map payloads |
-| static class | [MapTest.DirectMapBoxed](#directmapboxed)<br> abstract sealed validated payload class |
-| static class | [MapTest.DirectMapBoxedMap](#directmapboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MapTest.DirectMapBoxed](#directmapboxed)<br> abstract sealed validated payload class |
+| record | [MapTest.DirectMapBoxedMap](#directmapboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.DirectMap](#directmap)<br> schema class |
 | static class | [MapTest.DirectMapMapBuilder](#directmapmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.DirectMapMap](#directmapmap)<br> output class for Map payloads |
-| static class | [MapTest.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> abstract sealed validated payload class |
-| static class | [MapTest.AdditionalProperties3BoxedBoolean](#additionalproperties3boxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [MapTest.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> abstract sealed validated payload class |
+| record | [MapTest.AdditionalProperties3BoxedBoolean](#additionalproperties3boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [MapTest.AdditionalProperties3](#additionalproperties3)<br> schema class |
-| static class | [MapTest.MapOfEnumStringBoxed](#mapofenumstringboxed)<br> abstract sealed validated payload class |
-| static class | [MapTest.MapOfEnumStringBoxedMap](#mapofenumstringboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MapTest.MapOfEnumStringBoxed](#mapofenumstringboxed)<br> abstract sealed validated payload class |
+| record | [MapTest.MapOfEnumStringBoxedMap](#mapofenumstringboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.MapOfEnumString](#mapofenumstring)<br> schema class |
 | static class | [MapTest.MapOfEnumStringMapBuilder](#mapofenumstringmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.MapOfEnumStringMap](#mapofenumstringmap)<br> output class for Map payloads |
-| static class | [MapTest.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> abstract sealed validated payload class |
-| static class | [MapTest.AdditionalProperties2BoxedString](#additionalproperties2boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [MapTest.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> abstract sealed validated payload class |
+| record | [MapTest.AdditionalProperties2BoxedString](#additionalproperties2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [MapTest.AdditionalProperties2](#additionalproperties2)<br> schema class |
 | enum | [MapTest.StringAdditionalPropertiesEnums](#stringadditionalpropertiesenums)<br>String enum |
-| static class | [MapTest.MapMapOfStringBoxed](#mapmapofstringboxed)<br> abstract sealed validated payload class |
-| static class | [MapTest.MapMapOfStringBoxedMap](#mapmapofstringboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MapTest.MapMapOfStringBoxed](#mapmapofstringboxed)<br> abstract sealed validated payload class |
+| record | [MapTest.MapMapOfStringBoxedMap](#mapmapofstringboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.MapMapOfString](#mapmapofstring)<br> schema class |
 | static class | [MapTest.MapMapOfStringMapBuilder](#mapmapofstringmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.MapMapOfStringMap](#mapmapofstringmap)<br> output class for Map payloads |
-| static class | [MapTest.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
-| static class | [MapTest.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MapTest.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| record | [MapTest.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.AdditionalProperties](#additionalproperties)<br> schema class |
 | static class | [MapTest.AdditionalPropertiesMapBuilder1](#additionalpropertiesmapbuilder1)<br> builder for Map payloads |
 | static class | [MapTest.AdditionalPropertiesMap](#additionalpropertiesmap)<br> output class for Map payloads |
-| static class | [MapTest.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> abstract sealed validated payload class |
-| static class | [MapTest.AdditionalProperties1BoxedString](#additionalproperties1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [MapTest.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> abstract sealed validated payload class |
+| record | [MapTest.AdditionalProperties1BoxedString](#additionalproperties1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [MapTest.AdditionalProperties1](#additionalproperties1)<br> schema class |
 
 ## MapTest1Boxed
@@ -57,20 +57,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## MapTest1BoxedMap
-public static final class MapTest1BoxedMap<br>
+public record MapTest1BoxedMap<br>
 implements [MapTest1Boxed](#maptest1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapTest1BoxedMap([MapTestMap](#maptestmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapTestMap](#maptestmap) | data<br>validated payload |
+| [MapTestMap](#maptestmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MapTest1
 public static class MapTest1<br>
@@ -196,20 +197,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DirectMapBoxedMap
-public static final class DirectMapBoxedMap<br>
+public record DirectMapBoxedMap<br>
 implements [DirectMapBoxed](#directmapboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DirectMapBoxedMap([DirectMapMap](#directmapmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [DirectMapMap](#directmapmap) | data<br>validated payload |
+| [DirectMapMap](#directmapmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DirectMap
 public static class DirectMap<br>
@@ -292,20 +294,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalProperties3BoxedBoolean
-public static final class AdditionalProperties3BoxedBoolean<br>
+public record AdditionalProperties3BoxedBoolean<br>
 implements [AdditionalProperties3Boxed](#additionalproperties3boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalProperties3BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
@@ -326,20 +329,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## MapOfEnumStringBoxedMap
-public static final class MapOfEnumStringBoxedMap<br>
+public record MapOfEnumStringBoxedMap<br>
 implements [MapOfEnumStringBoxed](#mapofenumstringboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapOfEnumStringBoxedMap([MapOfEnumStringMap](#mapofenumstringmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapOfEnumStringMap](#mapofenumstringmap) | data<br>validated payload |
+| [MapOfEnumStringMap](#mapofenumstringmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MapOfEnumString
 public static class MapOfEnumString<br>
@@ -423,20 +427,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalProperties2BoxedString
-public static final class AdditionalProperties2BoxedString<br>
+public record AdditionalProperties2BoxedString<br>
 implements [AdditionalProperties2Boxed](#additionalproperties2boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalProperties2BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -499,20 +504,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## MapMapOfStringBoxedMap
-public static final class MapMapOfStringBoxedMap<br>
+public record MapMapOfStringBoxedMap<br>
 implements [MapMapOfStringBoxed](#mapmapofstringboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapMapOfStringBoxedMap([MapMapOfStringMap](#mapmapofstringmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapMapOfStringMap](#mapmapofstringmap) | data<br>validated payload |
+| [MapMapOfStringMap](#mapmapofstringmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MapMapOfString
 public static class MapMapOfString<br>
@@ -602,20 +608,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedMap
-public static final class AdditionalPropertiesBoxedMap<br>
+public record AdditionalPropertiesBoxedMap<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedMap([AdditionalPropertiesMap](#additionalpropertiesmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesMap](#additionalpropertiesmap) | data<br>validated payload |
+| [AdditionalPropertiesMap](#additionalpropertiesmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
@@ -698,20 +705,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalProperties1BoxedString
-public static final class AdditionalProperties1BoxedString<br>
+public record AdditionalProperties1BoxedString<br>
 implements [AdditionalProperties1Boxed](#additionalproperties1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalProperties1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>

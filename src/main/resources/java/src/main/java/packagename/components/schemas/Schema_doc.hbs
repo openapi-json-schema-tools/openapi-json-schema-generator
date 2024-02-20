@@ -34,32 +34,32 @@ A class that contains necessary nested
 {{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
         {{#eq refInfo null }}
-| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})<br> abstract sealed validated payload class |
+| sealed interface | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})<br> abstract sealed validated payload class |
             {{#each types}}
                 {{#eq this "null"}}
-| static class | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}})<br> boxed class to store validated null payloads |
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}})<br> boxed class to store validated null payloads |
                 {{/eq}}
                 {{#eq this "boolean"}}
-| static class | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}})<br> boxed class to store validated boolean payloads |
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}})<br> boxed class to store validated boolean payloads |
                 {{/eq}}
                 {{#or (eq this "number") (eq this "integer")}}
-| static class | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}})<br> boxed class to store validated Number payloads |
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}})<br> boxed class to store validated Number payloads |
                 {{/or}}
                 {{#and (eq this "string") (neq ../format "binary") }}
-| static class | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}})<br> boxed class to store validated String payloads |
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}})<br> boxed class to store validated String payloads |
                 {{/and}}
                 {{#eq this "array"}}
-| static class | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}})<br> boxed class to store validated List payloads |
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}})<br> boxed class to store validated List payloads |
                 {{/eq}}{{#eq this "object"}}
-| static class | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}})<br> boxed class to store validated Map payloads |
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}})<br> boxed class to store validated Map payloads |
                 {{/eq}}
             {{else}}
-| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}})<br> boxed class to store validated null payloads |
-| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}})<br> boxed class to store validated boolean payloads |
-| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}})<br> boxed class to store validated Number payloads |
-| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}})<br> boxed class to store validated String payloads |
-| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}})<br> boxed class to store validated List payloads |
-| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}})<br> boxed class to store validated Map payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}})<br> boxed class to store validated null payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}})<br> boxed class to store validated boolean payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}})<br> boxed class to store validated Number payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}})<br> boxed class to store validated String payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}})<br> boxed class to store validated List payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}})<br> boxed class to store validated Map payloads |
             {{/each}}
         {{/eq}}
 | static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }})<br> schema class |

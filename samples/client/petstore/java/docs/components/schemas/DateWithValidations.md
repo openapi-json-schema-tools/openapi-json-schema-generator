@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [DateWithValidations.DateWithValidations1Boxed](#datewithvalidations1boxed)<br> abstract sealed validated payload class |
-| static class | [DateWithValidations.DateWithValidations1BoxedString](#datewithvalidations1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [DateWithValidations.DateWithValidations1Boxed](#datewithvalidations1boxed)<br> abstract sealed validated payload class |
+| record | [DateWithValidations.DateWithValidations1BoxedString](#datewithvalidations1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [DateWithValidations.DateWithValidations1](#datewithvalidations1)<br> schema class |
 
 ## DateWithValidations1Boxed
@@ -22,20 +22,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DateWithValidations1BoxedString
-public static final class DateWithValidations1BoxedString<br>
+public record DateWithValidations1BoxedString<br>
 implements [DateWithValidations1Boxed](#datewithvalidations1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DateWithValidations1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DateWithValidations1
 public static class DateWithValidations1<br>

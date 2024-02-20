@@ -14,41 +14,41 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ArrayTest.ArrayTest1Boxed](#arraytest1boxed)<br> abstract sealed validated payload class |
-| static class | [ArrayTest.ArrayTest1BoxedMap](#arraytest1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ArrayTest.ArrayTest1Boxed](#arraytest1boxed)<br> abstract sealed validated payload class |
+| record | [ArrayTest.ArrayTest1BoxedMap](#arraytest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ArrayTest.ArrayTest1](#arraytest1)<br> schema class |
 | static class | [ArrayTest.ArrayTestMapBuilder](#arraytestmapbuilder)<br> builder for Map payloads |
 | static class | [ArrayTest.ArrayTestMap](#arraytestmap)<br> output class for Map payloads |
-| static class | [ArrayTest.ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed)<br> abstract sealed validated payload class |
-| static class | [ArrayTest.ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ArrayTest.ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed)<br> abstract sealed validated payload class |
+| record | [ArrayTest.ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.ArrayArrayOfModel](#arrayarrayofmodel)<br> schema class |
 | static class | [ArrayTest.ArrayArrayOfModelListBuilder](#arrayarrayofmodellistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfModelList](#arrayarrayofmodellist)<br> output class for List payloads |
-| static class | [ArrayTest.Items3Boxed](#items3boxed)<br> abstract sealed validated payload class |
-| static class | [ArrayTest.Items3BoxedList](#items3boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ArrayTest.Items3Boxed](#items3boxed)<br> abstract sealed validated payload class |
+| record | [ArrayTest.Items3BoxedList](#items3boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.Items3](#items3)<br> schema class |
 | static class | [ArrayTest.ItemsListBuilder1](#itemslistbuilder1)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList1](#itemslist1)<br> output class for List payloads |
-| static class | [ArrayTest.ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed)<br> abstract sealed validated payload class |
-| static class | [ArrayTest.ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ArrayTest.ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed)<br> abstract sealed validated payload class |
+| record | [ArrayTest.ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.ArrayArrayOfInteger](#arrayarrayofinteger)<br> schema class |
 | static class | [ArrayTest.ArrayArrayOfIntegerListBuilder](#arrayarrayofintegerlistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfIntegerList](#arrayarrayofintegerlist)<br> output class for List payloads |
-| static class | [ArrayTest.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
-| static class | [ArrayTest.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ArrayTest.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
+| record | [ArrayTest.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.Items1](#items1)<br> schema class |
 | static class | [ArrayTest.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList](#itemslist)<br> output class for List payloads |
-| static class | [ArrayTest.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
-| static class | [ArrayTest.Items2BoxedNumber](#items2boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [ArrayTest.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
+| record | [ArrayTest.Items2BoxedNumber](#items2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ArrayTest.Items2](#items2)<br> schema class |
-| static class | [ArrayTest.ArrayOfStringBoxed](#arrayofstringboxed)<br> abstract sealed validated payload class |
-| static class | [ArrayTest.ArrayOfStringBoxedList](#arrayofstringboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ArrayTest.ArrayOfStringBoxed](#arrayofstringboxed)<br> abstract sealed validated payload class |
+| record | [ArrayTest.ArrayOfStringBoxedList](#arrayofstringboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.ArrayOfString](#arrayofstring)<br> schema class |
 | static class | [ArrayTest.ArrayOfStringListBuilder](#arrayofstringlistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayOfStringList](#arrayofstringlist)<br> output class for List payloads |
-| static class | [ArrayTest.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [ArrayTest.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ArrayTest.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| record | [ArrayTest.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ArrayTest.Items](#items)<br> schema class |
 
 ## ArrayTest1Boxed
@@ -59,20 +59,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArrayTest1BoxedMap
-public static final class ArrayTest1BoxedMap<br>
+public record ArrayTest1BoxedMap<br>
 implements [ArrayTest1Boxed](#arraytest1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayTest1BoxedMap([ArrayTestMap](#arraytestmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayTestMap](#arraytestmap) | data<br>validated payload |
+| [ArrayTestMap](#arraytestmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayTest1
 public static class ArrayTest1<br>
@@ -195,20 +196,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArrayArrayOfModelBoxedList
-public static final class ArrayArrayOfModelBoxedList<br>
+public record ArrayArrayOfModelBoxedList<br>
 implements [ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayArrayOfModelBoxedList([ArrayArrayOfModelList](#arrayarrayofmodellist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayArrayOfModelList](#arrayarrayofmodellist) | data<br>validated payload |
+| [ArrayArrayOfModelList](#arrayarrayofmodellist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayArrayOfModel
 public static class ArrayArrayOfModel<br>
@@ -303,20 +305,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Items3BoxedList
-public static final class Items3BoxedList<br>
+public record Items3BoxedList<br>
 implements [Items3Boxed](#items3boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items3BoxedList([ItemsList1](#itemslist1) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ItemsList1](#itemslist1) | data<br>validated payload |
+| [ItemsList1](#itemslist1) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items3
 public static class Items3<br>
@@ -409,20 +412,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArrayArrayOfIntegerBoxedList
-public static final class ArrayArrayOfIntegerBoxedList<br>
+public record ArrayArrayOfIntegerBoxedList<br>
 implements [ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayArrayOfIntegerBoxedList([ArrayArrayOfIntegerList](#arrayarrayofintegerlist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | data<br>validated payload |
+| [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayArrayOfInteger
 public static class ArrayArrayOfInteger<br>
@@ -508,20 +512,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Items1BoxedList
-public static final class Items1BoxedList<br>
+public record Items1BoxedList<br>
 implements [Items1Boxed](#items1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items1BoxedList([ItemsList](#itemslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ItemsList](#itemslist) | data<br>validated payload |
+| [ItemsList](#itemslist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items1
 public static class Items1<br>
@@ -607,20 +612,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Items2BoxedNumber
-public static final class Items2BoxedNumber<br>
+public record Items2BoxedNumber<br>
 implements [Items2Boxed](#items2boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items2BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items2
 public static class Items2<br>
@@ -641,20 +647,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArrayOfStringBoxedList
-public static final class ArrayOfStringBoxedList<br>
+public record ArrayOfStringBoxedList<br>
 implements [ArrayOfStringBoxed](#arrayofstringboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayOfStringBoxedList([ArrayOfStringList](#arrayofstringlist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayOfStringList](#arrayofstringlist) | data<br>validated payload |
+| [ArrayOfStringList](#arrayofstringlist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayOfString
 public static class ArrayOfString<br>
@@ -737,20 +744,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedString
-public static final class ItemsBoxedString<br>
+public record ItemsBoxedString<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items
 public static class Items<br>

@@ -37,22 +37,11 @@ public class RequestBody {
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody {}
-    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonSchema.AnyTypeJsonSchema1Boxed> {
-        private final String contentType;
-        private final ApplicationjsonSchema.AnyTypeJsonSchema1Boxed body;
-        public ApplicationjsonRequestBody(ApplicationjsonSchema.AnyTypeJsonSchema1Boxed body) {
-            contentType = "application/json";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationjsonRequestBody {}
+    public record ApplicationjsonRequestBody(ApplicationjsonSchema.AnyTypeJsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationjsonSchema.AnyTypeJsonSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationjsonSchema.AnyTypeJsonSchema1Boxed body() {
-            return body;
+            return "application/json";
         }
     }
 }

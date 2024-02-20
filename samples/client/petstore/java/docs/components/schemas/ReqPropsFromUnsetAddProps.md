@@ -12,8 +12,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed)<br> abstract sealed validated payload class |
-| static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed)<br> abstract sealed validated payload class |
+| record | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1](#reqpropsfromunsetaddprops1)<br> schema class |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMapBuilder](#reqpropsfromunsetaddpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap)<br> output class for Map payloads |
@@ -26,20 +26,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ReqPropsFromUnsetAddProps1BoxedMap
-public static final class ReqPropsFromUnsetAddProps1BoxedMap<br>
+public record ReqPropsFromUnsetAddProps1BoxedMap<br>
 implements [ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromUnsetAddProps1BoxedMap([ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | data<br>validated payload |
+| [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ReqPropsFromUnsetAddProps1
 public static class ReqPropsFromUnsetAddProps1<br>

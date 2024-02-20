@@ -37,22 +37,11 @@ public class RequestBody {
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits Applicationjsoncharsetutf8RequestBody {}
-    public static final class Applicationjsoncharsetutf8RequestBody extends SealedRequestBody implements GenericRequestBody<Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed> {
-        private final String contentType;
-        private final Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed body;
-        public Applicationjsoncharsetutf8RequestBody(Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed body) {
-            contentType = "application/json; charset=utf-8";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits Applicationjsoncharsetutf8RequestBody {}
+    public record Applicationjsoncharsetutf8RequestBody(Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed body() {
-            return body;
+            return "application/json; charset=utf-8";
         }
     }
 }

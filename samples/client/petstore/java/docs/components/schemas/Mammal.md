@@ -10,13 +10,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Mammal.Mammal1Boxed](#mammal1boxed)<br> abstract sealed validated payload class |
-| static class | [Mammal.Mammal1BoxedVoid](#mammal1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [Mammal.Mammal1BoxedBoolean](#mammal1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [Mammal.Mammal1BoxedNumber](#mammal1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [Mammal.Mammal1BoxedString](#mammal1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [Mammal.Mammal1BoxedList](#mammal1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [Mammal.Mammal1BoxedMap](#mammal1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Mammal.Mammal1Boxed](#mammal1boxed)<br> abstract sealed validated payload class |
+| record | [Mammal.Mammal1BoxedVoid](#mammal1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [Mammal.Mammal1BoxedBoolean](#mammal1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Mammal.Mammal1BoxedNumber](#mammal1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [Mammal.Mammal1BoxedString](#mammal1boxedstring)<br> boxed class to store validated String payloads |
+| record | [Mammal.Mammal1BoxedList](#mammal1boxedlist)<br> boxed class to store validated List payloads |
+| record | [Mammal.Mammal1BoxedMap](#mammal1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Mammal.Mammal1](#mammal1)<br> schema class |
 
 ## Mammal1Boxed
@@ -32,100 +32,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Mammal1BoxedVoid
-public static final class Mammal1BoxedVoid<br>
+public record Mammal1BoxedVoid<br>
 implements [Mammal1Boxed](#mammal1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Mammal1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Mammal1BoxedBoolean
-public static final class Mammal1BoxedBoolean<br>
+public record Mammal1BoxedBoolean<br>
 implements [Mammal1Boxed](#mammal1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Mammal1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Mammal1BoxedNumber
-public static final class Mammal1BoxedNumber<br>
+public record Mammal1BoxedNumber<br>
 implements [Mammal1Boxed](#mammal1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Mammal1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Mammal1BoxedString
-public static final class Mammal1BoxedString<br>
+public record Mammal1BoxedString<br>
 implements [Mammal1Boxed](#mammal1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Mammal1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Mammal1BoxedList
-public static final class Mammal1BoxedList<br>
+public record Mammal1BoxedList<br>
 implements [Mammal1Boxed](#mammal1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Mammal1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Mammal1BoxedMap
-public static final class Mammal1BoxedMap<br>
+public record Mammal1BoxedMap<br>
 implements [Mammal1Boxed](#mammal1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Mammal1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Mammal1
 public static class Mammal1<br>

@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [StringSchema.StringSchema1Boxed](#stringschema1boxed)<br> abstract sealed validated payload class |
-| static class | [StringSchema.StringSchema1BoxedString](#stringschema1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [StringSchema.StringSchema1Boxed](#stringschema1boxed)<br> abstract sealed validated payload class |
+| record | [StringSchema.StringSchema1BoxedString](#stringschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [StringSchema.StringSchema1](#stringschema1)<br> schema class |
 
 ## StringSchema1Boxed
@@ -22,20 +22,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## StringSchema1BoxedString
-public static final class StringSchema1BoxedString<br>
+public record StringSchema1BoxedString<br>
 implements [StringSchema1Boxed](#stringschema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringSchema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## StringSchema1
 public static class StringSchema1<br>

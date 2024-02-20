@@ -37,22 +37,11 @@ public class RequestBody {
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonpatchjsonRequestBody {}
-    public static final class ApplicationjsonpatchjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed> {
-        private final String contentType;
-        private final ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body;
-        public ApplicationjsonpatchjsonRequestBody(ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body) {
-            contentType = "application/json-patch+json";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationjsonpatchjsonRequestBody {}
+    public record ApplicationjsonpatchjsonRequestBody(ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body() {
-            return body;
+            return "application/json-patch+json";
         }
     }
 }

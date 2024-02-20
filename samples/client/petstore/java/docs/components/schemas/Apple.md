@@ -12,17 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Apple.Apple1Boxed](#apple1boxed)<br> abstract sealed validated payload class |
-| static class | [Apple.Apple1BoxedVoid](#apple1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [Apple.Apple1BoxedMap](#apple1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Apple.Apple1Boxed](#apple1boxed)<br> abstract sealed validated payload class |
+| record | [Apple.Apple1BoxedVoid](#apple1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [Apple.Apple1BoxedMap](#apple1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Apple.Apple1](#apple1)<br> schema class |
 | static class | [Apple.AppleMapBuilder](#applemapbuilder)<br> builder for Map payloads |
 | static class | [Apple.AppleMap](#applemap)<br> output class for Map payloads |
-| static class | [Apple.OriginBoxed](#originboxed)<br> abstract sealed validated payload class |
-| static class | [Apple.OriginBoxedString](#originboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Apple.OriginBoxed](#originboxed)<br> abstract sealed validated payload class |
+| record | [Apple.OriginBoxedString](#originboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Apple.Origin](#origin)<br> schema class |
-| static class | [Apple.CultivarBoxed](#cultivarboxed)<br> abstract sealed validated payload class |
-| static class | [Apple.CultivarBoxedString](#cultivarboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Apple.CultivarBoxed](#cultivarboxed)<br> abstract sealed validated payload class |
+| record | [Apple.CultivarBoxedString](#cultivarboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Apple.Cultivar](#cultivar)<br> schema class |
 
 ## Apple1Boxed
@@ -34,36 +34,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Apple1BoxedVoid
-public static final class Apple1BoxedVoid<br>
+public record Apple1BoxedVoid<br>
 implements [Apple1Boxed](#apple1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Apple1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Apple1BoxedMap
-public static final class Apple1BoxedMap<br>
+public record Apple1BoxedMap<br>
 implements [Apple1Boxed](#apple1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Apple1BoxedMap([AppleMap](#applemap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AppleMap](#applemap) | data<br>validated payload |
+| [AppleMap](#applemap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Apple1
 public static class Apple1<br>
@@ -184,20 +186,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## OriginBoxedString
-public static final class OriginBoxedString<br>
+public record OriginBoxedString<br>
 implements [OriginBoxed](#originboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | OriginBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Origin
 public static class Origin<br>
@@ -247,20 +250,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## CultivarBoxedString
-public static final class CultivarBoxedString<br>
+public record CultivarBoxedString<br>
 implements [CultivarBoxed](#cultivarboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CultivarBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Cultivar
 public static class Cultivar<br>

@@ -12,16 +12,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Tag.Tag1Boxed](#tag1boxed)<br> abstract sealed validated payload class |
-| static class | [Tag.Tag1BoxedMap](#tag1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Tag.Tag1Boxed](#tag1boxed)<br> abstract sealed validated payload class |
+| record | [Tag.Tag1BoxedMap](#tag1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Tag.Tag1](#tag1)<br> schema class |
 | static class | [Tag.TagMapBuilder](#tagmapbuilder)<br> builder for Map payloads |
 | static class | [Tag.TagMap](#tagmap)<br> output class for Map payloads |
-| static class | [Tag.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
-| static class | [Tag.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Tag.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| record | [Tag.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Tag.Name](#name)<br> schema class |
-| static class | [Tag.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
-| static class | [Tag.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Tag.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| record | [Tag.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Tag.Id](#id)<br> schema class |
 
 ## Tag1Boxed
@@ -32,20 +32,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Tag1BoxedMap
-public static final class Tag1BoxedMap<br>
+public record Tag1BoxedMap<br>
 implements [Tag1Boxed](#tag1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Tag1BoxedMap([TagMap](#tagmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [TagMap](#tagmap) | data<br>validated payload |
+| [TagMap](#tagmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Tag1
 public static class Tag1<br>
@@ -145,20 +146,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NameBoxedString
-public static final class NameBoxedString<br>
+public record NameBoxedString<br>
 implements [NameBoxed](#nameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Name
 public static class Name<br>
@@ -179,20 +181,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
-public static final class IdBoxedNumber<br>
+public record IdBoxedNumber<br>
 implements [IdBoxed](#idboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Id
 public static class Id<br>

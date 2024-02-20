@@ -37,22 +37,11 @@ public class RequestBody {
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationoctetstreamRequestBody {}
-    public static final class ApplicationoctetstreamRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationoctetstreamSchema.StringJsonSchema1Boxed> {
-        private final String contentType;
-        private final ApplicationoctetstreamSchema.StringJsonSchema1Boxed body;
-        public ApplicationoctetstreamRequestBody(ApplicationoctetstreamSchema.StringJsonSchema1Boxed body) {
-            contentType = "application/octet-stream";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationoctetstreamRequestBody {}
+    public record ApplicationoctetstreamRequestBody(ApplicationoctetstreamSchema.StringJsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationoctetstreamSchema.StringJsonSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationoctetstreamSchema.StringJsonSchema1Boxed body() {
-            return body;
+            return "application/octet-stream";
         }
     }
 }

@@ -11,13 +11,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema0.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
-| static class | [Schema0.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Schema0.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
+| record | [Schema0.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaMapBuilder0](#schemamapbuilder0)<br> builder for Map payloads |
 | static class | [Schema0.SchemaMap0](#schemamap0)<br> output class for Map payloads |
-| static class | [Schema0.Keyword0Boxed](#keyword0boxed)<br> abstract sealed validated payload class |
-| static class | [Schema0.Keyword0BoxedString](#keyword0boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Schema0.Keyword0Boxed](#keyword0boxed)<br> abstract sealed validated payload class |
+| record | [Schema0.Keyword0BoxedString](#keyword0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema0.Keyword0](#keyword0)<br> schema class |
 
 ## Schema01Boxed
@@ -28,20 +28,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema01BoxedMap
-public static final class Schema01BoxedMap<br>
+public record Schema01BoxedMap<br>
 implements [Schema01Boxed](#schema01boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema01BoxedMap([SchemaMap0](#schemamap0) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaMap0](#schemamap0) | data<br>validated payload |
+| [SchemaMap0](#schemamap0) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema01
 public static class Schema01<br>
@@ -134,20 +135,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Keyword0BoxedString
-public static final class Keyword0BoxedString<br>
+public record Keyword0BoxedString<br>
 implements [Keyword0Boxed](#keyword0boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Keyword0BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Keyword0
 public static class Keyword0<br>

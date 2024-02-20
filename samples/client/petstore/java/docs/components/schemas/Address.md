@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Address.Address1Boxed](#address1boxed)<br> abstract sealed validated payload class |
-| static class | [Address.Address1BoxedMap](#address1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Address.Address1Boxed](#address1boxed)<br> abstract sealed validated payload class |
+| record | [Address.Address1BoxedMap](#address1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Address.Address1](#address1)<br> schema class |
 | static class | [Address.AddressMapBuilder](#addressmapbuilder)<br> builder for Map payloads |
 | static class | [Address.AddressMap](#addressmap)<br> output class for Map payloads |
-| static class | [Address.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
-| static class | [Address.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Address.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| record | [Address.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Address1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Address1BoxedMap
-public static final class Address1BoxedMap<br>
+public record Address1BoxedMap<br>
 implements [Address1Boxed](#address1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Address1BoxedMap([AddressMap](#addressmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AddressMap](#addressmap) | data<br>validated payload |
+| [AddressMap](#addressmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Address1
 public static class Address1<br>
@@ -128,20 +129,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedNumber
-public static final class AdditionalPropertiesBoxedNumber<br>
+public record AdditionalPropertiesBoxedNumber<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

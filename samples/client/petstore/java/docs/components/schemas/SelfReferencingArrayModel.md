@@ -12,8 +12,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1Boxed](#selfreferencingarraymodel1boxed)<br> abstract sealed validated payload class |
-| static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [SelfReferencingArrayModel.SelfReferencingArrayModel1Boxed](#selfreferencingarraymodel1boxed)<br> abstract sealed validated payload class |
+| record | [SelfReferencingArrayModel.SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1](#selfreferencingarraymodel1)<br> schema class |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModelListBuilder](#selfreferencingarraymodellistbuilder)<br> builder for List payloads |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModelList](#selfreferencingarraymodellist)<br> output class for List payloads |
@@ -26,20 +26,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## SelfReferencingArrayModel1BoxedList
-public static final class SelfReferencingArrayModel1BoxedList<br>
+public record SelfReferencingArrayModel1BoxedList<br>
 implements [SelfReferencingArrayModel1Boxed](#selfreferencingarraymodel1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SelfReferencingArrayModel1BoxedList([SelfReferencingArrayModelList](#selfreferencingarraymodellist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | data<br>validated payload |
+| [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SelfReferencingArrayModel1
 public static class SelfReferencingArrayModel1<br>

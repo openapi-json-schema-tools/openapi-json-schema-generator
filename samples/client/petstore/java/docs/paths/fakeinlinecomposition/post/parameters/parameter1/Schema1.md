@@ -11,21 +11,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema1.Schema11Boxed](#schema11boxed)<br> abstract sealed validated payload class |
-| static class | [Schema1.Schema11BoxedMap](#schema11boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Schema1.Schema11Boxed](#schema11boxed)<br> abstract sealed validated payload class |
+| record | [Schema1.Schema11BoxedMap](#schema11boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema1.Schema11](#schema11)<br> schema class |
 | static class | [Schema1.SchemaMapBuilder1](#schemamapbuilder1)<br> builder for Map payloads |
 | static class | [Schema1.SchemaMap1](#schemamap1)<br> output class for Map payloads |
-| static class | [Schema1.SomeProp1Boxed](#someprop1boxed)<br> abstract sealed validated payload class |
-| static class | [Schema1.SomeProp1BoxedVoid](#someprop1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [Schema1.SomeProp1BoxedBoolean](#someprop1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [Schema1.SomeProp1BoxedNumber](#someprop1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [Schema1.SomeProp1BoxedString](#someprop1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [Schema1.SomeProp1BoxedList](#someprop1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [Schema1.SomeProp1BoxedMap](#someprop1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Schema1.SomeProp1Boxed](#someprop1boxed)<br> abstract sealed validated payload class |
+| record | [Schema1.SomeProp1BoxedVoid](#someprop1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [Schema1.SomeProp1BoxedBoolean](#someprop1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Schema1.SomeProp1BoxedNumber](#someprop1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [Schema1.SomeProp1BoxedString](#someprop1boxedstring)<br> boxed class to store validated String payloads |
+| record | [Schema1.SomeProp1BoxedList](#someprop1boxedlist)<br> boxed class to store validated List payloads |
+| record | [Schema1.SomeProp1BoxedMap](#someprop1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema1.SomeProp1](#someprop1)<br> schema class |
-| static class | [Schema1.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
-| static class | [Schema1.Schema01BoxedString](#schema01boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Schema1.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
+| record | [Schema1.Schema01BoxedString](#schema01boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema1.Schema01](#schema01)<br> schema class |
 
 ## Schema11Boxed
@@ -36,20 +36,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema11BoxedMap
-public static final class Schema11BoxedMap<br>
+public record Schema11BoxedMap<br>
 implements [Schema11Boxed](#schema11boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema11BoxedMap([SchemaMap1](#schemamap1) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaMap1](#schemamap1) | data<br>validated payload |
+| [SchemaMap1](#schemamap1) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema11
 public static class Schema11<br>
@@ -153,100 +154,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## SomeProp1BoxedVoid
-public static final class SomeProp1BoxedVoid<br>
+public record SomeProp1BoxedVoid<br>
 implements [SomeProp1Boxed](#someprop1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomeProp1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomeProp1BoxedBoolean
-public static final class SomeProp1BoxedBoolean<br>
+public record SomeProp1BoxedBoolean<br>
 implements [SomeProp1Boxed](#someprop1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomeProp1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomeProp1BoxedNumber
-public static final class SomeProp1BoxedNumber<br>
+public record SomeProp1BoxedNumber<br>
 implements [SomeProp1Boxed](#someprop1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomeProp1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomeProp1BoxedString
-public static final class SomeProp1BoxedString<br>
+public record SomeProp1BoxedString<br>
 implements [SomeProp1Boxed](#someprop1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomeProp1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomeProp1BoxedList
-public static final class SomeProp1BoxedList<br>
+public record SomeProp1BoxedList<br>
 implements [SomeProp1Boxed](#someprop1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomeProp1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomeProp1BoxedMap
-public static final class SomeProp1BoxedMap<br>
+public record SomeProp1BoxedMap<br>
 implements [SomeProp1Boxed](#someprop1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomeProp1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomeProp1
 public static class SomeProp1<br>
@@ -287,20 +294,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema01BoxedString
-public static final class Schema01BoxedString<br>
+public record Schema01BoxedString<br>
 implements [Schema01Boxed](#schema01boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema01BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema01
 public static class Schema01<br>

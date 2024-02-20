@@ -9,7 +9,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed](#applicationoctetstreamschema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed](#applicationoctetstreamschema1boxed)<br> abstract sealed validated payload class |
 | static class | [ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1](#applicationoctetstreamschema1)<br> schema class |
 
 ## ApplicationoctetstreamSchema1Boxed

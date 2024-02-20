@@ -49,39 +49,17 @@ public class RequestBody {
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody, MultipartformdataRequestBody {}
-    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
-        private final String contentType;
-        private final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
-        public ApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
-            contentType = "application/json";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationjsonRequestBody, MultipartformdataRequestBody {}
+    public record ApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationjsonSchema.ApplicationjsonSchema1Boxed body() {
-            return body;
+            return "application/json";
         }
     }
-    public static final class MultipartformdataRequestBody extends SealedRequestBody implements GenericRequestBody<MultipartformdataSchema.MultipartformdataSchema1Boxed> {
-        private final String contentType;
-        private final MultipartformdataSchema.MultipartformdataSchema1Boxed body;
-        public MultipartformdataRequestBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) {
-            contentType = "multipart/form-data";
-            this.body = body;
-        }
+    public record MultipartformdataRequestBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<MultipartformdataSchema.MultipartformdataSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public MultipartformdataSchema.MultipartformdataSchema1Boxed body() {
-            return body;
+            return "multipart/form-data";
         }
     }
 }

@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Player.Player1Boxed](#player1boxed)<br> abstract sealed validated payload class |
-| static class | [Player.Player1BoxedMap](#player1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Player.Player1Boxed](#player1boxed)<br> abstract sealed validated payload class |
+| record | [Player.Player1BoxedMap](#player1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Player.Player1](#player1)<br> schema class |
 | static class | [Player.PlayerMapBuilder](#playermapbuilder)<br> builder for Map payloads |
 | static class | [Player.PlayerMap](#playermap)<br> output class for Map payloads |
-| static class | [Player.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
-| static class | [Player.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Player.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| record | [Player.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Player.Name](#name)<br> schema class |
 
 ## Player1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Player1BoxedMap
-public static final class Player1BoxedMap<br>
+public record Player1BoxedMap<br>
 implements [Player1Boxed](#player1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Player1BoxedMap([PlayerMap](#playermap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PlayerMap](#playermap) | data<br>validated payload |
+| [PlayerMap](#playermap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Player1
 public static class Player1<br>
@@ -140,20 +141,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NameBoxedString
-public static final class NameBoxedString<br>
+public record NameBoxedString<br>
 implements [NameBoxed](#nameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Name
 public static class Name<br>

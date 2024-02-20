@@ -11,9 +11,9 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [StringEnum.StringEnum1Boxed](#stringenum1boxed)<br> abstract sealed validated payload class |
-| static class | [StringEnum.StringEnum1BoxedVoid](#stringenum1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [StringEnum.StringEnum1BoxedString](#stringenum1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [StringEnum.StringEnum1Boxed](#stringenum1boxed)<br> abstract sealed validated payload class |
+| record | [StringEnum.StringEnum1BoxedVoid](#stringenum1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [StringEnum.StringEnum1BoxedString](#stringenum1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [StringEnum.StringEnum1](#stringenum1)<br> schema class |
 | enum | [StringEnum.StringStringEnumEnums](#stringstringenumenums)<br>String enum |
 | enum | [StringEnum.NullStringEnumEnums](#nullstringenumenums)<br>null enum |
@@ -27,36 +27,38 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## StringEnum1BoxedVoid
-public static final class StringEnum1BoxedVoid<br>
+public record StringEnum1BoxedVoid<br>
 implements [StringEnum1Boxed](#stringenum1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringEnum1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## StringEnum1BoxedString
-public static final class StringEnum1BoxedString<br>
+public record StringEnum1BoxedString<br>
 implements [StringEnum1Boxed](#stringenum1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringEnum1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## StringEnum1
 public static class StringEnum1<br>

@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [GrandparentAnimal.GrandparentAnimal1Boxed](#grandparentanimal1boxed)<br> abstract sealed validated payload class |
-| static class | [GrandparentAnimal.GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [GrandparentAnimal.GrandparentAnimal1Boxed](#grandparentanimal1boxed)<br> abstract sealed validated payload class |
+| record | [GrandparentAnimal.GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimal1](#grandparentanimal1)<br> schema class |
 | static class | [GrandparentAnimal.GrandparentAnimalMapBuilder](#grandparentanimalmapbuilder)<br> builder for Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimalMap](#grandparentanimalmap)<br> output class for Map payloads |
-| static class | [GrandparentAnimal.PetTypeBoxed](#pettypeboxed)<br> abstract sealed validated payload class |
-| static class | [GrandparentAnimal.PetTypeBoxedString](#pettypeboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [GrandparentAnimal.PetTypeBoxed](#pettypeboxed)<br> abstract sealed validated payload class |
+| record | [GrandparentAnimal.PetTypeBoxedString](#pettypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
 
 ## GrandparentAnimal1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## GrandparentAnimal1BoxedMap
-public static final class GrandparentAnimal1BoxedMap<br>
+public record GrandparentAnimal1BoxedMap<br>
 implements [GrandparentAnimal1Boxed](#grandparentanimal1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | GrandparentAnimal1BoxedMap([GrandparentAnimalMap](#grandparentanimalmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [GrandparentAnimalMap](#grandparentanimalmap) | data<br>validated payload |
+| [GrandparentAnimalMap](#grandparentanimalmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## GrandparentAnimal1
 public static class GrandparentAnimal1<br>
@@ -151,20 +152,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## PetTypeBoxedString
-public static final class PetTypeBoxedString<br>
+public record PetTypeBoxedString<br>
 implements [PetTypeBoxed](#pettypeboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PetTypeBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## PetType
 public static class PetType<br>

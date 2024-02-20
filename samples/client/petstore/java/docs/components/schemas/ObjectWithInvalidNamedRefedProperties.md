@@ -12,8 +12,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1Boxed](#objectwithinvalidnamedrefedproperties1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1BoxedMap](#objectwithinvalidnamedrefedproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1Boxed](#objectwithinvalidnamedrefedproperties1boxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1BoxedMap](#objectwithinvalidnamedrefedproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1](#objectwithinvalidnamedrefedproperties1)<br> schema class |
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMapBuilder](#objectwithinvalidnamedrefedpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap)<br> output class for Map payloads |
@@ -26,20 +26,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithInvalidNamedRefedProperties1BoxedMap
-public static final class ObjectWithInvalidNamedRefedProperties1BoxedMap<br>
+public record ObjectWithInvalidNamedRefedProperties1BoxedMap<br>
 implements [ObjectWithInvalidNamedRefedProperties1Boxed](#objectwithinvalidnamedrefedproperties1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithInvalidNamedRefedProperties1BoxedMap([ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | data<br>validated payload |
+| [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithInvalidNamedRefedProperties1
 public static class ObjectWithInvalidNamedRefedProperties1<br>

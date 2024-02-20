@@ -12,21 +12,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1Boxed](#mixedpropertiesandadditionalpropertiesclass1boxed)<br> abstract sealed validated payload class |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1BoxedMap](#mixedpropertiesandadditionalpropertiesclass1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1Boxed](#mixedpropertiesandadditionalpropertiesclass1boxed)<br> abstract sealed validated payload class |
+| record | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1BoxedMap](#mixedpropertiesandadditionalpropertiesclass1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1](#mixedpropertiesandadditionalpropertiesclass1)<br> schema class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder)<br> builder for Map payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap)<br> output class for Map payloads |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.MapSchemaBoxed](#mapschemaboxed)<br> abstract sealed validated payload class |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.MapSchemaBoxedMap](#mapschemaboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MixedPropertiesAndAdditionalPropertiesClass.MapSchemaBoxed](#mapschemaboxed)<br> abstract sealed validated payload class |
+| record | [MixedPropertiesAndAdditionalPropertiesClass.MapSchemaBoxedMap](#mapschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MapSchema](#mapschema)<br> schema class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MapMapBuilder](#mapmapbuilder)<br> builder for Map payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MapMap](#mapmap)<br> output class for Map payloads |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.DateTimeBoxed](#datetimeboxed)<br> abstract sealed validated payload class |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.DateTimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [MixedPropertiesAndAdditionalPropertiesClass.DateTimeBoxed](#datetimeboxed)<br> abstract sealed validated payload class |
+| record | [MixedPropertiesAndAdditionalPropertiesClass.DateTimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.DateTime](#datetime)<br> schema class |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchemaBoxed](#uuidschemaboxed)<br> abstract sealed validated payload class |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchemaBoxed](#uuidschemaboxed)<br> abstract sealed validated payload class |
+| record | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchema](#uuidschema)<br> schema class |
 
 ## MixedPropertiesAndAdditionalPropertiesClass1Boxed
@@ -37,20 +37,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## MixedPropertiesAndAdditionalPropertiesClass1BoxedMap
-public static final class MixedPropertiesAndAdditionalPropertiesClass1BoxedMap<br>
+public record MixedPropertiesAndAdditionalPropertiesClass1BoxedMap<br>
 implements [MixedPropertiesAndAdditionalPropertiesClass1Boxed](#mixedpropertiesandadditionalpropertiesclass1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MixedPropertiesAndAdditionalPropertiesClass1BoxedMap([MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | data<br>validated payload |
+| [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MixedPropertiesAndAdditionalPropertiesClass1
 public static class MixedPropertiesAndAdditionalPropertiesClass1<br>
@@ -165,20 +166,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## MapSchemaBoxedMap
-public static final class MapSchemaBoxedMap<br>
+public record MapSchemaBoxedMap<br>
 implements [MapSchemaBoxed](#mapschemaboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapSchemaBoxedMap([MapMap](#mapmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapMap](#mapmap) | data<br>validated payload |
+| [MapMap](#mapmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MapSchema
 public static class MapSchema<br>
@@ -272,20 +274,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DateTimeBoxedString
-public static final class DateTimeBoxedString<br>
+public record DateTimeBoxedString<br>
 implements [DateTimeBoxed](#datetimeboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DateTimeBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DateTime
 public static class DateTime<br>
@@ -306,20 +309,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## UuidSchemaBoxedString
-public static final class UuidSchemaBoxedString<br>
+public record UuidSchemaBoxedString<br>
 implements [UuidSchemaBoxed](#uuidschemaboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UuidSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>

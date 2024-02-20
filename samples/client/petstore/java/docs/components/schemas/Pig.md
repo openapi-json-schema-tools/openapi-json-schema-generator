@@ -10,13 +10,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Pig.Pig1Boxed](#pig1boxed)<br> abstract sealed validated payload class |
-| static class | [Pig.Pig1BoxedVoid](#pig1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [Pig.Pig1BoxedBoolean](#pig1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [Pig.Pig1BoxedNumber](#pig1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [Pig.Pig1BoxedString](#pig1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [Pig.Pig1BoxedList](#pig1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [Pig.Pig1BoxedMap](#pig1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Pig.Pig1Boxed](#pig1boxed)<br> abstract sealed validated payload class |
+| record | [Pig.Pig1BoxedVoid](#pig1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [Pig.Pig1BoxedBoolean](#pig1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Pig.Pig1BoxedNumber](#pig1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [Pig.Pig1BoxedString](#pig1boxedstring)<br> boxed class to store validated String payloads |
+| record | [Pig.Pig1BoxedList](#pig1boxedlist)<br> boxed class to store validated List payloads |
+| record | [Pig.Pig1BoxedMap](#pig1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Pig.Pig1](#pig1)<br> schema class |
 
 ## Pig1Boxed
@@ -32,100 +32,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Pig1BoxedVoid
-public static final class Pig1BoxedVoid<br>
+public record Pig1BoxedVoid<br>
 implements [Pig1Boxed](#pig1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Pig1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Pig1BoxedBoolean
-public static final class Pig1BoxedBoolean<br>
+public record Pig1BoxedBoolean<br>
 implements [Pig1Boxed](#pig1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Pig1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Pig1BoxedNumber
-public static final class Pig1BoxedNumber<br>
+public record Pig1BoxedNumber<br>
 implements [Pig1Boxed](#pig1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Pig1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Pig1BoxedString
-public static final class Pig1BoxedString<br>
+public record Pig1BoxedString<br>
 implements [Pig1Boxed](#pig1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Pig1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Pig1BoxedList
-public static final class Pig1BoxedList<br>
+public record Pig1BoxedList<br>
 implements [Pig1Boxed](#pig1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Pig1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Pig1BoxedMap
-public static final class Pig1BoxedMap<br>
+public record Pig1BoxedMap<br>
 implements [Pig1Boxed](#pig1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Pig1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Pig1
 public static class Pig1<br>

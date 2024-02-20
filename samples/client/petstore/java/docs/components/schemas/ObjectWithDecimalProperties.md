@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1Boxed](#objectwithdecimalproperties1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1Boxed](#objectwithdecimalproperties1boxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1](#objectwithdecimalproperties1)<br> schema class |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap)<br> output class for Map payloads |
-| static class | [ObjectWithDecimalProperties.WidthBoxed](#widthboxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithDecimalProperties.WidthBoxedString](#widthboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ObjectWithDecimalProperties.WidthBoxed](#widthboxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithDecimalProperties.WidthBoxedString](#widthboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithDecimalProperties.Width](#width)<br> schema class |
 
 ## ObjectWithDecimalProperties1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithDecimalProperties1BoxedMap
-public static final class ObjectWithDecimalProperties1BoxedMap<br>
+public record ObjectWithDecimalProperties1BoxedMap<br>
 implements [ObjectWithDecimalProperties1Boxed](#objectwithdecimalproperties1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithDecimalProperties1BoxedMap([ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | data<br>validated payload |
+| [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithDecimalProperties1
 public static class ObjectWithDecimalProperties1<br>
@@ -153,20 +154,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## WidthBoxedString
-public static final class WidthBoxedString<br>
+public record WidthBoxedString<br>
 implements [WidthBoxed](#widthboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | WidthBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Width
 public static class Width<br>

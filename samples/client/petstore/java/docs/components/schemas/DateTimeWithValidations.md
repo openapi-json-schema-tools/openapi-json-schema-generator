@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [DateTimeWithValidations.DateTimeWithValidations1Boxed](#datetimewithvalidations1boxed)<br> abstract sealed validated payload class |
-| static class | [DateTimeWithValidations.DateTimeWithValidations1BoxedString](#datetimewithvalidations1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [DateTimeWithValidations.DateTimeWithValidations1Boxed](#datetimewithvalidations1boxed)<br> abstract sealed validated payload class |
+| record | [DateTimeWithValidations.DateTimeWithValidations1BoxedString](#datetimewithvalidations1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [DateTimeWithValidations.DateTimeWithValidations1](#datetimewithvalidations1)<br> schema class |
 
 ## DateTimeWithValidations1Boxed
@@ -22,20 +22,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DateTimeWithValidations1BoxedString
-public static final class DateTimeWithValidations1BoxedString<br>
+public record DateTimeWithValidations1BoxedString<br>
 implements [DateTimeWithValidations1Boxed](#datetimewithvalidations1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DateTimeWithValidations1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DateTimeWithValidations1
 public static class DateTimeWithValidations1<br>

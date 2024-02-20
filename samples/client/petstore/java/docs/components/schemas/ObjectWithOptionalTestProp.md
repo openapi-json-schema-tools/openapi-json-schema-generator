@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1](#objectwithoptionaltestprop1)<br> schema class |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap)<br> output class for Map payloads |
-| static class | [ObjectWithOptionalTestProp.TestBoxed](#testboxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithOptionalTestProp.TestBoxedString](#testboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ObjectWithOptionalTestProp.TestBoxed](#testboxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithOptionalTestProp.TestBoxedString](#testboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithOptionalTestProp.Test](#test)<br> schema class |
 
 ## ObjectWithOptionalTestProp1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithOptionalTestProp1BoxedMap
-public static final class ObjectWithOptionalTestProp1BoxedMap<br>
+public record ObjectWithOptionalTestProp1BoxedMap<br>
 implements [ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithOptionalTestProp1BoxedMap([ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | data<br>validated payload |
+| [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithOptionalTestProp1
 public static class ObjectWithOptionalTestProp1<br>
@@ -135,20 +136,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## TestBoxedString
-public static final class TestBoxedString<br>
+public record TestBoxedString<br>
 implements [TestBoxed](#testboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | TestBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Test
 public static class Test<br>

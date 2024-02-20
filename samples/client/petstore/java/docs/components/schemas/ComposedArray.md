@@ -12,18 +12,18 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ComposedArray.ComposedArray1Boxed](#composedarray1boxed)<br> abstract sealed validated payload class |
-| static class | [ComposedArray.ComposedArray1BoxedList](#composedarray1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ComposedArray.ComposedArray1Boxed](#composedarray1boxed)<br> abstract sealed validated payload class |
+| record | [ComposedArray.ComposedArray1BoxedList](#composedarray1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ComposedArray.ComposedArray1](#composedarray1)<br> schema class |
 | static class | [ComposedArray.ComposedArrayListBuilder](#composedarraylistbuilder)<br> builder for List payloads |
 | static class | [ComposedArray.ComposedArrayList](#composedarraylist)<br> output class for List payloads |
-| static class | [ComposedArray.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [ComposedArray.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ComposedArray.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [ComposedArray.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ComposedArray.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
-| static class | [ComposedArray.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
-| static class | [ComposedArray.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ComposedArray.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| record | [ComposedArray.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| record | [ComposedArray.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [ComposedArray.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| record | [ComposedArray.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| record | [ComposedArray.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| record | [ComposedArray.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedArray.Items](#items)<br> schema class |
 
 ## ComposedArray1Boxed
@@ -34,20 +34,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ComposedArray1BoxedList
-public static final class ComposedArray1BoxedList<br>
+public record ComposedArray1BoxedList<br>
 implements [ComposedArray1Boxed](#composedarray1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ComposedArray1BoxedList([ComposedArrayList](#composedarraylist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ComposedArrayList](#composedarraylist) | data<br>validated payload |
+| [ComposedArrayList](#composedarraylist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ComposedArray1
 public static class ComposedArray1<br>
@@ -141,100 +142,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedVoid
-public static final class ItemsBoxedVoid<br>
+public record ItemsBoxedVoid<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedBoolean
-public static final class ItemsBoxedBoolean<br>
+public record ItemsBoxedBoolean<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedNumber
-public static final class ItemsBoxedNumber<br>
+public record ItemsBoxedNumber<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedString
-public static final class ItemsBoxedString<br>
+public record ItemsBoxedString<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedList
-public static final class ItemsBoxedList<br>
+public record ItemsBoxedList<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ItemsBoxedMap
-public static final class ItemsBoxedMap<br>
+public record ItemsBoxedMap<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items
 public static class Items<br>

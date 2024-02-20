@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [SpecialModelname.SpecialModelname1Boxed](#specialmodelname1boxed)<br> abstract sealed validated payload class |
-| static class | [SpecialModelname.SpecialModelname1BoxedMap](#specialmodelname1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [SpecialModelname.SpecialModelname1Boxed](#specialmodelname1boxed)<br> abstract sealed validated payload class |
+| record | [SpecialModelname.SpecialModelname1BoxedMap](#specialmodelname1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [SpecialModelname.SpecialModelname1](#specialmodelname1)<br> schema class |
 | static class | [SpecialModelname.SpecialModelnameMapBuilder](#specialmodelnamemapbuilder)<br> builder for Map payloads |
 | static class | [SpecialModelname.SpecialModelnameMap](#specialmodelnamemap)<br> output class for Map payloads |
-| static class | [SpecialModelname.ABoxed](#aboxed)<br> abstract sealed validated payload class |
-| static class | [SpecialModelname.ABoxedString](#aboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [SpecialModelname.ABoxed](#aboxed)<br> abstract sealed validated payload class |
+| record | [SpecialModelname.ABoxedString](#aboxedstring)<br> boxed class to store validated String payloads |
 | static class | [SpecialModelname.A](#a)<br> schema class |
 
 ## SpecialModelname1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## SpecialModelname1BoxedMap
-public static final class SpecialModelname1BoxedMap<br>
+public record SpecialModelname1BoxedMap<br>
 implements [SpecialModelname1Boxed](#specialmodelname1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SpecialModelname1BoxedMap([SpecialModelnameMap](#specialmodelnamemap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SpecialModelnameMap](#specialmodelnamemap) | data<br>validated payload |
+| [SpecialModelnameMap](#specialmodelnamemap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SpecialModelname1
 public static class SpecialModelname1<br>
@@ -138,20 +139,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ABoxedString
-public static final class ABoxedString<br>
+public record ABoxedString<br>
 implements [ABoxed](#aboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ABoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## A
 public static class A<br>

@@ -17,8 +17,8 @@ import java.util.concurrent.Flow;
 
 public final class RequestBodySerializerTest {
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody, TextplainRequestBody {}
-    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<@Nullable Object> {
+    public sealed interface SealedRequestBody permits ApplicationjsonRequestBody, TextplainRequestBody {}
+    public static final class ApplicationjsonRequestBody implements SealedRequestBody, GenericRequestBody<@Nullable Object> {
         private final String contentType;
         private final @Nullable Object body;
         public ApplicationjsonRequestBody(@Nullable Object body) {
@@ -35,7 +35,7 @@ public final class RequestBodySerializerTest {
             return body;
         }
     }
-    public static final class TextplainRequestBody extends SealedRequestBody implements GenericRequestBody<@Nullable Object> {
+    public static final class TextplainRequestBody implements SealedRequestBody, GenericRequestBody<@Nullable Object> {
         private final String contentType;
         private final @Nullable Object body;
         public TextplainRequestBody(@Nullable Object body) {

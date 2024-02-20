@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema5.Schema51Boxed](#schema51boxed)<br> abstract sealed validated payload class |
-| static class | [Schema5.Schema51BoxedNumber](#schema51boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Schema5.Schema51Boxed](#schema51boxed)<br> abstract sealed validated payload class |
+| record | [Schema5.Schema51BoxedNumber](#schema51boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema5.Schema51](#schema51)<br> schema class |
 | enum | [Schema5.DoubleSchemaEnums5](#doubleschemaenums5)<br>Double enum |
 | enum | [Schema5.FloatSchemaEnums5](#floatschemaenums5)<br>Float enum |
@@ -24,20 +24,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema51BoxedNumber
-public static final class Schema51BoxedNumber<br>
+public record Schema51BoxedNumber<br>
 implements [Schema51Boxed](#schema51boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema51BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema51
 public static class Schema51<br>

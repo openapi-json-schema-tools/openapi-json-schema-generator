@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjWithRequiredProps.ObjWithRequiredProps1Boxed](#objwithrequiredprops1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjWithRequiredProps.ObjWithRequiredProps1BoxedMap](#objwithrequiredprops1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjWithRequiredProps.ObjWithRequiredProps1Boxed](#objwithrequiredprops1boxed)<br> abstract sealed validated payload class |
+| record | [ObjWithRequiredProps.ObjWithRequiredProps1BoxedMap](#objwithrequiredprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjWithRequiredProps.ObjWithRequiredProps1](#objwithrequiredprops1)<br> schema class |
 | static class | [ObjWithRequiredProps.ObjWithRequiredPropsMapBuilder](#objwithrequiredpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjWithRequiredProps.ObjWithRequiredPropsMap](#objwithrequiredpropsmap)<br> output class for Map payloads |
-| static class | [ObjWithRequiredProps.ABoxed](#aboxed)<br> abstract sealed validated payload class |
-| static class | [ObjWithRequiredProps.ABoxedString](#aboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ObjWithRequiredProps.ABoxed](#aboxed)<br> abstract sealed validated payload class |
+| record | [ObjWithRequiredProps.ABoxedString](#aboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjWithRequiredProps.A](#a)<br> schema class |
 
 ## ObjWithRequiredProps1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjWithRequiredProps1BoxedMap
-public static final class ObjWithRequiredProps1BoxedMap<br>
+public record ObjWithRequiredProps1BoxedMap<br>
 implements [ObjWithRequiredProps1Boxed](#objwithrequiredprops1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjWithRequiredProps1BoxedMap([ObjWithRequiredPropsMap](#objwithrequiredpropsmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjWithRequiredPropsMap](#objwithrequiredpropsmap) | data<br>validated payload |
+| [ObjWithRequiredPropsMap](#objwithrequiredpropsmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjWithRequiredProps1
 public static class ObjWithRequiredProps1<br>
@@ -152,20 +153,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ABoxedString
-public static final class ABoxedString<br>
+public record ABoxedString<br>
 implements [ABoxed](#aboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ABoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## A
 public static class A<br>

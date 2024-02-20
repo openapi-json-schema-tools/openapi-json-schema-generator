@@ -12,8 +12,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [AnimalFarm.AnimalFarm1Boxed](#animalfarm1boxed)<br> abstract sealed validated payload class |
-| static class | [AnimalFarm.AnimalFarm1BoxedList](#animalfarm1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [AnimalFarm.AnimalFarm1Boxed](#animalfarm1boxed)<br> abstract sealed validated payload class |
+| record | [AnimalFarm.AnimalFarm1BoxedList](#animalfarm1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnimalFarm.AnimalFarm1](#animalfarm1)<br> schema class |
 | static class | [AnimalFarm.AnimalFarmListBuilder](#animalfarmlistbuilder)<br> builder for List payloads |
 | static class | [AnimalFarm.AnimalFarmList](#animalfarmlist)<br> output class for List payloads |
@@ -26,20 +26,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AnimalFarm1BoxedList
-public static final class AnimalFarm1BoxedList<br>
+public record AnimalFarm1BoxedList<br>
 implements [AnimalFarm1Boxed](#animalfarm1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnimalFarm1BoxedList([AnimalFarmList](#animalfarmlist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnimalFarmList](#animalfarmlist) | data<br>validated payload |
+| [AnimalFarmList](#animalfarmlist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AnimalFarm1
 public static class AnimalFarm1<br>

@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [DecimalPayload.DecimalPayload1Boxed](#decimalpayload1boxed)<br> abstract sealed validated payload class |
-| static class | [DecimalPayload.DecimalPayload1BoxedString](#decimalpayload1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [DecimalPayload.DecimalPayload1Boxed](#decimalpayload1boxed)<br> abstract sealed validated payload class |
+| record | [DecimalPayload.DecimalPayload1BoxedString](#decimalpayload1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [DecimalPayload.DecimalPayload1](#decimalpayload1)<br> schema class |
 
 ## DecimalPayload1Boxed
@@ -22,20 +22,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DecimalPayload1BoxedString
-public static final class DecimalPayload1BoxedString<br>
+public record DecimalPayload1BoxedString<br>
 implements [DecimalPayload1Boxed](#decimalpayload1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DecimalPayload1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DecimalPayload1
 public static class DecimalPayload1<br>

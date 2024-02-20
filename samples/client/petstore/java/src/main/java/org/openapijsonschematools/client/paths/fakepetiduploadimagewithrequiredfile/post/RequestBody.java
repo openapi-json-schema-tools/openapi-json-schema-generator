@@ -37,22 +37,11 @@ public class RequestBody {
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits MultipartformdataRequestBody {}
-    public static final class MultipartformdataRequestBody extends SealedRequestBody implements GenericRequestBody<MultipartformdataSchema.MultipartformdataSchema1Boxed> {
-        private final String contentType;
-        private final MultipartformdataSchema.MultipartformdataSchema1Boxed body;
-        public MultipartformdataRequestBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) {
-            contentType = "multipart/form-data";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits MultipartformdataRequestBody {}
+    public record MultipartformdataRequestBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<MultipartformdataSchema.MultipartformdataSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public MultipartformdataSchema.MultipartformdataSchema1Boxed body() {
-            return body;
+            return "multipart/form-data";
         }
     }
 }

@@ -12,21 +12,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Cat.Cat1Boxed](#cat1boxed)<br> abstract sealed validated payload class |
-| static class | [Cat.Cat1BoxedVoid](#cat1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [Cat.Cat1BoxedBoolean](#cat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [Cat.Cat1BoxedNumber](#cat1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [Cat.Cat1BoxedString](#cat1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [Cat.Cat1BoxedList](#cat1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [Cat.Cat1BoxedMap](#cat1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Cat.Cat1Boxed](#cat1boxed)<br> abstract sealed validated payload class |
+| record | [Cat.Cat1BoxedVoid](#cat1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [Cat.Cat1BoxedBoolean](#cat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Cat.Cat1BoxedNumber](#cat1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [Cat.Cat1BoxedString](#cat1boxedstring)<br> boxed class to store validated String payloads |
+| record | [Cat.Cat1BoxedList](#cat1boxedlist)<br> boxed class to store validated List payloads |
+| record | [Cat.Cat1BoxedMap](#cat1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Cat.Cat1](#cat1)<br> schema class |
-| static class | [Cat.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
-| static class | [Cat.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Cat.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| record | [Cat.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Cat.Schema1](#schema1)<br> schema class |
 | static class | [Cat.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [Cat.Schema1Map](#schema1map)<br> output class for Map payloads |
-| static class | [Cat.DeclawedBoxed](#declawedboxed)<br> abstract sealed validated payload class |
-| static class | [Cat.DeclawedBoxedBoolean](#declawedboxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [Cat.DeclawedBoxed](#declawedboxed)<br> abstract sealed validated payload class |
+| record | [Cat.DeclawedBoxedBoolean](#declawedboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Cat.Declawed](#declawed)<br> schema class |
 
 ## Cat1Boxed
@@ -42,100 +42,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Cat1BoxedVoid
-public static final class Cat1BoxedVoid<br>
+public record Cat1BoxedVoid<br>
 implements [Cat1Boxed](#cat1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Cat1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Cat1BoxedBoolean
-public static final class Cat1BoxedBoolean<br>
+public record Cat1BoxedBoolean<br>
 implements [Cat1Boxed](#cat1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Cat1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Cat1BoxedNumber
-public static final class Cat1BoxedNumber<br>
+public record Cat1BoxedNumber<br>
 implements [Cat1Boxed](#cat1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Cat1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Cat1BoxedString
-public static final class Cat1BoxedString<br>
+public record Cat1BoxedString<br>
 implements [Cat1Boxed](#cat1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Cat1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Cat1BoxedList
-public static final class Cat1BoxedList<br>
+public record Cat1BoxedList<br>
 implements [Cat1Boxed](#cat1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Cat1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Cat1BoxedMap
-public static final class Cat1BoxedMap<br>
+public record Cat1BoxedMap<br>
 implements [Cat1Boxed](#cat1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Cat1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Cat1
 public static class Cat1<br>
@@ -176,20 +182,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
-public static final class Schema1BoxedMap<br>
+public record Schema1BoxedMap<br>
 implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | data<br>validated payload |
+| [Schema1Map](#schema1map) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -282,20 +289,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DeclawedBoxedBoolean
-public static final class DeclawedBoxedBoolean<br>
+public record DeclawedBoxedBoolean<br>
 implements [DeclawedBoxed](#declawedboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DeclawedBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Declawed
 public static class Declawed<br>

@@ -9,8 +9,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ApplicationxmlSchema.ApplicationxmlSchema1Boxed](#applicationxmlschema1boxed)<br> abstract sealed validated payload class |
-| static class | [ApplicationxmlSchema.ApplicationxmlSchema1BoxedString](#applicationxmlschema1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ApplicationxmlSchema.ApplicationxmlSchema1Boxed](#applicationxmlschema1boxed)<br> abstract sealed validated payload class |
+| record | [ApplicationxmlSchema.ApplicationxmlSchema1BoxedString](#applicationxmlschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxmlSchema.ApplicationxmlSchema1](#applicationxmlschema1)<br> schema class |
 
 ## ApplicationxmlSchema1Boxed
@@ -21,20 +21,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxmlSchema1BoxedString
-public static final class ApplicationxmlSchema1BoxedString<br>
+public record ApplicationxmlSchema1BoxedString<br>
 implements [ApplicationxmlSchema1Boxed](#applicationxmlschema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ApplicationxmlSchema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ApplicationxmlSchema1
 public static class ApplicationxmlSchema1<br>

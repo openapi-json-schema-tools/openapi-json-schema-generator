@@ -9,8 +9,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [XExpiresAfterSchema.XExpiresAfterSchema1Boxed](#xexpiresafterschema1boxed)<br> abstract sealed validated payload class |
-| static class | [XExpiresAfterSchema.XExpiresAfterSchema1BoxedString](#xexpiresafterschema1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [XExpiresAfterSchema.XExpiresAfterSchema1Boxed](#xexpiresafterschema1boxed)<br> abstract sealed validated payload class |
+| record | [XExpiresAfterSchema.XExpiresAfterSchema1BoxedString](#xexpiresafterschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [XExpiresAfterSchema.XExpiresAfterSchema1](#xexpiresafterschema1)<br> schema class |
 
 ## XExpiresAfterSchema1Boxed
@@ -21,20 +21,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## XExpiresAfterSchema1BoxedString
-public static final class XExpiresAfterSchema1BoxedString<br>
+public record XExpiresAfterSchema1BoxedString<br>
 implements [XExpiresAfterSchema1Boxed](#xexpiresafterschema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | XExpiresAfterSchema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## XExpiresAfterSchema1
 public static class XExpiresAfterSchema1<br>

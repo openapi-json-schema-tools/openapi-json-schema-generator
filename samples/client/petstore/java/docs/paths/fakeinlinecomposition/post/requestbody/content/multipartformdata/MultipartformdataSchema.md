@@ -11,21 +11,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [MultipartformdataSchema.MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)<br> abstract sealed validated payload class |
-| static class | [MultipartformdataSchema.MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MultipartformdataSchema.MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)<br> abstract sealed validated payload class |
+| record | [MultipartformdataSchema.MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSchema1](#multipartformdataschema1)<br> schema class |
 | static class | [MultipartformdataSchema.MultipartformdataSchemaMapBuilder](#multipartformdataschemamapbuilder)<br> builder for Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSchemaMap](#multipartformdataschemamap)<br> output class for Map payloads |
-| static class | [MultipartformdataSchema.MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)<br> abstract sealed validated payload class |
-| static class | [MultipartformdataSchema.MultipartformdataSomePropBoxedVoid](#multipartformdatasomepropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [MultipartformdataSchema.MultipartformdataSomePropBoxedBoolean](#multipartformdatasomepropboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [MultipartformdataSchema.MultipartformdataSomePropBoxedNumber](#multipartformdatasomepropboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [MultipartformdataSchema.MultipartformdataSomePropBoxedString](#multipartformdatasomepropboxedstring)<br> boxed class to store validated String payloads |
-| static class | [MultipartformdataSchema.MultipartformdataSomePropBoxedList](#multipartformdatasomepropboxedlist)<br> boxed class to store validated List payloads |
-| static class | [MultipartformdataSchema.MultipartformdataSomePropBoxedMap](#multipartformdatasomepropboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MultipartformdataSchema.MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)<br> abstract sealed validated payload class |
+| record | [MultipartformdataSchema.MultipartformdataSomePropBoxedVoid](#multipartformdatasomepropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [MultipartformdataSchema.MultipartformdataSomePropBoxedBoolean](#multipartformdatasomepropboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [MultipartformdataSchema.MultipartformdataSomePropBoxedNumber](#multipartformdatasomepropboxednumber)<br> boxed class to store validated Number payloads |
+| record | [MultipartformdataSchema.MultipartformdataSomePropBoxedString](#multipartformdatasomepropboxedstring)<br> boxed class to store validated String payloads |
+| record | [MultipartformdataSchema.MultipartformdataSomePropBoxedList](#multipartformdatasomepropboxedlist)<br> boxed class to store validated List payloads |
+| record | [MultipartformdataSchema.MultipartformdataSomePropBoxedMap](#multipartformdatasomepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSomeProp](#multipartformdatasomeprop)<br> schema class |
-| static class | [MultipartformdataSchema.Multipartformdata0Boxed](#multipartformdata0boxed)<br> abstract sealed validated payload class |
-| static class | [MultipartformdataSchema.Multipartformdata0BoxedString](#multipartformdata0boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [MultipartformdataSchema.Multipartformdata0Boxed](#multipartformdata0boxed)<br> abstract sealed validated payload class |
+| record | [MultipartformdataSchema.Multipartformdata0BoxedString](#multipartformdata0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [MultipartformdataSchema.Multipartformdata0](#multipartformdata0)<br> schema class |
 
 ## MultipartformdataSchema1Boxed
@@ -36,20 +36,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataSchema1BoxedMap
-public static final class MultipartformdataSchema1BoxedMap<br>
+public record MultipartformdataSchema1BoxedMap<br>
 implements [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipartformdataSchema1BoxedMap([MultipartformdataSchemaMap](#multipartformdataschemamap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MultipartformdataSchemaMap](#multipartformdataschemamap) | data<br>validated payload |
+| [MultipartformdataSchemaMap](#multipartformdataschemamap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MultipartformdataSchema1
 public static class MultipartformdataSchema1<br>
@@ -153,100 +154,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataSomePropBoxedVoid
-public static final class MultipartformdataSomePropBoxedVoid<br>
+public record MultipartformdataSomePropBoxedVoid<br>
 implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipartformdataSomePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MultipartformdataSomePropBoxedBoolean
-public static final class MultipartformdataSomePropBoxedBoolean<br>
+public record MultipartformdataSomePropBoxedBoolean<br>
 implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipartformdataSomePropBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MultipartformdataSomePropBoxedNumber
-public static final class MultipartformdataSomePropBoxedNumber<br>
+public record MultipartformdataSomePropBoxedNumber<br>
 implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipartformdataSomePropBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MultipartformdataSomePropBoxedString
-public static final class MultipartformdataSomePropBoxedString<br>
+public record MultipartformdataSomePropBoxedString<br>
 implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipartformdataSomePropBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MultipartformdataSomePropBoxedList
-public static final class MultipartformdataSomePropBoxedList<br>
+public record MultipartformdataSomePropBoxedList<br>
 implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipartformdataSomePropBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MultipartformdataSomePropBoxedMap
-public static final class MultipartformdataSomePropBoxedMap<br>
+public record MultipartformdataSomePropBoxedMap<br>
 implements [MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipartformdataSomePropBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MultipartformdataSomeProp
 public static class MultipartformdataSomeProp<br>
@@ -287,20 +294,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Multipartformdata0BoxedString
-public static final class Multipartformdata0BoxedString<br>
+public record Multipartformdata0BoxedString<br>
 implements [Multipartformdata0Boxed](#multipartformdata0boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Multipartformdata0BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Multipartformdata0
 public static class Multipartformdata0<br>

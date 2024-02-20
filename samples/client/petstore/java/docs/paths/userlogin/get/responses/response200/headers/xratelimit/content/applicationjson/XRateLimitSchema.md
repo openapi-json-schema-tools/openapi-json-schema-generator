@@ -9,8 +9,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [XRateLimitSchema.XRateLimitSchema1Boxed](#xratelimitschema1boxed)<br> abstract sealed validated payload class |
-| static class | [XRateLimitSchema.XRateLimitSchema1BoxedNumber](#xratelimitschema1boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [XRateLimitSchema.XRateLimitSchema1Boxed](#xratelimitschema1boxed)<br> abstract sealed validated payload class |
+| record | [XRateLimitSchema.XRateLimitSchema1BoxedNumber](#xratelimitschema1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [XRateLimitSchema.XRateLimitSchema1](#xratelimitschema1)<br> schema class |
 
 ## XRateLimitSchema1Boxed
@@ -21,20 +21,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## XRateLimitSchema1BoxedNumber
-public static final class XRateLimitSchema1BoxedNumber<br>
+public record XRateLimitSchema1BoxedNumber<br>
 implements [XRateLimitSchema1Boxed](#xratelimitschema1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | XRateLimitSchema1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## XRateLimitSchema1
 public static class XRateLimitSchema1<br>

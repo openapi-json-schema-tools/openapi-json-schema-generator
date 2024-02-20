@@ -49,39 +49,17 @@ public class Pet {
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody, ApplicationxmlRequestBody {}
-    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonSchema.Pet1Boxed> {
-        private final String contentType;
-        private final ApplicationjsonSchema.Pet1Boxed body;
-        public ApplicationjsonRequestBody(ApplicationjsonSchema.Pet1Boxed body) {
-            contentType = "application/json";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationjsonRequestBody, ApplicationxmlRequestBody {}
+    public record ApplicationjsonRequestBody(ApplicationjsonSchema.Pet1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationjsonSchema.Pet1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationjsonSchema.Pet1Boxed body() {
-            return body;
+            return "application/json";
         }
     }
-    public static final class ApplicationxmlRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationxmlSchema.Pet1Boxed> {
-        private final String contentType;
-        private final ApplicationxmlSchema.Pet1Boxed body;
-        public ApplicationxmlRequestBody(ApplicationxmlSchema.Pet1Boxed body) {
-            contentType = "application/xml";
-            this.body = body;
-        }
+    public record ApplicationxmlRequestBody(ApplicationxmlSchema.Pet1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationxmlSchema.Pet1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationxmlSchema.Pet1Boxed body() {
-            return body;
+            return "application/xml";
         }
     }
 }

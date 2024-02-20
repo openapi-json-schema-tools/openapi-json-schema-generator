@@ -30,8 +30,8 @@ public class {{jsonPathPiece.pascalCase}}
 A class that contains necessary nested request body classes
 - supporting XMediaType classes which store the openapi request body contentType to schema information
 - a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances
-- SealedRequestBody class, an abstract sealed class which contains all the contentType/schema input types
-- final classes which extend SealedRequestBody, the concrete request body types
+- SealedRequestBody class, a sealed interface which contains all the contentType/schema input types
+- final classes which implement SealedRequestBody, the concrete request body types
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -40,9 +40,9 @@ A class that contains necessary nested request body classes
 | static class | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)<br>class storing schema info for a specific contentType |
 {{/each}}
 | static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br>class that serializes request bodies |
-| static class | [{{jsonPathPiece.pascalCase}}.SealedRequestBody](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedrequestbody") }})<br>abstract sealed request body class |
+| sealed interface | [{{jsonPathPiece.pascalCase}}.SealedRequestBody](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedrequestbody") }})<br>request body sealed interface |
 {{#each content}}
-| static class | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody)<br>implementing sealed class to store request body input |
+| record | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody)<br>implements sealed interface to store request body input |
 {{/each}}
 {{#each content}}
 
@@ -85,21 +85,21 @@ a class that serializes SealedRequestBody request bodies
 | SerializedRequestBody | serialize([SealedRequestBody](#sealedrequestbody) requestBody)<br>called by endpoint when creating request body bytes |
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "SealedRequestBody") }}
-public static abstract sealed class SealedRequestBody<br>
+public sealed interface SealedRequestBody<br>
 permits<br>
 {{#each content}}
 [{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody){{#unless @last}},{{/unless}}
 {{/each}}
 
-abstract sealed class that stores request contentType + validated schema data
+sealed interface that stores request contentType + validated schema data
 
 {{#each content}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join @key.pascalCase "RequestBody" "")) }}
-public static final class {{@key.pascalCase}}RequestBody<br>
-extends [SealedRequestBody](#sealedrequestbody)<br>
-implements GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}}><br>
+public record {{@key.pascalCase}}RequestBody<br>
+implements [SealedRequestBody](#sealedrequestbody),<br>
+GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}}><br>
 
-A final class to store request body input for contentType="{{{@key.original}}}"
+A record class to store request body input for contentType="{{{@key.original}}}"
 
 {{headerSize}}## Constructor Summary
 | Constructor and Description |

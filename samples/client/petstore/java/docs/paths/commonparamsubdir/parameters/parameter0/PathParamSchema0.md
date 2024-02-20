@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [PathParamSchema0.PathParamSchema01Boxed](#pathparamschema01boxed)<br> abstract sealed validated payload class |
-| static class | [PathParamSchema0.PathParamSchema01BoxedString](#pathparamschema01boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [PathParamSchema0.PathParamSchema01Boxed](#pathparamschema01boxed)<br> abstract sealed validated payload class |
+| record | [PathParamSchema0.PathParamSchema01BoxedString](#pathparamschema01boxedstring)<br> boxed class to store validated String payloads |
 | static class | [PathParamSchema0.PathParamSchema01](#pathparamschema01)<br> schema class |
 | enum | [PathParamSchema0.StringPathParamSchemaEnums0](#stringpathparamschemaenums0)<br>String enum |
 
@@ -23,20 +23,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## PathParamSchema01BoxedString
-public static final class PathParamSchema01BoxedString<br>
+public record PathParamSchema01BoxedString<br>
 implements [PathParamSchema01Boxed](#pathparamschema01boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PathParamSchema01BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## PathParamSchema01
 public static class PathParamSchema01<br>

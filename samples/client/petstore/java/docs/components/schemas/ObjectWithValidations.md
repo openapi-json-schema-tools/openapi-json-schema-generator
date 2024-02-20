@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithValidations.ObjectWithValidations1Boxed](#objectwithvalidations1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithValidations.ObjectWithValidations1BoxedMap](#objectwithvalidations1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectWithValidations.ObjectWithValidations1Boxed](#objectwithvalidations1boxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithValidations.ObjectWithValidations1BoxedMap](#objectwithvalidations1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithValidations.ObjectWithValidations1](#objectwithvalidations1)<br> schema class |
 
 ## ObjectWithValidations1Boxed
@@ -22,20 +22,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithValidations1BoxedMap
-public static final class ObjectWithValidations1BoxedMap<br>
+public record ObjectWithValidations1BoxedMap<br>
 implements [ObjectWithValidations1Boxed](#objectwithvalidations1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithValidations1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithValidations1
 public static class ObjectWithValidations1<br>

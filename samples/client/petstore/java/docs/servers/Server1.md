@@ -33,22 +33,22 @@ A class that contains necessary nested
 ### Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Variables.Variables1Boxed](#variables1boxed)<br> abstract sealed validated payload class |
-| static class | [Variables.Variables1BoxedMap](#variables1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Variables.Variables1Boxed](#variables1boxed)<br> abstract sealed validated payload class |
+| record | [Variables.Variables1BoxedMap](#variables1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Variables.Variables1](#variables1)<br> schema class |
 | static class | [Variables.VariablesMapBuilder](#variablesmapbuilder)<br> builder for Map payloads |
 | static class | [Variables.VariablesMap](#variablesmap)<br> output class for Map payloads |
-| static class | [Variables.VersionBoxed](#versionboxed)<br> abstract sealed validated payload class |
-| static class | [Variables.VersionBoxedString](#versionboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Variables.VersionBoxed](#versionboxed)<br> abstract sealed validated payload class |
+| record | [Variables.VersionBoxedString](#versionboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Variables.Version](#version)<br> schema class |
 | enum | [Variables.StringVersionEnums](#stringversionenums)<br>String enum |
-| static class | [Variables.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
-| static class | [Variables.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [Variables.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [Variables.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [Variables.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| static class | [Variables.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| static class | [Variables.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Variables.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| record | [Variables.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [Variables.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Variables.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [Variables.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [Variables.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [Variables.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Variables.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ### Variables1Boxed
@@ -59,20 +59,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ### Variables1BoxedMap
-public static final class Variables1BoxedMap<br>
+public record Variables1BoxedMap<br>
 implements [Variables1Boxed](#variables1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 #### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Variables1BoxedMap([VariablesMap](#variablesmap) data)<br>Creates an instance, private visibility |
 
-#### Field Summary
-| Modifier and Type | Field and Description |
+#### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [VariablesMap](#variablesmap) | data<br>validated payload |
+| [VariablesMap](#variablesmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ### Variables1
 public static class Variables1<br>
@@ -173,20 +174,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ### VersionBoxedString
-public static final class VersionBoxedString<br>
+public record VersionBoxedString<br>
 implements [VersionBoxed](#versionboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 #### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | VersionBoxedString(String data)<br>Creates an instance, private visibility |
 
-#### Field Summary
-| Modifier and Type | Field and Description |
+#### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ### Version
 public static class Version<br>
@@ -255,100 +257,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ### AdditionalPropertiesBoxedVoid
-public static final class AdditionalPropertiesBoxedVoid<br>
+public record AdditionalPropertiesBoxedVoid<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 #### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-#### Field Summary
-| Modifier and Type | Field and Description |
+#### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ### AdditionalPropertiesBoxedBoolean
-public static final class AdditionalPropertiesBoxedBoolean<br>
+public record AdditionalPropertiesBoxedBoolean<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 #### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-#### Field Summary
-| Modifier and Type | Field and Description |
+#### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ### AdditionalPropertiesBoxedNumber
-public static final class AdditionalPropertiesBoxedNumber<br>
+public record AdditionalPropertiesBoxedNumber<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 #### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-#### Field Summary
-| Modifier and Type | Field and Description |
+#### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ### AdditionalPropertiesBoxedString
-public static final class AdditionalPropertiesBoxedString<br>
+public record AdditionalPropertiesBoxedString<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 #### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
-#### Field Summary
-| Modifier and Type | Field and Description |
+#### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ### AdditionalPropertiesBoxedList
-public static final class AdditionalPropertiesBoxedList<br>
+public record AdditionalPropertiesBoxedList<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 #### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-#### Field Summary
-| Modifier and Type | Field and Description |
+#### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ### AdditionalPropertiesBoxedMap
-public static final class AdditionalPropertiesBoxedMap<br>
+public record AdditionalPropertiesBoxedMap<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 #### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-#### Field Summary
-| Modifier and Type | Field and Description |
+#### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ### AdditionalProperties
 public static class AdditionalProperties<br>

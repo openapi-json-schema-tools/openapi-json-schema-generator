@@ -12,21 +12,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid](#objectwithallofwithreqtestpropfromunsetaddprop1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean](#objectwithallofwithreqtestpropfromunsetaddprop1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber](#objectwithallofwithreqtestpropfromunsetaddprop1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString](#objectwithallofwithreqtestpropfromunsetaddprop1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList](#objectwithallofwithreqtestpropfromunsetaddprop1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap](#objectwithallofwithreqtestpropfromunsetaddprop1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid](#objectwithallofwithreqtestpropfromunsetaddprop1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean](#objectwithallofwithreqtestpropfromunsetaddprop1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber](#objectwithallofwithreqtestpropfromunsetaddprop1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString](#objectwithallofwithreqtestpropfromunsetaddprop1boxedstring)<br> boxed class to store validated String payloads |
+| record | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList](#objectwithallofwithreqtestpropfromunsetaddprop1boxedlist)<br> boxed class to store validated List payloads |
+| record | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap](#objectwithallofwithreqtestpropfromunsetaddprop1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1](#objectwithallofwithreqtestpropfromunsetaddprop1)<br> schema class |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1](#schema1)<br> schema class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map](#schema1map)<br> output class for Map payloads |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Name](#name)<br> schema class |
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
@@ -42,100 +42,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid
-public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid<br>
+public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid<br>
 implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean
-public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean<br>
+public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean<br>
 implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber
-public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber<br>
+public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber<br>
 implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString
-public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString<br>
+public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString<br>
 implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList
-public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList<br>
+public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList<br>
 implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap
-public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap<br>
+public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap<br>
 implements [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1
 public static class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1<br>
@@ -176,20 +182,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
-public static final class Schema1BoxedMap<br>
+public record Schema1BoxedMap<br>
 implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | data<br>validated payload |
+| [Schema1Map](#schema1map) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -308,20 +315,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NameBoxedString
-public static final class NameBoxedString<br>
+public record NameBoxedString<br>
 implements [NameBoxed](#nameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Name
 public static class Name<br>

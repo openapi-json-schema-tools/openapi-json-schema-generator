@@ -11,16 +11,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed)<br> abstract sealed validated payload class |
-| static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1BoxedMap](#applicationxwwwformurlencodedschema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed)<br> abstract sealed validated payload class |
+| record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1BoxedMap](#applicationxwwwformurlencodedschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1](#applicationxwwwformurlencodedschema1)<br> schema class |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMapBuilder](#applicationxwwwformurlencodedschemamapbuilder)<br> builder for Map payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMap](#applicationxwwwformurlencodedschemamap)<br> output class for Map payloads |
-| static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedStatusBoxed](#applicationxwwwformurlencodedstatusboxed)<br> abstract sealed validated payload class |
-| static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedStatusBoxedString](#applicationxwwwformurlencodedstatusboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedStatusBoxed](#applicationxwwwformurlencodedstatusboxed)<br> abstract sealed validated payload class |
+| record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedStatusBoxedString](#applicationxwwwformurlencodedstatusboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedStatus](#applicationxwwwformurlencodedstatus)<br> schema class |
-| static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedNameBoxed](#applicationxwwwformurlencodednameboxed)<br> abstract sealed validated payload class |
-| static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedNameBoxedString](#applicationxwwwformurlencodednameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedNameBoxed](#applicationxwwwformurlencodednameboxed)<br> abstract sealed validated payload class |
+| record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedNameBoxedString](#applicationxwwwformurlencodednameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedName](#applicationxwwwformurlencodedname)<br> schema class |
 
 ## ApplicationxwwwformurlencodedSchema1Boxed
@@ -31,20 +31,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedSchema1BoxedMap
-public static final class ApplicationxwwwformurlencodedSchema1BoxedMap<br>
+public record ApplicationxwwwformurlencodedSchema1BoxedMap<br>
 implements [ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ApplicationxwwwformurlencodedSchema1BoxedMap([ApplicationxwwwformurlencodedSchemaMap](#applicationxwwwformurlencodedschemamap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap](#applicationxwwwformurlencodedschemamap) | data<br>validated payload |
+| [ApplicationxwwwformurlencodedSchemaMap](#applicationxwwwformurlencodedschemamap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ApplicationxwwwformurlencodedSchema1
 public static class ApplicationxwwwformurlencodedSchema1<br>
@@ -141,20 +142,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedStatusBoxedString
-public static final class ApplicationxwwwformurlencodedStatusBoxedString<br>
+public record ApplicationxwwwformurlencodedStatusBoxedString<br>
 implements [ApplicationxwwwformurlencodedStatusBoxed](#applicationxwwwformurlencodedstatusboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ApplicationxwwwformurlencodedStatusBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ApplicationxwwwformurlencodedStatus
 public static class ApplicationxwwwformurlencodedStatus<br>
@@ -178,20 +180,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationxwwwformurlencodedNameBoxedString
-public static final class ApplicationxwwwformurlencodedNameBoxedString<br>
+public record ApplicationxwwwformurlencodedNameBoxedString<br>
 implements [ApplicationxwwwformurlencodedNameBoxed](#applicationxwwwformurlencodednameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ApplicationxwwwformurlencodedNameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ApplicationxwwwformurlencodedName
 public static class ApplicationxwwwformurlencodedName<br>

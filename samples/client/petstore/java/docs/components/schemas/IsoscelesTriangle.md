@@ -13,21 +13,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IsoscelesTriangle.IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)<br> abstract sealed validated payload class |
-| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedVoid](#isoscelestriangle1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedBoolean](#isoscelestriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedNumber](#isoscelestriangle1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedString](#isoscelestriangle1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [IsoscelesTriangle.IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)<br> abstract sealed validated payload class |
+| record | [IsoscelesTriangle.IsoscelesTriangle1BoxedVoid](#isoscelestriangle1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [IsoscelesTriangle.IsoscelesTriangle1BoxedBoolean](#isoscelestriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [IsoscelesTriangle.IsoscelesTriangle1BoxedNumber](#isoscelestriangle1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [IsoscelesTriangle.IsoscelesTriangle1BoxedString](#isoscelestriangle1boxedstring)<br> boxed class to store validated String payloads |
+| record | [IsoscelesTriangle.IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist)<br> boxed class to store validated List payloads |
+| record | [IsoscelesTriangle.IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IsoscelesTriangle.IsoscelesTriangle1](#isoscelestriangle1)<br> schema class |
-| static class | [IsoscelesTriangle.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
-| static class | [IsoscelesTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [IsoscelesTriangle.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| record | [IsoscelesTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IsoscelesTriangle.Schema1](#schema1)<br> schema class |
 | static class | [IsoscelesTriangle.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [IsoscelesTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
-| static class | [IsoscelesTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> abstract sealed validated payload class |
-| static class | [IsoscelesTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [IsoscelesTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> abstract sealed validated payload class |
+| record | [IsoscelesTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [IsoscelesTriangle.TriangleType](#triangletype)<br> schema class |
 | enum | [IsoscelesTriangle.StringTriangleTypeEnums](#stringtriangletypeenums)<br>String enum |
 
@@ -44,100 +44,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IsoscelesTriangle1BoxedVoid
-public static final class IsoscelesTriangle1BoxedVoid<br>
+public record IsoscelesTriangle1BoxedVoid<br>
 implements [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IsoscelesTriangle1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IsoscelesTriangle1BoxedBoolean
-public static final class IsoscelesTriangle1BoxedBoolean<br>
+public record IsoscelesTriangle1BoxedBoolean<br>
 implements [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IsoscelesTriangle1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IsoscelesTriangle1BoxedNumber
-public static final class IsoscelesTriangle1BoxedNumber<br>
+public record IsoscelesTriangle1BoxedNumber<br>
 implements [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IsoscelesTriangle1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IsoscelesTriangle1BoxedString
-public static final class IsoscelesTriangle1BoxedString<br>
+public record IsoscelesTriangle1BoxedString<br>
 implements [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IsoscelesTriangle1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IsoscelesTriangle1BoxedList
-public static final class IsoscelesTriangle1BoxedList<br>
+public record IsoscelesTriangle1BoxedList<br>
 implements [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IsoscelesTriangle1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IsoscelesTriangle1BoxedMap
-public static final class IsoscelesTriangle1BoxedMap<br>
+public record IsoscelesTriangle1BoxedMap<br>
 implements [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IsoscelesTriangle1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IsoscelesTriangle1
 public static class IsoscelesTriangle1<br>
@@ -178,20 +184,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
-public static final class Schema1BoxedMap<br>
+public record Schema1BoxedMap<br>
 implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | data<br>validated payload |
+| [Schema1Map](#schema1map) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -285,20 +292,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## TriangleTypeBoxedString
-public static final class TriangleTypeBoxedString<br>
+public record TriangleTypeBoxedString<br>
 implements [TriangleTypeBoxed](#triangletypeboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | TriangleTypeBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## TriangleType
 public static class TriangleType<br>

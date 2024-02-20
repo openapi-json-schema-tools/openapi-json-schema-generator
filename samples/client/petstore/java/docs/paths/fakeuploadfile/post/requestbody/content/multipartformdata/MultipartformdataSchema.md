@@ -11,15 +11,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [MultipartformdataSchema.MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)<br> abstract sealed validated payload class |
-| static class | [MultipartformdataSchema.MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MultipartformdataSchema.MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)<br> abstract sealed validated payload class |
+| record | [MultipartformdataSchema.MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSchema1](#multipartformdataschema1)<br> schema class |
 | static class | [MultipartformdataSchema.MultipartformdataSchemaMapBuilder](#multipartformdataschemamapbuilder)<br> builder for Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSchemaMap](#multipartformdataschemamap)<br> output class for Map payloads |
-| static class | [MultipartformdataSchema.MultipartformdataFileBoxed](#multipartformdatafileboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MultipartformdataSchema.MultipartformdataFileBoxed](#multipartformdatafileboxed)<br> abstract sealed validated payload class |
 | static class | [MultipartformdataSchema.MultipartformdataFile](#multipartformdatafile)<br> schema class |
-| static class | [MultipartformdataSchema.MultipartformdataAdditionalMetadataBoxed](#multipartformdataadditionalmetadataboxed)<br> abstract sealed validated payload class |
-| static class | [MultipartformdataSchema.MultipartformdataAdditionalMetadataBoxedString](#multipartformdataadditionalmetadataboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [MultipartformdataSchema.MultipartformdataAdditionalMetadataBoxed](#multipartformdataadditionalmetadataboxed)<br> abstract sealed validated payload class |
+| record | [MultipartformdataSchema.MultipartformdataAdditionalMetadataBoxedString](#multipartformdataadditionalmetadataboxedstring)<br> boxed class to store validated String payloads |
 | static class | [MultipartformdataSchema.MultipartformdataAdditionalMetadata](#multipartformdataadditionalmetadata)<br> schema class |
 
 ## MultipartformdataSchema1Boxed
@@ -30,20 +30,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataSchema1BoxedMap
-public static final class MultipartformdataSchema1BoxedMap<br>
+public record MultipartformdataSchema1BoxedMap<br>
 implements [MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipartformdataSchema1BoxedMap([MultipartformdataSchemaMap](#multipartformdataschemamap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MultipartformdataSchemaMap](#multipartformdataschemamap) | data<br>validated payload |
+| [MultipartformdataSchemaMap](#multipartformdataschemamap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MultipartformdataSchema1
 public static class MultipartformdataSchema1<br>
@@ -171,20 +172,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## MultipartformdataAdditionalMetadataBoxedString
-public static final class MultipartformdataAdditionalMetadataBoxedString<br>
+public record MultipartformdataAdditionalMetadataBoxedString<br>
 implements [MultipartformdataAdditionalMetadataBoxed](#multipartformdataadditionalmetadataboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipartformdataAdditionalMetadataBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## MultipartformdataAdditionalMetadata
 public static class MultipartformdataAdditionalMetadata<br>

@@ -12,21 +12,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Dog.Dog1Boxed](#dog1boxed)<br> abstract sealed validated payload class |
-| static class | [Dog.Dog1BoxedVoid](#dog1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [Dog.Dog1BoxedBoolean](#dog1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [Dog.Dog1BoxedNumber](#dog1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [Dog.Dog1BoxedString](#dog1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [Dog.Dog1BoxedList](#dog1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [Dog.Dog1BoxedMap](#dog1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Dog.Dog1Boxed](#dog1boxed)<br> abstract sealed validated payload class |
+| record | [Dog.Dog1BoxedVoid](#dog1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [Dog.Dog1BoxedBoolean](#dog1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Dog.Dog1BoxedNumber](#dog1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [Dog.Dog1BoxedString](#dog1boxedstring)<br> boxed class to store validated String payloads |
+| record | [Dog.Dog1BoxedList](#dog1boxedlist)<br> boxed class to store validated List payloads |
+| record | [Dog.Dog1BoxedMap](#dog1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Dog.Dog1](#dog1)<br> schema class |
-| static class | [Dog.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
-| static class | [Dog.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Dog.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| record | [Dog.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Dog.Schema1](#schema1)<br> schema class |
 | static class | [Dog.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [Dog.Schema1Map](#schema1map)<br> output class for Map payloads |
-| static class | [Dog.BreedBoxed](#breedboxed)<br> abstract sealed validated payload class |
-| static class | [Dog.BreedBoxedString](#breedboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Dog.BreedBoxed](#breedboxed)<br> abstract sealed validated payload class |
+| record | [Dog.BreedBoxedString](#breedboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Dog.Breed](#breed)<br> schema class |
 
 ## Dog1Boxed
@@ -42,100 +42,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Dog1BoxedVoid
-public static final class Dog1BoxedVoid<br>
+public record Dog1BoxedVoid<br>
 implements [Dog1Boxed](#dog1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Dog1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Dog1BoxedBoolean
-public static final class Dog1BoxedBoolean<br>
+public record Dog1BoxedBoolean<br>
 implements [Dog1Boxed](#dog1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Dog1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Dog1BoxedNumber
-public static final class Dog1BoxedNumber<br>
+public record Dog1BoxedNumber<br>
 implements [Dog1Boxed](#dog1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Dog1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Dog1BoxedString
-public static final class Dog1BoxedString<br>
+public record Dog1BoxedString<br>
 implements [Dog1Boxed](#dog1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Dog1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Dog1BoxedList
-public static final class Dog1BoxedList<br>
+public record Dog1BoxedList<br>
 implements [Dog1Boxed](#dog1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Dog1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Dog1BoxedMap
-public static final class Dog1BoxedMap<br>
+public record Dog1BoxedMap<br>
 implements [Dog1Boxed](#dog1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Dog1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Dog1
 public static class Dog1<br>
@@ -176,20 +182,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
-public static final class Schema1BoxedMap<br>
+public record Schema1BoxedMap<br>
 implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | data<br>validated payload |
+| [Schema1Map](#schema1map) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -282,20 +289,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## BreedBoxedString
-public static final class BreedBoxedString<br>
+public record BreedBoxedString<br>
 implements [BreedBoxed](#breedboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BreedBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Breed
 public static class Breed<br>

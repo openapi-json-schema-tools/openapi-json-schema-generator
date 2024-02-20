@@ -15,33 +15,33 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Pet.Pet1Boxed](#pet1boxed)<br> abstract sealed validated payload class |
-| static class | [Pet.Pet1BoxedMap](#pet1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Pet.Pet1Boxed](#pet1boxed)<br> abstract sealed validated payload class |
+| record | [Pet.Pet1BoxedMap](#pet1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Pet.Pet1](#pet1)<br> schema class |
 | static class | [Pet.PetMapBuilder](#petmapbuilder)<br> builder for Map payloads |
 | static class | [Pet.PetMap](#petmap)<br> output class for Map payloads |
-| static class | [Pet.TagsBoxed](#tagsboxed)<br> abstract sealed validated payload class |
-| static class | [Pet.TagsBoxedList](#tagsboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [Pet.TagsBoxed](#tagsboxed)<br> abstract sealed validated payload class |
+| record | [Pet.TagsBoxedList](#tagsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Pet.Tags](#tags)<br> schema class |
 | static class | [Pet.TagsListBuilder](#tagslistbuilder)<br> builder for List payloads |
 | static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
-| static class | [Pet.StatusBoxed](#statusboxed)<br> abstract sealed validated payload class |
-| static class | [Pet.StatusBoxedString](#statusboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Pet.StatusBoxed](#statusboxed)<br> abstract sealed validated payload class |
+| record | [Pet.StatusBoxedString](#statusboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Status](#status)<br> schema class |
 | enum | [Pet.StringStatusEnums](#stringstatusenums)<br>String enum |
-| static class | [Pet.PhotoUrlsBoxed](#photourlsboxed)<br> abstract sealed validated payload class |
-| static class | [Pet.PhotoUrlsBoxedList](#photourlsboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [Pet.PhotoUrlsBoxed](#photourlsboxed)<br> abstract sealed validated payload class |
+| record | [Pet.PhotoUrlsBoxedList](#photourlsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Pet.PhotoUrls](#photourls)<br> schema class |
 | static class | [Pet.PhotoUrlsListBuilder](#photourlslistbuilder)<br> builder for List payloads |
 | static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |
-| static class | [Pet.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [Pet.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Pet.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| record | [Pet.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Items](#items)<br> schema class |
-| static class | [Pet.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
-| static class | [Pet.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Pet.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| record | [Pet.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Name](#name)<br> schema class |
-| static class | [Pet.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
-| static class | [Pet.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Pet.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| record | [Pet.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Pet.Id](#id)<br> schema class |
 
 ## Pet1Boxed
@@ -52,20 +52,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Pet1BoxedMap
-public static final class Pet1BoxedMap<br>
+public record Pet1BoxedMap<br>
 implements [Pet1Boxed](#pet1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Pet1BoxedMap([PetMap](#petmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetMap](#petmap) | data<br>validated payload |
+| [PetMap](#petmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Pet1
 public static class Pet1<br>
@@ -254,20 +255,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## TagsBoxedList
-public static final class TagsBoxedList<br>
+public record TagsBoxedList<br>
 implements [TagsBoxed](#tagsboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | TagsBoxedList([TagsList](#tagslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [TagsList](#tagslist) | data<br>validated payload |
+| [TagsList](#tagslist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Tags
 public static class Tags<br>
@@ -360,20 +362,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## StatusBoxedString
-public static final class StatusBoxedString<br>
+public record StatusBoxedString<br>
 implements [StatusBoxed](#statusboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StatusBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Status
 public static class Status<br>
@@ -440,20 +443,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## PhotoUrlsBoxedList
-public static final class PhotoUrlsBoxedList<br>
+public record PhotoUrlsBoxedList<br>
 implements [PhotoUrlsBoxed](#photourlsboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PhotoUrlsBoxedList([PhotoUrlsList](#photourlslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PhotoUrlsList](#photourlslist) | data<br>validated payload |
+| [PhotoUrlsList](#photourlslist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## PhotoUrls
 public static class PhotoUrls<br>
@@ -536,20 +540,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedString
-public static final class ItemsBoxedString<br>
+public record ItemsBoxedString<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items
 public static class Items<br>
@@ -570,20 +575,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NameBoxedString
-public static final class NameBoxedString<br>
+public record NameBoxedString<br>
 implements [NameBoxed](#nameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Name
 public static class Name<br>
@@ -604,20 +610,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
-public static final class IdBoxedNumber<br>
+public record IdBoxedNumber<br>
 implements [IdBoxed](#idboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Id
 public static class Id<br>

@@ -12,16 +12,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [FromSchema.FromSchema1Boxed](#fromschema1boxed)<br> abstract sealed validated payload class |
-| static class | [FromSchema.FromSchema1BoxedMap](#fromschema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [FromSchema.FromSchema1Boxed](#fromschema1boxed)<br> abstract sealed validated payload class |
+| record | [FromSchema.FromSchema1BoxedMap](#fromschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FromSchema.FromSchema1](#fromschema1)<br> schema class |
 | static class | [FromSchema.FromSchemaMapBuilder](#fromschemamapbuilder)<br> builder for Map payloads |
 | static class | [FromSchema.FromSchemaMap](#fromschemamap)<br> output class for Map payloads |
-| static class | [FromSchema.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
-| static class | [FromSchema.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FromSchema.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| record | [FromSchema.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FromSchema.Id](#id)<br> schema class |
-| static class | [FromSchema.DataBoxed](#databoxed)<br> abstract sealed validated payload class |
-| static class | [FromSchema.DataBoxedString](#databoxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FromSchema.DataBoxed](#databoxed)<br> abstract sealed validated payload class |
+| record | [FromSchema.DataBoxedString](#databoxedstring)<br> boxed class to store validated String payloads |
 | static class | [FromSchema.Data](#data)<br> schema class |
 
 ## FromSchema1Boxed
@@ -32,20 +32,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## FromSchema1BoxedMap
-public static final class FromSchema1BoxedMap<br>
+public record FromSchema1BoxedMap<br>
 implements [FromSchema1Boxed](#fromschema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FromSchema1BoxedMap([FromSchemaMap](#fromschemamap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FromSchemaMap](#fromschemamap) | data<br>validated payload |
+| [FromSchemaMap](#fromschemamap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FromSchema1
 public static class FromSchema1<br>
@@ -145,20 +146,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
-public static final class IdBoxedNumber<br>
+public record IdBoxedNumber<br>
 implements [IdBoxed](#idboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Id
 public static class Id<br>
@@ -179,20 +181,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DataBoxedString
-public static final class DataBoxedString<br>
+public record DataBoxedString<br>
 implements [DataBoxed](#databoxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DataBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Data
 public static class Data<br>

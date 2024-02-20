@@ -12,21 +12,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1](#objectwithinlinecompositionproperty1)<br> schema class |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap)<br> output class for Map payloads |
-| static class | [ObjectWithInlineCompositionProperty.SomePropBoxed](#somepropboxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedVoid](#somepropboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedBoolean](#somepropboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedNumber](#somepropboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedString](#somepropboxedstring)<br> boxed class to store validated String payloads |
-| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedList](#somepropboxedlist)<br> boxed class to store validated List payloads |
-| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectWithInlineCompositionProperty.SomePropBoxed](#somepropboxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithInlineCompositionProperty.SomePropBoxedVoid](#somepropboxedvoid)<br> boxed class to store validated null payloads |
+| record | [ObjectWithInlineCompositionProperty.SomePropBoxedBoolean](#somepropboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [ObjectWithInlineCompositionProperty.SomePropBoxedNumber](#somepropboxednumber)<br> boxed class to store validated Number payloads |
+| record | [ObjectWithInlineCompositionProperty.SomePropBoxedString](#somepropboxedstring)<br> boxed class to store validated String payloads |
+| record | [ObjectWithInlineCompositionProperty.SomePropBoxedList](#somepropboxedlist)<br> boxed class to store validated List payloads |
+| record | [ObjectWithInlineCompositionProperty.SomePropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.SomeProp](#someprop)<br> schema class |
-| static class | [ObjectWithInlineCompositionProperty.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectWithInlineCompositionProperty.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ObjectWithInlineCompositionProperty.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
+| record | [ObjectWithInlineCompositionProperty.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithInlineCompositionProperty.Schema0](#schema0)<br> schema class |
 
 ## ObjectWithInlineCompositionProperty1Boxed
@@ -37,20 +37,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectWithInlineCompositionProperty1BoxedMap
-public static final class ObjectWithInlineCompositionProperty1BoxedMap<br>
+public record ObjectWithInlineCompositionProperty1BoxedMap<br>
 implements [ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithInlineCompositionProperty1BoxedMap([ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | data<br>validated payload |
+| [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectWithInlineCompositionProperty1
 public static class ObjectWithInlineCompositionProperty1<br>
@@ -154,100 +155,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## SomePropBoxedVoid
-public static final class SomePropBoxedVoid<br>
+public record SomePropBoxedVoid<br>
 implements [SomePropBoxed](#somepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomePropBoxedBoolean
-public static final class SomePropBoxedBoolean<br>
+public record SomePropBoxedBoolean<br>
 implements [SomePropBoxed](#somepropboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomePropBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomePropBoxedNumber
-public static final class SomePropBoxedNumber<br>
+public record SomePropBoxedNumber<br>
 implements [SomePropBoxed](#somepropboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomePropBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomePropBoxedString
-public static final class SomePropBoxedString<br>
+public record SomePropBoxedString<br>
 implements [SomePropBoxed](#somepropboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomePropBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomePropBoxedList
-public static final class SomePropBoxedList<br>
+public record SomePropBoxedList<br>
 implements [SomePropBoxed](#somepropboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomePropBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomePropBoxedMap
-public static final class SomePropBoxedMap<br>
+public record SomePropBoxedMap<br>
 implements [SomePropBoxed](#somepropboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomePropBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SomeProp
 public static class SomeProp<br>
@@ -288,20 +295,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedString
-public static final class Schema0BoxedString<br>
+public record Schema0BoxedString<br>
 implements [Schema0Boxed](#schema0boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema0
 public static class Schema0<br>

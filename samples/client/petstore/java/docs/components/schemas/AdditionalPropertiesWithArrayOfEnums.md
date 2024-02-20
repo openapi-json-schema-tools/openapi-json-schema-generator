@@ -14,13 +14,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1Boxed](#additionalpropertieswitharrayofenums1boxed)<br> abstract sealed validated payload class |
-| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1BoxedMap](#additionalpropertieswitharrayofenums1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1Boxed](#additionalpropertieswitharrayofenums1boxed)<br> abstract sealed validated payload class |
+| record | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1BoxedMap](#additionalpropertieswitharrayofenums1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1](#additionalpropertieswitharrayofenums1)<br> schema class |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMapBuilder](#additionalpropertieswitharrayofenumsmapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap)<br> output class for Map payloads |
-| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
-| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| record | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalProperties](#additionalproperties)<br> schema class |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesListBuilder](#additionalpropertieslistbuilder)<br> builder for List payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList](#additionalpropertieslist)<br> output class for List payloads |
@@ -33,20 +33,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesWithArrayOfEnums1BoxedMap
-public static final class AdditionalPropertiesWithArrayOfEnums1BoxedMap<br>
+public record AdditionalPropertiesWithArrayOfEnums1BoxedMap<br>
 implements [AdditionalPropertiesWithArrayOfEnums1Boxed](#additionalpropertieswitharrayofenums1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesWithArrayOfEnums1BoxedMap([AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | data<br>validated payload |
+| [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalPropertiesWithArrayOfEnums1
 public static class AdditionalPropertiesWithArrayOfEnums1<br>
@@ -133,20 +134,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedList
-public static final class AdditionalPropertiesBoxedList<br>
+public record AdditionalPropertiesBoxedList<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedList([AdditionalPropertiesList](#additionalpropertieslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesList](#additionalpropertieslist) | data<br>validated payload |
+| [AdditionalPropertiesList](#additionalpropertieslist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

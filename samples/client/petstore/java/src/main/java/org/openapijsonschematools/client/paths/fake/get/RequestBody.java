@@ -37,22 +37,11 @@ public class RequestBody {
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationxwwwformurlencodedRequestBody {}
-    public static final class ApplicationxwwwformurlencodedRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed> {
-        private final String contentType;
-        private final ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body;
-        public ApplicationxwwwformurlencodedRequestBody(ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body) {
-            contentType = "application/x-www-form-urlencoded";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationxwwwformurlencodedRequestBody {}
+    public record ApplicationxwwwformurlencodedRequestBody(ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body() {
-            return body;
+            return "application/x-www-form-urlencoded";
         }
     }
 }

@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Client.Client1Boxed](#client1boxed)<br> abstract sealed validated payload class |
-| static class | [Client.Client1BoxedMap](#client1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Client.Client1Boxed](#client1boxed)<br> abstract sealed validated payload class |
+| record | [Client.Client1BoxedMap](#client1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Client.Client1](#client1)<br> schema class |
 | static class | [Client.ClientMapBuilder1](#clientmapbuilder1)<br> builder for Map payloads |
 | static class | [Client.ClientMap](#clientmap)<br> output class for Map payloads |
-| static class | [Client.Client2Boxed](#client2boxed)<br> abstract sealed validated payload class |
-| static class | [Client.Client2BoxedString](#client2boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Client.Client2Boxed](#client2boxed)<br> abstract sealed validated payload class |
+| record | [Client.Client2BoxedString](#client2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Client.Client2](#client2)<br> schema class |
 
 ## Client1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Client1BoxedMap
-public static final class Client1BoxedMap<br>
+public record Client1BoxedMap<br>
 implements [Client1Boxed](#client1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Client1BoxedMap([ClientMap](#clientmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ClientMap](#clientmap) | data<br>validated payload |
+| [ClientMap](#clientmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Client1
 public static class Client1<br>
@@ -135,20 +136,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Client2BoxedString
-public static final class Client2BoxedString<br>
+public record Client2BoxedString<br>
 implements [Client2Boxed](#client2boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Client2BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Client2
 public static class Client2<br>

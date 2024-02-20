@@ -9,8 +9,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [StringHeaderSchema.StringHeaderSchema1Boxed](#stringheaderschema1boxed)<br> abstract sealed validated payload class |
-| static class | [StringHeaderSchema.StringHeaderSchema1BoxedString](#stringheaderschema1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [StringHeaderSchema.StringHeaderSchema1Boxed](#stringheaderschema1boxed)<br> abstract sealed validated payload class |
+| record | [StringHeaderSchema.StringHeaderSchema1BoxedString](#stringheaderschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [StringHeaderSchema.StringHeaderSchema1](#stringheaderschema1)<br> schema class |
 
 ## StringHeaderSchema1Boxed
@@ -21,20 +21,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## StringHeaderSchema1BoxedString
-public static final class StringHeaderSchema1BoxedString<br>
+public record StringHeaderSchema1BoxedString<br>
 implements [StringHeaderSchema1Boxed](#stringheaderschema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringHeaderSchema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## StringHeaderSchema1
 public static class StringHeaderSchema1<br>

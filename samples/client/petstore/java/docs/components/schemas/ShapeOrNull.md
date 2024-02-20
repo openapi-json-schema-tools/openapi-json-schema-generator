@@ -10,16 +10,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ShapeOrNull.ShapeOrNull1Boxed](#shapeornull1boxed)<br> abstract sealed validated payload class |
-| static class | [ShapeOrNull.ShapeOrNull1BoxedVoid](#shapeornull1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ShapeOrNull.ShapeOrNull1BoxedBoolean](#shapeornull1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [ShapeOrNull.ShapeOrNull1BoxedNumber](#shapeornull1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ShapeOrNull.ShapeOrNull1BoxedString](#shapeornull1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [ShapeOrNull.ShapeOrNull1BoxedList](#shapeornull1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ShapeOrNull.ShapeOrNull1BoxedMap](#shapeornull1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ShapeOrNull.ShapeOrNull1Boxed](#shapeornull1boxed)<br> abstract sealed validated payload class |
+| record | [ShapeOrNull.ShapeOrNull1BoxedVoid](#shapeornull1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [ShapeOrNull.ShapeOrNull1BoxedBoolean](#shapeornull1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [ShapeOrNull.ShapeOrNull1BoxedNumber](#shapeornull1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [ShapeOrNull.ShapeOrNull1BoxedString](#shapeornull1boxedstring)<br> boxed class to store validated String payloads |
+| record | [ShapeOrNull.ShapeOrNull1BoxedList](#shapeornull1boxedlist)<br> boxed class to store validated List payloads |
+| record | [ShapeOrNull.ShapeOrNull1BoxedMap](#shapeornull1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ShapeOrNull.ShapeOrNull1](#shapeornull1)<br> schema class |
-| static class | [ShapeOrNull.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
-| static class | [ShapeOrNull.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| sealed interface | [ShapeOrNull.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
+| record | [ShapeOrNull.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ShapeOrNull.Schema0](#schema0)<br> schema class |
 
 ## ShapeOrNull1Boxed
@@ -35,100 +35,106 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ShapeOrNull1BoxedVoid
-public static final class ShapeOrNull1BoxedVoid<br>
+public record ShapeOrNull1BoxedVoid<br>
 implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShapeOrNull1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ShapeOrNull1BoxedBoolean
-public static final class ShapeOrNull1BoxedBoolean<br>
+public record ShapeOrNull1BoxedBoolean<br>
 implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShapeOrNull1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ShapeOrNull1BoxedNumber
-public static final class ShapeOrNull1BoxedNumber<br>
+public record ShapeOrNull1BoxedNumber<br>
 implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShapeOrNull1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ShapeOrNull1BoxedString
-public static final class ShapeOrNull1BoxedString<br>
+public record ShapeOrNull1BoxedString<br>
 implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShapeOrNull1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ShapeOrNull1BoxedList
-public static final class ShapeOrNull1BoxedList<br>
+public record ShapeOrNull1BoxedList<br>
 implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShapeOrNull1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ShapeOrNull1BoxedMap
-public static final class ShapeOrNull1BoxedMap<br>
+public record ShapeOrNull1BoxedMap<br>
 implements [ShapeOrNull1Boxed](#shapeornull1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShapeOrNull1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ShapeOrNull1
 public static class ShapeOrNull1<br>
@@ -172,20 +178,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedVoid
-public static final class Schema0BoxedVoid<br>
+public record Schema0BoxedVoid<br>
 implements [Schema0Boxed](#schema0boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Schema0
 public static class Schema0<br>

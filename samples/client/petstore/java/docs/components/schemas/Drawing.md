@@ -14,13 +14,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Drawing.Drawing1Boxed](#drawing1boxed)<br> abstract sealed validated payload class |
-| static class | [Drawing.Drawing1BoxedMap](#drawing1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Drawing.Drawing1Boxed](#drawing1boxed)<br> abstract sealed validated payload class |
+| record | [Drawing.Drawing1BoxedMap](#drawing1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Drawing.Drawing1](#drawing1)<br> schema class |
 | static class | [Drawing.DrawingMapBuilder](#drawingmapbuilder)<br> builder for Map payloads |
 | static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
-| static class | [Drawing.ShapesBoxed](#shapesboxed)<br> abstract sealed validated payload class |
-| static class | [Drawing.ShapesBoxedList](#shapesboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [Drawing.ShapesBoxed](#shapesboxed)<br> abstract sealed validated payload class |
+| record | [Drawing.ShapesBoxedList](#shapesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Drawing.Shapes](#shapes)<br> schema class |
 | static class | [Drawing.ShapesListBuilder](#shapeslistbuilder)<br> builder for List payloads |
 | static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |
@@ -33,20 +33,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Drawing1BoxedMap
-public static final class Drawing1BoxedMap<br>
+public record Drawing1BoxedMap<br>
 implements [Drawing1Boxed](#drawing1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Drawing1BoxedMap([DrawingMap](#drawingmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [DrawingMap](#drawingmap) | data<br>validated payload |
+| [DrawingMap](#drawingmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Drawing1
 public static class Drawing1<br>
@@ -172,20 +173,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ShapesBoxedList
-public static final class ShapesBoxedList<br>
+public record ShapesBoxedList<br>
 implements [ShapesBoxed](#shapesboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShapesBoxedList([ShapesList](#shapeslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ShapesList](#shapeslist) | data<br>validated payload |
+| [ShapesList](#shapeslist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Shapes
 public static class Shapes<br>

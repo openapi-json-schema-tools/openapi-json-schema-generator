@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1Boxed](#reqpropsfromexplicitaddprops1boxed)<br> abstract sealed validated payload class |
-| static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1BoxedMap](#reqpropsfromexplicitaddprops1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1Boxed](#reqpropsfromexplicitaddprops1boxed)<br> abstract sealed validated payload class |
+| record | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1BoxedMap](#reqpropsfromexplicitaddprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1](#reqpropsfromexplicitaddprops1)<br> schema class |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMapBuilder](#reqpropsfromexplicitaddpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap)<br> output class for Map payloads |
-| static class | [ReqPropsFromExplicitAddProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
-| static class | [ReqPropsFromExplicitAddProps.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ReqPropsFromExplicitAddProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| record | [ReqPropsFromExplicitAddProps.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ReqPropsFromExplicitAddProps.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## ReqPropsFromExplicitAddProps1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ReqPropsFromExplicitAddProps1BoxedMap
-public static final class ReqPropsFromExplicitAddProps1BoxedMap<br>
+public record ReqPropsFromExplicitAddProps1BoxedMap<br>
 implements [ReqPropsFromExplicitAddProps1Boxed](#reqpropsfromexplicitaddprops1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromExplicitAddProps1BoxedMap([ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | data<br>validated payload |
+| [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ReqPropsFromExplicitAddProps1
 public static class ReqPropsFromExplicitAddProps1<br>
@@ -177,20 +178,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedString
-public static final class AdditionalPropertiesBoxedString<br>
+public record AdditionalPropertiesBoxedString<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

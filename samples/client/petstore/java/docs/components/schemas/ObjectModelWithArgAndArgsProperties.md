@@ -12,16 +12,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)<br> abstract sealed validated payload class |
+| record | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1](#objectmodelwithargandargsproperties1)<br> schema class |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMapBuilder](#objectmodelwithargandargspropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap)<br> output class for Map payloads |
-| static class | [ObjectModelWithArgAndArgsProperties.ArgsBoxed](#argsboxed)<br> abstract sealed validated payload class |
-| static class | [ObjectModelWithArgAndArgsProperties.ArgsBoxedString](#argsboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ObjectModelWithArgAndArgsProperties.ArgsBoxed](#argsboxed)<br> abstract sealed validated payload class |
+| record | [ObjectModelWithArgAndArgsProperties.ArgsBoxedString](#argsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.Args](#args)<br> schema class |
-| static class | [ObjectModelWithArgAndArgsProperties.ArgBoxed](#argboxed)<br> abstract sealed validated payload class |
-| static class | [ObjectModelWithArgAndArgsProperties.ArgBoxedString](#argboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ObjectModelWithArgAndArgsProperties.ArgBoxed](#argboxed)<br> abstract sealed validated payload class |
+| record | [ObjectModelWithArgAndArgsProperties.ArgBoxedString](#argboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.Arg](#arg)<br> schema class |
 
 ## ObjectModelWithArgAndArgsProperties1Boxed
@@ -32,20 +32,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ObjectModelWithArgAndArgsProperties1BoxedMap
-public static final class ObjectModelWithArgAndArgsProperties1BoxedMap<br>
+public record ObjectModelWithArgAndArgsProperties1BoxedMap<br>
 implements [ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectModelWithArgAndArgsProperties1BoxedMap([ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | data<br>validated payload |
+| [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ObjectModelWithArgAndArgsProperties1
 public static class ObjectModelWithArgAndArgsProperties1<br>
@@ -190,20 +191,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArgsBoxedString
-public static final class ArgsBoxedString<br>
+public record ArgsBoxedString<br>
 implements [ArgsBoxed](#argsboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArgsBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Args
 public static class Args<br>
@@ -224,20 +226,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArgBoxedString
-public static final class ArgBoxedString<br>
+public record ArgBoxedString<br>
 implements [ArgBoxed](#argboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArgBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Arg
 public static class Arg<br>

@@ -12,13 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NumberOnly.NumberOnly1Boxed](#numberonly1boxed)<br> abstract sealed validated payload class |
-| static class | [NumberOnly.NumberOnly1BoxedMap](#numberonly1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NumberOnly.NumberOnly1Boxed](#numberonly1boxed)<br> abstract sealed validated payload class |
+| record | [NumberOnly.NumberOnly1BoxedMap](#numberonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NumberOnly.NumberOnly1](#numberonly1)<br> schema class |
 | static class | [NumberOnly.NumberOnlyMapBuilder](#numberonlymapbuilder)<br> builder for Map payloads |
 | static class | [NumberOnly.NumberOnlyMap](#numberonlymap)<br> output class for Map payloads |
-| static class | [NumberOnly.JustNumberBoxed](#justnumberboxed)<br> abstract sealed validated payload class |
-| static class | [NumberOnly.JustNumberBoxedNumber](#justnumberboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [NumberOnly.JustNumberBoxed](#justnumberboxed)<br> abstract sealed validated payload class |
+| record | [NumberOnly.JustNumberBoxedNumber](#justnumberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberOnly.JustNumber](#justnumber)<br> schema class |
 
 ## NumberOnly1Boxed
@@ -29,20 +29,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NumberOnly1BoxedMap
-public static final class NumberOnly1BoxedMap<br>
+public record NumberOnly1BoxedMap<br>
 implements [NumberOnly1Boxed](#numberonly1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NumberOnly1BoxedMap([NumberOnlyMap](#numberonlymap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NumberOnlyMap](#numberonlymap) | data<br>validated payload |
+| [NumberOnlyMap](#numberonlymap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## NumberOnly1
 public static class NumberOnly1<br>
@@ -138,20 +139,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## JustNumberBoxedNumber
-public static final class JustNumberBoxedNumber<br>
+public record JustNumberBoxedNumber<br>
 implements [JustNumberBoxed](#justnumberboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JustNumberBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## JustNumber
 public static class JustNumber<br>

@@ -11,8 +11,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Currency.Currency1Boxed](#currency1boxed)<br> abstract sealed validated payload class |
-| static class | [Currency.Currency1BoxedString](#currency1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Currency.Currency1Boxed](#currency1boxed)<br> abstract sealed validated payload class |
+| record | [Currency.Currency1BoxedString](#currency1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Currency.Currency1](#currency1)<br> schema class |
 | enum | [Currency.StringCurrencyEnums](#stringcurrencyenums)<br>String enum |
 
@@ -24,20 +24,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Currency1BoxedString
-public static final class Currency1BoxedString<br>
+public record Currency1BoxedString<br>
 implements [Currency1Boxed](#currency1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Currency1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Currency1
 public static class Currency1<br>

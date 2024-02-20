@@ -11,13 +11,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ApplicationjsonSchema.ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)<br> abstract sealed validated payload class |
-| static class | [ApplicationjsonSchema.ApplicationjsonSchema1BoxedMap](#applicationjsonschema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ApplicationjsonSchema.ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)<br> abstract sealed validated payload class |
+| record | [ApplicationjsonSchema.ApplicationjsonSchema1BoxedMap](#applicationjsonschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ApplicationjsonSchema.ApplicationjsonSchema1](#applicationjsonschema1)<br> schema class |
 | static class | [ApplicationjsonSchema.ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder)<br> builder for Map payloads |
 | static class | [ApplicationjsonSchema.ApplicationjsonSchemaMap](#applicationjsonschemamap)<br> output class for Map payloads |
-| static class | [ApplicationjsonSchema.ApplicationjsonABoxed](#applicationjsonaboxed)<br> abstract sealed validated payload class |
-| static class | [ApplicationjsonSchema.ApplicationjsonABoxedString](#applicationjsonaboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ApplicationjsonSchema.ApplicationjsonABoxed](#applicationjsonaboxed)<br> abstract sealed validated payload class |
+| record | [ApplicationjsonSchema.ApplicationjsonABoxedString](#applicationjsonaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationjsonSchema.ApplicationjsonA](#applicationjsona)<br> schema class |
 
 ## ApplicationjsonSchema1Boxed
@@ -28,20 +28,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationjsonSchema1BoxedMap
-public static final class ApplicationjsonSchema1BoxedMap<br>
+public record ApplicationjsonSchema1BoxedMap<br>
 implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ApplicationjsonSchema1BoxedMap([ApplicationjsonSchemaMap](#applicationjsonschemamap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationjsonSchemaMap](#applicationjsonschemamap) | data<br>validated payload |
+| [ApplicationjsonSchemaMap](#applicationjsonschemamap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
@@ -134,20 +135,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationjsonABoxedString
-public static final class ApplicationjsonABoxedString<br>
+public record ApplicationjsonABoxedString<br>
 implements [ApplicationjsonABoxed](#applicationjsonaboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ApplicationjsonABoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ApplicationjsonA
 public static class ApplicationjsonA<br>

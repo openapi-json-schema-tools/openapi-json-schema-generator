@@ -10,8 +10,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerMin15.IntegerMin151Boxed](#integermin151boxed)<br> abstract sealed validated payload class |
-| static class | [IntegerMin15.IntegerMin151BoxedNumber](#integermin151boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [IntegerMin15.IntegerMin151Boxed](#integermin151boxed)<br> abstract sealed validated payload class |
+| record | [IntegerMin15.IntegerMin151BoxedNumber](#integermin151boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerMin15.IntegerMin151](#integermin151)<br> schema class |
 
 ## IntegerMin151Boxed
@@ -22,20 +22,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IntegerMin151BoxedNumber
-public static final class IntegerMin151BoxedNumber<br>
+public record IntegerMin151BoxedNumber<br>
 implements [IntegerMin151Boxed](#integermin151boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerMin151BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IntegerMin151
 public static class IntegerMin151<br>

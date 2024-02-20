@@ -12,16 +12,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ReadOnlyFirst.ReadOnlyFirst1Boxed](#readonlyfirst1boxed)<br> abstract sealed validated payload class |
-| static class | [ReadOnlyFirst.ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ReadOnlyFirst.ReadOnlyFirst1Boxed](#readonlyfirst1boxed)<br> abstract sealed validated payload class |
+| record | [ReadOnlyFirst.ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirst1](#readonlyfirst1)<br> schema class |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder)<br> builder for Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMap](#readonlyfirstmap)<br> output class for Map payloads |
-| static class | [ReadOnlyFirst.BazBoxed](#bazboxed)<br> abstract sealed validated payload class |
-| static class | [ReadOnlyFirst.BazBoxedString](#bazboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ReadOnlyFirst.BazBoxed](#bazboxed)<br> abstract sealed validated payload class |
+| record | [ReadOnlyFirst.BazBoxedString](#bazboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ReadOnlyFirst.Baz](#baz)<br> schema class |
-| static class | [ReadOnlyFirst.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
-| static class | [ReadOnlyFirst.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ReadOnlyFirst.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
+| record | [ReadOnlyFirst.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ReadOnlyFirst.Bar](#bar)<br> schema class |
 
 ## ReadOnlyFirst1Boxed
@@ -32,20 +32,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ReadOnlyFirst1BoxedMap
-public static final class ReadOnlyFirst1BoxedMap<br>
+public record ReadOnlyFirst1BoxedMap<br>
 implements [ReadOnlyFirst1Boxed](#readonlyfirst1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReadOnlyFirst1BoxedMap([ReadOnlyFirstMap](#readonlyfirstmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReadOnlyFirstMap](#readonlyfirstmap) | data<br>validated payload |
+| [ReadOnlyFirstMap](#readonlyfirstmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ReadOnlyFirst1
 public static class ReadOnlyFirst1<br>
@@ -142,20 +143,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## BazBoxedString
-public static final class BazBoxedString<br>
+public record BazBoxedString<br>
 implements [BazBoxed](#bazboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BazBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Baz
 public static class Baz<br>
@@ -176,20 +178,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## BarBoxedString
-public static final class BarBoxedString<br>
+public record BarBoxedString<br>
 implements [BarBoxed](#barboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BarBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Bar
 public static class Bar<br>

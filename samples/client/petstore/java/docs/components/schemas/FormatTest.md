@@ -14,77 +14,77 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [FormatTest.FormatTest1Boxed](#formattest1boxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.FormatTest1BoxedMap](#formattest1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [FormatTest.FormatTest1Boxed](#formattest1boxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.FormatTest1BoxedMap](#formattest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FormatTest.FormatTest1](#formattest1)<br> schema class |
 | static class | [FormatTest.FormatTestMapBuilder](#formattestmapbuilder)<br> builder for Map payloads |
 | static class | [FormatTest.FormatTestMap](#formattestmap)<br> output class for Map payloads |
-| static class | [FormatTest.NonePropBoxed](#nonepropboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.NonePropBoxedVoid](#nonepropboxedvoid)<br> boxed class to store validated null payloads |
+| sealed interface | [FormatTest.NonePropBoxed](#nonepropboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.NonePropBoxedVoid](#nonepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [FormatTest.NoneProp](#noneprop)<br> schema class |
-| static class | [FormatTest.PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FormatTest.PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.PatternWithDigitsAndDelimiter](#patternwithdigitsanddelimiter)<br> schema class |
-| static class | [FormatTest.PatternWithDigitsBoxed](#patternwithdigitsboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.PatternWithDigitsBoxedString](#patternwithdigitsboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FormatTest.PatternWithDigitsBoxed](#patternwithdigitsboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.PatternWithDigitsBoxedString](#patternwithdigitsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.PatternWithDigits](#patternwithdigits)<br> schema class |
-| static class | [FormatTest.PasswordBoxed](#passwordboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.PasswordBoxedString](#passwordboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FormatTest.PasswordBoxed](#passwordboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.PasswordBoxedString](#passwordboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.Password](#password)<br> schema class |
-| static class | [FormatTest.UuidNoExampleBoxed](#uuidnoexampleboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.UuidNoExampleBoxedString](#uuidnoexampleboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FormatTest.UuidNoExampleBoxed](#uuidnoexampleboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.UuidNoExampleBoxedString](#uuidnoexampleboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.UuidNoExample](#uuidnoexample)<br> schema class |
-| static class | [FormatTest.UuidSchemaBoxed](#uuidschemaboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FormatTest.UuidSchemaBoxed](#uuidschemaboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.UuidSchema](#uuidschema)<br> schema class |
-| static class | [FormatTest.DateTimeBoxed](#datetimeboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.DateTimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FormatTest.DateTimeBoxed](#datetimeboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.DateTimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.DateTime](#datetime)<br> schema class |
-| static class | [FormatTest.DateBoxed](#dateboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.DateBoxedString](#dateboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FormatTest.DateBoxed](#dateboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.DateBoxedString](#dateboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.Date](#date)<br> schema class |
-| static class | [FormatTest.BinaryBoxed](#binaryboxed)<br> abstract sealed validated payload class |
+| sealed interface | [FormatTest.BinaryBoxed](#binaryboxed)<br> abstract sealed validated payload class |
 | static class | [FormatTest.Binary](#binary)<br> schema class |
-| static class | [FormatTest.ByteSchemaBoxed](#byteschemaboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.ByteSchemaBoxedString](#byteschemaboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FormatTest.ByteSchemaBoxed](#byteschemaboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.ByteSchemaBoxedString](#byteschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.ByteSchema](#byteschema)<br> schema class |
-| static class | [FormatTest.StringSchemaBoxed](#stringschemaboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.StringSchemaBoxedString](#stringschemaboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [FormatTest.StringSchemaBoxed](#stringschemaboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.StringSchemaBoxedString](#stringschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.StringSchema](#stringschema)<br> schema class |
-| static class | [FormatTest.ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [FormatTest.ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [FormatTest.ArrayWithUniqueItems](#arraywithuniqueitems)<br> schema class |
 | static class | [FormatTest.ArrayWithUniqueItemsListBuilder](#arraywithuniqueitemslistbuilder)<br> builder for List payloads |
 | static class | [FormatTest.ArrayWithUniqueItemsList](#arraywithuniqueitemslist)<br> output class for List payloads |
-| static class | [FormatTest.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Items](#items)<br> schema class |
-| static class | [FormatTest.Float64Boxed](#float64boxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.Float64BoxedNumber](#float64boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.Float64Boxed](#float64boxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.Float64BoxedNumber](#float64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Float64](#float64)<br> schema class |
-| static class | [FormatTest.DoubleSchemaBoxed](#doubleschemaboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.DoubleSchemaBoxed](#doubleschemaboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.DoubleSchema](#doubleschema)<br> schema class |
-| static class | [FormatTest.Float32Boxed](#float32boxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.Float32BoxedNumber](#float32boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.Float32Boxed](#float32boxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.Float32BoxedNumber](#float32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Float32](#float32)<br> schema class |
-| static class | [FormatTest.FloatSchemaBoxed](#floatschemaboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.FloatSchemaBoxed](#floatschemaboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.FloatSchema](#floatschema)<br> schema class |
-| static class | [FormatTest.NumberSchemaBoxed](#numberschemaboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.NumberSchemaBoxed](#numberschemaboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.NumberSchema](#numberschema)<br> schema class |
-| static class | [FormatTest.Int64Boxed](#int64boxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.Int64BoxedNumber](#int64boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.Int64Boxed](#int64boxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.Int64BoxedNumber](#int64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int64](#int64)<br> schema class |
-| static class | [FormatTest.Int32withValidationsBoxed](#int32withvalidationsboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.Int32withValidationsBoxed](#int32withvalidationsboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int32withValidations](#int32withvalidations)<br> schema class |
-| static class | [FormatTest.Int32Boxed](#int32boxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.Int32BoxedNumber](#int32boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.Int32Boxed](#int32boxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.Int32BoxedNumber](#int32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int32](#int32)<br> schema class |
-| static class | [FormatTest.IntegerSchemaBoxed](#integerschemaboxed)<br> abstract sealed validated payload class |
-| static class | [FormatTest.IntegerSchemaBoxedNumber](#integerschemaboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [FormatTest.IntegerSchemaBoxed](#integerschemaboxed)<br> abstract sealed validated payload class |
+| record | [FormatTest.IntegerSchemaBoxedNumber](#integerschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.IntegerSchema](#integerschema)<br> schema class |
 
 ## FormatTest1Boxed
@@ -95,20 +95,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## FormatTest1BoxedMap
-public static final class FormatTest1BoxedMap<br>
+public record FormatTest1BoxedMap<br>
 implements [FormatTest1Boxed](#formattest1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTest1BoxedMap([FormatTestMap](#formattestmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap](#formattestmap) | data<br>validated payload |
+| [FormatTestMap](#formattestmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FormatTest1
 public static class FormatTest1<br>
@@ -576,20 +577,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NonePropBoxedVoid
-public static final class NonePropBoxedVoid<br>
+public record NonePropBoxedVoid<br>
 implements [NonePropBoxed](#nonepropboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NonePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## NoneProp
 public static class NoneProp<br>
@@ -610,20 +612,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## PatternWithDigitsAndDelimiterBoxedString
-public static final class PatternWithDigitsAndDelimiterBoxedString<br>
+public record PatternWithDigitsAndDelimiterBoxedString<br>
 implements [PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PatternWithDigitsAndDelimiterBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
@@ -676,20 +679,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## PatternWithDigitsBoxedString
-public static final class PatternWithDigitsBoxedString<br>
+public record PatternWithDigitsBoxedString<br>
 implements [PatternWithDigitsBoxed](#patternwithdigitsboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PatternWithDigitsBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## PatternWithDigits
 public static class PatternWithDigits<br>
@@ -742,20 +746,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## PasswordBoxedString
-public static final class PasswordBoxedString<br>
+public record PasswordBoxedString<br>
 implements [PasswordBoxed](#passwordboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PasswordBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Password
 public static class Password<br>
@@ -807,20 +812,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## UuidNoExampleBoxedString
-public static final class UuidNoExampleBoxedString<br>
+public record UuidNoExampleBoxedString<br>
 implements [UuidNoExampleBoxed](#uuidnoexampleboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UuidNoExampleBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## UuidNoExample
 public static class UuidNoExample<br>
@@ -841,20 +847,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## UuidSchemaBoxedString
-public static final class UuidSchemaBoxedString<br>
+public record UuidSchemaBoxedString<br>
 implements [UuidSchemaBoxed](#uuidschemaboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UuidSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>
@@ -875,20 +882,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DateTimeBoxedString
-public static final class DateTimeBoxedString<br>
+public record DateTimeBoxedString<br>
 implements [DateTimeBoxed](#datetimeboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DateTimeBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DateTime
 public static class DateTime<br>
@@ -909,20 +917,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DateBoxedString
-public static final class DateBoxedString<br>
+public record DateBoxedString<br>
 implements [DateBoxed](#dateboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DateBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Date
 public static class Date<br>
@@ -955,20 +964,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ByteSchemaBoxedString
-public static final class ByteSchemaBoxedString<br>
+public record ByteSchemaBoxedString<br>
 implements [ByteSchemaBoxed](#byteschemaboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ByteSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ByteSchema
 public static class ByteSchema<br>
@@ -984,20 +994,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## StringSchemaBoxedString
-public static final class StringSchemaBoxedString<br>
+public record StringSchemaBoxedString<br>
 implements [StringSchemaBoxed](#stringschemaboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## StringSchema
 public static class StringSchema<br>
@@ -1047,20 +1058,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ArrayWithUniqueItemsBoxedList
-public static final class ArrayWithUniqueItemsBoxedList<br>
+public record ArrayWithUniqueItemsBoxedList<br>
 implements [ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayWithUniqueItemsBoxedList([ArrayWithUniqueItemsList](#arraywithuniqueitemslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | data<br>validated payload |
+| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## ArrayWithUniqueItems
 public static class ArrayWithUniqueItems<br>
@@ -1147,20 +1159,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedNumber
-public static final class ItemsBoxedNumber<br>
+public record ItemsBoxedNumber<br>
 implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Items
 public static class Items<br>
@@ -1181,20 +1194,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Float64BoxedNumber
-public static final class Float64BoxedNumber<br>
+public record Float64BoxedNumber<br>
 implements [Float64Boxed](#float64boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Float64BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Float64
 public static class Float64<br>
@@ -1215,20 +1229,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## DoubleSchemaBoxedNumber
-public static final class DoubleSchemaBoxedNumber<br>
+public record DoubleSchemaBoxedNumber<br>
 implements [DoubleSchemaBoxed](#doubleschemaboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DoubleSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -1280,20 +1295,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Float32BoxedNumber
-public static final class Float32BoxedNumber<br>
+public record Float32BoxedNumber<br>
 implements [Float32Boxed](#float32boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Float32BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Float32
 public static class Float32<br>
@@ -1314,20 +1330,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## FloatSchemaBoxedNumber
-public static final class FloatSchemaBoxedNumber<br>
+public record FloatSchemaBoxedNumber<br>
 implements [FloatSchemaBoxed](#floatschemaboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FloatSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -1382,20 +1399,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## NumberSchemaBoxedNumber
-public static final class NumberSchemaBoxedNumber<br>
+public record NumberSchemaBoxedNumber<br>
 implements [NumberSchemaBoxed](#numberschemaboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NumberSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -1447,20 +1465,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Int64BoxedNumber
-public static final class Int64BoxedNumber<br>
+public record Int64BoxedNumber<br>
 implements [Int64Boxed](#int64boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Int64BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Int64
 public static class Int64<br>
@@ -1481,20 +1500,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Int32withValidationsBoxedNumber
-public static final class Int32withValidationsBoxedNumber<br>
+public record Int32withValidationsBoxedNumber<br>
 implements [Int32withValidationsBoxed](#int32withvalidationsboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Int32withValidationsBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Int32withValidations
 public static class Int32withValidations<br>
@@ -1546,20 +1566,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## Int32BoxedNumber
-public static final class Int32BoxedNumber<br>
+public record Int32BoxedNumber<br>
 implements [Int32Boxed](#int32boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Int32BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## Int32
 public static class Int32<br>
@@ -1580,20 +1601,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## IntegerSchemaBoxedNumber
-public static final class IntegerSchemaBoxedNumber<br>
+public record IntegerSchemaBoxedNumber<br>
 implements [IntegerSchemaBoxed](#integerschemaboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## IntegerSchema
 public static class IntegerSchema<br>

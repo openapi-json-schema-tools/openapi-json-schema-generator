@@ -12,8 +12,8 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed)<br> abstract sealed validated payload class |
-| static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1BoxedMap](#selfreferencingobjectmodel1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [SelfReferencingObjectModel.SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed)<br> abstract sealed validated payload class |
+| record | [SelfReferencingObjectModel.SelfReferencingObjectModel1BoxedMap](#selfreferencingobjectmodel1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1](#selfreferencingobjectmodel1)<br> schema class |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder)<br> builder for Map payloads |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap)<br> output class for Map payloads |
@@ -26,20 +26,21 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 ## SelfReferencingObjectModel1BoxedMap
-public static final class SelfReferencingObjectModel1BoxedMap<br>
+public record SelfReferencingObjectModel1BoxedMap<br>
 implements [SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SelfReferencingObjectModel1BoxedMap([SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | data<br>validated payload |
+| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | data()<br>validated payload |
+| @Nullable Object | getData()validated payload |
 
 ## SelfReferencingObjectModel1
 public static class SelfReferencingObjectModel1<br>
