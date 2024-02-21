@@ -4,22 +4,32 @@ Client.java
 public class Client
 
 A class that contains necessary nested request body classes
-- supporting XMediaType classes which store the openapi request body contentType to schema information
+- SealedMediaType, a sealed interface which contains all the schema/encoding info for each contentType
+- records which implement SealedMediaType, the concrete media types
 - a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances
-- SealedRequestBody class, a sealed interface which contains all the contentType/schema input types
-- final classes which implement SealedRequestBody, the concrete request body types
+- SealedRequestBody, a sealed interface which contains all the contentType/schema input types
+- records which implement SealedRequestBody, the concrete request body types
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [Client.ApplicationjsonMediaType](#applicationjsonmediatype)<br>class storing schema info for a specific contentType |
+| sealed interface | [Client.SealedMediaType](#sealedmediatype)<br>media type sealed interface |
+| record | [Client.ApplicationjsonMediaType](#applicationjsonmediatype)<br>record storing schema + encoding for a specific contentType |
 | static class | [Client.Client1](#client1)<br>class that serializes request bodies |
 | sealed interface | [Client.SealedRequestBody](#sealedrequestbody)<br>request body sealed interface |
 | record | [Client.ApplicationjsonRequestBody](#applicationjsonrequestbody)<br>implements sealed interface to store request body input |
 
+## SealedMediaType
+public sealed interface SealedMediaType<br>
+permits<br>
+[ApplicationjsonMediaType](#applicationjsonmediatype)
+
+sealed interface that stores schema and encoding info
+
+
 ## ApplicationjsonMediaType
-public static class ApplicationjsonMediaType<br>
-extends MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../components/requestbodies/client/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1)>
+public record ApplicationjsonMediaType<br>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../components/requestbodies/client/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -28,10 +38,11 @@ class storing schema info for a specific contentType
 | --------------------------- |
 | ApplicationjsonMediaType()<br>Creates an instance |
 
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | --------------------- |
-| [ApplicationjsonSchema.ApplicationjsonSchema1](../../components/requestbodies/client/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema<br>the schema for this MediaType |
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ApplicationjsonSchema.ApplicationjsonSchema1](../../components/requestbodies/client/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
+| Void | encoding()<br>the encoding info |
 
 ## Client1
 public static class Client1<br>
