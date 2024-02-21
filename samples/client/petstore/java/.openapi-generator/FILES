@@ -747,7 +747,6 @@ src/main/java/org/openapijsonschematools/client/paths/foo/get/responses/codedefa
 src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/FooGetServer0.java
 src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/FooGetServer1.java
 src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/server1/Variables.java
-src/main/java/org/openapijsonschematools/client/paths/get/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/pet/post/PetPostSecurityInfo.java
 src/main/java/org/openapijsonschematools/client/paths/pet/post/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/pet/post/responses/Code200Response.java
@@ -813,6 +812,7 @@ src/main/java/org/openapijsonschematools/client/paths/petpetiduploadimage/post/p
 src/main/java/org/openapijsonschematools/client/paths/petpetiduploadimage/post/requestbody/content/multipartformdata/MultipartformdataSchema.java
 src/main/java/org/openapijsonschematools/client/paths/petpetiduploadimage/post/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/petpetiduploadimage/post/security/PetpetiduploadimagePostSecurityRequirementObject0.java
+src/main/java/org/openapijsonschematools/client/paths/solidus/get/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/storeinventory/get/StoreinventoryGetSecurityInfo.java
 src/main/java/org/openapijsonschematools/client/paths/storeinventory/get/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/storeinventory/get/security/StoreinventoryGetSecurityRequirementObject0.java

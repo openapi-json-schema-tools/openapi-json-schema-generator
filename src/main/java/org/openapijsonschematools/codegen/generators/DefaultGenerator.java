@@ -3821,7 +3821,6 @@ public class DefaultGenerator implements Generator {
             return;
         }
         // #/paths/somePath
-        String path = pathPieces[2];
         pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), null);
         if (pathPieces.length < 4) {
             return;

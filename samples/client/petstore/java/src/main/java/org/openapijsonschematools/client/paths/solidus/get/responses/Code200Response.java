@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.paths..get.responses;
+package org.openapijsonschematools.client.paths.solidus.get.responses;
 
 import org.openapijsonschematools.client.components.responses.SuccessDescriptionOnly;
 

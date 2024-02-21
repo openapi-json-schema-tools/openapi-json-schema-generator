@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.components.responses;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.response.ApiResponse;
+import org.openapijsonschematools.client.response.c;
 import org.openapijsonschematools.client.response.DeserializedApiResponse;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
 import org.openapijsonschematools.client.mediatype.MediaType;

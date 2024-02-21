@@ -118,7 +118,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         String usedName = sanitizeName(name, "[^a-zA-Z0-9]+");
         // todo check if empty and if so them use enum name
         // todo fix this, this does not handle names starting with numbers
-        return usedName.toLowerCase(Locale.ROOT);
+        usedName = usedName.toLowerCase(Locale.ROOT);
+        if (usedName.isEmpty()) {
+            usedName = toEnumVarName(name, null).toLowerCase(Locale.ROOT);
+        }
+        return usedName;
     }
 
     protected void updateServersFilepath(String[] pathPieces) {

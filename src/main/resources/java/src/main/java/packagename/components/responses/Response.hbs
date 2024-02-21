@@ -11,17 +11,19 @@ public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
 }
 {{else}}
 import {{packageName}}.configurations.SchemaConfiguration;
-import {{packageName}}.response.ApiResponse;
-import {{packageName}}.response.DeserializedApiResponse;
 import {{packageName}}.response.ResponseDeserializer;
+    {{#if hasContentSchema}}
 import {{packageName}}.mediatype.MediaType;
+    {{/if}}
     {{#each content}}
         {{#with schema}}
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/each}}
 
+    {{#if content}}
 import java.util.AbstractMap;
+    {{/if}}
 import java.util.Map;
 import java.net.http.HttpHeaders;
 
