@@ -98,6 +98,7 @@ public class ListJsonSchema {
             return new ListJsonSchema1BoxedList(validate(arg, configuration));
         }
 
+        @Override
         public ListJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof List<?> castArg) {
                 return validateAndBox(castArg, configuration);

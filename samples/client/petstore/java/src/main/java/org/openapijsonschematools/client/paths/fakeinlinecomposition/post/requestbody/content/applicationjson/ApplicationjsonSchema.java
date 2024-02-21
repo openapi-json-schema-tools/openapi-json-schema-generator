@@ -364,6 +364,7 @@ public class ApplicationjsonSchema {
         public ApplicationjsonSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationjsonSchema1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public ApplicationjsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

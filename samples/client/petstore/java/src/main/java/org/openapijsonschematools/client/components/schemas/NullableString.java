@@ -114,6 +114,7 @@ public class NullableString {
         public NullableString1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NullableString1BoxedString(validate(arg, configuration));
         }
+        @Override
         public NullableString1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

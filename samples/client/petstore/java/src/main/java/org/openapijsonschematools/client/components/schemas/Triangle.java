@@ -309,6 +309,7 @@ public class Triangle {
         public Triangle1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Triangle1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public Triangle1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

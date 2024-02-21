@@ -251,6 +251,7 @@ public class User {
         public ObjectWithNoDeclaredPropsNullableBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ObjectWithNoDeclaredPropsNullableBoxedMap(validate(arg, configuration));
         }
+        @Override
         public ObjectWithNoDeclaredPropsNullableBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
@@ -548,6 +549,7 @@ public class User {
         public AnyTypeExceptNullPropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedMap(validate(arg, configuration));
         }
+        @Override
         public AnyTypeExceptNullPropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

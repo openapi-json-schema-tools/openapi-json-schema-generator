@@ -307,6 +307,7 @@ public class SomeObject {
         public SomeObject1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomeObject1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public SomeObject1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

@@ -167,6 +167,7 @@ public class StringEnum {
         public StringEnum1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new StringEnum1BoxedString(validate(arg, configuration));
         }
+        @Override
         public StringEnum1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

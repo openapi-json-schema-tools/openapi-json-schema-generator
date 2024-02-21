@@ -117,6 +117,7 @@ public class HealthCheckResult {
         public NullableMessageBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NullableMessageBoxedString(validate(arg, configuration));
         }
+        @Override
         public NullableMessageBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

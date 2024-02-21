@@ -84,6 +84,7 @@ public class DateTimeJsonSchema {
             return new DateTimeJsonSchema1BoxedString(validate(arg, configuration));
         }
 
+        @Override
         public DateTimeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);

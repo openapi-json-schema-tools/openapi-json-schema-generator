@@ -424,6 +424,7 @@ public class Schema200Response {
         public Schema200Response1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema200Response1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public Schema200Response1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

@@ -664,6 +664,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         public ComposedAnyOfDifferentTypesNoValidations1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ComposedAnyOfDifferentTypesNoValidations1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public ComposedAnyOfDifferentTypesNoValidations1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

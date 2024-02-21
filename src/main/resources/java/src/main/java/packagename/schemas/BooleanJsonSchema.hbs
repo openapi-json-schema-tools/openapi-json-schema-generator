@@ -76,6 +76,8 @@ public class BooleanJsonSchema {
         public BooleanJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BooleanJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
+
+        @Override
         public BooleanJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Boolean booleanArg) {
                 boolean castArg = booleanArg;

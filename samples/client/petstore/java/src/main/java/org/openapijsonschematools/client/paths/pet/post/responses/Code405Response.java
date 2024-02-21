@@ -1,12 +1,8 @@
 package org.openapijsonschematools.client.paths.pet.post.responses;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.response.ApiResponse;
-import org.openapijsonschematools.client.response.DeserializedApiResponse;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
-import org.openapijsonschematools.client.mediatype.MediaType;
 
-import java.util.AbstractMap;
 import java.util.Map;
 import java.net.http.HttpHeaders;
 

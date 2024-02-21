@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-public abstract class JsonSchema {
+public abstract class JsonSchema<T> {
     public final @Nullable Set<Class<?>> type;
     public final @Nullable String format;
     public final @Nullable Class<? extends JsonSchema> items;
@@ -223,6 +223,7 @@ public abstract class JsonSchema {
 
     public abstract @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException;
     public abstract @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException;
+    public abstract T validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException;
 
     private List<PathToSchemasMap> getContainsPathToSchemas(
             @Nullable Object arg,

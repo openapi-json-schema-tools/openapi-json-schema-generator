@@ -317,6 +317,7 @@ public class AnyTypeNotString {
         public AnyTypeNotString1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeNotString1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public AnyTypeNotString1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

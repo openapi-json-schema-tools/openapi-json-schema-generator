@@ -75,6 +75,8 @@ public class NullJsonSchema {
         public NullJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NullJsonSchema1BoxedVoid(validate(arg, configuration));
         }
+
+        @Override
         public NullJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

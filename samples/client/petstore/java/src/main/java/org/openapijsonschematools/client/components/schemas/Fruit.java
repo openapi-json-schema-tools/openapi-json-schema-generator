@@ -391,6 +391,7 @@ public class Fruit {
         public Fruit1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Fruit1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public Fruit1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

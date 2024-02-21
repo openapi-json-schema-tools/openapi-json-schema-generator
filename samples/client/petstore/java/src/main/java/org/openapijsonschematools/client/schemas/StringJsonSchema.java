@@ -96,6 +96,7 @@ public class StringJsonSchema {
             return new StringJsonSchema1BoxedString(validate(arg, configuration));
         }
 
+        @Override
         public StringJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);

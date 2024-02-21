@@ -385,6 +385,7 @@ public class ReturnSchema {
         public ReturnSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ReturnSchema1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public ReturnSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

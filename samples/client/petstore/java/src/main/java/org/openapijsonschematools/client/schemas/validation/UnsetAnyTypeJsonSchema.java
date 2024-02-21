@@ -254,26 +254,33 @@ public class UnsetAnyTypeJsonSchema {
         public UnsetAnyTypeJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedVoid(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedNumber(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedString(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedList(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedMap(validate(arg, configuration));
         }
+
+        @Override
         public UnsetAnyTypeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

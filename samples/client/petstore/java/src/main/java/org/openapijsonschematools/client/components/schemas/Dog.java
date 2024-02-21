@@ -474,6 +474,7 @@ public class Dog {
         public Dog1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Dog1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public Dog1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

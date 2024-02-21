@@ -80,6 +80,8 @@ public class DoubleJsonSchema {
         public DoubleJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DoubleJsonSchema1BoxedNumber(validate(arg, configuration));
         }
+
+        @Override
         public DoubleJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);

@@ -553,6 +553,7 @@ public class EquilateralTriangle {
         public EquilateralTriangle1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EquilateralTriangle1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public EquilateralTriangle1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

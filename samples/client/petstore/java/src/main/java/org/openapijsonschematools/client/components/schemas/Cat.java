@@ -474,6 +474,7 @@ public class Cat {
         public Cat1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Cat1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public Cat1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

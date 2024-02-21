@@ -553,6 +553,7 @@ public class IsoscelesTriangle {
         public IsoscelesTriangle1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new IsoscelesTriangle1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public IsoscelesTriangle1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

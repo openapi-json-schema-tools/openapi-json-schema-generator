@@ -366,6 +366,7 @@ public class ObjectWithInlineCompositionProperty {
         public SomePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomePropBoxedMap(validate(arg, configuration));
         }
+        @Override
         public SomePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

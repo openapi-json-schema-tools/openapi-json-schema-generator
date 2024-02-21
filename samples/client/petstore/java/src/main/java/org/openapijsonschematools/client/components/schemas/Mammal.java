@@ -309,6 +309,7 @@ public class Mammal {
         public Mammal1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Mammal1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public Mammal1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

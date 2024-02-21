@@ -303,6 +303,7 @@ public class JSONPatchRequest {
         public ItemsBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedMap(validate(arg, configuration));
         }
+        @Override
         public ItemsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

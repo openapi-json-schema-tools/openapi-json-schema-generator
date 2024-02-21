@@ -98,6 +98,7 @@ public class IntJsonSchema {
             return new IntJsonSchema1BoxedNumber(validate(arg, configuration));
         }
 
+        @Override
         public IntJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);

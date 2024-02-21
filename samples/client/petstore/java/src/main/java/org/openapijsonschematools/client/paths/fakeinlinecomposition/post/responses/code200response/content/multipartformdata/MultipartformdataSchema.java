@@ -366,6 +366,7 @@ public class MultipartformdataSchema {
         public MultipartformdataSomePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MultipartformdataSomePropBoxedMap(validate(arg, configuration));
         }
+        @Override
         public MultipartformdataSomePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

@@ -84,6 +84,7 @@ public class UuidJsonSchema {
             return new UuidJsonSchema1BoxedString(validate(arg, configuration));
         }
 
+        @Override
         public UuidJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);

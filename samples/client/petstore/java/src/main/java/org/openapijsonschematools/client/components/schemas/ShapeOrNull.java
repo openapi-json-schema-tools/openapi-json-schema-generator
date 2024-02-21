@@ -323,6 +323,7 @@ public class ShapeOrNull {
         public ShapeOrNull1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ShapeOrNull1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public ShapeOrNull1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

@@ -19,6 +19,7 @@
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxMap }}
         {{/eq}}
     {{/each}}
+@Override
 public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     {{#each types}}
         {{#if @first}}
@@ -76,6 +77,7 @@ public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, Sc
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxString }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxList }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxMap }}
+@Override
 public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     if (arg == null) {
         Void castArg = (Void) arg;

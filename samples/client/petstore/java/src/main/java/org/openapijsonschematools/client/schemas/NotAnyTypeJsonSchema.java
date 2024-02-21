@@ -269,26 +269,33 @@ public class NotAnyTypeJsonSchema {
         public NotAnyTypeJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedVoid(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedNumber(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedString(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedList(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedMap(validate(arg, configuration));
         }
+
+        @Override
         public NotAnyTypeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

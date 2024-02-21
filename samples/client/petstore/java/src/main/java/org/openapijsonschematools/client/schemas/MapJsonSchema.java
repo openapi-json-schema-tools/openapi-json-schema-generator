@@ -102,6 +102,7 @@ public class MapJsonSchema {
             return new MapJsonSchema1BoxedMap(validate(arg, configuration));
         }
 
+        @Override
         public MapJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);

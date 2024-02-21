@@ -301,6 +301,7 @@ public class AnyTypeAndFormat {
         public UuidSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UuidSchemaBoxedMap(validate(arg, configuration));
         }
+        @Override
         public UuidSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
@@ -585,6 +586,7 @@ public class AnyTypeAndFormat {
         public DateBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DateBoxedMap(validate(arg, configuration));
         }
+        @Override
         public DateBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
@@ -869,6 +871,7 @@ public class AnyTypeAndFormat {
         public DatetimeBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DatetimeBoxedMap(validate(arg, configuration));
         }
+        @Override
         public DatetimeBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
@@ -1153,6 +1156,7 @@ public class AnyTypeAndFormat {
         public NumberSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NumberSchemaBoxedMap(validate(arg, configuration));
         }
+        @Override
         public NumberSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
@@ -1437,6 +1441,7 @@ public class AnyTypeAndFormat {
         public BinaryBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BinaryBoxedMap(validate(arg, configuration));
         }
+        @Override
         public BinaryBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
@@ -1721,6 +1726,7 @@ public class AnyTypeAndFormat {
         public Int32BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int32BoxedMap(validate(arg, configuration));
         }
+        @Override
         public Int32Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
@@ -2005,6 +2011,7 @@ public class AnyTypeAndFormat {
         public Int64BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int64BoxedMap(validate(arg, configuration));
         }
+        @Override
         public Int64Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
@@ -2289,6 +2296,7 @@ public class AnyTypeAndFormat {
         public DoubleSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DoubleSchemaBoxedMap(validate(arg, configuration));
         }
+        @Override
         public DoubleSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
@@ -2573,6 +2581,7 @@ public class AnyTypeAndFormat {
         public FloatSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FloatSchemaBoxedMap(validate(arg, configuration));
         }
+        @Override
         public FloatSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

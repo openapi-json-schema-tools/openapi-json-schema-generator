@@ -553,6 +553,7 @@ public class ComplexQuadrilateral {
         public ComplexQuadrilateral1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ComplexQuadrilateral1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public ComplexQuadrilateral1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

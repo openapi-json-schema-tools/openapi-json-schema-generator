@@ -323,6 +323,7 @@ public class NullableShape {
         public NullableShape1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NullableShape1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public NullableShape1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

@@ -308,6 +308,7 @@ public class Pig {
         public Pig1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Pig1BoxedMap(validate(arg, configuration));
         }
+        @Override
         public Pig1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

@@ -267,26 +267,33 @@ public class AnyTypeJsonSchema {
         public AnyTypeJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeJsonSchema1BoxedVoid(validate(arg, configuration));
         }
+
         @Override
         public AnyTypeJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
+
         @Override
         public AnyTypeJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeJsonSchema1BoxedNumber(validate(arg, configuration));
         }
+
         @Override
         public AnyTypeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeJsonSchema1BoxedString(validate(arg, configuration));
         }
+
         @Override
         public AnyTypeJsonSchema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeJsonSchema1BoxedList(validate(arg, configuration));
         }
+
         @Override
         public AnyTypeJsonSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeJsonSchema1BoxedMap(validate(arg, configuration));
         }
+
+        @Override
         public AnyTypeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;

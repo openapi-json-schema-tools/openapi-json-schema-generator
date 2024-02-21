@@ -1,8 +1,6 @@
 package org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.responses;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.response.ApiResponse;
-import org.openapijsonschematools.client.response.DeserializedApiResponse;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.responses.code200response.content.applicationjson.ApplicationjsonSchema;

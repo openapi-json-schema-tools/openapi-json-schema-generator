@@ -77,6 +77,7 @@ public class DecimalJsonSchema {
             return new DecimalJsonSchema1BoxedString(validate(arg, configuration));
         }
 
+        @Override
         public DecimalJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);

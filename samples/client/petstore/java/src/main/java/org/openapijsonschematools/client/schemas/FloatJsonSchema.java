@@ -80,6 +80,8 @@ public class FloatJsonSchema {
         public FloatJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FloatJsonSchema1BoxedNumber(validate(arg, configuration));
         }
+
+        @Override
         public FloatJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
