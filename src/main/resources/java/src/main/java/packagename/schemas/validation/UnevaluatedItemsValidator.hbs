@@ -26,7 +26,7 @@ public class UnevaluatedItemsValidator implements KeywordValidator {
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         int minIndex = data.schema().prefixItems != null ? data.schema().prefixItems.size() : 0;
-        JsonSchema unevaluatedItemsSchema = JsonSchemaFactory.getInstance(unevaluatedItems);
+        JsonSchema<?> unevaluatedItemsSchema = JsonSchemaFactory.getInstance(unevaluatedItems);
         for(int i = minIndex; i < listArg.size(); i++) {
             List<Object> itemPathToItem = new ArrayList<>(data.validationMetadata().pathToItem());
             itemPathToItem.add(i);

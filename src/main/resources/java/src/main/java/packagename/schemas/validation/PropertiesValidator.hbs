@@ -27,7 +27,7 @@ public class PropertiesValidator implements KeywordValidator {
                 presentProperties.add((String) key);
             }
         }
-        for(Map.Entry<String, Class<? extends JsonSchema>> entry: properties.entrySet()) {
+        for(Map.Entry<String, Class<? extends JsonSchema<?>>> entry: properties.entrySet()) {
             String propName = entry.getKey();
             if (!presentProperties.contains(propName)) {
                 continue;
@@ -41,8 +41,8 @@ public class PropertiesValidator implements KeywordValidator {
                     data.validationMetadata().validatedPathToSchemas(),
                     data.validationMetadata().seenClasses()
             );
-            Class<? extends JsonSchema> propClass = entry.getValue();
-            JsonSchema propSchema = JsonSchemaFactory.getInstance(propClass);
+            Class<? extends JsonSchema<?>> propClass = entry.getValue();
+            JsonSchema<?> propSchema = JsonSchemaFactory.getInstance(propClass);
             if (propValidationMetadata.validationRanEarlier(propSchema)) {
                 // todo add_deeper_validated_schemas
                 continue;

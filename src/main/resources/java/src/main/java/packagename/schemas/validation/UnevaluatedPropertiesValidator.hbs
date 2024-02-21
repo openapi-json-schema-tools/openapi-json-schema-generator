@@ -24,7 +24,7 @@ public class UnevaluatedPropertiesValidator implements KeywordValidator {
             return null;
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        JsonSchema unevaluatedPropertiesSchema = JsonSchemaFactory.getInstance(unevaluatedProperties);
+        JsonSchema<?> unevaluatedPropertiesSchema = JsonSchemaFactory.getInstance(unevaluatedProperties);
         for(Map.Entry<?, ?> entry: mapArg.entrySet()) {
             if (!(entry.getKey() instanceof String propName)) {
                 throw new InvalidTypeException("Map keys must be strings");
