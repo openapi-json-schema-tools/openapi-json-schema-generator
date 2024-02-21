@@ -12,7 +12,7 @@ import java.net.http.HttpHeaders;
 
 public class SuccessDescriptionOnly {
 
-    public static class SuccessDescriptionOnly1 extends ResponseDeserializer<Void, Void> {
+    public static class SuccessDescriptionOnly1 extends ResponseDeserializer<Void, Void, Void> {
         public SuccessDescriptionOnly1() {
             super(
                 Map.ofEntries(

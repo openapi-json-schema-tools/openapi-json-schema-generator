@@ -12,7 +12,7 @@ import java.net.http.HttpHeaders;
 
 public class Model3XX {
 
-    public static class Model3XX1 extends ResponseDeserializer<Void, Void> {
+    public static class Model3XX1 extends ResponseDeserializer<Void, Void, Void> {
         public Model3XX1() {
             super(
                 Map.ofEntries(

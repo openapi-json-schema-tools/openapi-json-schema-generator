@@ -13,23 +13,32 @@ import java.util.Map;
 import java.net.http.HttpHeaders;
 
 public class Model200 {
+    public sealed interface SealedMediaType permits ApplicationjsonMediaType, MultipartformdataMediaType {}
 
-    public static class ApplicationjsonMediaType extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1> {
+    public record ApplicationjsonMediaType(ApplicationjsonSchema.ApplicationjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonSchema.ApplicationjsonSchema1, Void> {
         public ApplicationjsonMediaType() {
             super(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
         }
+        @Override
+        public Void encoding() {
+            return null;
+        }
     }
 
-    public static class MultipartformdataMediaType extends MediaType<MultipartformdataSchema.MultipartformdataSchema1> {
+    public record MultipartformdataMediaType(MultipartformdataSchema.MultipartformdataSchema1 schema) implements SealedMediaType, MediaType<MultipartformdataSchema.MultipartformdataSchema1, Void> {
         public MultipartformdataMediaType() {
             super(MultipartformdataSchema.MultipartformdataSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
     public sealed interface SealedResponseBody permits ApplicationjsonResponseBody, MultipartformdataResponseBody {}
     public record ApplicationjsonResponseBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) implements SealedResponseBody { }
     public record MultipartformdataResponseBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) implements SealedResponseBody { }
 
-    public static class Model2001 extends ResponseDeserializer<SealedResponseBody, Void> {
+    public static class Model2001 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
         public Model2001() {
             super(
                 Map.ofEntries(

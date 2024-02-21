@@ -14,14 +14,19 @@ import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits MultipartformdataMediaType {}
 
-    public static class MultipartformdataMediaType extends MediaType<MultipartformdataSchema.MultipartformdataSchema1> {
+    public record MultipartformdataMediaType(MultipartformdataSchema.MultipartformdataSchema1 schema) implements SealedMediaType, MediaType<MultipartformdataSchema.MultipartformdataSchema1, Void> {
         public MultipartformdataMediaType() {
-            super(MultipartformdataSchema.MultipartformdataSchema1.getInstance());
+            this(MultipartformdataSchema.MultipartformdataSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(

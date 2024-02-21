@@ -11,23 +11,32 @@ import java.util.Map;
 import java.net.http.HttpHeaders;
 
 public class Model200 {
+    public sealed interface SealedMediaType permits ApplicationjsonMediaType, ApplicationxmlMediaType {}
 
-    public static class ApplicationjsonMediaType extends MediaType<> {
+    public record ApplicationjsonMediaType() implements SealedMediaType, MediaType<> {
         public ApplicationjsonMediaType() {
             super();
         }
+        @Override
+        public Void encoding() {
+            return null;
+        }
     }
 
-    public static class ApplicationxmlMediaType extends MediaType<> {
+    public record ApplicationxmlMediaType() implements SealedMediaType, MediaType<> {
         public ApplicationxmlMediaType() {
             super();
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
     public sealed interface SealedResponseBody permits ApplicationjsonResponseBody, ApplicationxmlResponseBody {}
     public record ApplicationjsonResponseBody( body) implements SealedResponseBody { }
     public record ApplicationxmlResponseBody( body) implements SealedResponseBody { }
 
-    public static class Model2001 extends ResponseDeserializer<SealedResponseBody, Void> {
+    public static class Model2001 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
         public Model2001() {
             super(
                 Map.ofEntries(

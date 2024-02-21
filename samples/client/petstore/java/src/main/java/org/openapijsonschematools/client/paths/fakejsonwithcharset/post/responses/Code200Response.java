@@ -12,16 +12,21 @@ import java.util.Map;
 import java.net.http.HttpHeaders;
 
 public class Model200 {
+    public sealed interface SealedMediaType permits Applicationjsoncharsetutf8MediaType {}
 
-    public static class Applicationjsoncharsetutf8MediaType extends MediaType<Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1> {
+    public record Applicationjsoncharsetutf8MediaType(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1 schema) implements SealedMediaType, MediaType<Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1, Void> {
         public Applicationjsoncharsetutf8MediaType() {
             super(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
     public sealed interface SealedResponseBody permits Applicationjsoncharsetutf8ResponseBody {}
     public record Applicationjsoncharsetutf8ResponseBody(Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed body) implements SealedResponseBody { }
 
-    public static class Model2001 extends ResponseDeserializer<SealedResponseBody, Void> {
+    public static class Model2001 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
         public Model2001() {
             super(
                 Map.ofEntries(

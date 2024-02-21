@@ -14,14 +14,19 @@ import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits Applicationjsoncharsetutf8MediaType {}
 
-    public static class Applicationjsoncharsetutf8MediaType extends MediaType<Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1> {
+    public record Applicationjsoncharsetutf8MediaType(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1 schema) implements SealedMediaType, MediaType<Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1, Void> {
         public Applicationjsoncharsetutf8MediaType() {
-            super(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1.getInstance());
+            this(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(

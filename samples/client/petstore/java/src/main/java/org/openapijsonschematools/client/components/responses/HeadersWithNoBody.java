@@ -12,7 +12,7 @@ import java.net.http.HttpHeaders;
 
 public class HeadersWithNoBody {
 
-    public static class HeadersWithNoBody1 extends ResponseDeserializer<Void, Void> {
+    public static class HeadersWithNoBody1 extends ResponseDeserializer<Void, Void, Void> {
         public HeadersWithNoBody1() {
             super(
                 Map.ofEntries(

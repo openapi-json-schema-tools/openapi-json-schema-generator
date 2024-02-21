@@ -26,16 +26,23 @@ import java.util.AbstractMap;
 import java.util.Map;
 
 public class {{jsonPathPiece.pascalCase}} {
+    {{#if content}}
+    public sealed interface SealedMediaType permits {{#each content}}{{@key.pascalCase}}MediaType{{#unless @last}}, {{/unless}}{{/each}} {}
+    {{/if}}
     {{#each content}}
 
-    public static class {{@key.pascalCase}}MediaType extends MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}}> {
+    public record {{@key.pascalCase}}MediaType({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} schema{{/with}}{{/with}}) implements SealedMediaType, MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}}, Void> {
         public {{@key.pascalCase}}MediaType() {
-            super({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+            this({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
     {{/each}}
 
-    public static class {{jsonPathPiece.pascalCase}}1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class {{jsonPathPiece.pascalCase}}1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public {{jsonPathPiece.pascalCase}}1() {
             super(
                 Map.ofEntries(

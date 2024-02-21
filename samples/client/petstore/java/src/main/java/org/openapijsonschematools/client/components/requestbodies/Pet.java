@@ -15,20 +15,29 @@ import java.util.AbstractMap;
 import java.util.Map;
 
 public class Pet {
+    public sealed interface SealedMediaType permits ApplicationjsonMediaType, ApplicationxmlMediaType {}
 
-    public static class ApplicationjsonMediaType extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1> {
+    public record ApplicationjsonMediaType(ApplicationjsonSchema.ApplicationjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonSchema.ApplicationjsonSchema1, Void> {
         public ApplicationjsonMediaType() {
-            super(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
+            this(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class ApplicationxmlMediaType extends MediaType<ApplicationxmlSchema.ApplicationxmlSchema1> {
+    public record ApplicationxmlMediaType(ApplicationxmlSchema.ApplicationxmlSchema1 schema) implements SealedMediaType, MediaType<ApplicationxmlSchema.ApplicationxmlSchema1, Void> {
         public ApplicationxmlMediaType() {
-            super(ApplicationxmlSchema.ApplicationxmlSchema1.getInstance());
+            this(ApplicationxmlSchema.ApplicationxmlSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class Pet1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class Pet1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public Pet1() {
             super(
                 Map.ofEntries(

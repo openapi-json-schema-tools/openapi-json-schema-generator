@@ -14,14 +14,19 @@ import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits ApplicationoctetstreamMediaType {}
 
-    public static class ApplicationoctetstreamMediaType extends MediaType<ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1> {
+    public record ApplicationoctetstreamMediaType(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1 schema) implements SealedMediaType, MediaType<ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1, Void> {
         public ApplicationoctetstreamMediaType() {
-            super(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1.getInstance());
+            this(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(

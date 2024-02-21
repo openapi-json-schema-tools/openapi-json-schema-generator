@@ -26,11 +26,18 @@ import java.util.Map;
 import java.net.http.HttpHeaders;
 
 public class {{jsonPathPiece.pascalCase}} {
+    {{#if content}}
+    public sealed interface SealedMediaType permits {{#each content}}{{@key.pascalCase}}MediaType{{#unless @last}}, {{/unless}}{{/each}} {}
+    {{/if}}
     {{#each content}}
 
-    public static class {{@key.pascalCase}}MediaType extends MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}}> {
+    public record {{@key.pascalCase}}MediaType({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} schema{{/with}}{{/with}}) implements SealedMediaType, MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}, Void{{/with}}{{/with}}> {
         public {{@key.pascalCase}}MediaType() {
             super({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
     {{/each}}
@@ -41,7 +48,7 @@ public class {{jsonPathPiece.pascalCase}} {
     public record {{@key.pascalCase}}ResponseBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body) implements SealedResponseBody { }
     {{/each}}
 
-    public static class {{jsonPathPiece.pascalCase}}1 extends ResponseDeserializer<{{#if content}}SealedResponseBody{{else}}Void{{/if}}, Void> {
+    public static class {{jsonPathPiece.pascalCase}}1 extends ResponseDeserializer<{{#if content}}SealedResponseBody{{else}}Void{{/if}}, Void, {{#if content}}SealedMediaType{{else}}Void{{/if}}> {
         public {{jsonPathPiece.pascalCase}}1() {
             super(
                 Map.ofEntries(

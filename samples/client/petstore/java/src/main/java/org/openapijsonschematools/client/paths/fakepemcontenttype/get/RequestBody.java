@@ -14,14 +14,19 @@ import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits ApplicationxpemfileMediaType {}
 
-    public static class ApplicationxpemfileMediaType extends MediaType<ApplicationxpemfileSchema.ApplicationxpemfileSchema1> {
+    public record ApplicationxpemfileMediaType(ApplicationxpemfileSchema.ApplicationxpemfileSchema1 schema) implements SealedMediaType, MediaType<ApplicationxpemfileSchema.ApplicationxpemfileSchema1, Void> {
         public ApplicationxpemfileMediaType() {
-            super(ApplicationxpemfileSchema.ApplicationxpemfileSchema1.getInstance());
+            this(ApplicationxpemfileSchema.ApplicationxpemfileSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(

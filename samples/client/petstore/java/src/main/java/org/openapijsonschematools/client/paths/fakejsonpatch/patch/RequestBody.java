@@ -14,14 +14,19 @@ import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits ApplicationjsonpatchjsonMediaType {}
 
-    public static class ApplicationjsonpatchjsonMediaType extends MediaType<ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1> {
+    public record ApplicationjsonpatchjsonMediaType(ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1, Void> {
         public ApplicationjsonpatchjsonMediaType() {
-            super(ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1.getInstance());
+            this(ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(

@@ -12,12 +12,12 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-public abstract class RequestBodySerializer<T> {
+public abstract class RequestBodySerializer<T, U> {
     /*
     * Describes a single request body
     * content: contentType to MediaType schema info
     */
-    public final Map<String, MediaType<?, ?>> content;
+    public final Map<String, U> content;
     public final boolean required;
     private static final Pattern jsonContentTypePattern = Pattern.compile(
             "application/[^+]*[+]?(json);?.*"
@@ -28,7 +28,7 @@ public abstract class RequestBodySerializer<T> {
             .create();
     private static final String textPlainContentType = "text/plain";
 
-    public RequestBodySerializer(Map<String, MediaType<?, ?>> content, boolean required) {
+    public RequestBodySerializer(Map<String, U> content, boolean required) {
         this.content = content;
         this.required = required;
     }

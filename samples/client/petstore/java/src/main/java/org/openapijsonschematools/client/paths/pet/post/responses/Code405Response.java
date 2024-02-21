@@ -12,7 +12,7 @@ import java.net.http.HttpHeaders;
 
 public class Model405 {
 
-    public static class Model4051 extends ResponseDeserializer<Void, Void> {
+    public static class Model4051 extends ResponseDeserializer<Void, Void, Void> {
         public Model4051() {
             super(
                 Map.ofEntries(

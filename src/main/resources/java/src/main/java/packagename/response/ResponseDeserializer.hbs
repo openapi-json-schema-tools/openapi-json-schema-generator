@@ -11,10 +11,9 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.gson.Gson;
 
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.mediatype.MediaType;
 
-public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass> {
-    public final @Nullable Map<String, MediaType<?, ?>> content;
+public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedMediaTypeClass> {
+    public final @Nullable Map<String, SealedMediaTypeClass> content;
     public final @Nullable Map<String, String> headers; // todo change the value to header
     private static final Pattern jsonContentTypePattern = Pattern.compile(
             "application/[^+]*[+]?(json);?.*"
@@ -22,7 +21,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass> {
     private static final Gson gson = new Gson();
     protected static final String textPlainContentType = "text/plain";
 
-    public ResponseDeserializer(@Nullable Map<String, MediaType<?, ?>> content) {
+    public ResponseDeserializer(@Nullable Map<String, SealedMediaTypeClass> content) {
         this.content = content;
         this.headers = null;
     }

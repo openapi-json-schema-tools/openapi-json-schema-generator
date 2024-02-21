@@ -14,14 +14,19 @@ import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits ApplicationxwwwformurlencodedMediaType {}
 
-    public static class ApplicationxwwwformurlencodedMediaType extends MediaType<ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1> {
+    public record ApplicationxwwwformurlencodedMediaType(ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1 schema) implements SealedMediaType, MediaType<ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1, Void> {
         public ApplicationxwwwformurlencodedMediaType() {
-            super(ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1.getInstance());
+            this(ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(
