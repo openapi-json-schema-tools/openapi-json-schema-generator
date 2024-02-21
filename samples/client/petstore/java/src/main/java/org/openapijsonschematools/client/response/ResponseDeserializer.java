@@ -13,6 +13,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.ToNumberPolicy;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 
 public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedMediaTypeClass> {
     public final Map<String, SealedMediaTypeClass> content;
@@ -26,7 +27,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
             .create();
     protected static final String textPlainContentType = "text/plain";
 
-    public ResponseDeserializer(@Nullable Map<String, SealedMediaTypeClass> content) {
+    public ResponseDeserializer(Map<String, SealedMediaTypeClass> content) {
         this.content = content;
         this.headers = null;
     }
@@ -49,6 +50,17 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
 
     protected static boolean contentTypeIsTextPlain(String contentType) {
         return textPlainContentType.equals(contentType);
+    }
+
+    protected <T> T deserializeBody(String contentType, byte[] body, JsonSchema<T> schema, SchemaConfiguration configuration) {
+        if (contentTypeIsJson(contentType)) {
+            @Nullable Object bodyData = deserializeJson(body);
+            return schema.validateAndBox(bodyData, configuration);
+        } else if (contentTypeIsTextPlain(contentType)) {
+            String bodyData = deserializeTextPlain(body);
+            return schema.validateAndBox(bodyData, configuration);
+        }
+        throw new RuntimeException("Deserialization for contentType="+contentType+" has not yet been implemented.");
     }
 
 	public ApiResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {

@@ -70,19 +70,11 @@ public class ResponseDeserializerTest {
                 throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
             }
             if (mediaType instanceof ApplicationjsonMediatype thisMediaType) {
-                /*
-                var deserializedBody = deserializeBody(String contentType, JsonSchema<T> schema);
-                if contentType is json
-                    @Nullable Object bodyData = deserializeJson(body);
-                    return schema.validateAndBox(bodyData, configuration)
-                 */
-                @Nullable Object bodyData = deserializeJson(body);
-                var deserializedBody = thisMediaType.schema.validateAndBox(bodyData, configuration);
+                var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
                 return new ApplicationjsonBody(deserializedBody);
             } else {
                 TextplainMediatype thisMediaType = (TextplainMediatype) mediaType;
-                String bodyData = deserializeTextPlain(body);
-                var deserializedBody = thisMediaType.schema.validateAndBox(bodyData, configuration);
+                var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
                 return new TextplainBody(deserializedBody);
             }
         }

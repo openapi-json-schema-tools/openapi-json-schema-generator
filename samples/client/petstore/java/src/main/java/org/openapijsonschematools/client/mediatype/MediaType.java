@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.mediatype;
 
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 
-public interface MediaType<T extends JsonSchema, U> {
+public interface MediaType<T extends JsonSchema<?>, U> {
     /*
     * Used to store request and response body schema information
     * encoding:
