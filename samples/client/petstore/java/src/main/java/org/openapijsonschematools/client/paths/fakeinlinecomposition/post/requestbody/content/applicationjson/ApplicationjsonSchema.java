@@ -48,7 +48,7 @@ public class ApplicationjsonSchema {
     
     
     
-    public static class Applicationjson0 extends JsonSchema implements StringSchemaValidator<Applicationjson0BoxedString> {
+    public static class Applicationjson0 extends JsonSchema<Applicationjson0Boxed> implements StringSchemaValidator<Applicationjson0BoxedString> {
         private static @Nullable Applicationjson0 instance = null;
     
         protected Applicationjson0() {
@@ -145,7 +145,7 @@ public class ApplicationjsonSchema {
     }
     
     
-    public static class ApplicationjsonSchema1 extends JsonSchema implements NullSchemaValidator<ApplicationjsonSchema1BoxedVoid>, BooleanSchemaValidator<ApplicationjsonSchema1BoxedBoolean>, NumberSchemaValidator<ApplicationjsonSchema1BoxedNumber>, StringSchemaValidator<ApplicationjsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ApplicationjsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ApplicationjsonSchema1BoxedMap> {
+    public static class ApplicationjsonSchema1 extends JsonSchema<ApplicationjsonSchema1Boxed> implements NullSchemaValidator<ApplicationjsonSchema1BoxedVoid>, BooleanSchemaValidator<ApplicationjsonSchema1BoxedBoolean>, NumberSchemaValidator<ApplicationjsonSchema1BoxedNumber>, StringSchemaValidator<ApplicationjsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ApplicationjsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ApplicationjsonSchema1BoxedMap> {
         private static @Nullable ApplicationjsonSchema1 instance = null;
     
         protected ApplicationjsonSchema1() {

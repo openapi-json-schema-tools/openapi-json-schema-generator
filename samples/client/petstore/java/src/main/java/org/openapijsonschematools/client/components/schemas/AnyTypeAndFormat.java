@@ -84,7 +84,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class UuidSchema extends JsonSchema implements NullSchemaValidator<UuidSchemaBoxedVoid>, BooleanSchemaValidator<UuidSchemaBoxedBoolean>, NumberSchemaValidator<UuidSchemaBoxedNumber>, StringSchemaValidator<UuidSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UuidSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UuidSchemaBoxedMap> {
+    public static class UuidSchema extends JsonSchema<UuidSchemaBoxed> implements NullSchemaValidator<UuidSchemaBoxedVoid>, BooleanSchemaValidator<UuidSchemaBoxedBoolean>, NumberSchemaValidator<UuidSchemaBoxedNumber>, StringSchemaValidator<UuidSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UuidSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UuidSchemaBoxedMap> {
         private static @Nullable UuidSchema instance = null;
     
         protected UuidSchema() {
@@ -369,7 +369,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Date extends JsonSchema implements NullSchemaValidator<DateBoxedVoid>, BooleanSchemaValidator<DateBoxedBoolean>, NumberSchemaValidator<DateBoxedNumber>, StringSchemaValidator<DateBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DateBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DateBoxedMap> {
+    public static class Date extends JsonSchema<DateBoxed> implements NullSchemaValidator<DateBoxedVoid>, BooleanSchemaValidator<DateBoxedBoolean>, NumberSchemaValidator<DateBoxedNumber>, StringSchemaValidator<DateBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DateBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DateBoxedMap> {
         private static @Nullable Date instance = null;
     
         protected Date() {
@@ -654,7 +654,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Datetime extends JsonSchema implements NullSchemaValidator<DatetimeBoxedVoid>, BooleanSchemaValidator<DatetimeBoxedBoolean>, NumberSchemaValidator<DatetimeBoxedNumber>, StringSchemaValidator<DatetimeBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DatetimeBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DatetimeBoxedMap> {
+    public static class Datetime extends JsonSchema<DatetimeBoxed> implements NullSchemaValidator<DatetimeBoxedVoid>, BooleanSchemaValidator<DatetimeBoxedBoolean>, NumberSchemaValidator<DatetimeBoxedNumber>, StringSchemaValidator<DatetimeBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DatetimeBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DatetimeBoxedMap> {
         private static @Nullable Datetime instance = null;
     
         protected Datetime() {
@@ -939,7 +939,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class NumberSchema extends JsonSchema implements NullSchemaValidator<NumberSchemaBoxedVoid>, BooleanSchemaValidator<NumberSchemaBoxedBoolean>, NumberSchemaValidator<NumberSchemaBoxedNumber>, StringSchemaValidator<NumberSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NumberSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NumberSchemaBoxedMap> {
+    public static class NumberSchema extends JsonSchema<NumberSchemaBoxed> implements NullSchemaValidator<NumberSchemaBoxedVoid>, BooleanSchemaValidator<NumberSchemaBoxedBoolean>, NumberSchemaValidator<NumberSchemaBoxedNumber>, StringSchemaValidator<NumberSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NumberSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NumberSchemaBoxedMap> {
         private static @Nullable NumberSchema instance = null;
     
         protected NumberSchema() {
@@ -1224,7 +1224,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Binary extends JsonSchema implements NullSchemaValidator<BinaryBoxedVoid>, BooleanSchemaValidator<BinaryBoxedBoolean>, NumberSchemaValidator<BinaryBoxedNumber>, StringSchemaValidator<BinaryBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, BinaryBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, BinaryBoxedMap> {
+    public static class Binary extends JsonSchema<BinaryBoxed> implements NullSchemaValidator<BinaryBoxedVoid>, BooleanSchemaValidator<BinaryBoxedBoolean>, NumberSchemaValidator<BinaryBoxedNumber>, StringSchemaValidator<BinaryBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, BinaryBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, BinaryBoxedMap> {
         private static @Nullable Binary instance = null;
     
         protected Binary() {
@@ -1509,7 +1509,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Int32 extends JsonSchema implements NullSchemaValidator<Int32BoxedVoid>, BooleanSchemaValidator<Int32BoxedBoolean>, NumberSchemaValidator<Int32BoxedNumber>, StringSchemaValidator<Int32BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Int32BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Int32BoxedMap> {
+    public static class Int32 extends JsonSchema<Int32Boxed> implements NullSchemaValidator<Int32BoxedVoid>, BooleanSchemaValidator<Int32BoxedBoolean>, NumberSchemaValidator<Int32BoxedNumber>, StringSchemaValidator<Int32BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Int32BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Int32BoxedMap> {
         private static @Nullable Int32 instance = null;
     
         protected Int32() {
@@ -1794,7 +1794,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Int64 extends JsonSchema implements NullSchemaValidator<Int64BoxedVoid>, BooleanSchemaValidator<Int64BoxedBoolean>, NumberSchemaValidator<Int64BoxedNumber>, StringSchemaValidator<Int64BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Int64BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Int64BoxedMap> {
+    public static class Int64 extends JsonSchema<Int64Boxed> implements NullSchemaValidator<Int64BoxedVoid>, BooleanSchemaValidator<Int64BoxedBoolean>, NumberSchemaValidator<Int64BoxedNumber>, StringSchemaValidator<Int64BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Int64BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Int64BoxedMap> {
         private static @Nullable Int64 instance = null;
     
         protected Int64() {
@@ -2079,7 +2079,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class DoubleSchema extends JsonSchema implements NullSchemaValidator<DoubleSchemaBoxedVoid>, BooleanSchemaValidator<DoubleSchemaBoxedBoolean>, NumberSchemaValidator<DoubleSchemaBoxedNumber>, StringSchemaValidator<DoubleSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DoubleSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DoubleSchemaBoxedMap> {
+    public static class DoubleSchema extends JsonSchema<DoubleSchemaBoxed> implements NullSchemaValidator<DoubleSchemaBoxedVoid>, BooleanSchemaValidator<DoubleSchemaBoxedBoolean>, NumberSchemaValidator<DoubleSchemaBoxedNumber>, StringSchemaValidator<DoubleSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DoubleSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DoubleSchemaBoxedMap> {
         private static @Nullable DoubleSchema instance = null;
     
         protected DoubleSchema() {
@@ -2364,7 +2364,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class FloatSchema extends JsonSchema implements NullSchemaValidator<FloatSchemaBoxedVoid>, BooleanSchemaValidator<FloatSchemaBoxedBoolean>, NumberSchemaValidator<FloatSchemaBoxedNumber>, StringSchemaValidator<FloatSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FloatSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FloatSchemaBoxedMap> {
+    public static class FloatSchema extends JsonSchema<FloatSchemaBoxed> implements NullSchemaValidator<FloatSchemaBoxedVoid>, BooleanSchemaValidator<FloatSchemaBoxedBoolean>, NumberSchemaValidator<FloatSchemaBoxedNumber>, StringSchemaValidator<FloatSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FloatSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FloatSchemaBoxedMap> {
         private static @Nullable FloatSchema instance = null;
     
         protected FloatSchema() {
@@ -3246,7 +3246,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class AnyTypeAndFormat1 extends JsonSchema implements MapSchemaValidator<AnyTypeAndFormatMap, AnyTypeAndFormat1BoxedMap> {
+    public static class AnyTypeAndFormat1 extends JsonSchema<AnyTypeAndFormat1Boxed> implements MapSchemaValidator<AnyTypeAndFormatMap, AnyTypeAndFormat1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator

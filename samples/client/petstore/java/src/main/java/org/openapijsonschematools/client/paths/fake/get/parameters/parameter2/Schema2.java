@@ -53,7 +53,7 @@ public class Schema2 {
     
     
     
-    public static class Items2 extends JsonSchema implements StringSchemaValidator<Items2BoxedString>, StringEnumValidator<StringItemsEnums2>, DefaultValueMethod<String> {
+    public static class Items2 extends JsonSchema<Items2Boxed> implements StringSchemaValidator<Items2BoxedString>, StringEnumValidator<StringItemsEnums2>, DefaultValueMethod<String> {
         private static @Nullable Items2 instance = null;
     
         protected Items2() {
@@ -168,7 +168,7 @@ public class Schema2 {
     
     
     
-    public static class Schema21 extends JsonSchema implements ListSchemaValidator<SchemaList2, Schema21BoxedList> {
+    public static class Schema21 extends JsonSchema<Schema21Boxed> implements ListSchemaValidator<SchemaList2, Schema21BoxedList> {
         private static @Nullable Schema21 instance = null;
     
         protected Schema21() {

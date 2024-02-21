@@ -258,7 +258,7 @@ public class QueryParameters {
     }
     
     
-    public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<QueryParametersMap, QueryParameters1BoxedMap> {
+    public static class QueryParameters1 extends JsonSchema<QueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, QueryParameters1BoxedMap> {
         private static @Nullable QueryParameters1 instance = null;
     
         protected QueryParameters1() {

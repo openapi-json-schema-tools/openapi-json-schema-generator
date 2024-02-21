@@ -58,7 +58,7 @@ public class UnsetAnyTypeJsonSchema {
             return data;
         }
     }
-    public static class UnsetAnyTypeJsonSchema1 extends JsonSchema implements NullSchemaValidator<UnsetAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<UnsetAnyTypeJsonSchema1BoxedBoolean>, NumberSchemaValidator<UnsetAnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<UnsetAnyTypeJsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedMap> {
+    public static class UnsetAnyTypeJsonSchema1 extends JsonSchema<UnsetAnyTypeJsonSchema1Boxed> implements NullSchemaValidator<UnsetAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<UnsetAnyTypeJsonSchema1BoxedBoolean>, NumberSchemaValidator<UnsetAnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<UnsetAnyTypeJsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedMap> {
         private static @Nullable UnsetAnyTypeJsonSchema1 instance = null;
 
         protected UnsetAnyTypeJsonSchema1() {

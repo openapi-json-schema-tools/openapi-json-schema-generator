@@ -48,7 +48,7 @@ public class PathParamSchema0 {
     
     
     
-    public static class PathParamSchema01 extends JsonSchema implements StringSchemaValidator<PathParamSchema01BoxedString>, StringEnumValidator<StringPathParamSchemaEnums0> {
+    public static class PathParamSchema01 extends JsonSchema<PathParamSchema01Boxed> implements StringSchemaValidator<PathParamSchema01BoxedString>, StringEnumValidator<StringPathParamSchemaEnums0> {
         private static @Nullable PathParamSchema01 instance = null;
     
         protected PathParamSchema01() {

@@ -50,7 +50,7 @@ public class Schema3 {
     
     
     
-    public static class Schema31 extends JsonSchema implements StringSchemaValidator<Schema31BoxedString>, StringEnumValidator<StringSchemaEnums3>, DefaultValueMethod<String> {
+    public static class Schema31 extends JsonSchema<Schema31Boxed> implements StringSchemaValidator<Schema31BoxedString>, StringEnumValidator<StringSchemaEnums3>, DefaultValueMethod<String> {
         private static @Nullable Schema31 instance = null;
     
         protected Schema31() {

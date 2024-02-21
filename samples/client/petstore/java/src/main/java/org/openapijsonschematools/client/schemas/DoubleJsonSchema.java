@@ -28,7 +28,7 @@ public class DoubleJsonSchema {
         }
     }
 
-    public static class DoubleJsonSchema1 extends JsonSchema implements NumberSchemaValidator<DoubleJsonSchema1BoxedNumber> {
+    public static class DoubleJsonSchema1 extends JsonSchema<DoubleJsonSchema1Boxed> implements NumberSchemaValidator<DoubleJsonSchema1BoxedNumber> {
         private static @Nullable DoubleJsonSchema1 instance = null;
 
         protected DoubleJsonSchema1() {

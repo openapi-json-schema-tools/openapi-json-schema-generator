@@ -50,7 +50,7 @@ public class MultipartformdataSchema {
     
     
     
-    public static class Multipartformdata0 extends JsonSchema implements StringSchemaValidator<Multipartformdata0BoxedString> {
+    public static class Multipartformdata0 extends JsonSchema<Multipartformdata0Boxed> implements StringSchemaValidator<Multipartformdata0BoxedString> {
         private static @Nullable Multipartformdata0 instance = null;
     
         protected Multipartformdata0() {
@@ -147,7 +147,7 @@ public class MultipartformdataSchema {
     }
     
     
-    public static class MultipartformdataSomeProp extends JsonSchema implements NullSchemaValidator<MultipartformdataSomePropBoxedVoid>, BooleanSchemaValidator<MultipartformdataSomePropBoxedBoolean>, NumberSchemaValidator<MultipartformdataSomePropBoxedNumber>, StringSchemaValidator<MultipartformdataSomePropBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MultipartformdataSomePropBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MultipartformdataSomePropBoxedMap> {
+    public static class MultipartformdataSomeProp extends JsonSchema<MultipartformdataSomePropBoxed> implements NullSchemaValidator<MultipartformdataSomePropBoxedVoid>, BooleanSchemaValidator<MultipartformdataSomePropBoxedBoolean>, NumberSchemaValidator<MultipartformdataSomePropBoxedNumber>, StringSchemaValidator<MultipartformdataSomePropBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MultipartformdataSomePropBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MultipartformdataSomePropBoxedMap> {
         private static @Nullable MultipartformdataSomeProp instance = null;
     
         protected MultipartformdataSomeProp() {
@@ -507,7 +507,7 @@ public class MultipartformdataSchema {
     }
     
     
-    public static class MultipartformdataSchema1 extends JsonSchema implements MapSchemaValidator<MultipartformdataSchemaMap, MultipartformdataSchema1BoxedMap> {
+    public static class MultipartformdataSchema1 extends JsonSchema<MultipartformdataSchema1Boxed> implements MapSchemaValidator<MultipartformdataSchemaMap, MultipartformdataSchema1BoxedMap> {
         private static @Nullable MultipartformdataSchema1 instance = null;
     
         protected MultipartformdataSchema1() {

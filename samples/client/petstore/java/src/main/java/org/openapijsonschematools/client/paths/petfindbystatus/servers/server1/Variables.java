@@ -72,7 +72,7 @@ public class Variables {
     
     
     
-    public static class Version extends JsonSchema implements StringSchemaValidator<VersionBoxedString>, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
+    public static class Version extends JsonSchema<VersionBoxed> implements StringSchemaValidator<VersionBoxedString>, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
         private static @Nullable Version instance = null;
     
         protected Version() {
@@ -213,7 +213,7 @@ public class Variables {
     }
     
     
-    public static class Variables1 extends JsonSchema implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
+    public static class Variables1 extends JsonSchema<Variables1Boxed> implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
         private static @Nullable Variables1 instance = null;
     
         protected Variables1() {

@@ -50,7 +50,7 @@ public class Schema1 {
     
     
     
-    public static class Schema01 extends JsonSchema implements StringSchemaValidator<Schema01BoxedString> {
+    public static class Schema01 extends JsonSchema<Schema01Boxed> implements StringSchemaValidator<Schema01BoxedString> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -147,7 +147,7 @@ public class Schema1 {
     }
     
     
-    public static class SomeProp1 extends JsonSchema implements NullSchemaValidator<SomeProp1BoxedVoid>, BooleanSchemaValidator<SomeProp1BoxedBoolean>, NumberSchemaValidator<SomeProp1BoxedNumber>, StringSchemaValidator<SomeProp1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, SomeProp1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, SomeProp1BoxedMap> {
+    public static class SomeProp1 extends JsonSchema<SomeProp1Boxed> implements NullSchemaValidator<SomeProp1BoxedVoid>, BooleanSchemaValidator<SomeProp1BoxedBoolean>, NumberSchemaValidator<SomeProp1BoxedNumber>, StringSchemaValidator<SomeProp1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, SomeProp1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, SomeProp1BoxedMap> {
         private static @Nullable SomeProp1 instance = null;
     
         protected SomeProp1() {
@@ -507,7 +507,7 @@ public class Schema1 {
     }
     
     
-    public static class Schema11 extends JsonSchema implements MapSchemaValidator<SchemaMap1, Schema11BoxedMap> {
+    public static class Schema11 extends JsonSchema<Schema11Boxed> implements MapSchemaValidator<SchemaMap1, Schema11BoxedMap> {
         private static @Nullable Schema11 instance = null;
     
         protected Schema11() {

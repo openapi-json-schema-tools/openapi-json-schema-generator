@@ -88,7 +88,7 @@ public class MultipartformdataSchema {
     
     
     
-    public static class MultipartformdataFiles extends JsonSchema implements ListSchemaValidator<MultipartformdataFilesList, MultipartformdataFilesBoxedList> {
+    public static class MultipartformdataFiles extends JsonSchema<MultipartformdataFilesBoxed> implements ListSchemaValidator<MultipartformdataFilesList, MultipartformdataFilesBoxedList> {
         private static @Nullable MultipartformdataFiles instance = null;
     
         protected MultipartformdataFiles() {
@@ -236,7 +236,7 @@ public class MultipartformdataSchema {
     }
     
     
-    public static class MultipartformdataSchema1 extends JsonSchema implements MapSchemaValidator<MultipartformdataSchemaMap, MultipartformdataSchema1BoxedMap> {
+    public static class MultipartformdataSchema1 extends JsonSchema<MultipartformdataSchema1Boxed> implements MapSchemaValidator<MultipartformdataSchemaMap, MultipartformdataSchema1BoxedMap> {
         private static @Nullable MultipartformdataSchema1 instance = null;
     
         protected MultipartformdataSchema1() {

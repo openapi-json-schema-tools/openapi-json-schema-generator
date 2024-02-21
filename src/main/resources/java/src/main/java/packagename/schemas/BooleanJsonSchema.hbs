@@ -27,7 +27,7 @@ public class BooleanJsonSchema {
             return data;
         }
     }
-    public static class BooleanJsonSchema1 extends JsonSchema implements BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
+    public static class BooleanJsonSchema1 extends JsonSchema<BooleanJsonSchema1Boxed> implements BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
         private static @Nullable BooleanJsonSchema1 instance = null;
 
         protected BooleanJsonSchema1() {

@@ -28,7 +28,7 @@ public class DecimalJsonSchema {
         }
     }
 
-    public static class DecimalJsonSchema1 extends JsonSchema implements StringSchemaValidator<DecimalJsonSchema1BoxedString> {
+    public static class DecimalJsonSchema1 extends JsonSchema<DecimalJsonSchema1Boxed> implements StringSchemaValidator<DecimalJsonSchema1BoxedString> {
         private static @Nullable DecimalJsonSchema1 instance = null;
 
         protected DecimalJsonSchema1() {

@@ -172,7 +172,7 @@ public class HeaderParameters {
     }
     
     
-    public static class HeaderParameters1 extends JsonSchema implements MapSchemaValidator<HeaderParametersMap, HeaderParameters1BoxedMap> {
+    public static class HeaderParameters1 extends JsonSchema<HeaderParameters1Boxed> implements MapSchemaValidator<HeaderParametersMap, HeaderParameters1BoxedMap> {
         private static @Nullable HeaderParameters1 instance = null;
     
         protected HeaderParameters1() {

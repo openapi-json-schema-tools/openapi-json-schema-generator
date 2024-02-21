@@ -64,7 +64,7 @@ public class Schema5 {
     
     
     
-    public static class Schema51 extends JsonSchema implements FloatEnumValidator<FloatSchemaEnums5>, DoubleEnumValidator<DoubleSchemaEnums5>, NumberSchemaValidator<Schema51BoxedNumber> {
+    public static class Schema51 extends JsonSchema<Schema51Boxed> implements FloatEnumValidator<FloatSchemaEnums5>, DoubleEnumValidator<DoubleSchemaEnums5>, NumberSchemaValidator<Schema51BoxedNumber> {
         private static @Nullable Schema51 instance = null;
     
         protected Schema51() {

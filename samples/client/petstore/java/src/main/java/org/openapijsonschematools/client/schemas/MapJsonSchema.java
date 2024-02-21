@@ -32,7 +32,7 @@ public class MapJsonSchema {
         }
     }
 
-    public static class MapJsonSchema1 extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, MapJsonSchema1BoxedMap> {
+    public static class MapJsonSchema1 extends JsonSchema<MapJsonSchema1Boxed> implements MapSchemaValidator<FrozenMap<@Nullable Object>, MapJsonSchema1BoxedMap> {
         private static @Nullable MapJsonSchema1 instance = null;
 
         protected MapJsonSchema1() {

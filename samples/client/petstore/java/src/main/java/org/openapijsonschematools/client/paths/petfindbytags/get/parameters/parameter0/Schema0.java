@@ -79,7 +79,7 @@ public class Schema0 {
     
     
     
-    public static class Schema01 extends JsonSchema implements ListSchemaValidator<SchemaList0, Schema01BoxedList> {
+    public static class Schema01 extends JsonSchema<Schema01Boxed> implements ListSchemaValidator<SchemaList0, Schema01BoxedList> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {

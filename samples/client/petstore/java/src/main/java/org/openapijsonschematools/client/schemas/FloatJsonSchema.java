@@ -28,7 +28,7 @@ public class FloatJsonSchema {
         }
     }
 
-    public static class FloatJsonSchema1 extends JsonSchema implements NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {
+    public static class FloatJsonSchema1 extends JsonSchema<FloatJsonSchema1Boxed> implements NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {
         private static @Nullable FloatJsonSchema1 instance = null;
 
         protected FloatJsonSchema1() {

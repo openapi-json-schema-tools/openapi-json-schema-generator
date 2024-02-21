@@ -29,7 +29,7 @@ public class DateJsonSchema {
         }
     }
 
-    public static class DateJsonSchema1 extends JsonSchema implements StringSchemaValidator<DateJsonSchema1BoxedString> {
+    public static class DateJsonSchema1 extends JsonSchema<DateJsonSchema1Boxed> implements StringSchemaValidator<DateJsonSchema1BoxedString> {
         private static @Nullable DateJsonSchema1 instance = null;
 
         protected DateJsonSchema1() {

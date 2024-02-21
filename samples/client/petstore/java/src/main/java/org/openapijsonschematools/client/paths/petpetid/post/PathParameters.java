@@ -130,7 +130,7 @@ public class PathParameters {
     }
     
     
-    public static class PathParameters1 extends JsonSchema implements MapSchemaValidator<PathParametersMap, PathParameters1BoxedMap> {
+    public static class PathParameters1 extends JsonSchema<PathParameters1Boxed> implements MapSchemaValidator<PathParametersMap, PathParameters1BoxedMap> {
         private static @Nullable PathParameters1 instance = null;
     
         protected PathParameters1() {

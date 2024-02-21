@@ -70,7 +70,7 @@ public class ApplicationxmlSchema {
     
     
     
-    public static class ApplicationxmlSchema1 extends JsonSchema implements ListSchemaValidator<ApplicationxmlSchemaList, ApplicationxmlSchema1BoxedList> {
+    public static class ApplicationxmlSchema1 extends JsonSchema<ApplicationxmlSchema1Boxed> implements ListSchemaValidator<ApplicationxmlSchemaList, ApplicationxmlSchema1BoxedList> {
         private static @Nullable ApplicationxmlSchema1 instance = null;
     
         protected ApplicationxmlSchema1() {

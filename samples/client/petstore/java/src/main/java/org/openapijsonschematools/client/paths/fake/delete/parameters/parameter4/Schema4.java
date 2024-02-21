@@ -48,7 +48,7 @@ public class Schema4 {
     
     
     
-    public static class Schema41 extends JsonSchema implements StringSchemaValidator<Schema41BoxedString>, StringEnumValidator<StringSchemaEnums4> {
+    public static class Schema41 extends JsonSchema<Schema41Boxed> implements StringSchemaValidator<Schema41BoxedString>, StringEnumValidator<StringSchemaEnums4> {
         private static @Nullable Schema41 instance = null;
     
         protected Schema41() {

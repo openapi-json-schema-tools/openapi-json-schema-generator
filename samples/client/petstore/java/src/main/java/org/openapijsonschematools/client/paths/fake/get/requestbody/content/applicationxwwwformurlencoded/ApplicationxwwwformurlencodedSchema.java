@@ -61,7 +61,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedItems extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedItemsBoxedString>, StringEnumValidator<StringApplicationxwwwformurlencodedItemsEnums>, DefaultValueMethod<String> {
+    public static class ApplicationxwwwformurlencodedItems extends JsonSchema<ApplicationxwwwformurlencodedItemsBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedItemsBoxedString>, StringEnumValidator<StringApplicationxwwwformurlencodedItemsEnums>, DefaultValueMethod<String> {
         private static @Nullable ApplicationxwwwformurlencodedItems instance = null;
     
         protected ApplicationxwwwformurlencodedItems() {
@@ -176,7 +176,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedEnumFormStringArray extends JsonSchema implements ListSchemaValidator<ApplicationxwwwformurlencodedEnumFormStringArrayList, ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList> {
+    public static class ApplicationxwwwformurlencodedEnumFormStringArray extends JsonSchema<ApplicationxwwwformurlencodedEnumFormStringArrayBoxed> implements ListSchemaValidator<ApplicationxwwwformurlencodedEnumFormStringArrayList, ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList> {
         private static @Nullable ApplicationxwwwformurlencodedEnumFormStringArray instance = null;
     
         protected ApplicationxwwwformurlencodedEnumFormStringArray() {
@@ -273,7 +273,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedEnumFormString extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedEnumFormStringBoxedString>, StringEnumValidator<StringApplicationxwwwformurlencodedEnumFormStringEnums>, DefaultValueMethod<String> {
+    public static class ApplicationxwwwformurlencodedEnumFormString extends JsonSchema<ApplicationxwwwformurlencodedEnumFormStringBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedEnumFormStringBoxedString>, StringEnumValidator<StringApplicationxwwwformurlencodedEnumFormStringEnums>, DefaultValueMethod<String> {
         private static @Nullable ApplicationxwwwformurlencodedEnumFormString instance = null;
     
         protected ApplicationxwwwformurlencodedEnumFormString() {
@@ -449,7 +449,7 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
+    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema<ApplicationxwwwformurlencodedSchema1Boxed> implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
         private static @Nullable ApplicationxwwwformurlencodedSchema1 instance = null;
     
         protected ApplicationxwwwformurlencodedSchema1() {

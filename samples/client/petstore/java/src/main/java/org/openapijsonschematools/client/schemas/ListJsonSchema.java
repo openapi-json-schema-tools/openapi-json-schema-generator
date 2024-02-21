@@ -31,7 +31,7 @@ public class ListJsonSchema {
         }
     }
 
-    public static class ListJsonSchema1 extends JsonSchema implements ListSchemaValidator<FrozenList<@Nullable Object>, ListJsonSchema1BoxedList> {
+    public static class ListJsonSchema1 extends JsonSchema<ListJsonSchema1Boxed> implements ListSchemaValidator<FrozenList<@Nullable Object>, ListJsonSchema1BoxedList> {
         private static @Nullable ListJsonSchema1 instance = null;
 
         protected ListJsonSchema1() {

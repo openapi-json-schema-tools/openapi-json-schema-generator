@@ -100,7 +100,7 @@ public class ApplicationjsonSchema {
     }
     
     
-    public static class ApplicationjsonSchema1 extends JsonSchema implements MapSchemaValidator<ApplicationjsonSchemaMap, ApplicationjsonSchema1BoxedMap> {
+    public static class ApplicationjsonSchema1 extends JsonSchema<ApplicationjsonSchema1Boxed> implements MapSchemaValidator<ApplicationjsonSchemaMap, ApplicationjsonSchema1BoxedMap> {
         private static @Nullable ApplicationjsonSchema1 instance = null;
     
         protected ApplicationjsonSchema1() {

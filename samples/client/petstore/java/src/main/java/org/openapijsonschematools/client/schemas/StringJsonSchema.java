@@ -30,7 +30,7 @@ public class StringJsonSchema {
             return data;
         }
     }
-    public static class StringJsonSchema1 extends JsonSchema implements StringSchemaValidator<StringJsonSchema1BoxedString> {
+    public static class StringJsonSchema1 extends JsonSchema<StringJsonSchema1Boxed> implements StringSchemaValidator<StringJsonSchema1BoxedString> {
         private static @Nullable StringJsonSchema1 instance = null;
 
         protected StringJsonSchema1() {

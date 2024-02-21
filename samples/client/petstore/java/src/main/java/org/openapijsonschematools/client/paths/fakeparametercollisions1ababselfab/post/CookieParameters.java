@@ -199,7 +199,7 @@ public class CookieParameters {
     }
     
     
-    public static class CookieParameters1 extends JsonSchema implements MapSchemaValidator<CookieParametersMap, CookieParameters1BoxedMap> {
+    public static class CookieParameters1 extends JsonSchema<CookieParameters1Boxed> implements MapSchemaValidator<CookieParametersMap, CookieParameters1BoxedMap> {
         private static @Nullable CookieParameters1 instance = null;
     
         protected CookieParameters1() {

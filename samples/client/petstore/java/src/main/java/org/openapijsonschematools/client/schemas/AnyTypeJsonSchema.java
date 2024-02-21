@@ -71,7 +71,7 @@ public class AnyTypeJsonSchema {
         }
     }
 
-    public static class AnyTypeJsonSchema1 extends JsonSchema implements NullSchemaValidator<AnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<AnyTypeJsonSchema1BoxedBoolean>, NumberSchemaValidator<AnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<AnyTypeJsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AnyTypeJsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AnyTypeJsonSchema1BoxedMap> {
+    public static class AnyTypeJsonSchema1 extends JsonSchema<AnyTypeJsonSchema1Boxed> implements NullSchemaValidator<AnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<AnyTypeJsonSchema1BoxedBoolean>, NumberSchemaValidator<AnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<AnyTypeJsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AnyTypeJsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AnyTypeJsonSchema1BoxedMap> {
         private static @Nullable AnyTypeJsonSchema1 instance = null;
 
         protected AnyTypeJsonSchema1() {

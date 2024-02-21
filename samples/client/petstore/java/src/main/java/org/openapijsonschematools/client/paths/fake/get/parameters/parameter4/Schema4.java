@@ -94,7 +94,7 @@ public class Schema4 {
     
     
     
-    public static class Schema41 extends JsonSchema implements IntegerEnumValidator<IntegerSchemaEnums4>, LongEnumValidator<LongSchemaEnums4>, FloatEnumValidator<FloatSchemaEnums4>, DoubleEnumValidator<DoubleSchemaEnums4>, NumberSchemaValidator<Schema41BoxedNumber> {
+    public static class Schema41 extends JsonSchema<Schema41Boxed> implements IntegerEnumValidator<IntegerSchemaEnums4>, LongEnumValidator<LongSchemaEnums4>, FloatEnumValidator<FloatSchemaEnums4>, DoubleEnumValidator<DoubleSchemaEnums4>, NumberSchemaValidator<Schema41BoxedNumber> {
         private static @Nullable Schema41 instance = null;
     
         protected Schema41() {

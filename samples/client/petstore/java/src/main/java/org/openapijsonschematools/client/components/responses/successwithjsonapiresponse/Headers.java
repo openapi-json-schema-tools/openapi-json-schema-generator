@@ -435,7 +435,7 @@ public class Headers {
     }
     
     
-    public static class Headers1 extends JsonSchema implements MapSchemaValidator<HeadersMap, Headers1BoxedMap> {
+    public static class Headers1 extends JsonSchema<Headers1Boxed> implements MapSchemaValidator<HeadersMap, Headers1BoxedMap> {
         private static @Nullable Headers1 instance = null;
     
         protected Headers1() {

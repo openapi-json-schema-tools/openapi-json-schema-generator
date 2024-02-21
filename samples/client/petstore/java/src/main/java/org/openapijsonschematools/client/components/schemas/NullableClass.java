@@ -57,7 +57,7 @@ public class NullableClass {
     }
     
     
-    public static class AdditionalProperties3 extends JsonSchema implements NullSchemaValidator<AdditionalProperties3BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, AdditionalProperties3BoxedMap> {
+    public static class AdditionalProperties3 extends JsonSchema<AdditionalProperties3Boxed> implements NullSchemaValidator<AdditionalProperties3BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, AdditionalProperties3BoxedMap> {
         private static @Nullable AdditionalProperties3 instance = null;
     
         protected AdditionalProperties3() {
@@ -179,7 +179,7 @@ public class NullableClass {
     
     
     
-    public static class IntegerProp extends JsonSchema implements NullSchemaValidator<IntegerPropBoxedVoid>, NumberSchemaValidator<IntegerPropBoxedNumber> {
+    public static class IntegerProp extends JsonSchema<IntegerPropBoxed> implements NullSchemaValidator<IntegerPropBoxedVoid>, NumberSchemaValidator<IntegerPropBoxedNumber> {
         private static @Nullable IntegerProp instance = null;
     
         protected IntegerProp() {
@@ -298,7 +298,7 @@ public class NullableClass {
     
     
     
-    public static class NumberProp extends JsonSchema implements NullSchemaValidator<NumberPropBoxedVoid>, NumberSchemaValidator<NumberPropBoxedNumber> {
+    public static class NumberProp extends JsonSchema<NumberPropBoxed> implements NullSchemaValidator<NumberPropBoxedVoid>, NumberSchemaValidator<NumberPropBoxedNumber> {
         private static @Nullable NumberProp instance = null;
     
         protected NumberProp() {
@@ -416,7 +416,7 @@ public class NullableClass {
     
     
     
-    public static class BooleanProp extends JsonSchema implements NullSchemaValidator<BooleanPropBoxedVoid>, BooleanSchemaValidator<BooleanPropBoxedBoolean> {
+    public static class BooleanProp extends JsonSchema<BooleanPropBoxed> implements NullSchemaValidator<BooleanPropBoxedVoid>, BooleanSchemaValidator<BooleanPropBoxedBoolean> {
         private static @Nullable BooleanProp instance = null;
     
         protected BooleanProp() {
@@ -518,7 +518,7 @@ public class NullableClass {
     
     
     
-    public static class StringProp extends JsonSchema implements NullSchemaValidator<StringPropBoxedVoid>, StringSchemaValidator<StringPropBoxedString> {
+    public static class StringProp extends JsonSchema<StringPropBoxed> implements NullSchemaValidator<StringPropBoxedVoid>, StringSchemaValidator<StringPropBoxedString> {
         private static @Nullable StringProp instance = null;
     
         protected StringProp() {
@@ -617,7 +617,7 @@ public class NullableClass {
     
     
     
-    public static class DateProp extends JsonSchema implements NullSchemaValidator<DatePropBoxedVoid>, StringSchemaValidator<DatePropBoxedString> {
+    public static class DateProp extends JsonSchema<DatePropBoxed> implements NullSchemaValidator<DatePropBoxedVoid>, StringSchemaValidator<DatePropBoxedString> {
         private static @Nullable DateProp instance = null;
     
         protected DateProp() {
@@ -717,7 +717,7 @@ public class NullableClass {
     
     
     
-    public static class DatetimeProp extends JsonSchema implements NullSchemaValidator<DatetimePropBoxedVoid>, StringSchemaValidator<DatetimePropBoxedString> {
+    public static class DatetimeProp extends JsonSchema<DatetimePropBoxed> implements NullSchemaValidator<DatetimePropBoxedVoid>, StringSchemaValidator<DatetimePropBoxedString> {
         private static @Nullable DatetimeProp instance = null;
     
         protected DatetimeProp() {
@@ -860,7 +860,7 @@ public class NullableClass {
     
     
     
-    public static class ArrayNullableProp extends JsonSchema implements NullSchemaValidator<ArrayNullablePropBoxedVoid>, ListSchemaValidator<ArrayNullablePropList, ArrayNullablePropBoxedList> {
+    public static class ArrayNullableProp extends JsonSchema<ArrayNullablePropBoxed> implements NullSchemaValidator<ArrayNullablePropBoxedVoid>, ListSchemaValidator<ArrayNullablePropList, ArrayNullablePropBoxedList> {
         private static @Nullable ArrayNullableProp instance = null;
     
         protected ArrayNullableProp() {
@@ -981,7 +981,7 @@ public class NullableClass {
     }
     
     
-    public static class Items1 extends JsonSchema implements NullSchemaValidator<Items1BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, Items1BoxedMap> {
+    public static class Items1 extends JsonSchema<Items1Boxed> implements NullSchemaValidator<Items1BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, Items1BoxedMap> {
         private static @Nullable Items1 instance = null;
     
         protected Items1() {
@@ -1140,7 +1140,7 @@ public class NullableClass {
     
     
     
-    public static class ArrayAndItemsNullableProp extends JsonSchema implements NullSchemaValidator<ArrayAndItemsNullablePropBoxedVoid>, ListSchemaValidator<ArrayAndItemsNullablePropList, ArrayAndItemsNullablePropBoxedList> {
+    public static class ArrayAndItemsNullableProp extends JsonSchema<ArrayAndItemsNullablePropBoxed> implements NullSchemaValidator<ArrayAndItemsNullablePropBoxedVoid>, ListSchemaValidator<ArrayAndItemsNullablePropList, ArrayAndItemsNullablePropBoxedList> {
         private static @Nullable ArrayAndItemsNullableProp instance = null;
     
         protected ArrayAndItemsNullableProp() {
@@ -1261,7 +1261,7 @@ public class NullableClass {
     }
     
     
-    public static class Items2 extends JsonSchema implements NullSchemaValidator<Items2BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, Items2BoxedMap> {
+    public static class Items2 extends JsonSchema<Items2Boxed> implements NullSchemaValidator<Items2BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, Items2BoxedMap> {
         private static @Nullable Items2 instance = null;
     
         protected Items2() {
@@ -1413,7 +1413,7 @@ public class NullableClass {
     
     
     
-    public static class ArrayItemsNullable extends JsonSchema implements ListSchemaValidator<ArrayItemsNullableList, ArrayItemsNullableBoxedList> {
+    public static class ArrayItemsNullable extends JsonSchema<ArrayItemsNullableBoxed> implements ListSchemaValidator<ArrayItemsNullableList, ArrayItemsNullableBoxedList> {
         private static @Nullable ArrayItemsNullable instance = null;
     
         protected ArrayItemsNullable() {
@@ -1562,7 +1562,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectNullableProp extends JsonSchema implements NullSchemaValidator<ObjectNullablePropBoxedVoid>, MapSchemaValidator<ObjectNullablePropMap, ObjectNullablePropBoxedMap> {
+    public static class ObjectNullableProp extends JsonSchema<ObjectNullablePropBoxed> implements NullSchemaValidator<ObjectNullablePropBoxedVoid>, MapSchemaValidator<ObjectNullablePropMap, ObjectNullablePropBoxedMap> {
         private static @Nullable ObjectNullableProp instance = null;
     
         protected ObjectNullableProp() {
@@ -1687,7 +1687,7 @@ public class NullableClass {
     }
     
     
-    public static class AdditionalProperties1 extends JsonSchema implements NullSchemaValidator<AdditionalProperties1BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, AdditionalProperties1BoxedMap> {
+    public static class AdditionalProperties1 extends JsonSchema<AdditionalProperties1Boxed> implements NullSchemaValidator<AdditionalProperties1BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, AdditionalProperties1BoxedMap> {
         private static @Nullable AdditionalProperties1 instance = null;
     
         protected AdditionalProperties1() {
@@ -1864,7 +1864,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectAndItemsNullableProp extends JsonSchema implements NullSchemaValidator<ObjectAndItemsNullablePropBoxedVoid>, MapSchemaValidator<ObjectAndItemsNullablePropMap, ObjectAndItemsNullablePropBoxedMap> {
+    public static class ObjectAndItemsNullableProp extends JsonSchema<ObjectAndItemsNullablePropBoxed> implements NullSchemaValidator<ObjectAndItemsNullablePropBoxedVoid>, MapSchemaValidator<ObjectAndItemsNullablePropMap, ObjectAndItemsNullablePropBoxedMap> {
         private static @Nullable ObjectAndItemsNullableProp instance = null;
     
         protected ObjectAndItemsNullableProp() {
@@ -1989,7 +1989,7 @@ public class NullableClass {
     }
     
     
-    public static class AdditionalProperties2 extends JsonSchema implements NullSchemaValidator<AdditionalProperties2BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, AdditionalProperties2BoxedMap> {
+    public static class AdditionalProperties2 extends JsonSchema<AdditionalProperties2Boxed> implements NullSchemaValidator<AdditionalProperties2BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, AdditionalProperties2BoxedMap> {
         private static @Nullable AdditionalProperties2 instance = null;
     
         protected AdditionalProperties2() {
@@ -2159,7 +2159,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectItemsNullable extends JsonSchema implements MapSchemaValidator<ObjectItemsNullableMap, ObjectItemsNullableBoxedMap> {
+    public static class ObjectItemsNullable extends JsonSchema<ObjectItemsNullableBoxed> implements MapSchemaValidator<ObjectItemsNullableMap, ObjectItemsNullableBoxedMap> {
         private static @Nullable ObjectItemsNullable instance = null;
     
         protected ObjectItemsNullable() {
@@ -2717,7 +2717,7 @@ public class NullableClass {
     }
     
     
-    public static class NullableClass1 extends JsonSchema implements MapSchemaValidator<NullableClassMap, NullableClass1BoxedMap> {
+    public static class NullableClass1 extends JsonSchema<NullableClass1Boxed> implements MapSchemaValidator<NullableClassMap, NullableClass1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator

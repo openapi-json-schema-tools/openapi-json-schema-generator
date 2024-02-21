@@ -70,7 +70,7 @@ public class ApplicationjsonSchema {
     
     
     
-    public static class ApplicationjsonSchema1 extends JsonSchema implements ListSchemaValidator<ApplicationjsonSchemaList, ApplicationjsonSchema1BoxedList> {
+    public static class ApplicationjsonSchema1 extends JsonSchema<ApplicationjsonSchema1Boxed> implements ListSchemaValidator<ApplicationjsonSchemaList, ApplicationjsonSchema1BoxedList> {
         private static @Nullable ApplicationjsonSchema1 instance = null;
     
         protected ApplicationjsonSchema1() {

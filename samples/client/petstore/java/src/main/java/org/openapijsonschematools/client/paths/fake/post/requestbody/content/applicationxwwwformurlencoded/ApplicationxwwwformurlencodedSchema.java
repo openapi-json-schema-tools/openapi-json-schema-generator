@@ -49,7 +49,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedInteger extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedIntegerBoxedNumber> {
+    public static class ApplicationxwwwformurlencodedInteger extends JsonSchema<ApplicationxwwwformurlencodedIntegerBoxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedIntegerBoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedInteger instance = null;
     
         protected ApplicationxwwwformurlencodedInteger() {
@@ -133,7 +133,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedInt32 extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedInt32BoxedNumber> {
+    public static class ApplicationxwwwformurlencodedInt32 extends JsonSchema<ApplicationxwwwformurlencodedInt32Boxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedInt32BoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedInt32 instance = null;
     
         protected ApplicationxwwwformurlencodedInt32() {
@@ -220,7 +220,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedNumber extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedNumberBoxedNumber> {
+    public static class ApplicationxwwwformurlencodedNumber extends JsonSchema<ApplicationxwwwformurlencodedNumberBoxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedNumberBoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedNumber instance = null;
     
         protected ApplicationxwwwformurlencodedNumber() {
@@ -303,7 +303,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedFloat extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedFloatBoxedNumber> {
+    public static class ApplicationxwwwformurlencodedFloat extends JsonSchema<ApplicationxwwwformurlencodedFloatBoxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedFloatBoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedFloat instance = null;
     
         protected ApplicationxwwwformurlencodedFloat() {
@@ -373,7 +373,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedDouble extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedDoubleBoxedNumber> {
+    public static class ApplicationxwwwformurlencodedDouble extends JsonSchema<ApplicationxwwwformurlencodedDoubleBoxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedDoubleBoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedDouble instance = null;
     
         protected ApplicationxwwwformurlencodedDouble() {
@@ -444,7 +444,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedString extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedStringBoxedString> {
+    public static class ApplicationxwwwformurlencodedString extends JsonSchema<ApplicationxwwwformurlencodedStringBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedStringBoxedString> {
         private static @Nullable ApplicationxwwwformurlencodedString instance = null;
     
         protected ApplicationxwwwformurlencodedString() {
@@ -510,7 +510,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedPatternWithoutDelimiter extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString> {
+    public static class ApplicationxwwwformurlencodedPatternWithoutDelimiter extends JsonSchema<ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString> {
         private static @Nullable ApplicationxwwwformurlencodedPatternWithoutDelimiter instance = null;
     
         protected ApplicationxwwwformurlencodedPatternWithoutDelimiter() {
@@ -609,7 +609,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedDateTime extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedDateTimeBoxedString>, DefaultValueMethod<String> {
+    public static class ApplicationxwwwformurlencodedDateTime extends JsonSchema<ApplicationxwwwformurlencodedDateTimeBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedDateTimeBoxedString>, DefaultValueMethod<String> {
         private static @Nullable ApplicationxwwwformurlencodedDateTime instance = null;
     
         protected ApplicationxwwwformurlencodedDateTime() {
@@ -679,7 +679,7 @@ public class ApplicationxwwwformurlencodedSchema {
     
     
     
-    public static class ApplicationxwwwformurlencodedPassword extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedPasswordBoxedString> {
+    public static class ApplicationxwwwformurlencodedPassword extends JsonSchema<ApplicationxwwwformurlencodedPasswordBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedPasswordBoxedString> {
         private static @Nullable ApplicationxwwwformurlencodedPassword instance = null;
     
         protected ApplicationxwwwformurlencodedPassword() {
@@ -1427,7 +1427,7 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
+    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema<ApplicationxwwwformurlencodedSchema1Boxed> implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
         private static @Nullable ApplicationxwwwformurlencodedSchema1 instance = null;
     
         protected ApplicationxwwwformurlencodedSchema1() {

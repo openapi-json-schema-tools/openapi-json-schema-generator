@@ -73,7 +73,7 @@ public class Variables {
     
     
     
-    public static class Server extends JsonSchema implements StringSchemaValidator<ServerBoxedString>, StringEnumValidator<StringServerEnums>, DefaultValueMethod<String> {
+    public static class Server extends JsonSchema<ServerBoxed> implements StringSchemaValidator<ServerBoxedString>, StringEnumValidator<StringServerEnums>, DefaultValueMethod<String> {
         private static @Nullable Server instance = null;
     
         protected Server() {
@@ -165,7 +165,7 @@ public class Variables {
     
     
     
-    public static class Port extends JsonSchema implements StringSchemaValidator<PortBoxedString>, StringEnumValidator<StringPortEnums>, DefaultValueMethod<String> {
+    public static class Port extends JsonSchema<PortBoxed> implements StringSchemaValidator<PortBoxedString>, StringEnumValidator<StringPortEnums>, DefaultValueMethod<String> {
         private static @Nullable Port instance = null;
     
         protected Port() {
@@ -366,7 +366,7 @@ public class Variables {
     }
     
     
-    public static class Variables1 extends JsonSchema implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
+    public static class Variables1 extends JsonSchema<Variables1Boxed> implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
         private static @Nullable Variables1 instance = null;
     
         protected Variables1() {

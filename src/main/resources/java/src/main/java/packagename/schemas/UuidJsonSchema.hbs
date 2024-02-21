@@ -29,7 +29,7 @@ public class UuidJsonSchema {
         }
     }
 
-    public static class UuidJsonSchema1 extends JsonSchema implements StringSchemaValidator<UuidJsonSchema1BoxedString> {
+    public static class UuidJsonSchema1 extends JsonSchema<UuidJsonSchema1Boxed> implements StringSchemaValidator<UuidJsonSchema1BoxedString> {
         private static @Nullable UuidJsonSchema1 instance = null;
 
         protected UuidJsonSchema1() {

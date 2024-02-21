@@ -28,7 +28,7 @@ public class Int64JsonSchema {
         }
     }
 
-    public static class Int64JsonSchema1 extends JsonSchema implements NumberSchemaValidator<Int64JsonSchema1BoxedNumber> {
+    public static class Int64JsonSchema1 extends JsonSchema<Int64JsonSchema1Boxed> implements NumberSchemaValidator<Int64JsonSchema1BoxedNumber> {
         private static @Nullable Int64JsonSchema1 instance = null;
 
         protected Int64JsonSchema1() {

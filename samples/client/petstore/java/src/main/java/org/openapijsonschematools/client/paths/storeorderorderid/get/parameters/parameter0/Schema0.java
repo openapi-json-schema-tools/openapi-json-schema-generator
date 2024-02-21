@@ -32,7 +32,7 @@ public class Schema0 {
     
     
     
-    public static class Schema01 extends JsonSchema implements NumberSchemaValidator<Schema01BoxedNumber> {
+    public static class Schema01 extends JsonSchema<Schema01Boxed> implements NumberSchemaValidator<Schema01BoxedNumber> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {

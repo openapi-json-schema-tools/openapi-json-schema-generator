@@ -28,7 +28,7 @@ public class NullJsonSchema {
         }
     }
 
-    public static class NullJsonSchema1 extends JsonSchema implements NullSchemaValidator<NullJsonSchema1BoxedVoid> {
+    public static class NullJsonSchema1 extends JsonSchema<NullJsonSchema1Boxed> implements NullSchemaValidator<NullJsonSchema1BoxedVoid> {
         private static @Nullable NullJsonSchema1 instance = null;
 
         protected NullJsonSchema1() {

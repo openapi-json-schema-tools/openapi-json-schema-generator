@@ -118,7 +118,7 @@ public class Schema0 {
     }
     
     
-    public static class Schema01 extends JsonSchema implements MapSchemaValidator<SchemaMap0, Schema01BoxedMap> {
+    public static class Schema01 extends JsonSchema<Schema01Boxed> implements MapSchemaValidator<SchemaMap0, Schema01BoxedMap> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
