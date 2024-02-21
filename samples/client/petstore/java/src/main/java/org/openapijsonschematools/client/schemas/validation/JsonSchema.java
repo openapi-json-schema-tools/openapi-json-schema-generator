@@ -20,8 +20,8 @@ import java.util.regex.Pattern;
 public abstract class JsonSchema<T> {
     public final @Nullable Set<Class<?>> type;
     public final @Nullable String format;
-    public final @Nullable Class<? extends JsonSchema> items;
-    public final @Nullable Map<String, Class<? extends JsonSchema>> properties;
+    public final @Nullable Class<? extends JsonSchema<?>> items;
+    public final @Nullable Map<String, Class<? extends JsonSchema<?>>> properties;
     public final @Nullable Set<String> required;
     public final @Nullable Number exclusiveMaximum;
     public final @Nullable Number exclusiveMinimum;
@@ -34,11 +34,11 @@ public abstract class JsonSchema<T> {
     public final @Nullable Number maximum;
     public final @Nullable Number minimum;
     public final @Nullable BigDecimal multipleOf;
-    public final @Nullable Class<? extends JsonSchema> additionalProperties;
-    public final @Nullable List<Class<? extends JsonSchema>> allOf;
-    public final @Nullable List<Class<? extends JsonSchema>> anyOf;
-    public final @Nullable List<Class<? extends JsonSchema>> oneOf;
-    public final @Nullable Class<? extends JsonSchema> not;
+    public final @Nullable Class<? extends JsonSchema<?>> additionalProperties;
+    public final @Nullable List<Class<? extends JsonSchema<?>>> allOf;
+    public final @Nullable List<Class<? extends JsonSchema<?>>> anyOf;
+    public final @Nullable List<Class<? extends JsonSchema<?>>> oneOf;
+    public final @Nullable Class<? extends JsonSchema<?>> not;
     public final @Nullable Boolean uniqueItems;
     public final @Nullable Set<@Nullable Object> enumValues;
     public final @Nullable Pattern pattern;
@@ -46,19 +46,19 @@ public abstract class JsonSchema<T> {
     public final boolean defaultValueSet;
     public final @Nullable Object constValue;
     public final boolean constValueSet;
-    public final @Nullable Class<? extends JsonSchema> contains;
+    public final @Nullable Class<? extends JsonSchema<?>> contains;
     public final @Nullable Integer maxContains;
     public final @Nullable Integer minContains;
-    public final @Nullable Class<? extends JsonSchema> propertyNames;
+    public final @Nullable Class<? extends JsonSchema<?>> propertyNames;
     public final @Nullable Map<String, Set<String>> dependentRequired;
-    public final @Nullable Map<String, Class<? extends JsonSchema>> dependentSchemas;
-    public final @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties;
-    public final @Nullable List<Class<? extends JsonSchema>> prefixItems;
-    public final @Nullable Class<? extends JsonSchema> ifSchema;
-    public final @Nullable Class<? extends JsonSchema> then;
-    public final @Nullable Class<? extends JsonSchema> elseSchema;
-    public final @Nullable Class<? extends JsonSchema> unevaluatedItems;
-    public final @Nullable Class<? extends JsonSchema> unevaluatedProperties;
+    public final @Nullable Map<String, Class<? extends JsonSchema<?>>> dependentSchemas;
+    public final @Nullable Map<Pattern, Class<? extends JsonSchema<?>>> patternProperties;
+    public final @Nullable List<Class<? extends JsonSchema<?>>> prefixItems;
+    public final @Nullable Class<? extends JsonSchema<?>> ifSchema;
+    public final @Nullable Class<? extends JsonSchema<?>> then;
+    public final @Nullable Class<? extends JsonSchema<?>> elseSchema;
+    public final @Nullable Class<? extends JsonSchema<?>> unevaluatedItems;
+    public final @Nullable Class<? extends JsonSchema<?>> unevaluatedProperties;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -232,7 +232,7 @@ public abstract class JsonSchema<T> {
         if (!(arg instanceof List<?> listArg) || contains == null) {
             return new ArrayList<>();
         }
-        JsonSchema containsSchema = JsonSchemaFactory.getInstance(contains);
+        JsonSchema<?> containsSchema = JsonSchemaFactory.getInstance(contains);
         @Nullable List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
         for(int i = 0; i < listArg.size(); i++) {
             PathToSchemasMap thesePathToSchemas = new PathToSchemasMap();
@@ -280,13 +280,13 @@ public abstract class JsonSchema<T> {
                     validationMetadata.validatedPathToSchemas(),
                     validationMetadata.seenClasses()
             );
-            for (Map.Entry<Pattern, Class<? extends JsonSchema>> patternPropEntry: patternProperties.entrySet()) {
+            for (Map.Entry<Pattern, Class<? extends JsonSchema<?>>> patternPropEntry: patternProperties.entrySet()) {
                 if (!patternPropEntry.getKey().matcher(key).find()) {
                     continue;
                 }
 
-                Class<? extends JsonSchema> patternPropClass = patternPropEntry.getValue();
-                JsonSchema patternPropSchema = JsonSchemaFactory.getInstance(patternPropClass);
+                Class<? extends JsonSchema<?>> patternPropClass = patternPropEntry.getValue();
+                JsonSchema<?> patternPropSchema = JsonSchemaFactory.getInstance(patternPropClass);
                 PathToSchemasMap otherPathToSchemas = JsonSchema.validate(patternPropSchema, entry.getValue(), propValidationMetadata);
                 pathToSchemas.update(otherPathToSchemas);
             }
@@ -301,7 +301,7 @@ public abstract class JsonSchema<T> {
         if (ifSchema == null) {
             return new PathToSchemasMap();
         }
-        JsonSchema ifSchemaInstance = JsonSchemaFactory.getInstance(ifSchema);
+        JsonSchema<?> ifSchemaInstance = JsonSchemaFactory.getInstance(ifSchema);
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         try {
             var otherPathToSchemas = JsonSchema.validate(ifSchemaInstance, arg, validationMetadata);
@@ -311,7 +311,7 @@ public abstract class JsonSchema<T> {
     }
 
     public static PathToSchemasMap validate(
-            JsonSchema jsonSchema,
+            JsonSchema<?> jsonSchema,
             @Nullable Object arg,
             ValidationMetadata validationMetadata
     ) throws ValidationException {
@@ -362,7 +362,7 @@ public abstract class JsonSchema<T> {
         if (!pathToSchemas.containsKey(pathToItem)) {
             pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());
         }
-        @Nullable LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(pathToItem);
+        @Nullable LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(pathToItem);
         if (schemas != null) {
             schemas.put(jsonSchema, null);
         }
@@ -468,19 +468,19 @@ public abstract class JsonSchema<T> {
         return arg;
     }
 
-    protected static PathToSchemasMap getPathToSchemas(JsonSchema jsonSchema, @Nullable Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
+    protected static PathToSchemasMap getPathToSchemas(JsonSchema<?> jsonSchema, @Nullable Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
         PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
         // todo add check of validationMetadata.validationRanEarlier(this)
         PathToSchemasMap otherPathToSchemas = validate(jsonSchema, arg, validationMetadata);
         pathToSchemasMap.update(otherPathToSchemas);
         for (var schemas: pathToSchemasMap.values()) {
-            JsonSchema firstSchema = schemas.entrySet().iterator().next().getKey();
+            JsonSchema<?> firstSchema = schemas.entrySet().iterator().next().getKey();
             schemas.clear();
             schemas.put(firstSchema, null);
         }
         pathSet.removeAll(pathToSchemasMap.keySet());
         if (!pathSet.isEmpty()) {
-            LinkedHashMap<JsonSchema, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
+            LinkedHashMap<JsonSchema<?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
             unsetAnyTypeSchema.put(UnsetAnyTypeJsonSchema.UnsetAnyTypeJsonSchema1.getInstance(), null);
             for (List<Object> pathToItem: pathSet) {
                 pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);

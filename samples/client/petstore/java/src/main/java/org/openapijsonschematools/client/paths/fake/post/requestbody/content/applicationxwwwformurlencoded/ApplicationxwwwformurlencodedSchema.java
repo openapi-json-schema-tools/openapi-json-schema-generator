@@ -118,6 +118,13 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedIntegerBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedIntegerBoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedIntegerBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface ApplicationxwwwformurlencodedInt32Boxed permits ApplicationxwwwformurlencodedInt32BoxedNumber {
@@ -193,6 +200,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedInt32BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedInt32BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedInt32Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -288,6 +302,13 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedNumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedNumberBoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedNumberBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface ApplicationxwwwformurlencodedFloatBoxed permits ApplicationxwwwformurlencodedFloatBoxedNumber {
@@ -357,6 +378,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedFloatBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedFloatBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedFloatBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -429,6 +457,13 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedDoubleBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedDoubleBoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedDoubleBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface ApplicationxwwwformurlencodedStringBoxed permits ApplicationxwwwformurlencodedStringBoxedString {
@@ -495,6 +530,13 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedStringBoxedString(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedStringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed permits ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString {
@@ -559,6 +601,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -664,6 +713,13 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedDateTimeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedDateTimeBoxedString(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedDateTimeBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public sealed interface ApplicationxwwwformurlencodedPasswordBoxed permits ApplicationxwwwformurlencodedPasswordBoxedString {
@@ -728,6 +784,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedPasswordBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedPasswordBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedPasswordBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -1476,11 +1539,11 @@ public class ApplicationxwwwformurlencodedSchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -1516,6 +1579,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedSchema1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

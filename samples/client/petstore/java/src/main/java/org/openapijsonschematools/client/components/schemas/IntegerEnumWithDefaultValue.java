@@ -198,5 +198,12 @@ public class IntegerEnumWithDefaultValue {
         public IntegerEnumWithDefaultValue1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new IntegerEnumWithDefaultValue1BoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public IntegerEnumWithDefaultValue1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }
 }

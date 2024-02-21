@@ -84,5 +84,5 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema<{{jsonPathPi
         throw new InvalidTypeException("Invalid type stored in defaultValue");
     }
 {{/if}}
-    {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxString }}
+    {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBox }}
 }
