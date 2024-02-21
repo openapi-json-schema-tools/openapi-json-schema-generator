@@ -890,6 +890,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return toModuleFilename(componentName, null);
     }
 
+    public String getPascalCaseResponse(String componentName, String jsonPath) {
+        if (jsonPath.startsWith("#/components/responses/")) {
+            return toModelName(componentName, null);
+        } else {
+            return toModelName("Code"+componentName+"Response", null);
+        }
+    }
+
     @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");

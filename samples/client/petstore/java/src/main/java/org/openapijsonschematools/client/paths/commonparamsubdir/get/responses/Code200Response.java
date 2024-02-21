@@ -2,6 +2,6 @@ package org.openapijsonschematools.client.paths.commonparamsubdir.get.responses;
 
 import org.openapijsonschematools.client.components.responses.SuccessDescriptionOnly;
 
-public class Model200 extends SuccessDescriptionOnly {
-    public static class Model2001 extends SuccessDescriptionOnly1 {}
+public class Code200Response extends SuccessDescriptionOnly {
+    public static class Code200Response1 extends SuccessDescriptionOnly1 {}
 }

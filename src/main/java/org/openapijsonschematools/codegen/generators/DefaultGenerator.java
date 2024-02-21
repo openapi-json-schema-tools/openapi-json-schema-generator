@@ -734,7 +734,7 @@ public class DefaultGenerator implements Generator {
 
     public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
-    public String getPascalCaseResponse(String componentName) { return toModelName(componentName, null); }
+    public String getPascalCaseResponse(String componentName, String jsonPath) { return toModelName(componentName, null); }
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
@@ -4892,7 +4892,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseResponse(usedKey);
+                pascalCaseName = getPascalCaseResponse(usedKey, sourceJsonPath);
                 break;
             case "securitySchemes":
                 usedKey = escapeUnsafeCharacters(key);

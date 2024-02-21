@@ -2,6 +2,6 @@ package org.openapijsonschematools.client.paths.petpetiduploadimage.post.respons
 
 import org.openapijsonschematools.client.components.responses.SuccessWithJsonApiResponse;
 
-public class Model200 extends SuccessWithJsonApiResponse {
-    public static class Model2001 extends SuccessWithJsonApiResponse1 {}
+public class Code200Response extends SuccessWithJsonApiResponse {
+    public static class Code200Response1 extends SuccessWithJsonApiResponse1 {}
 }

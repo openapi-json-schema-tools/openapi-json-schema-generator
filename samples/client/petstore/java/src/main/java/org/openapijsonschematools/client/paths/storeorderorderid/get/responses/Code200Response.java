@@ -12,7 +12,7 @@ import java.util.AbstractMap;
 import java.util.Map;
 import java.net.http.HttpHeaders;
 
-public class Model200 {
+public class Code200Response {
     public sealed interface SealedMediaType permits ApplicationxmlMediaType, ApplicationjsonMediaType {}
 
     public record ApplicationxmlMediaType(ApplicationxmlSchema.ApplicationxmlSchema1 schema) implements SealedMediaType, MediaType<ApplicationxmlSchema.ApplicationxmlSchema1, Void> {
@@ -38,8 +38,8 @@ public class Model200 {
     public record ApplicationxmlResponseBody(ApplicationxmlSchema.Order1Boxed body) implements SealedResponseBody { }
     public record ApplicationjsonResponseBody(ApplicationjsonSchema.Order1Boxed body) implements SealedResponseBody { }
 
-    public static class Model2001 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
-        public Model2001() {
+    public static class Code200Response1 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
+        public Code200Response1() {
             super(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/xml", new ApplicationxmlMediaType()),

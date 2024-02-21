@@ -10,10 +10,10 @@ import java.util.AbstractMap;
 import java.util.Map;
 import java.net.http.HttpHeaders;
 
-public class Model3XX {
+public class Code3XXResponse {
 
-    public static class Model3XX1 extends ResponseDeserializer<Void, Void, Void> {
-        public Model3XX1() {
+    public static class Code3XXResponse1 extends ResponseDeserializer<Void, Void, Void> {
+        public Code3XXResponse1() {
             super(
                 Map.ofEntries(
                 )

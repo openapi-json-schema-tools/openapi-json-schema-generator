@@ -11,7 +11,7 @@ import java.util.AbstractMap;
 import java.util.Map;
 import java.net.http.HttpHeaders;
 
-public class Model200 {
+public class Code200Response {
     public sealed interface SealedMediaType permits ApplicationxpemfileMediaType {}
 
     public record ApplicationxpemfileMediaType(ApplicationxpemfileSchema.ApplicationxpemfileSchema1 schema) implements SealedMediaType, MediaType<ApplicationxpemfileSchema.ApplicationxpemfileSchema1, Void> {
@@ -26,8 +26,8 @@ public class Model200 {
     public sealed interface SealedResponseBody permits ApplicationxpemfileResponseBody {}
     public record ApplicationxpemfileResponseBody(ApplicationxpemfileSchema.StringJsonSchema1Boxed body) implements SealedResponseBody { }
 
-    public static class Model2001 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
-        public Model2001() {
+    public static class Code200Response1 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
+        public Code200Response1() {
             super(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/x-pem-file", new ApplicationxpemfileMediaType())

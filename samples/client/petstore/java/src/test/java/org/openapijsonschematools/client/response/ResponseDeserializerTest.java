@@ -41,10 +41,6 @@ public class ResponseDeserializerTest {
         public ApplicationjsonMediatype() {
             this(AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
         }
-        public Class<AnyTypeJsonSchema.AnyTypeJsonSchema1Boxed> sealedType() {
-            return AnyTypeJsonSchema.AnyTypeJsonSchema1Boxed.class;
-        }
-
         @Override
         public Void encoding() {
             return null;

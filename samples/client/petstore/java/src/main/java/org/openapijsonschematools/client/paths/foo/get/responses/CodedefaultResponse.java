@@ -11,7 +11,7 @@ import java.util.AbstractMap;
 import java.util.Map;
 import java.net.http.HttpHeaders;
 
-public class ModelDefault {
+public class CodedefaultResponse {
     public sealed interface SealedMediaType permits ApplicationjsonMediaType {}
 
     public record ApplicationjsonMediaType(ApplicationjsonSchema.ApplicationjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonSchema.ApplicationjsonSchema1, Void> {
@@ -26,8 +26,8 @@ public class ModelDefault {
     public sealed interface SealedResponseBody permits ApplicationjsonResponseBody {}
     public record ApplicationjsonResponseBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) implements SealedResponseBody { }
 
-    public static class ModelDefault1 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
-        public ModelDefault1() {
+    public static class CodedefaultResponse1 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
+        public CodedefaultResponse1() {
             super(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
