@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.ToNumberPolicy;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 
@@ -18,7 +20,10 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
     private static final Pattern jsonContentTypePattern = Pattern.compile(
             "application/[^+]*[+]?(json);?.*"
     );
-    private static final Gson gson = new Gson();
+    private static final Gson gson = new GsonBuilder()
+            .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
+            .setNumberToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
+            .create();
     protected static final String textPlainContentType = "text/plain";
 
     public ResponseDeserializer(@Nullable Map<String, SealedMediaTypeClass> content) {
