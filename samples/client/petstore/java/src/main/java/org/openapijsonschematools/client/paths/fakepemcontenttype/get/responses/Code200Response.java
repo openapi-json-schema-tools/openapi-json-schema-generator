@@ -16,7 +16,7 @@ public class Model200 {
 
     public record ApplicationxpemfileMediaType(ApplicationxpemfileSchema.ApplicationxpemfileSchema1 schema) implements SealedMediaType, MediaType<ApplicationxpemfileSchema.ApplicationxpemfileSchema1, Void> {
         public ApplicationxpemfileMediaType() {
-            super(ApplicationxpemfileSchema.ApplicationxpemfileSchema1.getInstance());
+            this(ApplicationxpemfileSchema.ApplicationxpemfileSchema1.getInstance());
         }
         @Override
         public Void encoding() {

@@ -15,7 +15,7 @@ import com.google.gson.ToNumberPolicy;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 
 public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedMediaTypeClass> {
-    public final @Nullable Map<String, SealedMediaTypeClass> content;
+    public final Map<String, SealedMediaTypeClass> content;
     public final @Nullable Map<String, String> headers; // todo change the value to header
     private static final Pattern jsonContentTypePattern = Pattern.compile(
             "application/[^+]*[+]?(json);?.*"

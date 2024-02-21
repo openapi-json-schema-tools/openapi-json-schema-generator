@@ -33,7 +33,7 @@ public class {{jsonPathPiece.pascalCase}} {
 
     public record {{@key.pascalCase}}MediaType({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} schema{{/with}}{{/with}}) implements SealedMediaType, MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}, Void{{/with}}{{/with}}> {
         public {{@key.pascalCase}}MediaType() {
-            super({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+            this({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
         }
         @Override
         public Void encoding() {

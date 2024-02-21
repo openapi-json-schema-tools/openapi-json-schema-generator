@@ -16,7 +16,7 @@ public class Model404 {
 
     public record ApplicationjsonMediaType(ApplicationjsonSchema.ApplicationjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonSchema.ApplicationjsonSchema1, Void> {
         public ApplicationjsonMediaType() {
-            super(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
+            this(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
         }
         @Override
         public Void encoding() {

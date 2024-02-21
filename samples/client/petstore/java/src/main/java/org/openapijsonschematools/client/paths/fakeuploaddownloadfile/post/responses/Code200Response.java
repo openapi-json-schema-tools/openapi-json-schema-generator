@@ -16,7 +16,7 @@ public class Model200 {
 
     public record ApplicationoctetstreamMediaType(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1 schema) implements SealedMediaType, MediaType<ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1, Void> {
         public ApplicationoctetstreamMediaType() {
-            super(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1.getInstance());
+            this(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1.getInstance());
         }
         @Override
         public Void encoding() {

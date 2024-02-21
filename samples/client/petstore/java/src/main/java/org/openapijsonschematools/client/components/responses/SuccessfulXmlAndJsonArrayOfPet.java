@@ -17,7 +17,7 @@ public class SuccessfulXmlAndJsonArrayOfPet {
 
     public record ApplicationxmlMediaType(ApplicationxmlSchema.ApplicationxmlSchema1 schema) implements SealedMediaType, MediaType<ApplicationxmlSchema.ApplicationxmlSchema1, Void> {
         public ApplicationxmlMediaType() {
-            super(ApplicationxmlSchema.ApplicationxmlSchema1.getInstance());
+            this(ApplicationxmlSchema.ApplicationxmlSchema1.getInstance());
         }
         @Override
         public Void encoding() {
@@ -27,7 +27,7 @@ public class SuccessfulXmlAndJsonArrayOfPet {
 
     public record ApplicationjsonMediaType(ApplicationjsonSchema.ApplicationjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonSchema.ApplicationjsonSchema1, Void> {
         public ApplicationjsonMediaType() {
-            super(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
+            this(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
         }
         @Override
         public Void encoding() {

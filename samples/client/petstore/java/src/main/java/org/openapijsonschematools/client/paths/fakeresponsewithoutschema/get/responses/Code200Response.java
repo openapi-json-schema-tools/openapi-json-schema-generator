@@ -15,7 +15,7 @@ public class Model200 {
 
     public record ApplicationjsonMediaType() implements SealedMediaType, MediaType<> {
         public ApplicationjsonMediaType() {
-            super();
+            this();
         }
         @Override
         public Void encoding() {
@@ -25,7 +25,7 @@ public class Model200 {
 
     public record ApplicationxmlMediaType() implements SealedMediaType, MediaType<> {
         public ApplicationxmlMediaType() {
-            super();
+            this();
         }
         @Override
         public Void encoding() {

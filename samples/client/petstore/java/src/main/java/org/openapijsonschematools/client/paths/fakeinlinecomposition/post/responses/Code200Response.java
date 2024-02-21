@@ -17,7 +17,7 @@ public class Model200 {
 
     public record ApplicationjsonMediaType(ApplicationjsonSchema.ApplicationjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonSchema.ApplicationjsonSchema1, Void> {
         public ApplicationjsonMediaType() {
-            super(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
+            this(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
         }
         @Override
         public Void encoding() {
@@ -27,7 +27,7 @@ public class Model200 {
 
     public record MultipartformdataMediaType(MultipartformdataSchema.MultipartformdataSchema1 schema) implements SealedMediaType, MediaType<MultipartformdataSchema.MultipartformdataSchema1, Void> {
         public MultipartformdataMediaType() {
-            super(MultipartformdataSchema.MultipartformdataSchema1.getInstance());
+            this(MultipartformdataSchema.MultipartformdataSchema1.getInstance());
         }
         @Override
         public Void encoding() {

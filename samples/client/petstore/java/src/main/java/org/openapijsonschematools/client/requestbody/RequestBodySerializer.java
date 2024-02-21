@@ -1,7 +1,5 @@
 package org.openapijsonschematools.client.requestbody;
 
-import org.openapijsonschematools.client.mediatype.MediaType;
-
 import java.net.http.HttpRequest;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.gson.Gson;

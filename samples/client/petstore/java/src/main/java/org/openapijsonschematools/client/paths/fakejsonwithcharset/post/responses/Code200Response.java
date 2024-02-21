@@ -16,7 +16,7 @@ public class Model200 {
 
     public record Applicationjsoncharsetutf8MediaType(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1 schema) implements SealedMediaType, MediaType<Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1, Void> {
         public Applicationjsoncharsetutf8MediaType() {
-            super(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1.getInstance());
+            this(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1.getInstance());
         }
         @Override
         public Void encoding() {

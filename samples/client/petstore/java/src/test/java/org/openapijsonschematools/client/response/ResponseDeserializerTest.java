@@ -35,20 +35,33 @@ public class ResponseDeserializerTest {
 
     public record TextplainBody(StringJsonSchema.StringJsonSchema1Boxed body) implements SealedResponseBody {}
 
-    public static class ApplicationjsonMediatype extends MediaType<AnyTypeJsonSchema.AnyTypeJsonSchema1> {
+    public sealed interface SealedMediaType permits ApplicationjsonMediatype, TextplainMediatype { }
+
+    public record ApplicationjsonMediatype(AnyTypeJsonSchema.AnyTypeJsonSchema1 schema) implements SealedMediaType, MediaType<AnyTypeJsonSchema.AnyTypeJsonSchema1, Void> {
         public ApplicationjsonMediatype() {
-            super(AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
+            this(AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
+        }
+        public Class<AnyTypeJsonSchema.AnyTypeJsonSchema1Boxed> sealedType() {
+            return AnyTypeJsonSchema.AnyTypeJsonSchema1Boxed.class;
+        }
+
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class TextplainMediatype extends MediaType<StringJsonSchema.StringJsonSchema1> {
+    public record TextplainMediatype(StringJsonSchema.StringJsonSchema1 schema) implements SealedMediaType, MediaType<StringJsonSchema.StringJsonSchema1, Void> {
         public TextplainMediatype() {
-            super(StringJsonSchema.StringJsonSchema1.getInstance());
+            this(StringJsonSchema.StringJsonSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-
-    public static class MyResponseDeserializer extends ResponseDeserializer<SealedResponseBody, Void> {
+    public static class MyResponseDeserializer extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
 
         public MyResponseDeserializer() {
             super(Map.of("application/json", new ApplicationjsonMediatype(), "text/plain", new TextplainMediatype()));
@@ -56,13 +69,24 @@ public class ResponseDeserializerTest {
 
         @Override
         public SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
-            if (contentTypeIsJson(contentType)) {
+            SealedMediaType mediaType = content.get(contentType);
+            if (mediaType == null) {
+                throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
+            }
+            if (mediaType instanceof ApplicationjsonMediatype thisMediaType) {
+                /*
+                var deserializedBody = deserializeBody(String contentType, JsonSchema<T> schema);
+                if contentType is json
+                    @Nullable Object bodyData = deserializeJson(body);
+                    return schema.validateAndBox(bodyData, configuration)
+                 */
                 @Nullable Object bodyData = deserializeJson(body);
-                var deserializedBody = AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance().validateAndBox(bodyData, configuration);
+                var deserializedBody = thisMediaType.schema.validateAndBox(bodyData, configuration);
                 return new ApplicationjsonBody(deserializedBody);
             } else {
+                TextplainMediatype thisMediaType = (TextplainMediatype) mediaType;
                 String bodyData = deserializeTextPlain(body);
-                var deserializedBody = StringJsonSchema.StringJsonSchema1.getInstance().validateAndBox(bodyData, configuration);
+                var deserializedBody = thisMediaType.schema.validateAndBox(bodyData, configuration);
                 return new TextplainBody(deserializedBody);
             }
         }
