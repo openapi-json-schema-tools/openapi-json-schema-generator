@@ -26,10 +26,9 @@ import java.util.Map;
 import java.net.http.HttpHeaders;
 
 public class {{jsonPathPiece.pascalCase}} {
-    {{#if content}}
+    {{#if hasContentSchema}}
     public sealed interface SealedMediaType permits {{#each content}}{{@key.pascalCase}}MediaType{{#unless @last}}, {{/unless}}{{/each}} {}
-    {{/if}}
-    {{#each content}}
+        {{#each content}}
 
     public record {{@key.pascalCase}}MediaType({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} schema{{/with}}{{/with}}) implements SealedMediaType, MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}, Void{{/with}}{{/with}}> {
         public {{@key.pascalCase}}MediaType() {
@@ -40,26 +39,25 @@ public class {{jsonPathPiece.pascalCase}} {
             return null;
         }
     }
-    {{/each}}
-    {{#if content}}
+        {{/each}}
     public sealed interface SealedResponseBody permits {{#each content}}{{@key.pascalCase}}ResponseBody{{#unless @last}}, {{/unless}}{{/each}} {}
-    {{/if}}
-    {{#each content}}
+        {{#each content}}
     public record {{@key.pascalCase}}ResponseBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body) implements SealedResponseBody { }
-    {{/each}}
+        {{/each}}
+    {{/if}}
 
-    public static class {{jsonPathPiece.pascalCase}}1 extends ResponseDeserializer<{{#if content}}SealedResponseBody{{else}}Void{{/if}}, Void, {{#if content}}SealedMediaType{{else}}Void{{/if}}> {
+    public static class {{jsonPathPiece.pascalCase}}1 extends ResponseDeserializer<{{#if hasContentSchema}}SealedResponseBody{{else}}Void{{/if}}, Void, {{#if hasContentSchema}}SealedMediaType{{else}}Void{{/if}}> {
         public {{jsonPathPiece.pascalCase}}1() {
             super(
                 Map.ofEntries(
         {{#each content}}
-                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
+                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", {{#if schema}}new {{@key.pascalCase}}MediaType(){{else}}null{{/if}}){{#unless @last}},{{/unless}}
         {{/each}}
                 )
             );
         }
 
-        {{#if content}}
+        {{#if hasContentSchema}}
         @Override
         public SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
             {{#each content}}
