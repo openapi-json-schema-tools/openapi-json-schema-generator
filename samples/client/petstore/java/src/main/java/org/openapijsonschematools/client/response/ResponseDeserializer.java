@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.mediatype.MediaType;
 
 public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass> {
-    public final @Nullable Map<String, MediaType<?>> content;
+    public final @Nullable Map<String, MediaType<?, ?>> content;
     public final @Nullable Map<String, String> headers; // todo change the value to header
     private static final Pattern jsonContentTypePattern = Pattern.compile(
             "application/[^+]*[+]?(json);?.*"
@@ -22,7 +22,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass> {
     private static final Gson gson = new Gson();
     protected static final String textPlainContentType = "text/plain";
 
-    public ResponseDeserializer(@Nullable Map<String, MediaType<?>> content) {
+    public ResponseDeserializer(@Nullable Map<String, MediaType<?, ?>> content) {
         this.content = content;
         this.headers = null;
     }

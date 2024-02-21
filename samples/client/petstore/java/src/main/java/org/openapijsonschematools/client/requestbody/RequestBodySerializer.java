@@ -17,7 +17,7 @@ public abstract class RequestBodySerializer<T> {
     * Describes a single request body
     * content: contentType to MediaType schema info
     */
-    public final Map<String, MediaType<?>> content;
+    public final Map<String, MediaType<?, ?>> content;
     public final boolean required;
     private static final Pattern jsonContentTypePattern = Pattern.compile(
             "application/[^+]*[+]?(json);?.*"
@@ -28,7 +28,7 @@ public abstract class RequestBodySerializer<T> {
             .create();
     private static final String textPlainContentType = "text/plain";
 
-    public RequestBodySerializer(Map<String, MediaType<?>> content, boolean required) {
+    public RequestBodySerializer(Map<String, MediaType<?, ?>> content, boolean required) {
         this.content = content;
         this.required = required;
     }
