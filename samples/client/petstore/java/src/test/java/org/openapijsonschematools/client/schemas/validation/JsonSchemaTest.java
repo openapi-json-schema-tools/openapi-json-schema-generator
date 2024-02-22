@@ -13,6 +13,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+sealed interface SomeSchemaBoxed permits SomeSchemaBoxedString {}
+record SomeSchemaBoxedString() implements SomeSchemaBoxed {}
+
 public class JsonSchemaTest {
     sealed interface SomeSchemaBoxed permits SomeSchemaBoxedString {}
     record SomeSchemaBoxedString() implements SomeSchemaBoxed {}

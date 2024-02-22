@@ -35,8 +35,13 @@ public class Code200Response {
 
         @Override
         public SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
-            if ("application/json".equals(contentType)) {
-                // todo implement deserialization
+            SealedMediaType mediaType = content.get(contentType);
+            if (mediaType == null) {
+                throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
+            }
+            if (mediaType instanceof ApplicationjsonMediaType thisMediaType) {
+                var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
+                return new ApplicationjsonResponseBody(deserializedBody);
             }
             throw new RuntimeException("contentType="+contentType+" returned by the server is unknown and does not exist in the openapi document");
         }

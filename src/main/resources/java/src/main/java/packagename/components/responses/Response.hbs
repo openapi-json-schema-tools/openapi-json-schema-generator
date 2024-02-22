@@ -62,13 +62,18 @@ public class {{jsonPathPiece.pascalCase}} {
         {{#if hasContentSchema}}
         @Override
         public SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+            SealedMediaType mediaType = content.get(contentType);
+            if (mediaType == null) {
+                throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
+            }
             {{#each content}}
                 {{#if @first}}
-            if ("{{{@key.original}}}".equals(contentType)) {
+            if (mediaType instanceof {{@key.pascalCase}}MediaType thisMediaType) {
                 {{else}}
-            } else if ("{{{@key.original}}}".equals(contentType)) {
+            } else if (mediaType instanceof {{@key.pascalCase}}MediaType thisMediaType) {
                 {{/if}}
-                // todo implement deserialization
+                var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
+                return new {{@key.pascalCase}}ResponseBody(deserializedBody);
             {{/each}}
             }
             throw new RuntimeException("contentType="+contentType+" returned by the server is unknown and does not exist in the openapi document");

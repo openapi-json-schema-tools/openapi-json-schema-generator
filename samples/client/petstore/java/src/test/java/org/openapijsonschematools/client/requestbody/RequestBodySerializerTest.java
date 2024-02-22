@@ -3,11 +3,11 @@ package org.openapijsonschematools.client.requestbody;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
 import java.net.http.HttpResponse;
 import java.nio.ByteBuffer;
