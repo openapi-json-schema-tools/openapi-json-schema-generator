@@ -283,7 +283,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         DocumentationFeature.Servers,
                         DocumentationFeature.ComponentSchemas,
                         DocumentationFeature.ComponentSecuritySchemes,
-                        DocumentationFeature.ComponentRequestBodies
+                        DocumentationFeature.ComponentRequestBodies,
+                        DocumentationFeature.ComponentResponses
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
@@ -293,7 +294,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 .includeComponentsFeatures(
                         ComponentsFeature.schemas,
                         ComponentsFeature.securitySchemes,
-                        ComponentsFeature.requestBodies
+                        ComponentsFeature.requestBodies,
+                        ComponentsFeature.responses
                 )
                 .includeSecurityFeatures(
                         SecurityFeature.ApiKey,
@@ -805,6 +807,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/responses/Response.hbs", ".java");
                 }}
         );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/responses/ResponseDoc.hbs", ".md");
+                }}
+        );
+
         // schema
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("src/main/java/packagename/components/schemas/Schema.hbs", ".java");

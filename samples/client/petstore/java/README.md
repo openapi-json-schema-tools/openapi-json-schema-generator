@@ -308,6 +308,18 @@ Class | Description
 [RefUserArray.RefUserArray1](docs/components/requestbodies/RefUserArray.md#refuserarray1) |
 [UserArray.UserArray1](docs/components/requestbodies/UserArray.md#userarray1) | List of user object
 
+## Component Responses
+
+Class | Description
+----- | ------------
+[HeadersWithNoBody.HeadersWithNoBody1](docs/components/responses/HeadersWithNoBody.md#headerswithnobody1) | A response that contains headers but no body<br>
+[RefSuccessDescriptionOnly.RefSuccessDescriptionOnly1](docs/components/responses/RefSuccessDescriptionOnly.md#refsuccessdescriptiononly1) |
+[RefSuccessfulXmlAndJsonArrayOfPet.RefSuccessfulXmlAndJsonArrayOfPet1](docs/components/responses/RefSuccessfulXmlAndJsonArrayOfPet.md#refsuccessfulxmlandjsonarrayofpet1) |
+[SuccessDescriptionOnly.SuccessDescriptionOnly1](docs/components/responses/SuccessDescriptionOnly.md#successdescriptiononly1) | Success
+[SuccessInlineContentAndHeader.SuccessInlineContentAndHeader1](docs/components/responses/SuccessInlineContentAndHeader.md#successinlinecontentandheader1) | successful operation
+[SuccessWithJsonApiResponse.SuccessWithJsonApiResponse1](docs/components/responses/SuccessWithJsonApiResponse.md#successwithjsonapiresponse1) | successful operation
+[SuccessfulXmlAndJsonArrayOfPet.SuccessfulXmlAndJsonArrayOfPet1](docs/components/responses/SuccessfulXmlAndJsonArrayOfPet.md#successfulxmlandjsonarrayofpet1) | successful operation, multiple content types
+
 ## Component SecuritySchemes
 
 | Class | Description |

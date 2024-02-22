@@ -185,6 +185,18 @@ Class | Description
     {{/with}}
 {{/each}}
 {{/if}}
+{{#if responses}}
+
+## Component Responses
+
+Class | Description
+----- | ------------
+{{#each responses}}
+    {{#with this}}
+[{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/responses/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}
+    {{/with}}
+{{/each}}
+{{/if}}
 {{#if securitySchemes}}
 
 ## Component SecuritySchemes

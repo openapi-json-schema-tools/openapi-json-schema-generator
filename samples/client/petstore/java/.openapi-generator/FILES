@@ -15,6 +15,13 @@ docs/components/requestbodies/client/content/applicationjson/ApplicationjsonSche
 docs/components/requestbodies/pet/content/applicationjson/ApplicationjsonSchema.md
 docs/components/requestbodies/pet/content/applicationxml/ApplicationxmlSchema.md
 docs/components/requestbodies/userarray/content/applicationjson/ApplicationjsonSchema.md
+docs/components/responses/HeadersWithNoBody.md
+docs/components/responses/RefSuccessDescriptionOnly.md
+docs/components/responses/RefSuccessfulXmlAndJsonArrayOfPet.md
+docs/components/responses/SuccessDescriptionOnly.md
+docs/components/responses/SuccessInlineContentAndHeader.md
+docs/components/responses/SuccessWithJsonApiResponse.md
+docs/components/responses/SuccessfulXmlAndJsonArrayOfPet.md
 docs/components/responses/headerswithnobody/headers/location/LocationSchema.md
 docs/components/responses/successfulxmlandjsonarrayofpet/content/applicationjson/ApplicationjsonSchema.md
 docs/components/responses/successfulxmlandjsonarrayofpet/content/applicationxml/ApplicationxmlSchema.md
