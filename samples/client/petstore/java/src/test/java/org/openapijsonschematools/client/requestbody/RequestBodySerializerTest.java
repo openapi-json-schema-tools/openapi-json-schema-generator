@@ -41,7 +41,7 @@ public final class RequestBodySerializerTest {
             super(
                     Map.ofEntries(
                             new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType(AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance())),
-                            new AbstractMap.SimpleEntry<>("application/json", new TextplainMediaType(StringJsonSchema.StringJsonSchema1.getInstance()))
+                            new AbstractMap.SimpleEntry<>("text/plain", new TextplainMediaType(StringJsonSchema.StringJsonSchema1.getInstance()))
                     ),
                     true);
         }

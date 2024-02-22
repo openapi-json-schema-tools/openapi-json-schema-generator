@@ -94,8 +94,8 @@ public class ResponseDeserializerTest {
             this.body = body;
             BiPredicate<String, String> headerFilter = (key, val) -> true;
             headers = HttpHeaders.of(Map.of("Content-Type", List.of(contentType)), headerFilter);
-            request = HttpRequest.newBuilder().build();
-            uri = URI.create("");
+            uri = URI.create("https://abc.com/");
+            request = HttpRequest.newBuilder().uri(uri).build();
             version = HttpClient.Version.HTTP_2;
         }
 
