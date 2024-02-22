@@ -21,7 +21,10 @@ public class ItemsValidatorTest {
         Assert.assertNull(object);
     }
 
-    public static class ArrayWithItemsSchema extends JsonSchema {
+    public sealed interface ArrayWithItemsSchemaBoxed permits ArrayWithItemsSchemaBoxedList {}
+    public record ArrayWithItemsSchemaBoxedList() implements ArrayWithItemsSchemaBoxed {}
+
+    public static class ArrayWithItemsSchema extends JsonSchema<ArrayWithItemsSchemaBoxed> {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
                     .type(Set.of(List.class))
@@ -43,6 +46,11 @@ public class ItemsValidatorTest {
                 return validate(listArg, configuration);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public ArrayWithItemsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            return new ArrayWithItemsSchemaBoxedList();
         }
     }
 
@@ -72,7 +80,7 @@ public class ItemsValidatorTest {
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add(0);
-        LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
+        LinkedHashMap<JsonSchema<?>, Void> expectedClasses = new LinkedHashMap<>();
         StringJsonSchema.StringJsonSchema1 schema = JsonSchemaFactory.getInstance(StringJsonSchema.StringJsonSchema1.class);
         expectedClasses.put(schema, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
