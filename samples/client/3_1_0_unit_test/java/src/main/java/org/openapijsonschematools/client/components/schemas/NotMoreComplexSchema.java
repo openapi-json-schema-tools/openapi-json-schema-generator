@@ -115,23 +115,19 @@ public class NotMoreComplexSchema {
     }
     
     
-    public static abstract sealed class NotBoxed permits NotBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface NotBoxed permits NotBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class NotBoxedMap extends NotBoxed {
-        public final NotMap data;
-        private NotBoxedMap(NotMap data) {
-            this.data = data;
-        }
+    public record NotBoxedMap(NotMap data) implements NotBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Not extends JsonSchema implements MapSchemaValidator<NotMap, NotBoxedMap> {
+    public static class Not extends JsonSchema<NotBoxed> implements MapSchemaValidator<NotMap, NotBoxedMap> {
         private static @Nullable Not instance = null;
     
         protected Not() {
@@ -161,11 +157,11 @@ public class NotMoreComplexSchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -202,81 +198,64 @@ public class NotMoreComplexSchema {
         public NotBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotBoxedMap(validate(arg, configuration));
         }
-    }
-    
-    
-    public static abstract sealed class NotMoreComplexSchema1Boxed permits NotMoreComplexSchema1BoxedVoid, NotMoreComplexSchema1BoxedBoolean, NotMoreComplexSchema1BoxedNumber, NotMoreComplexSchema1BoxedString, NotMoreComplexSchema1BoxedList, NotMoreComplexSchema1BoxedMap {
-        public abstract @Nullable Object data();
-    }
-    
-    public static final class NotMoreComplexSchema1BoxedVoid extends NotMoreComplexSchema1Boxed {
-        public final Void data;
-        private NotMoreComplexSchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
         @Override
-        public @Nullable Object data() {
+        public NotBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+    }
+    
+    
+    public sealed interface NotMoreComplexSchema1Boxed permits NotMoreComplexSchema1BoxedVoid, NotMoreComplexSchema1BoxedBoolean, NotMoreComplexSchema1BoxedNumber, NotMoreComplexSchema1BoxedString, NotMoreComplexSchema1BoxedList, NotMoreComplexSchema1BoxedMap {
+        @Nullable Object getData();
+    }
+    
+    public record NotMoreComplexSchema1BoxedVoid(Void data) implements NotMoreComplexSchema1Boxed {
+        @Override
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMoreComplexSchema1BoxedBoolean extends NotMoreComplexSchema1Boxed {
-        public final boolean data;
-        private NotMoreComplexSchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record NotMoreComplexSchema1BoxedBoolean(boolean data) implements NotMoreComplexSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMoreComplexSchema1BoxedNumber extends NotMoreComplexSchema1Boxed {
-        public final Number data;
-        private NotMoreComplexSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NotMoreComplexSchema1BoxedNumber(Number data) implements NotMoreComplexSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMoreComplexSchema1BoxedString extends NotMoreComplexSchema1Boxed {
-        public final String data;
-        private NotMoreComplexSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record NotMoreComplexSchema1BoxedString(String data) implements NotMoreComplexSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMoreComplexSchema1BoxedList extends NotMoreComplexSchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private NotMoreComplexSchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NotMoreComplexSchema1BoxedList(FrozenList<@Nullable Object> data) implements NotMoreComplexSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMoreComplexSchema1BoxedMap extends NotMoreComplexSchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private NotMoreComplexSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NotMoreComplexSchema1BoxedMap(FrozenMap<@Nullable Object> data) implements NotMoreComplexSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class NotMoreComplexSchema1 extends JsonSchema implements NullSchemaValidator<NotMoreComplexSchema1BoxedVoid>, BooleanSchemaValidator<NotMoreComplexSchema1BoxedBoolean>, NumberSchemaValidator<NotMoreComplexSchema1BoxedNumber>, StringSchemaValidator<NotMoreComplexSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NotMoreComplexSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NotMoreComplexSchema1BoxedMap> {
+    public static class NotMoreComplexSchema1 extends JsonSchema<NotMoreComplexSchema1Boxed> implements NullSchemaValidator<NotMoreComplexSchema1BoxedVoid>, BooleanSchemaValidator<NotMoreComplexSchema1BoxedBoolean>, NumberSchemaValidator<NotMoreComplexSchema1BoxedNumber>, StringSchemaValidator<NotMoreComplexSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NotMoreComplexSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NotMoreComplexSchema1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -381,11 +360,11 @@ public class NotMoreComplexSchema {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -416,11 +395,11 @@ public class NotMoreComplexSchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -498,6 +477,25 @@ public class NotMoreComplexSchema {
         @Override
         public NotMoreComplexSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotMoreComplexSchema1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public NotMoreComplexSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

@@ -5,7 +5,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.List;
 
 public record ValidationData(
-    JsonSchema schema,
+    JsonSchema<?> schema,
     @Nullable Object arg,
     ValidationMetadata validationMetadata,
     @Nullable List<PathToSchemasMap> containsPathToSchemas,
@@ -14,7 +14,7 @@ public record ValidationData(
     @Nullable PathToSchemasMap knownPathToSchemas
 ) {
     public ValidationData(
-            JsonSchema schema,
+            JsonSchema<?> schema,
             @Nullable Object arg,
             ValidationMetadata validationMetadata
     ) {

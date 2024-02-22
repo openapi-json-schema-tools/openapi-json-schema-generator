@@ -4,7 +4,7 @@ public class ASchemaGivenForPrefixitems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,25 +12,25 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)<br> abstract sealed validated payload class |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedVoid](#aschemagivenforprefixitems1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedNumber](#aschemagivenforprefixitems1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedString](#aschemagivenforprefixitems1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedList](#aschemagivenforprefixitems1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)<br> sealed interface for validated payloads |
+| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedVoid](#aschemagivenforprefixitems1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedNumber](#aschemagivenforprefixitems1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedString](#aschemagivenforprefixitems1boxedstring)<br> boxed class to store validated String payloads |
+| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedList](#aschemagivenforprefixitems1boxedlist)<br> boxed class to store validated List payloads |
+| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1](#aschemagivenforprefixitems1)<br> schema class |
-| static class | [ASchemaGivenForPrefixitems.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
-| static class | [ASchemaGivenForPrefixitems.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ASchemaGivenForPrefixitems.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
+| record | [ASchemaGivenForPrefixitems.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ASchemaGivenForPrefixitems.Schema1](#schema1)<br> schema class |
-| static class | [ASchemaGivenForPrefixitems.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
-| static class | [ASchemaGivenForPrefixitems.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [ASchemaGivenForPrefixitems.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
+| record | [ASchemaGivenForPrefixitems.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ASchemaGivenForPrefixitems.Schema0](#schema0)<br> schema class |
 | static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsListBuilder](#aschemagivenforprefixitemslistbuilder)<br> builder for List payloads |
 | static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsList](#aschemagivenforprefixitemslist)<br> output class for List payloads |
 
 ## ASchemaGivenForPrefixitems1Boxed
-public static abstract sealed class ASchemaGivenForPrefixitems1Boxed<br>
+public sealed interface ASchemaGivenForPrefixitems1Boxed<br>
 permits<br>
 [ASchemaGivenForPrefixitems1BoxedVoid](#aschemagivenforprefixitems1boxedvoid),
 [ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean),
@@ -39,103 +39,109 @@ permits<br>
 [ASchemaGivenForPrefixitems1BoxedList](#aschemagivenforprefixitems1boxedlist),
 [ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ASchemaGivenForPrefixitems1BoxedVoid
-public static final class ASchemaGivenForPrefixitems1BoxedVoid<br>
-extends [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
+public record ASchemaGivenForPrefixitems1BoxedVoid<br>
+implements [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ASchemaGivenForPrefixitems1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ASchemaGivenForPrefixitems1BoxedBoolean
-public static final class ASchemaGivenForPrefixitems1BoxedBoolean<br>
-extends [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
+public record ASchemaGivenForPrefixitems1BoxedBoolean<br>
+implements [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ASchemaGivenForPrefixitems1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ASchemaGivenForPrefixitems1BoxedNumber
-public static final class ASchemaGivenForPrefixitems1BoxedNumber<br>
-extends [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
+public record ASchemaGivenForPrefixitems1BoxedNumber<br>
+implements [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ASchemaGivenForPrefixitems1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ASchemaGivenForPrefixitems1BoxedString
-public static final class ASchemaGivenForPrefixitems1BoxedString<br>
-extends [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
+public record ASchemaGivenForPrefixitems1BoxedString<br>
+implements [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ASchemaGivenForPrefixitems1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ASchemaGivenForPrefixitems1BoxedList
-public static final class ASchemaGivenForPrefixitems1BoxedList<br>
-extends [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
+public record ASchemaGivenForPrefixitems1BoxedList<br>
+implements [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ASchemaGivenForPrefixitems1BoxedList([ASchemaGivenForPrefixitemsList](#aschemagivenforprefixitemslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ASchemaGivenForPrefixitemsList](#aschemagivenforprefixitemslist) | data<br>validated payload |
+| [ASchemaGivenForPrefixitemsList](#aschemagivenforprefixitemslist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ASchemaGivenForPrefixitems1BoxedMap
-public static final class ASchemaGivenForPrefixitems1BoxedMap<br>
-extends [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
+public record ASchemaGivenForPrefixitems1BoxedMap<br>
+implements [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ASchemaGivenForPrefixitems1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ASchemaGivenForPrefixitems1
 public static class ASchemaGivenForPrefixitems1<br>
@@ -167,29 +173,32 @@ A schema class that validates payloads
 | [ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [ASchemaGivenForPrefixitems1BoxedList](#aschemagivenforprefixitems1boxedlist) | validateAndBox([List<?>](#aschemagivenforprefixitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema1Boxed
-public static abstract sealed class Schema1Boxed<br>
+public sealed interface Schema1Boxed<br>
 permits<br>
 [Schema1BoxedString](#schema1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedString
-public static final class Schema1BoxedString<br>
-extends [Schema1Boxed](#schema1boxed)
+public record Schema1BoxedString<br>
+implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -203,27 +212,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## Schema0Boxed
-public static abstract sealed class Schema0Boxed<br>
+public sealed interface Schema0Boxed<br>
 permits<br>
 [Schema0BoxedNumber](#schema0boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedNumber
-public static final class Schema0BoxedNumber<br>
-extends [Schema0Boxed](#schema0boxed)
+public record Schema0BoxedNumber<br>
+implements [Schema0Boxed](#schema0boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>

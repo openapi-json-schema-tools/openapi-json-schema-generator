@@ -4,7 +4,7 @@ public class Client<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Client.Client1Boxed](#client1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Client.Client1Boxed](#client1boxed)<br> sealed interface for validated payloads |
 | record | [Client.Client1BoxedMap](#client1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Client.Client1](#client1)<br> schema class |
 | static class | [Client.ClientMapBuilder1](#clientmapbuilder1)<br> builder for Map payloads |
 | static class | [Client.ClientMap](#clientmap)<br> output class for Map payloads |
-| sealed interface | [Client.Client2Boxed](#client2boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Client.Client2Boxed](#client2boxed)<br> sealed interface for validated payloads |
 | record | [Client.Client2BoxedString](#client2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Client.Client2](#client2)<br> schema class |
 

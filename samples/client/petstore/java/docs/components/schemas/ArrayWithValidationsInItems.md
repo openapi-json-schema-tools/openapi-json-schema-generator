@@ -4,7 +4,7 @@ public class ArrayWithValidationsInItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ArrayWithValidationsInItems.ArrayWithValidationsInItems1Boxed](#arraywithvalidationsinitems1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayWithValidationsInItems.ArrayWithValidationsInItems1Boxed](#arraywithvalidationsinitems1boxed)<br> sealed interface for validated payloads |
 | record | [ArrayWithValidationsInItems.ArrayWithValidationsInItems1BoxedList](#arraywithvalidationsinitems1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItems1](#arraywithvalidationsinitems1)<br> schema class |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItemsListBuilder](#arraywithvalidationsinitemslistbuilder)<br> builder for List payloads |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist)<br> output class for List payloads |
-| sealed interface | [ArrayWithValidationsInItems.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayWithValidationsInItems.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
 | record | [ArrayWithValidationsInItems.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ArrayWithValidationsInItems.Items](#items)<br> schema class |
 

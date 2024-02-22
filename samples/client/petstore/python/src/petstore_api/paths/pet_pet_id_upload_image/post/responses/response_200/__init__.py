@@ -6,5 +6,5 @@
 
 
 from petstore_api.components.responses import response_success_with_json_api_response
-ResponseFor200 = response_success_with_json_api_response.SuccessWithJsonApiResponse
+_200 = response_success_with_json_api_response.SuccessWithJsonApiResponse
 ApiResponse = response_success_with_json_api_response.ApiResponse

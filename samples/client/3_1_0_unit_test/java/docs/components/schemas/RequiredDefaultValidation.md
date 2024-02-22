@@ -4,7 +4,7 @@ public class RequiredDefaultValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,27 +12,27 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [RequiredDefaultValidation.RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)<br> abstract sealed validated payload class |
-| static class | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedVoid](#requireddefaultvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedBoolean](#requireddefaultvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedNumber](#requireddefaultvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedString](#requireddefaultvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedList](#requireddefaultvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedMap](#requireddefaultvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [RequiredDefaultValidation.RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)<br> sealed interface for validated payloads |
+| record | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedVoid](#requireddefaultvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedBoolean](#requireddefaultvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedNumber](#requireddefaultvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedString](#requireddefaultvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| record | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedList](#requireddefaultvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| record | [RequiredDefaultValidation.RequiredDefaultValidation1BoxedMap](#requireddefaultvalidation1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [RequiredDefaultValidation.RequiredDefaultValidation1](#requireddefaultvalidation1)<br> schema class |
 | static class | [RequiredDefaultValidation.RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder)<br> builder for Map payloads |
 | static class | [RequiredDefaultValidation.RequiredDefaultValidationMap](#requireddefaultvalidationmap)<br> output class for Map payloads |
-| static class | [RequiredDefaultValidation.FooBoxed](#fooboxed)<br> abstract sealed validated payload class |
-| static class | [RequiredDefaultValidation.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [RequiredDefaultValidation.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [RequiredDefaultValidation.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [RequiredDefaultValidation.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| static class | [RequiredDefaultValidation.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
-| static class | [RequiredDefaultValidation.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [RequiredDefaultValidation.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
+| record | [RequiredDefaultValidation.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
+| record | [RequiredDefaultValidation.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [RequiredDefaultValidation.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| record | [RequiredDefaultValidation.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| record | [RequiredDefaultValidation.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
+| record | [RequiredDefaultValidation.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [RequiredDefaultValidation.Foo](#foo)<br> schema class |
 
 ## RequiredDefaultValidation1Boxed
-public static abstract sealed class RequiredDefaultValidation1Boxed<br>
+public sealed interface RequiredDefaultValidation1Boxed<br>
 permits<br>
 [RequiredDefaultValidation1BoxedVoid](#requireddefaultvalidation1boxedvoid),
 [RequiredDefaultValidation1BoxedBoolean](#requireddefaultvalidation1boxedboolean),
@@ -41,103 +41,109 @@ permits<br>
 [RequiredDefaultValidation1BoxedList](#requireddefaultvalidation1boxedlist),
 [RequiredDefaultValidation1BoxedMap](#requireddefaultvalidation1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## RequiredDefaultValidation1BoxedVoid
-public static final class RequiredDefaultValidation1BoxedVoid<br>
-extends [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
+public record RequiredDefaultValidation1BoxedVoid<br>
+implements [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RequiredDefaultValidation1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RequiredDefaultValidation1BoxedBoolean
-public static final class RequiredDefaultValidation1BoxedBoolean<br>
-extends [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
+public record RequiredDefaultValidation1BoxedBoolean<br>
+implements [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RequiredDefaultValidation1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RequiredDefaultValidation1BoxedNumber
-public static final class RequiredDefaultValidation1BoxedNumber<br>
-extends [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
+public record RequiredDefaultValidation1BoxedNumber<br>
+implements [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RequiredDefaultValidation1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RequiredDefaultValidation1BoxedString
-public static final class RequiredDefaultValidation1BoxedString<br>
-extends [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
+public record RequiredDefaultValidation1BoxedString<br>
+implements [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RequiredDefaultValidation1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RequiredDefaultValidation1BoxedList
-public static final class RequiredDefaultValidation1BoxedList<br>
-extends [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
+public record RequiredDefaultValidation1BoxedList<br>
+implements [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RequiredDefaultValidation1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RequiredDefaultValidation1BoxedMap
-public static final class RequiredDefaultValidation1BoxedMap<br>
-extends [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
+public record RequiredDefaultValidation1BoxedMap<br>
+implements [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RequiredDefaultValidation1BoxedMap([RequiredDefaultValidationMap](#requireddefaultvalidationmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | data<br>validated payload |
+| [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RequiredDefaultValidation1
 public static class RequiredDefaultValidation1<br>
@@ -169,7 +175,9 @@ A schema class that validates payloads
 | [RequiredDefaultValidation1BoxedBoolean](#requireddefaultvalidation1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [RequiredDefaultValidation1BoxedMap](#requireddefaultvalidation1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#requireddefaultvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | [RequiredDefaultValidation1BoxedList](#requireddefaultvalidation1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## RequiredDefaultValidationMapBuilder
 public class RequiredDefaultValidationMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -218,7 +226,7 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## FooBoxed
-public static abstract sealed class FooBoxed<br>
+public sealed interface FooBoxed<br>
 permits<br>
 [FooBoxedVoid](#fooboxedvoid),
 [FooBoxedBoolean](#fooboxedboolean),
@@ -227,103 +235,109 @@ permits<br>
 [FooBoxedList](#fooboxedlist),
 [FooBoxedMap](#fooboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FooBoxedVoid
-public static final class FooBoxedVoid<br>
-extends [FooBoxed](#fooboxed)
+public record FooBoxedVoid<br>
+implements [FooBoxed](#fooboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FooBoxedBoolean
-public static final class FooBoxedBoolean<br>
-extends [FooBoxed](#fooboxed)
+public record FooBoxedBoolean<br>
+implements [FooBoxed](#fooboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FooBoxedNumber
-public static final class FooBoxedNumber<br>
-extends [FooBoxed](#fooboxed)
+public record FooBoxedNumber<br>
+implements [FooBoxed](#fooboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FooBoxedString
-public static final class FooBoxedString<br>
-extends [FooBoxed](#fooboxed)
+public record FooBoxedString<br>
+implements [FooBoxed](#fooboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FooBoxedList
-public static final class FooBoxedList<br>
-extends [FooBoxed](#fooboxed)
+public record FooBoxedList<br>
+implements [FooBoxed](#fooboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FooBoxedMap
-public static final class FooBoxedMap<br>
-extends [FooBoxed](#fooboxed)
+public record FooBoxedMap<br>
+implements [FooBoxed](#fooboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Foo
 public static class Foo<br>

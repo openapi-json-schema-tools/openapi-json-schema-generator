@@ -4,7 +4,7 @@ public class TriangleInterface<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,7 +13,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [TriangleInterface.TriangleInterface1Boxed](#triangleinterface1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [TriangleInterface.TriangleInterface1Boxed](#triangleinterface1boxed)<br> sealed interface for validated payloads |
 | record | [TriangleInterface.TriangleInterface1BoxedVoid](#triangleinterface1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [TriangleInterface.TriangleInterface1BoxedBoolean](#triangleinterface1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [TriangleInterface.TriangleInterface1BoxedNumber](#triangleinterface1boxednumber)<br> boxed class to store validated Number payloads |
@@ -23,10 +23,10 @@ A class that contains necessary nested
 | static class | [TriangleInterface.TriangleInterface1](#triangleinterface1)<br> schema class |
 | static class | [TriangleInterface.TriangleInterfaceMapBuilder](#triangleinterfacemapbuilder)<br> builder for Map payloads |
 | static class | [TriangleInterface.TriangleInterfaceMap](#triangleinterfacemap)<br> output class for Map payloads |
-| sealed interface | [TriangleInterface.TriangleTypeBoxed](#triangletypeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [TriangleInterface.TriangleTypeBoxed](#triangletypeboxed)<br> sealed interface for validated payloads |
 | record | [TriangleInterface.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [TriangleInterface.TriangleType](#triangletype)<br> schema class |
-| sealed interface | [TriangleInterface.ShapeTypeBoxed](#shapetypeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [TriangleInterface.ShapeTypeBoxed](#shapetypeboxed)<br> sealed interface for validated payloads |
 | record | [TriangleInterface.ShapeTypeBoxedString](#shapetypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [TriangleInterface.ShapeType](#shapetype)<br> schema class |
 | enum | [TriangleInterface.StringShapeTypeEnums](#stringshapetypeenums)<br>String enum |

@@ -4,13 +4,13 @@ public class ShapeOrNull<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ShapeOrNull.ShapeOrNull1Boxed](#shapeornull1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ShapeOrNull.ShapeOrNull1Boxed](#shapeornull1boxed)<br> sealed interface for validated payloads |
 | record | [ShapeOrNull.ShapeOrNull1BoxedVoid](#shapeornull1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [ShapeOrNull.ShapeOrNull1BoxedBoolean](#shapeornull1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ShapeOrNull.ShapeOrNull1BoxedNumber](#shapeornull1boxednumber)<br> boxed class to store validated Number payloads |
@@ -18,7 +18,7 @@ A class that contains necessary nested
 | record | [ShapeOrNull.ShapeOrNull1BoxedList](#shapeornull1boxedlist)<br> boxed class to store validated List payloads |
 | record | [ShapeOrNull.ShapeOrNull1BoxedMap](#shapeornull1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ShapeOrNull.ShapeOrNull1](#shapeornull1)<br> schema class |
-| sealed interface | [ShapeOrNull.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ShapeOrNull.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
 | record | [ShapeOrNull.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ShapeOrNull.Schema0](#schema0)<br> schema class |
 

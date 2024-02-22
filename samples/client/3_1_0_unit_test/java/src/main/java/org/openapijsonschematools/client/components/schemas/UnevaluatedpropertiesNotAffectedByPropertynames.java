@@ -36,24 +36,20 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class PropertyNamesBoxed permits PropertyNamesBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface PropertyNamesBoxed permits PropertyNamesBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class PropertyNamesBoxedString extends PropertyNamesBoxed {
-        public final String data;
-        private PropertyNamesBoxedString(String data) {
-            this.data = data;
-        }
+    public record PropertyNamesBoxedString(String data) implements PropertyNamesBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class PropertyNames extends JsonSchema implements StringSchemaValidator<PropertyNamesBoxedString> {
+    public static class PropertyNames extends JsonSchema<PropertyNamesBoxed> implements StringSchemaValidator<PropertyNamesBoxedString> {
         private static @Nullable PropertyNames instance = null;
     
         protected PropertyNames() {
@@ -101,6 +97,13 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
         public PropertyNamesBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PropertyNamesBoxedString(validate(arg, configuration));
         }
+        @Override
+        public PropertyNamesBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class UnevaluatedProperties extends NumberJsonSchema.NumberJsonSchema1 {
@@ -114,78 +117,54 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
     }
     
     
-    public static abstract sealed class UnevaluatedpropertiesNotAffectedByPropertynames1Boxed permits UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface UnevaluatedpropertiesNotAffectedByPropertynames1Boxed permits UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
-        public final Void data;
-        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid(Void data) implements UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
-        public final boolean data;
-        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean(boolean data) implements UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
-        public final Number data;
-        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber(Number data) implements UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
-        public final String data;
-        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString(String data) {
-            this.data = data;
-        }
+    public record UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString(String data) implements UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList(FrozenList<@Nullable Object> data) implements UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap(FrozenMap<@Nullable Object> data) implements UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class UnevaluatedpropertiesNotAffectedByPropertynames1 extends JsonSchema implements NullSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid>, BooleanSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean>, NumberSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber>, StringSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap> {
+    public static class UnevaluatedpropertiesNotAffectedByPropertynames1 extends JsonSchema<UnevaluatedpropertiesNotAffectedByPropertynames1Boxed> implements NullSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid>, BooleanSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean>, NumberSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber>, StringSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -291,11 +270,11 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -326,11 +305,11 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -408,6 +387,25 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
         @Override
         public UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public UnevaluatedpropertiesNotAffectedByPropertynames1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

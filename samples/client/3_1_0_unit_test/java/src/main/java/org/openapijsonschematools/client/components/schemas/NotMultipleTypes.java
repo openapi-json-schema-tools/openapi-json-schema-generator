@@ -35,35 +35,27 @@ public class NotMultipleTypes {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class NotBoxed permits NotBoxedNumber, NotBoxedBoolean {
-        public abstract @Nullable Object data();
+    public sealed interface NotBoxed permits NotBoxedNumber, NotBoxedBoolean {
+        @Nullable Object getData();
     }
     
-    public static final class NotBoxedNumber extends NotBoxed {
-        public final Number data;
-        private NotBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NotBoxedNumber(Number data) implements NotBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotBoxedBoolean extends NotBoxed {
-        public final boolean data;
-        private NotBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record NotBoxedBoolean(boolean data) implements NotBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Not extends JsonSchema implements NumberSchemaValidator<NotBoxedNumber>, BooleanSchemaValidator<NotBoxedBoolean> {
+    public static class Not extends JsonSchema<NotBoxed> implements NumberSchemaValidator<NotBoxedNumber>, BooleanSchemaValidator<NotBoxedBoolean> {
         private static @Nullable Not instance = null;
     
         protected Not() {
@@ -152,80 +144,66 @@ public class NotMultipleTypes {
         public NotBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotBoxedBoolean(validate(arg, configuration));
         }
+        @Override
+        public NotBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class NotMultipleTypes1Boxed permits NotMultipleTypes1BoxedVoid, NotMultipleTypes1BoxedBoolean, NotMultipleTypes1BoxedNumber, NotMultipleTypes1BoxedString, NotMultipleTypes1BoxedList, NotMultipleTypes1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface NotMultipleTypes1Boxed permits NotMultipleTypes1BoxedVoid, NotMultipleTypes1BoxedBoolean, NotMultipleTypes1BoxedNumber, NotMultipleTypes1BoxedString, NotMultipleTypes1BoxedList, NotMultipleTypes1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class NotMultipleTypes1BoxedVoid extends NotMultipleTypes1Boxed {
-        public final Void data;
-        private NotMultipleTypes1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NotMultipleTypes1BoxedVoid(Void data) implements NotMultipleTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMultipleTypes1BoxedBoolean extends NotMultipleTypes1Boxed {
-        public final boolean data;
-        private NotMultipleTypes1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record NotMultipleTypes1BoxedBoolean(boolean data) implements NotMultipleTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMultipleTypes1BoxedNumber extends NotMultipleTypes1Boxed {
-        public final Number data;
-        private NotMultipleTypes1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NotMultipleTypes1BoxedNumber(Number data) implements NotMultipleTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMultipleTypes1BoxedString extends NotMultipleTypes1Boxed {
-        public final String data;
-        private NotMultipleTypes1BoxedString(String data) {
-            this.data = data;
-        }
+    public record NotMultipleTypes1BoxedString(String data) implements NotMultipleTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMultipleTypes1BoxedList extends NotMultipleTypes1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private NotMultipleTypes1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NotMultipleTypes1BoxedList(FrozenList<@Nullable Object> data) implements NotMultipleTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class NotMultipleTypes1BoxedMap extends NotMultipleTypes1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private NotMultipleTypes1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NotMultipleTypes1BoxedMap(FrozenMap<@Nullable Object> data) implements NotMultipleTypes1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class NotMultipleTypes1 extends JsonSchema implements NullSchemaValidator<NotMultipleTypes1BoxedVoid>, BooleanSchemaValidator<NotMultipleTypes1BoxedBoolean>, NumberSchemaValidator<NotMultipleTypes1BoxedNumber>, StringSchemaValidator<NotMultipleTypes1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NotMultipleTypes1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NotMultipleTypes1BoxedMap> {
+    public static class NotMultipleTypes1 extends JsonSchema<NotMultipleTypes1Boxed> implements NullSchemaValidator<NotMultipleTypes1BoxedVoid>, BooleanSchemaValidator<NotMultipleTypes1BoxedBoolean>, NumberSchemaValidator<NotMultipleTypes1BoxedNumber>, StringSchemaValidator<NotMultipleTypes1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NotMultipleTypes1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NotMultipleTypes1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -330,11 +308,11 @@ public class NotMultipleTypes {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -365,11 +343,11 @@ public class NotMultipleTypes {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -447,6 +425,25 @@ public class NotMultipleTypes {
         @Override
         public NotMultipleTypes1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotMultipleTypes1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public NotMultipleTypes1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

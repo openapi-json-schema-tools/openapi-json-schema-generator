@@ -4,7 +4,7 @@ public class AnyTypeAndFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [AnyTypeAndFormat.AnyTypeAndFormat1Boxed](#anytypeandformat1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.AnyTypeAndFormat1Boxed](#anytypeandformat1boxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.AnyTypeAndFormat1BoxedMap](#anytypeandformat1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormat1](#anytypeandformat1)<br> schema class |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder)<br> builder for Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMap](#anytypeandformatmap)<br> output class for Map payloads |
-| sealed interface | [AnyTypeAndFormat.FloatSchemaBoxed](#floatschemaboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.FloatSchemaBoxed](#floatschemaboxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.FloatSchemaBoxedVoid](#floatschemaboxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.FloatSchemaBoxedBoolean](#floatschemaboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeAndFormat.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
@@ -25,7 +25,7 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.FloatSchemaBoxedList](#floatschemaboxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.FloatSchemaBoxedMap](#floatschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.FloatSchema](#floatschema)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.DoubleSchemaBoxed](#doubleschemaboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.DoubleSchemaBoxedVoid](#doubleschemaboxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.DoubleSchemaBoxedBoolean](#doubleschemaboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeAndFormat.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
@@ -33,7 +33,7 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.DoubleSchemaBoxedList](#doubleschemaboxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.DoubleSchemaBoxedMap](#doubleschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.DoubleSchema](#doubleschema)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.Int64Boxed](#int64boxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.Int64Boxed](#int64boxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.Int64BoxedVoid](#int64boxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.Int64BoxedBoolean](#int64boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeAndFormat.Int64BoxedNumber](#int64boxednumber)<br> boxed class to store validated Number payloads |
@@ -41,7 +41,7 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.Int64BoxedList](#int64boxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.Int64BoxedMap](#int64boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Int64](#int64)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.Int32Boxed](#int32boxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.Int32Boxed](#int32boxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.Int32BoxedVoid](#int32boxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.Int32BoxedBoolean](#int32boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeAndFormat.Int32BoxedNumber](#int32boxednumber)<br> boxed class to store validated Number payloads |
@@ -49,7 +49,7 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.Int32BoxedList](#int32boxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.Int32BoxedMap](#int32boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Int32](#int32)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.BinaryBoxed](#binaryboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.BinaryBoxed](#binaryboxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.BinaryBoxedVoid](#binaryboxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.BinaryBoxedBoolean](#binaryboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeAndFormat.BinaryBoxedNumber](#binaryboxednumber)<br> boxed class to store validated Number payloads |
@@ -57,7 +57,7 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.BinaryBoxedList](#binaryboxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.BinaryBoxedMap](#binaryboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Binary](#binary)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.NumberSchemaBoxed](#numberschemaboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.NumberSchemaBoxed](#numberschemaboxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.NumberSchemaBoxedVoid](#numberschemaboxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.NumberSchemaBoxedBoolean](#numberschemaboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeAndFormat.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
@@ -65,7 +65,7 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.NumberSchemaBoxedList](#numberschemaboxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.NumberSchemaBoxedMap](#numberschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.NumberSchema](#numberschema)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.DatetimeBoxed](#datetimeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.DatetimeBoxed](#datetimeboxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.DatetimeBoxedVoid](#datetimeboxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.DatetimeBoxedBoolean](#datetimeboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeAndFormat.DatetimeBoxedNumber](#datetimeboxednumber)<br> boxed class to store validated Number payloads |
@@ -73,7 +73,7 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.DatetimeBoxedList](#datetimeboxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.DatetimeBoxedMap](#datetimeboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Datetime](#datetime)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.DateBoxed](#dateboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.DateBoxed](#dateboxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.DateBoxedVoid](#dateboxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.DateBoxedBoolean](#dateboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeAndFormat.DateBoxedNumber](#dateboxednumber)<br> boxed class to store validated Number payloads |
@@ -81,7 +81,7 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.DateBoxedList](#dateboxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.DateBoxedMap](#dateboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Date](#date)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.UuidSchemaBoxed](#uuidschemaboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeAndFormat.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.UuidSchemaBoxedVoid](#uuidschemaboxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.UuidSchemaBoxedBoolean](#uuidschemaboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeAndFormat.UuidSchemaBoxedNumber](#uuidschemaboxednumber)<br> boxed class to store validated Number payloads |

@@ -236,78 +236,54 @@ public class AdditionalpropertiesAreAllowedByDefault {
     }
     
     
-    public static abstract sealed class AdditionalpropertiesAreAllowedByDefault1Boxed permits AdditionalpropertiesAreAllowedByDefault1BoxedVoid, AdditionalpropertiesAreAllowedByDefault1BoxedBoolean, AdditionalpropertiesAreAllowedByDefault1BoxedNumber, AdditionalpropertiesAreAllowedByDefault1BoxedString, AdditionalpropertiesAreAllowedByDefault1BoxedList, AdditionalpropertiesAreAllowedByDefault1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AdditionalpropertiesAreAllowedByDefault1Boxed permits AdditionalpropertiesAreAllowedByDefault1BoxedVoid, AdditionalpropertiesAreAllowedByDefault1BoxedBoolean, AdditionalpropertiesAreAllowedByDefault1BoxedNumber, AdditionalpropertiesAreAllowedByDefault1BoxedString, AdditionalpropertiesAreAllowedByDefault1BoxedList, AdditionalpropertiesAreAllowedByDefault1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalpropertiesAreAllowedByDefault1BoxedVoid extends AdditionalpropertiesAreAllowedByDefault1Boxed {
-        public final Void data;
-        private AdditionalpropertiesAreAllowedByDefault1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesAreAllowedByDefault1BoxedVoid(Void data) implements AdditionalpropertiesAreAllowedByDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesAreAllowedByDefault1BoxedBoolean extends AdditionalpropertiesAreAllowedByDefault1Boxed {
-        public final boolean data;
-        private AdditionalpropertiesAreAllowedByDefault1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesAreAllowedByDefault1BoxedBoolean(boolean data) implements AdditionalpropertiesAreAllowedByDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesAreAllowedByDefault1BoxedNumber extends AdditionalpropertiesAreAllowedByDefault1Boxed {
-        public final Number data;
-        private AdditionalpropertiesAreAllowedByDefault1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesAreAllowedByDefault1BoxedNumber(Number data) implements AdditionalpropertiesAreAllowedByDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesAreAllowedByDefault1BoxedString extends AdditionalpropertiesAreAllowedByDefault1Boxed {
-        public final String data;
-        private AdditionalpropertiesAreAllowedByDefault1BoxedString(String data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesAreAllowedByDefault1BoxedString(String data) implements AdditionalpropertiesAreAllowedByDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesAreAllowedByDefault1BoxedList extends AdditionalpropertiesAreAllowedByDefault1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private AdditionalpropertiesAreAllowedByDefault1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesAreAllowedByDefault1BoxedList(FrozenList<@Nullable Object> data) implements AdditionalpropertiesAreAllowedByDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesAreAllowedByDefault1BoxedMap extends AdditionalpropertiesAreAllowedByDefault1Boxed {
-        public final AdditionalpropertiesAreAllowedByDefaultMap data;
-        private AdditionalpropertiesAreAllowedByDefault1BoxedMap(AdditionalpropertiesAreAllowedByDefaultMap data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesAreAllowedByDefault1BoxedMap(AdditionalpropertiesAreAllowedByDefaultMap data) implements AdditionalpropertiesAreAllowedByDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class AdditionalpropertiesAreAllowedByDefault1 extends JsonSchema implements NullSchemaValidator<AdditionalpropertiesAreAllowedByDefault1BoxedVoid>, BooleanSchemaValidator<AdditionalpropertiesAreAllowedByDefault1BoxedBoolean>, NumberSchemaValidator<AdditionalpropertiesAreAllowedByDefault1BoxedNumber>, StringSchemaValidator<AdditionalpropertiesAreAllowedByDefault1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AdditionalpropertiesAreAllowedByDefault1BoxedList>, MapSchemaValidator<AdditionalpropertiesAreAllowedByDefaultMap, AdditionalpropertiesAreAllowedByDefault1BoxedMap> {
+    public static class AdditionalpropertiesAreAllowedByDefault1 extends JsonSchema<AdditionalpropertiesAreAllowedByDefault1Boxed> implements NullSchemaValidator<AdditionalpropertiesAreAllowedByDefault1BoxedVoid>, BooleanSchemaValidator<AdditionalpropertiesAreAllowedByDefault1BoxedBoolean>, NumberSchemaValidator<AdditionalpropertiesAreAllowedByDefault1BoxedNumber>, StringSchemaValidator<AdditionalpropertiesAreAllowedByDefault1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AdditionalpropertiesAreAllowedByDefault1BoxedList>, MapSchemaValidator<AdditionalpropertiesAreAllowedByDefaultMap, AdditionalpropertiesAreAllowedByDefault1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -415,11 +391,11 @@ public class AdditionalpropertiesAreAllowedByDefault {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -450,11 +426,11 @@ public class AdditionalpropertiesAreAllowedByDefault {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -532,6 +508,25 @@ public class AdditionalpropertiesAreAllowedByDefault {
         @Override
         public AdditionalpropertiesAreAllowedByDefault1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalpropertiesAreAllowedByDefault1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalpropertiesAreAllowedByDefault1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

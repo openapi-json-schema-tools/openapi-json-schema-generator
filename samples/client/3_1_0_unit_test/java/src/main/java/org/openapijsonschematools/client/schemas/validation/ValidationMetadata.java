@@ -13,8 +13,8 @@ public record ValidationMetadata(
         Set<Class<?>> seenClasses
 ) {
 
-    public boolean validationRanEarlier(JsonSchema schema) {
-        @Nullable Map<JsonSchema, Void> validatedSchemas = validatedPathToSchemas.get(pathToItem);
+    public boolean validationRanEarlier(JsonSchema<?> schema) {
+        @Nullable Map<JsonSchema<?>, Void> validatedSchemas = validatedPathToSchemas.get(pathToItem);
         if (validatedSchemas != null && validatedSchemas.containsKey(schema)) {
             return true;
         }

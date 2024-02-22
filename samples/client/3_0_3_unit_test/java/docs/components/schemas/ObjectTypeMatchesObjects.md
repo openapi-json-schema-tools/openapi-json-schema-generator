@@ -4,38 +4,39 @@ public class ObjectTypeMatchesObjects<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1Boxed](#objecttypematchesobjects1boxed)<br> abstract sealed validated payload class |
-| static class | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1BoxedMap](#objecttypematchesobjects1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1Boxed](#objecttypematchesobjects1boxed)<br> sealed interface for validated payloads |
+| record | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1BoxedMap](#objecttypematchesobjects1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1](#objecttypematchesobjects1)<br> schema class |
 
 ## ObjectTypeMatchesObjects1Boxed
-public static abstract sealed class ObjectTypeMatchesObjects1Boxed<br>
+public sealed interface ObjectTypeMatchesObjects1Boxed<br>
 permits<br>
 [ObjectTypeMatchesObjects1BoxedMap](#objecttypematchesobjects1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ObjectTypeMatchesObjects1BoxedMap
-public static final class ObjectTypeMatchesObjects1BoxedMap<br>
-extends [ObjectTypeMatchesObjects1Boxed](#objecttypematchesobjects1boxed)
+public record ObjectTypeMatchesObjects1BoxedMap<br>
+implements [ObjectTypeMatchesObjects1Boxed](#objecttypematchesobjects1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectTypeMatchesObjects1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ObjectTypeMatchesObjects1
 public static class ObjectTypeMatchesObjects1<br>

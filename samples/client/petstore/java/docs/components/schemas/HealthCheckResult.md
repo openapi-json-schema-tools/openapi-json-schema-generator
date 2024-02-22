@@ -4,7 +4,7 @@ public class HealthCheckResult<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [HealthCheckResult.HealthCheckResult1Boxed](#healthcheckresult1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [HealthCheckResult.HealthCheckResult1Boxed](#healthcheckresult1boxed)<br> sealed interface for validated payloads |
 | record | [HealthCheckResult.HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [HealthCheckResult.HealthCheckResult1](#healthcheckresult1)<br> schema class |
 | static class | [HealthCheckResult.HealthCheckResultMapBuilder](#healthcheckresultmapbuilder)<br> builder for Map payloads |
 | static class | [HealthCheckResult.HealthCheckResultMap](#healthcheckresultmap)<br> output class for Map payloads |
-| sealed interface | [HealthCheckResult.NullableMessageBoxed](#nullablemessageboxed)<br> abstract sealed validated payload class |
+| sealed interface | [HealthCheckResult.NullableMessageBoxed](#nullablemessageboxed)<br> sealed interface for validated payloads |
 | record | [HealthCheckResult.NullableMessageBoxedVoid](#nullablemessageboxedvoid)<br> boxed class to store validated null payloads |
 | record | [HealthCheckResult.NullableMessageBoxedString](#nullablemessageboxedstring)<br> boxed class to store validated String payloads |
 | static class | [HealthCheckResult.NullableMessage](#nullablemessage)<br> schema class |

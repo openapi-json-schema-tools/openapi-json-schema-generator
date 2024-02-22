@@ -4,7 +4,7 @@ public class EnumArrays<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -15,21 +15,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [EnumArrays.EnumArrays1Boxed](#enumarrays1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [EnumArrays.EnumArrays1Boxed](#enumarrays1boxed)<br> sealed interface for validated payloads |
 | record | [EnumArrays.EnumArrays1BoxedMap](#enumarrays1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EnumArrays.EnumArrays1](#enumarrays1)<br> schema class |
 | static class | [EnumArrays.EnumArraysMapBuilder](#enumarraysmapbuilder)<br> builder for Map payloads |
 | static class | [EnumArrays.EnumArraysMap](#enumarraysmap)<br> output class for Map payloads |
-| sealed interface | [EnumArrays.ArrayEnumBoxed](#arrayenumboxed)<br> abstract sealed validated payload class |
+| sealed interface | [EnumArrays.ArrayEnumBoxed](#arrayenumboxed)<br> sealed interface for validated payloads |
 | record | [EnumArrays.ArrayEnumBoxedList](#arrayenumboxedlist)<br> boxed class to store validated List payloads |
 | static class | [EnumArrays.ArrayEnum](#arrayenum)<br> schema class |
 | static class | [EnumArrays.ArrayEnumListBuilder](#arrayenumlistbuilder)<br> builder for List payloads |
 | static class | [EnumArrays.ArrayEnumList](#arrayenumlist)<br> output class for List payloads |
-| sealed interface | [EnumArrays.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [EnumArrays.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
 | record | [EnumArrays.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumArrays.Items](#items)<br> schema class |
 | enum | [EnumArrays.StringItemsEnums](#stringitemsenums)<br>String enum |
-| sealed interface | [EnumArrays.JustSymbolBoxed](#justsymbolboxed)<br> abstract sealed validated payload class |
+| sealed interface | [EnumArrays.JustSymbolBoxed](#justsymbolboxed)<br> sealed interface for validated payloads |
 | record | [EnumArrays.JustSymbolBoxedString](#justsymbolboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumArrays.JustSymbol](#justsymbol)<br> schema class |
 | enum | [EnumArrays.StringJustSymbolEnums](#stringjustsymbolenums)<br>String enum |

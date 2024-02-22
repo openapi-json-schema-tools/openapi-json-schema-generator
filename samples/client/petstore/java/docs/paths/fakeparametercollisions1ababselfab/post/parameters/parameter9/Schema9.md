@@ -3,13 +3,13 @@ public class Schema9<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Schema9.Schema91Boxed](#schema91boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Schema9.Schema91Boxed](#schema91boxed)<br> sealed interface for validated payloads |
 | record | [Schema9.Schema91BoxedString](#schema91boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema9.Schema91](#schema91)<br> schema class |
 

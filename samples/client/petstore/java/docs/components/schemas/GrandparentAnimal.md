@@ -4,7 +4,7 @@ public class GrandparentAnimal<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [GrandparentAnimal.GrandparentAnimal1Boxed](#grandparentanimal1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [GrandparentAnimal.GrandparentAnimal1Boxed](#grandparentanimal1boxed)<br> sealed interface for validated payloads |
 | record | [GrandparentAnimal.GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimal1](#grandparentanimal1)<br> schema class |
 | static class | [GrandparentAnimal.GrandparentAnimalMapBuilder](#grandparentanimalmapbuilder)<br> builder for Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimalMap](#grandparentanimalmap)<br> output class for Map payloads |
-| sealed interface | [GrandparentAnimal.PetTypeBoxed](#pettypeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [GrandparentAnimal.PetTypeBoxed](#pettypeboxed)<br> sealed interface for validated payloads |
 | record | [GrandparentAnimal.PetTypeBoxedString](#pettypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
 

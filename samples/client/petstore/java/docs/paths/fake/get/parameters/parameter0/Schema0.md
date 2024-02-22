@@ -3,7 +3,7 @@ public class Schema0<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Schema0.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Schema0.Schema01Boxed](#schema01boxed)<br> sealed interface for validated payloads |
 | record | [Schema0.Schema01BoxedList](#schema01boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaListBuilder0](#schemalistbuilder0)<br> builder for List payloads |
 | static class | [Schema0.SchemaList0](#schemalist0)<br> output class for List payloads |
-| sealed interface | [Schema0.Items0Boxed](#items0boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Schema0.Items0Boxed](#items0boxed)<br> sealed interface for validated payloads |
 | record | [Schema0.Items0BoxedString](#items0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema0.Items0](#items0)<br> schema class |
 | enum | [Schema0.StringItemsEnums0](#stringitemsenums0)<br>String enum |

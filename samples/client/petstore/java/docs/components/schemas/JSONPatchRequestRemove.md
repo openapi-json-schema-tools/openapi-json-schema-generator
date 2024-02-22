@@ -4,7 +4,7 @@ public class JSONPatchRequestRemove<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,19 +13,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [JSONPatchRequestRemove.JSONPatchRequestRemove1Boxed](#jsonpatchrequestremove1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [JSONPatchRequestRemove.JSONPatchRequestRemove1Boxed](#jsonpatchrequestremove1boxed)<br> sealed interface for validated payloads |
 | record | [JSONPatchRequestRemove.JSONPatchRequestRemove1BoxedMap](#jsonpatchrequestremove1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemove1](#jsonpatchrequestremove1)<br> schema class |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMapBuilder](#jsonpatchrequestremovemapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap)<br> output class for Map payloads |
-| sealed interface | [JSONPatchRequestRemove.OpBoxed](#opboxed)<br> abstract sealed validated payload class |
+| sealed interface | [JSONPatchRequestRemove.OpBoxed](#opboxed)<br> sealed interface for validated payloads |
 | record | [JSONPatchRequestRemove.OpBoxedString](#opboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestRemove.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestRemove.StringOpEnums](#stringopenums)<br>String enum |
-| sealed interface | [JSONPatchRequestRemove.PathBoxed](#pathboxed)<br> abstract sealed validated payload class |
+| sealed interface | [JSONPatchRequestRemove.PathBoxed](#pathboxed)<br> sealed interface for validated payloads |
 | record | [JSONPatchRequestRemove.PathBoxedString](#pathboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestRemove.Path](#path)<br> schema class |
-| sealed interface | [JSONPatchRequestRemove.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [JSONPatchRequestRemove.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [JSONPatchRequestRemove.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | record | [JSONPatchRequestRemove.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [JSONPatchRequestRemove.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |

@@ -58,27 +58,27 @@ Ref Schema | Input Type | Output Type
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | Output model
+200 | [_200.ApiResponse](#_200-apiresponse) | Output model
 
-## ResponseFor200
+## _200
 
 ### Description
 Output model
 
-### ResponseFor200 ApiResponse
+### _200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [object_model_with_ref_props.ObjectModelWithRefPropsDict](../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdict) |  |
+[body](#_200-body) | [object_model_with_ref_props.ObjectModelWithRefPropsDict](../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdict) |  |
 headers | Unset | headers were not defined |
 
-### ResponseFor200 Body
+### _200 Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#_200-content-applicationjson-schema)
 
 ### Body Details
-#### ResponseFor200 content ApplicationJson Schema
+#### _200 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```

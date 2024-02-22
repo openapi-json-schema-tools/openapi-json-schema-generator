@@ -3,13 +3,13 @@ public class ApplicationjsonSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ApplicationjsonSchema.ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationjsonSchema.ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)<br> sealed interface for validated payloads |
 | record | [ApplicationjsonSchema.ApplicationjsonSchema1BoxedVoid](#applicationjsonschema1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [ApplicationjsonSchema.ApplicationjsonSchema1BoxedBoolean](#applicationjsonschema1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ApplicationjsonSchema.ApplicationjsonSchema1BoxedNumber](#applicationjsonschema1boxednumber)<br> boxed class to store validated Number payloads |

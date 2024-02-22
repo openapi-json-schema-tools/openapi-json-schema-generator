@@ -49,78 +49,54 @@ public class PatternpropertiesWithNullValuedInstanceProperties {
     }
     
     
-    public static abstract sealed class PatternpropertiesWithNullValuedInstanceProperties1Boxed permits PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid, PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean, PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber, PatternpropertiesWithNullValuedInstanceProperties1BoxedString, PatternpropertiesWithNullValuedInstanceProperties1BoxedList, PatternpropertiesWithNullValuedInstanceProperties1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface PatternpropertiesWithNullValuedInstanceProperties1Boxed permits PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid, PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean, PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber, PatternpropertiesWithNullValuedInstanceProperties1BoxedString, PatternpropertiesWithNullValuedInstanceProperties1BoxedList, PatternpropertiesWithNullValuedInstanceProperties1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
-        public final Void data;
-        private PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid(Void data) implements PatternpropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
-        public final boolean data;
-        private PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean(boolean data) implements PatternpropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
-        public final Number data;
-        private PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber(Number data) implements PatternpropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedString extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
-        public final String data;
-        private PatternpropertiesWithNullValuedInstanceProperties1BoxedString(String data) {
-            this.data = data;
-        }
+    public record PatternpropertiesWithNullValuedInstanceProperties1BoxedString(String data) implements PatternpropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedList extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private PatternpropertiesWithNullValuedInstanceProperties1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record PatternpropertiesWithNullValuedInstanceProperties1BoxedList(FrozenList<@Nullable Object> data) implements PatternpropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedMap extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private PatternpropertiesWithNullValuedInstanceProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record PatternpropertiesWithNullValuedInstanceProperties1BoxedMap(FrozenMap<@Nullable Object> data) implements PatternpropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class PatternpropertiesWithNullValuedInstanceProperties1 extends JsonSchema implements NullSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid>, BooleanSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean>, NumberSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber>, StringSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PatternpropertiesWithNullValuedInstanceProperties1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, PatternpropertiesWithNullValuedInstanceProperties1BoxedMap> {
+    public static class PatternpropertiesWithNullValuedInstanceProperties1 extends JsonSchema<PatternpropertiesWithNullValuedInstanceProperties1Boxed> implements NullSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid>, BooleanSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean>, NumberSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber>, StringSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PatternpropertiesWithNullValuedInstanceProperties1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, PatternpropertiesWithNullValuedInstanceProperties1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -227,11 +203,11 @@ public class PatternpropertiesWithNullValuedInstanceProperties {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -262,11 +238,11 @@ public class PatternpropertiesWithNullValuedInstanceProperties {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -344,6 +320,25 @@ public class PatternpropertiesWithNullValuedInstanceProperties {
         @Override
         public PatternpropertiesWithNullValuedInstanceProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PatternpropertiesWithNullValuedInstanceProperties1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public PatternpropertiesWithNullValuedInstanceProperties1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

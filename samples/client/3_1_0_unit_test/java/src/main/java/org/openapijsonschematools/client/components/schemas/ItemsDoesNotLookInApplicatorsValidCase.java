@@ -35,78 +35,54 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ItemsBoxedVoid extends ItemsBoxed {
-        public final Void data;
-        private ItemsBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ItemsBoxedVoid(Void data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedBoolean extends ItemsBoxed {
-        public final boolean data;
-        private ItemsBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ItemsBoxedBoolean(boolean data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedNumber extends ItemsBoxed {
-        public final Number data;
-        private ItemsBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ItemsBoxedNumber(Number data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedString extends ItemsBoxed {
-        public final String data;
-        private ItemsBoxedString(String data) {
-            this.data = data;
-        }
+    public record ItemsBoxedString(String data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedList extends ItemsBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private ItemsBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ItemsBoxedList(FrozenList<@Nullable Object> data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ItemsBoxedMap extends ItemsBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ItemsBoxedMap(FrozenMap<@Nullable Object> data) implements ItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Items extends JsonSchema implements NullSchemaValidator<ItemsBoxedVoid>, BooleanSchemaValidator<ItemsBoxedBoolean>, NumberSchemaValidator<ItemsBoxedNumber>, StringSchemaValidator<ItemsBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ItemsBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ItemsBoxedMap> {
+    public static class Items extends JsonSchema<ItemsBoxed> implements NullSchemaValidator<ItemsBoxedVoid>, BooleanSchemaValidator<ItemsBoxedBoolean>, NumberSchemaValidator<ItemsBoxedNumber>, StringSchemaValidator<ItemsBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ItemsBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ItemsBoxedMap> {
         private static @Nullable Items instance = null;
     
         protected Items() {
@@ -205,11 +181,11 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -240,11 +216,11 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -323,6 +299,25 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
         public ItemsBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedMap(validate(arg, configuration));
         }
+        @Override
+        public ItemsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class ItemsDoesNotLookInApplicatorsValidCaseList extends FrozenList<@Nullable Object> {
@@ -397,24 +392,20 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
     }
     
     
-    public static abstract sealed class ItemsDoesNotLookInApplicatorsValidCase1Boxed permits ItemsDoesNotLookInApplicatorsValidCase1BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ItemsDoesNotLookInApplicatorsValidCase1Boxed permits ItemsDoesNotLookInApplicatorsValidCase1BoxedList {
+        @Nullable Object getData();
     }
     
-    public static final class ItemsDoesNotLookInApplicatorsValidCase1BoxedList extends ItemsDoesNotLookInApplicatorsValidCase1Boxed {
-        public final ItemsDoesNotLookInApplicatorsValidCaseList data;
-        private ItemsDoesNotLookInApplicatorsValidCase1BoxedList(ItemsDoesNotLookInApplicatorsValidCaseList data) {
-            this.data = data;
-        }
+    public record ItemsDoesNotLookInApplicatorsValidCase1BoxedList(ItemsDoesNotLookInApplicatorsValidCaseList data) implements ItemsDoesNotLookInApplicatorsValidCase1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ItemsDoesNotLookInApplicatorsValidCase1 extends JsonSchema implements ListSchemaValidator<ItemsDoesNotLookInApplicatorsValidCaseList, ItemsDoesNotLookInApplicatorsValidCase1BoxedList> {
+    public static class ItemsDoesNotLookInApplicatorsValidCase1 extends JsonSchema<ItemsDoesNotLookInApplicatorsValidCase1Boxed> implements ListSchemaValidator<ItemsDoesNotLookInApplicatorsValidCaseList, ItemsDoesNotLookInApplicatorsValidCase1BoxedList> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -444,11 +435,11 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -484,6 +475,13 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
         @Override
         public ItemsDoesNotLookInApplicatorsValidCase1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsDoesNotLookInApplicatorsValidCase1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ItemsDoesNotLookInApplicatorsValidCase1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

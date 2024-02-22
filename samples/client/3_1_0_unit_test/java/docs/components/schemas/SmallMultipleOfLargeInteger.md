@@ -4,38 +4,39 @@ public class SmallMultipleOfLargeInteger<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1Boxed](#smallmultipleoflargeinteger1boxed)<br> abstract sealed validated payload class |
-| static class | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1BoxedNumber](#smallmultipleoflargeinteger1boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1Boxed](#smallmultipleoflargeinteger1boxed)<br> sealed interface for validated payloads |
+| record | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1BoxedNumber](#smallmultipleoflargeinteger1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1](#smallmultipleoflargeinteger1)<br> schema class |
 
 ## SmallMultipleOfLargeInteger1Boxed
-public static abstract sealed class SmallMultipleOfLargeInteger1Boxed<br>
+public sealed interface SmallMultipleOfLargeInteger1Boxed<br>
 permits<br>
 [SmallMultipleOfLargeInteger1BoxedNumber](#smallmultipleoflargeinteger1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SmallMultipleOfLargeInteger1BoxedNumber
-public static final class SmallMultipleOfLargeInteger1BoxedNumber<br>
-extends [SmallMultipleOfLargeInteger1Boxed](#smallmultipleoflargeinteger1boxed)
+public record SmallMultipleOfLargeInteger1BoxedNumber<br>
+implements [SmallMultipleOfLargeInteger1Boxed](#smallmultipleoflargeinteger1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SmallMultipleOfLargeInteger1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SmallMultipleOfLargeInteger1
 public static class SmallMultipleOfLargeInteger1<br>
@@ -77,5 +78,7 @@ int validatedPayload = SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1.
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | [SmallMultipleOfLargeInteger1BoxedNumber](#smallmultipleoflargeinteger1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [SmallMultipleOfLargeInteger1Boxed](#smallmultipleoflargeinteger1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

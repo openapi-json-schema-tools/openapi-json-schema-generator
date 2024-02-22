@@ -2,7 +2,8 @@ package org.openapijsonschematools.client.requestbody;
 
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.schemas.MapJsonSchema;
+import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
@@ -11,73 +12,59 @@ import org.junit.Test;
 import java.net.http.HttpResponse;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.util.AbstractMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Flow;
 
 public final class RequestBodySerializerTest {
+    public sealed interface SealedMediaType permits ApplicationjsonMediaType, TextplainMediaType {}
+    public record ApplicationjsonMediaType(AnyTypeJsonSchema.AnyTypeJsonSchema1 schema) implements SealedMediaType {}
+    public record TextplainMediaType(StringJsonSchema.StringJsonSchema1 schema) implements SealedMediaType {}
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody, TextplainRequestBody {}
-    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<@Nullable Object> {
-        private final String contentType;
-        private final @Nullable Object body;
-        public ApplicationjsonRequestBody(@Nullable Object body) {
-            contentType = "application/json";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationjsonRequestBody, TextplainRequestBody {}
+    public record ApplicationjsonRequestBody(AnyTypeJsonSchema.AnyTypeJsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<@Nullable Object> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public @Nullable Object body() {
-            return body;
+            return "application/json";
         }
     }
-    public static final class TextplainRequestBody extends SealedRequestBody implements GenericRequestBody<@Nullable Object> {
-        private final String contentType;
-        private final @Nullable Object body;
-        public TextplainRequestBody(@Nullable Object body) {
-            contentType = "text/plain";
-            this.body = body;
-        }
+    public record TextplainRequestBody(StringJsonSchema.StringJsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<@Nullable Object> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public @Nullable Object body() {
-            return body;
+            return "text/plain";
         }
     }
 
-    public static class MyRequestBodySerializer extends RequestBodySerializer<SealedRequestBody> {
+    public static class MyRequestBodySerializer extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public MyRequestBodySerializer() {
-            super(Map.of(), true);
+            super(
+                    Map.ofEntries(
+                            new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType(AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance())),
+                            new AbstractMap.SimpleEntry<>("text/plain", new TextplainMediaType(StringJsonSchema.StringJsonSchema1.getInstance()))
+                    ),
+                    true);
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             if (requestBody instanceof ApplicationjsonRequestBody requestBody0) {
-                return serialize(requestBody0.contentType(), requestBody0.body());
+                return serialize(requestBody0.contentType(), requestBody0.body().getData());
             } else {
                 TextplainRequestBody requestBody1 = (TextplainRequestBody) requestBody;
-                return serialize(requestBody1.contentType(), requestBody1.body());
+                return serialize(requestBody1.contentType(), requestBody1.body().getData());
             }
         }
     }
 
     @Test
     public void testContentTypeIsJson() {
-        var serializer = new MyRequestBodySerializer();
-        Assert.assertTrue(serializer.contentTypeIsJson("application/json"));
-        Assert.assertTrue(serializer.contentTypeIsJson("application/json; charset=UTF-8"));
-        Assert.assertTrue(serializer.contentTypeIsJson("application/json-patch+json"));
-        Assert.assertTrue(serializer.contentTypeIsJson("application/geo+json"));
+        Assert.assertTrue(RequestBodySerializer.contentTypeIsJson("application/json"));
+        Assert.assertTrue(RequestBodySerializer.contentTypeIsJson("application/json; charset=UTF-8"));
+        Assert.assertTrue(RequestBodySerializer.contentTypeIsJson("application/json-patch+json"));
+        Assert.assertTrue(RequestBodySerializer.contentTypeIsJson("application/geo+json"));
 
-        Assert.assertFalse(serializer.contentTypeIsJson("application/octet-stream"));
-        Assert.assertFalse(serializer.contentTypeIsJson("text/plain"));
+        Assert.assertFalse(RequestBodySerializer.contentTypeIsJson("application/octet-stream"));
+        Assert.assertFalse(RequestBodySerializer.contentTypeIsJson("text/plain"));
     }
 
     static final class StringSubscriber implements Flow.Subscriber<ByteBuffer> {
@@ -101,63 +88,91 @@ public final class RequestBodySerializerTest {
         var bodySubscriber = HttpResponse.BodySubscribers.ofString(StandardCharsets.UTF_8);
         var flowSubscriber = new StringSubscriber(bodySubscriber);
         requestBody.bodyPublisher.subscribe(flowSubscriber);
-
         return bodySubscriber.getBody().toCompletableFuture().join();
     }
 
     @Test
     public void testSerializeApplicationJson() {
+        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         var serializer = new MyRequestBodySerializer();
         String jsonBody;
-        SerializedRequestBody requestBody = serializer.serialize(new ApplicationjsonRequestBody(1));
+        SerializedRequestBody requestBody = serializer.serialize(
+            new ApplicationjsonRequestBody(
+                AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance().validateAndBox(1, configuration)
+            )
+        );
         Assert.assertEquals("application/json", requestBody.contentType);
         jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "1");
 
-        requestBody = serializer.serialize(new ApplicationjsonRequestBody(3.14));
+        requestBody = serializer.serialize(
+            new ApplicationjsonRequestBody(
+                AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance().validateAndBox(3.14, configuration)
+            )
+        );
         jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "3.14");
 
-        requestBody = serializer.serialize(new ApplicationjsonRequestBody(null));
+        requestBody = serializer.serialize(
+            new ApplicationjsonRequestBody(
+                AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance().validateAndBox((Void) null, configuration)
+            )
+        );
         jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "null");
 
-        requestBody = serializer.serialize(new ApplicationjsonRequestBody(true));
+        requestBody = serializer.serialize(
+            new ApplicationjsonRequestBody(
+                AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance().validateAndBox(true, configuration)
+            )
+        );
         jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "true");
 
-        requestBody = serializer.serialize(new ApplicationjsonRequestBody(false));
+        requestBody = serializer.serialize(
+            new ApplicationjsonRequestBody(
+                AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance().validateAndBox(false, configuration)
+            )
+        );
         jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "false");
 
-
-        requestBody = serializer.serialize(new ApplicationjsonRequestBody(List.of()));
+        requestBody = serializer.serialize(
+            new ApplicationjsonRequestBody(
+                AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance().validateAndBox(List.of(), configuration)
+            )
+        );
         jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "[]");
 
-        requestBody = serializer.serialize(new ApplicationjsonRequestBody(Map.of()));
+        requestBody = serializer.serialize(
+            new ApplicationjsonRequestBody(
+                AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance().validateAndBox(Map.of(), configuration)
+            )
+        );
         jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "{}");
 
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-        MapJsonSchema.MapJsonSchema1 mapJsonSchema = MapJsonSchema.MapJsonSchema1.getInstance();
-        var frozenMap = mapJsonSchema.validate(Map.of("k1", "v1", "k2", "v2"), configuration);
-        requestBody = serializer.serialize(new ApplicationjsonRequestBody(frozenMap));
+        requestBody = serializer.serialize(
+            new ApplicationjsonRequestBody(
+                AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance().validateAndBox(Map.of("k1", "v1", "k2", "v2"), configuration)
+            )
+        );
         jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "{\"k2\":\"v2\",\"k1\":\"v1\"}");
     }
 
     @Test
     public void testSerializeTextPlain() {
+        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         var serializer = new MyRequestBodySerializer();
-        SerializedRequestBody requestBody = serializer.serialize(new TextplainRequestBody("a"));
+        SerializedRequestBody requestBody = serializer.serialize(
+            new TextplainRequestBody(
+                StringJsonSchema.StringJsonSchema1.getInstance().validateAndBox("a", configuration)
+            )
+        );
         Assert.assertEquals("text/plain", requestBody.contentType);
         String textBody = getJsonBody(requestBody);
         Assert.assertEquals(textBody, "a");
-
-        Assert.assertThrows(
-                RuntimeException.class,
-                () -> serializer.serialize(new TextplainRequestBody(null))
-        );
     }
 }

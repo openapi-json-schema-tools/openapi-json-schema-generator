@@ -26,11 +26,11 @@ path_parameter_classes = (
 __StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': typing.Type[response_200.ResponseFor200],
+        '200': typing.Type[response_200._200],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '200': response_200.ResponseFor200,
+    '200': response_200._200,
 }
 _non_error_status_codes = frozenset({
     '200',

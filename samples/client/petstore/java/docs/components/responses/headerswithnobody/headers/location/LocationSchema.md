@@ -3,13 +3,13 @@ public class LocationSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [LocationSchema.LocationSchema1Boxed](#locationschema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [LocationSchema.LocationSchema1Boxed](#locationschema1boxed)<br> sealed interface for validated payloads |
 | record | [LocationSchema.LocationSchema1BoxedString](#locationschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [LocationSchema.LocationSchema1](#locationschema1)<br> schema class |
 

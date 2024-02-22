@@ -3,7 +3,7 @@ public class MultipartformdataSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -13,17 +13,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [MultipartformdataSchema.MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [MultipartformdataSchema.MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)<br> sealed interface for validated payloads |
 | record | [MultipartformdataSchema.MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSchema1](#multipartformdataschema1)<br> schema class |
 | static class | [MultipartformdataSchema.MultipartformdataSchemaMapBuilder](#multipartformdataschemamapbuilder)<br> builder for Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSchemaMap](#multipartformdataschemamap)<br> output class for Map payloads |
-| sealed interface | [MultipartformdataSchema.MultipartformdataFilesBoxed](#multipartformdatafilesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MultipartformdataSchema.MultipartformdataFilesBoxed](#multipartformdatafilesboxed)<br> sealed interface for validated payloads |
 | record | [MultipartformdataSchema.MultipartformdataFilesBoxedList](#multipartformdatafilesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [MultipartformdataSchema.MultipartformdataFiles](#multipartformdatafiles)<br> schema class |
 | static class | [MultipartformdataSchema.MultipartformdataFilesListBuilder](#multipartformdatafileslistbuilder)<br> builder for List payloads |
 | static class | [MultipartformdataSchema.MultipartformdataFilesList](#multipartformdatafileslist)<br> output class for List payloads |
-| sealed interface | [MultipartformdataSchema.MultipartformdataItemsBoxed](#multipartformdataitemsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MultipartformdataSchema.MultipartformdataItemsBoxed](#multipartformdataitemsboxed)<br> sealed interface for validated payloads |
 | static class | [MultipartformdataSchema.MultipartformdataItems](#multipartformdataitems)<br> schema class |
 
 ## MultipartformdataSchema1Boxed

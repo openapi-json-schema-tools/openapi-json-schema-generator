@@ -4,13 +4,13 @@ public class Shape<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Shape.Shape1Boxed](#shape1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Shape.Shape1Boxed](#shape1boxed)<br> sealed interface for validated payloads |
 | record | [Shape.Shape1BoxedVoid](#shape1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [Shape.Shape1BoxedBoolean](#shape1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [Shape.Shape1BoxedNumber](#shape1boxednumber)<br> boxed class to store validated Number payloads |

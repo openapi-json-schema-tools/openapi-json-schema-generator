@@ -4,7 +4,7 @@ public class Name<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,7 +12,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Name.Name1Boxed](#name1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Name.Name1Boxed](#name1boxed)<br> sealed interface for validated payloads |
 | record | [Name.Name1BoxedVoid](#name1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [Name.Name1BoxedBoolean](#name1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [Name.Name1BoxedNumber](#name1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,13 +22,13 @@ A class that contains necessary nested
 | static class | [Name.Name1](#name1)<br> schema class |
 | static class | [Name.NameMapBuilder1](#namemapbuilder1)<br> builder for Map payloads |
 | static class | [Name.NameMap](#namemap)<br> output class for Map payloads |
-| sealed interface | [Name.PropertyBoxed](#propertyboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Name.PropertyBoxed](#propertyboxed)<br> sealed interface for validated payloads |
 | record | [Name.PropertyBoxedString](#propertyboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Name.Property](#property)<br> schema class |
-| sealed interface | [Name.SnakeCaseBoxed](#snakecaseboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Name.SnakeCaseBoxed](#snakecaseboxed)<br> sealed interface for validated payloads |
 | record | [Name.SnakeCaseBoxedNumber](#snakecaseboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Name.SnakeCase](#snakecase)<br> schema class |
-| sealed interface | [Name.Name2Boxed](#name2boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Name.Name2Boxed](#name2boxed)<br> sealed interface for validated payloads |
 | record | [Name.Name2BoxedNumber](#name2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Name.Name2](#name2)<br> schema class |
 

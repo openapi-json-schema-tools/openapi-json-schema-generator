@@ -4,7 +4,7 @@ public class ItemsWithNullInstanceElements<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,37 +12,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1Boxed](#itemswithnullinstanceelements1boxed)<br> abstract sealed validated payload class |
-| static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1BoxedList](#itemswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1Boxed](#itemswithnullinstanceelements1boxed)<br> sealed interface for validated payloads |
+| record | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1BoxedList](#itemswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1](#itemswithnullinstanceelements1)<br> schema class |
 | static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder](#itemswithnullinstanceelementslistbuilder)<br> builder for List payloads |
 | static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist)<br> output class for List payloads |
-| static class | [ItemsWithNullInstanceElements.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [ItemsWithNullInstanceElements.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| sealed interface | [ItemsWithNullInstanceElements.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
+| record | [ItemsWithNullInstanceElements.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ItemsWithNullInstanceElements.Items](#items)<br> schema class |
 
 ## ItemsWithNullInstanceElements1Boxed
-public static abstract sealed class ItemsWithNullInstanceElements1Boxed<br>
+public sealed interface ItemsWithNullInstanceElements1Boxed<br>
 permits<br>
 [ItemsWithNullInstanceElements1BoxedList](#itemswithnullinstanceelements1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsWithNullInstanceElements1BoxedList
-public static final class ItemsWithNullInstanceElements1BoxedList<br>
-extends [ItemsWithNullInstanceElements1Boxed](#itemswithnullinstanceelements1boxed)
+public record ItemsWithNullInstanceElements1BoxedList<br>
+implements [ItemsWithNullInstanceElements1Boxed](#itemswithnullinstanceelements1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsWithNullInstanceElements1BoxedList([ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist) | data<br>validated payload |
+| [ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ItemsWithNullInstanceElements1
 public static class ItemsWithNullInstanceElements1<br>
@@ -87,7 +88,9 @@ ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsList validatedPayload
 | ----------------- | ---------------------- |
 | [ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist) | validate([List<?>](#itemswithnullinstanceelementslistbuilder) arg, SchemaConfiguration configuration) |
 | [ItemsWithNullInstanceElements1BoxedList](#itemswithnullinstanceelements1boxedlist) | validateAndBox([List<?>](#itemswithnullinstanceelementslistbuilder) arg, SchemaConfiguration configuration) |
+| [ItemsWithNullInstanceElements1Boxed](#itemswithnullinstanceelements1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ItemsWithNullInstanceElementsListBuilder
 public class ItemsWithNullInstanceElementsListBuilder<br>
 builder for `List<Void>`
@@ -118,27 +121,28 @@ A class to store validated List payloads
 | static [ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist) | of([List<Void>](#itemswithnullinstanceelementslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedVoid](#itemsboxedvoid)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedVoid
-public static final class ItemsBoxedVoid<br>
-extends [ItemsBoxed](#itemsboxed)
+public record ItemsBoxedVoid<br>
+implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>

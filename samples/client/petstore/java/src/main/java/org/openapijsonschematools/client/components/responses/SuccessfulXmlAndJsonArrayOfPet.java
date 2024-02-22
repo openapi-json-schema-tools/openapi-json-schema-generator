@@ -47,7 +47,7 @@ public class SuccessfulXmlAndJsonArrayOfPet {
         }
 
         @Override
-        public SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
             SealedMediaType mediaType = content.get(contentType);
             if (mediaType == null) {
                 throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
@@ -63,7 +63,7 @@ public class SuccessfulXmlAndJsonArrayOfPet {
         }
 
         @Override
-        public Void getHeaders(HttpHeaders headers) {
+        protected Void getHeaders(HttpHeaders headers) {
             return null;
         }
     }

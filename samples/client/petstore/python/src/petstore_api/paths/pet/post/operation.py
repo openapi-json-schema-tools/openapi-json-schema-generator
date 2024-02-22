@@ -30,13 +30,13 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 __StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': typing.Type[response_200.ResponseFor200],
-        '405': typing.Type[response_405.ResponseFor405],
+        '200': typing.Type[response_200._200],
+        '405': typing.Type[response_405._405],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '200': response_200.ResponseFor200,
-    '405': response_405.ResponseFor405,
+    '200': response_200._200,
+    '405': response_405._405,
 }
 _non_error_status_codes = frozenset({
     '200',

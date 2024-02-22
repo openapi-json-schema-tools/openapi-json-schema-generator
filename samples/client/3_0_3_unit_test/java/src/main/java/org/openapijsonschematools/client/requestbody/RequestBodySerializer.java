@@ -1,28 +1,32 @@
 package org.openapijsonschematools.client.requestbody;
 
-import org.openapijsonschematools.client.mediatype.MediaType;
-
 import java.net.http.HttpRequest;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.ToNumberPolicy;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 
 import java.util.Map;
 import java.util.regex.Pattern;
 
-public abstract class RequestBodySerializer<T> {
+public abstract class RequestBodySerializer<T, U> {
     /*
     * Describes a single request body
     * content: contentType to MediaType schema info
     */
-    public final Map<String, MediaType<?>> content;
+    public final Map<String, U> content;
     public final boolean required;
     private static final Pattern jsonContentTypePattern = Pattern.compile(
             "application/[^+]*[+]?(json);?.*"
     );
-    private static final Gson gson = new Gson();
+    private static final Gson gson = new GsonBuilder()
+            .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
+            .setNumberToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
+            .create();
     private static final String textPlainContentType = "text/plain";
 
-    public RequestBodySerializer(Map<String, MediaType<?>> content, boolean required) {
+    public RequestBodySerializer(Map<String, U> content, boolean required) {
         this.content = content;
         this.required = required;
     }
@@ -40,7 +44,7 @@ public abstract class RequestBodySerializer<T> {
         if (body instanceof String stringBody) {
             return new SerializedRequestBody(contentType, HttpRequest.BodyPublishers.ofString(stringBody));
         }
-        throw new RuntimeException("Invalid non-string data type of "+body.getClass().getName()+" for text/plain body serialization");
+        throw new RuntimeException("Invalid non-string data type of "+JsonSchema.getClass(body)+" for text/plain body serialization");
     }
 
     protected SerializedRequestBody serialize(String contentType, @Nullable Object body) {

@@ -4,7 +4,7 @@ public class File<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [File.File1Boxed](#file1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [File.File1Boxed](#file1boxed)<br> sealed interface for validated payloads |
 | record | [File.File1BoxedMap](#file1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [File.File1](#file1)<br> schema class |
 | static class | [File.FileMapBuilder](#filemapbuilder)<br> builder for Map payloads |
 | static class | [File.FileMap](#filemap)<br> output class for Map payloads |
-| sealed interface | [File.SourceURIBoxed](#sourceuriboxed)<br> abstract sealed validated payload class |
+| sealed interface | [File.SourceURIBoxed](#sourceuriboxed)<br> sealed interface for validated payloads |
 | record | [File.SourceURIBoxedString](#sourceuriboxedstring)<br> boxed class to store validated String payloads |
 | static class | [File.SourceURI](#sourceuri)<br> schema class |
 

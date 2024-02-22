@@ -22,7 +22,7 @@ public class ElseValidator implements KeywordValidator {
             // if validation is true
             return null;
         }
-        JsonSchema elseSchemaInstance = JsonSchemaFactory.getInstance(elseSchema);
+        JsonSchema<?> elseSchemaInstance = JsonSchemaFactory.getInstance(elseSchema);
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         var elsePathToSchemas = JsonSchema.validate(elseSchemaInstance, data.arg(), data.validationMetadata());
         // todo capture validation error and describe it as an else error?

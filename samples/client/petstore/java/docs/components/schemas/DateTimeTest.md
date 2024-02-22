@@ -4,13 +4,13 @@ public class DateTimeTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [DateTimeTest.DateTimeTest1Boxed](#datetimetest1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [DateTimeTest.DateTimeTest1Boxed](#datetimetest1boxed)<br> sealed interface for validated payloads |
 | record | [DateTimeTest.DateTimeTest1BoxedString](#datetimetest1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [DateTimeTest.DateTimeTest1](#datetimetest1)<br> schema class |
 

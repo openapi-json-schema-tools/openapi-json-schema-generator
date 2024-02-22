@@ -4,14 +4,14 @@ public class Currency<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Currency.Currency1Boxed](#currency1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Currency.Currency1Boxed](#currency1boxed)<br> sealed interface for validated payloads |
 | record | [Currency.Currency1BoxedString](#currency1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Currency.Currency1](#currency1)<br> schema class |
 | enum | [Currency.StringCurrencyEnums](#stringcurrencyenums)<br>String enum |

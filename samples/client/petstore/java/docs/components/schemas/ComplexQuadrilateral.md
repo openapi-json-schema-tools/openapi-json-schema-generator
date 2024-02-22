@@ -4,7 +4,7 @@ public class ComplexQuadrilateral<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,7 +13,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ComplexQuadrilateral.ComplexQuadrilateral1Boxed](#complexquadrilateral1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComplexQuadrilateral.ComplexQuadrilateral1Boxed](#complexquadrilateral1boxed)<br> sealed interface for validated payloads |
 | record | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedVoid](#complexquadrilateral1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedBoolean](#complexquadrilateral1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedNumber](#complexquadrilateral1boxednumber)<br> boxed class to store validated Number payloads |
@@ -21,12 +21,12 @@ A class that contains necessary nested
 | record | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedList](#complexquadrilateral1boxedlist)<br> boxed class to store validated List payloads |
 | record | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedMap](#complexquadrilateral1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComplexQuadrilateral.ComplexQuadrilateral1](#complexquadrilateral1)<br> schema class |
-| sealed interface | [ComplexQuadrilateral.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComplexQuadrilateral.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
 | record | [ComplexQuadrilateral.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComplexQuadrilateral.Schema1](#schema1)<br> schema class |
 | static class | [ComplexQuadrilateral.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ComplexQuadrilateral.Schema1Map](#schema1map)<br> output class for Map payloads |
-| sealed interface | [ComplexQuadrilateral.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComplexQuadrilateral.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> sealed interface for validated payloads |
 | record | [ComplexQuadrilateral.QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ComplexQuadrilateral.QuadrilateralType](#quadrilateraltype)<br> schema class |
 | enum | [ComplexQuadrilateral.StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums)<br>String enum |

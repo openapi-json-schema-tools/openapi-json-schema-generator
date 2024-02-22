@@ -4,7 +4,7 @@ public class ObjectModelWithArgAndArgsProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,15 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)<br> sealed interface for validated payloads |
 | record | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1](#objectmodelwithargandargsproperties1)<br> schema class |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMapBuilder](#objectmodelwithargandargspropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap)<br> output class for Map payloads |
-| sealed interface | [ObjectModelWithArgAndArgsProperties.ArgsBoxed](#argsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectModelWithArgAndArgsProperties.ArgsBoxed](#argsboxed)<br> sealed interface for validated payloads |
 | record | [ObjectModelWithArgAndArgsProperties.ArgsBoxedString](#argsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.Args](#args)<br> schema class |
-| sealed interface | [ObjectModelWithArgAndArgsProperties.ArgBoxed](#argboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectModelWithArgAndArgsProperties.ArgBoxed](#argboxed)<br> sealed interface for validated payloads |
 | record | [ObjectModelWithArgAndArgsProperties.ArgBoxedString](#argboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.Arg](#arg)<br> schema class |
 

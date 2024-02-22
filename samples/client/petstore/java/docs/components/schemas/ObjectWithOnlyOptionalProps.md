@@ -4,7 +4,7 @@ public class ObjectWithOnlyOptionalProps<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,18 +12,18 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1Boxed](#objectwithonlyoptionalprops1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1Boxed](#objectwithonlyoptionalprops1boxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1BoxedMap](#objectwithonlyoptionalprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1](#objectwithonlyoptionalprops1)<br> schema class |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMapBuilder](#objectwithonlyoptionalpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap)<br> output class for Map payloads |
-| sealed interface | [ObjectWithOnlyOptionalProps.BBoxed](#bboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithOnlyOptionalProps.BBoxed](#bboxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithOnlyOptionalProps.BBoxedNumber](#bboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithOnlyOptionalProps.B](#b)<br> schema class |
-| sealed interface | [ObjectWithOnlyOptionalProps.ABoxed](#aboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithOnlyOptionalProps.ABoxed](#aboxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithOnlyOptionalProps.ABoxedString](#aboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithOnlyOptionalProps.A](#a)<br> schema class |
-| sealed interface | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | record | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |

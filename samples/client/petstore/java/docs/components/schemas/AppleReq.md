@@ -4,7 +4,7 @@ public class AppleReq<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,18 +12,18 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [AppleReq.AppleReq1Boxed](#applereq1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [AppleReq.AppleReq1Boxed](#applereq1boxed)<br> sealed interface for validated payloads |
 | record | [AppleReq.AppleReq1BoxedMap](#applereq1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AppleReq.AppleReq1](#applereq1)<br> schema class |
 | static class | [AppleReq.AppleReqMapBuilder](#applereqmapbuilder)<br> builder for Map payloads |
 | static class | [AppleReq.AppleReqMap](#applereqmap)<br> output class for Map payloads |
-| sealed interface | [AppleReq.MealyBoxed](#mealyboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AppleReq.MealyBoxed](#mealyboxed)<br> sealed interface for validated payloads |
 | record | [AppleReq.MealyBoxedBoolean](#mealyboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AppleReq.Mealy](#mealy)<br> schema class |
-| sealed interface | [AppleReq.CultivarBoxed](#cultivarboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AppleReq.CultivarBoxed](#cultivarboxed)<br> sealed interface for validated payloads |
 | record | [AppleReq.CultivarBoxedString](#cultivarboxedstring)<br> boxed class to store validated String payloads |
 | static class | [AppleReq.Cultivar](#cultivar)<br> schema class |
-| sealed interface | [AppleReq.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AppleReq.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [AppleReq.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | record | [AppleReq.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AppleReq.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |

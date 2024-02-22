@@ -4,7 +4,7 @@ public class ApiResponseSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,18 +12,18 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ApiResponseSchema.ApiResponseSchema1Boxed](#apiresponseschema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApiResponseSchema.ApiResponseSchema1Boxed](#apiresponseschema1boxed)<br> sealed interface for validated payloads |
 | record | [ApiResponseSchema.ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ApiResponseSchema.ApiResponseSchema1](#apiresponseschema1)<br> schema class |
 | static class | [ApiResponseSchema.ApiResponseMapBuilder](#apiresponsemapbuilder)<br> builder for Map payloads |
 | static class | [ApiResponseSchema.ApiResponseMap](#apiresponsemap)<br> output class for Map payloads |
-| sealed interface | [ApiResponseSchema.MessageBoxed](#messageboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApiResponseSchema.MessageBoxed](#messageboxed)<br> sealed interface for validated payloads |
 | record | [ApiResponseSchema.MessageBoxedString](#messageboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApiResponseSchema.Message](#message)<br> schema class |
-| sealed interface | [ApiResponseSchema.TypeBoxed](#typeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApiResponseSchema.TypeBoxed](#typeboxed)<br> sealed interface for validated payloads |
 | record | [ApiResponseSchema.TypeBoxedString](#typeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApiResponseSchema.Type](#type)<br> schema class |
-| sealed interface | [ApiResponseSchema.CodeBoxed](#codeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApiResponseSchema.CodeBoxed](#codeboxed)<br> sealed interface for validated payloads |
 | record | [ApiResponseSchema.CodeBoxedNumber](#codeboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ApiResponseSchema.Code](#code)<br> schema class |
 

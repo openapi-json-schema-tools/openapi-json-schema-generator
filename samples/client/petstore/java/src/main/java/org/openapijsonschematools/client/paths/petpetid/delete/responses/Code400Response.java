@@ -18,12 +18,12 @@ public class Code400Response {
         }
 
         @Override
-        public Void getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+        protected Void getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
             return null;
         }
 
         @Override
-        public Void getHeaders(HttpHeaders headers) {
+        protected Void getHeaders(HttpHeaders headers) {
             return null;
         }
     }

@@ -4,13 +4,13 @@ public class IntegerMin15<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [IntegerMin15.IntegerMin151Boxed](#integermin151boxed)<br> abstract sealed validated payload class |
+| sealed interface | [IntegerMin15.IntegerMin151Boxed](#integermin151boxed)<br> sealed interface for validated payloads |
 | record | [IntegerMin15.IntegerMin151BoxedNumber](#integermin151boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerMin15.IntegerMin151](#integermin151)<br> schema class |
 

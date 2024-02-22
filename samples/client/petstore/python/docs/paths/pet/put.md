@@ -40,40 +40,40 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid ID supplied
-404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | Pet not found
-405 | [ResponseFor405.ApiResponse](#responsefor405-apiresponse) | Validation exception
+400 | [_400.ApiResponse](#_400-apiresponse) | Invalid ID supplied
+404 | [_404.ApiResponse](#_404-apiresponse) | Pet not found
+405 | [_405.ApiResponse](#_405-apiresponse) | Validation exception
 
-## ResponseFor400
+## _400
 
 ### Description
 Invalid ID supplied
 
-### ResponseFor400 ApiResponse
+### _400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## ResponseFor404
+## _404
 
 ### Description
 Pet not found
 
-### ResponseFor404 ApiResponse
+### _404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## ResponseFor405
+## _405
 
 ### Description
 Validation exception
 
-### ResponseFor405 ApiResponse
+### _405 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

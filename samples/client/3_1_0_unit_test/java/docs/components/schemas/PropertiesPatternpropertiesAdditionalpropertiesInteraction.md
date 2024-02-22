@@ -4,7 +4,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,51 +12,52 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed](#propertiespatternpropertiesadditionalpropertiesinteraction1boxed)<br> abstract sealed validated payload class |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap](#propertiespatternpropertiesadditionalpropertiesinteraction1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed](#propertiespatternpropertiesadditionalpropertiesinteraction1boxed)<br> sealed interface for validated payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap](#propertiespatternpropertiesadditionalpropertiesinteraction1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1](#propertiespatternpropertiesadditionalpropertiesinteraction1)<br> schema class |
 | static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder)<br> builder for Map payloads |
 | static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap)<br> output class for Map payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
 | static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.Bar](#bar)<br> schema class |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FooBoxed](#fooboxed)<br> abstract sealed validated payload class |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
 | static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.Foo](#foo)<br> schema class |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxed](#foboxed)<br> abstract sealed validated payload class |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedVoid](#foboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedBoolean](#foboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedNumber](#foboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedString](#foboxedstring)<br> boxed class to store validated String payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedList](#foboxedlist)<br> boxed class to store validated List payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedMap](#foboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxed](#foboxed)<br> sealed interface for validated payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedVoid](#foboxedvoid)<br> boxed class to store validated null payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedBoolean](#foboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedNumber](#foboxednumber)<br> boxed class to store validated Number payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedString](#foboxedstring)<br> boxed class to store validated String payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedList](#foboxedlist)<br> boxed class to store validated List payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedMap](#foboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.Fo](#fo)<br> schema class |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed
-public static abstract sealed class PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed<br>
+public sealed interface PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed<br>
 permits<br>
 [PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap](#propertiespatternpropertiesadditionalpropertiesinteraction1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap
-public static final class PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap<br>
-extends [PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed](#propertiespatternpropertiesadditionalpropertiesinteraction1boxed)
+public record PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap<br>
+implements [PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed](#propertiespatternpropertiesadditionalpropertiesinteraction1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap([PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) | data<br>validated payload |
+| [PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PropertiesPatternpropertiesAdditionalpropertiesInteraction1
 public static class PropertiesPatternpropertiesAdditionalpropertiesInteraction1<br>
@@ -103,7 +104,9 @@ PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternprop
 | ----------------- | ---------------------- |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) | validate([Map&lt;?, ?&gt;](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) arg, SchemaConfiguration configuration) |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap](#propertiespatternpropertiesadditionalpropertiesinteraction1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) arg, SchemaConfiguration configuration) |
+| [PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed](#propertiespatternpropertiesadditionalpropertiesinteraction1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder
 public class PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder<br>
 builder for `Map<String, Object>`
@@ -141,27 +144,28 @@ A class to store validated Map payloads
 | Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## BarBoxed
-public static abstract sealed class BarBoxed<br>
+public sealed interface BarBoxed<br>
 permits<br>
 [BarBoxedList](#barboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BarBoxedList
-public static final class BarBoxedList<br>
-extends [BarBoxed](#barboxed)
+public record BarBoxedList<br>
+implements [BarBoxed](#barboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BarBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Bar
 public static class Bar<br>
@@ -175,27 +179,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## FooBoxed
-public static abstract sealed class FooBoxed<br>
+public sealed interface FooBoxed<br>
 permits<br>
 [FooBoxedList](#fooboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FooBoxedList
-public static final class FooBoxedList<br>
-extends [FooBoxed](#fooboxed)
+public record FooBoxedList<br>
+implements [FooBoxed](#fooboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Foo
 public static class Foo<br>
@@ -214,9 +219,11 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [FooBoxedList](#fooboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [FooBoxed](#fooboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## FoBoxed
-public static abstract sealed class FoBoxed<br>
+public sealed interface FoBoxed<br>
 permits<br>
 [FoBoxedVoid](#foboxedvoid),
 [FoBoxedBoolean](#foboxedboolean),
@@ -225,103 +232,109 @@ permits<br>
 [FoBoxedList](#foboxedlist),
 [FoBoxedMap](#foboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FoBoxedVoid
-public static final class FoBoxedVoid<br>
-extends [FoBoxed](#foboxed)
+public record FoBoxedVoid<br>
+implements [FoBoxed](#foboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FoBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FoBoxedBoolean
-public static final class FoBoxedBoolean<br>
-extends [FoBoxed](#foboxed)
+public record FoBoxedBoolean<br>
+implements [FoBoxed](#foboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FoBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FoBoxedNumber
-public static final class FoBoxedNumber<br>
-extends [FoBoxed](#foboxed)
+public record FoBoxedNumber<br>
+implements [FoBoxed](#foboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FoBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FoBoxedString
-public static final class FoBoxedString<br>
-extends [FoBoxed](#foboxed)
+public record FoBoxedString<br>
+implements [FoBoxed](#foboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FoBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FoBoxedList
-public static final class FoBoxedList<br>
-extends [FoBoxed](#foboxed)
+public record FoBoxedList<br>
+implements [FoBoxed](#foboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FoBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## FoBoxedMap
-public static final class FoBoxedMap<br>
-extends [FoBoxed](#foboxed)
+public record FoBoxedMap<br>
+implements [FoBoxed](#foboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FoBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Fo
 public static class Fo<br>
@@ -353,29 +366,32 @@ A schema class that validates payloads
 | [FoBoxedBoolean](#foboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [FoBoxedMap](#foboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [FoBoxedList](#foboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [FoBoxed](#foboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## AdditionalPropertiesBoxed
-public static abstract sealed class AdditionalPropertiesBoxed<br>
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedNumber
-public static final class AdditionalPropertiesBoxedNumber<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

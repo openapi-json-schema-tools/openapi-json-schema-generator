@@ -4,33 +4,33 @@ public class IgnoreThenWithoutIf<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)<br> abstract sealed validated payload class |
-| static class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedVoid](#ignorethenwithoutif1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedBoolean](#ignorethenwithoutif1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedNumber](#ignorethenwithoutif1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedString](#ignorethenwithoutif1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedList](#ignorethenwithoutif1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedMap](#ignorethenwithoutif1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)<br> sealed interface for validated payloads |
+| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedVoid](#ignorethenwithoutif1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedBoolean](#ignorethenwithoutif1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedNumber](#ignorethenwithoutif1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedString](#ignorethenwithoutif1boxedstring)<br> boxed class to store validated String payloads |
+| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedList](#ignorethenwithoutif1boxedlist)<br> boxed class to store validated List payloads |
+| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedMap](#ignorethenwithoutif1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1](#ignorethenwithoutif1)<br> schema class |
-| static class | [IgnoreThenWithoutIf.ThenBoxed](#thenboxed)<br> abstract sealed validated payload class |
-| static class | [IgnoreThenWithoutIf.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [IgnoreThenWithoutIf.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [IgnoreThenWithoutIf.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [IgnoreThenWithoutIf.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
-| static class | [IgnoreThenWithoutIf.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
-| static class | [IgnoreThenWithoutIf.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [IgnoreThenWithoutIf.ThenBoxed](#thenboxed)<br> sealed interface for validated payloads |
+| record | [IgnoreThenWithoutIf.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
+| record | [IgnoreThenWithoutIf.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [IgnoreThenWithoutIf.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
+| record | [IgnoreThenWithoutIf.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
+| record | [IgnoreThenWithoutIf.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
+| record | [IgnoreThenWithoutIf.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IgnoreThenWithoutIf.Then](#then)<br> schema class |
 | enum | [IgnoreThenWithoutIf.StringThenConst](#stringthenconst)<br>String enum |
 
 ## IgnoreThenWithoutIf1Boxed
-public static abstract sealed class IgnoreThenWithoutIf1Boxed<br>
+public sealed interface IgnoreThenWithoutIf1Boxed<br>
 permits<br>
 [IgnoreThenWithoutIf1BoxedVoid](#ignorethenwithoutif1boxedvoid),
 [IgnoreThenWithoutIf1BoxedBoolean](#ignorethenwithoutif1boxedboolean),
@@ -39,103 +39,109 @@ permits<br>
 [IgnoreThenWithoutIf1BoxedList](#ignorethenwithoutif1boxedlist),
 [IgnoreThenWithoutIf1BoxedMap](#ignorethenwithoutif1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IgnoreThenWithoutIf1BoxedVoid
-public static final class IgnoreThenWithoutIf1BoxedVoid<br>
-extends [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
+public record IgnoreThenWithoutIf1BoxedVoid<br>
+implements [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreThenWithoutIf1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreThenWithoutIf1BoxedBoolean
-public static final class IgnoreThenWithoutIf1BoxedBoolean<br>
-extends [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
+public record IgnoreThenWithoutIf1BoxedBoolean<br>
+implements [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreThenWithoutIf1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreThenWithoutIf1BoxedNumber
-public static final class IgnoreThenWithoutIf1BoxedNumber<br>
-extends [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
+public record IgnoreThenWithoutIf1BoxedNumber<br>
+implements [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreThenWithoutIf1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreThenWithoutIf1BoxedString
-public static final class IgnoreThenWithoutIf1BoxedString<br>
-extends [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
+public record IgnoreThenWithoutIf1BoxedString<br>
+implements [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreThenWithoutIf1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreThenWithoutIf1BoxedList
-public static final class IgnoreThenWithoutIf1BoxedList<br>
-extends [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
+public record IgnoreThenWithoutIf1BoxedList<br>
+implements [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreThenWithoutIf1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreThenWithoutIf1BoxedMap
-public static final class IgnoreThenWithoutIf1BoxedMap<br>
-extends [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
+public record IgnoreThenWithoutIf1BoxedMap<br>
+implements [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreThenWithoutIf1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreThenWithoutIf1
 public static class IgnoreThenWithoutIf1<br>
@@ -167,9 +173,11 @@ A schema class that validates payloads
 | [IgnoreThenWithoutIf1BoxedBoolean](#ignorethenwithoutif1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [IgnoreThenWithoutIf1BoxedMap](#ignorethenwithoutif1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [IgnoreThenWithoutIf1BoxedList](#ignorethenwithoutif1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ThenBoxed
-public static abstract sealed class ThenBoxed<br>
+public sealed interface ThenBoxed<br>
 permits<br>
 [ThenBoxedVoid](#thenboxedvoid),
 [ThenBoxedBoolean](#thenboxedboolean),
@@ -178,103 +186,109 @@ permits<br>
 [ThenBoxedList](#thenboxedlist),
 [ThenBoxedMap](#thenboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ThenBoxedVoid
-public static final class ThenBoxedVoid<br>
-extends [ThenBoxed](#thenboxed)
+public record ThenBoxedVoid<br>
+implements [ThenBoxed](#thenboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ThenBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ThenBoxedBoolean
-public static final class ThenBoxedBoolean<br>
-extends [ThenBoxed](#thenboxed)
+public record ThenBoxedBoolean<br>
+implements [ThenBoxed](#thenboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ThenBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ThenBoxedNumber
-public static final class ThenBoxedNumber<br>
-extends [ThenBoxed](#thenboxed)
+public record ThenBoxedNumber<br>
+implements [ThenBoxed](#thenboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ThenBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ThenBoxedString
-public static final class ThenBoxedString<br>
-extends [ThenBoxed](#thenboxed)
+public record ThenBoxedString<br>
+implements [ThenBoxed](#thenboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ThenBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ThenBoxedList
-public static final class ThenBoxedList<br>
-extends [ThenBoxed](#thenboxed)
+public record ThenBoxedList<br>
+implements [ThenBoxed](#thenboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ThenBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ThenBoxedMap
-public static final class ThenBoxedMap<br>
-extends [ThenBoxed](#thenboxed)
+public record ThenBoxedMap<br>
+implements [ThenBoxed](#thenboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ThenBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Then
 public static class Then<br>
@@ -306,7 +320,9 @@ A schema class that validates payloads
 | [ThenBoxedBoolean](#thenboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [ThenBoxedMap](#thenboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [ThenBoxedList](#thenboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ThenBoxed](#thenboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringThenConst
 public enum StringThenConst<br>
 extends `Enum<StringThenConst>`

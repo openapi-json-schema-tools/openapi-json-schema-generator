@@ -4,7 +4,7 @@ public class NotMoreComplexSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,25 +12,25 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NotMoreComplexSchema.NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)<br> abstract sealed validated payload class |
-| static class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedVoid](#notmorecomplexschema1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedNumber](#notmorecomplexschema1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedString](#notmorecomplexschema1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedList](#notmorecomplexschema1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NotMoreComplexSchema.NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)<br> sealed interface for validated payloads |
+| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedVoid](#notmorecomplexschema1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedNumber](#notmorecomplexschema1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedString](#notmorecomplexschema1boxedstring)<br> boxed class to store validated String payloads |
+| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedList](#notmorecomplexschema1boxedlist)<br> boxed class to store validated List payloads |
+| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NotMoreComplexSchema.NotMoreComplexSchema1](#notmorecomplexschema1)<br> schema class |
-| static class | [NotMoreComplexSchema.NotBoxed](#notboxed)<br> abstract sealed validated payload class |
-| static class | [NotMoreComplexSchema.NotBoxedMap](#notboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NotMoreComplexSchema.NotBoxed](#notboxed)<br> sealed interface for validated payloads |
+| record | [NotMoreComplexSchema.NotBoxedMap](#notboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NotMoreComplexSchema.Not](#not)<br> schema class |
 | static class | [NotMoreComplexSchema.NotMapBuilder](#notmapbuilder)<br> builder for Map payloads |
 | static class | [NotMoreComplexSchema.NotMap](#notmap)<br> output class for Map payloads |
-| static class | [NotMoreComplexSchema.FooBoxed](#fooboxed)<br> abstract sealed validated payload class |
-| static class | [NotMoreComplexSchema.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [NotMoreComplexSchema.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
+| record | [NotMoreComplexSchema.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NotMoreComplexSchema.Foo](#foo)<br> schema class |
 
 ## NotMoreComplexSchema1Boxed
-public static abstract sealed class NotMoreComplexSchema1Boxed<br>
+public sealed interface NotMoreComplexSchema1Boxed<br>
 permits<br>
 [NotMoreComplexSchema1BoxedVoid](#notmorecomplexschema1boxedvoid),
 [NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean),
@@ -39,103 +39,109 @@ permits<br>
 [NotMoreComplexSchema1BoxedList](#notmorecomplexschema1boxedlist),
 [NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NotMoreComplexSchema1BoxedVoid
-public static final class NotMoreComplexSchema1BoxedVoid<br>
-extends [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
+public record NotMoreComplexSchema1BoxedVoid<br>
+implements [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NotMoreComplexSchema1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NotMoreComplexSchema1BoxedBoolean
-public static final class NotMoreComplexSchema1BoxedBoolean<br>
-extends [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
+public record NotMoreComplexSchema1BoxedBoolean<br>
+implements [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NotMoreComplexSchema1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NotMoreComplexSchema1BoxedNumber
-public static final class NotMoreComplexSchema1BoxedNumber<br>
-extends [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
+public record NotMoreComplexSchema1BoxedNumber<br>
+implements [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NotMoreComplexSchema1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NotMoreComplexSchema1BoxedString
-public static final class NotMoreComplexSchema1BoxedString<br>
-extends [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
+public record NotMoreComplexSchema1BoxedString<br>
+implements [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NotMoreComplexSchema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NotMoreComplexSchema1BoxedList
-public static final class NotMoreComplexSchema1BoxedList<br>
-extends [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
+public record NotMoreComplexSchema1BoxedList<br>
+implements [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NotMoreComplexSchema1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NotMoreComplexSchema1BoxedMap
-public static final class NotMoreComplexSchema1BoxedMap<br>
-extends [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
+public record NotMoreComplexSchema1BoxedMap<br>
+implements [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NotMoreComplexSchema1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NotMoreComplexSchema1
 public static class NotMoreComplexSchema1<br>
@@ -167,29 +173,32 @@ A schema class that validates payloads
 | [NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [NotMoreComplexSchema1BoxedList](#notmorecomplexschema1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## NotBoxed
-public static abstract sealed class NotBoxed<br>
+public sealed interface NotBoxed<br>
 permits<br>
 [NotBoxedMap](#notboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NotBoxedMap
-public static final class NotBoxedMap<br>
-extends [NotBoxed](#notboxed)
+public record NotBoxedMap<br>
+implements [NotBoxed](#notboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NotBoxedMap([NotMap](#notmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NotMap](#notmap) | data<br>validated payload |
+| [NotMap](#notmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Not
 public static class Not<br>
@@ -234,7 +243,9 @@ NotMoreComplexSchema.NotMap validatedPayload =
 | ----------------- | ---------------------- |
 | [NotMap](#notmap) | validate([Map&lt;?, ?&gt;](#notmapbuilder) arg, SchemaConfiguration configuration) |
 | [NotBoxedMap](#notboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#notmapbuilder) arg, SchemaConfiguration configuration) |
+| [NotBoxed](#notboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## NotMapBuilder
 public class NotMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -275,27 +286,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## FooBoxed
-public static abstract sealed class FooBoxed<br>
+public sealed interface FooBoxed<br>
 permits<br>
 [FooBoxedString](#fooboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FooBoxedString
-public static final class FooBoxedString<br>
-extends [FooBoxed](#fooboxed)
+public record FooBoxedString<br>
+implements [FooBoxed](#fooboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Foo
 public static class Foo<br>

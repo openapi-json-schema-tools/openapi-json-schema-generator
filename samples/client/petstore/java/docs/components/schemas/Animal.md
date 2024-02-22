@@ -4,7 +4,7 @@ public class Animal<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,15 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Animal.Animal1Boxed](#animal1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Animal.Animal1Boxed](#animal1boxed)<br> sealed interface for validated payloads |
 | record | [Animal.Animal1BoxedMap](#animal1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Animal.Animal1](#animal1)<br> schema class |
 | static class | [Animal.AnimalMapBuilder](#animalmapbuilder)<br> builder for Map payloads |
 | static class | [Animal.AnimalMap](#animalmap)<br> output class for Map payloads |
-| sealed interface | [Animal.ColorBoxed](#colorboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Animal.ColorBoxed](#colorboxed)<br> sealed interface for validated payloads |
 | record | [Animal.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Animal.Color](#color)<br> schema class |
-| sealed interface | [Animal.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Animal.ClassNameBoxed](#classnameboxed)<br> sealed interface for validated payloads |
 | record | [Animal.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Animal.ClassName](#classname)<br> schema class |
 

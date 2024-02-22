@@ -4,7 +4,7 @@ public class ReturnSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,7 +12,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ReturnSchema.ReturnSchema1Boxed](#returnschema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ReturnSchema.ReturnSchema1Boxed](#returnschema1boxed)<br> sealed interface for validated payloads |
 | record | [ReturnSchema.ReturnSchema1BoxedVoid](#returnschema1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [ReturnSchema.ReturnSchema1BoxedBoolean](#returnschema1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ReturnSchema.ReturnSchema1BoxedNumber](#returnschema1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,7 +22,7 @@ A class that contains necessary nested
 | static class | [ReturnSchema.ReturnSchema1](#returnschema1)<br> schema class |
 | static class | [ReturnSchema.ReturnMapBuilder1](#returnmapbuilder1)<br> builder for Map payloads |
 | static class | [ReturnSchema.ReturnMap](#returnmap)<br> output class for Map payloads |
-| sealed interface | [ReturnSchema.ReturnSchema2Boxed](#returnschema2boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ReturnSchema.ReturnSchema2Boxed](#returnschema2boxed)<br> sealed interface for validated payloads |
 | record | [ReturnSchema.ReturnSchema2BoxedNumber](#returnschema2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ReturnSchema.ReturnSchema2](#returnschema2)<br> schema class |
 

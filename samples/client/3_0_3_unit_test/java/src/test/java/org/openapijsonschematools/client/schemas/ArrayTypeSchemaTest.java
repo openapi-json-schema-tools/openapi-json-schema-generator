@@ -31,16 +31,12 @@ public class ArrayTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static abstract sealed class ArrayWithItemsSchemaBoxed permits ArrayWithItemsSchemaBoxedList {
+    public sealed interface ArrayWithItemsSchemaBoxed permits ArrayWithItemsSchemaBoxedList {
     }
-    public static final class ArrayWithItemsSchemaBoxedList extends ArrayWithItemsSchemaBoxed {
-        public final FrozenList<String> data;
-        private ArrayWithItemsSchemaBoxedList(FrozenList<String> data) {
-            this.data = data;
-        }
+    public record ArrayWithItemsSchemaBoxedList(FrozenList<String> data) implements ArrayWithItemsSchemaBoxed {
     }
 
-    public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
+    public static class ArrayWithItemsSchema extends JsonSchema<ArrayWithItemsSchemaBoxed> implements ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
@@ -55,11 +51,11 @@ public class ArrayTypeSchemaTest {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(castItem instanceof String)) {
                     throw new InvalidTypeException("Instantiated type of item is invalid");
@@ -100,6 +96,14 @@ public class ArrayTypeSchemaTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
+
+        @Override
+        public ArrayWithItemsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof List<?> listArg) {
+                return new ArrayWithItemsSchemaBoxedList(validate(listArg, configuration));
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }
 
     public static class ArrayWithOutputClsSchemaList extends FrozenList<String> {
@@ -112,15 +116,11 @@ public class ArrayTypeSchemaTest {
         }
     }
 
-    public static abstract sealed class ArrayWithOutputClsSchemaBoxed permits ArrayWithOutputClsSchemaBoxedList {
+    public sealed interface ArrayWithOutputClsSchemaBoxed permits ArrayWithOutputClsSchemaBoxedList {
     }
-    public static final class ArrayWithOutputClsSchemaBoxedList extends ArrayWithOutputClsSchemaBoxed {
-        public final ArrayWithOutputClsSchemaList data;
-        private ArrayWithOutputClsSchemaBoxedList(ArrayWithOutputClsSchemaList data) {
-            this.data = data;
-        }
+    public record ArrayWithOutputClsSchemaBoxedList(ArrayWithOutputClsSchemaList data) implements ArrayWithOutputClsSchemaBoxed {
     }
-    public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
+    public static class ArrayWithOutputClsSchema extends JsonSchema<ArrayWithOutputClsSchemaBoxed> implements ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
         public ArrayWithOutputClsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
@@ -136,11 +136,11 @@ public class ArrayTypeSchemaTest {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(castItem instanceof String)) {
                     throw new InvalidTypeException("Instantiated type of item is invalid");
@@ -179,6 +179,14 @@ public class ArrayTypeSchemaTest {
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public ArrayWithOutputClsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof List<?> listArg) {
+                return new ArrayWithOutputClsSchemaBoxedList(validate(listArg, configuration));
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }

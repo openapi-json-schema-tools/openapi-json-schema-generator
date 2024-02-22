@@ -35,78 +35,54 @@ public class MincontainsWithoutContainsIsIgnored {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MincontainsWithoutContainsIsIgnored1Boxed permits MincontainsWithoutContainsIsIgnored1BoxedVoid, MincontainsWithoutContainsIsIgnored1BoxedBoolean, MincontainsWithoutContainsIsIgnored1BoxedNumber, MincontainsWithoutContainsIsIgnored1BoxedString, MincontainsWithoutContainsIsIgnored1BoxedList, MincontainsWithoutContainsIsIgnored1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MincontainsWithoutContainsIsIgnored1Boxed permits MincontainsWithoutContainsIsIgnored1BoxedVoid, MincontainsWithoutContainsIsIgnored1BoxedBoolean, MincontainsWithoutContainsIsIgnored1BoxedNumber, MincontainsWithoutContainsIsIgnored1BoxedString, MincontainsWithoutContainsIsIgnored1BoxedList, MincontainsWithoutContainsIsIgnored1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class MincontainsWithoutContainsIsIgnored1BoxedVoid extends MincontainsWithoutContainsIsIgnored1Boxed {
-        public final Void data;
-        private MincontainsWithoutContainsIsIgnored1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record MincontainsWithoutContainsIsIgnored1BoxedVoid(Void data) implements MincontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MincontainsWithoutContainsIsIgnored1BoxedBoolean extends MincontainsWithoutContainsIsIgnored1Boxed {
-        public final boolean data;
-        private MincontainsWithoutContainsIsIgnored1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record MincontainsWithoutContainsIsIgnored1BoxedBoolean(boolean data) implements MincontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MincontainsWithoutContainsIsIgnored1BoxedNumber extends MincontainsWithoutContainsIsIgnored1Boxed {
-        public final Number data;
-        private MincontainsWithoutContainsIsIgnored1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record MincontainsWithoutContainsIsIgnored1BoxedNumber(Number data) implements MincontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MincontainsWithoutContainsIsIgnored1BoxedString extends MincontainsWithoutContainsIsIgnored1Boxed {
-        public final String data;
-        private MincontainsWithoutContainsIsIgnored1BoxedString(String data) {
-            this.data = data;
-        }
+    public record MincontainsWithoutContainsIsIgnored1BoxedString(String data) implements MincontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MincontainsWithoutContainsIsIgnored1BoxedList extends MincontainsWithoutContainsIsIgnored1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private MincontainsWithoutContainsIsIgnored1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MincontainsWithoutContainsIsIgnored1BoxedList(FrozenList<@Nullable Object> data) implements MincontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MincontainsWithoutContainsIsIgnored1BoxedMap extends MincontainsWithoutContainsIsIgnored1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private MincontainsWithoutContainsIsIgnored1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MincontainsWithoutContainsIsIgnored1BoxedMap(FrozenMap<@Nullable Object> data) implements MincontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class MincontainsWithoutContainsIsIgnored1 extends JsonSchema implements NullSchemaValidator<MincontainsWithoutContainsIsIgnored1BoxedVoid>, BooleanSchemaValidator<MincontainsWithoutContainsIsIgnored1BoxedBoolean>, NumberSchemaValidator<MincontainsWithoutContainsIsIgnored1BoxedNumber>, StringSchemaValidator<MincontainsWithoutContainsIsIgnored1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MincontainsWithoutContainsIsIgnored1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MincontainsWithoutContainsIsIgnored1BoxedMap> {
+    public static class MincontainsWithoutContainsIsIgnored1 extends JsonSchema<MincontainsWithoutContainsIsIgnored1Boxed> implements NullSchemaValidator<MincontainsWithoutContainsIsIgnored1BoxedVoid>, BooleanSchemaValidator<MincontainsWithoutContainsIsIgnored1BoxedBoolean>, NumberSchemaValidator<MincontainsWithoutContainsIsIgnored1BoxedNumber>, StringSchemaValidator<MincontainsWithoutContainsIsIgnored1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MincontainsWithoutContainsIsIgnored1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MincontainsWithoutContainsIsIgnored1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -211,11 +187,11 @@ public class MincontainsWithoutContainsIsIgnored {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -246,11 +222,11 @@ public class MincontainsWithoutContainsIsIgnored {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -328,6 +304,25 @@ public class MincontainsWithoutContainsIsIgnored {
         @Override
         public MincontainsWithoutContainsIsIgnored1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MincontainsWithoutContainsIsIgnored1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public MincontainsWithoutContainsIsIgnored1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

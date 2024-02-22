@@ -37,78 +37,54 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class FootbarBoxed permits FootbarBoxedVoid, FootbarBoxedBoolean, FootbarBoxedNumber, FootbarBoxedString, FootbarBoxedList, FootbarBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface FootbarBoxed permits FootbarBoxedVoid, FootbarBoxedBoolean, FootbarBoxedNumber, FootbarBoxedString, FootbarBoxedList, FootbarBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class FootbarBoxedVoid extends FootbarBoxed {
-        public final Void data;
-        private FootbarBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record FootbarBoxedVoid(Void data) implements FootbarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FootbarBoxedBoolean extends FootbarBoxed {
-        public final boolean data;
-        private FootbarBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record FootbarBoxedBoolean(boolean data) implements FootbarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FootbarBoxedNumber extends FootbarBoxed {
-        public final Number data;
-        private FootbarBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record FootbarBoxedNumber(Number data) implements FootbarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FootbarBoxedString extends FootbarBoxed {
-        public final String data;
-        private FootbarBoxedString(String data) {
-            this.data = data;
-        }
+    public record FootbarBoxedString(String data) implements FootbarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FootbarBoxedList extends FootbarBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private FootbarBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FootbarBoxedList(FrozenList<@Nullable Object> data) implements FootbarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FootbarBoxedMap extends FootbarBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private FootbarBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FootbarBoxedMap(FrozenMap<@Nullable Object> data) implements FootbarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Footbar extends JsonSchema implements NullSchemaValidator<FootbarBoxedVoid>, BooleanSchemaValidator<FootbarBoxedBoolean>, NumberSchemaValidator<FootbarBoxedNumber>, StringSchemaValidator<FootbarBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FootbarBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FootbarBoxedMap> {
+    public static class Footbar extends JsonSchema<FootbarBoxed> implements NullSchemaValidator<FootbarBoxedVoid>, BooleanSchemaValidator<FootbarBoxedBoolean>, NumberSchemaValidator<FootbarBoxedNumber>, StringSchemaValidator<FootbarBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FootbarBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FootbarBoxedMap> {
         private static @Nullable Footbar instance = null;
     
         protected Footbar() {
@@ -207,11 +183,11 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -242,11 +218,11 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -324,6 +300,25 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         @Override
         public FootbarBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FootbarBoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public FootbarBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -441,78 +436,54 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
     }
     
     
-    public static abstract sealed class FoobarBoxed permits FoobarBoxedVoid, FoobarBoxedBoolean, FoobarBoxedNumber, FoobarBoxedString, FoobarBoxedList, FoobarBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface FoobarBoxed permits FoobarBoxedVoid, FoobarBoxedBoolean, FoobarBoxedNumber, FoobarBoxedString, FoobarBoxedList, FoobarBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class FoobarBoxedVoid extends FoobarBoxed {
-        public final Void data;
-        private FoobarBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record FoobarBoxedVoid(Void data) implements FoobarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoobarBoxedBoolean extends FoobarBoxed {
-        public final boolean data;
-        private FoobarBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record FoobarBoxedBoolean(boolean data) implements FoobarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoobarBoxedNumber extends FoobarBoxed {
-        public final Number data;
-        private FoobarBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record FoobarBoxedNumber(Number data) implements FoobarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoobarBoxedString extends FoobarBoxed {
-        public final String data;
-        private FoobarBoxedString(String data) {
-            this.data = data;
-        }
+    public record FoobarBoxedString(String data) implements FoobarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoobarBoxedList extends FoobarBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private FoobarBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FoobarBoxedList(FrozenList<@Nullable Object> data) implements FoobarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoobarBoxedMap extends FoobarBoxed {
-        public final FoobarMap data;
-        private FoobarBoxedMap(FoobarMap data) {
-            this.data = data;
-        }
+    public record FoobarBoxedMap(FoobarMap data) implements FoobarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Foobar extends JsonSchema implements NullSchemaValidator<FoobarBoxedVoid>, BooleanSchemaValidator<FoobarBoxedBoolean>, NumberSchemaValidator<FoobarBoxedNumber>, StringSchemaValidator<FoobarBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FoobarBoxedList>, MapSchemaValidator<FoobarMap, FoobarBoxedMap> {
+    public static class Foobar extends JsonSchema<FoobarBoxed> implements NullSchemaValidator<FoobarBoxedVoid>, BooleanSchemaValidator<FoobarBoxedBoolean>, NumberSchemaValidator<FoobarBoxedNumber>, StringSchemaValidator<FoobarBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FoobarBoxedList>, MapSchemaValidator<FoobarMap, FoobarBoxedMap> {
         private static @Nullable Foobar instance = null;
     
         protected Foobar() {
@@ -613,11 +584,11 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -648,11 +619,11 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -731,80 +702,75 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         public FoobarBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FoobarBoxedMap(validate(arg, configuration));
         }
+        @Override
+        public FoobarBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class DependentSchemasDependenciesWithEscapedCharacters1Boxed permits DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid, DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean, DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber, DependentSchemasDependenciesWithEscapedCharacters1BoxedString, DependentSchemasDependenciesWithEscapedCharacters1BoxedList, DependentSchemasDependenciesWithEscapedCharacters1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface DependentSchemasDependenciesWithEscapedCharacters1Boxed permits DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid, DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean, DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber, DependentSchemasDependenciesWithEscapedCharacters1BoxedString, DependentSchemasDependenciesWithEscapedCharacters1BoxedList, DependentSchemasDependenciesWithEscapedCharacters1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
-        public final Void data;
-        private DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid(Void data) implements DependentSchemasDependenciesWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
-        public final boolean data;
-        private DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean(boolean data) implements DependentSchemasDependenciesWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
-        public final Number data;
-        private DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber(Number data) implements DependentSchemasDependenciesWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedString extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
-        public final String data;
-        private DependentSchemasDependenciesWithEscapedCharacters1BoxedString(String data) {
-            this.data = data;
-        }
+    public record DependentSchemasDependenciesWithEscapedCharacters1BoxedString(String data) implements DependentSchemasDependenciesWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedList extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private DependentSchemasDependenciesWithEscapedCharacters1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DependentSchemasDependenciesWithEscapedCharacters1BoxedList(FrozenList<@Nullable Object> data) implements DependentSchemasDependenciesWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedMap extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private DependentSchemasDependenciesWithEscapedCharacters1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DependentSchemasDependenciesWithEscapedCharacters1BoxedMap(FrozenMap<@Nullable Object> data) implements DependentSchemasDependenciesWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class DependentSchemasDependenciesWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid>, BooleanSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean>, NumberSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber>, StringSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DependentSchemasDependenciesWithEscapedCharacters1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DependentSchemasDependenciesWithEscapedCharacters1BoxedMap> {
+    public static class DependentSchemasDependenciesWithEscapedCharacters1 extends JsonSchema<DependentSchemasDependenciesWithEscapedCharacters1Boxed> implements NullSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid>, BooleanSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean>, NumberSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber>, StringSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DependentSchemasDependenciesWithEscapedCharacters1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DependentSchemasDependenciesWithEscapedCharacters1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -912,11 +878,11 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -947,11 +913,11 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -1029,6 +995,25 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         @Override
         public DependentSchemasDependenciesWithEscapedCharacters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DependentSchemasDependenciesWithEscapedCharacters1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependenciesWithEscapedCharacters1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

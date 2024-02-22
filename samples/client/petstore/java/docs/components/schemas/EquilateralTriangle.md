@@ -4,7 +4,7 @@ public class EquilateralTriangle<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,7 +13,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [EquilateralTriangle.EquilateralTriangle1Boxed](#equilateraltriangle1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [EquilateralTriangle.EquilateralTriangle1Boxed](#equilateraltriangle1boxed)<br> sealed interface for validated payloads |
 | record | [EquilateralTriangle.EquilateralTriangle1BoxedVoid](#equilateraltriangle1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [EquilateralTriangle.EquilateralTriangle1BoxedBoolean](#equilateraltriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [EquilateralTriangle.EquilateralTriangle1BoxedNumber](#equilateraltriangle1boxednumber)<br> boxed class to store validated Number payloads |
@@ -21,12 +21,12 @@ A class that contains necessary nested
 | record | [EquilateralTriangle.EquilateralTriangle1BoxedList](#equilateraltriangle1boxedlist)<br> boxed class to store validated List payloads |
 | record | [EquilateralTriangle.EquilateralTriangle1BoxedMap](#equilateraltriangle1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EquilateralTriangle.EquilateralTriangle1](#equilateraltriangle1)<br> schema class |
-| sealed interface | [EquilateralTriangle.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [EquilateralTriangle.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
 | record | [EquilateralTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EquilateralTriangle.Schema1](#schema1)<br> schema class |
 | static class | [EquilateralTriangle.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [EquilateralTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
-| sealed interface | [EquilateralTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [EquilateralTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> sealed interface for validated payloads |
 | record | [EquilateralTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EquilateralTriangle.TriangleType](#triangletype)<br> schema class |
 | enum | [EquilateralTriangle.StringTriangleTypeEnums](#stringtriangletypeenums)<br>String enum |

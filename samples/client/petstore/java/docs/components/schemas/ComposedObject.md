@@ -4,16 +4,16 @@ public class ComposedObject<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ComposedObject.ComposedObject1Boxed](#composedobject1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComposedObject.ComposedObject1Boxed](#composedobject1boxed)<br> sealed interface for validated payloads |
 | record | [ComposedObject.ComposedObject1BoxedMap](#composedobject1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedObject.ComposedObject1](#composedobject1)<br> schema class |
-| sealed interface | [ComposedObject.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComposedObject.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
 | record | [ComposedObject.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
 | record | [ComposedObject.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ComposedObject.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |

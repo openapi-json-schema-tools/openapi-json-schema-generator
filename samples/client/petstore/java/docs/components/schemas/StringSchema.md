@@ -4,13 +4,13 @@ public class StringSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [StringSchema.StringSchema1Boxed](#stringschema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [StringSchema.StringSchema1Boxed](#stringschema1boxed)<br> sealed interface for validated payloads |
 | record | [StringSchema.StringSchema1BoxedString](#stringschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [StringSchema.StringSchema1](#stringschema1)<br> schema class |
 

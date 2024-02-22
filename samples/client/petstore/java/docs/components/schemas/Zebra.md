@@ -4,7 +4,7 @@ public class Zebra<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,20 +13,20 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Zebra.Zebra1Boxed](#zebra1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Zebra.Zebra1Boxed](#zebra1boxed)<br> sealed interface for validated payloads |
 | record | [Zebra.Zebra1BoxedMap](#zebra1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Zebra.Zebra1](#zebra1)<br> schema class |
 | static class | [Zebra.ZebraMapBuilder](#zebramapbuilder)<br> builder for Map payloads |
 | static class | [Zebra.ZebraMap](#zebramap)<br> output class for Map payloads |
-| sealed interface | [Zebra.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Zebra.ClassNameBoxed](#classnameboxed)<br> sealed interface for validated payloads |
 | record | [Zebra.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Zebra.ClassName](#classname)<br> schema class |
 | enum | [Zebra.StringClassNameEnums](#stringclassnameenums)<br>String enum |
-| sealed interface | [Zebra.TypeBoxed](#typeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Zebra.TypeBoxed](#typeboxed)<br> sealed interface for validated payloads |
 | record | [Zebra.TypeBoxedString](#typeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Zebra.Type](#type)<br> schema class |
 | enum | [Zebra.StringTypeEnums](#stringtypeenums)<br>String enum |
-| sealed interface | [Zebra.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Zebra.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [Zebra.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | record | [Zebra.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [Zebra.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |

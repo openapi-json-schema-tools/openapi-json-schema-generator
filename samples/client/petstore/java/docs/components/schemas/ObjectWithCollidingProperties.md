@@ -4,7 +4,7 @@ public class ObjectWithCollidingProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,15 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1Boxed](#objectwithcollidingproperties1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1Boxed](#objectwithcollidingproperties1boxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1BoxedMap](#objectwithcollidingproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1](#objectwithcollidingproperties1)<br> schema class |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap)<br> output class for Map payloads |
-| sealed interface | [ObjectWithCollidingProperties.SomepropBoxed](#somepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithCollidingProperties.SomepropBoxed](#somepropboxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithCollidingProperties.SomepropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithCollidingProperties.Someprop](#someprop)<br> schema class |
-| sealed interface | [ObjectWithCollidingProperties.SomePropBoxed](#somepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithCollidingProperties.SomePropBoxed](#somepropboxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithCollidingProperties.SomePropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithCollidingProperties.SomeProp](#someprop)<br> schema class |
 

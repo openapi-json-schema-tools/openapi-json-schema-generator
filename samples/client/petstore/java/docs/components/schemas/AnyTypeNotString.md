@@ -4,13 +4,13 @@ public class AnyTypeNotString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [AnyTypeNotString.AnyTypeNotString1Boxed](#anytypenotstring1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeNotString.AnyTypeNotString1Boxed](#anytypenotstring1boxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeNotString.AnyTypeNotString1BoxedVoid](#anytypenotstring1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeNotString.AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [AnyTypeNotString.AnyTypeNotString1BoxedNumber](#anytypenotstring1boxednumber)<br> boxed class to store validated Number payloads |
@@ -18,7 +18,7 @@ A class that contains necessary nested
 | record | [AnyTypeNotString.AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeNotString.AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeNotString.AnyTypeNotString1](#anytypenotstring1)<br> schema class |
-| sealed interface | [AnyTypeNotString.NotBoxed](#notboxed)<br> abstract sealed validated payload class |
+| sealed interface | [AnyTypeNotString.NotBoxed](#notboxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeNotString.NotBoxedString](#notboxedstring)<br> boxed class to store validated String payloads |
 | static class | [AnyTypeNotString.Not](#not)<br> schema class |
 

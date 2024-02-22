@@ -3,14 +3,14 @@ public class Schema5<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Schema5.Schema51Boxed](#schema51boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Schema5.Schema51Boxed](#schema51boxed)<br> sealed interface for validated payloads |
 | record | [Schema5.Schema51BoxedNumber](#schema51boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema5.Schema51](#schema51)<br> schema class |
 | enum | [Schema5.DoubleSchemaEnums5](#doubleschemaenums5)<br>Double enum |

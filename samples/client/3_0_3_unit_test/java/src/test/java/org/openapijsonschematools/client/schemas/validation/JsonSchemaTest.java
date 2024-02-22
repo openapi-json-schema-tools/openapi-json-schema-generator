@@ -13,39 +13,49 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-class SomeSchema extends JsonSchema {
-    private static @Nullable SomeSchema instance = null;
-    protected SomeSchema() {
-        super(new JsonSchemaInfo()
-            .type(Set.of(String.class))
-        );
-    }
-
-    public static SomeSchema getInstance() {
-        if (instance == null) {
-            instance = new SomeSchema();
-        }
-        return instance;
-    }
-
-    @Override
-    public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        if (arg instanceof String) {
-            return arg;
-        }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-    }
-
-    @Override
-    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
-        if (arg instanceof String) {
-            return arg;
-        }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
-    }
-}
+sealed interface SomeSchemaBoxed permits SomeSchemaBoxedString {}
+record SomeSchemaBoxedString() implements SomeSchemaBoxed {}
 
 public class JsonSchemaTest {
+    sealed interface SomeSchemaBoxed permits SomeSchemaBoxedString {}
+    record SomeSchemaBoxedString() implements SomeSchemaBoxed {}
+
+    static class SomeSchema extends JsonSchema<SomeSchemaBoxed> {
+        private static @Nullable SomeSchema instance = null;
+        protected SomeSchema() {
+            super(new JsonSchemaInfo()
+                    .type(Set.of(String.class))
+            );
+        }
+
+        public static SomeSchema getInstance() {
+            if (instance == null) {
+                instance = new SomeSchema();
+            }
+            return instance;
+        }
+
+        @Override
+        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof String) {
+                return arg;
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof String) {
+                return arg;
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public SomeSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            return new SomeSchemaBoxedString();
+        }
+    }
 
     @Test
     public void testValidateSucceeds() {
@@ -63,7 +73,7 @@ public class JsonSchemaTest {
                 validationMetadata
         );
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
-        LinkedHashMap<JsonSchema, Void> validatedClasses = new LinkedHashMap<>();
+        LinkedHashMap<JsonSchema<?>, Void> validatedClasses = new LinkedHashMap<>();
         validatedClasses.put(schema, null);
         expectedPathToSchemas.put(pathToItem, validatedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);

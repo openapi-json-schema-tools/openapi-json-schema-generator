@@ -4,13 +4,13 @@ public class SomeObject<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [SomeObject.SomeObject1Boxed](#someobject1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [SomeObject.SomeObject1Boxed](#someobject1boxed)<br> sealed interface for validated payloads |
 | record | [SomeObject.SomeObject1BoxedVoid](#someobject1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [SomeObject.SomeObject1BoxedBoolean](#someobject1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [SomeObject.SomeObject1BoxedNumber](#someobject1boxednumber)<br> boxed class to store validated Number payloads |

@@ -4,34 +4,34 @@ public class OneofWithEmptySchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [OneofWithEmptySchema.OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)<br> abstract sealed validated payload class |
-| static class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedVoid](#oneofwithemptyschema1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedBoolean](#oneofwithemptyschema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedNumber](#oneofwithemptyschema1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedString](#oneofwithemptyschema1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedList](#oneofwithemptyschema1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedMap](#oneofwithemptyschema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [OneofWithEmptySchema.OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)<br> sealed interface for validated payloads |
+| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedVoid](#oneofwithemptyschema1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedBoolean](#oneofwithemptyschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedNumber](#oneofwithemptyschema1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedString](#oneofwithemptyschema1boxedstring)<br> boxed class to store validated String payloads |
+| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedList](#oneofwithemptyschema1boxedlist)<br> boxed class to store validated List payloads |
+| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedMap](#oneofwithemptyschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [OneofWithEmptySchema.OneofWithEmptySchema1](#oneofwithemptyschema1)<br> schema class |
-| static class | [OneofWithEmptySchema.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
-| static class | [OneofWithEmptySchema.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [OneofWithEmptySchema.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [OneofWithEmptySchema.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [OneofWithEmptySchema.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [OneofWithEmptySchema.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [OneofWithEmptySchema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [OneofWithEmptySchema.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
+| record | [OneofWithEmptySchema.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [OneofWithEmptySchema.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [OneofWithEmptySchema.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [OneofWithEmptySchema.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
+| record | [OneofWithEmptySchema.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
+| record | [OneofWithEmptySchema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [OneofWithEmptySchema.Schema1](#schema1)<br> schema class |
-| static class | [OneofWithEmptySchema.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
-| static class | [OneofWithEmptySchema.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [OneofWithEmptySchema.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
+| record | [OneofWithEmptySchema.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [OneofWithEmptySchema.Schema0](#schema0)<br> schema class |
 
 ## OneofWithEmptySchema1Boxed
-public static abstract sealed class OneofWithEmptySchema1Boxed<br>
+public sealed interface OneofWithEmptySchema1Boxed<br>
 permits<br>
 [OneofWithEmptySchema1BoxedVoid](#oneofwithemptyschema1boxedvoid),
 [OneofWithEmptySchema1BoxedBoolean](#oneofwithemptyschema1boxedboolean),
@@ -40,103 +40,109 @@ permits<br>
 [OneofWithEmptySchema1BoxedList](#oneofwithemptyschema1boxedlist),
 [OneofWithEmptySchema1BoxedMap](#oneofwithemptyschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## OneofWithEmptySchema1BoxedVoid
-public static final class OneofWithEmptySchema1BoxedVoid<br>
-extends [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
+public record OneofWithEmptySchema1BoxedVoid<br>
+implements [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | OneofWithEmptySchema1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## OneofWithEmptySchema1BoxedBoolean
-public static final class OneofWithEmptySchema1BoxedBoolean<br>
-extends [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
+public record OneofWithEmptySchema1BoxedBoolean<br>
+implements [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | OneofWithEmptySchema1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## OneofWithEmptySchema1BoxedNumber
-public static final class OneofWithEmptySchema1BoxedNumber<br>
-extends [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
+public record OneofWithEmptySchema1BoxedNumber<br>
+implements [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | OneofWithEmptySchema1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## OneofWithEmptySchema1BoxedString
-public static final class OneofWithEmptySchema1BoxedString<br>
-extends [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
+public record OneofWithEmptySchema1BoxedString<br>
+implements [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | OneofWithEmptySchema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## OneofWithEmptySchema1BoxedList
-public static final class OneofWithEmptySchema1BoxedList<br>
-extends [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
+public record OneofWithEmptySchema1BoxedList<br>
+implements [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | OneofWithEmptySchema1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## OneofWithEmptySchema1BoxedMap
-public static final class OneofWithEmptySchema1BoxedMap<br>
-extends [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
+public record OneofWithEmptySchema1BoxedMap<br>
+implements [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | OneofWithEmptySchema1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## OneofWithEmptySchema1
 public static class OneofWithEmptySchema1<br>
@@ -168,9 +174,11 @@ A schema class that validates payloads
 | [OneofWithEmptySchema1BoxedBoolean](#oneofwithemptyschema1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [OneofWithEmptySchema1BoxedMap](#oneofwithemptyschema1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [OneofWithEmptySchema1BoxedList](#oneofwithemptyschema1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema1Boxed
-public static abstract sealed class Schema1Boxed<br>
+public sealed interface Schema1Boxed<br>
 permits<br>
 [Schema1BoxedVoid](#schema1boxedvoid),
 [Schema1BoxedBoolean](#schema1boxedboolean),
@@ -179,103 +187,109 @@ permits<br>
 [Schema1BoxedList](#schema1boxedlist),
 [Schema1BoxedMap](#schema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedVoid
-public static final class Schema1BoxedVoid<br>
-extends [Schema1Boxed](#schema1boxed)
+public record Schema1BoxedVoid<br>
+implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1BoxedBoolean
-public static final class Schema1BoxedBoolean<br>
-extends [Schema1Boxed](#schema1boxed)
+public record Schema1BoxedBoolean<br>
+implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1BoxedNumber
-public static final class Schema1BoxedNumber<br>
-extends [Schema1Boxed](#schema1boxed)
+public record Schema1BoxedNumber<br>
+implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1BoxedString
-public static final class Schema1BoxedString<br>
-extends [Schema1Boxed](#schema1boxed)
+public record Schema1BoxedString<br>
+implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1BoxedList
-public static final class Schema1BoxedList<br>
-extends [Schema1Boxed](#schema1boxed)
+public record Schema1BoxedList<br>
+implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1BoxedMap
-public static final class Schema1BoxedMap<br>
-extends [Schema1Boxed](#schema1boxed)
+public record Schema1BoxedMap<br>
+implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -289,27 +303,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## Schema0Boxed
-public static abstract sealed class Schema0Boxed<br>
+public sealed interface Schema0Boxed<br>
 permits<br>
 [Schema0BoxedNumber](#schema0boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedNumber
-public static final class Schema0BoxedNumber<br>
-extends [Schema0Boxed](#schema0boxed)
+public record Schema0BoxedNumber<br>
+implements [Schema0Boxed](#schema0boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>

@@ -4,7 +4,7 @@ public class IsoscelesTriangle<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,7 +13,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [IsoscelesTriangle.IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [IsoscelesTriangle.IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)<br> sealed interface for validated payloads |
 | record | [IsoscelesTriangle.IsoscelesTriangle1BoxedVoid](#isoscelestriangle1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [IsoscelesTriangle.IsoscelesTriangle1BoxedBoolean](#isoscelestriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [IsoscelesTriangle.IsoscelesTriangle1BoxedNumber](#isoscelestriangle1boxednumber)<br> boxed class to store validated Number payloads |
@@ -21,12 +21,12 @@ A class that contains necessary nested
 | record | [IsoscelesTriangle.IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist)<br> boxed class to store validated List payloads |
 | record | [IsoscelesTriangle.IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IsoscelesTriangle.IsoscelesTriangle1](#isoscelestriangle1)<br> schema class |
-| sealed interface | [IsoscelesTriangle.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [IsoscelesTriangle.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
 | record | [IsoscelesTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IsoscelesTriangle.Schema1](#schema1)<br> schema class |
 | static class | [IsoscelesTriangle.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [IsoscelesTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
-| sealed interface | [IsoscelesTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [IsoscelesTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> sealed interface for validated payloads |
 | record | [IsoscelesTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [IsoscelesTriangle.TriangleType](#triangletype)<br> schema class |
 | enum | [IsoscelesTriangle.StringTriangleTypeEnums](#stringtriangletypeenums)<br>String enum |

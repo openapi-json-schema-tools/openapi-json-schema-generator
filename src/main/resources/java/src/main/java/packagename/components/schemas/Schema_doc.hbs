@@ -14,7 +14,7 @@ extends [{{refInfo.refClass}}]({{docRoot}}{{#with refInfo.ref}}{{pathFromDocRoot
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 {{#if containsArrayOutputClass}}
 - classes to store validated list payloads, extends FrozenList
@@ -34,7 +34,7 @@ A class that contains necessary nested
 {{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
         {{#eq refInfo null }}
-| sealed interface | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})<br> abstract sealed validated payload class |
+| sealed interface | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})<br> sealed interface for validated payloads |
             {{#each types}}
                 {{#eq this "null"}}
 | record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}})<br> boxed class to store validated null payloads |

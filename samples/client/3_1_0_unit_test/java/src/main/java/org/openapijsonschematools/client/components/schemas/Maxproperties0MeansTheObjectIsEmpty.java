@@ -35,78 +35,54 @@ public class Maxproperties0MeansTheObjectIsEmpty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Maxproperties0MeansTheObjectIsEmpty1Boxed permits Maxproperties0MeansTheObjectIsEmpty1BoxedVoid, Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean, Maxproperties0MeansTheObjectIsEmpty1BoxedNumber, Maxproperties0MeansTheObjectIsEmpty1BoxedString, Maxproperties0MeansTheObjectIsEmpty1BoxedList, Maxproperties0MeansTheObjectIsEmpty1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Maxproperties0MeansTheObjectIsEmpty1Boxed permits Maxproperties0MeansTheObjectIsEmpty1BoxedVoid, Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean, Maxproperties0MeansTheObjectIsEmpty1BoxedNumber, Maxproperties0MeansTheObjectIsEmpty1BoxedString, Maxproperties0MeansTheObjectIsEmpty1BoxedList, Maxproperties0MeansTheObjectIsEmpty1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedVoid extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
-        public final Void data;
-        private Maxproperties0MeansTheObjectIsEmpty1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Maxproperties0MeansTheObjectIsEmpty1BoxedVoid(Void data) implements Maxproperties0MeansTheObjectIsEmpty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
-        public final boolean data;
-        private Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean(boolean data) implements Maxproperties0MeansTheObjectIsEmpty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedNumber extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
-        public final Number data;
-        private Maxproperties0MeansTheObjectIsEmpty1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Maxproperties0MeansTheObjectIsEmpty1BoxedNumber(Number data) implements Maxproperties0MeansTheObjectIsEmpty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedString extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
-        public final String data;
-        private Maxproperties0MeansTheObjectIsEmpty1BoxedString(String data) {
-            this.data = data;
-        }
+    public record Maxproperties0MeansTheObjectIsEmpty1BoxedString(String data) implements Maxproperties0MeansTheObjectIsEmpty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedList extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Maxproperties0MeansTheObjectIsEmpty1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Maxproperties0MeansTheObjectIsEmpty1BoxedList(FrozenList<@Nullable Object> data) implements Maxproperties0MeansTheObjectIsEmpty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedMap extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Maxproperties0MeansTheObjectIsEmpty1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Maxproperties0MeansTheObjectIsEmpty1BoxedMap(FrozenMap<@Nullable Object> data) implements Maxproperties0MeansTheObjectIsEmpty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Maxproperties0MeansTheObjectIsEmpty1 extends JsonSchema implements NullSchemaValidator<Maxproperties0MeansTheObjectIsEmpty1BoxedVoid>, BooleanSchemaValidator<Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean>, NumberSchemaValidator<Maxproperties0MeansTheObjectIsEmpty1BoxedNumber>, StringSchemaValidator<Maxproperties0MeansTheObjectIsEmpty1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Maxproperties0MeansTheObjectIsEmpty1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Maxproperties0MeansTheObjectIsEmpty1BoxedMap> {
+    public static class Maxproperties0MeansTheObjectIsEmpty1 extends JsonSchema<Maxproperties0MeansTheObjectIsEmpty1Boxed> implements NullSchemaValidator<Maxproperties0MeansTheObjectIsEmpty1BoxedVoid>, BooleanSchemaValidator<Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean>, NumberSchemaValidator<Maxproperties0MeansTheObjectIsEmpty1BoxedNumber>, StringSchemaValidator<Maxproperties0MeansTheObjectIsEmpty1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Maxproperties0MeansTheObjectIsEmpty1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Maxproperties0MeansTheObjectIsEmpty1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -211,11 +187,11 @@ public class Maxproperties0MeansTheObjectIsEmpty {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -246,11 +222,11 @@ public class Maxproperties0MeansTheObjectIsEmpty {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -328,6 +304,25 @@ public class Maxproperties0MeansTheObjectIsEmpty {
         @Override
         public Maxproperties0MeansTheObjectIsEmpty1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Maxproperties0MeansTheObjectIsEmpty1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public Maxproperties0MeansTheObjectIsEmpty1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

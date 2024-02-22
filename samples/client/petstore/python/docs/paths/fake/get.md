@@ -234,27 +234,27 @@ HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
-404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | Not found
+404 | [_404.ApiResponse](#_404-apiresponse) | Not found
 
-## ResponseFor404
+## _404
 
 ### Description
 Not found
 
-### ResponseFor404 ApiResponse
+### _404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor404-body) | schemas.immutabledict |  |
+[body](#_404-body) | schemas.immutabledict |  |
 headers | Unset | headers were not defined |
 
-### ResponseFor404 Body
+### _404 Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#responsefor404-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#_404-content-applicationjson-schema)
 
 ### Body Details
-#### ResponseFor404 content ApplicationJson Schema
+#### _404 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```

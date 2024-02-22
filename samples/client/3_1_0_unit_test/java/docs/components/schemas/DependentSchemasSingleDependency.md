@@ -4,7 +4,7 @@ public class DependentSchemasSingleDependency<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,33 +12,33 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)<br> abstract sealed validated payload class |
-| static class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedVoid](#dependentschemassingledependency1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedBoolean](#dependentschemassingledependency1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedNumber](#dependentschemassingledependency1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedString](#dependentschemassingledependency1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedList](#dependentschemassingledependency1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedMap](#dependentschemassingledependency1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)<br> sealed interface for validated payloads |
+| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedVoid](#dependentschemassingledependency1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedBoolean](#dependentschemassingledependency1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedNumber](#dependentschemassingledependency1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedString](#dependentschemassingledependency1boxedstring)<br> boxed class to store validated String payloads |
+| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedList](#dependentschemassingledependency1boxedlist)<br> boxed class to store validated List payloads |
+| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedMap](#dependentschemassingledependency1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1](#dependentschemassingledependency1)<br> schema class |
-| static class | [DependentSchemasSingleDependency.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
-| static class | [DependentSchemasSingleDependency.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [DependentSchemasSingleDependency.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [DependentSchemasSingleDependency.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [DependentSchemasSingleDependency.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
-| static class | [DependentSchemasSingleDependency.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
-| static class | [DependentSchemasSingleDependency.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [DependentSchemasSingleDependency.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
+| record | [DependentSchemasSingleDependency.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
+| record | [DependentSchemasSingleDependency.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [DependentSchemasSingleDependency.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
+| record | [DependentSchemasSingleDependency.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| record | [DependentSchemasSingleDependency.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
+| record | [DependentSchemasSingleDependency.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [DependentSchemasSingleDependency.Bar](#bar)<br> schema class |
 | static class | [DependentSchemasSingleDependency.BarMapBuilder1](#barmapbuilder1)<br> builder for Map payloads |
 | static class | [DependentSchemasSingleDependency.BarMap](#barmap)<br> output class for Map payloads |
-| static class | [DependentSchemasSingleDependency.Bar1Boxed](#bar1boxed)<br> abstract sealed validated payload class |
-| static class | [DependentSchemasSingleDependency.Bar1BoxedNumber](#bar1boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [DependentSchemasSingleDependency.Bar1Boxed](#bar1boxed)<br> sealed interface for validated payloads |
+| record | [DependentSchemasSingleDependency.Bar1BoxedNumber](#bar1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [DependentSchemasSingleDependency.Bar1](#bar1)<br> schema class |
-| static class | [DependentSchemasSingleDependency.FooBoxed](#fooboxed)<br> abstract sealed validated payload class |
-| static class | [DependentSchemasSingleDependency.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [DependentSchemasSingleDependency.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
+| record | [DependentSchemasSingleDependency.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [DependentSchemasSingleDependency.Foo](#foo)<br> schema class |
 
 ## DependentSchemasSingleDependency1Boxed
-public static abstract sealed class DependentSchemasSingleDependency1Boxed<br>
+public sealed interface DependentSchemasSingleDependency1Boxed<br>
 permits<br>
 [DependentSchemasSingleDependency1BoxedVoid](#dependentschemassingledependency1boxedvoid),
 [DependentSchemasSingleDependency1BoxedBoolean](#dependentschemassingledependency1boxedboolean),
@@ -47,103 +47,109 @@ permits<br>
 [DependentSchemasSingleDependency1BoxedList](#dependentschemassingledependency1boxedlist),
 [DependentSchemasSingleDependency1BoxedMap](#dependentschemassingledependency1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DependentSchemasSingleDependency1BoxedVoid
-public static final class DependentSchemasSingleDependency1BoxedVoid<br>
-extends [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
+public record DependentSchemasSingleDependency1BoxedVoid<br>
+implements [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DependentSchemasSingleDependency1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DependentSchemasSingleDependency1BoxedBoolean
-public static final class DependentSchemasSingleDependency1BoxedBoolean<br>
-extends [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
+public record DependentSchemasSingleDependency1BoxedBoolean<br>
+implements [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DependentSchemasSingleDependency1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DependentSchemasSingleDependency1BoxedNumber
-public static final class DependentSchemasSingleDependency1BoxedNumber<br>
-extends [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
+public record DependentSchemasSingleDependency1BoxedNumber<br>
+implements [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DependentSchemasSingleDependency1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DependentSchemasSingleDependency1BoxedString
-public static final class DependentSchemasSingleDependency1BoxedString<br>
-extends [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
+public record DependentSchemasSingleDependency1BoxedString<br>
+implements [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DependentSchemasSingleDependency1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DependentSchemasSingleDependency1BoxedList
-public static final class DependentSchemasSingleDependency1BoxedList<br>
-extends [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
+public record DependentSchemasSingleDependency1BoxedList<br>
+implements [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DependentSchemasSingleDependency1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DependentSchemasSingleDependency1BoxedMap
-public static final class DependentSchemasSingleDependency1BoxedMap<br>
-extends [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
+public record DependentSchemasSingleDependency1BoxedMap<br>
+implements [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DependentSchemasSingleDependency1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DependentSchemasSingleDependency1
 public static class DependentSchemasSingleDependency1<br>
@@ -175,9 +181,11 @@ A schema class that validates payloads
 | [DependentSchemasSingleDependency1BoxedBoolean](#dependentschemassingledependency1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [DependentSchemasSingleDependency1BoxedMap](#dependentschemassingledependency1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [DependentSchemasSingleDependency1BoxedList](#dependentschemassingledependency1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BarBoxed
-public static abstract sealed class BarBoxed<br>
+public sealed interface BarBoxed<br>
 permits<br>
 [BarBoxedVoid](#barboxedvoid),
 [BarBoxedBoolean](#barboxedboolean),
@@ -186,103 +194,109 @@ permits<br>
 [BarBoxedList](#barboxedlist),
 [BarBoxedMap](#barboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BarBoxedVoid
-public static final class BarBoxedVoid<br>
-extends [BarBoxed](#barboxed)
+public record BarBoxedVoid<br>
+implements [BarBoxed](#barboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BarBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BarBoxedBoolean
-public static final class BarBoxedBoolean<br>
-extends [BarBoxed](#barboxed)
+public record BarBoxedBoolean<br>
+implements [BarBoxed](#barboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BarBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BarBoxedNumber
-public static final class BarBoxedNumber<br>
-extends [BarBoxed](#barboxed)
+public record BarBoxedNumber<br>
+implements [BarBoxed](#barboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BarBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BarBoxedString
-public static final class BarBoxedString<br>
-extends [BarBoxed](#barboxed)
+public record BarBoxedString<br>
+implements [BarBoxed](#barboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BarBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BarBoxedList
-public static final class BarBoxedList<br>
-extends [BarBoxed](#barboxed)
+public record BarBoxedList<br>
+implements [BarBoxed](#barboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BarBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BarBoxedMap
-public static final class BarBoxedMap<br>
-extends [BarBoxed](#barboxed)
+public record BarBoxedMap<br>
+implements [BarBoxed](#barboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BarBoxedMap([BarMap](#barmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [BarMap](#barmap) | data<br>validated payload |
+| [BarMap](#barmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Bar
 public static class Bar<br>
@@ -314,7 +328,9 @@ A schema class that validates payloads
 | [BarBoxedBoolean](#barboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [BarBoxedMap](#barboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#barmapbuilder1) arg, SchemaConfiguration configuration) |
 | [BarBoxedList](#barboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [BarBoxed](#barboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BarMapBuilder1
 public class BarMapBuilder1<br>
 builder for `Map<String, @Nullable Object>`
@@ -363,27 +379,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar1Boxed
-public static abstract sealed class Bar1Boxed<br>
+public sealed interface Bar1Boxed<br>
 permits<br>
 [Bar1BoxedNumber](#bar1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Bar1BoxedNumber
-public static final class Bar1BoxedNumber<br>
-extends [Bar1Boxed](#bar1boxed)
+public record Bar1BoxedNumber<br>
+implements [Bar1Boxed](#bar1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Bar1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Bar1
 public static class Bar1<br>
@@ -397,27 +414,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## FooBoxed
-public static abstract sealed class FooBoxed<br>
+public sealed interface FooBoxed<br>
 permits<br>
 [FooBoxedNumber](#fooboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## FooBoxedNumber
-public static final class FooBoxedNumber<br>
-extends [FooBoxed](#fooboxed)
+public record FooBoxedNumber<br>
+implements [FooBoxed](#fooboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Foo
 public static class Foo<br>

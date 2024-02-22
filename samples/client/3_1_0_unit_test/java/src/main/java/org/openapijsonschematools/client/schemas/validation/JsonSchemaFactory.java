@@ -10,10 +10,10 @@ import java.util.Map;
 
 
 public class JsonSchemaFactory {
-    static Map<Class<? extends JsonSchema>, JsonSchema> classToInstance = new HashMap<>();
+    static Map<Class<? extends JsonSchema<?>>, JsonSchema<?>> classToInstance = new HashMap<>();
 
-    public static <V extends JsonSchema> V getInstance(Class<V> schemaCls) {
-        @Nullable JsonSchema cacheInst = classToInstance.get(schemaCls);
+    public static <V extends JsonSchema<?>> V getInstance(Class<V> schemaCls) {
+        @Nullable JsonSchema<?> cacheInst = classToInstance.get(schemaCls);
         if (cacheInst != null) {
             assert schemaCls.isInstance(cacheInst);
             return schemaCls.cast(cacheInst);

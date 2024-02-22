@@ -141,27 +141,27 @@ Method | Input Type | Return Type | Notes
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | successful operation
+200 | [_200.ApiResponse](#_200-apiresponse) | successful operation
 
-## ResponseFor200
+## _200
 
 ### Description
 successful operation
 
-### ResponseFor200 ApiResponse
+### _200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [api_response.ApiResponseDict](../../components/schema/api_response.md#apiresponsedict) |  |
+[body](#_200-body) | [api_response.ApiResponseDict](../../components/schema/api_response.md#apiresponsedict) |  |
 headers | Unset | headers were not defined |
 
-### ResponseFor200 Body
+### _200 Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#_200-content-applicationjson-schema)
 
 ### Body Details
-#### ResponseFor200 content ApplicationJson Schema
+#### _200 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```

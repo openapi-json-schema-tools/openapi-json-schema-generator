@@ -35,78 +35,54 @@ public class MaxpropertiesValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MaxpropertiesValidation1Boxed permits MaxpropertiesValidation1BoxedVoid, MaxpropertiesValidation1BoxedBoolean, MaxpropertiesValidation1BoxedNumber, MaxpropertiesValidation1BoxedString, MaxpropertiesValidation1BoxedList, MaxpropertiesValidation1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MaxpropertiesValidation1Boxed permits MaxpropertiesValidation1BoxedVoid, MaxpropertiesValidation1BoxedBoolean, MaxpropertiesValidation1BoxedNumber, MaxpropertiesValidation1BoxedString, MaxpropertiesValidation1BoxedList, MaxpropertiesValidation1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class MaxpropertiesValidation1BoxedVoid extends MaxpropertiesValidation1Boxed {
-        public final Void data;
-        private MaxpropertiesValidation1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record MaxpropertiesValidation1BoxedVoid(Void data) implements MaxpropertiesValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxpropertiesValidation1BoxedBoolean extends MaxpropertiesValidation1Boxed {
-        public final boolean data;
-        private MaxpropertiesValidation1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record MaxpropertiesValidation1BoxedBoolean(boolean data) implements MaxpropertiesValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxpropertiesValidation1BoxedNumber extends MaxpropertiesValidation1Boxed {
-        public final Number data;
-        private MaxpropertiesValidation1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record MaxpropertiesValidation1BoxedNumber(Number data) implements MaxpropertiesValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxpropertiesValidation1BoxedString extends MaxpropertiesValidation1Boxed {
-        public final String data;
-        private MaxpropertiesValidation1BoxedString(String data) {
-            this.data = data;
-        }
+    public record MaxpropertiesValidation1BoxedString(String data) implements MaxpropertiesValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxpropertiesValidation1BoxedList extends MaxpropertiesValidation1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private MaxpropertiesValidation1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MaxpropertiesValidation1BoxedList(FrozenList<@Nullable Object> data) implements MaxpropertiesValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxpropertiesValidation1BoxedMap extends MaxpropertiesValidation1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private MaxpropertiesValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MaxpropertiesValidation1BoxedMap(FrozenMap<@Nullable Object> data) implements MaxpropertiesValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class MaxpropertiesValidation1 extends JsonSchema implements NullSchemaValidator<MaxpropertiesValidation1BoxedVoid>, BooleanSchemaValidator<MaxpropertiesValidation1BoxedBoolean>, NumberSchemaValidator<MaxpropertiesValidation1BoxedNumber>, StringSchemaValidator<MaxpropertiesValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MaxpropertiesValidation1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MaxpropertiesValidation1BoxedMap> {
+    public static class MaxpropertiesValidation1 extends JsonSchema<MaxpropertiesValidation1Boxed> implements NullSchemaValidator<MaxpropertiesValidation1BoxedVoid>, BooleanSchemaValidator<MaxpropertiesValidation1BoxedBoolean>, NumberSchemaValidator<MaxpropertiesValidation1BoxedNumber>, StringSchemaValidator<MaxpropertiesValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MaxpropertiesValidation1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MaxpropertiesValidation1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -211,11 +187,11 @@ public class MaxpropertiesValidation {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -246,11 +222,11 @@ public class MaxpropertiesValidation {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -328,6 +304,25 @@ public class MaxpropertiesValidation {
         @Override
         public MaxpropertiesValidation1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MaxpropertiesValidation1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public MaxpropertiesValidation1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

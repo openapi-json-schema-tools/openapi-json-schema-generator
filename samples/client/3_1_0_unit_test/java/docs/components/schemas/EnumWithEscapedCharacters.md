@@ -4,40 +4,41 @@ public class EnumWithEscapedCharacters<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [EnumWithEscapedCharacters.EnumWithEscapedCharacters1Boxed](#enumwithescapedcharacters1boxed)<br> abstract sealed validated payload class |
-| static class | [EnumWithEscapedCharacters.EnumWithEscapedCharacters1BoxedString](#enumwithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [EnumWithEscapedCharacters.EnumWithEscapedCharacters1Boxed](#enumwithescapedcharacters1boxed)<br> sealed interface for validated payloads |
+| record | [EnumWithEscapedCharacters.EnumWithEscapedCharacters1BoxedString](#enumwithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumWithEscapedCharacters.EnumWithEscapedCharacters1](#enumwithescapedcharacters1)<br> schema class |
 | enum | [EnumWithEscapedCharacters.StringEnumWithEscapedCharactersEnums](#stringenumwithescapedcharactersenums)<br>String enum |
 
 ## EnumWithEscapedCharacters1Boxed
-public static abstract sealed class EnumWithEscapedCharacters1Boxed<br>
+public sealed interface EnumWithEscapedCharacters1Boxed<br>
 permits<br>
 [EnumWithEscapedCharacters1BoxedString](#enumwithescapedcharacters1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumWithEscapedCharacters1BoxedString
-public static final class EnumWithEscapedCharacters1BoxedString<br>
-extends [EnumWithEscapedCharacters1Boxed](#enumwithescapedcharacters1boxed)
+public record EnumWithEscapedCharacters1BoxedString<br>
+implements [EnumWithEscapedCharacters1Boxed](#enumwithescapedcharacters1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumWithEscapedCharacters1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumWithEscapedCharacters1
 public static class EnumWithEscapedCharacters1<br>
@@ -79,7 +80,9 @@ String validatedPayload = EnumWithEscapedCharacters.EnumWithEscapedCharacters1.v
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumWithEscapedCharactersEnums](#stringenumwithescapedcharactersenums) arg, SchemaConfiguration configuration) |
 | [EnumWithEscapedCharacters1BoxedString](#enumwithescapedcharacters1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [EnumWithEscapedCharacters1Boxed](#enumwithescapedcharacters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringEnumWithEscapedCharactersEnums
 public enum StringEnumWithEscapedCharactersEnums<br>
 extends `Enum<StringEnumWithEscapedCharactersEnums>`

@@ -4,23 +4,23 @@ public class MaximumValidationWithUnsignedInteger<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)<br> abstract sealed validated payload class |
-| static class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedVoid](#maximumvalidationwithunsignedinteger1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedBoolean](#maximumvalidationwithunsignedinteger1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedNumber](#maximumvalidationwithunsignedinteger1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedString](#maximumvalidationwithunsignedinteger1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedList](#maximumvalidationwithunsignedinteger1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedMap](#maximumvalidationwithunsignedinteger1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)<br> sealed interface for validated payloads |
+| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedVoid](#maximumvalidationwithunsignedinteger1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedBoolean](#maximumvalidationwithunsignedinteger1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedNumber](#maximumvalidationwithunsignedinteger1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedString](#maximumvalidationwithunsignedinteger1boxedstring)<br> boxed class to store validated String payloads |
+| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedList](#maximumvalidationwithunsignedinteger1boxedlist)<br> boxed class to store validated List payloads |
+| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedMap](#maximumvalidationwithunsignedinteger1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1](#maximumvalidationwithunsignedinteger1)<br> schema class |
 
 ## MaximumValidationWithUnsignedInteger1Boxed
-public static abstract sealed class MaximumValidationWithUnsignedInteger1Boxed<br>
+public sealed interface MaximumValidationWithUnsignedInteger1Boxed<br>
 permits<br>
 [MaximumValidationWithUnsignedInteger1BoxedVoid](#maximumvalidationwithunsignedinteger1boxedvoid),
 [MaximumValidationWithUnsignedInteger1BoxedBoolean](#maximumvalidationwithunsignedinteger1boxedboolean),
@@ -29,103 +29,109 @@ permits<br>
 [MaximumValidationWithUnsignedInteger1BoxedList](#maximumvalidationwithunsignedinteger1boxedlist),
 [MaximumValidationWithUnsignedInteger1BoxedMap](#maximumvalidationwithunsignedinteger1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MaximumValidationWithUnsignedInteger1BoxedVoid
-public static final class MaximumValidationWithUnsignedInteger1BoxedVoid<br>
-extends [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
+public record MaximumValidationWithUnsignedInteger1BoxedVoid<br>
+implements [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MaximumValidationWithUnsignedInteger1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MaximumValidationWithUnsignedInteger1BoxedBoolean
-public static final class MaximumValidationWithUnsignedInteger1BoxedBoolean<br>
-extends [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
+public record MaximumValidationWithUnsignedInteger1BoxedBoolean<br>
+implements [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MaximumValidationWithUnsignedInteger1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MaximumValidationWithUnsignedInteger1BoxedNumber
-public static final class MaximumValidationWithUnsignedInteger1BoxedNumber<br>
-extends [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
+public record MaximumValidationWithUnsignedInteger1BoxedNumber<br>
+implements [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MaximumValidationWithUnsignedInteger1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MaximumValidationWithUnsignedInteger1BoxedString
-public static final class MaximumValidationWithUnsignedInteger1BoxedString<br>
-extends [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
+public record MaximumValidationWithUnsignedInteger1BoxedString<br>
+implements [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MaximumValidationWithUnsignedInteger1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MaximumValidationWithUnsignedInteger1BoxedList
-public static final class MaximumValidationWithUnsignedInteger1BoxedList<br>
-extends [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
+public record MaximumValidationWithUnsignedInteger1BoxedList<br>
+implements [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MaximumValidationWithUnsignedInteger1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MaximumValidationWithUnsignedInteger1BoxedMap
-public static final class MaximumValidationWithUnsignedInteger1BoxedMap<br>
-extends [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
+public record MaximumValidationWithUnsignedInteger1BoxedMap<br>
+implements [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MaximumValidationWithUnsignedInteger1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MaximumValidationWithUnsignedInteger1
 public static class MaximumValidationWithUnsignedInteger1<br>
@@ -157,5 +163,7 @@ A schema class that validates payloads
 | [MaximumValidationWithUnsignedInteger1BoxedBoolean](#maximumvalidationwithunsignedinteger1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [MaximumValidationWithUnsignedInteger1BoxedMap](#maximumvalidationwithunsignedinteger1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [MaximumValidationWithUnsignedInteger1BoxedList](#maximumvalidationwithunsignedinteger1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

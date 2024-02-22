@@ -4,7 +4,7 @@ public class MyObjectDto<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,15 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [MyObjectDto.MyObjectDto1Boxed](#myobjectdto1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [MyObjectDto.MyObjectDto1Boxed](#myobjectdto1boxed)<br> sealed interface for validated payloads |
 | record | [MyObjectDto.MyObjectDto1BoxedMap](#myobjectdto1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MyObjectDto.MyObjectDto1](#myobjectdto1)<br> schema class |
 | static class | [MyObjectDto.MyObjectDtoMapBuilder](#myobjectdtomapbuilder)<br> builder for Map payloads |
 | static class | [MyObjectDto.MyObjectDtoMap](#myobjectdtomap)<br> output class for Map payloads |
-| sealed interface | [MyObjectDto.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MyObjectDto.IdBoxed](#idboxed)<br> sealed interface for validated payloads |
 | record | [MyObjectDto.IdBoxedString](#idboxedstring)<br> boxed class to store validated String payloads |
 | static class | [MyObjectDto.Id](#id)<br> schema class |
-| sealed interface | [MyObjectDto.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MyObjectDto.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [MyObjectDto.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | record | [MyObjectDto.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [MyObjectDto.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |

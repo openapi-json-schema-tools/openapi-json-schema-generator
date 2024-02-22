@@ -4,7 +4,7 @@ public class Address<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Address.Address1Boxed](#address1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Address.Address1Boxed](#address1boxed)<br> sealed interface for validated payloads |
 | record | [Address.Address1BoxedMap](#address1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Address.Address1](#address1)<br> schema class |
 | static class | [Address.AddressMapBuilder](#addressmapbuilder)<br> builder for Map payloads |
 | static class | [Address.AddressMap](#addressmap)<br> output class for Map payloads |
-| sealed interface | [Address.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Address.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [Address.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
 

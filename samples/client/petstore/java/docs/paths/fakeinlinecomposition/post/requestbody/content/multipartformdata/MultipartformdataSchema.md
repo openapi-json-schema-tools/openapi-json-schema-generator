@@ -3,7 +3,7 @@ public class MultipartformdataSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -11,12 +11,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [MultipartformdataSchema.MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [MultipartformdataSchema.MultipartformdataSchema1Boxed](#multipartformdataschema1boxed)<br> sealed interface for validated payloads |
 | record | [MultipartformdataSchema.MultipartformdataSchema1BoxedMap](#multipartformdataschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSchema1](#multipartformdataschema1)<br> schema class |
 | static class | [MultipartformdataSchema.MultipartformdataSchemaMapBuilder](#multipartformdataschemamapbuilder)<br> builder for Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSchemaMap](#multipartformdataschemamap)<br> output class for Map payloads |
-| sealed interface | [MultipartformdataSchema.MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MultipartformdataSchema.MultipartformdataSomePropBoxed](#multipartformdatasomepropboxed)<br> sealed interface for validated payloads |
 | record | [MultipartformdataSchema.MultipartformdataSomePropBoxedVoid](#multipartformdatasomepropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [MultipartformdataSchema.MultipartformdataSomePropBoxedBoolean](#multipartformdatasomepropboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [MultipartformdataSchema.MultipartformdataSomePropBoxedNumber](#multipartformdatasomepropboxednumber)<br> boxed class to store validated Number payloads |
@@ -24,7 +24,7 @@ A class that contains necessary nested
 | record | [MultipartformdataSchema.MultipartformdataSomePropBoxedList](#multipartformdatasomepropboxedlist)<br> boxed class to store validated List payloads |
 | record | [MultipartformdataSchema.MultipartformdataSomePropBoxedMap](#multipartformdatasomepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MultipartformdataSchema.MultipartformdataSomeProp](#multipartformdatasomeprop)<br> schema class |
-| sealed interface | [MultipartformdataSchema.Multipartformdata0Boxed](#multipartformdata0boxed)<br> abstract sealed validated payload class |
+| sealed interface | [MultipartformdataSchema.Multipartformdata0Boxed](#multipartformdata0boxed)<br> sealed interface for validated payloads |
 | record | [MultipartformdataSchema.Multipartformdata0BoxedString](#multipartformdata0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [MultipartformdataSchema.Multipartformdata0](#multipartformdata0)<br> schema class |
 

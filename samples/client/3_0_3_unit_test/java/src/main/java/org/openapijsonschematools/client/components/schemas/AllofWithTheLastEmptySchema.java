@@ -59,78 +59,54 @@ public class AllofWithTheLastEmptySchema {
     }
     
     
-    public static abstract sealed class AllofWithTheLastEmptySchema1Boxed permits AllofWithTheLastEmptySchema1BoxedVoid, AllofWithTheLastEmptySchema1BoxedBoolean, AllofWithTheLastEmptySchema1BoxedNumber, AllofWithTheLastEmptySchema1BoxedString, AllofWithTheLastEmptySchema1BoxedList, AllofWithTheLastEmptySchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AllofWithTheLastEmptySchema1Boxed permits AllofWithTheLastEmptySchema1BoxedVoid, AllofWithTheLastEmptySchema1BoxedBoolean, AllofWithTheLastEmptySchema1BoxedNumber, AllofWithTheLastEmptySchema1BoxedString, AllofWithTheLastEmptySchema1BoxedList, AllofWithTheLastEmptySchema1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class AllofWithTheLastEmptySchema1BoxedVoid extends AllofWithTheLastEmptySchema1Boxed {
-        public final Void data;
-        private AllofWithTheLastEmptySchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AllofWithTheLastEmptySchema1BoxedVoid(Void data) implements AllofWithTheLastEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AllofWithTheLastEmptySchema1BoxedBoolean extends AllofWithTheLastEmptySchema1Boxed {
-        public final boolean data;
-        private AllofWithTheLastEmptySchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AllofWithTheLastEmptySchema1BoxedBoolean(boolean data) implements AllofWithTheLastEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AllofWithTheLastEmptySchema1BoxedNumber extends AllofWithTheLastEmptySchema1Boxed {
-        public final Number data;
-        private AllofWithTheLastEmptySchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AllofWithTheLastEmptySchema1BoxedNumber(Number data) implements AllofWithTheLastEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AllofWithTheLastEmptySchema1BoxedString extends AllofWithTheLastEmptySchema1Boxed {
-        public final String data;
-        private AllofWithTheLastEmptySchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record AllofWithTheLastEmptySchema1BoxedString(String data) implements AllofWithTheLastEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AllofWithTheLastEmptySchema1BoxedList extends AllofWithTheLastEmptySchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private AllofWithTheLastEmptySchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AllofWithTheLastEmptySchema1BoxedList(FrozenList<@Nullable Object> data) implements AllofWithTheLastEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AllofWithTheLastEmptySchema1BoxedMap extends AllofWithTheLastEmptySchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AllofWithTheLastEmptySchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AllofWithTheLastEmptySchema1BoxedMap(FrozenMap<@Nullable Object> data) implements AllofWithTheLastEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class AllofWithTheLastEmptySchema1 extends JsonSchema implements NullSchemaValidator<AllofWithTheLastEmptySchema1BoxedVoid>, BooleanSchemaValidator<AllofWithTheLastEmptySchema1BoxedBoolean>, NumberSchemaValidator<AllofWithTheLastEmptySchema1BoxedNumber>, StringSchemaValidator<AllofWithTheLastEmptySchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AllofWithTheLastEmptySchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AllofWithTheLastEmptySchema1BoxedMap> {
+    public static class AllofWithTheLastEmptySchema1 extends JsonSchema<AllofWithTheLastEmptySchema1Boxed> implements NullSchemaValidator<AllofWithTheLastEmptySchema1BoxedVoid>, BooleanSchemaValidator<AllofWithTheLastEmptySchema1BoxedBoolean>, NumberSchemaValidator<AllofWithTheLastEmptySchema1BoxedNumber>, StringSchemaValidator<AllofWithTheLastEmptySchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AllofWithTheLastEmptySchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AllofWithTheLastEmptySchema1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -238,11 +214,11 @@ public class AllofWithTheLastEmptySchema {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -273,11 +249,11 @@ public class AllofWithTheLastEmptySchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -355,6 +331,25 @@ public class AllofWithTheLastEmptySchema {
         @Override
         public AllofWithTheLastEmptySchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AllofWithTheLastEmptySchema1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public AllofWithTheLastEmptySchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

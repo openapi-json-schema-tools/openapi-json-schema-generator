@@ -31,13 +31,13 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 __StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': typing.Type[response_200.ResponseFor200],
-        '400': typing.Type[response_400.ResponseFor400],
+        '200': typing.Type[response_200._200],
+        '400': typing.Type[response_400._400],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '200': response_200.ResponseFor200,
-    '400': response_400.ResponseFor400,
+    '200': response_200._200,
+    '400': response_400._400,
 }
 _non_error_status_codes = frozenset({
     '200',

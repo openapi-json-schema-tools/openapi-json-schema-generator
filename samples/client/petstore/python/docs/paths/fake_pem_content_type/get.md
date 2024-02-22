@@ -55,27 +55,27 @@ str | str |
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
+200 | [_200.ApiResponse](#_200-apiresponse) | success
 
-## ResponseFor200
+## _200
 
 ### Description
 success
 
-### ResponseFor200 ApiResponse
+### _200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | str |  |
+[body](#_200-body) | str |  |
 headers | Unset | headers were not defined |
 
-### ResponseFor200 Body
+### _200 Body
 Content-Type | Schema
 ------------ | -------
-"application/x-pem-file" | [content.application_x_pem_file.Schema](#responsefor200-content-applicationxpemfile-schema)
+"application/x-pem-file" | [content.application_x_pem_file.Schema](#_200-content-applicationxpemfile-schema)
 
 ### Body Details
-#### ResponseFor200 content ApplicationXPemFile Schema
+#### _200 content ApplicationXPemFile Schema
 ```
 type: schemas.Schema
 ```

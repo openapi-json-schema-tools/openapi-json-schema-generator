@@ -4,13 +4,13 @@ public class NullableShape<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [NullableShape.NullableShape1Boxed](#nullableshape1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableShape.NullableShape1Boxed](#nullableshape1boxed)<br> sealed interface for validated payloads |
 | record | [NullableShape.NullableShape1BoxedVoid](#nullableshape1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableShape.NullableShape1BoxedBoolean](#nullableshape1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [NullableShape.NullableShape1BoxedNumber](#nullableshape1boxednumber)<br> boxed class to store validated Number payloads |
@@ -18,7 +18,7 @@ A class that contains necessary nested
 | record | [NullableShape.NullableShape1BoxedList](#nullableshape1boxedlist)<br> boxed class to store validated List payloads |
 | record | [NullableShape.NullableShape1BoxedMap](#nullableshape1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableShape.NullableShape1](#nullableshape1)<br> schema class |
-| sealed interface | [NullableShape.Schema2Boxed](#schema2boxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableShape.Schema2Boxed](#schema2boxed)<br> sealed interface for validated payloads |
 | record | [NullableShape.Schema2BoxedVoid](#schema2boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableShape.Schema2](#schema2)<br> schema class |
 

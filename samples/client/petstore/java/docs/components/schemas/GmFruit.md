@@ -4,7 +4,7 @@ public class GmFruit<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,7 +12,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [GmFruit.GmFruit1Boxed](#gmfruit1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [GmFruit.GmFruit1Boxed](#gmfruit1boxed)<br> sealed interface for validated payloads |
 | record | [GmFruit.GmFruit1BoxedVoid](#gmfruit1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [GmFruit.GmFruit1BoxedBoolean](#gmfruit1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [GmFruit.GmFruit1BoxedNumber](#gmfruit1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,7 +22,7 @@ A class that contains necessary nested
 | static class | [GmFruit.GmFruit1](#gmfruit1)<br> schema class |
 | static class | [GmFruit.GmFruitMapBuilder](#gmfruitmapbuilder)<br> builder for Map payloads |
 | static class | [GmFruit.GmFruitMap](#gmfruitmap)<br> output class for Map payloads |
-| sealed interface | [GmFruit.ColorBoxed](#colorboxed)<br> abstract sealed validated payload class |
+| sealed interface | [GmFruit.ColorBoxed](#colorboxed)<br> sealed interface for validated payloads |
 | record | [GmFruit.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [GmFruit.Color](#color)<br> schema class |
 

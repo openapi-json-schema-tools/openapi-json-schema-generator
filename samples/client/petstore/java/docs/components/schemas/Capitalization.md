@@ -4,7 +4,7 @@ public class Capitalization<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,27 +12,27 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Capitalization.Capitalization1Boxed](#capitalization1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Capitalization.Capitalization1Boxed](#capitalization1boxed)<br> sealed interface for validated payloads |
 | record | [Capitalization.Capitalization1BoxedMap](#capitalization1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Capitalization.Capitalization1](#capitalization1)<br> schema class |
 | static class | [Capitalization.CapitalizationMapBuilder](#capitalizationmapbuilder)<br> builder for Map payloads |
 | static class | [Capitalization.CapitalizationMap](#capitalizationmap)<br> output class for Map payloads |
-| sealed interface | [Capitalization.ATTNAMEBoxed](#attnameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Capitalization.ATTNAMEBoxed](#attnameboxed)<br> sealed interface for validated payloads |
 | record | [Capitalization.ATTNAMEBoxedString](#attnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.ATTNAME](#attname)<br> schema class |
-| sealed interface | [Capitalization.SCAETHFlowPointsBoxed](#scaethflowpointsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Capitalization.SCAETHFlowPointsBoxed](#scaethflowpointsboxed)<br> sealed interface for validated payloads |
 | record | [Capitalization.SCAETHFlowPointsBoxedString](#scaethflowpointsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.SCAETHFlowPoints](#scaethflowpoints)<br> schema class |
-| sealed interface | [Capitalization.CapitalSnakeBoxed](#capitalsnakeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Capitalization.CapitalSnakeBoxed](#capitalsnakeboxed)<br> sealed interface for validated payloads |
 | record | [Capitalization.CapitalSnakeBoxedString](#capitalsnakeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.CapitalSnake](#capitalsnake)<br> schema class |
-| sealed interface | [Capitalization.SmallSnakeBoxed](#smallsnakeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Capitalization.SmallSnakeBoxed](#smallsnakeboxed)<br> sealed interface for validated payloads |
 | record | [Capitalization.SmallSnakeBoxedString](#smallsnakeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.SmallSnake](#smallsnake)<br> schema class |
-| sealed interface | [Capitalization.CapitalCamelBoxed](#capitalcamelboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Capitalization.CapitalCamelBoxed](#capitalcamelboxed)<br> sealed interface for validated payloads |
 | record | [Capitalization.CapitalCamelBoxedString](#capitalcamelboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.CapitalCamel](#capitalcamel)<br> schema class |
-| sealed interface | [Capitalization.SmallCamelBoxed](#smallcamelboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Capitalization.SmallCamelBoxed](#smallcamelboxed)<br> sealed interface for validated payloads |
 | record | [Capitalization.SmallCamelBoxedString](#smallcamelboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.SmallCamel](#smallcamel)<br> schema class |
 

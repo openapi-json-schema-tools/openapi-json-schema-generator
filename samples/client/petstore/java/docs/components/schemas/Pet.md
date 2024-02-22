@@ -4,7 +4,7 @@ public class Pet<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -15,32 +15,32 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Pet.Pet1Boxed](#pet1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Pet.Pet1Boxed](#pet1boxed)<br> sealed interface for validated payloads |
 | record | [Pet.Pet1BoxedMap](#pet1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Pet.Pet1](#pet1)<br> schema class |
 | static class | [Pet.PetMapBuilder](#petmapbuilder)<br> builder for Map payloads |
 | static class | [Pet.PetMap](#petmap)<br> output class for Map payloads |
-| sealed interface | [Pet.TagsBoxed](#tagsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Pet.TagsBoxed](#tagsboxed)<br> sealed interface for validated payloads |
 | record | [Pet.TagsBoxedList](#tagsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Pet.Tags](#tags)<br> schema class |
 | static class | [Pet.TagsListBuilder](#tagslistbuilder)<br> builder for List payloads |
 | static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
-| sealed interface | [Pet.StatusBoxed](#statusboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Pet.StatusBoxed](#statusboxed)<br> sealed interface for validated payloads |
 | record | [Pet.StatusBoxedString](#statusboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Status](#status)<br> schema class |
 | enum | [Pet.StringStatusEnums](#stringstatusenums)<br>String enum |
-| sealed interface | [Pet.PhotoUrlsBoxed](#photourlsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Pet.PhotoUrlsBoxed](#photourlsboxed)<br> sealed interface for validated payloads |
 | record | [Pet.PhotoUrlsBoxedList](#photourlsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Pet.PhotoUrls](#photourls)<br> schema class |
 | static class | [Pet.PhotoUrlsListBuilder](#photourlslistbuilder)<br> builder for List payloads |
 | static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |
-| sealed interface | [Pet.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Pet.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
 | record | [Pet.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Items](#items)<br> schema class |
-| sealed interface | [Pet.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Pet.NameBoxed](#nameboxed)<br> sealed interface for validated payloads |
 | record | [Pet.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Name](#name)<br> schema class |
-| sealed interface | [Pet.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Pet.IdBoxed](#idboxed)<br> sealed interface for validated payloads |
 | record | [Pet.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Pet.Id](#id)<br> schema class |
 

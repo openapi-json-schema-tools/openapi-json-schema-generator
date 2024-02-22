@@ -4,7 +4,7 @@ public class Whale<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,19 +13,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Whale.Whale1Boxed](#whale1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Whale.Whale1Boxed](#whale1boxed)<br> sealed interface for validated payloads |
 | record | [Whale.Whale1BoxedMap](#whale1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Whale.Whale1](#whale1)<br> schema class |
 | static class | [Whale.WhaleMapBuilder](#whalemapbuilder)<br> builder for Map payloads |
 | static class | [Whale.WhaleMap](#whalemap)<br> output class for Map payloads |
-| sealed interface | [Whale.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Whale.ClassNameBoxed](#classnameboxed)<br> sealed interface for validated payloads |
 | record | [Whale.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Whale.ClassName](#classname)<br> schema class |
 | enum | [Whale.StringClassNameEnums](#stringclassnameenums)<br>String enum |
-| sealed interface | [Whale.HasTeethBoxed](#hasteethboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Whale.HasTeethBoxed](#hasteethboxed)<br> sealed interface for validated payloads |
 | record | [Whale.HasTeethBoxedBoolean](#hasteethboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Whale.HasTeeth](#hasteeth)<br> schema class |
-| sealed interface | [Whale.HasBaleenBoxed](#hasbaleenboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Whale.HasBaleenBoxed](#hasbaleenboxed)<br> sealed interface for validated payloads |
 | record | [Whale.HasBaleenBoxedBoolean](#hasbaleenboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Whale.HasBaleen](#hasbaleen)<br> schema class |
 

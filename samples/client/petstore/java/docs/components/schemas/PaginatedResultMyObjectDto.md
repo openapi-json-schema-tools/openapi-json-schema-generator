@@ -4,7 +4,7 @@ public class PaginatedResultMyObjectDto<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -14,20 +14,20 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1Boxed](#paginatedresultmyobjectdto1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1Boxed](#paginatedresultmyobjectdto1boxed)<br> sealed interface for validated payloads |
 | record | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1BoxedMap](#paginatedresultmyobjectdto1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1](#paginatedresultmyobjectdto1)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapBuilder](#paginatedresultmyobjectdtomapbuilder)<br> builder for Map payloads |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap)<br> output class for Map payloads |
-| sealed interface | [PaginatedResultMyObjectDto.ResultsBoxed](#resultsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [PaginatedResultMyObjectDto.ResultsBoxed](#resultsboxed)<br> sealed interface for validated payloads |
 | record | [PaginatedResultMyObjectDto.ResultsBoxedList](#resultsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [PaginatedResultMyObjectDto.Results](#results)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.ResultsListBuilder](#resultslistbuilder)<br> builder for List payloads |
 | static class | [PaginatedResultMyObjectDto.ResultsList](#resultslist)<br> output class for List payloads |
-| sealed interface | [PaginatedResultMyObjectDto.CountBoxed](#countboxed)<br> abstract sealed validated payload class |
+| sealed interface | [PaginatedResultMyObjectDto.CountBoxed](#countboxed)<br> sealed interface for validated payloads |
 | record | [PaginatedResultMyObjectDto.CountBoxedNumber](#countboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [PaginatedResultMyObjectDto.Count](#count)<br> schema class |
-| sealed interface | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | record | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |

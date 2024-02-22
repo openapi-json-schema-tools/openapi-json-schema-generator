@@ -4,7 +4,7 @@ public class Tag<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,15 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Tag.Tag1Boxed](#tag1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Tag.Tag1Boxed](#tag1boxed)<br> sealed interface for validated payloads |
 | record | [Tag.Tag1BoxedMap](#tag1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Tag.Tag1](#tag1)<br> schema class |
 | static class | [Tag.TagMapBuilder](#tagmapbuilder)<br> builder for Map payloads |
 | static class | [Tag.TagMap](#tagmap)<br> output class for Map payloads |
-| sealed interface | [Tag.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Tag.NameBoxed](#nameboxed)<br> sealed interface for validated payloads |
 | record | [Tag.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Tag.Name](#name)<br> schema class |
-| sealed interface | [Tag.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Tag.IdBoxed](#idboxed)<br> sealed interface for validated payloads |
 | record | [Tag.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Tag.Id](#id)<br> schema class |
 

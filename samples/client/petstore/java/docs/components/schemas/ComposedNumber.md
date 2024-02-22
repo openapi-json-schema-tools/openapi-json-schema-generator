@@ -4,16 +4,16 @@ public class ComposedNumber<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ComposedNumber.ComposedNumber1Boxed](#composednumber1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComposedNumber.ComposedNumber1Boxed](#composednumber1boxed)<br> sealed interface for validated payloads |
 | record | [ComposedNumber.ComposedNumber1BoxedNumber](#composednumber1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ComposedNumber.ComposedNumber1](#composednumber1)<br> schema class |
-| sealed interface | [ComposedNumber.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComposedNumber.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
 | record | [ComposedNumber.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
 | record | [ComposedNumber.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ComposedNumber.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |

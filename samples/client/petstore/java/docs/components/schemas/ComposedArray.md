@@ -4,7 +4,7 @@ public class ComposedArray<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ComposedArray.ComposedArray1Boxed](#composedarray1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComposedArray.ComposedArray1Boxed](#composedarray1boxed)<br> sealed interface for validated payloads |
 | record | [ComposedArray.ComposedArray1BoxedList](#composedarray1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ComposedArray.ComposedArray1](#composedarray1)<br> schema class |
 | static class | [ComposedArray.ComposedArrayListBuilder](#composedarraylistbuilder)<br> builder for List payloads |
 | static class | [ComposedArray.ComposedArrayList](#composedarraylist)<br> output class for List payloads |
-| sealed interface | [ComposedArray.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComposedArray.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
 | record | [ComposedArray.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
 | record | [ComposedArray.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ComposedArray.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |

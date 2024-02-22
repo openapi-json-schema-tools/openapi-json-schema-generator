@@ -4,7 +4,7 @@ public class RefInAdditionalproperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,34 +12,35 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [RefInAdditionalproperties.RefInAdditionalproperties1Boxed](#refinadditionalproperties1boxed)<br> abstract sealed validated payload class |
-| static class | [RefInAdditionalproperties.RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [RefInAdditionalproperties.RefInAdditionalproperties1Boxed](#refinadditionalproperties1boxed)<br> sealed interface for validated payloads |
+| record | [RefInAdditionalproperties.RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [RefInAdditionalproperties.RefInAdditionalproperties1](#refinadditionalproperties1)<br> schema class |
 | static class | [RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [RefInAdditionalproperties.RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap)<br> output class for Map payloads |
 
 ## RefInAdditionalproperties1Boxed
-public static abstract sealed class RefInAdditionalproperties1Boxed<br>
+public sealed interface RefInAdditionalproperties1Boxed<br>
 permits<br>
 [RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## RefInAdditionalproperties1BoxedMap
-public static final class RefInAdditionalproperties1BoxedMap<br>
-extends [RefInAdditionalproperties1Boxed](#refinadditionalproperties1boxed)
+public record RefInAdditionalproperties1BoxedMap<br>
+implements [RefInAdditionalproperties1Boxed](#refinadditionalproperties1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RefInAdditionalproperties1BoxedMap([RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | data<br>validated payload |
+| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RefInAdditionalproperties1
 public static class RefInAdditionalproperties1<br>
@@ -82,7 +83,9 @@ RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
 | ----------------- | ---------------------- |
 | [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map&lt;?, ?&gt;](#refinadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | [RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#refinadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [RefInAdditionalproperties1Boxed](#refinadditionalproperties1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## RefInAdditionalpropertiesMapBuilder
 public class RefInAdditionalpropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

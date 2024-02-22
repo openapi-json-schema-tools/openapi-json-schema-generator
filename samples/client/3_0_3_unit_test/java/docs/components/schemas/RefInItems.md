@@ -4,7 +4,7 @@ public class RefInItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,34 +12,35 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [RefInItems.RefInItems1Boxed](#refinitems1boxed)<br> abstract sealed validated payload class |
-| static class | [RefInItems.RefInItems1BoxedList](#refinitems1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [RefInItems.RefInItems1Boxed](#refinitems1boxed)<br> sealed interface for validated payloads |
+| record | [RefInItems.RefInItems1BoxedList](#refinitems1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [RefInItems.RefInItems1](#refinitems1)<br> schema class |
 | static class | [RefInItems.RefInItemsListBuilder](#refinitemslistbuilder)<br> builder for List payloads |
 | static class | [RefInItems.RefInItemsList](#refinitemslist)<br> output class for List payloads |
 
 ## RefInItems1Boxed
-public static abstract sealed class RefInItems1Boxed<br>
+public sealed interface RefInItems1Boxed<br>
 permits<br>
 [RefInItems1BoxedList](#refinitems1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## RefInItems1BoxedList
-public static final class RefInItems1BoxedList<br>
-extends [RefInItems1Boxed](#refinitems1boxed)
+public record RefInItems1BoxedList<br>
+implements [RefInItems1Boxed](#refinitems1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RefInItems1BoxedList([RefInItemsList](#refinitemslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RefInItemsList](#refinitemslist) | data<br>validated payload |
+| [RefInItemsList](#refinitemslist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RefInItems1
 public static class RefInItems1<br>
@@ -82,7 +83,9 @@ RefInItems.RefInItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | [RefInItemsList](#refinitemslist) | validate([List<?>](#refinitemslistbuilder) arg, SchemaConfiguration configuration) |
 | [RefInItems1BoxedList](#refinitems1boxedlist) | validateAndBox([List<?>](#refinitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [RefInItems1Boxed](#refinitems1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## RefInItemsListBuilder
 public class RefInItemsListBuilder<br>
 builder for `List<@Nullable Object>`

@@ -4,7 +4,7 @@ public class ArrayHoldingAnyType<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ArrayHoldingAnyType.ArrayHoldingAnyType1Boxed](#arrayholdinganytype1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayHoldingAnyType.ArrayHoldingAnyType1Boxed](#arrayholdinganytype1boxed)<br> sealed interface for validated payloads |
 | record | [ArrayHoldingAnyType.ArrayHoldingAnyType1BoxedList](#arrayholdinganytype1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyType1](#arrayholdinganytype1)<br> schema class |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeListBuilder](#arrayholdinganytypelistbuilder)<br> builder for List payloads |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeList](#arrayholdinganytypelist)<br> output class for List payloads |
-| sealed interface | [ArrayHoldingAnyType.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayHoldingAnyType.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
 | record | [ArrayHoldingAnyType.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
 | record | [ArrayHoldingAnyType.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ArrayHoldingAnyType.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |

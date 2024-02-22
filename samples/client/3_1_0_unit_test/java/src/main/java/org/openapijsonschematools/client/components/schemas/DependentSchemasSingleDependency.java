@@ -188,78 +188,54 @@ public class DependentSchemasSingleDependency {
     }
     
     
-    public static abstract sealed class BarBoxed permits BarBoxedVoid, BarBoxedBoolean, BarBoxedNumber, BarBoxedString, BarBoxedList, BarBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface BarBoxed permits BarBoxedVoid, BarBoxedBoolean, BarBoxedNumber, BarBoxedString, BarBoxedList, BarBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class BarBoxedVoid extends BarBoxed {
-        public final Void data;
-        private BarBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record BarBoxedVoid(Void data) implements BarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BarBoxedBoolean extends BarBoxed {
-        public final boolean data;
-        private BarBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record BarBoxedBoolean(boolean data) implements BarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BarBoxedNumber extends BarBoxed {
-        public final Number data;
-        private BarBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record BarBoxedNumber(Number data) implements BarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BarBoxedString extends BarBoxed {
-        public final String data;
-        private BarBoxedString(String data) {
-            this.data = data;
-        }
+    public record BarBoxedString(String data) implements BarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BarBoxedList extends BarBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private BarBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record BarBoxedList(FrozenList<@Nullable Object> data) implements BarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class BarBoxedMap extends BarBoxed {
-        public final BarMap data;
-        private BarBoxedMap(BarMap data) {
-            this.data = data;
-        }
+    public record BarBoxedMap(BarMap data) implements BarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Bar extends JsonSchema implements NullSchemaValidator<BarBoxedVoid>, BooleanSchemaValidator<BarBoxedBoolean>, NumberSchemaValidator<BarBoxedNumber>, StringSchemaValidator<BarBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, BarBoxedList>, MapSchemaValidator<BarMap, BarBoxedMap> {
+    public static class Bar extends JsonSchema<BarBoxed> implements NullSchemaValidator<BarBoxedVoid>, BooleanSchemaValidator<BarBoxedBoolean>, NumberSchemaValidator<BarBoxedNumber>, StringSchemaValidator<BarBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, BarBoxedList>, MapSchemaValidator<BarMap, BarBoxedMap> {
         private static @Nullable Bar instance = null;
     
         protected Bar() {
@@ -361,11 +337,11 @@ public class DependentSchemasSingleDependency {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -396,11 +372,11 @@ public class DependentSchemasSingleDependency {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -479,80 +455,75 @@ public class DependentSchemasSingleDependency {
         public BarBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BarBoxedMap(validate(arg, configuration));
         }
+        @Override
+        public BarBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class DependentSchemasSingleDependency1Boxed permits DependentSchemasSingleDependency1BoxedVoid, DependentSchemasSingleDependency1BoxedBoolean, DependentSchemasSingleDependency1BoxedNumber, DependentSchemasSingleDependency1BoxedString, DependentSchemasSingleDependency1BoxedList, DependentSchemasSingleDependency1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface DependentSchemasSingleDependency1Boxed permits DependentSchemasSingleDependency1BoxedVoid, DependentSchemasSingleDependency1BoxedBoolean, DependentSchemasSingleDependency1BoxedNumber, DependentSchemasSingleDependency1BoxedString, DependentSchemasSingleDependency1BoxedList, DependentSchemasSingleDependency1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class DependentSchemasSingleDependency1BoxedVoid extends DependentSchemasSingleDependency1Boxed {
-        public final Void data;
-        private DependentSchemasSingleDependency1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record DependentSchemasSingleDependency1BoxedVoid(Void data) implements DependentSchemasSingleDependency1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasSingleDependency1BoxedBoolean extends DependentSchemasSingleDependency1Boxed {
-        public final boolean data;
-        private DependentSchemasSingleDependency1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record DependentSchemasSingleDependency1BoxedBoolean(boolean data) implements DependentSchemasSingleDependency1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasSingleDependency1BoxedNumber extends DependentSchemasSingleDependency1Boxed {
-        public final Number data;
-        private DependentSchemasSingleDependency1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record DependentSchemasSingleDependency1BoxedNumber(Number data) implements DependentSchemasSingleDependency1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasSingleDependency1BoxedString extends DependentSchemasSingleDependency1Boxed {
-        public final String data;
-        private DependentSchemasSingleDependency1BoxedString(String data) {
-            this.data = data;
-        }
+    public record DependentSchemasSingleDependency1BoxedString(String data) implements DependentSchemasSingleDependency1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasSingleDependency1BoxedList extends DependentSchemasSingleDependency1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private DependentSchemasSingleDependency1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DependentSchemasSingleDependency1BoxedList(FrozenList<@Nullable Object> data) implements DependentSchemasSingleDependency1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class DependentSchemasSingleDependency1BoxedMap extends DependentSchemasSingleDependency1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private DependentSchemasSingleDependency1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record DependentSchemasSingleDependency1BoxedMap(FrozenMap<@Nullable Object> data) implements DependentSchemasSingleDependency1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class DependentSchemasSingleDependency1 extends JsonSchema implements NullSchemaValidator<DependentSchemasSingleDependency1BoxedVoid>, BooleanSchemaValidator<DependentSchemasSingleDependency1BoxedBoolean>, NumberSchemaValidator<DependentSchemasSingleDependency1BoxedNumber>, StringSchemaValidator<DependentSchemasSingleDependency1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DependentSchemasSingleDependency1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DependentSchemasSingleDependency1BoxedMap> {
+    public static class DependentSchemasSingleDependency1 extends JsonSchema<DependentSchemasSingleDependency1Boxed> implements NullSchemaValidator<DependentSchemasSingleDependency1BoxedVoid>, BooleanSchemaValidator<DependentSchemasSingleDependency1BoxedBoolean>, NumberSchemaValidator<DependentSchemasSingleDependency1BoxedNumber>, StringSchemaValidator<DependentSchemasSingleDependency1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DependentSchemasSingleDependency1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DependentSchemasSingleDependency1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -659,11 +630,11 @@ public class DependentSchemasSingleDependency {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -694,11 +665,11 @@ public class DependentSchemasSingleDependency {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -776,6 +747,25 @@ public class DependentSchemasSingleDependency {
         @Override
         public DependentSchemasSingleDependency1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DependentSchemasSingleDependency1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasSingleDependency1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

@@ -3,7 +3,7 @@ public class ApplicationxwwwformurlencodedSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -11,50 +11,50 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed](#applicationxwwwformurlencodedschema1boxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1BoxedMap](#applicationxwwwformurlencodedschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1](#applicationxwwwformurlencodedschema1)<br> schema class |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMapBuilder](#applicationxwwwformurlencodedschemamapbuilder)<br> builder for Map payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMap](#applicationxwwwformurlencodedschemamap)<br> output class for Map payloads |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedCallbackBoxed](#applicationxwwwformurlencodedcallbackboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedCallbackBoxed](#applicationxwwwformurlencodedcallbackboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedCallbackBoxedString](#applicationxwwwformurlencodedcallbackboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedCallback](#applicationxwwwformurlencodedcallback)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedPasswordBoxed](#applicationxwwwformurlencodedpasswordboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedPasswordBoxed](#applicationxwwwformurlencodedpasswordboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedPasswordBoxedString](#applicationxwwwformurlencodedpasswordboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedPassword](#applicationxwwwformurlencodedpassword)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDateTimeBoxed](#applicationxwwwformurlencodeddatetimeboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDateTimeBoxed](#applicationxwwwformurlencodeddatetimeboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDateTimeBoxedString](#applicationxwwwformurlencodeddatetimeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDateTime](#applicationxwwwformurlencodeddatetime)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDateBoxed](#applicationxwwwformurlencodeddateboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDateBoxed](#applicationxwwwformurlencodeddateboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDateBoxedString](#applicationxwwwformurlencodeddateboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDate](#applicationxwwwformurlencodeddate)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedBinaryBoxed](#applicationxwwwformurlencodedbinaryboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedBinaryBoxed](#applicationxwwwformurlencodedbinaryboxed)<br> sealed interface for validated payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedBinary](#applicationxwwwformurlencodedbinary)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedByteBoxed](#applicationxwwwformurlencodedbyteboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedByteBoxed](#applicationxwwwformurlencodedbyteboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedByteBoxedString](#applicationxwwwformurlencodedbyteboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedByte](#applicationxwwwformurlencodedbyte)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed](#applicationxwwwformurlencodedpatternwithoutdelimiterboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed](#applicationxwwwformurlencodedpatternwithoutdelimiterboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString](#applicationxwwwformurlencodedpatternwithoutdelimiterboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedPatternWithoutDelimiter](#applicationxwwwformurlencodedpatternwithoutdelimiter)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedStringBoxed](#applicationxwwwformurlencodedstringboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedStringBoxed](#applicationxwwwformurlencodedstringboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedStringBoxedString](#applicationxwwwformurlencodedstringboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedString](#applicationxwwwformurlencodedstring)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDoubleBoxed](#applicationxwwwformurlencodeddoubleboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDoubleBoxed](#applicationxwwwformurlencodeddoubleboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDoubleBoxedNumber](#applicationxwwwformurlencodeddoubleboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedDouble](#applicationxwwwformurlencodeddouble)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedFloatBoxed](#applicationxwwwformurlencodedfloatboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedFloatBoxed](#applicationxwwwformurlencodedfloatboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedFloatBoxedNumber](#applicationxwwwformurlencodedfloatboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedFloat](#applicationxwwwformurlencodedfloat)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedNumberBoxed](#applicationxwwwformurlencodednumberboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedNumberBoxed](#applicationxwwwformurlencodednumberboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedNumberBoxedNumber](#applicationxwwwformurlencodednumberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedNumber](#applicationxwwwformurlencodednumber)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedInt64Boxed](#applicationxwwwformurlencodedint64boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedInt64Boxed](#applicationxwwwformurlencodedint64boxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedInt64BoxedNumber](#applicationxwwwformurlencodedint64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedInt64](#applicationxwwwformurlencodedint64)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedInt32Boxed](#applicationxwwwformurlencodedint32boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedInt32Boxed](#applicationxwwwformurlencodedint32boxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedInt32BoxedNumber](#applicationxwwwformurlencodedint32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedInt32](#applicationxwwwformurlencodedint32)<br> schema class |
-| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedIntegerBoxed](#applicationxwwwformurlencodedintegerboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedIntegerBoxed](#applicationxwwwformurlencodedintegerboxed)<br> sealed interface for validated payloads |
 | record | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedIntegerBoxedNumber](#applicationxwwwformurlencodedintegerboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedInteger](#applicationxwwwformurlencodedinteger)<br> schema class |
 

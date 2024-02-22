@@ -4,7 +4,7 @@ public class Drawing<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -14,12 +14,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Drawing.Drawing1Boxed](#drawing1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Drawing.Drawing1Boxed](#drawing1boxed)<br> sealed interface for validated payloads |
 | record | [Drawing.Drawing1BoxedMap](#drawing1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Drawing.Drawing1](#drawing1)<br> schema class |
 | static class | [Drawing.DrawingMapBuilder](#drawingmapbuilder)<br> builder for Map payloads |
 | static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
-| sealed interface | [Drawing.ShapesBoxed](#shapesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Drawing.ShapesBoxed](#shapesboxed)<br> sealed interface for validated payloads |
 | record | [Drawing.ShapesBoxedList](#shapesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Drawing.Shapes](#shapes)<br> schema class |
 | static class | [Drawing.ShapesListBuilder](#shapeslistbuilder)<br> builder for List payloads |

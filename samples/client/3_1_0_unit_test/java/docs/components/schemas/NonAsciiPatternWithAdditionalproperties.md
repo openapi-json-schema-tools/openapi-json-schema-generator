@@ -4,7 +4,7 @@ public class NonAsciiPatternWithAdditionalproperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,50 +12,51 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1Boxed](#nonasciipatternwithadditionalproperties1boxed)<br> abstract sealed validated payload class |
-| static class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1Boxed](#nonasciipatternwithadditionalproperties1boxed)<br> sealed interface for validated payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1](#nonasciipatternwithadditionalproperties1)<br> schema class |
 | static class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMapBuilder](#nonasciipatternwithadditionalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap)<br> output class for Map payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)<br> abstract sealed validated payload class |
-| static class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedVoid](#circumflexaccentlatinsmallletterawithacuteboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean](#circumflexaccentlatinsmallletterawithacuteboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedNumber](#circumflexaccentlatinsmallletterawithacuteboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedString](#circumflexaccentlatinsmallletterawithacuteboxedstring)<br> boxed class to store validated String payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedList](#circumflexaccentlatinsmallletterawithacuteboxedlist)<br> boxed class to store validated List payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedMap](#circumflexaccentlatinsmallletterawithacuteboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)<br> sealed interface for validated payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedVoid](#circumflexaccentlatinsmallletterawithacuteboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean](#circumflexaccentlatinsmallletterawithacuteboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedNumber](#circumflexaccentlatinsmallletterawithacuteboxednumber)<br> boxed class to store validated Number payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedString](#circumflexaccentlatinsmallletterawithacuteboxedstring)<br> boxed class to store validated String payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedList](#circumflexaccentlatinsmallletterawithacuteboxedlist)<br> boxed class to store validated List payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedMap](#circumflexaccentlatinsmallletterawithacuteboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcute](#circumflexaccentlatinsmallletterawithacute)<br> schema class |
-| static class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
-| static class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NonAsciiPatternWithAdditionalproperties.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## NonAsciiPatternWithAdditionalproperties1Boxed
-public static abstract sealed class NonAsciiPatternWithAdditionalproperties1Boxed<br>
+public sealed interface NonAsciiPatternWithAdditionalproperties1Boxed<br>
 permits<br>
 [NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NonAsciiPatternWithAdditionalproperties1BoxedMap
-public static final class NonAsciiPatternWithAdditionalproperties1BoxedMap<br>
-extends [NonAsciiPatternWithAdditionalproperties1Boxed](#nonasciipatternwithadditionalproperties1boxed)
+public record NonAsciiPatternWithAdditionalproperties1BoxedMap<br>
+implements [NonAsciiPatternWithAdditionalproperties1Boxed](#nonasciipatternwithadditionalproperties1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NonAsciiPatternWithAdditionalproperties1BoxedMap([NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | data<br>validated payload |
+| [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NonAsciiPatternWithAdditionalproperties1
 public static class NonAsciiPatternWithAdditionalproperties1<br>
@@ -99,7 +100,9 @@ NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesM
 | ----------------- | ---------------------- |
 | [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | validate([Map&lt;?, ?&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | [NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [NonAsciiPatternWithAdditionalproperties1Boxed](#nonasciipatternwithadditionalproperties1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## NonAsciiPatternWithAdditionalpropertiesMapBuilder
 public class NonAsciiPatternWithAdditionalpropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -128,7 +131,7 @@ A class to store validated Map payloads
 | static [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | of([Map<String, Object>](#nonasciipatternwithadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 
 ## CircumflexAccentLatinSmallLetterAWithAcuteBoxed
-public static abstract sealed class CircumflexAccentLatinSmallLetterAWithAcuteBoxed<br>
+public sealed interface CircumflexAccentLatinSmallLetterAWithAcuteBoxed<br>
 permits<br>
 [CircumflexAccentLatinSmallLetterAWithAcuteBoxedVoid](#circumflexaccentlatinsmallletterawithacuteboxedvoid),
 [CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean](#circumflexaccentlatinsmallletterawithacuteboxedboolean),
@@ -137,103 +140,109 @@ permits<br>
 [CircumflexAccentLatinSmallLetterAWithAcuteBoxedList](#circumflexaccentlatinsmallletterawithacuteboxedlist),
 [CircumflexAccentLatinSmallLetterAWithAcuteBoxedMap](#circumflexaccentlatinsmallletterawithacuteboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## CircumflexAccentLatinSmallLetterAWithAcuteBoxedVoid
-public static final class CircumflexAccentLatinSmallLetterAWithAcuteBoxedVoid<br>
-extends [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
+public record CircumflexAccentLatinSmallLetterAWithAcuteBoxedVoid<br>
+implements [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CircumflexAccentLatinSmallLetterAWithAcuteBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean
-public static final class CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean<br>
-extends [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
+public record CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean<br>
+implements [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## CircumflexAccentLatinSmallLetterAWithAcuteBoxedNumber
-public static final class CircumflexAccentLatinSmallLetterAWithAcuteBoxedNumber<br>
-extends [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
+public record CircumflexAccentLatinSmallLetterAWithAcuteBoxedNumber<br>
+implements [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CircumflexAccentLatinSmallLetterAWithAcuteBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## CircumflexAccentLatinSmallLetterAWithAcuteBoxedString
-public static final class CircumflexAccentLatinSmallLetterAWithAcuteBoxedString<br>
-extends [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
+public record CircumflexAccentLatinSmallLetterAWithAcuteBoxedString<br>
+implements [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CircumflexAccentLatinSmallLetterAWithAcuteBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## CircumflexAccentLatinSmallLetterAWithAcuteBoxedList
-public static final class CircumflexAccentLatinSmallLetterAWithAcuteBoxedList<br>
-extends [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
+public record CircumflexAccentLatinSmallLetterAWithAcuteBoxedList<br>
+implements [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CircumflexAccentLatinSmallLetterAWithAcuteBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## CircumflexAccentLatinSmallLetterAWithAcuteBoxedMap
-public static final class CircumflexAccentLatinSmallLetterAWithAcuteBoxedMap<br>
-extends [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
+public record CircumflexAccentLatinSmallLetterAWithAcuteBoxedMap<br>
+implements [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CircumflexAccentLatinSmallLetterAWithAcuteBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## CircumflexAccentLatinSmallLetterAWithAcute
 public static class CircumflexAccentLatinSmallLetterAWithAcute<br>
@@ -247,7 +256,7 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## AdditionalPropertiesBoxed
-public static abstract sealed class AdditionalPropertiesBoxed<br>
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
 [AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
@@ -256,103 +265,109 @@ permits<br>
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedVoid
-public static final class AdditionalPropertiesBoxedVoid<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedBoolean
-public static final class AdditionalPropertiesBoxedBoolean<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedNumber
-public static final class AdditionalPropertiesBoxedNumber<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedString
-public static final class AdditionalPropertiesBoxedString<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedList
-public static final class AdditionalPropertiesBoxedList<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalPropertiesBoxedMap
-public static final class AdditionalPropertiesBoxedMap<br>
-extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -4,7 +4,7 @@ public class EnumTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,28 +13,28 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [EnumTest.EnumTest1Boxed](#enumtest1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [EnumTest.EnumTest1Boxed](#enumtest1boxed)<br> sealed interface for validated payloads |
 | record | [EnumTest.EnumTest1BoxedMap](#enumtest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EnumTest.EnumTest1](#enumtest1)<br> schema class |
 | static class | [EnumTest.EnumTestMapBuilder](#enumtestmapbuilder)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
-| sealed interface | [EnumTest.EnumNumberBoxed](#enumnumberboxed)<br> abstract sealed validated payload class |
+| sealed interface | [EnumTest.EnumNumberBoxed](#enumnumberboxed)<br> sealed interface for validated payloads |
 | record | [EnumTest.EnumNumberBoxedNumber](#enumnumberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
 | enum | [EnumTest.DoubleEnumNumberEnums](#doubleenumnumberenums)<br>Double enum |
 | enum | [EnumTest.FloatEnumNumberEnums](#floatenumnumberenums)<br>Float enum |
-| sealed interface | [EnumTest.EnumIntegerBoxed](#enumintegerboxed)<br> abstract sealed validated payload class |
+| sealed interface | [EnumTest.EnumIntegerBoxed](#enumintegerboxed)<br> sealed interface for validated payloads |
 | record | [EnumTest.EnumIntegerBoxedNumber](#enumintegerboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
 | enum | [EnumTest.IntegerEnumIntegerEnums](#integerenumintegerenums)<br>Integer enum |
 | enum | [EnumTest.LongEnumIntegerEnums](#longenumintegerenums)<br>Long enum |
 | enum | [EnumTest.FloatEnumIntegerEnums](#floatenumintegerenums)<br>Float enum |
 | enum | [EnumTest.DoubleEnumIntegerEnums](#doubleenumintegerenums)<br>Double enum |
-| sealed interface | [EnumTest.EnumStringRequiredBoxed](#enumstringrequiredboxed)<br> abstract sealed validated payload class |
+| sealed interface | [EnumTest.EnumStringRequiredBoxed](#enumstringrequiredboxed)<br> sealed interface for validated payloads |
 | record | [EnumTest.EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumTest.EnumStringRequired](#enumstringrequired)<br> schema class |
 | enum | [EnumTest.StringEnumStringRequiredEnums](#stringenumstringrequiredenums)<br>String enum |
-| sealed interface | [EnumTest.EnumStringBoxed](#enumstringboxed)<br> abstract sealed validated payload class |
+| sealed interface | [EnumTest.EnumStringBoxed](#enumstringboxed)<br> sealed interface for validated payloads |
 | record | [EnumTest.EnumStringBoxedString](#enumstringboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumTest.EnumString](#enumstring)<br> schema class |
 | enum | [EnumTest.StringEnumStringEnums](#stringenumstringenums)<br>String enum |

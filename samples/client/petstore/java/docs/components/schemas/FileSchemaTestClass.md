@@ -4,7 +4,7 @@ public class FileSchemaTestClass<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -14,12 +14,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [FileSchemaTestClass.FileSchemaTestClass1Boxed](#fileschematestclass1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [FileSchemaTestClass.FileSchemaTestClass1Boxed](#fileschematestclass1boxed)<br> sealed interface for validated payloads |
 | record | [FileSchemaTestClass.FileSchemaTestClass1BoxedMap](#fileschematestclass1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FileSchemaTestClass.FileSchemaTestClass1](#fileschematestclass1)<br> schema class |
 | static class | [FileSchemaTestClass.FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder)<br> builder for Map payloads |
 | static class | [FileSchemaTestClass.FileSchemaTestClassMap](#fileschematestclassmap)<br> output class for Map payloads |
-| sealed interface | [FileSchemaTestClass.FilesBoxed](#filesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [FileSchemaTestClass.FilesBoxed](#filesboxed)<br> sealed interface for validated payloads |
 | record | [FileSchemaTestClass.FilesBoxedList](#filesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [FileSchemaTestClass.Files](#files)<br> schema class |
 | static class | [FileSchemaTestClass.FilesListBuilder](#fileslistbuilder)<br> builder for List payloads |

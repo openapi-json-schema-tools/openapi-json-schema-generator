@@ -38,78 +38,54 @@ public class MultipleDependentsRequired {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MultipleDependentsRequired1Boxed permits MultipleDependentsRequired1BoxedVoid, MultipleDependentsRequired1BoxedBoolean, MultipleDependentsRequired1BoxedNumber, MultipleDependentsRequired1BoxedString, MultipleDependentsRequired1BoxedList, MultipleDependentsRequired1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MultipleDependentsRequired1Boxed permits MultipleDependentsRequired1BoxedVoid, MultipleDependentsRequired1BoxedBoolean, MultipleDependentsRequired1BoxedNumber, MultipleDependentsRequired1BoxedString, MultipleDependentsRequired1BoxedList, MultipleDependentsRequired1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class MultipleDependentsRequired1BoxedVoid extends MultipleDependentsRequired1Boxed {
-        public final Void data;
-        private MultipleDependentsRequired1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record MultipleDependentsRequired1BoxedVoid(Void data) implements MultipleDependentsRequired1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipleDependentsRequired1BoxedBoolean extends MultipleDependentsRequired1Boxed {
-        public final boolean data;
-        private MultipleDependentsRequired1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record MultipleDependentsRequired1BoxedBoolean(boolean data) implements MultipleDependentsRequired1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipleDependentsRequired1BoxedNumber extends MultipleDependentsRequired1Boxed {
-        public final Number data;
-        private MultipleDependentsRequired1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record MultipleDependentsRequired1BoxedNumber(Number data) implements MultipleDependentsRequired1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipleDependentsRequired1BoxedString extends MultipleDependentsRequired1Boxed {
-        public final String data;
-        private MultipleDependentsRequired1BoxedString(String data) {
-            this.data = data;
-        }
+    public record MultipleDependentsRequired1BoxedString(String data) implements MultipleDependentsRequired1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipleDependentsRequired1BoxedList extends MultipleDependentsRequired1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private MultipleDependentsRequired1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MultipleDependentsRequired1BoxedList(FrozenList<@Nullable Object> data) implements MultipleDependentsRequired1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MultipleDependentsRequired1BoxedMap extends MultipleDependentsRequired1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private MultipleDependentsRequired1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MultipleDependentsRequired1BoxedMap(FrozenMap<@Nullable Object> data) implements MultipleDependentsRequired1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class MultipleDependentsRequired1 extends JsonSchema implements NullSchemaValidator<MultipleDependentsRequired1BoxedVoid>, BooleanSchemaValidator<MultipleDependentsRequired1BoxedBoolean>, NumberSchemaValidator<MultipleDependentsRequired1BoxedNumber>, StringSchemaValidator<MultipleDependentsRequired1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MultipleDependentsRequired1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MultipleDependentsRequired1BoxedMap> {
+    public static class MultipleDependentsRequired1 extends JsonSchema<MultipleDependentsRequired1Boxed> implements NullSchemaValidator<MultipleDependentsRequired1BoxedVoid>, BooleanSchemaValidator<MultipleDependentsRequired1BoxedBoolean>, NumberSchemaValidator<MultipleDependentsRequired1BoxedNumber>, StringSchemaValidator<MultipleDependentsRequired1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MultipleDependentsRequired1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MultipleDependentsRequired1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -222,11 +198,11 @@ public class MultipleDependentsRequired {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -257,11 +233,11 @@ public class MultipleDependentsRequired {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -339,6 +315,25 @@ public class MultipleDependentsRequired {
         @Override
         public MultipleDependentsRequired1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MultipleDependentsRequired1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public MultipleDependentsRequired1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

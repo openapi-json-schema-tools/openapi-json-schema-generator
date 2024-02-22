@@ -4,7 +4,7 @@ public class ObjectWithNonIntersectingValues<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,15 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1](#objectwithnonintersectingvalues1)<br> schema class |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap)<br> output class for Map payloads |
-| sealed interface | [ObjectWithNonIntersectingValues.ABoxed](#aboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithNonIntersectingValues.ABoxed](#aboxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithNonIntersectingValues.ABoxedNumber](#aboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithNonIntersectingValues.A](#a)<br> schema class |
-| sealed interface | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithNonIntersectingValues.AdditionalProperties](#additionalproperties)<br> schema class |
 

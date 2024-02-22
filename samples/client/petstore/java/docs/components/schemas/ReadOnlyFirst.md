@@ -4,7 +4,7 @@ public class ReadOnlyFirst<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,15 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ReadOnlyFirst.ReadOnlyFirst1Boxed](#readonlyfirst1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ReadOnlyFirst.ReadOnlyFirst1Boxed](#readonlyfirst1boxed)<br> sealed interface for validated payloads |
 | record | [ReadOnlyFirst.ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirst1](#readonlyfirst1)<br> schema class |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder)<br> builder for Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMap](#readonlyfirstmap)<br> output class for Map payloads |
-| sealed interface | [ReadOnlyFirst.BazBoxed](#bazboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ReadOnlyFirst.BazBoxed](#bazboxed)<br> sealed interface for validated payloads |
 | record | [ReadOnlyFirst.BazBoxedString](#bazboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ReadOnlyFirst.Baz](#baz)<br> schema class |
-| sealed interface | [ReadOnlyFirst.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ReadOnlyFirst.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
 | record | [ReadOnlyFirst.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ReadOnlyFirst.Bar](#bar)<br> schema class |
 

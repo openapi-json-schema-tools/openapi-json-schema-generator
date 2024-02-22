@@ -4,7 +4,7 @@ public class ArrayTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -14,40 +14,40 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ArrayTest.ArrayTest1Boxed](#arraytest1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayTest.ArrayTest1Boxed](#arraytest1boxed)<br> sealed interface for validated payloads |
 | record | [ArrayTest.ArrayTest1BoxedMap](#arraytest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ArrayTest.ArrayTest1](#arraytest1)<br> schema class |
 | static class | [ArrayTest.ArrayTestMapBuilder](#arraytestmapbuilder)<br> builder for Map payloads |
 | static class | [ArrayTest.ArrayTestMap](#arraytestmap)<br> output class for Map payloads |
-| sealed interface | [ArrayTest.ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayTest.ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed)<br> sealed interface for validated payloads |
 | record | [ArrayTest.ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.ArrayArrayOfModel](#arrayarrayofmodel)<br> schema class |
 | static class | [ArrayTest.ArrayArrayOfModelListBuilder](#arrayarrayofmodellistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfModelList](#arrayarrayofmodellist)<br> output class for List payloads |
-| sealed interface | [ArrayTest.Items3Boxed](#items3boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayTest.Items3Boxed](#items3boxed)<br> sealed interface for validated payloads |
 | record | [ArrayTest.Items3BoxedList](#items3boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.Items3](#items3)<br> schema class |
 | static class | [ArrayTest.ItemsListBuilder1](#itemslistbuilder1)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList1](#itemslist1)<br> output class for List payloads |
-| sealed interface | [ArrayTest.ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayTest.ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed)<br> sealed interface for validated payloads |
 | record | [ArrayTest.ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.ArrayArrayOfInteger](#arrayarrayofinteger)<br> schema class |
 | static class | [ArrayTest.ArrayArrayOfIntegerListBuilder](#arrayarrayofintegerlistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfIntegerList](#arrayarrayofintegerlist)<br> output class for List payloads |
-| sealed interface | [ArrayTest.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayTest.Items1Boxed](#items1boxed)<br> sealed interface for validated payloads |
 | record | [ArrayTest.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.Items1](#items1)<br> schema class |
 | static class | [ArrayTest.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList](#itemslist)<br> output class for List payloads |
-| sealed interface | [ArrayTest.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayTest.Items2Boxed](#items2boxed)<br> sealed interface for validated payloads |
 | record | [ArrayTest.Items2BoxedNumber](#items2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ArrayTest.Items2](#items2)<br> schema class |
-| sealed interface | [ArrayTest.ArrayOfStringBoxed](#arrayofstringboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayTest.ArrayOfStringBoxed](#arrayofstringboxed)<br> sealed interface for validated payloads |
 | record | [ArrayTest.ArrayOfStringBoxedList](#arrayofstringboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.ArrayOfString](#arrayofstring)<br> schema class |
 | static class | [ArrayTest.ArrayOfStringListBuilder](#arrayofstringlistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayOfStringList](#arrayofstringlist)<br> output class for List payloads |
-| sealed interface | [ArrayTest.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ArrayTest.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
 | record | [ArrayTest.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ArrayTest.Items](#items)<br> schema class |
 

@@ -3,13 +3,13 @@ public class Schema3<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Schema3.Schema31Boxed](#schema31boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Schema3.Schema31Boxed](#schema31boxed)<br> sealed interface for validated payloads |
 | record | [Schema3.Schema31BoxedString](#schema31boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema3.Schema31](#schema31)<br> schema class |
 

@@ -4,7 +4,7 @@ public class ReqPropsFromUnsetAddProps<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,7 +12,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed)<br> sealed interface for validated payloads |
 | record | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1](#reqpropsfromunsetaddprops1)<br> schema class |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMapBuilder](#reqpropsfromunsetaddpropsmapbuilder)<br> builder for Map payloads |

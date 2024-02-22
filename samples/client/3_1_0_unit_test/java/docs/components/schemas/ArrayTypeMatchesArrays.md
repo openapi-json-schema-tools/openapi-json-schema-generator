@@ -4,38 +4,39 @@ public class ArrayTypeMatchesArrays<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1Boxed](#arraytypematchesarrays1boxed)<br> abstract sealed validated payload class |
-| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1BoxedList](#arraytypematchesarrays1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1Boxed](#arraytypematchesarrays1boxed)<br> sealed interface for validated payloads |
+| record | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1BoxedList](#arraytypematchesarrays1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1](#arraytypematchesarrays1)<br> schema class |
 
 ## ArrayTypeMatchesArrays1Boxed
-public static abstract sealed class ArrayTypeMatchesArrays1Boxed<br>
+public sealed interface ArrayTypeMatchesArrays1Boxed<br>
 permits<br>
 [ArrayTypeMatchesArrays1BoxedList](#arraytypematchesarrays1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayTypeMatchesArrays1BoxedList
-public static final class ArrayTypeMatchesArrays1BoxedList<br>
-extends [ArrayTypeMatchesArrays1Boxed](#arraytypematchesarrays1boxed)
+public record ArrayTypeMatchesArrays1BoxedList<br>
+implements [ArrayTypeMatchesArrays1Boxed](#arraytypematchesarrays1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayTypeMatchesArrays1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayTypeMatchesArrays1
 public static class ArrayTypeMatchesArrays1<br>

@@ -4,7 +4,7 @@ public class ObjWithRequiredProps<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ObjWithRequiredProps.ObjWithRequiredProps1Boxed](#objwithrequiredprops1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjWithRequiredProps.ObjWithRequiredProps1Boxed](#objwithrequiredprops1boxed)<br> sealed interface for validated payloads |
 | record | [ObjWithRequiredProps.ObjWithRequiredProps1BoxedMap](#objwithrequiredprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjWithRequiredProps.ObjWithRequiredProps1](#objwithrequiredprops1)<br> schema class |
 | static class | [ObjWithRequiredProps.ObjWithRequiredPropsMapBuilder](#objwithrequiredpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjWithRequiredProps.ObjWithRequiredPropsMap](#objwithrequiredpropsmap)<br> output class for Map payloads |
-| sealed interface | [ObjWithRequiredProps.ABoxed](#aboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ObjWithRequiredProps.ABoxed](#aboxed)<br> sealed interface for validated payloads |
 | record | [ObjWithRequiredProps.ABoxedString](#aboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjWithRequiredProps.A](#a)<br> schema class |
 

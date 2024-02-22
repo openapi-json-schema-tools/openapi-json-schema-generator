@@ -17,20 +17,20 @@ from .responses import (
 __StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
-        '303': typing.Type[response_303.ResponseFor303],
+        '303': typing.Type[response_303._303],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '303': response_303.ResponseFor303,
+    '303': response_303._303,
 }
 __RangedStatusCodeToResponse = typing.TypedDict(
     '__RangedStatusCodeToResponse',
     {
-        '3': typing.Type[response_3xx.ResponseFor3XX],
+        '3': typing.Type[response_3xx._3XX],
     }
 )
 _ranged_status_code_to_response: __RangedStatusCodeToResponse = {
-    '3': response_3xx.ResponseFor3XX,
+    '3': response_3xx._3XX,
 }
 _non_error_status_codes = frozenset({
     '303',

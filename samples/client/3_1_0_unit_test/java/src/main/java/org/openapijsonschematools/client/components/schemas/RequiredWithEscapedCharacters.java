@@ -1648,78 +1648,54 @@ public class RequiredWithEscapedCharacters {
     }
     
     
-    public static abstract sealed class RequiredWithEscapedCharacters1Boxed permits RequiredWithEscapedCharacters1BoxedVoid, RequiredWithEscapedCharacters1BoxedBoolean, RequiredWithEscapedCharacters1BoxedNumber, RequiredWithEscapedCharacters1BoxedString, RequiredWithEscapedCharacters1BoxedList, RequiredWithEscapedCharacters1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface RequiredWithEscapedCharacters1Boxed permits RequiredWithEscapedCharacters1BoxedVoid, RequiredWithEscapedCharacters1BoxedBoolean, RequiredWithEscapedCharacters1BoxedNumber, RequiredWithEscapedCharacters1BoxedString, RequiredWithEscapedCharacters1BoxedList, RequiredWithEscapedCharacters1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class RequiredWithEscapedCharacters1BoxedVoid extends RequiredWithEscapedCharacters1Boxed {
-        public final Void data;
-        private RequiredWithEscapedCharacters1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record RequiredWithEscapedCharacters1BoxedVoid(Void data) implements RequiredWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredWithEscapedCharacters1BoxedBoolean extends RequiredWithEscapedCharacters1Boxed {
-        public final boolean data;
-        private RequiredWithEscapedCharacters1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record RequiredWithEscapedCharacters1BoxedBoolean(boolean data) implements RequiredWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredWithEscapedCharacters1BoxedNumber extends RequiredWithEscapedCharacters1Boxed {
-        public final Number data;
-        private RequiredWithEscapedCharacters1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record RequiredWithEscapedCharacters1BoxedNumber(Number data) implements RequiredWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredWithEscapedCharacters1BoxedString extends RequiredWithEscapedCharacters1Boxed {
-        public final String data;
-        private RequiredWithEscapedCharacters1BoxedString(String data) {
-            this.data = data;
-        }
+    public record RequiredWithEscapedCharacters1BoxedString(String data) implements RequiredWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredWithEscapedCharacters1BoxedList extends RequiredWithEscapedCharacters1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private RequiredWithEscapedCharacters1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record RequiredWithEscapedCharacters1BoxedList(FrozenList<@Nullable Object> data) implements RequiredWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredWithEscapedCharacters1BoxedMap extends RequiredWithEscapedCharacters1Boxed {
-        public final RequiredWithEscapedCharactersMap data;
-        private RequiredWithEscapedCharacters1BoxedMap(RequiredWithEscapedCharactersMap data) {
-            this.data = data;
-        }
+    public record RequiredWithEscapedCharacters1BoxedMap(RequiredWithEscapedCharactersMap data) implements RequiredWithEscapedCharacters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class RequiredWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator<RequiredWithEscapedCharacters1BoxedVoid>, BooleanSchemaValidator<RequiredWithEscapedCharacters1BoxedBoolean>, NumberSchemaValidator<RequiredWithEscapedCharacters1BoxedNumber>, StringSchemaValidator<RequiredWithEscapedCharacters1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, RequiredWithEscapedCharacters1BoxedList>, MapSchemaValidator<RequiredWithEscapedCharactersMap, RequiredWithEscapedCharacters1BoxedMap> {
+    public static class RequiredWithEscapedCharacters1 extends JsonSchema<RequiredWithEscapedCharacters1Boxed> implements NullSchemaValidator<RequiredWithEscapedCharacters1BoxedVoid>, BooleanSchemaValidator<RequiredWithEscapedCharacters1BoxedBoolean>, NumberSchemaValidator<RequiredWithEscapedCharacters1BoxedNumber>, StringSchemaValidator<RequiredWithEscapedCharacters1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, RequiredWithEscapedCharacters1BoxedList>, MapSchemaValidator<RequiredWithEscapedCharactersMap, RequiredWithEscapedCharacters1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -1831,11 +1807,11 @@ public class RequiredWithEscapedCharacters {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -1866,11 +1842,11 @@ public class RequiredWithEscapedCharacters {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -1948,6 +1924,25 @@ public class RequiredWithEscapedCharacters {
         @Override
         public RequiredWithEscapedCharacters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new RequiredWithEscapedCharacters1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public RequiredWithEscapedCharacters1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

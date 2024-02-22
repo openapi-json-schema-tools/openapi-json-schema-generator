@@ -4,7 +4,7 @@ public class Money<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,15 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Money.Money1Boxed](#money1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Money.Money1Boxed](#money1boxed)<br> sealed interface for validated payloads |
 | record | [Money.Money1BoxedMap](#money1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Money.Money1](#money1)<br> schema class |
 | static class | [Money.MoneyMapBuilder](#moneymapbuilder)<br> builder for Map payloads |
 | static class | [Money.MoneyMap](#moneymap)<br> output class for Map payloads |
-| sealed interface | [Money.AmountBoxed](#amountboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Money.AmountBoxed](#amountboxed)<br> sealed interface for validated payloads |
 | record | [Money.AmountBoxedString](#amountboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Money.Amount](#amount)<br> schema class |
-| sealed interface | [Money.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Money.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [Money.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | record | [Money.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [Money.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |

@@ -4,16 +4,16 @@ public class ComposedBool<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ComposedBool.ComposedBool1Boxed](#composedbool1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComposedBool.ComposedBool1Boxed](#composedbool1boxed)<br> sealed interface for validated payloads |
 | record | [ComposedBool.ComposedBool1BoxedBoolean](#composedbool1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [ComposedBool.ComposedBool1](#composedbool1)<br> schema class |
-| sealed interface | [ComposedBool.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ComposedBool.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
 | record | [ComposedBool.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
 | record | [ComposedBool.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ComposedBool.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |

@@ -4,13 +4,13 @@ public class FruitReq<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [FruitReq.FruitReq1Boxed](#fruitreq1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [FruitReq.FruitReq1Boxed](#fruitreq1boxed)<br> sealed interface for validated payloads |
 | record | [FruitReq.FruitReq1BoxedVoid](#fruitreq1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [FruitReq.FruitReq1BoxedBoolean](#fruitreq1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [FruitReq.FruitReq1BoxedNumber](#fruitreq1boxednumber)<br> boxed class to store validated Number payloads |
@@ -18,7 +18,7 @@ A class that contains necessary nested
 | record | [FruitReq.FruitReq1BoxedList](#fruitreq1boxedlist)<br> boxed class to store validated List payloads |
 | record | [FruitReq.FruitReq1BoxedMap](#fruitreq1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FruitReq.FruitReq1](#fruitreq1)<br> schema class |
-| sealed interface | [FruitReq.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
+| sealed interface | [FruitReq.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
 | record | [FruitReq.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [FruitReq.Schema0](#schema0)<br> schema class |
 

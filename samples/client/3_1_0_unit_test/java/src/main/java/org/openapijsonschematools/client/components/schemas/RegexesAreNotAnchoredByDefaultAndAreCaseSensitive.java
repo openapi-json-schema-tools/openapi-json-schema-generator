@@ -61,78 +61,54 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
     }
     
     
-    public static abstract sealed class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed permits RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed permits RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
-        public final Void data;
-        private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid(Void data) implements RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
-        public final boolean data;
-        private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean(boolean data) implements RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
-        public final Number data;
-        private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber(Number data) implements RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
-        public final String data;
-        private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString(String data) {
-            this.data = data;
-        }
+    public record RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString(String data) implements RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList(FrozenList<@Nullable Object> data) implements RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap(FrozenMap<@Nullable Object> data) implements RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1 extends JsonSchema implements NullSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid>, BooleanSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean>, NumberSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber>, StringSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap> {
+    public static class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1 extends JsonSchema<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed> implements NullSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid>, BooleanSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean>, NumberSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber>, StringSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -240,11 +216,11 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -275,11 +251,11 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -357,6 +333,25 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
         @Override
         public RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

@@ -4,7 +4,7 @@ public class User<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,12 +12,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [User.User1Boxed](#user1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.User1Boxed](#user1boxed)<br> sealed interface for validated payloads |
 | record | [User.User1BoxedMap](#user1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.User1](#user1)<br> schema class |
 | static class | [User.UserMapBuilder](#usermapbuilder)<br> builder for Map payloads |
 | static class | [User.UserMap](#usermap)<br> output class for Map payloads |
-| sealed interface | [User.AnyTypePropNullableBoxed](#anytypepropnullableboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.AnyTypePropNullableBoxed](#anytypepropnullableboxed)<br> sealed interface for validated payloads |
 | record | [User.AnyTypePropNullableBoxedVoid](#anytypepropnullableboxedvoid)<br> boxed class to store validated null payloads |
 | record | [User.AnyTypePropNullableBoxedBoolean](#anytypepropnullableboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [User.AnyTypePropNullableBoxedNumber](#anytypepropnullableboxednumber)<br> boxed class to store validated Number payloads |
@@ -25,7 +25,7 @@ A class that contains necessary nested
 | record | [User.AnyTypePropNullableBoxedList](#anytypepropnullableboxedlist)<br> boxed class to store validated List payloads |
 | record | [User.AnyTypePropNullableBoxedMap](#anytypepropnullableboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.AnyTypePropNullable](#anytypepropnullable)<br> schema class |
-| sealed interface | [User.AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)<br> sealed interface for validated payloads |
 | record | [User.AnyTypeExceptNullPropBoxedVoid](#anytypeexceptnullpropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [User.AnyTypeExceptNullPropBoxedBoolean](#anytypeexceptnullpropboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [User.AnyTypeExceptNullPropBoxedNumber](#anytypeexceptnullpropboxednumber)<br> boxed class to store validated Number payloads |
@@ -33,10 +33,10 @@ A class that contains necessary nested
 | record | [User.AnyTypeExceptNullPropBoxedList](#anytypeexceptnullpropboxedlist)<br> boxed class to store validated List payloads |
 | record | [User.AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.AnyTypeExceptNullProp](#anytypeexceptnullprop)<br> schema class |
-| sealed interface | [User.NotBoxed](#notboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.NotBoxed](#notboxed)<br> sealed interface for validated payloads |
 | record | [User.NotBoxedVoid](#notboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [User.Not](#not)<br> schema class |
-| sealed interface | [User.AnyTypePropBoxed](#anytypepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.AnyTypePropBoxed](#anytypepropboxed)<br> sealed interface for validated payloads |
 | record | [User.AnyTypePropBoxedVoid](#anytypepropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [User.AnyTypePropBoxedBoolean](#anytypepropboxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [User.AnyTypePropBoxedNumber](#anytypepropboxednumber)<br> boxed class to store validated Number payloads |
@@ -44,35 +44,35 @@ A class that contains necessary nested
 | record | [User.AnyTypePropBoxedList](#anytypepropboxedlist)<br> boxed class to store validated List payloads |
 | record | [User.AnyTypePropBoxedMap](#anytypepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.AnyTypeProp](#anytypeprop)<br> schema class |
-| sealed interface | [User.ObjectWithNoDeclaredPropsNullableBoxed](#objectwithnodeclaredpropsnullableboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.ObjectWithNoDeclaredPropsNullableBoxed](#objectwithnodeclaredpropsnullableboxed)<br> sealed interface for validated payloads |
 | record | [User.ObjectWithNoDeclaredPropsNullableBoxedVoid](#objectwithnodeclaredpropsnullableboxedvoid)<br> boxed class to store validated null payloads |
 | record | [User.ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.ObjectWithNoDeclaredPropsNullable](#objectwithnodeclaredpropsnullable)<br> schema class |
-| sealed interface | [User.ObjectWithNoDeclaredPropsBoxed](#objectwithnodeclaredpropsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.ObjectWithNoDeclaredPropsBoxed](#objectwithnodeclaredpropsboxed)<br> sealed interface for validated payloads |
 | record | [User.ObjectWithNoDeclaredPropsBoxedMap](#objectwithnodeclaredpropsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.ObjectWithNoDeclaredProps](#objectwithnodeclaredprops)<br> schema class |
-| sealed interface | [User.UserStatusBoxed](#userstatusboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.UserStatusBoxed](#userstatusboxed)<br> sealed interface for validated payloads |
 | record | [User.UserStatusBoxedNumber](#userstatusboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [User.UserStatus](#userstatus)<br> schema class |
-| sealed interface | [User.PhoneBoxed](#phoneboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.PhoneBoxed](#phoneboxed)<br> sealed interface for validated payloads |
 | record | [User.PhoneBoxedString](#phoneboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Phone](#phone)<br> schema class |
-| sealed interface | [User.PasswordBoxed](#passwordboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.PasswordBoxed](#passwordboxed)<br> sealed interface for validated payloads |
 | record | [User.PasswordBoxedString](#passwordboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Password](#password)<br> schema class |
-| sealed interface | [User.EmailBoxed](#emailboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.EmailBoxed](#emailboxed)<br> sealed interface for validated payloads |
 | record | [User.EmailBoxedString](#emailboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Email](#email)<br> schema class |
-| sealed interface | [User.LastNameBoxed](#lastnameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.LastNameBoxed](#lastnameboxed)<br> sealed interface for validated payloads |
 | record | [User.LastNameBoxedString](#lastnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.LastName](#lastname)<br> schema class |
-| sealed interface | [User.FirstNameBoxed](#firstnameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.FirstNameBoxed](#firstnameboxed)<br> sealed interface for validated payloads |
 | record | [User.FirstNameBoxedString](#firstnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.FirstName](#firstname)<br> schema class |
-| sealed interface | [User.UsernameBoxed](#usernameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.UsernameBoxed](#usernameboxed)<br> sealed interface for validated payloads |
 | record | [User.UsernameBoxedString](#usernameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Username](#username)<br> schema class |
-| sealed interface | [User.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| sealed interface | [User.IdBoxed](#idboxed)<br> sealed interface for validated payloads |
 | record | [User.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [User.Id](#id)<br> schema class |
 

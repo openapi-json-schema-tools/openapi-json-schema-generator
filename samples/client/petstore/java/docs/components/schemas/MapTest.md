@@ -4,7 +4,7 @@ public class MapTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,39 +13,39 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [MapTest.MapTest1Boxed](#maptest1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [MapTest.MapTest1Boxed](#maptest1boxed)<br> sealed interface for validated payloads |
 | record | [MapTest.MapTest1BoxedMap](#maptest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.MapTest1](#maptest1)<br> schema class |
 | static class | [MapTest.MapTestMapBuilder](#maptestmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.MapTestMap](#maptestmap)<br> output class for Map payloads |
-| sealed interface | [MapTest.DirectMapBoxed](#directmapboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MapTest.DirectMapBoxed](#directmapboxed)<br> sealed interface for validated payloads |
 | record | [MapTest.DirectMapBoxedMap](#directmapboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.DirectMap](#directmap)<br> schema class |
 | static class | [MapTest.DirectMapMapBuilder](#directmapmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.DirectMapMap](#directmapmap)<br> output class for Map payloads |
-| sealed interface | [MapTest.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> abstract sealed validated payload class |
+| sealed interface | [MapTest.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> sealed interface for validated payloads |
 | record | [MapTest.AdditionalProperties3BoxedBoolean](#additionalproperties3boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [MapTest.AdditionalProperties3](#additionalproperties3)<br> schema class |
-| sealed interface | [MapTest.MapOfEnumStringBoxed](#mapofenumstringboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MapTest.MapOfEnumStringBoxed](#mapofenumstringboxed)<br> sealed interface for validated payloads |
 | record | [MapTest.MapOfEnumStringBoxedMap](#mapofenumstringboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.MapOfEnumString](#mapofenumstring)<br> schema class |
 | static class | [MapTest.MapOfEnumStringMapBuilder](#mapofenumstringmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.MapOfEnumStringMap](#mapofenumstringmap)<br> output class for Map payloads |
-| sealed interface | [MapTest.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> abstract sealed validated payload class |
+| sealed interface | [MapTest.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> sealed interface for validated payloads |
 | record | [MapTest.AdditionalProperties2BoxedString](#additionalproperties2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [MapTest.AdditionalProperties2](#additionalproperties2)<br> schema class |
 | enum | [MapTest.StringAdditionalPropertiesEnums](#stringadditionalpropertiesenums)<br>String enum |
-| sealed interface | [MapTest.MapMapOfStringBoxed](#mapmapofstringboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MapTest.MapMapOfStringBoxed](#mapmapofstringboxed)<br> sealed interface for validated payloads |
 | record | [MapTest.MapMapOfStringBoxedMap](#mapmapofstringboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.MapMapOfString](#mapmapofstring)<br> schema class |
 | static class | [MapTest.MapMapOfStringMapBuilder](#mapmapofstringmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.MapMapOfStringMap](#mapmapofstringmap)<br> output class for Map payloads |
-| sealed interface | [MapTest.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [MapTest.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [MapTest.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MapTest.AdditionalProperties](#additionalproperties)<br> schema class |
 | static class | [MapTest.AdditionalPropertiesMapBuilder1](#additionalpropertiesmapbuilder1)<br> builder for Map payloads |
 | static class | [MapTest.AdditionalPropertiesMap](#additionalpropertiesmap)<br> output class for Map payloads |
-| sealed interface | [MapTest.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [MapTest.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> sealed interface for validated payloads |
 | record | [MapTest.AdditionalProperties1BoxedString](#additionalproperties1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [MapTest.AdditionalProperties1](#additionalproperties1)<br> schema class |
 

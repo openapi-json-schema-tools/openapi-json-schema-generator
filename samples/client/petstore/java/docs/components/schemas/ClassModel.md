@@ -4,7 +4,7 @@ public class ClassModel<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,7 +12,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [ClassModel.ClassModel1Boxed](#classmodel1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [ClassModel.ClassModel1Boxed](#classmodel1boxed)<br> sealed interface for validated payloads |
 | record | [ClassModel.ClassModel1BoxedVoid](#classmodel1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [ClassModel.ClassModel1BoxedBoolean](#classmodel1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [ClassModel.ClassModel1BoxedNumber](#classmodel1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,7 +22,7 @@ A class that contains necessary nested
 | static class | [ClassModel.ClassModel1](#classmodel1)<br> schema class |
 | static class | [ClassModel.ClassModelMapBuilder](#classmodelmapbuilder)<br> builder for Map payloads |
 | static class | [ClassModel.ClassModelMap](#classmodelmap)<br> output class for Map payloads |
-| sealed interface | [ClassModel.ClassSchemaBoxed](#classschemaboxed)<br> abstract sealed validated payload class |
+| sealed interface | [ClassModel.ClassSchemaBoxed](#classschemaboxed)<br> sealed interface for validated payloads |
 | record | [ClassModel.ClassSchemaBoxedString](#classschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ClassModel.ClassSchema](#classschema)<br> schema class |
 

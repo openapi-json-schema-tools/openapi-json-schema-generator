@@ -79,29 +79,29 @@ from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinpu
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | successful operation
-400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid username/password supplied
+200 | [_200.ApiResponse](#_200-apiresponse) | successful operation
+400 | [_400.ApiResponse](#_400-apiresponse) | Invalid username/password supplied
 
-## ResponseFor200
+## _200
 
 ### Description
 successful operation
 
-### ResponseFor200 ApiResponse
+### _200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | typing.Union[str, str] |  |
+[body](#_200-body) | typing.Union[str, str] |  |
 [headers](#headers) | [HeadersDict](#headers-headersdict) | |
 
-### ResponseFor200 Body
+### _200 Body
 Content-Type | Schema
 ------------ | -------
-"application/xml" | [content.application_xml.Schema](#responsefor200-content-applicationxml-schema)
-"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
+"application/xml" | [content.application_xml.Schema](#_200-content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#_200-content-applicationjson-schema)
 
 ### Body Details
-#### ResponseFor200 content ApplicationXml Schema
+#### _200 content ApplicationXml Schema
 ```
 type: schemas.Schema
 ```
@@ -110,7 +110,7 @@ type: schemas.Schema
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
-#### ResponseFor200 content ApplicationJson Schema
+#### _200 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```
@@ -121,7 +121,7 @@ Input Type | Return Type | Notes
 str | str |
 
 ### Headers
-#### ResponseFor200 Headers
+#### _200 Headers
 ```
 type: schemas.Schema
 ```
@@ -129,9 +129,9 @@ type: schemas.Schema
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[HeadersDictInput](#responsefor200-headers-headersdictinput), [HeadersDict](#responsefor200-headers-headersdict) | [HeadersDict](#responsefor200-headers-headersdict) |
+[HeadersDictInput](#_200-headers-headersdictinput), [HeadersDict](#_200-headers-headersdict) | [HeadersDict](#_200-headers-headersdict) |
 
-##### ResponseFor200 Headers HeadersDictInput
+##### _200 Headers HeadersDictInput
 ```
 type: typing.TypedDict
 ```
@@ -143,7 +143,7 @@ Key | Type |  Description | Notes
 **X-Expires-After** | str, datetime.datetime |  | [optional]
 **numberHeader** | str |  | [optional]
 
-##### ResponseFor200 Headers HeadersDict
+##### _200 Headers HeadersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
@@ -163,11 +163,11 @@ Property | Type | Description | Notes
 ###### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [HeadersDictInput](#responsefor200-headers-headersdictinput), [HeadersDict](#responsefor200-headers-headersdict) | [HeadersDict](#responsefor200-headers-headersdict) | a constructor
+from_dict_ | [HeadersDictInput](#_200-headers-headersdictinput), [HeadersDict](#_200-headers-headersdict) | [HeadersDict](#_200-headers-headersdict) | a constructor
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["X-Rate-Limit"], instance["ref-content-schema-header"], instance["X-Expires-After"], 
 
 ### Header Details
-#### ResponseFor200 headers XRateLimit
+#### _200 headers XRateLimit
 
 ##### Description
 calls per hour allowed by the user
@@ -175,9 +175,9 @@ calls per hour allowed by the user
 ##### Content Type To Schema
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#responsefor200-headers-xratelimit-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#_200-headers-xratelimit-content-applicationjson-schema)
 
-##### ResponseFor200 headers XRateLimit content ApplicationJson Schema
+##### _200 headers XRateLimit content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```
@@ -186,12 +186,12 @@ type: schemas.Schema
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 int | int | value must be a 32 bit integer
-#### ResponseFor200 headers XExpiresAfter
+#### _200 headers XExpiresAfter
 
 ##### Description
 date in UTC when token expires
 
-##### ResponseFor200 headers XExpiresAfter Schema
+##### _200 headers XExpiresAfter Schema
 ```
 type: schemas.Schema
 ```
@@ -201,12 +201,12 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str, datetime.datetime | str | value must conform to RFC-3339 date-time
 
-## ResponseFor400
+## _400
 
 ### Description
 Invalid username/password supplied
 
-### ResponseFor400 ApiResponse
+### _400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

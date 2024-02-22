@@ -4,7 +4,7 @@ public class Fruit<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,7 +12,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Fruit.Fruit1Boxed](#fruit1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Fruit.Fruit1Boxed](#fruit1boxed)<br> sealed interface for validated payloads |
 | record | [Fruit.Fruit1BoxedVoid](#fruit1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [Fruit.Fruit1BoxedBoolean](#fruit1boxedboolean)<br> boxed class to store validated boolean payloads |
 | record | [Fruit.Fruit1BoxedNumber](#fruit1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,7 +22,7 @@ A class that contains necessary nested
 | static class | [Fruit.Fruit1](#fruit1)<br> schema class |
 | static class | [Fruit.FruitMapBuilder](#fruitmapbuilder)<br> builder for Map payloads |
 | static class | [Fruit.FruitMap](#fruitmap)<br> output class for Map payloads |
-| sealed interface | [Fruit.ColorBoxed](#colorboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Fruit.ColorBoxed](#colorboxed)<br> sealed interface for validated payloads |
 | record | [Fruit.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Fruit.Color](#color)<br> schema class |
 

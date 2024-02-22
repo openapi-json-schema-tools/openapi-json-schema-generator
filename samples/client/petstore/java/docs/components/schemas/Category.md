@@ -4,7 +4,7 @@ public class Category<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,15 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Category.Category1Boxed](#category1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [Category.Category1Boxed](#category1boxed)<br> sealed interface for validated payloads |
 | record | [Category.Category1BoxedMap](#category1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Category.Category1](#category1)<br> schema class |
 | static class | [Category.CategoryMapBuilder](#categorymapbuilder)<br> builder for Map payloads |
 | static class | [Category.CategoryMap](#categorymap)<br> output class for Map payloads |
-| sealed interface | [Category.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Category.NameBoxed](#nameboxed)<br> sealed interface for validated payloads |
 | record | [Category.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Category.Name](#name)<br> schema class |
-| sealed interface | [Category.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| sealed interface | [Category.IdBoxed](#idboxed)<br> sealed interface for validated payloads |
 | record | [Category.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Category.Id](#id)<br> schema class |
 

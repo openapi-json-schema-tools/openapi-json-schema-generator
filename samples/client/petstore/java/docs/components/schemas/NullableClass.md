@@ -4,7 +4,7 @@ public class NullableClass<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed interfaces which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -14,92 +14,92 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [NullableClass.NullableClass1Boxed](#nullableclass1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.NullableClass1Boxed](#nullableclass1boxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.NullableClass1BoxedMap](#nullableclass1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.NullableClass1](#nullableclass1)<br> schema class |
 | static class | [NullableClass.NullableClassMapBuilder](#nullableclassmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.NullableClassMap](#nullableclassmap)<br> output class for Map payloads |
-| sealed interface | [NullableClass.ObjectItemsNullableBoxed](#objectitemsnullableboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.ObjectItemsNullableBoxed](#objectitemsnullableboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.ObjectItemsNullableBoxedMap](#objectitemsnullableboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.ObjectItemsNullable](#objectitemsnullable)<br> schema class |
 | static class | [NullableClass.ObjectItemsNullableMapBuilder](#objectitemsnullablemapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectItemsNullableMap](#objectitemsnullablemap)<br> output class for Map payloads |
-| sealed interface | [NullableClass.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.AdditionalProperties2BoxedVoid](#additionalproperties2boxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.AdditionalProperties2BoxedMap](#additionalproperties2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
-| sealed interface | [NullableClass.ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.ObjectAndItemsNullablePropBoxedVoid](#objectanditemsnullablepropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.ObjectAndItemsNullablePropBoxedMap](#objectanditemsnullablepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.ObjectAndItemsNullableProp](#objectanditemsnullableprop)<br> schema class |
 | static class | [NullableClass.ObjectAndItemsNullablePropMapBuilder](#objectanditemsnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap)<br> output class for Map payloads |
-| sealed interface | [NullableClass.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.AdditionalProperties1BoxedVoid](#additionalproperties1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
-| sealed interface | [NullableClass.ObjectNullablePropBoxed](#objectnullablepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.ObjectNullablePropBoxed](#objectnullablepropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.ObjectNullablePropBoxedVoid](#objectnullablepropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.ObjectNullablePropBoxedMap](#objectnullablepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.ObjectNullableProp](#objectnullableprop)<br> schema class |
 | static class | [NullableClass.ObjectNullablePropMapBuilder](#objectnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectNullablePropMap](#objectnullablepropmap)<br> output class for Map payloads |
-| sealed interface | [NullableClass.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties](#additionalproperties)<br> schema class |
-| sealed interface | [NullableClass.ArrayItemsNullableBoxed](#arrayitemsnullableboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.ArrayItemsNullableBoxed](#arrayitemsnullableboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.ArrayItemsNullableBoxedList](#arrayitemsnullableboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NullableClass.ArrayItemsNullable](#arrayitemsnullable)<br> schema class |
 | static class | [NullableClass.ArrayItemsNullableListBuilder](#arrayitemsnullablelistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayItemsNullableList](#arrayitemsnullablelist)<br> output class for List payloads |
-| sealed interface | [NullableClass.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.Items2Boxed](#items2boxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.Items2BoxedVoid](#items2boxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.Items2BoxedMap](#items2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.Items2](#items2)<br> schema class |
-| sealed interface | [NullableClass.ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.ArrayAndItemsNullablePropBoxedVoid](#arrayanditemsnullablepropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.ArrayAndItemsNullablePropBoxedList](#arrayanditemsnullablepropboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NullableClass.ArrayAndItemsNullableProp](#arrayanditemsnullableprop)<br> schema class |
 | static class | [NullableClass.ArrayAndItemsNullablePropListBuilder](#arrayanditemsnullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist)<br> output class for List payloads |
-| sealed interface | [NullableClass.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.Items1Boxed](#items1boxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.Items1BoxedVoid](#items1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.Items1BoxedMap](#items1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.Items1](#items1)<br> schema class |
-| sealed interface | [NullableClass.ArrayNullablePropBoxed](#arraynullablepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.ArrayNullablePropBoxed](#arraynullablepropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.ArrayNullablePropBoxedVoid](#arraynullablepropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.ArrayNullablePropBoxedList](#arraynullablepropboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NullableClass.ArrayNullableProp](#arraynullableprop)<br> schema class |
 | static class | [NullableClass.ArrayNullablePropListBuilder](#arraynullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayNullablePropList](#arraynullableproplist)<br> output class for List payloads |
-| sealed interface | [NullableClass.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.Items](#items)<br> schema class |
-| sealed interface | [NullableClass.DatetimePropBoxed](#datetimepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.DatetimePropBoxed](#datetimepropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.DatetimePropBoxedVoid](#datetimepropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.DatetimePropBoxedString](#datetimepropboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableClass.DatetimeProp](#datetimeprop)<br> schema class |
-| sealed interface | [NullableClass.DatePropBoxed](#datepropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.DatePropBoxed](#datepropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.DatePropBoxedVoid](#datepropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.DatePropBoxedString](#datepropboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableClass.DateProp](#dateprop)<br> schema class |
-| sealed interface | [NullableClass.StringPropBoxed](#stringpropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.StringPropBoxed](#stringpropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.StringPropBoxedVoid](#stringpropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.StringPropBoxedString](#stringpropboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableClass.StringProp](#stringprop)<br> schema class |
-| sealed interface | [NullableClass.BooleanPropBoxed](#booleanpropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.BooleanPropBoxed](#booleanpropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.BooleanPropBoxedVoid](#booleanpropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.BooleanPropBoxedBoolean](#booleanpropboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [NullableClass.BooleanProp](#booleanprop)<br> schema class |
-| sealed interface | [NullableClass.NumberPropBoxed](#numberpropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.NumberPropBoxed](#numberpropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.NumberPropBoxedVoid](#numberpropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.NumberPropBoxedNumber](#numberpropboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NullableClass.NumberProp](#numberprop)<br> schema class |
-| sealed interface | [NullableClass.IntegerPropBoxed](#integerpropboxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.IntegerPropBoxed](#integerpropboxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.IntegerPropBoxedVoid](#integerpropboxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.IntegerPropBoxedNumber](#integerpropboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NullableClass.IntegerProp](#integerprop)<br> schema class |
-| sealed interface | [NullableClass.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> abstract sealed validated payload class |
+| sealed interface | [NullableClass.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> sealed interface for validated payloads |
 | record | [NullableClass.AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid)<br> boxed class to store validated null payloads |
 | record | [NullableClass.AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties3](#additionalproperties3)<br> schema class |

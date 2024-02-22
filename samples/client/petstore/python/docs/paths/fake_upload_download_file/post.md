@@ -59,27 +59,27 @@ bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | successful operation
+200 | [_200.ApiResponse](#_200-apiresponse) | successful operation
 
-## ResponseFor200
+## _200
 
 ### Description
 successful operation
 
-### ResponseFor200 ApiResponse
+### _200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | bytes, io.FileIO |  |
+[body](#_200-body) | bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### ResponseFor200 Body
+### _200 Body
 Content-Type | Schema
 ------------ | -------
-"application/octet-stream" | [content.application_octet_stream.Schema](#responsefor200-content-applicationoctetstream-schema)
+"application/octet-stream" | [content.application_octet_stream.Schema](#_200-content-applicationoctetstream-schema)
 
 ### Body Details
-#### ResponseFor200 content ApplicationOctetStream Schema
+#### _200 content ApplicationOctetStream Schema
 ```
 type: schemas.Schema
 ```

@@ -4,23 +4,23 @@ public class RefInAnyof<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [RefInAnyof.RefInAnyof1Boxed](#refinanyof1boxed)<br> abstract sealed validated payload class |
-| static class | [RefInAnyof.RefInAnyof1BoxedVoid](#refinanyof1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [RefInAnyof.RefInAnyof1BoxedBoolean](#refinanyof1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [RefInAnyof.RefInAnyof1BoxedNumber](#refinanyof1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [RefInAnyof.RefInAnyof1BoxedString](#refinanyof1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [RefInAnyof.RefInAnyof1BoxedList](#refinanyof1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [RefInAnyof.RefInAnyof1BoxedMap](#refinanyof1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [RefInAnyof.RefInAnyof1Boxed](#refinanyof1boxed)<br> sealed interface for validated payloads |
+| record | [RefInAnyof.RefInAnyof1BoxedVoid](#refinanyof1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [RefInAnyof.RefInAnyof1BoxedBoolean](#refinanyof1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [RefInAnyof.RefInAnyof1BoxedNumber](#refinanyof1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [RefInAnyof.RefInAnyof1BoxedString](#refinanyof1boxedstring)<br> boxed class to store validated String payloads |
+| record | [RefInAnyof.RefInAnyof1BoxedList](#refinanyof1boxedlist)<br> boxed class to store validated List payloads |
+| record | [RefInAnyof.RefInAnyof1BoxedMap](#refinanyof1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [RefInAnyof.RefInAnyof1](#refinanyof1)<br> schema class |
 
 ## RefInAnyof1Boxed
-public static abstract sealed class RefInAnyof1Boxed<br>
+public sealed interface RefInAnyof1Boxed<br>
 permits<br>
 [RefInAnyof1BoxedVoid](#refinanyof1boxedvoid),
 [RefInAnyof1BoxedBoolean](#refinanyof1boxedboolean),
@@ -29,103 +29,109 @@ permits<br>
 [RefInAnyof1BoxedList](#refinanyof1boxedlist),
 [RefInAnyof1BoxedMap](#refinanyof1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## RefInAnyof1BoxedVoid
-public static final class RefInAnyof1BoxedVoid<br>
-extends [RefInAnyof1Boxed](#refinanyof1boxed)
+public record RefInAnyof1BoxedVoid<br>
+implements [RefInAnyof1Boxed](#refinanyof1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RefInAnyof1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RefInAnyof1BoxedBoolean
-public static final class RefInAnyof1BoxedBoolean<br>
-extends [RefInAnyof1Boxed](#refinanyof1boxed)
+public record RefInAnyof1BoxedBoolean<br>
+implements [RefInAnyof1Boxed](#refinanyof1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RefInAnyof1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RefInAnyof1BoxedNumber
-public static final class RefInAnyof1BoxedNumber<br>
-extends [RefInAnyof1Boxed](#refinanyof1boxed)
+public record RefInAnyof1BoxedNumber<br>
+implements [RefInAnyof1Boxed](#refinanyof1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RefInAnyof1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RefInAnyof1BoxedString
-public static final class RefInAnyof1BoxedString<br>
-extends [RefInAnyof1Boxed](#refinanyof1boxed)
+public record RefInAnyof1BoxedString<br>
+implements [RefInAnyof1Boxed](#refinanyof1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RefInAnyof1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RefInAnyof1BoxedList
-public static final class RefInAnyof1BoxedList<br>
-extends [RefInAnyof1Boxed](#refinanyof1boxed)
+public record RefInAnyof1BoxedList<br>
+implements [RefInAnyof1Boxed](#refinanyof1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RefInAnyof1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RefInAnyof1BoxedMap
-public static final class RefInAnyof1BoxedMap<br>
-extends [RefInAnyof1Boxed](#refinanyof1boxed)
+public record RefInAnyof1BoxedMap<br>
+implements [RefInAnyof1Boxed](#refinanyof1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RefInAnyof1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## RefInAnyof1
 public static class RefInAnyof1<br>
@@ -157,5 +163,7 @@ A schema class that validates payloads
 | [RefInAnyof1BoxedBoolean](#refinanyof1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [RefInAnyof1BoxedMap](#refinanyof1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [RefInAnyof1BoxedList](#refinanyof1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [RefInAnyof1Boxed](#refinanyof1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
