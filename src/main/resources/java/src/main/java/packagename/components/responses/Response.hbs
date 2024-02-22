@@ -14,6 +14,8 @@ import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.response.ResponseDeserializer;
     {{#if hasContentSchema}}
 import {{packageName}}.mediatype.MediaType;
+    {{else}}
+import {{packageName}}.schemas.validation.MapUtils;
     {{/if}}
     {{#each content}}
         {{#with schema}}
@@ -51,11 +53,19 @@ public class {{jsonPathPiece.pascalCase}} {
     public static class {{jsonPathPiece.pascalCase}}1 extends ResponseDeserializer<{{#if hasContentSchema}}SealedResponseBody{{else}}Void{{/if}}, Void, {{#if hasContentSchema}}SealedMediaType{{else}}Void{{/if}}> {
         public {{jsonPathPiece.pascalCase}}1() {
             super(
+        {{#if hasContentSchema}}
                 Map.ofEntries(
-        {{#each content}}
-                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", {{#if schema}}new {{@key.pascalCase}}MediaType(){{else}}null{{/if}}){{#unless @last}},{{/unless}}
-        {{/each}}
+            {{#each content}}
+                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
+            {{/each}}
                 )
+        {{else}}
+                MapUtils.makeMap(
+            {{#each content}}
+                    new AbstractMap.SimpleEntry<String, Void>("{{{@key.original}}}", null){{#unless @last}},{{/unless}}
+            {{/each}}
+                )
+        {{/if}}
             );
         }
 

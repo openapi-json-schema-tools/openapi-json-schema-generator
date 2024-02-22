@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.paths.fakeredirection.get.responses;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 
 import java.util.Map;
 import java.net.http.HttpHeaders;
@@ -11,7 +12,7 @@ public class Code303Response {
     public static class Code303Response1 extends ResponseDeserializer<Void, Void, Void> {
         public Code303Response1() {
             super(
-                Map.ofEntries(
+                MapUtils.makeMap(
                 )
             );
         }

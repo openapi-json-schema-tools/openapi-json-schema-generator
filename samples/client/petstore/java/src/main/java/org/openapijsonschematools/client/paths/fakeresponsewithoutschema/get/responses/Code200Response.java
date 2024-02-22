@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get.re
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 
 import java.util.AbstractMap;
 import java.util.Map;
@@ -12,9 +13,9 @@ public class Code200Response {
     public static class Code200Response1 extends ResponseDeserializer<Void, Void, Void> {
         public Code200Response1() {
             super(
-                Map.ofEntries(
-                    new AbstractMap.SimpleEntry<>("application/json", null),
-                    new AbstractMap.SimpleEntry<>("application/xml", null)
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, Void>("application/json", null),
+                    new AbstractMap.SimpleEntry<String, Void>("application/xml", null)
                 )
             );
         }

@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.components.responses;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 
 import java.util.Map;
 import java.net.http.HttpHeaders;
@@ -11,7 +12,7 @@ public class HeadersWithNoBody {
     public static class HeadersWithNoBody1 extends ResponseDeserializer<Void, Void, Void> {
         public HeadersWithNoBody1() {
             super(
-                Map.ofEntries(
+                MapUtils.makeMap(
                 )
             );
         }

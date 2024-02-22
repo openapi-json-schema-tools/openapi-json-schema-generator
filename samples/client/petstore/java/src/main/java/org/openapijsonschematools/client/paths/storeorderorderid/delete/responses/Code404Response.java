@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.paths.storeorderorderid.delete.respons
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 
 import java.util.Map;
 import java.net.http.HttpHeaders;
@@ -11,7 +12,7 @@ public class Code404Response {
     public static class Code404Response1 extends ResponseDeserializer<Void, Void, Void> {
         public Code404Response1() {
             super(
-                Map.ofEntries(
+                MapUtils.makeMap(
                 )
             );
         }

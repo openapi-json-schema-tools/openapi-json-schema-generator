@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.paths.usercreatewitharray.post.respons
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 
 import java.util.Map;
 import java.net.http.HttpHeaders;
@@ -11,7 +12,7 @@ public class CodedefaultResponse {
     public static class CodedefaultResponse1 extends ResponseDeserializer<Void, Void, Void> {
         public CodedefaultResponse1() {
             super(
-                Map.ofEntries(
+                MapUtils.makeMap(
                 )
             );
         }
