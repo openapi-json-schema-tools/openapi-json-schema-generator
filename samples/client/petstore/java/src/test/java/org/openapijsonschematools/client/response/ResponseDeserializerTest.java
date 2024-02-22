@@ -87,10 +87,16 @@ public class ResponseDeserializerTest {
     public static class BytesHttpResponse implements HttpResponse<byte[]> {
         private final byte[] body;
         private final HttpHeaders headers;
+        private final HttpRequest request;
+        private final URI uri;
+        private final HttpClient.Version version;
         public BytesHttpResponse(byte[] body, String contentType) {
             this.body = body;
             BiPredicate<String, String> headerFilter = (key, val) -> true;
-            this.headers = HttpHeaders.of(Map.of("Content-Type", List.of(contentType)), headerFilter);
+            headers = HttpHeaders.of(Map.of("Content-Type", List.of(contentType)), headerFilter);
+            request = HttpRequest.newBuilder().build();
+            uri = URI.create("");
+            version = HttpClient.Version.HTTP_2;
         }
 
         @Override
@@ -100,7 +106,7 @@ public class ResponseDeserializerTest {
 
         @Override
         public HttpRequest request() {
-            return null;
+            return request;
         }
 
         @Override
@@ -125,12 +131,12 @@ public class ResponseDeserializerTest {
 
         @Override
         public URI uri() {
-            return null;
+            return uri;
         }
 
         @Override
         public HttpClient.Version version() {
-            return null;
+            return version;
         }
     }
 

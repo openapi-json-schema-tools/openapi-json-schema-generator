@@ -37,7 +37,7 @@ public class ObjectTypeSchemaTest {
     }
     public record ObjectWithPropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithPropsSchemaBoxed {
     }
-    public static class ObjectWithPropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsSchemaBoxedMap> {
+    public static class ObjectWithPropsSchema extends JsonSchema<ObjectWithPropsSchemaBoxed> implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsSchemaBoxedMap> {
         private static @Nullable ObjectWithPropsSchema instance = null;
         private ObjectWithPropsSchema() {
             super(new JsonSchemaInfo()
@@ -109,6 +109,14 @@ public class ObjectTypeSchemaTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
+
+        @Override
+        public ObjectWithPropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return new ObjectWithPropsSchemaBoxedMap(validate(mapArg, configuration));
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }
 
     public sealed interface ObjectWithAddpropsSchemaBoxed permits ObjectWithAddpropsSchemaBoxedMap {
@@ -116,7 +124,7 @@ public class ObjectTypeSchemaTest {
     public record ObjectWithAddpropsSchemaBoxedMap(FrozenMap<String> data) implements ObjectWithAddpropsSchemaBoxed {
     }
 
-    public static class ObjectWithAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
+    public static class ObjectWithAddpropsSchema extends JsonSchema<ObjectWithAddpropsSchemaBoxed> implements MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
         private static @Nullable ObjectWithAddpropsSchema instance = null;
         private ObjectWithAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -182,6 +190,14 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
+        public ObjectWithAddpropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return new ObjectWithAddpropsSchemaBoxedMap(validate(mapArg, configuration));
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
         public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
@@ -194,7 +210,7 @@ public class ObjectTypeSchemaTest {
     }
     public record ObjectWithPropsAndAddpropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithPropsAndAddpropsSchemaBoxed {
     }
-    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
+    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema<ObjectWithPropsAndAddpropsSchemaBoxed> implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
         private static @Nullable ObjectWithPropsAndAddpropsSchema instance = null;
         private ObjectWithPropsAndAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -260,6 +276,14 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
+        public ObjectWithPropsAndAddpropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return new ObjectWithPropsAndAddpropsSchemaBoxedMap(validate(mapArg, configuration));
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
         public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
@@ -282,7 +306,7 @@ public class ObjectTypeSchemaTest {
     }
     public record ObjectWithOutputTypeSchemaBoxedMap(ObjectWithOutputTypeSchemaMap data) implements ObjectWithOutputTypeSchemaBoxed {
     }
-    public static class ObjectWithOutputTypeSchema extends JsonSchema implements MapSchemaValidator<ObjectWithOutputTypeSchemaMap, ObjectWithOutputTypeSchemaBoxedMap> {
+    public static class ObjectWithOutputTypeSchema extends JsonSchema<ObjectWithOutputTypeSchemaBoxed> implements MapSchemaValidator<ObjectWithOutputTypeSchemaMap, ObjectWithOutputTypeSchemaBoxedMap> {
         private static @Nullable ObjectWithOutputTypeSchema instance = null;
         public ObjectWithOutputTypeSchema() {
             super(new JsonSchemaInfo()
@@ -342,6 +366,14 @@ public class ObjectTypeSchemaTest {
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public ObjectWithOutputTypeSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return new ObjectWithOutputTypeSchemaBoxedMap(validate(mapArg, configuration));
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }

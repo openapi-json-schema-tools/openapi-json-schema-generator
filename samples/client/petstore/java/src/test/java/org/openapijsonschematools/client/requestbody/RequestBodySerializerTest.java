@@ -174,10 +174,5 @@ public final class RequestBodySerializerTest {
         Assert.assertEquals("text/plain", requestBody.contentType);
         String textBody = getJsonBody(requestBody);
         Assert.assertEquals(textBody, "a");
-
-        Assert.assertThrows(
-                RuntimeException.class,
-                () -> serializer.serialize(new TextplainRequestBody(null))
-        );
     }
 }

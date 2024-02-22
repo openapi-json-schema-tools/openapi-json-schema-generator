@@ -36,7 +36,7 @@ public class ArrayTypeSchemaTest {
     public record ArrayWithItemsSchemaBoxedList(FrozenList<String> data) implements ArrayWithItemsSchemaBoxed {
     }
 
-    public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
+    public static class ArrayWithItemsSchema extends JsonSchema<ArrayWithItemsSchemaBoxed> implements ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
@@ -96,6 +96,14 @@ public class ArrayTypeSchemaTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
+
+        @Override
+        public ArrayWithItemsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof List<?> listArg) {
+                return new ArrayWithItemsSchemaBoxedList(validate(listArg, configuration));
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }
 
     public static class ArrayWithOutputClsSchemaList extends FrozenList<String> {
@@ -112,7 +120,7 @@ public class ArrayTypeSchemaTest {
     }
     public record ArrayWithOutputClsSchemaBoxedList(ArrayWithOutputClsSchemaList data) implements ArrayWithOutputClsSchemaBoxed {
     }
-    public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
+    public static class ArrayWithOutputClsSchema extends JsonSchema<ArrayWithOutputClsSchemaBoxed> implements ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
         public ArrayWithOutputClsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
@@ -171,6 +179,14 @@ public class ArrayTypeSchemaTest {
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public ArrayWithOutputClsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof List<?> listArg) {
+                return new ArrayWithOutputClsSchemaBoxedList(validate(listArg, configuration));
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
