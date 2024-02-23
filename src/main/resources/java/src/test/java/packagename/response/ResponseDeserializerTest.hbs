@@ -146,6 +146,11 @@ public class ResponseDeserializerTest {
         return gson.toJson(body);
     }
 
+    @SuppressWarnings("nullness")
+    private void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+    }
+
     @Test
     public void testDeserializeApplicationJsonNull() {
         var deserializer = new MyResponseDeserializer();
@@ -160,7 +165,7 @@ public class ResponseDeserializerTest {
         if (!(jsonBody.body() instanceof AnyTypeJsonSchema.AnyTypeJsonSchema1BoxedVoid boxedVoid)) {
             throw new RuntimeException("body must be type AnyTypeJsonSchema1BoxedVoid");
         }
-        Assert.assertNull(boxedVoid.data());
+        assertNull(boxedVoid.data());
     }
 
     @Test
