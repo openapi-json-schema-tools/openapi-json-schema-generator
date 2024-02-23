@@ -303,6 +303,7 @@ src/main/java/org/openapijsonschematools/client/requestbody/GenericRequestBody.j
 src/main/java/org/openapijsonschematools/client/requestbody/RequestBodySerializer.java
 src/main/java/org/openapijsonschematools/client/requestbody/SerializedRequestBody.java
 src/main/java/org/openapijsonschematools/client/response/ApiResponse.java
+src/main/java/org/openapijsonschematools/client/response/DeserializedApiResponse.java
 src/main/java/org/openapijsonschematools/client/response/ResponseDeserializer.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
