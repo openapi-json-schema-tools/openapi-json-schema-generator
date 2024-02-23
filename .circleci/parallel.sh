@@ -28,6 +28,7 @@ elif [ "$JOB_ID" = "testPythonClientSamples" ]; then
 elif [ "$JOB_ID" = "testJava17ClientSamples" ]; then
   echo "Running job $JOB_ID ..."
   java -version
+  mvn -version
   cat ./.circleci/testJava17ClientSamples.sh | parallel
 
 else
