@@ -35,8 +35,13 @@ public abstract class RequestBodySerializer<T, U> {
         return jsonContentTypePattern.matcher(contentType).find();
     }
 
+    @SuppressWarnings("nullness")
+    private String toJson(@Nullable Object body) {
+        return gson.toJson(body);
+    }
+
     private SerializedRequestBody serializeJson(String contentType, @Nullable Object body) {
-        String jsonText = gson.toJson(body);
+        String jsonText = toJson(body);
         return new SerializedRequestBody(contentType, HttpRequest.BodyPublishers.ofString(jsonText));
     }
 

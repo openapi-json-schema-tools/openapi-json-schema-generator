@@ -140,10 +140,15 @@ public class ResponseDeserializerTest {
         }
     }
 
+    @SuppressWarnings("nullness")
+    private String toJson(@Nullable Object body) {
+        return gson.toJson(body);
+    }
+
     @Test
     public void testDeserializeApplicationJsonNull() {
         var deserializer = new MyResponseDeserializer();
-        byte[] bodyBytes = gson.toJson(null).getBytes(StandardCharsets.UTF_8);
+        byte[] bodyBytes = toJson(null).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
@@ -160,7 +165,7 @@ public class ResponseDeserializerTest {
     @Test
     public void testDeserializeApplicationJsonTrue() {
         var deserializer = new MyResponseDeserializer();
-        byte[] bodyBytes = gson.toJson(true).getBytes(StandardCharsets.UTF_8);
+        byte[] bodyBytes = toJson(true).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
@@ -177,7 +182,7 @@ public class ResponseDeserializerTest {
     @Test
     public void testDeserializeApplicationJsonFalse() {
         var deserializer = new MyResponseDeserializer();
-        byte[] bodyBytes = gson.toJson(false).getBytes(StandardCharsets.UTF_8);
+        byte[] bodyBytes = toJson(false).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
@@ -194,7 +199,7 @@ public class ResponseDeserializerTest {
     @Test
     public void testDeserializeApplicationJsonInt() {
         var deserializer = new MyResponseDeserializer();
-        byte[] bodyBytes = gson.toJson(1).getBytes(StandardCharsets.UTF_8);
+        byte[] bodyBytes = toJson(1).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
@@ -211,7 +216,7 @@ public class ResponseDeserializerTest {
     @Test
     public void testDeserializeApplicationJsonFloat() {
         var deserializer = new MyResponseDeserializer();
-        byte[] bodyBytes = gson.toJson(3.14).getBytes(StandardCharsets.UTF_8);
+        byte[] bodyBytes = toJson(3.14).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
@@ -228,7 +233,7 @@ public class ResponseDeserializerTest {
     @Test
     public void testDeserializeApplicationJsonString() {
         var deserializer = new MyResponseDeserializer();
-        byte[] bodyBytes = gson.toJson("a").getBytes(StandardCharsets.UTF_8);
+        byte[] bodyBytes = toJson("a").getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
