@@ -36,28 +36,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.ApiResponse](#_200-apiresponse) | success
-202 | [_202.ApiResponse](#_202-apiresponse) | success
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
+202 | [ResponseFor202.ApiResponse](#responsefor202-apiresponse) | success
 
-## _200
+## ResponseFor200
 
 ### Description
 success
 
-### _200 ApiResponse
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### _200 Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_200-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-#### _200 content ApplicationJson Schema
+#### ResponseFor200 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```
@@ -67,25 +67,25 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
-## _202
+## ResponseFor202
 
 ### Description
 success
 
-### _202 ApiResponse
+### ResponseFor202 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_202-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor202-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### _202 Body
+### ResponseFor202 Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_202-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor202-content-applicationjson-schema)
 
 ### Body Details
-#### _202 content ApplicationJson Schema
+#### ResponseFor202 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```

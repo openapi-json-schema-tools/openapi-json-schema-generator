@@ -24,13 +24,13 @@ path_parameter_classes = (
 __StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
-        '400': typing.Type[response_400._400],
-        '404': typing.Type[response_404._404],
+        '400': typing.Type[response_400.ResponseFor400],
+        '404': typing.Type[response_404.ResponseFor404],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '400': response_400._400,
-    '404': response_404._404,
+    '400': response_400.ResponseFor400,
+    '404': response_404.ResponseFor404,
 }
 _error_status_codes = frozenset({
     '400',

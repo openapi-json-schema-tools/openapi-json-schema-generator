@@ -38,27 +38,27 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.ApiResponse](#_200-apiresponse) | success
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
 
-## _200
+## ResponseFor200
 
 ### Description
 success
 
-### _200 ApiResponse
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_200-body) | typing.Literal["hello\x00there"] |  |
+[body](#responsefor200-body) | typing.Literal["hello\x00there"] |  |
 headers | Unset | headers were not defined |
 
-### _200 Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_200-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-#### _200 content ApplicationJson Schema
+#### ResponseFor200 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```

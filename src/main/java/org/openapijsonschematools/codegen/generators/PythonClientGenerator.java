@@ -1881,7 +1881,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         }
     }
 
-    public String getPascalCaseResponse(String name) {
+    public String getPascalCaseResponse(String name, String jsonPath) {
         if (name.matches("^\\d[X\\d]{2}$")) {
             // 200 or 2XX
             return "ResponseFor" + name;

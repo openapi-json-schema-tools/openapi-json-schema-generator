@@ -6,5 +6,5 @@
 
 
 from petstore_api.components.responses import response_success_description_only
-_200 = response_success_description_only.SuccessDescriptionOnly
+ResponseFor200 = response_success_description_only.SuccessDescriptionOnly
 ApiResponse = response_success_description_only.ApiResponse

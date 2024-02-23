@@ -35,14 +35,14 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.ApiResponse](#_200-apiresponse) | OK
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | OK
 
-## _200
+## ResponseFor200
 
 ### Description
 OK
 
-### _200 ApiResponse
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

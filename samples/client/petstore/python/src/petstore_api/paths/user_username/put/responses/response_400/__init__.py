@@ -13,7 +13,7 @@ class ApiResponse(api_response.ApiResponse):
     headers: schemas.Unset
 
 
-class _400(api_client.OpenApiResponse[ApiResponse]):
+class ResponseFor400(api_client.OpenApiResponse[ApiResponse]):
     @classmethod
     def get_response(cls, response, headers, body) -> ApiResponse:
         return ApiResponse(response=response, body=body, headers=headers)

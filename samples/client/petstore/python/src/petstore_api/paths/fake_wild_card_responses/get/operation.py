@@ -21,28 +21,28 @@ from .responses import (
 __StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': typing.Type[response_200._200],
+        '200': typing.Type[response_200.ResponseFor200],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '200': response_200._200,
+    '200': response_200.ResponseFor200,
 }
 __RangedStatusCodeToResponse = typing.TypedDict(
     '__RangedStatusCodeToResponse',
     {
-        '1': typing.Type[response_1xx._1XX],
-        '2': typing.Type[response_2xx._2XX],
-        '3': typing.Type[response_3xx._3XX],
-        '4': typing.Type[response_4xx._4XX],
-        '5': typing.Type[response_5xx._5XX],
+        '1': typing.Type[response_1xx.ResponseFor1XX],
+        '2': typing.Type[response_2xx.ResponseFor2XX],
+        '3': typing.Type[response_3xx.ResponseFor3XX],
+        '4': typing.Type[response_4xx.ResponseFor4XX],
+        '5': typing.Type[response_5xx.ResponseFor5XX],
     }
 )
 _ranged_status_code_to_response: __RangedStatusCodeToResponse = {
-    '1': response_1xx._1XX,
-    '2': response_2xx._2XX,
-    '3': response_3xx._3XX,
-    '4': response_4xx._4XX,
-    '5': response_5xx._5XX,
+    '1': response_1xx.ResponseFor1XX,
+    '2': response_2xx.ResponseFor2XX,
+    '3': response_3xx.ResponseFor3XX,
+    '4': response_4xx.ResponseFor4XX,
+    '5': response_5xx.ResponseFor5XX,
 }
 _non_error_status_codes = frozenset({
     '200',

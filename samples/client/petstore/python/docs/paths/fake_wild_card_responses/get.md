@@ -36,32 +36,32 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-1XX | [_1XX.ApiResponse](#_1xx-apiresponse) | 1XX response
-200 | [_200.ApiResponse](#_200-apiresponse) | success
-2XX | [_2XX.ApiResponse](#_2xx-apiresponse) | 2XX response
-3XX | [_3XX.ApiResponse](#_3xx-apiresponse) | 3XX response
-4XX | [_4XX.ApiResponse](#_4xx-apiresponse) | 4XX response
-5XX | [_5XX.ApiResponse](#_5xx-apiresponse) | 5XX response
+1XX | [ResponseFor1XX.ApiResponse](#responsefor1xx-apiresponse) | 1XX response
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
+2XX | [ResponseFor2XX.ApiResponse](#responsefor2xx-apiresponse) | 2XX response
+3XX | [ResponseFor3XX.ApiResponse](#responsefor3xx-apiresponse) | 3XX response
+4XX | [ResponseFor4XX.ApiResponse](#responsefor4xx-apiresponse) | 4XX response
+5XX | [ResponseFor5XX.ApiResponse](#responsefor5xx-apiresponse) | 5XX response
 
-## _1XX
+## ResponseFor1XX
 
 ### Description
 1XX response
 
-### _1XX ApiResponse
+### ResponseFor1XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_1xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor1xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### _1XX Body
+### ResponseFor1XX Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_1xx-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor1xx-content-applicationjson-schema)
 
 ### Body Details
-#### _1XX content ApplicationJson Schema
+#### ResponseFor1XX content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```
@@ -71,25 +71,25 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
-## _200
+## ResponseFor200
 
 ### Description
 success
 
-### _200 ApiResponse
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### _200 Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_200-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-#### _200 content ApplicationJson Schema
+#### ResponseFor200 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```
@@ -99,25 +99,25 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
-## _2XX
+## ResponseFor2XX
 
 ### Description
 2XX response
 
-### _2XX ApiResponse
+### ResponseFor2XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_2xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor2xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### _2XX Body
+### ResponseFor2XX Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_2xx-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor2xx-content-applicationjson-schema)
 
 ### Body Details
-#### _2XX content ApplicationJson Schema
+#### ResponseFor2XX content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```
@@ -127,25 +127,25 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
-## _3XX
+## ResponseFor3XX
 
 ### Description
 3XX response
 
-### _3XX ApiResponse
+### ResponseFor3XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_3xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor3xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### _3XX Body
+### ResponseFor3XX Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_3xx-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor3xx-content-applicationjson-schema)
 
 ### Body Details
-#### _3XX content ApplicationJson Schema
+#### ResponseFor3XX content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```
@@ -155,25 +155,25 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
-## _4XX
+## ResponseFor4XX
 
 ### Description
 4XX response
 
-### _4XX ApiResponse
+### ResponseFor4XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_4xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor4xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### _4XX Body
+### ResponseFor4XX Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_4xx-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor4xx-content-applicationjson-schema)
 
 ### Body Details
-#### _4XX content ApplicationJson Schema
+#### ResponseFor4XX content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```
@@ -183,25 +183,25 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
-## _5XX
+## ResponseFor5XX
 
 ### Description
 5XX response
 
-### _5XX ApiResponse
+### ResponseFor5XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_5xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor5xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### _5XX Body
+### ResponseFor5XX Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_5xx-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor5xx-content-applicationjson-schema)
 
 ### Body Details
-#### _5XX content ApplicationJson Schema
+#### ResponseFor5XX content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```

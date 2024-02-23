@@ -24,13 +24,13 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 __StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
-        '200': typing.Type[response_200._200],
-        '404': typing.Type[response_404._404],
+        '200': typing.Type[response_200.ResponseFor200],
+        '404': typing.Type[response_404.ResponseFor404],
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
-    '200': response_200._200,
-    '404': response_404._404,
+    '200': response_200.ResponseFor200,
+    '404': response_404.ResponseFor404,
 }
 _non_error_status_codes = frozenset({
     '200',

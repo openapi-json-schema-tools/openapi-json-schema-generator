@@ -56,14 +56,14 @@ Ref Schema | Input Type | Output Type
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.ApiResponse](#_200-apiresponse) | success
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
 
-## _200
+## ResponseFor200
 
 ### Description
 success
 
-### _200 ApiResponse
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

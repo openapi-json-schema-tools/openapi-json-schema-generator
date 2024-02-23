@@ -79,14 +79,14 @@ HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessfulXmlAndJsonArrayOfPet.ApiResponse](../../components/responses/response_successful_xml_and_json_array_of_pet.md#apiresponse) | successful operation, multiple content types
-400 | [_400.ApiResponse](#_400-apiresponse) | Invalid status value
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid status value
 
-## _400
+## ResponseFor400
 
 ### Description
 Invalid status value
 
-### _400 ApiResponse
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

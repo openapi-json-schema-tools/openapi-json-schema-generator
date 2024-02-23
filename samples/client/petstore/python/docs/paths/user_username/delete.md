@@ -76,14 +76,14 @@ HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
-404 | [_404.ApiResponse](#_404-apiresponse) | User not found
+404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | User not found
 
-## _404
+## ResponseFor404
 
 ### Description
 User not found
 
-### _404 ApiResponse
+### ResponseFor404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

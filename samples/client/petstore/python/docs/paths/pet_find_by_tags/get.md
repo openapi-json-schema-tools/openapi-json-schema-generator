@@ -78,14 +78,14 @@ HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [RefSuccessfulXmlAndJsonArrayOfPet.ApiResponse](../../components/responses/response_ref_successful_xml_and_json_array_of_pet.md#apiresponse) | successful operation, multiple content types
-400 | [_400.ApiResponse](#_400-apiresponse) | Invalid tag value
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid tag value
 
-## _400
+## ResponseFor400
 
 ### Description
 Invalid tag value
 
-### _400 ApiResponse
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

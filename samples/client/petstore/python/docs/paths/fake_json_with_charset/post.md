@@ -55,27 +55,27 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.ApiResponse](#_200-apiresponse) | success
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
 
-## _200
+## ResponseFor200
 
 ### Description
 success
 
-### _200 ApiResponse
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
-### _200 Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
-"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#_200-content-applicationjsoncharsetutf8-schema)
+"application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#responsefor200-content-applicationjsoncharsetutf8-schema)
 
 ### Body Details
-#### _200 content ApplicationJsonCharsetutf8 Schema
+#### ResponseFor200 content ApplicationJsonCharsetutf8 Schema
 ```
 type: schemas.Schema
 ```

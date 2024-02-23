@@ -58,27 +58,27 @@ Ref Schema | Input Type | Output Type
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.ApiResponse](#_200-apiresponse) | Got named array of enums
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | Got named array of enums
 
-## _200
+## ResponseFor200
 
 ### Description
 Got named array of enums
 
-### _200 ApiResponse
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_200-body) | [array_of_enums.ArrayOfEnumsTuple](../../components/schema/array_of_enums.md#arrayofenumstuple) |  |
+[body](#responsefor200-body) | [array_of_enums.ArrayOfEnumsTuple](../../components/schema/array_of_enums.md#arrayofenumstuple) |  |
 headers | Unset | headers were not defined |
 
-### _200 Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
-"application/json" | [content.application_json.Schema](#_200-content-applicationjson-schema)
+"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-#### _200 content ApplicationJson Schema
+#### ResponseFor200 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```

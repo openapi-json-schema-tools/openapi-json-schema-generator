@@ -76,30 +76,30 @@ from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput),
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.ApiResponse](#_200-apiresponse) | successful operation
-400 | [_400.ApiResponse](#_400-apiresponse) | Invalid ID supplied
-404 | [_404.ApiResponse](#_404-apiresponse) | Order not found
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | successful operation
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid ID supplied
+404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | Order not found
 
-## _200
+## ResponseFor200
 
 ### Description
 successful operation
 
-### _200 ApiResponse
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_200-body) | typing.Union[[order.OrderDict](../../components/schema/order.md#orderdict), [order.OrderDict](../../components/schema/order.md#orderdict)] |  |
+[body](#responsefor200-body) | typing.Union[[order.OrderDict](../../components/schema/order.md#orderdict), [order.OrderDict](../../components/schema/order.md#orderdict)] |  |
 headers | Unset | headers were not defined |
 
-### _200 Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
-"application/xml" | [content.application_xml.Schema](#_200-content-applicationxml-schema)
-"application/json" | [content.application_json.Schema](#_200-content-applicationjson-schema)
+"application/xml" | [content.application_xml.Schema](#responsefor200-content-applicationxml-schema)
+"application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-#### _200 content ApplicationXml Schema
+#### ResponseFor200 content ApplicationXml Schema
 ```
 type: schemas.Schema
 ```
@@ -108,7 +108,7 @@ type: schemas.Schema
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
 [**order.Order**](../../components/schema/order.md) | [order.OrderDictInput](../../components/schema/order.md#orderdictinput), [order.OrderDict](../../components/schema/order.md#orderdict) | [order.OrderDict](../../components/schema/order.md#orderdict)
-#### _200 content ApplicationJson Schema
+#### ResponseFor200 content ApplicationJson Schema
 ```
 type: schemas.Schema
 ```
@@ -118,24 +118,24 @@ Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
 [**order.Order**](../../components/schema/order.md) | [order.OrderDictInput](../../components/schema/order.md#orderdictinput), [order.OrderDict](../../components/schema/order.md#orderdict) | [order.OrderDict](../../components/schema/order.md#orderdict)
 
-## _400
+## ResponseFor400
 
 ### Description
 Invalid ID supplied
 
-### _400 ApiResponse
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## _404
+## ResponseFor404
 
 ### Description
 Order not found
 
-### _404 ApiResponse
+### ResponseFor404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

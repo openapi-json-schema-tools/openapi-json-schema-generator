@@ -75,27 +75,27 @@ from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput),
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [_400.ApiResponse](#_400-apiresponse) | Invalid ID supplied
-404 | [_404.ApiResponse](#_404-apiresponse) | Order not found
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid ID supplied
+404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | Order not found
 
-## _400
+## ResponseFor400
 
 ### Description
 Invalid ID supplied
 
-### _400 ApiResponse
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-## _404
+## ResponseFor404
 
 ### Description
 Order not found
 
-### _404 ApiResponse
+### ResponseFor404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

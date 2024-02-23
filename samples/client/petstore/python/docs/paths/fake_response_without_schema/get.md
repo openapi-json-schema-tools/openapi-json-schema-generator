@@ -36,21 +36,21 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [_200.ApiResponse](#_200-apiresponse) | contents without schema definition, multiple content types
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | contents without schema definition, multiple content types
 
-## _200
+## ResponseFor200
 
 ### Description
 contents without schema definition, multiple content types
 
-### _200 ApiResponse
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#_200-body) | Unset | body was not defined |
+[body](#responsefor200-body) | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-### _200 Body
+### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | no schema defined
