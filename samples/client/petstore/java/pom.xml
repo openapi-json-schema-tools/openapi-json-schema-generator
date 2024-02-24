@@ -44,6 +44,7 @@
                     <meminitial>128m</meminitial>
                     <maxmem>512m</maxmem>
                     <compilerArgument>-Xlint:all</compilerArgument>
+                    <testCompilerArgument>--add-modules=java.net.http</testCompilerArgument>
                     <compilerArgs combine.children="append">
                         <arg>-Awarns</arg>
                         <arg>-J-Xss4m</arg><!-- Compiling the generated JSON.java file may require larger stack size. -->
