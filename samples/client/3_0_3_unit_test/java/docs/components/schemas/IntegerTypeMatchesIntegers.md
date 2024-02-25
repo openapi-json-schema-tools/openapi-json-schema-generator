@@ -4,38 +4,39 @@ public class IntegerTypeMatchesIntegers<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1Boxed](#integertypematchesintegers1boxed)<br> abstract sealed validated payload class |
-| static class | [IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1BoxedNumber](#integertypematchesintegers1boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1Boxed](#integertypematchesintegers1boxed)<br> sealed interface for validated payloads |
+| record | [IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1BoxedNumber](#integertypematchesintegers1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1](#integertypematchesintegers1)<br> schema class |
 
 ## IntegerTypeMatchesIntegers1Boxed
-public static abstract sealed class IntegerTypeMatchesIntegers1Boxed<br>
+public sealed interface IntegerTypeMatchesIntegers1Boxed<br>
 permits<br>
 [IntegerTypeMatchesIntegers1BoxedNumber](#integertypematchesintegers1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IntegerTypeMatchesIntegers1BoxedNumber
-public static final class IntegerTypeMatchesIntegers1BoxedNumber<br>
-extends [IntegerTypeMatchesIntegers1Boxed](#integertypematchesintegers1boxed)
+public record IntegerTypeMatchesIntegers1BoxedNumber<br>
+implements [IntegerTypeMatchesIntegers1Boxed](#integertypematchesintegers1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerTypeMatchesIntegers1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IntegerTypeMatchesIntegers1
 public static class IntegerTypeMatchesIntegers1<br>

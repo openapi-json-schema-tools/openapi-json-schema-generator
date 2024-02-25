@@ -1,28 +1,25 @@
 {{#if forDocs}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "BoxedNumber" "")) }}
-public static final class {{jsonPathPiece.pascalCase}}BoxedNumber<br>
-extends [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
+public record {{jsonPathPiece.pascalCase}}BoxedNumber<br>
+implements [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 {{headerSize}}## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | {{jsonPathPiece.pascalCase}}BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-{{headerSize}}## Field Summary
-| Modifier and Type | Field and Description |
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 {{else}}
-public static final class {{jsonPathPiece.pascalCase}}BoxedNumber extends {{jsonPathPiece.pascalCase}}Boxed {
-    public final Number data;
-    private {{jsonPathPiece.pascalCase}}BoxedNumber(Number data) {
-        this.data = data;
-    }
+public record {{jsonPathPiece.pascalCase}}BoxedNumber(Number data) implements {{jsonPathPiece.pascalCase}}Boxed {
     @Override
-    public @Nullable Object data() {
+    public @Nullable Object getData() {
         return data;
     }
 }

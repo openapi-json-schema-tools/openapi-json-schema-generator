@@ -35,24 +35,20 @@ public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Schema00Boxed permits Schema00BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface Schema00Boxed permits Schema00BoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class Schema00BoxedString extends Schema00Boxed {
-        public final String data;
-        private Schema00BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema00BoxedString(String data) implements Schema00Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Schema00 extends JsonSchema implements StringSchemaValidator<Schema00BoxedString> {
+    public static class Schema00 extends JsonSchema<Schema00Boxed> implements StringSchemaValidator<Schema00BoxedString> {
         private static @Nullable Schema00 instance = null;
     
         protected Schema00() {
@@ -100,80 +96,63 @@ public class Schema0 {
         public Schema00BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema00BoxedString(validate(arg, configuration));
         }
+        @Override
+        public Schema00Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class Schema01Boxed permits Schema01BoxedVoid, Schema01BoxedBoolean, Schema01BoxedNumber, Schema01BoxedString, Schema01BoxedList, Schema01BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Schema01Boxed permits Schema01BoxedVoid, Schema01BoxedBoolean, Schema01BoxedNumber, Schema01BoxedString, Schema01BoxedList, Schema01BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class Schema01BoxedVoid extends Schema01Boxed {
-        public final Void data;
-        private Schema01BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Schema01BoxedVoid(Void data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedBoolean extends Schema01Boxed {
-        public final boolean data;
-        private Schema01BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Schema01BoxedBoolean(boolean data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedNumber extends Schema01Boxed {
-        public final Number data;
-        private Schema01BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Schema01BoxedNumber(Number data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedString extends Schema01Boxed {
-        public final String data;
-        private Schema01BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema01BoxedString(String data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedList extends Schema01Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Schema01BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Schema01BoxedList(FrozenList<@Nullable Object> data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema01BoxedMap extends Schema01Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private Schema01BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Schema01BoxedMap(FrozenMap<@Nullable Object> data) implements Schema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Schema01 extends JsonSchema implements NullSchemaValidator<Schema01BoxedVoid>, BooleanSchemaValidator<Schema01BoxedBoolean>, NumberSchemaValidator<Schema01BoxedNumber>, StringSchemaValidator<Schema01BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Schema01BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Schema01BoxedMap> {
+    public static class Schema01 extends JsonSchema<Schema01Boxed> implements NullSchemaValidator<Schema01BoxedVoid>, BooleanSchemaValidator<Schema01BoxedBoolean>, NumberSchemaValidator<Schema01BoxedNumber>, StringSchemaValidator<Schema01BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Schema01BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Schema01BoxedMap> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -274,11 +253,11 @@ public class Schema0 {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -309,11 +288,11 @@ public class Schema0 {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -391,6 +370,25 @@ public class Schema0 {
         @Override
         public Schema01BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema01BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public Schema01Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

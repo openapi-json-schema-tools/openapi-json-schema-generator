@@ -4,38 +4,39 @@ public class ParentPet<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ParentPet.ParentPet1Boxed](#parentpet1boxed)<br> abstract sealed validated payload class |
-| static class | [ParentPet.ParentPet1BoxedMap](#parentpet1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ParentPet.ParentPet1Boxed](#parentpet1boxed)<br> sealed interface for validated payloads |
+| record | [ParentPet.ParentPet1BoxedMap](#parentpet1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ParentPet.ParentPet1](#parentpet1)<br> schema class |
 
 ## ParentPet1Boxed
-public static abstract sealed class ParentPet1Boxed<br>
+public sealed interface ParentPet1Boxed<br>
 permits<br>
 [ParentPet1BoxedMap](#parentpet1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ParentPet1BoxedMap
-public static final class ParentPet1BoxedMap<br>
-extends [ParentPet1Boxed](#parentpet1boxed)
+public record ParentPet1BoxedMap<br>
+implements [ParentPet1Boxed](#parentpet1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ParentPet1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ParentPet1
 public static class ParentPet1<br>
@@ -54,5 +55,7 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [ParentPet1BoxedMap](#parentpet1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [ParentPet1Boxed](#parentpet1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

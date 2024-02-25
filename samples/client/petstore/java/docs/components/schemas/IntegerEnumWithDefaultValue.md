@@ -4,15 +4,15 @@ public class IntegerEnumWithDefaultValue<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1Boxed](#integerenumwithdefaultvalue1boxed)<br> abstract sealed validated payload class |
-| static class | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1BoxedNumber](#integerenumwithdefaultvalue1boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1Boxed](#integerenumwithdefaultvalue1boxed)<br> sealed interface for validated payloads |
+| record | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1BoxedNumber](#integerenumwithdefaultvalue1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1](#integerenumwithdefaultvalue1)<br> schema class |
 | enum | [IntegerEnumWithDefaultValue.IntegerIntegerEnumWithDefaultValueEnums](#integerintegerenumwithdefaultvalueenums)<br>Integer enum |
 | enum | [IntegerEnumWithDefaultValue.LongIntegerEnumWithDefaultValueEnums](#longintegerenumwithdefaultvalueenums)<br>Long enum |
@@ -20,27 +20,28 @@ A class that contains necessary nested
 | enum | [IntegerEnumWithDefaultValue.DoubleIntegerEnumWithDefaultValueEnums](#doubleintegerenumwithdefaultvalueenums)<br>Double enum |
 
 ## IntegerEnumWithDefaultValue1Boxed
-public static abstract sealed class IntegerEnumWithDefaultValue1Boxed<br>
+public sealed interface IntegerEnumWithDefaultValue1Boxed<br>
 permits<br>
 [IntegerEnumWithDefaultValue1BoxedNumber](#integerenumwithdefaultvalue1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IntegerEnumWithDefaultValue1BoxedNumber
-public static final class IntegerEnumWithDefaultValue1BoxedNumber<br>
-extends [IntegerEnumWithDefaultValue1Boxed](#integerenumwithdefaultvalue1boxed)
+public record IntegerEnumWithDefaultValue1BoxedNumber<br>
+implements [IntegerEnumWithDefaultValue1Boxed](#integerenumwithdefaultvalue1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerEnumWithDefaultValue1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IntegerEnumWithDefaultValue1
 public static class IntegerEnumWithDefaultValue1<br>
@@ -83,7 +84,9 @@ int validatedPayload = IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | [IntegerEnumWithDefaultValue1BoxedNumber](#integerenumwithdefaultvalue1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [IntegerEnumWithDefaultValue1Boxed](#integerenumwithdefaultvalue1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## IntegerIntegerEnumWithDefaultValueEnums
 public enum IntegerIntegerEnumWithDefaultValueEnums<br>
 extends `Enum<IntegerIntegerEnumWithDefaultValueEnums>`

@@ -130,78 +130,54 @@ public class UniqueitemsFalseWithAnArrayOfItems {
     }
     
     
-    public static abstract sealed class UniqueitemsFalseWithAnArrayOfItems1Boxed permits UniqueitemsFalseWithAnArrayOfItems1BoxedVoid, UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean, UniqueitemsFalseWithAnArrayOfItems1BoxedNumber, UniqueitemsFalseWithAnArrayOfItems1BoxedString, UniqueitemsFalseWithAnArrayOfItems1BoxedList, UniqueitemsFalseWithAnArrayOfItems1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface UniqueitemsFalseWithAnArrayOfItems1Boxed permits UniqueitemsFalseWithAnArrayOfItems1BoxedVoid, UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean, UniqueitemsFalseWithAnArrayOfItems1BoxedNumber, UniqueitemsFalseWithAnArrayOfItems1BoxedString, UniqueitemsFalseWithAnArrayOfItems1BoxedList, UniqueitemsFalseWithAnArrayOfItems1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedVoid extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
-        public final Void data;
-        private UniqueitemsFalseWithAnArrayOfItems1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record UniqueitemsFalseWithAnArrayOfItems1BoxedVoid(Void data) implements UniqueitemsFalseWithAnArrayOfItems1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
-        public final boolean data;
-        private UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean(boolean data) implements UniqueitemsFalseWithAnArrayOfItems1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedNumber extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
-        public final Number data;
-        private UniqueitemsFalseWithAnArrayOfItems1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record UniqueitemsFalseWithAnArrayOfItems1BoxedNumber(Number data) implements UniqueitemsFalseWithAnArrayOfItems1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedString extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
-        public final String data;
-        private UniqueitemsFalseWithAnArrayOfItems1BoxedString(String data) {
-            this.data = data;
-        }
+    public record UniqueitemsFalseWithAnArrayOfItems1BoxedString(String data) implements UniqueitemsFalseWithAnArrayOfItems1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedList extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
-        public final UniqueitemsFalseWithAnArrayOfItemsList data;
-        private UniqueitemsFalseWithAnArrayOfItems1BoxedList(UniqueitemsFalseWithAnArrayOfItemsList data) {
-            this.data = data;
-        }
+    public record UniqueitemsFalseWithAnArrayOfItems1BoxedList(UniqueitemsFalseWithAnArrayOfItemsList data) implements UniqueitemsFalseWithAnArrayOfItems1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedMap extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private UniqueitemsFalseWithAnArrayOfItems1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record UniqueitemsFalseWithAnArrayOfItems1BoxedMap(FrozenMap<@Nullable Object> data) implements UniqueitemsFalseWithAnArrayOfItems1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class UniqueitemsFalseWithAnArrayOfItems1 extends JsonSchema implements NullSchemaValidator<UniqueitemsFalseWithAnArrayOfItems1BoxedVoid>, BooleanSchemaValidator<UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean>, NumberSchemaValidator<UniqueitemsFalseWithAnArrayOfItems1BoxedNumber>, StringSchemaValidator<UniqueitemsFalseWithAnArrayOfItems1BoxedString>, ListSchemaValidator<UniqueitemsFalseWithAnArrayOfItemsList, UniqueitemsFalseWithAnArrayOfItems1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UniqueitemsFalseWithAnArrayOfItems1BoxedMap> {
+    public static class UniqueitemsFalseWithAnArrayOfItems1 extends JsonSchema<UniqueitemsFalseWithAnArrayOfItems1Boxed> implements NullSchemaValidator<UniqueitemsFalseWithAnArrayOfItems1BoxedVoid>, BooleanSchemaValidator<UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean>, NumberSchemaValidator<UniqueitemsFalseWithAnArrayOfItems1BoxedNumber>, StringSchemaValidator<UniqueitemsFalseWithAnArrayOfItems1BoxedString>, ListSchemaValidator<UniqueitemsFalseWithAnArrayOfItemsList, UniqueitemsFalseWithAnArrayOfItems1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UniqueitemsFalseWithAnArrayOfItems1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -310,11 +286,11 @@ public class UniqueitemsFalseWithAnArrayOfItems {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -345,11 +321,11 @@ public class UniqueitemsFalseWithAnArrayOfItems {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -427,6 +403,25 @@ public class UniqueitemsFalseWithAnArrayOfItems {
         @Override
         public UniqueitemsFalseWithAnArrayOfItems1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UniqueitemsFalseWithAnArrayOfItems1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public UniqueitemsFalseWithAnArrayOfItems1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

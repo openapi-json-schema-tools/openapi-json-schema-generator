@@ -81,24 +81,20 @@ public class Schema4 {
     }
     
     
-    public static abstract sealed class Schema41Boxed permits Schema41BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface Schema41Boxed permits Schema41BoxedNumber {
+        @Nullable Object getData();
     }
     
-    public static final class Schema41BoxedNumber extends Schema41Boxed {
-        public final Number data;
-        private Schema41BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Schema41BoxedNumber(Number data) implements Schema41Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Schema41 extends JsonSchema implements IntegerEnumValidator<IntegerSchemaEnums4>, LongEnumValidator<LongSchemaEnums4>, FloatEnumValidator<FloatSchemaEnums4>, DoubleEnumValidator<DoubleSchemaEnums4>, NumberSchemaValidator<Schema41BoxedNumber> {
+    public static class Schema41 extends JsonSchema<Schema41Boxed> implements IntegerEnumValidator<IntegerSchemaEnums4>, LongEnumValidator<LongSchemaEnums4>, FloatEnumValidator<FloatSchemaEnums4>, DoubleEnumValidator<DoubleSchemaEnums4>, NumberSchemaValidator<Schema41BoxedNumber> {
         private static @Nullable Schema41 instance = null;
     
         protected Schema41() {
@@ -180,6 +176,13 @@ public class Schema4 {
         @Override
         public Schema41BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema41BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public Schema41Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

@@ -4,7 +4,7 @@ public class Capitalization<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,52 +12,53 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Capitalization.Capitalization1Boxed](#capitalization1boxed)<br> abstract sealed validated payload class |
-| static class | [Capitalization.Capitalization1BoxedMap](#capitalization1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Capitalization.Capitalization1Boxed](#capitalization1boxed)<br> sealed interface for validated payloads |
+| record | [Capitalization.Capitalization1BoxedMap](#capitalization1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Capitalization.Capitalization1](#capitalization1)<br> schema class |
 | static class | [Capitalization.CapitalizationMapBuilder](#capitalizationmapbuilder)<br> builder for Map payloads |
 | static class | [Capitalization.CapitalizationMap](#capitalizationmap)<br> output class for Map payloads |
-| static class | [Capitalization.ATTNAMEBoxed](#attnameboxed)<br> abstract sealed validated payload class |
-| static class | [Capitalization.ATTNAMEBoxedString](#attnameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Capitalization.ATTNAMEBoxed](#attnameboxed)<br> sealed interface for validated payloads |
+| record | [Capitalization.ATTNAMEBoxedString](#attnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.ATTNAME](#attname)<br> schema class |
-| static class | [Capitalization.SCAETHFlowPointsBoxed](#scaethflowpointsboxed)<br> abstract sealed validated payload class |
-| static class | [Capitalization.SCAETHFlowPointsBoxedString](#scaethflowpointsboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Capitalization.SCAETHFlowPointsBoxed](#scaethflowpointsboxed)<br> sealed interface for validated payloads |
+| record | [Capitalization.SCAETHFlowPointsBoxedString](#scaethflowpointsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.SCAETHFlowPoints](#scaethflowpoints)<br> schema class |
-| static class | [Capitalization.CapitalSnakeBoxed](#capitalsnakeboxed)<br> abstract sealed validated payload class |
-| static class | [Capitalization.CapitalSnakeBoxedString](#capitalsnakeboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Capitalization.CapitalSnakeBoxed](#capitalsnakeboxed)<br> sealed interface for validated payloads |
+| record | [Capitalization.CapitalSnakeBoxedString](#capitalsnakeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.CapitalSnake](#capitalsnake)<br> schema class |
-| static class | [Capitalization.SmallSnakeBoxed](#smallsnakeboxed)<br> abstract sealed validated payload class |
-| static class | [Capitalization.SmallSnakeBoxedString](#smallsnakeboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Capitalization.SmallSnakeBoxed](#smallsnakeboxed)<br> sealed interface for validated payloads |
+| record | [Capitalization.SmallSnakeBoxedString](#smallsnakeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.SmallSnake](#smallsnake)<br> schema class |
-| static class | [Capitalization.CapitalCamelBoxed](#capitalcamelboxed)<br> abstract sealed validated payload class |
-| static class | [Capitalization.CapitalCamelBoxedString](#capitalcamelboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Capitalization.CapitalCamelBoxed](#capitalcamelboxed)<br> sealed interface for validated payloads |
+| record | [Capitalization.CapitalCamelBoxedString](#capitalcamelboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.CapitalCamel](#capitalcamel)<br> schema class |
-| static class | [Capitalization.SmallCamelBoxed](#smallcamelboxed)<br> abstract sealed validated payload class |
-| static class | [Capitalization.SmallCamelBoxedString](#smallcamelboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Capitalization.SmallCamelBoxed](#smallcamelboxed)<br> sealed interface for validated payloads |
+| record | [Capitalization.SmallCamelBoxedString](#smallcamelboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.SmallCamel](#smallcamel)<br> schema class |
 
 ## Capitalization1Boxed
-public static abstract sealed class Capitalization1Boxed<br>
+public sealed interface Capitalization1Boxed<br>
 permits<br>
 [Capitalization1BoxedMap](#capitalization1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Capitalization1BoxedMap
-public static final class Capitalization1BoxedMap<br>
-extends [Capitalization1Boxed](#capitalization1boxed)
+public record Capitalization1BoxedMap<br>
+implements [Capitalization1Boxed](#capitalization1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Capitalization1BoxedMap([CapitalizationMap](#capitalizationmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CapitalizationMap](#capitalizationmap) | data<br>validated payload |
+| [CapitalizationMap](#capitalizationmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Capitalization1
 public static class Capitalization1<br>
@@ -112,7 +113,9 @@ Capitalization.CapitalizationMap validatedPayload =
 | ----------------- | ---------------------- |
 | [CapitalizationMap](#capitalizationmap) | validate([Map&lt;?, ?&gt;](#capitalizationmapbuilder) arg, SchemaConfiguration configuration) |
 | [Capitalization1BoxedMap](#capitalization1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#capitalizationmapbuilder) arg, SchemaConfiguration configuration) |
+| [Capitalization1Boxed](#capitalization1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## CapitalizationMapBuilder
 public class CapitalizationMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -163,27 +166,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ATTNAMEBoxed
-public static abstract sealed class ATTNAMEBoxed<br>
+public sealed interface ATTNAMEBoxed<br>
 permits<br>
 [ATTNAMEBoxedString](#attnameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ATTNAMEBoxedString
-public static final class ATTNAMEBoxedString<br>
-extends [ATTNAMEBoxed](#attnameboxed)
+public record ATTNAMEBoxedString<br>
+implements [ATTNAMEBoxed](#attnameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ATTNAMEBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ATTNAME
 public static class ATTNAME<br>
@@ -200,27 +204,28 @@ Name of the pet<br>
 | validateAndBox                                                     |
 
 ## SCAETHFlowPointsBoxed
-public static abstract sealed class SCAETHFlowPointsBoxed<br>
+public sealed interface SCAETHFlowPointsBoxed<br>
 permits<br>
 [SCAETHFlowPointsBoxedString](#scaethflowpointsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SCAETHFlowPointsBoxedString
-public static final class SCAETHFlowPointsBoxedString<br>
-extends [SCAETHFlowPointsBoxed](#scaethflowpointsboxed)
+public record SCAETHFlowPointsBoxedString<br>
+implements [SCAETHFlowPointsBoxed](#scaethflowpointsboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SCAETHFlowPointsBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SCAETHFlowPoints
 public static class SCAETHFlowPoints<br>
@@ -234,27 +239,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## CapitalSnakeBoxed
-public static abstract sealed class CapitalSnakeBoxed<br>
+public sealed interface CapitalSnakeBoxed<br>
 permits<br>
 [CapitalSnakeBoxedString](#capitalsnakeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## CapitalSnakeBoxedString
-public static final class CapitalSnakeBoxedString<br>
-extends [CapitalSnakeBoxed](#capitalsnakeboxed)
+public record CapitalSnakeBoxedString<br>
+implements [CapitalSnakeBoxed](#capitalsnakeboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CapitalSnakeBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## CapitalSnake
 public static class CapitalSnake<br>
@@ -268,27 +274,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## SmallSnakeBoxed
-public static abstract sealed class SmallSnakeBoxed<br>
+public sealed interface SmallSnakeBoxed<br>
 permits<br>
 [SmallSnakeBoxedString](#smallsnakeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SmallSnakeBoxedString
-public static final class SmallSnakeBoxedString<br>
-extends [SmallSnakeBoxed](#smallsnakeboxed)
+public record SmallSnakeBoxedString<br>
+implements [SmallSnakeBoxed](#smallsnakeboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SmallSnakeBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SmallSnake
 public static class SmallSnake<br>
@@ -302,27 +309,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## CapitalCamelBoxed
-public static abstract sealed class CapitalCamelBoxed<br>
+public sealed interface CapitalCamelBoxed<br>
 permits<br>
 [CapitalCamelBoxedString](#capitalcamelboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## CapitalCamelBoxedString
-public static final class CapitalCamelBoxedString<br>
-extends [CapitalCamelBoxed](#capitalcamelboxed)
+public record CapitalCamelBoxedString<br>
+implements [CapitalCamelBoxed](#capitalcamelboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CapitalCamelBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## CapitalCamel
 public static class CapitalCamel<br>
@@ -336,27 +344,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## SmallCamelBoxed
-public static abstract sealed class SmallCamelBoxed<br>
+public sealed interface SmallCamelBoxed<br>
 permits<br>
 [SmallCamelBoxedString](#smallcamelboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SmallCamelBoxedString
-public static final class SmallCamelBoxedString<br>
-extends [SmallCamelBoxed](#smallcamelboxed)
+public record SmallCamelBoxedString<br>
+implements [SmallCamelBoxed](#smallcamelboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SmallCamelBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SmallCamel
 public static class SmallCamel<br>

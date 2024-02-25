@@ -37,24 +37,20 @@ public class ObjectWithInlineCompositionProperty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface Schema0Boxed permits Schema0BoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class Schema0BoxedString extends Schema0Boxed {
-        public final String data;
-        private Schema0BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema0BoxedString(String data) implements Schema0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Schema0 extends JsonSchema implements StringSchemaValidator<Schema0BoxedString> {
+    public static class Schema0 extends JsonSchema<Schema0Boxed> implements StringSchemaValidator<Schema0BoxedString> {
         private static @Nullable Schema0 instance = null;
     
         protected Schema0() {
@@ -102,80 +98,63 @@ public class ObjectWithInlineCompositionProperty {
         public Schema0BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema0BoxedString(validate(arg, configuration));
         }
+        @Override
+        public Schema0Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class SomePropBoxed permits SomePropBoxedVoid, SomePropBoxedBoolean, SomePropBoxedNumber, SomePropBoxedString, SomePropBoxedList, SomePropBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface SomePropBoxed permits SomePropBoxedVoid, SomePropBoxedBoolean, SomePropBoxedNumber, SomePropBoxedString, SomePropBoxedList, SomePropBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class SomePropBoxedVoid extends SomePropBoxed {
-        public final Void data;
-        private SomePropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record SomePropBoxedVoid(Void data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedBoolean extends SomePropBoxed {
-        public final boolean data;
-        private SomePropBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record SomePropBoxedBoolean(boolean data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedNumber extends SomePropBoxed {
-        public final Number data;
-        private SomePropBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record SomePropBoxedNumber(Number data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedString extends SomePropBoxed {
-        public final String data;
-        private SomePropBoxedString(String data) {
-            this.data = data;
-        }
+    public record SomePropBoxedString(String data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedList extends SomePropBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private SomePropBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SomePropBoxedList(FrozenList<@Nullable Object> data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class SomePropBoxedMap extends SomePropBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private SomePropBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record SomePropBoxedMap(FrozenMap<@Nullable Object> data) implements SomePropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class SomeProp extends JsonSchema implements NullSchemaValidator<SomePropBoxedVoid>, BooleanSchemaValidator<SomePropBoxedBoolean>, NumberSchemaValidator<SomePropBoxedNumber>, StringSchemaValidator<SomePropBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, SomePropBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, SomePropBoxedMap> {
+    public static class SomeProp extends JsonSchema<SomePropBoxed> implements NullSchemaValidator<SomePropBoxedVoid>, BooleanSchemaValidator<SomePropBoxedBoolean>, NumberSchemaValidator<SomePropBoxedNumber>, StringSchemaValidator<SomePropBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, SomePropBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, SomePropBoxedMap> {
         private static @Nullable SomeProp instance = null;
     
         protected SomeProp() {
@@ -276,11 +255,11 @@ public class ObjectWithInlineCompositionProperty {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -311,11 +290,11 @@ public class ObjectWithInlineCompositionProperty {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -393,6 +372,25 @@ public class ObjectWithInlineCompositionProperty {
         @Override
         public SomePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomePropBoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public SomePropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -504,23 +502,19 @@ public class ObjectWithInlineCompositionProperty {
     }
     
     
-    public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed permits ObjectWithInlineCompositionProperty1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ObjectWithInlineCompositionProperty1Boxed permits ObjectWithInlineCompositionProperty1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithInlineCompositionProperty1BoxedMap extends ObjectWithInlineCompositionProperty1Boxed {
-        public final ObjectWithInlineCompositionPropertyMap data;
-        private ObjectWithInlineCompositionProperty1BoxedMap(ObjectWithInlineCompositionPropertyMap data) {
-            this.data = data;
-        }
+    public record ObjectWithInlineCompositionProperty1BoxedMap(ObjectWithInlineCompositionPropertyMap data) implements ObjectWithInlineCompositionProperty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ObjectWithInlineCompositionProperty1 extends JsonSchema implements MapSchemaValidator<ObjectWithInlineCompositionPropertyMap, ObjectWithInlineCompositionProperty1BoxedMap> {
+    public static class ObjectWithInlineCompositionProperty1 extends JsonSchema<ObjectWithInlineCompositionProperty1Boxed> implements MapSchemaValidator<ObjectWithInlineCompositionPropertyMap, ObjectWithInlineCompositionProperty1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -556,11 +550,11 @@ public class ObjectWithInlineCompositionProperty {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -596,6 +590,13 @@ public class ObjectWithInlineCompositionProperty {
         @Override
         public ObjectWithInlineCompositionProperty1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ObjectWithInlineCompositionProperty1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ObjectWithInlineCompositionProperty1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

@@ -49,78 +49,54 @@ public class ForbiddenProperty {
     }
     
     
-    public static abstract sealed class FooBoxed permits FooBoxedVoid, FooBoxedBoolean, FooBoxedNumber, FooBoxedString, FooBoxedList, FooBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface FooBoxed permits FooBoxedVoid, FooBoxedBoolean, FooBoxedNumber, FooBoxedString, FooBoxedList, FooBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class FooBoxedVoid extends FooBoxed {
-        public final Void data;
-        private FooBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record FooBoxedVoid(Void data) implements FooBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FooBoxedBoolean extends FooBoxed {
-        public final boolean data;
-        private FooBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record FooBoxedBoolean(boolean data) implements FooBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FooBoxedNumber extends FooBoxed {
-        public final Number data;
-        private FooBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record FooBoxedNumber(Number data) implements FooBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FooBoxedString extends FooBoxed {
-        public final String data;
-        private FooBoxedString(String data) {
-            this.data = data;
-        }
+    public record FooBoxedString(String data) implements FooBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FooBoxedList extends FooBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private FooBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FooBoxedList(FrozenList<@Nullable Object> data) implements FooBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FooBoxedMap extends FooBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private FooBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FooBoxedMap(FrozenMap<@Nullable Object> data) implements FooBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Foo extends JsonSchema implements NullSchemaValidator<FooBoxedVoid>, BooleanSchemaValidator<FooBoxedBoolean>, NumberSchemaValidator<FooBoxedNumber>, StringSchemaValidator<FooBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FooBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FooBoxedMap> {
+    public static class Foo extends JsonSchema<FooBoxed> implements NullSchemaValidator<FooBoxedVoid>, BooleanSchemaValidator<FooBoxedBoolean>, NumberSchemaValidator<FooBoxedNumber>, StringSchemaValidator<FooBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FooBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FooBoxedMap> {
         private static @Nullable Foo instance = null;
     
         protected Foo() {
@@ -219,11 +195,11 @@ public class ForbiddenProperty {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -254,11 +230,11 @@ public class ForbiddenProperty {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -336,6 +312,25 @@ public class ForbiddenProperty {
         @Override
         public FooBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FooBoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public FooBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -447,78 +442,54 @@ public class ForbiddenProperty {
     }
     
     
-    public static abstract sealed class ForbiddenProperty1Boxed permits ForbiddenProperty1BoxedVoid, ForbiddenProperty1BoxedBoolean, ForbiddenProperty1BoxedNumber, ForbiddenProperty1BoxedString, ForbiddenProperty1BoxedList, ForbiddenProperty1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ForbiddenProperty1Boxed permits ForbiddenProperty1BoxedVoid, ForbiddenProperty1BoxedBoolean, ForbiddenProperty1BoxedNumber, ForbiddenProperty1BoxedString, ForbiddenProperty1BoxedList, ForbiddenProperty1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ForbiddenProperty1BoxedVoid extends ForbiddenProperty1Boxed {
-        public final Void data;
-        private ForbiddenProperty1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ForbiddenProperty1BoxedVoid(Void data) implements ForbiddenProperty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ForbiddenProperty1BoxedBoolean extends ForbiddenProperty1Boxed {
-        public final boolean data;
-        private ForbiddenProperty1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ForbiddenProperty1BoxedBoolean(boolean data) implements ForbiddenProperty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ForbiddenProperty1BoxedNumber extends ForbiddenProperty1Boxed {
-        public final Number data;
-        private ForbiddenProperty1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ForbiddenProperty1BoxedNumber(Number data) implements ForbiddenProperty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ForbiddenProperty1BoxedString extends ForbiddenProperty1Boxed {
-        public final String data;
-        private ForbiddenProperty1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ForbiddenProperty1BoxedString(String data) implements ForbiddenProperty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ForbiddenProperty1BoxedList extends ForbiddenProperty1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ForbiddenProperty1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ForbiddenProperty1BoxedList(FrozenList<@Nullable Object> data) implements ForbiddenProperty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ForbiddenProperty1BoxedMap extends ForbiddenProperty1Boxed {
-        public final ForbiddenPropertyMap data;
-        private ForbiddenProperty1BoxedMap(ForbiddenPropertyMap data) {
-            this.data = data;
-        }
+    public record ForbiddenProperty1BoxedMap(ForbiddenPropertyMap data) implements ForbiddenProperty1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ForbiddenProperty1 extends JsonSchema implements NullSchemaValidator<ForbiddenProperty1BoxedVoid>, BooleanSchemaValidator<ForbiddenProperty1BoxedBoolean>, NumberSchemaValidator<ForbiddenProperty1BoxedNumber>, StringSchemaValidator<ForbiddenProperty1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ForbiddenProperty1BoxedList>, MapSchemaValidator<ForbiddenPropertyMap, ForbiddenProperty1BoxedMap> {
+    public static class ForbiddenProperty1 extends JsonSchema<ForbiddenProperty1Boxed> implements NullSchemaValidator<ForbiddenProperty1BoxedVoid>, BooleanSchemaValidator<ForbiddenProperty1BoxedBoolean>, NumberSchemaValidator<ForbiddenProperty1BoxedNumber>, StringSchemaValidator<ForbiddenProperty1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ForbiddenProperty1BoxedList>, MapSchemaValidator<ForbiddenPropertyMap, ForbiddenProperty1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -625,11 +596,11 @@ public class ForbiddenProperty {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -660,11 +631,11 @@ public class ForbiddenProperty {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -742,6 +713,25 @@ public class ForbiddenProperty {
         @Override
         public ForbiddenProperty1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ForbiddenProperty1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ForbiddenProperty1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

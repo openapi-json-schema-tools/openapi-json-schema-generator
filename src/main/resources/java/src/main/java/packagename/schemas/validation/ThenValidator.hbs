@@ -22,7 +22,7 @@ public class ThenValidator implements KeywordValidator {
             // if validation is false
             return null;
         }
-        JsonSchema thenSchema = JsonSchemaFactory.getInstance(then);
+        JsonSchema<?> thenSchema = JsonSchemaFactory.getInstance(then);
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         var thenPathToSchemas = JsonSchema.validate(thenSchema, data.arg(), data.validationMetadata());
         // todo capture validation error and describe it as an then error?

@@ -35,78 +35,54 @@ public class MaxcontainsWithoutContainsIsIgnored {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MaxcontainsWithoutContainsIsIgnored1Boxed permits MaxcontainsWithoutContainsIsIgnored1BoxedVoid, MaxcontainsWithoutContainsIsIgnored1BoxedBoolean, MaxcontainsWithoutContainsIsIgnored1BoxedNumber, MaxcontainsWithoutContainsIsIgnored1BoxedString, MaxcontainsWithoutContainsIsIgnored1BoxedList, MaxcontainsWithoutContainsIsIgnored1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MaxcontainsWithoutContainsIsIgnored1Boxed permits MaxcontainsWithoutContainsIsIgnored1BoxedVoid, MaxcontainsWithoutContainsIsIgnored1BoxedBoolean, MaxcontainsWithoutContainsIsIgnored1BoxedNumber, MaxcontainsWithoutContainsIsIgnored1BoxedString, MaxcontainsWithoutContainsIsIgnored1BoxedList, MaxcontainsWithoutContainsIsIgnored1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class MaxcontainsWithoutContainsIsIgnored1BoxedVoid extends MaxcontainsWithoutContainsIsIgnored1Boxed {
-        public final Void data;
-        private MaxcontainsWithoutContainsIsIgnored1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record MaxcontainsWithoutContainsIsIgnored1BoxedVoid(Void data) implements MaxcontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxcontainsWithoutContainsIsIgnored1BoxedBoolean extends MaxcontainsWithoutContainsIsIgnored1Boxed {
-        public final boolean data;
-        private MaxcontainsWithoutContainsIsIgnored1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record MaxcontainsWithoutContainsIsIgnored1BoxedBoolean(boolean data) implements MaxcontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxcontainsWithoutContainsIsIgnored1BoxedNumber extends MaxcontainsWithoutContainsIsIgnored1Boxed {
-        public final Number data;
-        private MaxcontainsWithoutContainsIsIgnored1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record MaxcontainsWithoutContainsIsIgnored1BoxedNumber(Number data) implements MaxcontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxcontainsWithoutContainsIsIgnored1BoxedString extends MaxcontainsWithoutContainsIsIgnored1Boxed {
-        public final String data;
-        private MaxcontainsWithoutContainsIsIgnored1BoxedString(String data) {
-            this.data = data;
-        }
+    public record MaxcontainsWithoutContainsIsIgnored1BoxedString(String data) implements MaxcontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxcontainsWithoutContainsIsIgnored1BoxedList extends MaxcontainsWithoutContainsIsIgnored1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private MaxcontainsWithoutContainsIsIgnored1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MaxcontainsWithoutContainsIsIgnored1BoxedList(FrozenList<@Nullable Object> data) implements MaxcontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MaxcontainsWithoutContainsIsIgnored1BoxedMap extends MaxcontainsWithoutContainsIsIgnored1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private MaxcontainsWithoutContainsIsIgnored1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MaxcontainsWithoutContainsIsIgnored1BoxedMap(FrozenMap<@Nullable Object> data) implements MaxcontainsWithoutContainsIsIgnored1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class MaxcontainsWithoutContainsIsIgnored1 extends JsonSchema implements NullSchemaValidator<MaxcontainsWithoutContainsIsIgnored1BoxedVoid>, BooleanSchemaValidator<MaxcontainsWithoutContainsIsIgnored1BoxedBoolean>, NumberSchemaValidator<MaxcontainsWithoutContainsIsIgnored1BoxedNumber>, StringSchemaValidator<MaxcontainsWithoutContainsIsIgnored1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MaxcontainsWithoutContainsIsIgnored1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MaxcontainsWithoutContainsIsIgnored1BoxedMap> {
+    public static class MaxcontainsWithoutContainsIsIgnored1 extends JsonSchema<MaxcontainsWithoutContainsIsIgnored1Boxed> implements NullSchemaValidator<MaxcontainsWithoutContainsIsIgnored1BoxedVoid>, BooleanSchemaValidator<MaxcontainsWithoutContainsIsIgnored1BoxedBoolean>, NumberSchemaValidator<MaxcontainsWithoutContainsIsIgnored1BoxedNumber>, StringSchemaValidator<MaxcontainsWithoutContainsIsIgnored1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MaxcontainsWithoutContainsIsIgnored1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MaxcontainsWithoutContainsIsIgnored1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -211,11 +187,11 @@ public class MaxcontainsWithoutContainsIsIgnored {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -246,11 +222,11 @@ public class MaxcontainsWithoutContainsIsIgnored {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -328,6 +304,25 @@ public class MaxcontainsWithoutContainsIsIgnored {
         @Override
         public MaxcontainsWithoutContainsIsIgnored1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MaxcontainsWithoutContainsIsIgnored1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public MaxcontainsWithoutContainsIsIgnored1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

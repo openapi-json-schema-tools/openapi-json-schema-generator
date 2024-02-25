@@ -75,24 +75,20 @@ public class MultipartformdataSchema {
     }
     
     
-    public static abstract sealed class MultipartformdataFilesBoxed permits MultipartformdataFilesBoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface MultipartformdataFilesBoxed permits MultipartformdataFilesBoxedList {
+        @Nullable Object getData();
     }
     
-    public static final class MultipartformdataFilesBoxedList extends MultipartformdataFilesBoxed {
-        public final MultipartformdataFilesList data;
-        private MultipartformdataFilesBoxedList(MultipartformdataFilesList data) {
-            this.data = data;
-        }
+    public record MultipartformdataFilesBoxedList(MultipartformdataFilesList data) implements MultipartformdataFilesBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class MultipartformdataFiles extends JsonSchema implements ListSchemaValidator<MultipartformdataFilesList, MultipartformdataFilesBoxedList> {
+    public static class MultipartformdataFiles extends JsonSchema<MultipartformdataFilesBoxed> implements ListSchemaValidator<MultipartformdataFilesList, MultipartformdataFilesBoxedList> {
         private static @Nullable MultipartformdataFiles instance = null;
     
         protected MultipartformdataFiles() {
@@ -116,11 +112,11 @@ public class MultipartformdataSchema {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof String)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -159,6 +155,13 @@ public class MultipartformdataSchema {
         @Override
         public MultipartformdataFilesBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MultipartformdataFilesBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public MultipartformdataFilesBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -228,23 +231,19 @@ public class MultipartformdataSchema {
     }
     
     
-    public static abstract sealed class MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class MultipartformdataSchema1BoxedMap extends MultipartformdataSchema1Boxed {
-        public final MultipartformdataSchemaMap data;
-        private MultipartformdataSchema1BoxedMap(MultipartformdataSchemaMap data) {
-            this.data = data;
-        }
+    public record MultipartformdataSchema1BoxedMap(MultipartformdataSchemaMap data) implements MultipartformdataSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class MultipartformdataSchema1 extends JsonSchema implements MapSchemaValidator<MultipartformdataSchemaMap, MultipartformdataSchema1BoxedMap> {
+    public static class MultipartformdataSchema1 extends JsonSchema<MultipartformdataSchema1Boxed> implements MapSchemaValidator<MultipartformdataSchemaMap, MultipartformdataSchema1BoxedMap> {
         private static @Nullable MultipartformdataSchema1 instance = null;
     
         protected MultipartformdataSchema1() {
@@ -274,11 +273,11 @@ public class MultipartformdataSchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -314,6 +313,13 @@ public class MultipartformdataSchema {
         @Override
         public MultipartformdataSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MultipartformdataSchema1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public MultipartformdataSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

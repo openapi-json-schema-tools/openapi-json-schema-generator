@@ -19,21 +19,17 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DateTimeJsonSchema {
-    public static abstract sealed class DateTimeJsonSchema1Boxed permits DateTimeJsonSchema1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface DateTimeJsonSchema1Boxed permits DateTimeJsonSchema1BoxedString {
+        @Nullable Object getData();
     }
-    public static final class DateTimeJsonSchema1BoxedString extends DateTimeJsonSchema1Boxed {
-        public final String data;
-        private DateTimeJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record DateTimeJsonSchema1BoxedString(String data) implements DateTimeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
 
-    public static class DateTimeJsonSchema1 extends JsonSchema implements StringSchemaValidator<DateTimeJsonSchema1BoxedString> {
+    public static class DateTimeJsonSchema1 extends JsonSchema<DateTimeJsonSchema1Boxed> implements StringSchemaValidator<DateTimeJsonSchema1BoxedString> {
         private static @Nullable DateTimeJsonSchema1 instance = null;
 
         protected DateTimeJsonSchema1() {
@@ -86,6 +82,14 @@ public class DateTimeJsonSchema {
         @Override
         public DateTimeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DateTimeJsonSchema1BoxedString(validate(arg, configuration));
+        }
+
+        @Override
+        public DateTimeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

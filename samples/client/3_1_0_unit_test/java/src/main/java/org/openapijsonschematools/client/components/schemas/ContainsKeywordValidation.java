@@ -35,78 +35,54 @@ public class ContainsKeywordValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ContainsBoxed permits ContainsBoxedVoid, ContainsBoxedBoolean, ContainsBoxedNumber, ContainsBoxedString, ContainsBoxedList, ContainsBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ContainsBoxed permits ContainsBoxedVoid, ContainsBoxedBoolean, ContainsBoxedNumber, ContainsBoxedString, ContainsBoxedList, ContainsBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ContainsBoxedVoid extends ContainsBoxed {
-        public final Void data;
-        private ContainsBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ContainsBoxedVoid(Void data) implements ContainsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsBoxedBoolean extends ContainsBoxed {
-        public final boolean data;
-        private ContainsBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ContainsBoxedBoolean(boolean data) implements ContainsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsBoxedNumber extends ContainsBoxed {
-        public final Number data;
-        private ContainsBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ContainsBoxedNumber(Number data) implements ContainsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsBoxedString extends ContainsBoxed {
-        public final String data;
-        private ContainsBoxedString(String data) {
-            this.data = data;
-        }
+    public record ContainsBoxedString(String data) implements ContainsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsBoxedList extends ContainsBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private ContainsBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ContainsBoxedList(FrozenList<@Nullable Object> data) implements ContainsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsBoxedMap extends ContainsBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ContainsBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ContainsBoxedMap(FrozenMap<@Nullable Object> data) implements ContainsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Contains extends JsonSchema implements NullSchemaValidator<ContainsBoxedVoid>, BooleanSchemaValidator<ContainsBoxedBoolean>, NumberSchemaValidator<ContainsBoxedNumber>, StringSchemaValidator<ContainsBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ContainsBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ContainsBoxedMap> {
+    public static class Contains extends JsonSchema<ContainsBoxed> implements NullSchemaValidator<ContainsBoxedVoid>, BooleanSchemaValidator<ContainsBoxedBoolean>, NumberSchemaValidator<ContainsBoxedNumber>, StringSchemaValidator<ContainsBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ContainsBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ContainsBoxedMap> {
         private static @Nullable Contains instance = null;
     
         protected Contains() {
@@ -205,11 +181,11 @@ public class ContainsKeywordValidation {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -240,11 +216,11 @@ public class ContainsKeywordValidation {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -323,80 +299,75 @@ public class ContainsKeywordValidation {
         public ContainsBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ContainsBoxedMap(validate(arg, configuration));
         }
+        @Override
+        public ContainsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class ContainsKeywordValidation1Boxed permits ContainsKeywordValidation1BoxedVoid, ContainsKeywordValidation1BoxedBoolean, ContainsKeywordValidation1BoxedNumber, ContainsKeywordValidation1BoxedString, ContainsKeywordValidation1BoxedList, ContainsKeywordValidation1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ContainsKeywordValidation1Boxed permits ContainsKeywordValidation1BoxedVoid, ContainsKeywordValidation1BoxedBoolean, ContainsKeywordValidation1BoxedNumber, ContainsKeywordValidation1BoxedString, ContainsKeywordValidation1BoxedList, ContainsKeywordValidation1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ContainsKeywordValidation1BoxedVoid extends ContainsKeywordValidation1Boxed {
-        public final Void data;
-        private ContainsKeywordValidation1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ContainsKeywordValidation1BoxedVoid(Void data) implements ContainsKeywordValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsKeywordValidation1BoxedBoolean extends ContainsKeywordValidation1Boxed {
-        public final boolean data;
-        private ContainsKeywordValidation1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ContainsKeywordValidation1BoxedBoolean(boolean data) implements ContainsKeywordValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsKeywordValidation1BoxedNumber extends ContainsKeywordValidation1Boxed {
-        public final Number data;
-        private ContainsKeywordValidation1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ContainsKeywordValidation1BoxedNumber(Number data) implements ContainsKeywordValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsKeywordValidation1BoxedString extends ContainsKeywordValidation1Boxed {
-        public final String data;
-        private ContainsKeywordValidation1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ContainsKeywordValidation1BoxedString(String data) implements ContainsKeywordValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsKeywordValidation1BoxedList extends ContainsKeywordValidation1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ContainsKeywordValidation1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ContainsKeywordValidation1BoxedList(FrozenList<@Nullable Object> data) implements ContainsKeywordValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsKeywordValidation1BoxedMap extends ContainsKeywordValidation1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ContainsKeywordValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ContainsKeywordValidation1BoxedMap(FrozenMap<@Nullable Object> data) implements ContainsKeywordValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ContainsKeywordValidation1 extends JsonSchema implements NullSchemaValidator<ContainsKeywordValidation1BoxedVoid>, BooleanSchemaValidator<ContainsKeywordValidation1BoxedBoolean>, NumberSchemaValidator<ContainsKeywordValidation1BoxedNumber>, StringSchemaValidator<ContainsKeywordValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ContainsKeywordValidation1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ContainsKeywordValidation1BoxedMap> {
+    public static class ContainsKeywordValidation1 extends JsonSchema<ContainsKeywordValidation1Boxed> implements NullSchemaValidator<ContainsKeywordValidation1BoxedVoid>, BooleanSchemaValidator<ContainsKeywordValidation1BoxedBoolean>, NumberSchemaValidator<ContainsKeywordValidation1BoxedNumber>, StringSchemaValidator<ContainsKeywordValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ContainsKeywordValidation1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ContainsKeywordValidation1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -501,11 +472,11 @@ public class ContainsKeywordValidation {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -536,11 +507,11 @@ public class ContainsKeywordValidation {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -618,6 +589,25 @@ public class ContainsKeywordValidation {
         @Override
         public ContainsKeywordValidation1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ContainsKeywordValidation1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ContainsKeywordValidation1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

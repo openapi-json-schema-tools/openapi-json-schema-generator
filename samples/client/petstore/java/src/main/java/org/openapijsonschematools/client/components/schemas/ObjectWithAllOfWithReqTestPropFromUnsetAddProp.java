@@ -194,23 +194,19 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     }
     
     
-    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Schema1Boxed permits Schema1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap extends Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map, Schema1BoxedMap> {
+    public static class Schema1 extends JsonSchema<Schema1Boxed> implements MapSchemaValidator<Schema1Map, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -243,11 +239,11 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -284,81 +280,64 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
         public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema1BoxedMap(validate(arg, configuration));
         }
-    }
-    
-    
-    public static abstract sealed class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed permits ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap {
-        public abstract @Nullable Object data();
-    }
-    
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final Void data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid(Void data) {
-            this.data = data;
-        }
         @Override
-        public @Nullable Object data() {
+        public Schema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+    }
+    
+    
+    public sealed interface ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed permits ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap {
+        @Nullable Object getData();
+    }
+    
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid(Void data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
+        @Override
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final boolean data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean(boolean data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final Number data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber(Number data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final String data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString(String data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList(FrozenList<@Nullable Object> data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1 extends JsonSchema implements NullSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid>, BooleanSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean>, NumberSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber>, StringSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap> {
+    public static class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1 extends JsonSchema<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed> implements NullSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid>, BooleanSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean>, NumberSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber>, StringSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -466,11 +445,11 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -501,11 +480,11 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -583,6 +562,25 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
         @Override
         public ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

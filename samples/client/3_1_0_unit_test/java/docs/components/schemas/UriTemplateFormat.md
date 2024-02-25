@@ -4,23 +4,23 @@ public class UriTemplateFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [UriTemplateFormat.UriTemplateFormat1Boxed](#uritemplateformat1boxed)<br> abstract sealed validated payload class |
-| static class | [UriTemplateFormat.UriTemplateFormat1BoxedVoid](#uritemplateformat1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [UriTemplateFormat.UriTemplateFormat1BoxedBoolean](#uritemplateformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [UriTemplateFormat.UriTemplateFormat1BoxedNumber](#uritemplateformat1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [UriTemplateFormat.UriTemplateFormat1BoxedString](#uritemplateformat1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [UriTemplateFormat.UriTemplateFormat1BoxedList](#uritemplateformat1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [UriTemplateFormat.UriTemplateFormat1BoxedMap](#uritemplateformat1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [UriTemplateFormat.UriTemplateFormat1Boxed](#uritemplateformat1boxed)<br> sealed interface for validated payloads |
+| record | [UriTemplateFormat.UriTemplateFormat1BoxedVoid](#uritemplateformat1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [UriTemplateFormat.UriTemplateFormat1BoxedBoolean](#uritemplateformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [UriTemplateFormat.UriTemplateFormat1BoxedNumber](#uritemplateformat1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [UriTemplateFormat.UriTemplateFormat1BoxedString](#uritemplateformat1boxedstring)<br> boxed class to store validated String payloads |
+| record | [UriTemplateFormat.UriTemplateFormat1BoxedList](#uritemplateformat1boxedlist)<br> boxed class to store validated List payloads |
+| record | [UriTemplateFormat.UriTemplateFormat1BoxedMap](#uritemplateformat1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [UriTemplateFormat.UriTemplateFormat1](#uritemplateformat1)<br> schema class |
 
 ## UriTemplateFormat1Boxed
-public static abstract sealed class UriTemplateFormat1Boxed<br>
+public sealed interface UriTemplateFormat1Boxed<br>
 permits<br>
 [UriTemplateFormat1BoxedVoid](#uritemplateformat1boxedvoid),
 [UriTemplateFormat1BoxedBoolean](#uritemplateformat1boxedboolean),
@@ -29,103 +29,109 @@ permits<br>
 [UriTemplateFormat1BoxedList](#uritemplateformat1boxedlist),
 [UriTemplateFormat1BoxedMap](#uritemplateformat1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## UriTemplateFormat1BoxedVoid
-public static final class UriTemplateFormat1BoxedVoid<br>
-extends [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
+public record UriTemplateFormat1BoxedVoid<br>
+implements [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UriTemplateFormat1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UriTemplateFormat1BoxedBoolean
-public static final class UriTemplateFormat1BoxedBoolean<br>
-extends [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
+public record UriTemplateFormat1BoxedBoolean<br>
+implements [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UriTemplateFormat1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UriTemplateFormat1BoxedNumber
-public static final class UriTemplateFormat1BoxedNumber<br>
-extends [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
+public record UriTemplateFormat1BoxedNumber<br>
+implements [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UriTemplateFormat1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UriTemplateFormat1BoxedString
-public static final class UriTemplateFormat1BoxedString<br>
-extends [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
+public record UriTemplateFormat1BoxedString<br>
+implements [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UriTemplateFormat1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UriTemplateFormat1BoxedList
-public static final class UriTemplateFormat1BoxedList<br>
-extends [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
+public record UriTemplateFormat1BoxedList<br>
+implements [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UriTemplateFormat1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UriTemplateFormat1BoxedMap
-public static final class UriTemplateFormat1BoxedMap<br>
-extends [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
+public record UriTemplateFormat1BoxedMap<br>
+implements [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UriTemplateFormat1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UriTemplateFormat1
 public static class UriTemplateFormat1<br>
@@ -157,5 +163,7 @@ A schema class that validates payloads
 | [UriTemplateFormat1BoxedBoolean](#uritemplateformat1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [UriTemplateFormat1BoxedMap](#uritemplateformat1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [UriTemplateFormat1BoxedList](#uritemplateformat1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [UriTemplateFormat1Boxed](#uritemplateformat1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

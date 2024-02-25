@@ -51,24 +51,20 @@ public class Schema5 {
     }
     
     
-    public static abstract sealed class Schema51Boxed permits Schema51BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface Schema51Boxed permits Schema51BoxedNumber {
+        @Nullable Object getData();
     }
     
-    public static final class Schema51BoxedNumber extends Schema51Boxed {
-        public final Number data;
-        private Schema51BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Schema51BoxedNumber(Number data) implements Schema51Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Schema51 extends JsonSchema implements FloatEnumValidator<FloatSchemaEnums5>, DoubleEnumValidator<DoubleSchemaEnums5>, NumberSchemaValidator<Schema51BoxedNumber> {
+    public static class Schema51 extends JsonSchema<Schema51Boxed> implements FloatEnumValidator<FloatSchemaEnums5>, DoubleEnumValidator<DoubleSchemaEnums5>, NumberSchemaValidator<Schema51BoxedNumber> {
         private static @Nullable Schema51 instance = null;
     
         protected Schema51() {
@@ -135,6 +131,13 @@ public class Schema5 {
         @Override
         public Schema51BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema51BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public Schema51Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

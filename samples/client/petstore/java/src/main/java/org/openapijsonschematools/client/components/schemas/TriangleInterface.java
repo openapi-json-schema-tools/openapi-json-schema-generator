@@ -53,24 +53,20 @@ public class TriangleInterface {
     }
     
     
-    public static abstract sealed class ShapeTypeBoxed permits ShapeTypeBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ShapeTypeBoxed permits ShapeTypeBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class ShapeTypeBoxedString extends ShapeTypeBoxed {
-        public final String data;
-        private ShapeTypeBoxedString(String data) {
-            this.data = data;
-        }
+    public record ShapeTypeBoxedString(String data) implements ShapeTypeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ShapeType extends JsonSchema implements StringSchemaValidator<ShapeTypeBoxedString>, StringEnumValidator<StringShapeTypeEnums> {
+    public static class ShapeType extends JsonSchema<ShapeTypeBoxed> implements StringSchemaValidator<ShapeTypeBoxedString>, StringEnumValidator<StringShapeTypeEnums> {
         private static @Nullable ShapeType instance = null;
     
         protected ShapeType() {
@@ -124,6 +120,13 @@ public class TriangleInterface {
         @Override
         public ShapeTypeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ShapeTypeBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ShapeTypeBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -268,78 +271,54 @@ public class TriangleInterface {
     }
     
     
-    public static abstract sealed class TriangleInterface1Boxed permits TriangleInterface1BoxedVoid, TriangleInterface1BoxedBoolean, TriangleInterface1BoxedNumber, TriangleInterface1BoxedString, TriangleInterface1BoxedList, TriangleInterface1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface TriangleInterface1Boxed permits TriangleInterface1BoxedVoid, TriangleInterface1BoxedBoolean, TriangleInterface1BoxedNumber, TriangleInterface1BoxedString, TriangleInterface1BoxedList, TriangleInterface1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class TriangleInterface1BoxedVoid extends TriangleInterface1Boxed {
-        public final Void data;
-        private TriangleInterface1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedVoid(Void data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedBoolean extends TriangleInterface1Boxed {
-        public final boolean data;
-        private TriangleInterface1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedBoolean(boolean data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedNumber extends TriangleInterface1Boxed {
-        public final Number data;
-        private TriangleInterface1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedNumber(Number data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedString extends TriangleInterface1Boxed {
-        public final String data;
-        private TriangleInterface1BoxedString(String data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedString(String data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedList extends TriangleInterface1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private TriangleInterface1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedList(FrozenList<@Nullable Object> data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class TriangleInterface1BoxedMap extends TriangleInterface1Boxed {
-        public final TriangleInterfaceMap data;
-        private TriangleInterface1BoxedMap(TriangleInterfaceMap data) {
-            this.data = data;
-        }
+    public record TriangleInterface1BoxedMap(TriangleInterfaceMap data) implements TriangleInterface1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class TriangleInterface1 extends JsonSchema implements NullSchemaValidator<TriangleInterface1BoxedVoid>, BooleanSchemaValidator<TriangleInterface1BoxedBoolean>, NumberSchemaValidator<TriangleInterface1BoxedNumber>, StringSchemaValidator<TriangleInterface1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, TriangleInterface1BoxedList>, MapSchemaValidator<TriangleInterfaceMap, TriangleInterface1BoxedMap> {
+    public static class TriangleInterface1 extends JsonSchema<TriangleInterface1Boxed> implements NullSchemaValidator<TriangleInterface1BoxedVoid>, BooleanSchemaValidator<TriangleInterface1BoxedBoolean>, NumberSchemaValidator<TriangleInterface1BoxedNumber>, StringSchemaValidator<TriangleInterface1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, TriangleInterface1BoxedList>, MapSchemaValidator<TriangleInterfaceMap, TriangleInterface1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -451,11 +430,11 @@ public class TriangleInterface {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -486,11 +465,11 @@ public class TriangleInterface {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -568,6 +547,25 @@ public class TriangleInterface {
         @Override
         public TriangleInterface1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new TriangleInterface1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public TriangleInterface1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

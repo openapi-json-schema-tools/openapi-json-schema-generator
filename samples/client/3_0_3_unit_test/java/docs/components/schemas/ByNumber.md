@@ -4,23 +4,23 @@ public class ByNumber<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ByNumber.ByNumber1Boxed](#bynumber1boxed)<br> abstract sealed validated payload class |
-| static class | [ByNumber.ByNumber1BoxedVoid](#bynumber1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ByNumber.ByNumber1BoxedBoolean](#bynumber1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [ByNumber.ByNumber1BoxedNumber](#bynumber1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ByNumber.ByNumber1BoxedString](#bynumber1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [ByNumber.ByNumber1BoxedList](#bynumber1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ByNumber.ByNumber1BoxedMap](#bynumber1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ByNumber.ByNumber1Boxed](#bynumber1boxed)<br> sealed interface for validated payloads |
+| record | [ByNumber.ByNumber1BoxedVoid](#bynumber1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [ByNumber.ByNumber1BoxedBoolean](#bynumber1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [ByNumber.ByNumber1BoxedNumber](#bynumber1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [ByNumber.ByNumber1BoxedString](#bynumber1boxedstring)<br> boxed class to store validated String payloads |
+| record | [ByNumber.ByNumber1BoxedList](#bynumber1boxedlist)<br> boxed class to store validated List payloads |
+| record | [ByNumber.ByNumber1BoxedMap](#bynumber1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ByNumber.ByNumber1](#bynumber1)<br> schema class |
 
 ## ByNumber1Boxed
-public static abstract sealed class ByNumber1Boxed<br>
+public sealed interface ByNumber1Boxed<br>
 permits<br>
 [ByNumber1BoxedVoid](#bynumber1boxedvoid),
 [ByNumber1BoxedBoolean](#bynumber1boxedboolean),
@@ -29,103 +29,109 @@ permits<br>
 [ByNumber1BoxedList](#bynumber1boxedlist),
 [ByNumber1BoxedMap](#bynumber1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ByNumber1BoxedVoid
-public static final class ByNumber1BoxedVoid<br>
-extends [ByNumber1Boxed](#bynumber1boxed)
+public record ByNumber1BoxedVoid<br>
+implements [ByNumber1Boxed](#bynumber1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ByNumber1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ByNumber1BoxedBoolean
-public static final class ByNumber1BoxedBoolean<br>
-extends [ByNumber1Boxed](#bynumber1boxed)
+public record ByNumber1BoxedBoolean<br>
+implements [ByNumber1Boxed](#bynumber1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ByNumber1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ByNumber1BoxedNumber
-public static final class ByNumber1BoxedNumber<br>
-extends [ByNumber1Boxed](#bynumber1boxed)
+public record ByNumber1BoxedNumber<br>
+implements [ByNumber1Boxed](#bynumber1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ByNumber1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ByNumber1BoxedString
-public static final class ByNumber1BoxedString<br>
-extends [ByNumber1Boxed](#bynumber1boxed)
+public record ByNumber1BoxedString<br>
+implements [ByNumber1Boxed](#bynumber1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ByNumber1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ByNumber1BoxedList
-public static final class ByNumber1BoxedList<br>
-extends [ByNumber1Boxed](#bynumber1boxed)
+public record ByNumber1BoxedList<br>
+implements [ByNumber1Boxed](#bynumber1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ByNumber1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ByNumber1BoxedMap
-public static final class ByNumber1BoxedMap<br>
-extends [ByNumber1Boxed](#bynumber1boxed)
+public record ByNumber1BoxedMap<br>
+implements [ByNumber1Boxed](#bynumber1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ByNumber1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ByNumber1
 public static class ByNumber1<br>
@@ -157,5 +163,7 @@ A schema class that validates payloads
 | [ByNumber1BoxedBoolean](#bynumber1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [ByNumber1BoxedMap](#bynumber1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [ByNumber1BoxedList](#bynumber1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ByNumber1Boxed](#bynumber1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

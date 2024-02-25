@@ -25,13 +25,13 @@ public class DependentSchemasValidator implements KeywordValidator {
                 presentProperties.add((String) key);
             }
         }
-        for(Map.Entry<String, Class<? extends JsonSchema>> entry: dependentSchemas.entrySet()) {
+        for(Map.Entry<String, Class<? extends JsonSchema<?>>> entry: dependentSchemas.entrySet()) {
             String propName = entry.getKey();
             if (!presentProperties.contains(propName)) {
                 continue;
             }
-            Class<? extends JsonSchema> dependentSchemaClass = entry.getValue();
-            JsonSchema dependentSchema = JsonSchemaFactory.getInstance(dependentSchemaClass);
+            Class<? extends JsonSchema<?>> dependentSchemaClass = entry.getValue();
+            JsonSchema<?> dependentSchema = JsonSchemaFactory.getInstance(dependentSchemaClass);
             PathToSchemasMap otherPathToSchemas = JsonSchema.validate(dependentSchema, mapArg, data.validationMetadata());
             pathToSchemas.update(otherPathToSchemas);
         }

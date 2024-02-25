@@ -4,7 +4,7 @@ public class EquilateralTriangle<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,26 +13,26 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [EquilateralTriangle.EquilateralTriangle1Boxed](#equilateraltriangle1boxed)<br> abstract sealed validated payload class |
-| static class | [EquilateralTriangle.EquilateralTriangle1BoxedVoid](#equilateraltriangle1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [EquilateralTriangle.EquilateralTriangle1BoxedBoolean](#equilateraltriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [EquilateralTriangle.EquilateralTriangle1BoxedNumber](#equilateraltriangle1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [EquilateralTriangle.EquilateralTriangle1BoxedString](#equilateraltriangle1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [EquilateralTriangle.EquilateralTriangle1BoxedList](#equilateraltriangle1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [EquilateralTriangle.EquilateralTriangle1BoxedMap](#equilateraltriangle1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [EquilateralTriangle.EquilateralTriangle1Boxed](#equilateraltriangle1boxed)<br> sealed interface for validated payloads |
+| record | [EquilateralTriangle.EquilateralTriangle1BoxedVoid](#equilateraltriangle1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [EquilateralTriangle.EquilateralTriangle1BoxedBoolean](#equilateraltriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [EquilateralTriangle.EquilateralTriangle1BoxedNumber](#equilateraltriangle1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [EquilateralTriangle.EquilateralTriangle1BoxedString](#equilateraltriangle1boxedstring)<br> boxed class to store validated String payloads |
+| record | [EquilateralTriangle.EquilateralTriangle1BoxedList](#equilateraltriangle1boxedlist)<br> boxed class to store validated List payloads |
+| record | [EquilateralTriangle.EquilateralTriangle1BoxedMap](#equilateraltriangle1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EquilateralTriangle.EquilateralTriangle1](#equilateraltriangle1)<br> schema class |
-| static class | [EquilateralTriangle.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
-| static class | [EquilateralTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [EquilateralTriangle.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
+| record | [EquilateralTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EquilateralTriangle.Schema1](#schema1)<br> schema class |
 | static class | [EquilateralTriangle.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [EquilateralTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
-| static class | [EquilateralTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> abstract sealed validated payload class |
-| static class | [EquilateralTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [EquilateralTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> sealed interface for validated payloads |
+| record | [EquilateralTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EquilateralTriangle.TriangleType](#triangletype)<br> schema class |
 | enum | [EquilateralTriangle.StringTriangleTypeEnums](#stringtriangletypeenums)<br>String enum |
 
 ## EquilateralTriangle1Boxed
-public static abstract sealed class EquilateralTriangle1Boxed<br>
+public sealed interface EquilateralTriangle1Boxed<br>
 permits<br>
 [EquilateralTriangle1BoxedVoid](#equilateraltriangle1boxedvoid),
 [EquilateralTriangle1BoxedBoolean](#equilateraltriangle1boxedboolean),
@@ -41,103 +41,109 @@ permits<br>
 [EquilateralTriangle1BoxedList](#equilateraltriangle1boxedlist),
 [EquilateralTriangle1BoxedMap](#equilateraltriangle1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EquilateralTriangle1BoxedVoid
-public static final class EquilateralTriangle1BoxedVoid<br>
-extends [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
+public record EquilateralTriangle1BoxedVoid<br>
+implements [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EquilateralTriangle1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EquilateralTriangle1BoxedBoolean
-public static final class EquilateralTriangle1BoxedBoolean<br>
-extends [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
+public record EquilateralTriangle1BoxedBoolean<br>
+implements [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EquilateralTriangle1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EquilateralTriangle1BoxedNumber
-public static final class EquilateralTriangle1BoxedNumber<br>
-extends [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
+public record EquilateralTriangle1BoxedNumber<br>
+implements [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EquilateralTriangle1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EquilateralTriangle1BoxedString
-public static final class EquilateralTriangle1BoxedString<br>
-extends [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
+public record EquilateralTriangle1BoxedString<br>
+implements [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EquilateralTriangle1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EquilateralTriangle1BoxedList
-public static final class EquilateralTriangle1BoxedList<br>
-extends [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
+public record EquilateralTriangle1BoxedList<br>
+implements [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EquilateralTriangle1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EquilateralTriangle1BoxedMap
-public static final class EquilateralTriangle1BoxedMap<br>
-extends [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
+public record EquilateralTriangle1BoxedMap<br>
+implements [EquilateralTriangle1Boxed](#equilateraltriangle1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EquilateralTriangle1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EquilateralTriangle1
 public static class EquilateralTriangle1<br>
@@ -169,29 +175,32 @@ A schema class that validates payloads
 | [EquilateralTriangle1BoxedBoolean](#equilateraltriangle1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [EquilateralTriangle1BoxedMap](#equilateraltriangle1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [EquilateralTriangle1BoxedList](#equilateraltriangle1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [EquilateralTriangle1Boxed](#equilateraltriangle1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema1Boxed
-public static abstract sealed class Schema1Boxed<br>
+public sealed interface Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
-public static final class Schema1BoxedMap<br>
-extends [Schema1Boxed](#schema1boxed)
+public record Schema1BoxedMap<br>
+implements [Schema1Boxed](#schema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | data<br>validated payload |
+| [Schema1Map](#schema1map) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -236,7 +245,9 @@ EquilateralTriangle.Schema1Map validatedPayload =
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1Boxed](#schema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -278,27 +289,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## TriangleTypeBoxed
-public static abstract sealed class TriangleTypeBoxed<br>
+public sealed interface TriangleTypeBoxed<br>
 permits<br>
 [TriangleTypeBoxedString](#triangletypeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## TriangleTypeBoxedString
-public static final class TriangleTypeBoxedString<br>
-extends [TriangleTypeBoxed](#triangletypeboxed)
+public record TriangleTypeBoxedString<br>
+implements [TriangleTypeBoxed](#triangletypeboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | TriangleTypeBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## TriangleType
 public static class TriangleType<br>
@@ -340,7 +352,9 @@ String validatedPayload = EquilateralTriangle.TriangleType.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringTriangleTypeEnums](#stringtriangletypeenums) arg, SchemaConfiguration configuration) |
 | [TriangleTypeBoxedString](#triangletypeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [TriangleTypeBoxed](#triangletypeboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringTriangleTypeEnums
 public enum StringTriangleTypeEnums<br>
 extends `Enum<StringTriangleTypeEnums>`

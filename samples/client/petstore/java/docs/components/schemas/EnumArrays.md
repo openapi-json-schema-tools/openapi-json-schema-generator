@@ -4,7 +4,7 @@ public class EnumArrays<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -15,47 +15,48 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [EnumArrays.EnumArrays1Boxed](#enumarrays1boxed)<br> abstract sealed validated payload class |
-| static class | [EnumArrays.EnumArrays1BoxedMap](#enumarrays1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [EnumArrays.EnumArrays1Boxed](#enumarrays1boxed)<br> sealed interface for validated payloads |
+| record | [EnumArrays.EnumArrays1BoxedMap](#enumarrays1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EnumArrays.EnumArrays1](#enumarrays1)<br> schema class |
 | static class | [EnumArrays.EnumArraysMapBuilder](#enumarraysmapbuilder)<br> builder for Map payloads |
 | static class | [EnumArrays.EnumArraysMap](#enumarraysmap)<br> output class for Map payloads |
-| static class | [EnumArrays.ArrayEnumBoxed](#arrayenumboxed)<br> abstract sealed validated payload class |
-| static class | [EnumArrays.ArrayEnumBoxedList](#arrayenumboxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [EnumArrays.ArrayEnumBoxed](#arrayenumboxed)<br> sealed interface for validated payloads |
+| record | [EnumArrays.ArrayEnumBoxedList](#arrayenumboxedlist)<br> boxed class to store validated List payloads |
 | static class | [EnumArrays.ArrayEnum](#arrayenum)<br> schema class |
 | static class | [EnumArrays.ArrayEnumListBuilder](#arrayenumlistbuilder)<br> builder for List payloads |
 | static class | [EnumArrays.ArrayEnumList](#arrayenumlist)<br> output class for List payloads |
-| static class | [EnumArrays.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [EnumArrays.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [EnumArrays.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
+| record | [EnumArrays.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumArrays.Items](#items)<br> schema class |
 | enum | [EnumArrays.StringItemsEnums](#stringitemsenums)<br>String enum |
-| static class | [EnumArrays.JustSymbolBoxed](#justsymbolboxed)<br> abstract sealed validated payload class |
-| static class | [EnumArrays.JustSymbolBoxedString](#justsymbolboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [EnumArrays.JustSymbolBoxed](#justsymbolboxed)<br> sealed interface for validated payloads |
+| record | [EnumArrays.JustSymbolBoxedString](#justsymbolboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumArrays.JustSymbol](#justsymbol)<br> schema class |
 | enum | [EnumArrays.StringJustSymbolEnums](#stringjustsymbolenums)<br>String enum |
 
 ## EnumArrays1Boxed
-public static abstract sealed class EnumArrays1Boxed<br>
+public sealed interface EnumArrays1Boxed<br>
 permits<br>
 [EnumArrays1BoxedMap](#enumarrays1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumArrays1BoxedMap
-public static final class EnumArrays1BoxedMap<br>
-extends [EnumArrays1Boxed](#enumarrays1boxed)
+public record EnumArrays1BoxedMap<br>
+implements [EnumArrays1Boxed](#enumarrays1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumArrays1BoxedMap([EnumArraysMap](#enumarraysmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumArraysMap](#enumarraysmap) | data<br>validated payload |
+| [EnumArraysMap](#enumarraysmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumArrays1
 public static class EnumArrays1<br>
@@ -105,7 +106,9 @@ EnumArrays.EnumArraysMap validatedPayload =
 | ----------------- | ---------------------- |
 | [EnumArraysMap](#enumarraysmap) | validate([Map&lt;?, ?&gt;](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
 | [EnumArrays1BoxedMap](#enumarrays1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumArrays1Boxed](#enumarrays1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## EnumArraysMapBuilder
 public class EnumArraysMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -149,27 +152,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayEnumBoxed
-public static abstract sealed class ArrayEnumBoxed<br>
+public sealed interface ArrayEnumBoxed<br>
 permits<br>
 [ArrayEnumBoxedList](#arrayenumboxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayEnumBoxedList
-public static final class ArrayEnumBoxedList<br>
-extends [ArrayEnumBoxed](#arrayenumboxed)
+public record ArrayEnumBoxedList<br>
+implements [ArrayEnumBoxed](#arrayenumboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayEnumBoxedList([ArrayEnumList](#arrayenumlist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayEnumList](#arrayenumlist) | data<br>validated payload |
+| [ArrayEnumList](#arrayenumlist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayEnum
 public static class ArrayEnum<br>
@@ -214,7 +218,9 @@ EnumArrays.ArrayEnumList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayEnumList](#arrayenumlist) | validate([List<?>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayEnumBoxedList](#arrayenumboxedlist) | validateAndBox([List<?>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayEnumBoxed](#arrayenumboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayEnumListBuilder
 public class ArrayEnumListBuilder<br>
 builder for `List<String>`
@@ -246,27 +252,28 @@ A class to store validated List payloads
 | static [ArrayEnumList](#arrayenumlist) | of([List<String>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedString](#itemsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedString
-public static final class ItemsBoxedString<br>
-extends [ItemsBoxed](#itemsboxed)
+public record ItemsBoxedString<br>
+implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>
@@ -308,7 +315,9 @@ String validatedPayload = EnumArrays.Items.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringItemsEnums](#stringitemsenums) arg, SchemaConfiguration configuration) |
 | [ItemsBoxedString](#itemsboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ItemsBoxed](#itemsboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringItemsEnums
 public enum StringItemsEnums<br>
 extends `Enum<StringItemsEnums>`
@@ -322,27 +331,28 @@ A class that stores String enum values
 | CRAB | value = "crab" |
 
 ## JustSymbolBoxed
-public static abstract sealed class JustSymbolBoxed<br>
+public sealed interface JustSymbolBoxed<br>
 permits<br>
 [JustSymbolBoxedString](#justsymbolboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## JustSymbolBoxedString
-public static final class JustSymbolBoxedString<br>
-extends [JustSymbolBoxed](#justsymbolboxed)
+public record JustSymbolBoxedString<br>
+implements [JustSymbolBoxed](#justsymbolboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JustSymbolBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## JustSymbol
 public static class JustSymbol<br>
@@ -384,7 +394,9 @@ String validatedPayload = EnumArrays.JustSymbol.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringJustSymbolEnums](#stringjustsymbolenums) arg, SchemaConfiguration configuration) |
 | [JustSymbolBoxedString](#justsymbolboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [JustSymbolBoxed](#justsymbolboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringJustSymbolEnums
 public enum StringJustSymbolEnums<br>
 extends `Enum<StringJustSymbolEnums>`

@@ -115,23 +115,19 @@ public class ChildCat {
     }
     
     
-    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Schema1Boxed permits Schema1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class Schema1BoxedMap extends Schema1Boxed {
-        public final Schema1Map data;
-        private Schema1BoxedMap(Schema1Map data) {
-            this.data = data;
-        }
+    public record Schema1BoxedMap(Schema1Map data) implements Schema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map, Schema1BoxedMap> {
+    public static class Schema1 extends JsonSchema<Schema1Boxed> implements MapSchemaValidator<Schema1Map, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -161,11 +157,11 @@ public class ChildCat {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -202,81 +198,64 @@ public class ChildCat {
         public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema1BoxedMap(validate(arg, configuration));
         }
-    }
-    
-    
-    public static abstract sealed class ChildCat1Boxed permits ChildCat1BoxedVoid, ChildCat1BoxedBoolean, ChildCat1BoxedNumber, ChildCat1BoxedString, ChildCat1BoxedList, ChildCat1BoxedMap {
-        public abstract @Nullable Object data();
-    }
-    
-    public static final class ChildCat1BoxedVoid extends ChildCat1Boxed {
-        public final Void data;
-        private ChildCat1BoxedVoid(Void data) {
-            this.data = data;
-        }
         @Override
-        public @Nullable Object data() {
+        public Schema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+    }
+    
+    
+    public sealed interface ChildCat1Boxed permits ChildCat1BoxedVoid, ChildCat1BoxedBoolean, ChildCat1BoxedNumber, ChildCat1BoxedString, ChildCat1BoxedList, ChildCat1BoxedMap {
+        @Nullable Object getData();
+    }
+    
+    public record ChildCat1BoxedVoid(Void data) implements ChildCat1Boxed {
+        @Override
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedBoolean extends ChildCat1Boxed {
-        public final boolean data;
-        private ChildCat1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedBoolean(boolean data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedNumber extends ChildCat1Boxed {
-        public final Number data;
-        private ChildCat1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedNumber(Number data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedString extends ChildCat1Boxed {
-        public final String data;
-        private ChildCat1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedString(String data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedList extends ChildCat1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ChildCat1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedList(FrozenList<@Nullable Object> data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ChildCat1BoxedMap extends ChildCat1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ChildCat1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ChildCat1BoxedMap(FrozenMap<@Nullable Object> data) implements ChildCat1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ChildCat1 extends JsonSchema implements NullSchemaValidator<ChildCat1BoxedVoid>, BooleanSchemaValidator<ChildCat1BoxedBoolean>, NumberSchemaValidator<ChildCat1BoxedNumber>, StringSchemaValidator<ChildCat1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ChildCat1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ChildCat1BoxedMap> {
+    public static class ChildCat1 extends JsonSchema<ChildCat1Boxed> implements NullSchemaValidator<ChildCat1BoxedVoid>, BooleanSchemaValidator<ChildCat1BoxedBoolean>, NumberSchemaValidator<ChildCat1BoxedNumber>, StringSchemaValidator<ChildCat1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ChildCat1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ChildCat1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -384,11 +363,11 @@ public class ChildCat {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -419,11 +398,11 @@ public class ChildCat {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -501,6 +480,25 @@ public class ChildCat {
         @Override
         public ChildCat1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ChildCat1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ChildCat1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

@@ -231,24 +231,20 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static abstract sealed class Schema9Boxed permits Schema9BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface Schema9Boxed permits Schema9BoxedList {
+        @Nullable Object getData();
     }
     
-    public static final class Schema9BoxedList extends Schema9Boxed {
-        public final Schema9List data;
-        private Schema9BoxedList(Schema9List data) {
-            this.data = data;
-        }
+    public record Schema9BoxedList(Schema9List data) implements Schema9Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Schema9 extends JsonSchema implements ListSchemaValidator<Schema9List, Schema9BoxedList> {
+    public static class Schema9 extends JsonSchema<Schema9Boxed> implements ListSchemaValidator<Schema9List, Schema9BoxedList> {
         private static @Nullable Schema9 instance = null;
     
         protected Schema9() {
@@ -272,11 +268,11 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -312,6 +308,13 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         @Override
         public Schema9BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema9BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public Schema9Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -381,78 +384,54 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static abstract sealed class ComposedAnyOfDifferentTypesNoValidations1Boxed permits ComposedAnyOfDifferentTypesNoValidations1BoxedVoid, ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean, ComposedAnyOfDifferentTypesNoValidations1BoxedNumber, ComposedAnyOfDifferentTypesNoValidations1BoxedString, ComposedAnyOfDifferentTypesNoValidations1BoxedList, ComposedAnyOfDifferentTypesNoValidations1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ComposedAnyOfDifferentTypesNoValidations1Boxed permits ComposedAnyOfDifferentTypesNoValidations1BoxedVoid, ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean, ComposedAnyOfDifferentTypesNoValidations1BoxedNumber, ComposedAnyOfDifferentTypesNoValidations1BoxedString, ComposedAnyOfDifferentTypesNoValidations1BoxedList, ComposedAnyOfDifferentTypesNoValidations1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedVoid extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final Void data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedVoid(Void data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final boolean data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean(boolean data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedNumber extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final Number data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedNumber(Number data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedString extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final String data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedString(String data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedList extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedList(FrozenList<@Nullable Object> data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedMap extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ComposedAnyOfDifferentTypesNoValidations1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ComposedAnyOfDifferentTypesNoValidations1BoxedMap(FrozenMap<@Nullable Object> data) implements ComposedAnyOfDifferentTypesNoValidations1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ComposedAnyOfDifferentTypesNoValidations1 extends JsonSchema implements NullSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedVoid>, BooleanSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean>, NumberSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedNumber>, StringSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ComposedAnyOfDifferentTypesNoValidations1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ComposedAnyOfDifferentTypesNoValidations1BoxedMap> {
+    public static class ComposedAnyOfDifferentTypesNoValidations1 extends JsonSchema<ComposedAnyOfDifferentTypesNoValidations1Boxed> implements NullSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedVoid>, BooleanSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean>, NumberSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedNumber>, StringSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ComposedAnyOfDifferentTypesNoValidations1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ComposedAnyOfDifferentTypesNoValidations1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -574,11 +553,11 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -609,11 +588,11 @@ public class ComposedAnyOfDifferentTypesNoValidations {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -691,6 +670,25 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         @Override
         public ComposedAnyOfDifferentTypesNoValidations1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ComposedAnyOfDifferentTypesNoValidations1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ComposedAnyOfDifferentTypesNoValidations1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

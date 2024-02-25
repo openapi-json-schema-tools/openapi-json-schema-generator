@@ -3,7 +3,7 @@ public class Schema4<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -11,37 +11,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema4.Schema41Boxed](#schema41boxed)<br> abstract sealed validated payload class |
-| static class | [Schema4.Schema41BoxedList](#schema41boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [Schema4.Schema41Boxed](#schema41boxed)<br> sealed interface for validated payloads |
+| record | [Schema4.Schema41BoxedList](#schema41boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
 | static class | [Schema4.SchemaListBuilder4](#schemalistbuilder4)<br> builder for List payloads |
 | static class | [Schema4.SchemaList4](#schemalist4)<br> output class for List payloads |
-| static class | [Schema4.Items4Boxed](#items4boxed)<br> abstract sealed validated payload class |
-| static class | [Schema4.Items4BoxedString](#items4boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Schema4.Items4Boxed](#items4boxed)<br> sealed interface for validated payloads |
+| record | [Schema4.Items4BoxedString](#items4boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema4.Items4](#items4)<br> schema class |
 
 ## Schema41Boxed
-public static abstract sealed class Schema41Boxed<br>
+public sealed interface Schema41Boxed<br>
 permits<br>
 [Schema41BoxedList](#schema41boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema41BoxedList
-public static final class Schema41BoxedList<br>
-extends [Schema41Boxed](#schema41boxed)
+public record Schema41BoxedList<br>
+implements [Schema41Boxed](#schema41boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema41BoxedList([SchemaList4](#schemalist4) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaList4](#schemalist4) | data<br>validated payload |
+| [SchemaList4](#schemalist4) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema41
 public static class Schema41<br>
@@ -86,7 +87,9 @@ Schema4.SchemaList4 validatedPayload =
 | ----------------- | ---------------------- |
 | [SchemaList4](#schemalist4) | validate([List<?>](#schemalistbuilder4) arg, SchemaConfiguration configuration) |
 | [Schema41BoxedList](#schema41boxedlist) | validateAndBox([List<?>](#schemalistbuilder4) arg, SchemaConfiguration configuration) |
+| [Schema41Boxed](#schema41boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## SchemaListBuilder4
 public class SchemaListBuilder4<br>
 builder for `List<String>`
@@ -117,27 +120,28 @@ A class to store validated List payloads
 | static [SchemaList4](#schemalist4) | of([List<String>](#schemalistbuilder4) arg, SchemaConfiguration configuration) |
 
 ## Items4Boxed
-public static abstract sealed class Items4Boxed<br>
+public sealed interface Items4Boxed<br>
 permits<br>
 [Items4BoxedString](#items4boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Items4BoxedString
-public static final class Items4BoxedString<br>
-extends [Items4Boxed](#items4boxed)
+public record Items4BoxedString<br>
+implements [Items4Boxed](#items4boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items4BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items4
 public static class Items4<br>

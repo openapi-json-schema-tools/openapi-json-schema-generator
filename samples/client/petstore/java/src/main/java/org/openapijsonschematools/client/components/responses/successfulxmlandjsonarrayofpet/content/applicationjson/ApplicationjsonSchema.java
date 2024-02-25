@@ -58,24 +58,20 @@ public class ApplicationjsonSchema {
     }
     
     
-    public static abstract sealed class ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedList {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationjsonSchema1BoxedList extends ApplicationjsonSchema1Boxed {
-        public final ApplicationjsonSchemaList data;
-        private ApplicationjsonSchema1BoxedList(ApplicationjsonSchemaList data) {
-            this.data = data;
-        }
+    public record ApplicationjsonSchema1BoxedList(ApplicationjsonSchemaList data) implements ApplicationjsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationjsonSchema1 extends JsonSchema implements ListSchemaValidator<ApplicationjsonSchemaList, ApplicationjsonSchema1BoxedList> {
+    public static class ApplicationjsonSchema1 extends JsonSchema<ApplicationjsonSchema1Boxed> implements ListSchemaValidator<ApplicationjsonSchemaList, ApplicationjsonSchema1BoxedList> {
         private static @Nullable ApplicationjsonSchema1 instance = null;
     
         protected ApplicationjsonSchema1() {
@@ -99,11 +95,11 @@ public class ApplicationjsonSchema {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof Pet.PetMap)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -142,6 +138,13 @@ public class ApplicationjsonSchema {
         @Override
         public ApplicationjsonSchema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationjsonSchema1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationjsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

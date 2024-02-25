@@ -302,6 +302,9 @@ src/main/java/org/openapijsonschematools/client/parameter/ParameterStyle.java
 src/main/java/org/openapijsonschematools/client/requestbody/GenericRequestBody.java
 src/main/java/org/openapijsonschematools/client/requestbody/RequestBodySerializer.java
 src/main/java/org/openapijsonschematools/client/requestbody/SerializedRequestBody.java
+src/main/java/org/openapijsonschematools/client/response/ApiResponse.java
+src/main/java/org/openapijsonschematools/client/response/DeserializedApiResponse.java
+src/main/java/org/openapijsonschematools/client/response/ResponseDeserializer.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java
@@ -404,6 +407,7 @@ src/main/java/org/openapijsonschematools/client/servers/ServerWithVariables.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/requestbody/RequestBodySerializerTest.java
+src/test/java/org/openapijsonschematools/client/response/ResponseDeserializerTest.java
 src/test/java/org/openapijsonschematools/client/schemas/AnyTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/ArrayTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/BooleanSchemaTest.java

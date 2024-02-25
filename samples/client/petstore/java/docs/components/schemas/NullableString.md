@@ -4,56 +4,58 @@ public class NullableString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NullableString.NullableString1Boxed](#nullablestring1boxed)<br> abstract sealed validated payload class |
-| static class | [NullableString.NullableString1BoxedVoid](#nullablestring1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullableString.NullableString1BoxedString](#nullablestring1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [NullableString.NullableString1Boxed](#nullablestring1boxed)<br> sealed interface for validated payloads |
+| record | [NullableString.NullableString1BoxedVoid](#nullablestring1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [NullableString.NullableString1BoxedString](#nullablestring1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableString.NullableString1](#nullablestring1)<br> schema class |
 
 ## NullableString1Boxed
-public static abstract sealed class NullableString1Boxed<br>
+public sealed interface NullableString1Boxed<br>
 permits<br>
 [NullableString1BoxedVoid](#nullablestring1boxedvoid),
 [NullableString1BoxedString](#nullablestring1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NullableString1BoxedVoid
-public static final class NullableString1BoxedVoid<br>
-extends [NullableString1Boxed](#nullablestring1boxed)
+public record NullableString1BoxedVoid<br>
+implements [NullableString1Boxed](#nullablestring1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NullableString1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NullableString1BoxedString
-public static final class NullableString1BoxedString<br>
-extends [NullableString1Boxed](#nullablestring1boxed)
+public record NullableString1BoxedString<br>
+implements [NullableString1Boxed](#nullablestring1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NullableString1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NullableString1
 public static class NullableString1<br>
@@ -101,5 +103,7 @@ String validatedPayload = NullableString.NullableString1.validate(
 | [NullableString1BoxedVoid](#nullablestring1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [NullableString1BoxedString](#nullablestring1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [NullableString1Boxed](#nullablestring1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -4,26 +4,26 @@ public class AnyTypeNotString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [AnyTypeNotString.AnyTypeNotString1Boxed](#anytypenotstring1boxed)<br> abstract sealed validated payload class |
-| static class | [AnyTypeNotString.AnyTypeNotString1BoxedVoid](#anytypenotstring1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [AnyTypeNotString.AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [AnyTypeNotString.AnyTypeNotString1BoxedNumber](#anytypenotstring1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [AnyTypeNotString.AnyTypeNotString1BoxedString](#anytypenotstring1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [AnyTypeNotString.AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [AnyTypeNotString.AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [AnyTypeNotString.AnyTypeNotString1Boxed](#anytypenotstring1boxed)<br> sealed interface for validated payloads |
+| record | [AnyTypeNotString.AnyTypeNotString1BoxedVoid](#anytypenotstring1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [AnyTypeNotString.AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [AnyTypeNotString.AnyTypeNotString1BoxedNumber](#anytypenotstring1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [AnyTypeNotString.AnyTypeNotString1BoxedString](#anytypenotstring1boxedstring)<br> boxed class to store validated String payloads |
+| record | [AnyTypeNotString.AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist)<br> boxed class to store validated List payloads |
+| record | [AnyTypeNotString.AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeNotString.AnyTypeNotString1](#anytypenotstring1)<br> schema class |
-| static class | [AnyTypeNotString.NotBoxed](#notboxed)<br> abstract sealed validated payload class |
-| static class | [AnyTypeNotString.NotBoxedString](#notboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [AnyTypeNotString.NotBoxed](#notboxed)<br> sealed interface for validated payloads |
+| record | [AnyTypeNotString.NotBoxedString](#notboxedstring)<br> boxed class to store validated String payloads |
 | static class | [AnyTypeNotString.Not](#not)<br> schema class |
 
 ## AnyTypeNotString1Boxed
-public static abstract sealed class AnyTypeNotString1Boxed<br>
+public sealed interface AnyTypeNotString1Boxed<br>
 permits<br>
 [AnyTypeNotString1BoxedVoid](#anytypenotstring1boxedvoid),
 [AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean),
@@ -32,103 +32,109 @@ permits<br>
 [AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist),
 [AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AnyTypeNotString1BoxedVoid
-public static final class AnyTypeNotString1BoxedVoid<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+public record AnyTypeNotString1BoxedVoid<br>
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeNotString1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AnyTypeNotString1BoxedBoolean
-public static final class AnyTypeNotString1BoxedBoolean<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+public record AnyTypeNotString1BoxedBoolean<br>
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeNotString1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AnyTypeNotString1BoxedNumber
-public static final class AnyTypeNotString1BoxedNumber<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+public record AnyTypeNotString1BoxedNumber<br>
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeNotString1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AnyTypeNotString1BoxedString
-public static final class AnyTypeNotString1BoxedString<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+public record AnyTypeNotString1BoxedString<br>
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeNotString1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AnyTypeNotString1BoxedList
-public static final class AnyTypeNotString1BoxedList<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+public record AnyTypeNotString1BoxedList<br>
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeNotString1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AnyTypeNotString1BoxedMap
-public static final class AnyTypeNotString1BoxedMap<br>
-extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
+public record AnyTypeNotString1BoxedMap<br>
+implements [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeNotString1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AnyTypeNotString1
 public static class AnyTypeNotString1<br>
@@ -160,29 +166,32 @@ A schema class that validates payloads
 | [AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [AnyTypeNotString1Boxed](#anytypenotstring1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## NotBoxed
-public static abstract sealed class NotBoxed<br>
+public sealed interface NotBoxed<br>
 permits<br>
 [NotBoxedString](#notboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NotBoxedString
-public static final class NotBoxedString<br>
-extends [NotBoxed](#notboxed)
+public record NotBoxedString<br>
+implements [NotBoxed](#notboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NotBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Not
 public static class Not<br>

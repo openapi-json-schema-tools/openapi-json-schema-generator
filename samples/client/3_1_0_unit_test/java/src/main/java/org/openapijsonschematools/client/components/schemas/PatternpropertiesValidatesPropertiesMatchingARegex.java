@@ -49,78 +49,54 @@ public class PatternpropertiesValidatesPropertiesMatchingARegex {
     }
     
     
-    public static abstract sealed class PatternpropertiesValidatesPropertiesMatchingARegex1Boxed permits PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface PatternpropertiesValidatesPropertiesMatchingARegex1Boxed permits PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
-        public final Void data;
-        private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid(Void data) implements PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
-        public final boolean data;
-        private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean(boolean data) implements PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
-        public final Number data;
-        private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber(Number data) implements PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
-        public final String data;
-        private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString(String data) {
-            this.data = data;
-        }
+    public record PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString(String data) implements PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList(FrozenList<@Nullable Object> data) implements PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap(FrozenMap<@Nullable Object> data) implements PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class PatternpropertiesValidatesPropertiesMatchingARegex1 extends JsonSchema implements NullSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid>, BooleanSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean>, NumberSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber>, StringSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap> {
+    public static class PatternpropertiesValidatesPropertiesMatchingARegex1 extends JsonSchema<PatternpropertiesValidatesPropertiesMatchingARegex1Boxed> implements NullSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid>, BooleanSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean>, NumberSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber>, StringSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -227,11 +203,11 @@ public class PatternpropertiesValidatesPropertiesMatchingARegex {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -262,11 +238,11 @@ public class PatternpropertiesValidatesPropertiesMatchingARegex {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -344,6 +320,25 @@ public class PatternpropertiesValidatesPropertiesMatchingARegex {
         @Override
         public PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public PatternpropertiesValidatesPropertiesMatchingARegex1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

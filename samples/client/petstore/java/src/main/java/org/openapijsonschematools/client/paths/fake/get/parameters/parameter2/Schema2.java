@@ -40,24 +40,20 @@ public class Schema2 {
     }
     
     
-    public static abstract sealed class Items2Boxed permits Items2BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface Items2Boxed permits Items2BoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class Items2BoxedString extends Items2Boxed {
-        public final String data;
-        private Items2BoxedString(String data) {
-            this.data = data;
-        }
+    public record Items2BoxedString(String data) implements Items2Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Items2 extends JsonSchema implements StringSchemaValidator<Items2BoxedString>, StringEnumValidator<StringItemsEnums2>, DefaultValueMethod<String> {
+    public static class Items2 extends JsonSchema<Items2Boxed> implements StringSchemaValidator<Items2BoxedString>, StringEnumValidator<StringItemsEnums2>, DefaultValueMethod<String> {
         private static @Nullable Items2 instance = null;
     
         protected Items2() {
@@ -120,6 +116,13 @@ public class Schema2 {
         public Items2BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Items2BoxedString(validate(arg, configuration));
         }
+        @Override
+        public Items2Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class SchemaList2 extends FrozenList<String> {
@@ -159,24 +162,20 @@ public class Schema2 {
     }
     
     
-    public static abstract sealed class Schema21Boxed permits Schema21BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface Schema21Boxed permits Schema21BoxedList {
+        @Nullable Object getData();
     }
     
-    public static final class Schema21BoxedList extends Schema21Boxed {
-        public final SchemaList2 data;
-        private Schema21BoxedList(SchemaList2 data) {
-            this.data = data;
-        }
+    public record Schema21BoxedList(SchemaList2 data) implements Schema21Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Schema21 extends JsonSchema implements ListSchemaValidator<SchemaList2, Schema21BoxedList> {
+    public static class Schema21 extends JsonSchema<Schema21Boxed> implements ListSchemaValidator<SchemaList2, Schema21BoxedList> {
         private static @Nullable Schema21 instance = null;
     
         protected Schema21() {
@@ -200,11 +199,11 @@ public class Schema2 {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof String)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -243,6 +242,13 @@ public class Schema2 {
         @Override
         public Schema21BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema21BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public Schema21Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

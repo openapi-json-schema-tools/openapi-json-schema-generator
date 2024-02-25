@@ -4,38 +4,39 @@ public class IntegerMax10<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerMax10.IntegerMax101Boxed](#integermax101boxed)<br> abstract sealed validated payload class |
-| static class | [IntegerMax10.IntegerMax101BoxedNumber](#integermax101boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [IntegerMax10.IntegerMax101Boxed](#integermax101boxed)<br> sealed interface for validated payloads |
+| record | [IntegerMax10.IntegerMax101BoxedNumber](#integermax101boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerMax10.IntegerMax101](#integermax101)<br> schema class |
 
 ## IntegerMax101Boxed
-public static abstract sealed class IntegerMax101Boxed<br>
+public sealed interface IntegerMax101Boxed<br>
 permits<br>
 [IntegerMax101BoxedNumber](#integermax101boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IntegerMax101BoxedNumber
-public static final class IntegerMax101BoxedNumber<br>
-extends [IntegerMax101Boxed](#integermax101boxed)
+public record IntegerMax101BoxedNumber<br>
+implements [IntegerMax101Boxed](#integermax101boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerMax101BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IntegerMax101
 public static class IntegerMax101<br>
@@ -77,5 +78,7 @@ long validatedPayload = IntegerMax10.IntegerMax101.validate(
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | [IntegerMax101BoxedNumber](#integermax101boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [IntegerMax101Boxed](#integermax101boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

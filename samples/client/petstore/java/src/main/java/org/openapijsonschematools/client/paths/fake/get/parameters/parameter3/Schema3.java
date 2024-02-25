@@ -37,24 +37,20 @@ public class Schema3 {
     }
     
     
-    public static abstract sealed class Schema31Boxed permits Schema31BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface Schema31Boxed permits Schema31BoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class Schema31BoxedString extends Schema31Boxed {
-        public final String data;
-        private Schema31BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema31BoxedString(String data) implements Schema31Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Schema31 extends JsonSchema implements StringSchemaValidator<Schema31BoxedString>, StringEnumValidator<StringSchemaEnums3>, DefaultValueMethod<String> {
+    public static class Schema31 extends JsonSchema<Schema31Boxed> implements StringSchemaValidator<Schema31BoxedString>, StringEnumValidator<StringSchemaEnums3>, DefaultValueMethod<String> {
         private static @Nullable Schema31 instance = null;
     
         protected Schema31() {
@@ -117,6 +113,13 @@ public class Schema3 {
         @Override
         public Schema31BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema31BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public Schema31Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

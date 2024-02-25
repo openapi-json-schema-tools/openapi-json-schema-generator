@@ -4,7 +4,7 @@ public class Client<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,37 +12,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Client.Client1Boxed](#client1boxed)<br> abstract sealed validated payload class |
-| static class | [Client.Client1BoxedMap](#client1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Client.Client1Boxed](#client1boxed)<br> sealed interface for validated payloads |
+| record | [Client.Client1BoxedMap](#client1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Client.Client1](#client1)<br> schema class |
 | static class | [Client.ClientMapBuilder1](#clientmapbuilder1)<br> builder for Map payloads |
 | static class | [Client.ClientMap](#clientmap)<br> output class for Map payloads |
-| static class | [Client.Client2Boxed](#client2boxed)<br> abstract sealed validated payload class |
-| static class | [Client.Client2BoxedString](#client2boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Client.Client2Boxed](#client2boxed)<br> sealed interface for validated payloads |
+| record | [Client.Client2BoxedString](#client2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Client.Client2](#client2)<br> schema class |
 
 ## Client1Boxed
-public static abstract sealed class Client1Boxed<br>
+public sealed interface Client1Boxed<br>
 permits<br>
 [Client1BoxedMap](#client1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Client1BoxedMap
-public static final class Client1BoxedMap<br>
-extends [Client1Boxed](#client1boxed)
+public record Client1BoxedMap<br>
+implements [Client1Boxed](#client1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Client1BoxedMap([ClientMap](#clientmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ClientMap](#clientmap) | data<br>validated payload |
+| [ClientMap](#clientmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Client1
 public static class Client1<br>
@@ -87,7 +88,9 @@ Client.ClientMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ClientMap](#clientmap) | validate([Map&lt;?, ?&gt;](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
 | [Client1BoxedMap](#client1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
+| [Client1Boxed](#client1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ClientMapBuilder1
 public class ClientMapBuilder1<br>
 builder for `Map<String, @Nullable Object>`
@@ -128,27 +131,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Client2Boxed
-public static abstract sealed class Client2Boxed<br>
+public sealed interface Client2Boxed<br>
 permits<br>
 [Client2BoxedString](#client2boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Client2BoxedString
-public static final class Client2BoxedString<br>
-extends [Client2Boxed](#client2boxed)
+public record Client2BoxedString<br>
+implements [Client2Boxed](#client2boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Client2BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Client2
 public static class Client2<br>

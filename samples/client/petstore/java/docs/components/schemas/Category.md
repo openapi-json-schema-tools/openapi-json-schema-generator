@@ -4,7 +4,7 @@ public class Category<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,40 +12,41 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Category.Category1Boxed](#category1boxed)<br> abstract sealed validated payload class |
-| static class | [Category.Category1BoxedMap](#category1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Category.Category1Boxed](#category1boxed)<br> sealed interface for validated payloads |
+| record | [Category.Category1BoxedMap](#category1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Category.Category1](#category1)<br> schema class |
 | static class | [Category.CategoryMapBuilder](#categorymapbuilder)<br> builder for Map payloads |
 | static class | [Category.CategoryMap](#categorymap)<br> output class for Map payloads |
-| static class | [Category.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
-| static class | [Category.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Category.NameBoxed](#nameboxed)<br> sealed interface for validated payloads |
+| record | [Category.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Category.Name](#name)<br> schema class |
-| static class | [Category.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
-| static class | [Category.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Category.IdBoxed](#idboxed)<br> sealed interface for validated payloads |
+| record | [Category.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Category.Id](#id)<br> schema class |
 
 ## Category1Boxed
-public static abstract sealed class Category1Boxed<br>
+public sealed interface Category1Boxed<br>
 permits<br>
 [Category1BoxedMap](#category1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Category1BoxedMap
-public static final class Category1BoxedMap<br>
-extends [Category1Boxed](#category1boxed)
+public record Category1BoxedMap<br>
+implements [Category1Boxed](#category1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Category1BoxedMap([CategoryMap](#categorymap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CategoryMap](#categorymap) | data<br>validated payload |
+| [CategoryMap](#categorymap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Category1
 public static class Category1<br>
@@ -93,7 +94,9 @@ Category.CategoryMap validatedPayload =
 | ----------------- | ---------------------- |
 | [CategoryMap](#categorymap) | validate([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
 | [Category1BoxedMap](#category1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
+| [Category1Boxed](#category1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## CategoryMap0Builder
 public class CategoryMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -154,27 +157,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NameBoxed
-public static abstract sealed class NameBoxed<br>
+public sealed interface NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NameBoxedString
-public static final class NameBoxedString<br>
-extends [NameBoxed](#nameboxed)
+public record NameBoxedString<br>
+implements [NameBoxed](#nameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name
 public static class Name<br>
@@ -215,29 +219,32 @@ String validatedPayload = Category.Name.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [NameBoxedString](#nameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [NameBoxed](#nameboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## IdBoxed
-public static abstract sealed class IdBoxed<br>
+public sealed interface IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
-public static final class IdBoxedNumber<br>
-extends [IdBoxed](#idboxed)
+public record IdBoxedNumber<br>
+implements [IdBoxed](#idboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Id
 public static class Id<br>

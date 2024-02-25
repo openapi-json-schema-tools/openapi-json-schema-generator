@@ -44,24 +44,20 @@ public class EnumsInProperties {
     }
     
     
-    public static abstract sealed class FooBoxed permits FooBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface FooBoxed permits FooBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class FooBoxedString extends FooBoxed {
-        public final String data;
-        private FooBoxedString(String data) {
-            this.data = data;
-        }
+    public record FooBoxedString(String data) implements FooBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Foo extends JsonSchema implements StringSchemaValidator<FooBoxedString>, StringEnumValidator<StringFooEnums> {
+    public static class Foo extends JsonSchema<FooBoxed> implements StringSchemaValidator<FooBoxedString>, StringEnumValidator<StringFooEnums> {
         private static @Nullable Foo instance = null;
     
         protected Foo() {
@@ -116,6 +112,13 @@ public class EnumsInProperties {
         public FooBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FooBoxedString(validate(arg, configuration));
         }
+        @Override
+        public FooBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     public enum StringBarEnums implements StringValueMethod {
         BAR("bar");
@@ -130,24 +133,20 @@ public class EnumsInProperties {
     }
     
     
-    public static abstract sealed class BarBoxed permits BarBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface BarBoxed permits BarBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class BarBoxedString extends BarBoxed {
-        public final String data;
-        private BarBoxedString(String data) {
-            this.data = data;
-        }
+    public record BarBoxedString(String data) implements BarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Bar extends JsonSchema implements StringSchemaValidator<BarBoxedString>, StringEnumValidator<StringBarEnums> {
+    public static class Bar extends JsonSchema<BarBoxed> implements StringSchemaValidator<BarBoxedString>, StringEnumValidator<StringBarEnums> {
         private static @Nullable Bar instance = null;
     
         protected Bar() {
@@ -201,6 +200,13 @@ public class EnumsInProperties {
         @Override
         public BarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BarBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public BarBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -317,23 +323,19 @@ public class EnumsInProperties {
     }
     
     
-    public static abstract sealed class EnumsInProperties1Boxed permits EnumsInProperties1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface EnumsInProperties1Boxed permits EnumsInProperties1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class EnumsInProperties1BoxedMap extends EnumsInProperties1Boxed {
-        public final EnumsInPropertiesMap data;
-        private EnumsInProperties1BoxedMap(EnumsInPropertiesMap data) {
-            this.data = data;
-        }
+    public record EnumsInProperties1BoxedMap(EnumsInPropertiesMap data) implements EnumsInProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class EnumsInProperties1 extends JsonSchema implements MapSchemaValidator<EnumsInPropertiesMap, EnumsInProperties1BoxedMap> {
+    public static class EnumsInProperties1 extends JsonSchema<EnumsInProperties1Boxed> implements MapSchemaValidator<EnumsInPropertiesMap, EnumsInProperties1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -373,11 +375,11 @@ public class EnumsInProperties {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -413,6 +415,13 @@ public class EnumsInProperties {
         @Override
         public EnumsInProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumsInProperties1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public EnumsInProperties1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

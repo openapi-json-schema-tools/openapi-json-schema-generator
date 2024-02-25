@@ -4,7 +4,7 @@ public class File<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,37 +12,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [File.File1Boxed](#file1boxed)<br> abstract sealed validated payload class |
-| static class | [File.File1BoxedMap](#file1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [File.File1Boxed](#file1boxed)<br> sealed interface for validated payloads |
+| record | [File.File1BoxedMap](#file1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [File.File1](#file1)<br> schema class |
 | static class | [File.FileMapBuilder](#filemapbuilder)<br> builder for Map payloads |
 | static class | [File.FileMap](#filemap)<br> output class for Map payloads |
-| static class | [File.SourceURIBoxed](#sourceuriboxed)<br> abstract sealed validated payload class |
-| static class | [File.SourceURIBoxedString](#sourceuriboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [File.SourceURIBoxed](#sourceuriboxed)<br> sealed interface for validated payloads |
+| record | [File.SourceURIBoxedString](#sourceuriboxedstring)<br> boxed class to store validated String payloads |
 | static class | [File.SourceURI](#sourceuri)<br> schema class |
 
 ## File1Boxed
-public static abstract sealed class File1Boxed<br>
+public sealed interface File1Boxed<br>
 permits<br>
 [File1BoxedMap](#file1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## File1BoxedMap
-public static final class File1BoxedMap<br>
-extends [File1Boxed](#file1boxed)
+public record File1BoxedMap<br>
+implements [File1Boxed](#file1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | File1BoxedMap([FileMap](#filemap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FileMap](#filemap) | data<br>validated payload |
+| [FileMap](#filemap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## File1
 public static class File1<br>
@@ -90,7 +91,9 @@ File.FileMap validatedPayload =
 | ----------------- | ---------------------- |
 | [FileMap](#filemap) | validate([Map&lt;?, ?&gt;](#filemapbuilder) arg, SchemaConfiguration configuration) |
 | [File1BoxedMap](#file1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#filemapbuilder) arg, SchemaConfiguration configuration) |
+| [File1Boxed](#file1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## FileMapBuilder
 public class FileMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -131,27 +134,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## SourceURIBoxed
-public static abstract sealed class SourceURIBoxed<br>
+public sealed interface SourceURIBoxed<br>
 permits<br>
 [SourceURIBoxedString](#sourceuriboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SourceURIBoxedString
-public static final class SourceURIBoxedString<br>
-extends [SourceURIBoxed](#sourceuriboxed)
+public record SourceURIBoxedString<br>
+implements [SourceURIBoxed](#sourceuriboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SourceURIBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SourceURI
 public static class SourceURI<br>

@@ -4,40 +4,41 @@ public class Currency<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Currency.Currency1Boxed](#currency1boxed)<br> abstract sealed validated payload class |
-| static class | [Currency.Currency1BoxedString](#currency1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Currency.Currency1Boxed](#currency1boxed)<br> sealed interface for validated payloads |
+| record | [Currency.Currency1BoxedString](#currency1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Currency.Currency1](#currency1)<br> schema class |
 | enum | [Currency.StringCurrencyEnums](#stringcurrencyenums)<br>String enum |
 
 ## Currency1Boxed
-public static abstract sealed class Currency1Boxed<br>
+public sealed interface Currency1Boxed<br>
 permits<br>
 [Currency1BoxedString](#currency1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Currency1BoxedString
-public static final class Currency1BoxedString<br>
-extends [Currency1Boxed](#currency1boxed)
+public record Currency1BoxedString<br>
+implements [Currency1Boxed](#currency1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Currency1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Currency1
 public static class Currency1<br>
@@ -79,7 +80,9 @@ String validatedPayload = Currency.Currency1.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringCurrencyEnums](#stringcurrencyenums) arg, SchemaConfiguration configuration) |
 | [Currency1BoxedString](#currency1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Currency1Boxed](#currency1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringCurrencyEnums
 public enum StringCurrencyEnums<br>
 extends `Enum<StringCurrencyEnums>`

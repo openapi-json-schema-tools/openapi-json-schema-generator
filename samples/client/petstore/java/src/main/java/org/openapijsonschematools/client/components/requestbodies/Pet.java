@@ -6,29 +6,38 @@ package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.GenericRequestBody;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationxml.ApplicationxmlSchema;
-import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
 public class Pet {
+    public sealed interface SealedMediaType permits ApplicationjsonMediaType, ApplicationxmlMediaType {}
 
-    public static class ApplicationjsonMediaType extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1> {
+    public record ApplicationjsonMediaType(ApplicationjsonSchema.ApplicationjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonSchema.ApplicationjsonSchema1, Void> {
         public ApplicationjsonMediaType() {
-            super(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
+            this(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class ApplicationxmlMediaType extends MediaType<ApplicationxmlSchema.ApplicationxmlSchema1> {
+    public record ApplicationxmlMediaType(ApplicationxmlSchema.ApplicationxmlSchema1 schema) implements SealedMediaType, MediaType<ApplicationxmlSchema.ApplicationxmlSchema1, Void> {
         public ApplicationxmlMediaType() {
-            super(ApplicationxmlSchema.ApplicationxmlSchema1.getInstance());
+            this(ApplicationxmlSchema.ApplicationxmlSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class Pet1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class Pet1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public Pet1() {
             super(
                 Map.ofEntries(
@@ -41,47 +50,25 @@ public class Pet {
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             if (requestBody instanceof ApplicationjsonRequestBody requestBody0) {
-                return serialize(requestBody0.contentType(), requestBody0.body().data());
+                return serialize(requestBody0.contentType(), requestBody0.body().getData());
             } else  {
                 ApplicationxmlRequestBody requestBody1 = (ApplicationxmlRequestBody) requestBody;
-                return serialize(requestBody1.contentType(), requestBody1.body().data());
+                return serialize(requestBody1.contentType(), requestBody1.body().getData());
             }
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody, ApplicationxmlRequestBody {}
-    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonSchema.Pet1Boxed> {
-        private final String contentType;
-        private final ApplicationjsonSchema.Pet1Boxed body;
-        public ApplicationjsonRequestBody(ApplicationjsonSchema.Pet1Boxed body) {
-            contentType = "application/json";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationjsonRequestBody, ApplicationxmlRequestBody {}
+    public record ApplicationjsonRequestBody(ApplicationjsonSchema.Pet1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationjsonSchema.Pet1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationjsonSchema.Pet1Boxed body() {
-            return body;
+            return "application/json";
         }
     }
-    public static final class ApplicationxmlRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationxmlSchema.Pet1Boxed> {
-        private final String contentType;
-        private final ApplicationxmlSchema.Pet1Boxed body;
-        public ApplicationxmlRequestBody(ApplicationxmlSchema.Pet1Boxed body) {
-            contentType = "application/xml";
-            this.body = body;
-        }
+    public record ApplicationxmlRequestBody(ApplicationxmlSchema.Pet1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationxmlSchema.Pet1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationxmlSchema.Pet1Boxed body() {
-            return body;
+            return "application/xml";
         }
     }
 }

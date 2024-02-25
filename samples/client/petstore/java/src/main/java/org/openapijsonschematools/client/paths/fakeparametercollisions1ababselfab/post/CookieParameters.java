@@ -187,23 +187,19 @@ public class CookieParameters {
     }
     
     
-    public static abstract sealed class CookieParameters1Boxed permits CookieParameters1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface CookieParameters1Boxed permits CookieParameters1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class CookieParameters1BoxedMap extends CookieParameters1Boxed {
-        public final CookieParametersMap data;
-        private CookieParameters1BoxedMap(CookieParametersMap data) {
-            this.data = data;
-        }
+    public record CookieParameters1BoxedMap(CookieParametersMap data) implements CookieParameters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class CookieParameters1 extends JsonSchema implements MapSchemaValidator<CookieParametersMap, CookieParameters1BoxedMap> {
+    public static class CookieParameters1 extends JsonSchema<CookieParameters1Boxed> implements MapSchemaValidator<CookieParametersMap, CookieParameters1BoxedMap> {
         private static @Nullable CookieParameters1 instance = null;
     
         protected CookieParameters1() {
@@ -238,11 +234,11 @@ public class CookieParameters {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -278,6 +274,13 @@ public class CookieParameters {
         @Override
         public CookieParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new CookieParameters1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public CookieParameters1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

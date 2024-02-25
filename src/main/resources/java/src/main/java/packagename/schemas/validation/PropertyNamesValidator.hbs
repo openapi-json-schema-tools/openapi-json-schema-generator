@@ -18,7 +18,7 @@ public class PropertyNamesValidator implements KeywordValidator {
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }
-        JsonSchema propertyNamesSchema = JsonSchemaFactory.getInstance(propertyNames);
+        JsonSchema<?> propertyNamesSchema = JsonSchemaFactory.getInstance(propertyNames);
         for (Object objKey: mapArg.keySet()) {
             if (objKey instanceof String key) {
                 List<Object> propPathToItem = new ArrayList<>(data.validationMetadata().pathToItem());

@@ -21,20 +21,16 @@ import java.util.Set;
 import java.util.UUID;
 
 public class StringJsonSchema {
-    public static abstract sealed class StringJsonSchema1Boxed permits StringJsonSchema1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface StringJsonSchema1Boxed permits StringJsonSchema1BoxedString {
+        @Nullable Object getData();
     }
-    public static final class StringJsonSchema1BoxedString extends StringJsonSchema1Boxed {
-        public final String data;
-        private StringJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record StringJsonSchema1BoxedString(String data) implements StringJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static class StringJsonSchema1 extends JsonSchema implements StringSchemaValidator<StringJsonSchema1BoxedString> {
+    public static class StringJsonSchema1 extends JsonSchema<StringJsonSchema1Boxed> implements StringSchemaValidator<StringJsonSchema1BoxedString> {
         private static @Nullable StringJsonSchema1 instance = null;
 
         protected StringJsonSchema1() {
@@ -98,6 +94,14 @@ public class StringJsonSchema {
         @Override
         public StringJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new StringJsonSchema1BoxedString(validate(arg, configuration));
+        }
+
+        @Override
+        public StringJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

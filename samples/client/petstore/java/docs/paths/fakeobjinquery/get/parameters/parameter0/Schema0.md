@@ -3,7 +3,7 @@ public class Schema0<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -11,37 +11,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema0.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
-| static class | [Schema0.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Schema0.Schema01Boxed](#schema01boxed)<br> sealed interface for validated payloads |
+| record | [Schema0.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaMapBuilder0](#schemamapbuilder0)<br> builder for Map payloads |
 | static class | [Schema0.SchemaMap0](#schemamap0)<br> output class for Map payloads |
-| static class | [Schema0.Keyword0Boxed](#keyword0boxed)<br> abstract sealed validated payload class |
-| static class | [Schema0.Keyword0BoxedString](#keyword0boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Schema0.Keyword0Boxed](#keyword0boxed)<br> sealed interface for validated payloads |
+| record | [Schema0.Keyword0BoxedString](#keyword0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema0.Keyword0](#keyword0)<br> schema class |
 
 ## Schema01Boxed
-public static abstract sealed class Schema01Boxed<br>
+public sealed interface Schema01Boxed<br>
 permits<br>
 [Schema01BoxedMap](#schema01boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema01BoxedMap
-public static final class Schema01BoxedMap<br>
-extends [Schema01Boxed](#schema01boxed)
+public record Schema01BoxedMap<br>
+implements [Schema01Boxed](#schema01boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema01BoxedMap([SchemaMap0](#schemamap0) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaMap0](#schemamap0) | data<br>validated payload |
+| [SchemaMap0](#schemamap0) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema01
 public static class Schema01<br>
@@ -86,7 +87,9 @@ Schema0.SchemaMap0 validatedPayload =
 | ----------------- | ---------------------- |
 | [SchemaMap0](#schemamap0) | validate([Map&lt;?, ?&gt;](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
 | [Schema01BoxedMap](#schema01boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
+| [Schema01Boxed](#schema01boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## SchemaMapBuilder0
 public class SchemaMapBuilder0<br>
 builder for `Map<String, @Nullable Object>`
@@ -127,27 +130,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Keyword0Boxed
-public static abstract sealed class Keyword0Boxed<br>
+public sealed interface Keyword0Boxed<br>
 permits<br>
 [Keyword0BoxedString](#keyword0boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Keyword0BoxedString
-public static final class Keyword0BoxedString<br>
-extends [Keyword0Boxed](#keyword0boxed)
+public record Keyword0BoxedString<br>
+implements [Keyword0Boxed](#keyword0boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Keyword0BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Keyword0
 public static class Keyword0<br>

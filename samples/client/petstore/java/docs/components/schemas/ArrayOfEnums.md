@@ -4,7 +4,7 @@ public class ArrayOfEnums<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,34 +12,35 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ArrayOfEnums.ArrayOfEnums1Boxed](#arrayofenums1boxed)<br> abstract sealed validated payload class |
-| static class | [ArrayOfEnums.ArrayOfEnums1BoxedList](#arrayofenums1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ArrayOfEnums.ArrayOfEnums1Boxed](#arrayofenums1boxed)<br> sealed interface for validated payloads |
+| record | [ArrayOfEnums.ArrayOfEnums1BoxedList](#arrayofenums1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayOfEnums.ArrayOfEnums1](#arrayofenums1)<br> schema class |
 | static class | [ArrayOfEnums.ArrayOfEnumsListBuilder](#arrayofenumslistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfEnums.ArrayOfEnumsList](#arrayofenumslist)<br> output class for List payloads |
 
 ## ArrayOfEnums1Boxed
-public static abstract sealed class ArrayOfEnums1Boxed<br>
+public sealed interface ArrayOfEnums1Boxed<br>
 permits<br>
 [ArrayOfEnums1BoxedList](#arrayofenums1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ArrayOfEnums1BoxedList
-public static final class ArrayOfEnums1BoxedList<br>
-extends [ArrayOfEnums1Boxed](#arrayofenums1boxed)
+public record ArrayOfEnums1BoxedList<br>
+implements [ArrayOfEnums1Boxed](#arrayofenums1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayOfEnums1BoxedList([ArrayOfEnumsList](#arrayofenumslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayOfEnumsList](#arrayofenumslist) | data<br>validated payload |
+| [ArrayOfEnumsList](#arrayofenumslist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ArrayOfEnums1
 public static class ArrayOfEnums1<br>
@@ -84,7 +85,9 @@ ArrayOfEnums.ArrayOfEnumsList validatedPayload =
 | ----------------- | ---------------------- |
 | [ArrayOfEnumsList](#arrayofenumslist) | validate([List<?>](#arrayofenumslistbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayOfEnums1BoxedList](#arrayofenums1boxedlist) | validateAndBox([List<?>](#arrayofenumslistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayOfEnums1Boxed](#arrayofenums1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ArrayOfEnumsListBuilder
 public class ArrayOfEnumsListBuilder<br>
 builder for `List<@Nullable String>`

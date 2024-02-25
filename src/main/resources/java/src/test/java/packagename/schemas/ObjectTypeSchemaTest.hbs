@@ -33,15 +33,11 @@ public class ObjectTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static abstract sealed class ObjectWithPropsSchemaBoxed permits ObjectWithPropsSchemaBoxedMap {
+    public sealed interface ObjectWithPropsSchemaBoxed permits ObjectWithPropsSchemaBoxedMap {
     }
-    public static final class ObjectWithPropsSchemaBoxedMap extends ObjectWithPropsSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ObjectWithPropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithPropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithPropsSchemaBoxed {
     }
-    public static class ObjectWithPropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsSchemaBoxedMap> {
+    public static class ObjectWithPropsSchema extends JsonSchema<ObjectWithPropsSchemaBoxed> implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsSchemaBoxedMap> {
         private static @Nullable ObjectWithPropsSchema instance = null;
         private ObjectWithPropsSchema() {
             super(new JsonSchemaInfo()
@@ -72,11 +68,11 @@ public class ObjectTypeSchemaTest {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
@@ -113,18 +109,22 @@ public class ObjectTypeSchemaTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
-    }
 
-    public static abstract sealed class ObjectWithAddpropsSchemaBoxed permits ObjectWithAddpropsSchemaBoxedMap {
-    }
-    public static final class ObjectWithAddpropsSchemaBoxedMap extends ObjectWithAddpropsSchemaBoxed {
-        public final FrozenMap<String> data;
-        private ObjectWithAddpropsSchemaBoxedMap(FrozenMap<String> data) {
-            this.data = data;
+        @Override
+        public ObjectWithPropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return new ObjectWithPropsSchemaBoxedMap(validate(mapArg, configuration));
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 
-    public static class ObjectWithAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
+    public sealed interface ObjectWithAddpropsSchemaBoxed permits ObjectWithAddpropsSchemaBoxedMap {
+    }
+    public record ObjectWithAddpropsSchemaBoxedMap(FrozenMap<String> data) implements ObjectWithAddpropsSchemaBoxed {
+    }
+
+    public static class ObjectWithAddpropsSchema extends JsonSchema<ObjectWithAddpropsSchemaBoxed> implements MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
         private static @Nullable ObjectWithAddpropsSchema instance = null;
         private ObjectWithAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -152,11 +152,11 @@ public class ObjectTypeSchemaTest {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(castValue instanceof String)) {
                     throw new InvalidTypeException("Invalid type for property value");
@@ -190,6 +190,14 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
+        public ObjectWithAddpropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return new ObjectWithAddpropsSchemaBoxedMap(validate(mapArg, configuration));
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
         public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
@@ -198,15 +206,11 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static abstract sealed class ObjectWithPropsAndAddpropsSchemaBoxed permits ObjectWithPropsAndAddpropsSchemaBoxedMap {
+    public sealed interface ObjectWithPropsAndAddpropsSchemaBoxed permits ObjectWithPropsAndAddpropsSchemaBoxedMap {
     }
-    public static final class ObjectWithPropsAndAddpropsSchemaBoxedMap extends ObjectWithPropsAndAddpropsSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ObjectWithPropsAndAddpropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithPropsAndAddpropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithPropsAndAddpropsSchemaBoxed {
     }
-    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
+    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema<ObjectWithPropsAndAddpropsSchemaBoxed> implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
         private static @Nullable ObjectWithPropsAndAddpropsSchema instance = null;
         private ObjectWithPropsAndAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -237,11 +241,11 @@ public class ObjectTypeSchemaTest {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
@@ -272,6 +276,14 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
+        public ObjectWithPropsAndAddpropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return new ObjectWithPropsAndAddpropsSchemaBoxedMap(validate(mapArg, configuration));
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
         public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
@@ -290,15 +302,11 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static abstract sealed class ObjectWithOutputTypeSchemaBoxed permits ObjectWithOutputTypeSchemaBoxedMap {
+    public sealed interface ObjectWithOutputTypeSchemaBoxed permits ObjectWithOutputTypeSchemaBoxedMap {
     }
-    public static final class ObjectWithOutputTypeSchemaBoxedMap extends ObjectWithOutputTypeSchemaBoxed {
-        public final ObjectWithOutputTypeSchemaMap data;
-        private ObjectWithOutputTypeSchemaBoxedMap(ObjectWithOutputTypeSchemaMap data) {
-            this.data = data;
-        }
+    public record ObjectWithOutputTypeSchemaBoxedMap(ObjectWithOutputTypeSchemaMap data) implements ObjectWithOutputTypeSchemaBoxed {
     }
-    public static class ObjectWithOutputTypeSchema extends JsonSchema implements MapSchemaValidator<ObjectWithOutputTypeSchemaMap, ObjectWithOutputTypeSchemaBoxedMap> {
+    public static class ObjectWithOutputTypeSchema extends JsonSchema<ObjectWithOutputTypeSchemaBoxed> implements MapSchemaValidator<ObjectWithOutputTypeSchemaMap, ObjectWithOutputTypeSchemaBoxedMap> {
         private static @Nullable ObjectWithOutputTypeSchema instance = null;
         public ObjectWithOutputTypeSchema() {
             super(new JsonSchemaInfo()
@@ -328,11 +336,11 @@ public class ObjectTypeSchemaTest {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
@@ -358,6 +366,14 @@ public class ObjectTypeSchemaTest {
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public ObjectWithOutputTypeSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return new ObjectWithOutputTypeSchemaBoxedMap(validate(mapArg, configuration));
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }

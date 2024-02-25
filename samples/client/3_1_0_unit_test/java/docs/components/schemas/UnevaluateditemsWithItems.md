@@ -4,7 +4,7 @@ public class UnevaluateditemsWithItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,40 +12,41 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1Boxed](#unevaluateditemswithitems1boxed)<br> abstract sealed validated payload class |
-| static class | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1BoxedList](#unevaluateditemswithitems1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1Boxed](#unevaluateditemswithitems1boxed)<br> sealed interface for validated payloads |
+| record | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1BoxedList](#unevaluateditemswithitems1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1](#unevaluateditemswithitems1)<br> schema class |
-| static class | [UnevaluateditemsWithItems.UnevaluatedItemsBoxed](#unevaluateditemsboxed)<br> abstract sealed validated payload class |
-| static class | [UnevaluateditemsWithItems.UnevaluatedItemsBoxedString](#unevaluateditemsboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [UnevaluateditemsWithItems.UnevaluatedItemsBoxed](#unevaluateditemsboxed)<br> sealed interface for validated payloads |
+| record | [UnevaluateditemsWithItems.UnevaluatedItemsBoxedString](#unevaluateditemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [UnevaluateditemsWithItems.UnevaluatedItems](#unevaluateditems)<br> schema class |
 | static class | [UnevaluateditemsWithItems.UnevaluateditemsWithItemsListBuilder](#unevaluateditemswithitemslistbuilder)<br> builder for List payloads |
 | static class | [UnevaluateditemsWithItems.UnevaluateditemsWithItemsList](#unevaluateditemswithitemslist)<br> output class for List payloads |
-| static class | [UnevaluateditemsWithItems.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [UnevaluateditemsWithItems.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [UnevaluateditemsWithItems.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
+| record | [UnevaluateditemsWithItems.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [UnevaluateditemsWithItems.Items](#items)<br> schema class |
 
 ## UnevaluateditemsWithItems1Boxed
-public static abstract sealed class UnevaluateditemsWithItems1Boxed<br>
+public sealed interface UnevaluateditemsWithItems1Boxed<br>
 permits<br>
 [UnevaluateditemsWithItems1BoxedList](#unevaluateditemswithitems1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## UnevaluateditemsWithItems1BoxedList
-public static final class UnevaluateditemsWithItems1BoxedList<br>
-extends [UnevaluateditemsWithItems1Boxed](#unevaluateditemswithitems1boxed)
+public record UnevaluateditemsWithItems1BoxedList<br>
+implements [UnevaluateditemsWithItems1Boxed](#unevaluateditemswithitems1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UnevaluateditemsWithItems1BoxedList([UnevaluateditemsWithItemsList](#unevaluateditemswithitemslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UnevaluateditemsWithItemsList](#unevaluateditemswithitemslist) | data<br>validated payload |
+| [UnevaluateditemsWithItemsList](#unevaluateditemswithitemslist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UnevaluateditemsWithItems1
 public static class UnevaluateditemsWithItems1<br>
@@ -91,29 +92,32 @@ UnevaluateditemsWithItems.UnevaluateditemsWithItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | [UnevaluateditemsWithItemsList](#unevaluateditemswithitemslist) | validate([List<?>](#unevaluateditemswithitemslistbuilder) arg, SchemaConfiguration configuration) |
 | [UnevaluateditemsWithItems1BoxedList](#unevaluateditemswithitems1boxedlist) | validateAndBox([List<?>](#unevaluateditemswithitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [UnevaluateditemsWithItems1Boxed](#unevaluateditemswithitems1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## UnevaluatedItemsBoxed
-public static abstract sealed class UnevaluatedItemsBoxed<br>
+public sealed interface UnevaluatedItemsBoxed<br>
 permits<br>
 [UnevaluatedItemsBoxedString](#unevaluateditemsboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## UnevaluatedItemsBoxedString
-public static final class UnevaluatedItemsBoxedString<br>
-extends [UnevaluatedItemsBoxed](#unevaluateditemsboxed)
+public record UnevaluatedItemsBoxedString<br>
+implements [UnevaluatedItemsBoxed](#unevaluateditemsboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UnevaluatedItemsBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## UnevaluatedItems
 public static class UnevaluatedItems<br>
@@ -159,27 +163,28 @@ A class to store validated List payloads
 | static [UnevaluateditemsWithItemsList](#unevaluateditemswithitemslist) | of([List<Number>](#unevaluateditemswithitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedNumber](#itemsboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedNumber
-public static final class ItemsBoxedNumber<br>
-extends [ItemsBoxed](#itemsboxed)
+public record ItemsBoxedNumber<br>
+implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>

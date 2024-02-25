@@ -1,0 +1,105 @@
+{{#with response}}
+package {{packageName}}.{{subpackage}};
+
+{{#if refInfo}}
+    {{#neq subpackage refInfo.ref.subpackage}}
+import {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}};
+    {{/neq}}
+
+public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{refInfo.refModule}}1 {}
+}
+{{else}}
+import {{packageName}}.configurations.SchemaConfiguration;
+import {{packageName}}.response.ResponseDeserializer;
+    {{#if hasContentSchema}}
+import {{packageName}}.mediatype.MediaType;
+    {{else}}
+import {{packageName}}.schemas.validation.MapUtils;
+    {{/if}}
+    {{#each content}}
+        {{#with schema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+        {{/with}}
+    {{/each}}
+
+    {{#if content}}
+import java.util.AbstractMap;
+    {{/if}}
+import java.util.Map;
+import java.net.http.HttpHeaders;
+
+public class {{jsonPathPiece.pascalCase}} {
+    {{#if hasContentSchema}}
+    public sealed interface SealedMediaType permits {{#each content}}{{@key.pascalCase}}MediaType{{#unless @last}}, {{/unless}}{{/each}} {}
+        {{#each content}}
+
+    public record {{@key.pascalCase}}MediaType({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} schema{{/with}}{{/with}}) implements SealedMediaType, MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}, Void{{/with}}{{/with}}> {
+        public {{@key.pascalCase}}MediaType() {
+            this({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+        }
+        @Override
+        public Void encoding() {
+            return null;
+        }
+    }
+        {{/each}}
+    public sealed interface SealedResponseBody permits {{#each content}}{{@key.pascalCase}}ResponseBody{{#unless @last}}, {{/unless}}{{/each}} {}
+        {{#each content}}
+    public record {{@key.pascalCase}}ResponseBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body) implements SealedResponseBody { }
+        {{/each}}
+    {{/if}}
+
+    public static class {{jsonPathPiece.pascalCase}}1 extends ResponseDeserializer<{{#if hasContentSchema}}SealedResponseBody{{else}}Void{{/if}}, Void, {{#if hasContentSchema}}SealedMediaType{{else}}Void{{/if}}> {
+        public {{jsonPathPiece.pascalCase}}1() {
+            super(
+        {{#if hasContentSchema}}
+                Map.ofEntries(
+            {{#each content}}
+                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
+            {{/each}}
+                )
+        {{else}}
+                MapUtils.makeMap(
+            {{#each content}}
+                    new AbstractMap.SimpleEntry<String, Void>("{{{@key.original}}}", null){{#unless @last}},{{/unless}}
+            {{/each}}
+                )
+        {{/if}}
+            );
+        }
+
+        {{#if hasContentSchema}}
+        @Override
+        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+            SealedMediaType mediaType = content.get(contentType);
+            if (mediaType == null) {
+                throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
+            }
+            {{#each content}}
+                {{#if @first}}
+            if (mediaType instanceof {{@key.pascalCase}}MediaType thisMediaType) {
+                {{else}}
+            } else if (mediaType instanceof {{@key.pascalCase}}MediaType thisMediaType) {
+                {{/if}}
+                var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
+                return new {{@key.pascalCase}}ResponseBody(deserializedBody);
+            {{/each}}
+            }
+            throw new RuntimeException("contentType="+contentType+" returned by the server is unknown and does not exist in the openapi document");
+        }
+        {{else}}
+        @Override
+        protected Void getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+            return null;
+        }
+        {{/if}}
+
+        @Override
+        protected Void getHeaders(HttpHeaders headers) {
+            return null;
+        }
+    }
+}
+{{/if}}
+{{/with}}

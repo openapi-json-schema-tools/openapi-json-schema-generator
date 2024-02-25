@@ -35,78 +35,54 @@ public class MinimumValidationWithSignedInteger {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MinimumValidationWithSignedInteger1Boxed permits MinimumValidationWithSignedInteger1BoxedVoid, MinimumValidationWithSignedInteger1BoxedBoolean, MinimumValidationWithSignedInteger1BoxedNumber, MinimumValidationWithSignedInteger1BoxedString, MinimumValidationWithSignedInteger1BoxedList, MinimumValidationWithSignedInteger1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface MinimumValidationWithSignedInteger1Boxed permits MinimumValidationWithSignedInteger1BoxedVoid, MinimumValidationWithSignedInteger1BoxedBoolean, MinimumValidationWithSignedInteger1BoxedNumber, MinimumValidationWithSignedInteger1BoxedString, MinimumValidationWithSignedInteger1BoxedList, MinimumValidationWithSignedInteger1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class MinimumValidationWithSignedInteger1BoxedVoid extends MinimumValidationWithSignedInteger1Boxed {
-        public final Void data;
-        private MinimumValidationWithSignedInteger1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record MinimumValidationWithSignedInteger1BoxedVoid(Void data) implements MinimumValidationWithSignedInteger1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MinimumValidationWithSignedInteger1BoxedBoolean extends MinimumValidationWithSignedInteger1Boxed {
-        public final boolean data;
-        private MinimumValidationWithSignedInteger1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record MinimumValidationWithSignedInteger1BoxedBoolean(boolean data) implements MinimumValidationWithSignedInteger1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MinimumValidationWithSignedInteger1BoxedNumber extends MinimumValidationWithSignedInteger1Boxed {
-        public final Number data;
-        private MinimumValidationWithSignedInteger1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record MinimumValidationWithSignedInteger1BoxedNumber(Number data) implements MinimumValidationWithSignedInteger1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MinimumValidationWithSignedInteger1BoxedString extends MinimumValidationWithSignedInteger1Boxed {
-        public final String data;
-        private MinimumValidationWithSignedInteger1BoxedString(String data) {
-            this.data = data;
-        }
+    public record MinimumValidationWithSignedInteger1BoxedString(String data) implements MinimumValidationWithSignedInteger1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MinimumValidationWithSignedInteger1BoxedList extends MinimumValidationWithSignedInteger1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private MinimumValidationWithSignedInteger1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MinimumValidationWithSignedInteger1BoxedList(FrozenList<@Nullable Object> data) implements MinimumValidationWithSignedInteger1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class MinimumValidationWithSignedInteger1BoxedMap extends MinimumValidationWithSignedInteger1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private MinimumValidationWithSignedInteger1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record MinimumValidationWithSignedInteger1BoxedMap(FrozenMap<@Nullable Object> data) implements MinimumValidationWithSignedInteger1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class MinimumValidationWithSignedInteger1 extends JsonSchema implements NullSchemaValidator<MinimumValidationWithSignedInteger1BoxedVoid>, BooleanSchemaValidator<MinimumValidationWithSignedInteger1BoxedBoolean>, NumberSchemaValidator<MinimumValidationWithSignedInteger1BoxedNumber>, StringSchemaValidator<MinimumValidationWithSignedInteger1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MinimumValidationWithSignedInteger1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MinimumValidationWithSignedInteger1BoxedMap> {
+    public static class MinimumValidationWithSignedInteger1 extends JsonSchema<MinimumValidationWithSignedInteger1Boxed> implements NullSchemaValidator<MinimumValidationWithSignedInteger1BoxedVoid>, BooleanSchemaValidator<MinimumValidationWithSignedInteger1BoxedBoolean>, NumberSchemaValidator<MinimumValidationWithSignedInteger1BoxedNumber>, StringSchemaValidator<MinimumValidationWithSignedInteger1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MinimumValidationWithSignedInteger1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MinimumValidationWithSignedInteger1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -211,11 +187,11 @@ public class MinimumValidationWithSignedInteger {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -246,11 +222,11 @@ public class MinimumValidationWithSignedInteger {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -328,6 +304,25 @@ public class MinimumValidationWithSignedInteger {
         @Override
         public MinimumValidationWithSignedInteger1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MinimumValidationWithSignedInteger1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public MinimumValidationWithSignedInteger1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

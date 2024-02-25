@@ -3,7 +3,7 @@ public class ApplicationjsonSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -11,34 +11,35 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ApplicationjsonSchema.ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)<br> abstract sealed validated payload class |
-| static class | [ApplicationjsonSchema.ApplicationjsonSchema1BoxedList](#applicationjsonschema1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [ApplicationjsonSchema.ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)<br> sealed interface for validated payloads |
+| record | [ApplicationjsonSchema.ApplicationjsonSchema1BoxedList](#applicationjsonschema1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ApplicationjsonSchema.ApplicationjsonSchema1](#applicationjsonschema1)<br> schema class |
 | static class | [ApplicationjsonSchema.ApplicationjsonSchemaListBuilder](#applicationjsonschemalistbuilder)<br> builder for List payloads |
 | static class | [ApplicationjsonSchema.ApplicationjsonSchemaList](#applicationjsonschemalist)<br> output class for List payloads |
 
 ## ApplicationjsonSchema1Boxed
-public static abstract sealed class ApplicationjsonSchema1Boxed<br>
+public sealed interface ApplicationjsonSchema1Boxed<br>
 permits<br>
 [ApplicationjsonSchema1BoxedList](#applicationjsonschema1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApplicationjsonSchema1BoxedList
-public static final class ApplicationjsonSchema1BoxedList<br>
-extends [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
+public record ApplicationjsonSchema1BoxedList<br>
+implements [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ApplicationjsonSchema1BoxedList([ApplicationjsonSchemaList](#applicationjsonschemalist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationjsonSchemaList](#applicationjsonschemalist) | data<br>validated payload |
+| [ApplicationjsonSchemaList](#applicationjsonschemalist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
@@ -121,7 +122,9 @@ ApplicationjsonSchema.ApplicationjsonSchemaList validatedPayload =
 | ----------------- | ---------------------- |
 | [ApplicationjsonSchemaList](#applicationjsonschemalist) | validate([List<?>](#applicationjsonschemalistbuilder) arg, SchemaConfiguration configuration) |
 | [ApplicationjsonSchema1BoxedList](#applicationjsonschema1boxedlist) | validateAndBox([List<?>](#applicationjsonschemalistbuilder) arg, SchemaConfiguration configuration) |
+| [ApplicationjsonSchema1Boxed](#applicationjsonschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApplicationjsonSchemaListBuilder
 public class ApplicationjsonSchemaListBuilder<br>
 builder for `List<Map<String, @Nullable Object>>`

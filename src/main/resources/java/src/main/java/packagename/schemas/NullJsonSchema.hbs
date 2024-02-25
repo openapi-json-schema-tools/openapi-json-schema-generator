@@ -18,21 +18,17 @@ import java.util.Objects;
 import java.util.Set;
 
 public class NullJsonSchema {
-    public static abstract sealed class NullJsonSchema1Boxed permits NullJsonSchema1BoxedVoid {
-        public abstract @Nullable Object data();
+    public sealed interface NullJsonSchema1Boxed permits NullJsonSchema1BoxedVoid {
+        @Nullable Object getData();
     }
-    public static final class NullJsonSchema1BoxedVoid extends NullJsonSchema1Boxed {
-        public final Void data;
-        private NullJsonSchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NullJsonSchema1BoxedVoid(Void data) implements NullJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
 
-    public static class NullJsonSchema1 extends JsonSchema implements NullSchemaValidator<NullJsonSchema1BoxedVoid> {
+    public static class NullJsonSchema1 extends JsonSchema<NullJsonSchema1Boxed> implements NullSchemaValidator<NullJsonSchema1BoxedVoid> {
         private static @Nullable NullJsonSchema1 instance = null;
 
         protected NullJsonSchema1() {
@@ -78,6 +74,15 @@ public class NullJsonSchema {
         @Override
         public NullJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NullJsonSchema1BoxedVoid(validate(arg, configuration));
+        }
+
+        @Override
+        public NullJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

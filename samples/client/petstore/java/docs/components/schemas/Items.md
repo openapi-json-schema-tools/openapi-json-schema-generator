@@ -4,7 +4,7 @@ public class Items<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,37 +12,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Items.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
-| static class | [Items.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [Items.Items1Boxed](#items1boxed)<br> sealed interface for validated payloads |
+| record | [Items.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Items.Items1](#items1)<br> schema class |
 | static class | [Items.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [Items.ItemsList](#itemslist)<br> output class for List payloads |
-| static class | [Items.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
-| static class | [Items.Items2BoxedMap](#items2boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Items.Items2Boxed](#items2boxed)<br> sealed interface for validated payloads |
+| record | [Items.Items2BoxedMap](#items2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Items.Items2](#items2)<br> schema class |
 
 ## Items1Boxed
-public static abstract sealed class Items1Boxed<br>
+public sealed interface Items1Boxed<br>
 permits<br>
 [Items1BoxedList](#items1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Items1BoxedList
-public static final class Items1BoxedList<br>
-extends [Items1Boxed](#items1boxed)
+public record Items1BoxedList<br>
+implements [Items1Boxed](#items1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items1BoxedList([ItemsList](#itemslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ItemsList](#itemslist) | data<br>validated payload |
+| [ItemsList](#itemslist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items1
 public static class Items1<br>
@@ -88,7 +89,9 @@ Items.ItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | [ItemsList](#itemslist) | validate([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 | [Items1BoxedList](#items1boxedlist) | validateAndBox([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
+| [Items1Boxed](#items1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ItemsListBuilder
 public class ItemsListBuilder<br>
 builder for `List<Map<String, @Nullable Object>>`
@@ -119,27 +122,28 @@ A class to store validated List payloads
 | static [ItemsList](#itemslist) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items2Boxed
-public static abstract sealed class Items2Boxed<br>
+public sealed interface Items2Boxed<br>
 permits<br>
 [Items2BoxedMap](#items2boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Items2BoxedMap
-public static final class Items2BoxedMap<br>
-extends [Items2Boxed](#items2boxed)
+public record Items2BoxedMap<br>
+implements [Items2Boxed](#items2boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Items2BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items2
 public static class Items2<br>

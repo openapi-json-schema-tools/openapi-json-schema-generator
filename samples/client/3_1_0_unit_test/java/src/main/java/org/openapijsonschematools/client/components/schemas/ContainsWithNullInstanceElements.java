@@ -47,78 +47,54 @@ public class ContainsWithNullInstanceElements {
     }
     
     
-    public static abstract sealed class ContainsWithNullInstanceElements1Boxed permits ContainsWithNullInstanceElements1BoxedVoid, ContainsWithNullInstanceElements1BoxedBoolean, ContainsWithNullInstanceElements1BoxedNumber, ContainsWithNullInstanceElements1BoxedString, ContainsWithNullInstanceElements1BoxedList, ContainsWithNullInstanceElements1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ContainsWithNullInstanceElements1Boxed permits ContainsWithNullInstanceElements1BoxedVoid, ContainsWithNullInstanceElements1BoxedBoolean, ContainsWithNullInstanceElements1BoxedNumber, ContainsWithNullInstanceElements1BoxedString, ContainsWithNullInstanceElements1BoxedList, ContainsWithNullInstanceElements1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ContainsWithNullInstanceElements1BoxedVoid extends ContainsWithNullInstanceElements1Boxed {
-        public final Void data;
-        private ContainsWithNullInstanceElements1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ContainsWithNullInstanceElements1BoxedVoid(Void data) implements ContainsWithNullInstanceElements1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsWithNullInstanceElements1BoxedBoolean extends ContainsWithNullInstanceElements1Boxed {
-        public final boolean data;
-        private ContainsWithNullInstanceElements1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ContainsWithNullInstanceElements1BoxedBoolean(boolean data) implements ContainsWithNullInstanceElements1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsWithNullInstanceElements1BoxedNumber extends ContainsWithNullInstanceElements1Boxed {
-        public final Number data;
-        private ContainsWithNullInstanceElements1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ContainsWithNullInstanceElements1BoxedNumber(Number data) implements ContainsWithNullInstanceElements1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsWithNullInstanceElements1BoxedString extends ContainsWithNullInstanceElements1Boxed {
-        public final String data;
-        private ContainsWithNullInstanceElements1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ContainsWithNullInstanceElements1BoxedString(String data) implements ContainsWithNullInstanceElements1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsWithNullInstanceElements1BoxedList extends ContainsWithNullInstanceElements1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ContainsWithNullInstanceElements1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ContainsWithNullInstanceElements1BoxedList(FrozenList<@Nullable Object> data) implements ContainsWithNullInstanceElements1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ContainsWithNullInstanceElements1BoxedMap extends ContainsWithNullInstanceElements1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ContainsWithNullInstanceElements1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ContainsWithNullInstanceElements1BoxedMap(FrozenMap<@Nullable Object> data) implements ContainsWithNullInstanceElements1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ContainsWithNullInstanceElements1 extends JsonSchema implements NullSchemaValidator<ContainsWithNullInstanceElements1BoxedVoid>, BooleanSchemaValidator<ContainsWithNullInstanceElements1BoxedBoolean>, NumberSchemaValidator<ContainsWithNullInstanceElements1BoxedNumber>, StringSchemaValidator<ContainsWithNullInstanceElements1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ContainsWithNullInstanceElements1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ContainsWithNullInstanceElements1BoxedMap> {
+    public static class ContainsWithNullInstanceElements1 extends JsonSchema<ContainsWithNullInstanceElements1Boxed> implements NullSchemaValidator<ContainsWithNullInstanceElements1BoxedVoid>, BooleanSchemaValidator<ContainsWithNullInstanceElements1BoxedBoolean>, NumberSchemaValidator<ContainsWithNullInstanceElements1BoxedNumber>, StringSchemaValidator<ContainsWithNullInstanceElements1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ContainsWithNullInstanceElements1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ContainsWithNullInstanceElements1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -223,11 +199,11 @@ public class ContainsWithNullInstanceElements {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -258,11 +234,11 @@ public class ContainsWithNullInstanceElements {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -340,6 +316,25 @@ public class ContainsWithNullInstanceElements {
         @Override
         public ContainsWithNullInstanceElements1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ContainsWithNullInstanceElements1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ContainsWithNullInstanceElements1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

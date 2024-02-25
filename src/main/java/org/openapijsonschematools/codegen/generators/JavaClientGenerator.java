@@ -118,7 +118,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         String usedName = sanitizeName(name, "[^a-zA-Z0-9]+");
         // todo check if empty and if so them use enum name
         // todo fix this, this does not handle names starting with numbers
-        return usedName.toLowerCase(Locale.ROOT);
+        usedName = usedName.toLowerCase(Locale.ROOT);
+        if (usedName.isEmpty()) {
+            usedName = toEnumVarName(name, null).toLowerCase(Locale.ROOT);
+        }
+        return usedName;
     }
 
     protected void updateServersFilepath(String[] pathPieces) {
@@ -279,7 +283,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         DocumentationFeature.Servers,
                         DocumentationFeature.ComponentSchemas,
                         DocumentationFeature.ComponentSecuritySchemes,
-                        DocumentationFeature.ComponentRequestBodies
+                        DocumentationFeature.ComponentRequestBodies,
+                        DocumentationFeature.ComponentResponses
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
@@ -289,7 +294,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 .includeComponentsFeatures(
                         ComponentsFeature.schemas,
                         ComponentsFeature.securitySchemes,
-                        ComponentsFeature.requestBodies
+                        ComponentsFeature.requestBodies,
+                        ComponentsFeature.responses
                 )
                 .includeSecurityFeatures(
                         SecurityFeature.ApiKey,
@@ -752,7 +758,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/test/java/packagename/requestbody/RequestBodySerializerTest.hbs",
                 testPackagePath() + File.separatorChar + "requestbody",
                 "RequestBodySerializerTest.java"));
-
         // mediatype
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/mediatype/MediaType.hbs",
@@ -767,7 +772,25 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/parameter/ParameterStyle.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterStyle.java"));
+        // response
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/response/ApiResponse.hbs",
+                packagePath() + File.separatorChar + "response",
+                "ApiResponse.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/response/DeserializedApiResponse.hbs",
+                packagePath() + File.separatorChar + "response",
+                "DeserializedApiResponse.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/response/ResponseDeserializer.hbs",
+                packagePath() + File.separatorChar + "response",
+                "ResponseDeserializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/response/ResponseDeserializerTest.hbs",
+                testPackagePath() + File.separatorChar + "response",
+                "ResponseDeserializerTest.java"));
 
+        // jsonPaths
         // requestbodies
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
@@ -781,6 +804,20 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/requestbodies/RequestBodyDoc.hbs", ".md");
                 }}
         );
+        // responses
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/responses/Response.hbs", ".java");
+                }}
+        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/responses/ResponseDoc.hbs", ".md");
+                }}
+        );
+
         // schema
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("src/main/java/packagename/components/schemas/Schema.hbs", ".java");
@@ -870,12 +907,29 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return toModuleFilename(componentName, null);
     }
 
+    public String getPascalCaseResponse(String componentName, String jsonPath) {
+        if (jsonPath.startsWith("#/components/responses/")) {
+            return toModelName(componentName, null);
+        } else {
+            return toModelName("Code"+componentName+"Response", null);
+        }
+    }
+
     @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
         if (jsonPath.startsWith("#/components/responses/")) {
+            if (pathPieces.length == 4) {
+                // #/components/responses/SomeResponse
+                return toModelName(componentName, null);
+            }
             return toModuleFilename(componentName, jsonPath);
         }
-        return toModuleFilename("response"+componentName, jsonPath);
+        if (pathPieces.length == 6) {
+            // #/paths/somePath/verb/responses/200
+            return toModelName("Code"+componentName+"Response", null);
+        }
+        return toModuleFilename("code"+componentName+"response", null);
     }
 
     @Override

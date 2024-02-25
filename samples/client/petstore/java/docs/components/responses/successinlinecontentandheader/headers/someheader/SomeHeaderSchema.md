@@ -3,38 +3,39 @@ public class SomeHeaderSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [SomeHeaderSchema.SomeHeaderSchema1Boxed](#someheaderschema1boxed)<br> abstract sealed validated payload class |
-| static class | [SomeHeaderSchema.SomeHeaderSchema1BoxedString](#someheaderschema1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [SomeHeaderSchema.SomeHeaderSchema1Boxed](#someheaderschema1boxed)<br> sealed interface for validated payloads |
+| record | [SomeHeaderSchema.SomeHeaderSchema1BoxedString](#someheaderschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [SomeHeaderSchema.SomeHeaderSchema1](#someheaderschema1)<br> schema class |
 
 ## SomeHeaderSchema1Boxed
-public static abstract sealed class SomeHeaderSchema1Boxed<br>
+public sealed interface SomeHeaderSchema1Boxed<br>
 permits<br>
 [SomeHeaderSchema1BoxedString](#someheaderschema1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SomeHeaderSchema1BoxedString
-public static final class SomeHeaderSchema1BoxedString<br>
-extends [SomeHeaderSchema1Boxed](#someheaderschema1boxed)
+public record SomeHeaderSchema1BoxedString<br>
+implements [SomeHeaderSchema1Boxed](#someheaderschema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SomeHeaderSchema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SomeHeaderSchema1
 public static class SomeHeaderSchema1<br>

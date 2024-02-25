@@ -3,40 +3,41 @@ public class Schema4<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema4.Schema41Boxed](#schema41boxed)<br> abstract sealed validated payload class |
-| static class | [Schema4.Schema41BoxedString](#schema41boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Schema4.Schema41Boxed](#schema41boxed)<br> sealed interface for validated payloads |
+| record | [Schema4.Schema41BoxedString](#schema41boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
 | enum | [Schema4.StringSchemaEnums4](#stringschemaenums4)<br>String enum |
 
 ## Schema41Boxed
-public static abstract sealed class Schema41Boxed<br>
+public sealed interface Schema41Boxed<br>
 permits<br>
 [Schema41BoxedString](#schema41boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema41BoxedString
-public static final class Schema41BoxedString<br>
-extends [Schema41Boxed](#schema41boxed)
+public record Schema41BoxedString<br>
+implements [Schema41Boxed](#schema41boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema41BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema41
 public static class Schema41<br>
@@ -78,7 +79,9 @@ String validatedPayload = Schema4.Schema41.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringSchemaEnums4](#stringschemaenums4) arg, SchemaConfiguration configuration) |
 | [Schema41BoxedString](#schema41boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Schema41Boxed](#schema41boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringSchemaEnums4
 public enum StringSchemaEnums4<br>
 extends `Enum<StringSchemaEnums4>`

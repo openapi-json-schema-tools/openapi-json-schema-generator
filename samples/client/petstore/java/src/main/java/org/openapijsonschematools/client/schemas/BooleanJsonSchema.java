@@ -18,20 +18,16 @@ import java.util.Objects;
 import java.util.Set;
 
 public class BooleanJsonSchema {
-    public static abstract sealed class BooleanJsonSchema1Boxed permits BooleanJsonSchema1BoxedBoolean {
-        public abstract @Nullable Object data();
+    public sealed interface BooleanJsonSchema1Boxed permits BooleanJsonSchema1BoxedBoolean {
+        @Nullable Object getData();
     }
-    public static final class BooleanJsonSchema1BoxedBoolean extends BooleanJsonSchema1Boxed {
-        public final boolean data;
-        private BooleanJsonSchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record BooleanJsonSchema1BoxedBoolean(boolean data) implements BooleanJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static class BooleanJsonSchema1 extends JsonSchema implements BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
+    public static class BooleanJsonSchema1 extends JsonSchema<BooleanJsonSchema1Boxed> implements BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
         private static @Nullable BooleanJsonSchema1 instance = null;
 
         protected BooleanJsonSchema1() {
@@ -79,6 +75,15 @@ public class BooleanJsonSchema {
         @Override
         public BooleanJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BooleanJsonSchema1BoxedBoolean(validate(arg, configuration));
+        }
+
+        @Override
+        public BooleanJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

@@ -4,38 +4,39 @@ public class NumberWithExclusiveMinMax<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)<br> abstract sealed validated payload class |
-| static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)<br> sealed interface for validated payloads |
+| record | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1](#numberwithexclusiveminmax1)<br> schema class |
 
 ## NumberWithExclusiveMinMax1Boxed
-public static abstract sealed class NumberWithExclusiveMinMax1Boxed<br>
+public sealed interface NumberWithExclusiveMinMax1Boxed<br>
 permits<br>
 [NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## NumberWithExclusiveMinMax1BoxedNumber
-public static final class NumberWithExclusiveMinMax1BoxedNumber<br>
-extends [NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)
+public record NumberWithExclusiveMinMax1BoxedNumber<br>
+implements [NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NumberWithExclusiveMinMax1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## NumberWithExclusiveMinMax1
 public static class NumberWithExclusiveMinMax1<br>
@@ -77,5 +78,7 @@ int validatedPayload = NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1.vali
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | [NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

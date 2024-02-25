@@ -19,70 +19,46 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class UnsetAnyTypeJsonSchema {
-    public static abstract sealed class UnsetAnyTypeJsonSchema1Boxed permits UnsetAnyTypeJsonSchema1BoxedVoid, UnsetAnyTypeJsonSchema1BoxedBoolean, UnsetAnyTypeJsonSchema1BoxedNumber, UnsetAnyTypeJsonSchema1BoxedString, UnsetAnyTypeJsonSchema1BoxedList, UnsetAnyTypeJsonSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface UnsetAnyTypeJsonSchema1Boxed permits UnsetAnyTypeJsonSchema1BoxedVoid, UnsetAnyTypeJsonSchema1BoxedBoolean, UnsetAnyTypeJsonSchema1BoxedNumber, UnsetAnyTypeJsonSchema1BoxedString, UnsetAnyTypeJsonSchema1BoxedList, UnsetAnyTypeJsonSchema1BoxedMap {
+        @Nullable Object getData();
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedVoid extends UnsetAnyTypeJsonSchema1Boxed {
-        public final Void data;
-        private UnsetAnyTypeJsonSchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record UnsetAnyTypeJsonSchema1BoxedVoid(Void data) implements UnsetAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedBoolean extends UnsetAnyTypeJsonSchema1Boxed {
-        public final boolean data;
-        private UnsetAnyTypeJsonSchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record UnsetAnyTypeJsonSchema1BoxedBoolean(boolean data) implements UnsetAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedNumber extends UnsetAnyTypeJsonSchema1Boxed {
-        public final Number data;
-        private UnsetAnyTypeJsonSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record UnsetAnyTypeJsonSchema1BoxedNumber(Number data) implements UnsetAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedString extends UnsetAnyTypeJsonSchema1Boxed {
-        public final String data;
-        private UnsetAnyTypeJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record UnsetAnyTypeJsonSchema1BoxedString(String data) implements UnsetAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedList extends UnsetAnyTypeJsonSchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private UnsetAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record UnsetAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) implements UnsetAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class UnsetAnyTypeJsonSchema1BoxedMap extends UnsetAnyTypeJsonSchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private UnsetAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record UnsetAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) implements UnsetAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static class UnsetAnyTypeJsonSchema1 extends JsonSchema implements NullSchemaValidator<UnsetAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<UnsetAnyTypeJsonSchema1BoxedBoolean>, NumberSchemaValidator<UnsetAnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<UnsetAnyTypeJsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedMap> {
+    public static class UnsetAnyTypeJsonSchema1 extends JsonSchema<UnsetAnyTypeJsonSchema1Boxed> implements NullSchemaValidator<UnsetAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<UnsetAnyTypeJsonSchema1BoxedBoolean>, NumberSchemaValidator<UnsetAnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<UnsetAnyTypeJsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedMap> {
         private static @Nullable UnsetAnyTypeJsonSchema1 instance = null;
 
         protected UnsetAnyTypeJsonSchema1() {
@@ -179,11 +155,11 @@ public class UnsetAnyTypeJsonSchema {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
@@ -214,11 +190,11 @@ public class UnsetAnyTypeJsonSchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
@@ -278,25 +254,50 @@ public class UnsetAnyTypeJsonSchema {
         public UnsetAnyTypeJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedVoid(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedNumber(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedString(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedList(validate(arg, configuration));
         }
+
         @Override
         public UnsetAnyTypeJsonSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UnsetAnyTypeJsonSchema1BoxedMap(validate(arg, configuration));
+        }
+
+        @Override
+        public UnsetAnyTypeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

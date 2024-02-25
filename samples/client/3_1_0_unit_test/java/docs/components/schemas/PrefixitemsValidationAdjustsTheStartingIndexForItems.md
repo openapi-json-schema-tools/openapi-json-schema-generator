@@ -4,7 +4,7 @@ public class PrefixitemsValidationAdjustsTheStartingIndexForItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,40 +12,41 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed](#prefixitemsvalidationadjuststhestartingindexforitems1boxed)<br> abstract sealed validated payload class |
-| static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList](#prefixitemsvalidationadjuststhestartingindexforitems1boxedlist)<br> boxed class to store validated List payloads |
+| sealed interface | [PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed](#prefixitemsvalidationadjuststhestartingindexforitems1boxed)<br> sealed interface for validated payloads |
+| record | [PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList](#prefixitemsvalidationadjuststhestartingindexforitems1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjustsTheStartingIndexForItems1](#prefixitemsvalidationadjuststhestartingindexforitems1)<br> schema class |
-| static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
-| static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [PrefixitemsValidationAdjustsTheStartingIndexForItems.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
+| record | [PrefixitemsValidationAdjustsTheStartingIndexForItems.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.Schema0](#schema0)<br> schema class |
 | static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder](#prefixitemsvalidationadjuststhestartingindexforitemslistbuilder)<br> builder for List payloads |
 | static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjustsTheStartingIndexForItemsList](#prefixitemsvalidationadjuststhestartingindexforitemslist)<br> output class for List payloads |
-| static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
-| static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [PrefixitemsValidationAdjustsTheStartingIndexForItems.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
+| record | [PrefixitemsValidationAdjustsTheStartingIndexForItems.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [PrefixitemsValidationAdjustsTheStartingIndexForItems.Items](#items)<br> schema class |
 
 ## PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed
-public static abstract sealed class PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed<br>
+public sealed interface PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed<br>
 permits<br>
 [PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList](#prefixitemsvalidationadjuststhestartingindexforitems1boxedlist)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList
-public static final class PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList<br>
-extends [PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed](#prefixitemsvalidationadjuststhestartingindexforitems1boxed)
+public record PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList<br>
+implements [PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed](#prefixitemsvalidationadjuststhestartingindexforitems1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList([PrefixitemsValidationAdjustsTheStartingIndexForItemsList](#prefixitemsvalidationadjuststhestartingindexforitemslist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PrefixitemsValidationAdjustsTheStartingIndexForItemsList](#prefixitemsvalidationadjuststhestartingindexforitemslist) | data<br>validated payload |
+| [PrefixitemsValidationAdjustsTheStartingIndexForItemsList](#prefixitemsvalidationadjuststhestartingindexforitemslist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PrefixitemsValidationAdjustsTheStartingIndexForItems1
 public static class PrefixitemsValidationAdjustsTheStartingIndexForItems1<br>
@@ -91,29 +92,32 @@ PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjust
 | ----------------- | ---------------------- |
 | [PrefixitemsValidationAdjustsTheStartingIndexForItemsList](#prefixitemsvalidationadjuststhestartingindexforitemslist) | validate([List<?>](#prefixitemsvalidationadjuststhestartingindexforitemslistbuilder) arg, SchemaConfiguration configuration) |
 | [PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList](#prefixitemsvalidationadjuststhestartingindexforitems1boxedlist) | validateAndBox([List<?>](#prefixitemsvalidationadjuststhestartingindexforitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed](#prefixitemsvalidationadjuststhestartingindexforitems1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema0Boxed
-public static abstract sealed class Schema0Boxed<br>
+public sealed interface Schema0Boxed<br>
 permits<br>
 [Schema0BoxedString](#schema0boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedString
-public static final class Schema0BoxedString<br>
-extends [Schema0Boxed](#schema0boxed)
+public record Schema0BoxedString<br>
+implements [Schema0Boxed](#schema0boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>
@@ -160,27 +164,28 @@ A class to store validated List payloads
 | static [PrefixitemsValidationAdjustsTheStartingIndexForItemsList](#prefixitemsvalidationadjuststhestartingindexforitemslist) | of([List<Object>](#prefixitemsvalidationadjuststhestartingindexforitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## ItemsBoxed
-public static abstract sealed class ItemsBoxed<br>
+public sealed interface ItemsBoxed<br>
 permits<br>
 [ItemsBoxedNumber](#itemsboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ItemsBoxedNumber
-public static final class ItemsBoxedNumber<br>
-extends [ItemsBoxed](#itemsboxed)
+public record ItemsBoxedNumber<br>
+implements [ItemsBoxed](#itemsboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Items
 public static class Items<br>

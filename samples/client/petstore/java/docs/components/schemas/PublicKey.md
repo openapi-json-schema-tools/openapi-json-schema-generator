@@ -4,7 +4,7 @@ public class PublicKey<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,37 +12,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [PublicKey.PublicKey1Boxed](#publickey1boxed)<br> abstract sealed validated payload class |
-| static class | [PublicKey.PublicKey1BoxedMap](#publickey1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [PublicKey.PublicKey1Boxed](#publickey1boxed)<br> sealed interface for validated payloads |
+| record | [PublicKey.PublicKey1BoxedMap](#publickey1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PublicKey.PublicKey1](#publickey1)<br> schema class |
 | static class | [PublicKey.PublicKeyMapBuilder](#publickeymapbuilder)<br> builder for Map payloads |
 | static class | [PublicKey.PublicKeyMap](#publickeymap)<br> output class for Map payloads |
-| static class | [PublicKey.KeyBoxed](#keyboxed)<br> abstract sealed validated payload class |
-| static class | [PublicKey.KeyBoxedString](#keyboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [PublicKey.KeyBoxed](#keyboxed)<br> sealed interface for validated payloads |
+| record | [PublicKey.KeyBoxedString](#keyboxedstring)<br> boxed class to store validated String payloads |
 | static class | [PublicKey.Key](#key)<br> schema class |
 
 ## PublicKey1Boxed
-public static abstract sealed class PublicKey1Boxed<br>
+public sealed interface PublicKey1Boxed<br>
 permits<br>
 [PublicKey1BoxedMap](#publickey1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PublicKey1BoxedMap
-public static final class PublicKey1BoxedMap<br>
-extends [PublicKey1Boxed](#publickey1boxed)
+public record PublicKey1BoxedMap<br>
+implements [PublicKey1Boxed](#publickey1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PublicKey1BoxedMap([PublicKeyMap](#publickeymap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PublicKeyMap](#publickeymap) | data<br>validated payload |
+| [PublicKeyMap](#publickeymap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PublicKey1
 public static class PublicKey1<br>
@@ -90,7 +91,9 @@ PublicKey.PublicKeyMap validatedPayload =
 | ----------------- | ---------------------- |
 | [PublicKeyMap](#publickeymap) | validate([Map&lt;?, ?&gt;](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
 | [PublicKey1BoxedMap](#publickey1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
+| [PublicKey1Boxed](#publickey1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## PublicKeyMapBuilder
 public class PublicKeyMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -131,27 +134,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## KeyBoxed
-public static abstract sealed class KeyBoxed<br>
+public sealed interface KeyBoxed<br>
 permits<br>
 [KeyBoxedString](#keyboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## KeyBoxedString
-public static final class KeyBoxedString<br>
-extends [KeyBoxed](#keyboxed)
+public record KeyBoxedString<br>
+implements [KeyBoxed](#keyboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | KeyBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Key
 public static class Key<br>

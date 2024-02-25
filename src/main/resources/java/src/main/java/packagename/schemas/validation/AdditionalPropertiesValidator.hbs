@@ -43,7 +43,7 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
                     data.validationMetadata().validatedPathToSchemas(),
                     data.validationMetadata().seenClasses()
             );
-            JsonSchema addPropsSchema = JsonSchemaFactory.getInstance(additionalProperties);
+            JsonSchema<?> addPropsSchema = JsonSchemaFactory.getInstance(additionalProperties);
             if (propValidationMetadata.validationRanEarlier(addPropsSchema)) {
                 // todo add_deeper_validated_schemas
                 continue;

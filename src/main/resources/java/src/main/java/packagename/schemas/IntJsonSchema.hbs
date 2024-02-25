@@ -18,21 +18,17 @@ import java.util.Objects;
 import java.util.Set;
 
 public class IntJsonSchema {
-    public static abstract sealed class IntJsonSchema1Boxed permits IntJsonSchema1BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface IntJsonSchema1Boxed permits IntJsonSchema1BoxedNumber {
+        @Nullable Object getData();
     }
-    public static final class IntJsonSchema1BoxedNumber extends IntJsonSchema1Boxed {
-        public final Number data;
-        private IntJsonSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IntJsonSchema1BoxedNumber(Number data) implements IntJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
 
-    public static class IntJsonSchema1 extends JsonSchema implements NumberSchemaValidator<IntJsonSchema1BoxedNumber> {
+    public static class IntJsonSchema1 extends JsonSchema<IntJsonSchema1Boxed> implements NumberSchemaValidator<IntJsonSchema1BoxedNumber> {
         private static @Nullable IntJsonSchema1 instance = null;
 
         protected IntJsonSchema1() {
@@ -100,6 +96,14 @@ public class IntJsonSchema {
         @Override
         public IntJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new IntJsonSchema1BoxedNumber(validate(arg, configuration));
+        }
+
+        @Override
+        public IntJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

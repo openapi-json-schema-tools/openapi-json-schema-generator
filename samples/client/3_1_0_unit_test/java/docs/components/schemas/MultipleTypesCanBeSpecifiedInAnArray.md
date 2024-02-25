@@ -4,56 +4,58 @@ public class MultipleTypesCanBeSpecifiedInAnArray<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1Boxed](#multipletypescanbespecifiedinanarray1boxed)<br> abstract sealed validated payload class |
-| static class | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber](#multipletypescanbespecifiedinanarray1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1BoxedString](#multipletypescanbespecifiedinanarray1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1Boxed](#multipletypescanbespecifiedinanarray1boxed)<br> sealed interface for validated payloads |
+| record | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber](#multipletypescanbespecifiedinanarray1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1BoxedString](#multipletypescanbespecifiedinanarray1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1](#multipletypescanbespecifiedinanarray1)<br> schema class |
 
 ## MultipleTypesCanBeSpecifiedInAnArray1Boxed
-public static abstract sealed class MultipleTypesCanBeSpecifiedInAnArray1Boxed<br>
+public sealed interface MultipleTypesCanBeSpecifiedInAnArray1Boxed<br>
 permits<br>
 [MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber](#multipletypescanbespecifiedinanarray1boxednumber),
 [MultipleTypesCanBeSpecifiedInAnArray1BoxedString](#multipletypescanbespecifiedinanarray1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber
-public static final class MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber<br>
-extends [MultipleTypesCanBeSpecifiedInAnArray1Boxed](#multipletypescanbespecifiedinanarray1boxed)
+public record MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber<br>
+implements [MultipleTypesCanBeSpecifiedInAnArray1Boxed](#multipletypescanbespecifiedinanarray1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipleTypesCanBeSpecifiedInAnArray1BoxedString
-public static final class MultipleTypesCanBeSpecifiedInAnArray1BoxedString<br>
-extends [MultipleTypesCanBeSpecifiedInAnArray1Boxed](#multipletypescanbespecifiedinanarray1boxed)
+public record MultipleTypesCanBeSpecifiedInAnArray1BoxedString<br>
+implements [MultipleTypesCanBeSpecifiedInAnArray1Boxed](#multipletypescanbespecifiedinanarray1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MultipleTypesCanBeSpecifiedInAnArray1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MultipleTypesCanBeSpecifiedInAnArray1
 public static class MultipleTypesCanBeSpecifiedInAnArray1<br>
@@ -102,5 +104,7 @@ String validatedPayload = MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanB
 | [MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber](#multipletypescanbespecifiedinanarray1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [MultipleTypesCanBeSpecifiedInAnArray1BoxedString](#multipletypescanbespecifiedinanarray1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [MultipleTypesCanBeSpecifiedInAnArray1Boxed](#multipletypescanbespecifiedinanarray1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

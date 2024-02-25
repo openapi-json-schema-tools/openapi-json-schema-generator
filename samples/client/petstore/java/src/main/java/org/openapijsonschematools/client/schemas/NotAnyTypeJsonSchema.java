@@ -31,71 +31,47 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class NotAnyTypeJsonSchema {
-    public static abstract sealed class NotAnyTypeJsonSchema1Boxed permits NotAnyTypeJsonSchema1BoxedVoid, NotAnyTypeJsonSchema1BoxedBoolean, NotAnyTypeJsonSchema1BoxedNumber, NotAnyTypeJsonSchema1BoxedString, NotAnyTypeJsonSchema1BoxedList, NotAnyTypeJsonSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface NotAnyTypeJsonSchema1Boxed permits NotAnyTypeJsonSchema1BoxedVoid, NotAnyTypeJsonSchema1BoxedBoolean, NotAnyTypeJsonSchema1BoxedNumber, NotAnyTypeJsonSchema1BoxedString, NotAnyTypeJsonSchema1BoxedList, NotAnyTypeJsonSchema1BoxedMap {
+        @Nullable Object getData();
     }
-    public static final class NotAnyTypeJsonSchema1BoxedVoid extends NotAnyTypeJsonSchema1Boxed {
-        public final Void data;
-        private NotAnyTypeJsonSchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedVoid(Void data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedBoolean extends NotAnyTypeJsonSchema1Boxed {
-        public final boolean data;
-        private NotAnyTypeJsonSchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedBoolean(boolean data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedNumber extends NotAnyTypeJsonSchema1Boxed {
-        public final Number data;
-        private NotAnyTypeJsonSchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedNumber(Number data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedString extends NotAnyTypeJsonSchema1Boxed {
-        public final String data;
-        private NotAnyTypeJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedString(String data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedList extends NotAnyTypeJsonSchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private NotAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
-    public static final class NotAnyTypeJsonSchema1BoxedMap extends NotAnyTypeJsonSchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private NotAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record NotAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) implements NotAnyTypeJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
 
-    public static class NotAnyTypeJsonSchema1 extends JsonSchema implements NullSchemaValidator<NotAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<NotAnyTypeJsonSchema1BoxedBoolean>, NumberSchemaValidator<NotAnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<NotAnyTypeJsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NotAnyTypeJsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NotAnyTypeJsonSchema1BoxedMap> {
+    public static class NotAnyTypeJsonSchema1 extends JsonSchema<NotAnyTypeJsonSchema1Boxed> implements NullSchemaValidator<NotAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<NotAnyTypeJsonSchema1BoxedBoolean>, NumberSchemaValidator<NotAnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<NotAnyTypeJsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NotAnyTypeJsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NotAnyTypeJsonSchema1BoxedMap> {
         private static @Nullable NotAnyTypeJsonSchema1 instance = null;
 
         protected NotAnyTypeJsonSchema1() {
@@ -194,11 +170,11 @@ public class NotAnyTypeJsonSchema {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
@@ -229,11 +205,11 @@ public class NotAnyTypeJsonSchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
@@ -293,25 +269,50 @@ public class NotAnyTypeJsonSchema {
         public NotAnyTypeJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedVoid(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedNumber(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedString(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedList(validate(arg, configuration));
         }
+
         @Override
         public NotAnyTypeJsonSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NotAnyTypeJsonSchema1BoxedMap(validate(arg, configuration));
+        }
+
+        @Override
+        public NotAnyTypeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

@@ -4,7 +4,7 @@ public class BasquePig<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,38 +13,39 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [BasquePig.BasquePig1Boxed](#basquepig1boxed)<br> abstract sealed validated payload class |
-| static class | [BasquePig.BasquePig1BoxedMap](#basquepig1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [BasquePig.BasquePig1Boxed](#basquepig1boxed)<br> sealed interface for validated payloads |
+| record | [BasquePig.BasquePig1BoxedMap](#basquepig1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [BasquePig.BasquePig1](#basquepig1)<br> schema class |
 | static class | [BasquePig.BasquePigMapBuilder](#basquepigmapbuilder)<br> builder for Map payloads |
 | static class | [BasquePig.BasquePigMap](#basquepigmap)<br> output class for Map payloads |
-| static class | [BasquePig.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
-| static class | [BasquePig.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [BasquePig.ClassNameBoxed](#classnameboxed)<br> sealed interface for validated payloads |
+| record | [BasquePig.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [BasquePig.ClassName](#classname)<br> schema class |
 | enum | [BasquePig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 
 ## BasquePig1Boxed
-public static abstract sealed class BasquePig1Boxed<br>
+public sealed interface BasquePig1Boxed<br>
 permits<br>
 [BasquePig1BoxedMap](#basquepig1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BasquePig1BoxedMap
-public static final class BasquePig1BoxedMap<br>
-extends [BasquePig1Boxed](#basquepig1boxed)
+public record BasquePig1BoxedMap<br>
+implements [BasquePig1Boxed](#basquepig1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BasquePig1BoxedMap([BasquePigMap](#basquepigmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [BasquePigMap](#basquepigmap) | data<br>validated payload |
+| [BasquePigMap](#basquepigmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BasquePig1
 public static class BasquePig1<br>
@@ -90,7 +91,9 @@ BasquePig.BasquePigMap validatedPayload =
 | ----------------- | ---------------------- |
 | [BasquePigMap](#basquepigmap) | validate([Map&lt;?, ?&gt;](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
 | [BasquePig1BoxedMap](#basquepig1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
+| [BasquePig1Boxed](#basquepig1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BasquePigMap0Builder
 public class BasquePigMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -147,27 +150,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassNameBoxed
-public static abstract sealed class ClassNameBoxed<br>
+public sealed interface ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ClassNameBoxedString
-public static final class ClassNameBoxedString<br>
-extends [ClassNameBoxed](#classnameboxed)
+public record ClassNameBoxedString<br>
+implements [ClassNameBoxed](#classnameboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ClassNameBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ClassName
 public static class ClassName<br>
@@ -209,7 +213,9 @@ String validatedPayload = BasquePig.ClassName.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
 | [ClassNameBoxedString](#classnameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ClassNameBoxed](#classnameboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringClassNameEnums
 public enum StringClassNameEnums<br>
 extends `Enum<StringClassNameEnums>`

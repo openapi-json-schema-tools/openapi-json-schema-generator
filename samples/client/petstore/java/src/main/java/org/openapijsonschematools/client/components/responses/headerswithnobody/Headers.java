@@ -93,23 +93,19 @@ public class Headers {
     }
     
     
-    public static abstract sealed class Headers1Boxed permits Headers1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Headers1Boxed permits Headers1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class Headers1BoxedMap extends Headers1Boxed {
-        public final HeadersMap data;
-        private Headers1BoxedMap(HeadersMap data) {
-            this.data = data;
-        }
+    public record Headers1BoxedMap(HeadersMap data) implements Headers1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Headers1 extends JsonSchema implements MapSchemaValidator<HeadersMap, Headers1BoxedMap> {
+    public static class Headers1 extends JsonSchema<Headers1Boxed> implements MapSchemaValidator<HeadersMap, Headers1BoxedMap> {
         private static @Nullable Headers1 instance = null;
     
         protected Headers1() {
@@ -140,11 +136,11 @@ public class Headers {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof String)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -183,6 +179,13 @@ public class Headers {
         @Override
         public Headers1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Headers1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public Headers1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

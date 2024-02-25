@@ -38,24 +38,20 @@ public class InvalidStringValueForDefault {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class BarBoxed permits BarBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface BarBoxed permits BarBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class BarBoxedString extends BarBoxed {
-        public final String data;
-        private BarBoxedString(String data) {
-            this.data = data;
-        }
+    public record BarBoxedString(String data) implements BarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Bar extends JsonSchema implements StringSchemaValidator<BarBoxedString>, DefaultValueMethod<String> {
+    public static class Bar extends JsonSchema<BarBoxed> implements StringSchemaValidator<BarBoxedString>, DefaultValueMethod<String> {
         private static @Nullable Bar instance = null;
     
         protected Bar() {
@@ -109,6 +105,13 @@ public class InvalidStringValueForDefault {
         @Override
         public BarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BarBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public BarBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -178,78 +181,54 @@ public class InvalidStringValueForDefault {
     }
     
     
-    public static abstract sealed class InvalidStringValueForDefault1Boxed permits InvalidStringValueForDefault1BoxedVoid, InvalidStringValueForDefault1BoxedBoolean, InvalidStringValueForDefault1BoxedNumber, InvalidStringValueForDefault1BoxedString, InvalidStringValueForDefault1BoxedList, InvalidStringValueForDefault1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface InvalidStringValueForDefault1Boxed permits InvalidStringValueForDefault1BoxedVoid, InvalidStringValueForDefault1BoxedBoolean, InvalidStringValueForDefault1BoxedNumber, InvalidStringValueForDefault1BoxedString, InvalidStringValueForDefault1BoxedList, InvalidStringValueForDefault1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class InvalidStringValueForDefault1BoxedVoid extends InvalidStringValueForDefault1Boxed {
-        public final Void data;
-        private InvalidStringValueForDefault1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record InvalidStringValueForDefault1BoxedVoid(Void data) implements InvalidStringValueForDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class InvalidStringValueForDefault1BoxedBoolean extends InvalidStringValueForDefault1Boxed {
-        public final boolean data;
-        private InvalidStringValueForDefault1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record InvalidStringValueForDefault1BoxedBoolean(boolean data) implements InvalidStringValueForDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class InvalidStringValueForDefault1BoxedNumber extends InvalidStringValueForDefault1Boxed {
-        public final Number data;
-        private InvalidStringValueForDefault1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record InvalidStringValueForDefault1BoxedNumber(Number data) implements InvalidStringValueForDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class InvalidStringValueForDefault1BoxedString extends InvalidStringValueForDefault1Boxed {
-        public final String data;
-        private InvalidStringValueForDefault1BoxedString(String data) {
-            this.data = data;
-        }
+    public record InvalidStringValueForDefault1BoxedString(String data) implements InvalidStringValueForDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class InvalidStringValueForDefault1BoxedList extends InvalidStringValueForDefault1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private InvalidStringValueForDefault1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record InvalidStringValueForDefault1BoxedList(FrozenList<@Nullable Object> data) implements InvalidStringValueForDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class InvalidStringValueForDefault1BoxedMap extends InvalidStringValueForDefault1Boxed {
-        public final InvalidStringValueForDefaultMap data;
-        private InvalidStringValueForDefault1BoxedMap(InvalidStringValueForDefaultMap data) {
-            this.data = data;
-        }
+    public record InvalidStringValueForDefault1BoxedMap(InvalidStringValueForDefaultMap data) implements InvalidStringValueForDefault1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class InvalidStringValueForDefault1 extends JsonSchema implements NullSchemaValidator<InvalidStringValueForDefault1BoxedVoid>, BooleanSchemaValidator<InvalidStringValueForDefault1BoxedBoolean>, NumberSchemaValidator<InvalidStringValueForDefault1BoxedNumber>, StringSchemaValidator<InvalidStringValueForDefault1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, InvalidStringValueForDefault1BoxedList>, MapSchemaValidator<InvalidStringValueForDefaultMap, InvalidStringValueForDefault1BoxedMap> {
+    public static class InvalidStringValueForDefault1 extends JsonSchema<InvalidStringValueForDefault1Boxed> implements NullSchemaValidator<InvalidStringValueForDefault1BoxedVoid>, BooleanSchemaValidator<InvalidStringValueForDefault1BoxedBoolean>, NumberSchemaValidator<InvalidStringValueForDefault1BoxedNumber>, StringSchemaValidator<InvalidStringValueForDefault1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, InvalidStringValueForDefault1BoxedList>, MapSchemaValidator<InvalidStringValueForDefaultMap, InvalidStringValueForDefault1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -356,11 +335,11 @@ public class InvalidStringValueForDefault {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -391,11 +370,11 @@ public class InvalidStringValueForDefault {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -473,6 +452,25 @@ public class InvalidStringValueForDefault {
         @Override
         public InvalidStringValueForDefault1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new InvalidStringValueForDefault1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public InvalidStringValueForDefault1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

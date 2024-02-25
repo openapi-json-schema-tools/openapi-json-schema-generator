@@ -115,78 +115,54 @@ public class PropertiesWithNullValuedInstanceProperties {
     }
     
     
-    public static abstract sealed class PropertiesWithNullValuedInstanceProperties1Boxed permits PropertiesWithNullValuedInstanceProperties1BoxedVoid, PropertiesWithNullValuedInstanceProperties1BoxedBoolean, PropertiesWithNullValuedInstanceProperties1BoxedNumber, PropertiesWithNullValuedInstanceProperties1BoxedString, PropertiesWithNullValuedInstanceProperties1BoxedList, PropertiesWithNullValuedInstanceProperties1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface PropertiesWithNullValuedInstanceProperties1Boxed permits PropertiesWithNullValuedInstanceProperties1BoxedVoid, PropertiesWithNullValuedInstanceProperties1BoxedBoolean, PropertiesWithNullValuedInstanceProperties1BoxedNumber, PropertiesWithNullValuedInstanceProperties1BoxedString, PropertiesWithNullValuedInstanceProperties1BoxedList, PropertiesWithNullValuedInstanceProperties1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class PropertiesWithNullValuedInstanceProperties1BoxedVoid extends PropertiesWithNullValuedInstanceProperties1Boxed {
-        public final Void data;
-        private PropertiesWithNullValuedInstanceProperties1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record PropertiesWithNullValuedInstanceProperties1BoxedVoid(Void data) implements PropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWithNullValuedInstanceProperties1BoxedBoolean extends PropertiesWithNullValuedInstanceProperties1Boxed {
-        public final boolean data;
-        private PropertiesWithNullValuedInstanceProperties1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record PropertiesWithNullValuedInstanceProperties1BoxedBoolean(boolean data) implements PropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWithNullValuedInstanceProperties1BoxedNumber extends PropertiesWithNullValuedInstanceProperties1Boxed {
-        public final Number data;
-        private PropertiesWithNullValuedInstanceProperties1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record PropertiesWithNullValuedInstanceProperties1BoxedNumber(Number data) implements PropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWithNullValuedInstanceProperties1BoxedString extends PropertiesWithNullValuedInstanceProperties1Boxed {
-        public final String data;
-        private PropertiesWithNullValuedInstanceProperties1BoxedString(String data) {
-            this.data = data;
-        }
+    public record PropertiesWithNullValuedInstanceProperties1BoxedString(String data) implements PropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWithNullValuedInstanceProperties1BoxedList extends PropertiesWithNullValuedInstanceProperties1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private PropertiesWithNullValuedInstanceProperties1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record PropertiesWithNullValuedInstanceProperties1BoxedList(FrozenList<@Nullable Object> data) implements PropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWithNullValuedInstanceProperties1BoxedMap extends PropertiesWithNullValuedInstanceProperties1Boxed {
-        public final PropertiesWithNullValuedInstancePropertiesMap data;
-        private PropertiesWithNullValuedInstanceProperties1BoxedMap(PropertiesWithNullValuedInstancePropertiesMap data) {
-            this.data = data;
-        }
+    public record PropertiesWithNullValuedInstanceProperties1BoxedMap(PropertiesWithNullValuedInstancePropertiesMap data) implements PropertiesWithNullValuedInstanceProperties1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class PropertiesWithNullValuedInstanceProperties1 extends JsonSchema implements NullSchemaValidator<PropertiesWithNullValuedInstanceProperties1BoxedVoid>, BooleanSchemaValidator<PropertiesWithNullValuedInstanceProperties1BoxedBoolean>, NumberSchemaValidator<PropertiesWithNullValuedInstanceProperties1BoxedNumber>, StringSchemaValidator<PropertiesWithNullValuedInstanceProperties1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PropertiesWithNullValuedInstanceProperties1BoxedList>, MapSchemaValidator<PropertiesWithNullValuedInstancePropertiesMap, PropertiesWithNullValuedInstanceProperties1BoxedMap> {
+    public static class PropertiesWithNullValuedInstanceProperties1 extends JsonSchema<PropertiesWithNullValuedInstanceProperties1Boxed> implements NullSchemaValidator<PropertiesWithNullValuedInstanceProperties1BoxedVoid>, BooleanSchemaValidator<PropertiesWithNullValuedInstanceProperties1BoxedBoolean>, NumberSchemaValidator<PropertiesWithNullValuedInstanceProperties1BoxedNumber>, StringSchemaValidator<PropertiesWithNullValuedInstanceProperties1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PropertiesWithNullValuedInstanceProperties1BoxedList>, MapSchemaValidator<PropertiesWithNullValuedInstancePropertiesMap, PropertiesWithNullValuedInstanceProperties1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -293,11 +269,11 @@ public class PropertiesWithNullValuedInstanceProperties {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -328,11 +304,11 @@ public class PropertiesWithNullValuedInstanceProperties {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -410,6 +386,25 @@ public class PropertiesWithNullValuedInstanceProperties {
         @Override
         public PropertiesWithNullValuedInstanceProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PropertiesWithNullValuedInstanceProperties1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWithNullValuedInstanceProperties1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

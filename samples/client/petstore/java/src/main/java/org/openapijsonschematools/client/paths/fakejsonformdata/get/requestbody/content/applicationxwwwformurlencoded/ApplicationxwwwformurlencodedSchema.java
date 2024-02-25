@@ -175,23 +175,19 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap extends ApplicationxwwwformurlencodedSchema1Boxed {
-        public final ApplicationxwwwformurlencodedSchemaMap data;
-        private ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) implements ApplicationxwwwformurlencodedSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
+    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema<ApplicationxwwwformurlencodedSchema1Boxed> implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
         private static @Nullable ApplicationxwwwformurlencodedSchema1 instance = null;
     
         protected ApplicationxwwwformurlencodedSchema1() {
@@ -226,11 +222,11 @@ public class ApplicationxwwwformurlencodedSchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -266,6 +262,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedSchema1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

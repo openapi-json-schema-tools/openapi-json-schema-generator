@@ -157,78 +157,54 @@ public class RequiredDefaultValidation {
     }
     
     
-    public static abstract sealed class RequiredDefaultValidation1Boxed permits RequiredDefaultValidation1BoxedVoid, RequiredDefaultValidation1BoxedBoolean, RequiredDefaultValidation1BoxedNumber, RequiredDefaultValidation1BoxedString, RequiredDefaultValidation1BoxedList, RequiredDefaultValidation1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface RequiredDefaultValidation1Boxed permits RequiredDefaultValidation1BoxedVoid, RequiredDefaultValidation1BoxedBoolean, RequiredDefaultValidation1BoxedNumber, RequiredDefaultValidation1BoxedString, RequiredDefaultValidation1BoxedList, RequiredDefaultValidation1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class RequiredDefaultValidation1BoxedVoid extends RequiredDefaultValidation1Boxed {
-        public final Void data;
-        private RequiredDefaultValidation1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record RequiredDefaultValidation1BoxedVoid(Void data) implements RequiredDefaultValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredDefaultValidation1BoxedBoolean extends RequiredDefaultValidation1Boxed {
-        public final boolean data;
-        private RequiredDefaultValidation1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record RequiredDefaultValidation1BoxedBoolean(boolean data) implements RequiredDefaultValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredDefaultValidation1BoxedNumber extends RequiredDefaultValidation1Boxed {
-        public final Number data;
-        private RequiredDefaultValidation1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record RequiredDefaultValidation1BoxedNumber(Number data) implements RequiredDefaultValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredDefaultValidation1BoxedString extends RequiredDefaultValidation1Boxed {
-        public final String data;
-        private RequiredDefaultValidation1BoxedString(String data) {
-            this.data = data;
-        }
+    public record RequiredDefaultValidation1BoxedString(String data) implements RequiredDefaultValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredDefaultValidation1BoxedList extends RequiredDefaultValidation1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private RequiredDefaultValidation1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record RequiredDefaultValidation1BoxedList(FrozenList<@Nullable Object> data) implements RequiredDefaultValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class RequiredDefaultValidation1BoxedMap extends RequiredDefaultValidation1Boxed {
-        public final RequiredDefaultValidationMap data;
-        private RequiredDefaultValidation1BoxedMap(RequiredDefaultValidationMap data) {
-            this.data = data;
-        }
+    public record RequiredDefaultValidation1BoxedMap(RequiredDefaultValidationMap data) implements RequiredDefaultValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class RequiredDefaultValidation1 extends JsonSchema implements NullSchemaValidator<RequiredDefaultValidation1BoxedVoid>, BooleanSchemaValidator<RequiredDefaultValidation1BoxedBoolean>, NumberSchemaValidator<RequiredDefaultValidation1BoxedNumber>, StringSchemaValidator<RequiredDefaultValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, RequiredDefaultValidation1BoxedList>, MapSchemaValidator<RequiredDefaultValidationMap, RequiredDefaultValidation1BoxedMap> {
+    public static class RequiredDefaultValidation1 extends JsonSchema<RequiredDefaultValidation1Boxed> implements NullSchemaValidator<RequiredDefaultValidation1BoxedVoid>, BooleanSchemaValidator<RequiredDefaultValidation1BoxedBoolean>, NumberSchemaValidator<RequiredDefaultValidation1BoxedNumber>, StringSchemaValidator<RequiredDefaultValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, RequiredDefaultValidation1BoxedList>, MapSchemaValidator<RequiredDefaultValidationMap, RequiredDefaultValidation1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -335,11 +311,11 @@ public class RequiredDefaultValidation {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -370,11 +346,11 @@ public class RequiredDefaultValidation {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -452,6 +428,25 @@ public class RequiredDefaultValidation {
         @Override
         public RequiredDefaultValidation1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new RequiredDefaultValidation1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public RequiredDefaultValidation1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

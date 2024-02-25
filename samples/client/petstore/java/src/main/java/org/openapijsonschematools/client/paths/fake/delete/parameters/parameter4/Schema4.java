@@ -35,24 +35,20 @@ public class Schema4 {
     }
     
     
-    public static abstract sealed class Schema41Boxed permits Schema41BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface Schema41Boxed permits Schema41BoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class Schema41BoxedString extends Schema41Boxed {
-        public final String data;
-        private Schema41BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema41BoxedString(String data) implements Schema41Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Schema41 extends JsonSchema implements StringSchemaValidator<Schema41BoxedString>, StringEnumValidator<StringSchemaEnums4> {
+    public static class Schema41 extends JsonSchema<Schema41Boxed> implements StringSchemaValidator<Schema41BoxedString>, StringEnumValidator<StringSchemaEnums4> {
         private static @Nullable Schema41 instance = null;
     
         protected Schema41() {
@@ -107,6 +103,13 @@ public class Schema4 {
         @Override
         public Schema41BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema41BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public Schema41Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

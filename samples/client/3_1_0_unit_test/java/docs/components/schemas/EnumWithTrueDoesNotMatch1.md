@@ -4,40 +4,41 @@ public class EnumWithTrueDoesNotMatch1<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11Boxed](#enumwithtruedoesnotmatch11boxed)<br> abstract sealed validated payload class |
-| static class | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11BoxedBoolean](#enumwithtruedoesnotmatch11boxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11Boxed](#enumwithtruedoesnotmatch11boxed)<br> sealed interface for validated payloads |
+| record | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11BoxedBoolean](#enumwithtruedoesnotmatch11boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11](#enumwithtruedoesnotmatch11)<br> schema class |
 | enum | [EnumWithTrueDoesNotMatch1.BooleanEnumWithTrueDoesNotMatch1Enums](#booleanenumwithtruedoesnotmatch1enums)<br>boolean enum |
 
 ## EnumWithTrueDoesNotMatch11Boxed
-public static abstract sealed class EnumWithTrueDoesNotMatch11Boxed<br>
+public sealed interface EnumWithTrueDoesNotMatch11Boxed<br>
 permits<br>
 [EnumWithTrueDoesNotMatch11BoxedBoolean](#enumwithtruedoesnotmatch11boxedboolean)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumWithTrueDoesNotMatch11BoxedBoolean
-public static final class EnumWithTrueDoesNotMatch11BoxedBoolean<br>
-extends [EnumWithTrueDoesNotMatch11Boxed](#enumwithtruedoesnotmatch11boxed)
+public record EnumWithTrueDoesNotMatch11BoxedBoolean<br>
+implements [EnumWithTrueDoesNotMatch11Boxed](#enumwithtruedoesnotmatch11boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumWithTrueDoesNotMatch11BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumWithTrueDoesNotMatch11
 public static class EnumWithTrueDoesNotMatch11<br>
@@ -79,7 +80,9 @@ boolean validatedPayload = EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | boolean | validate([BooleanEnumWithTrueDoesNotMatch1Enums](#booleanenumwithtruedoesnotmatch1enums) arg, SchemaConfiguration configuration) |
 | [EnumWithTrueDoesNotMatch11BoxedBoolean](#enumwithtruedoesnotmatch11boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [EnumWithTrueDoesNotMatch11Boxed](#enumwithtruedoesnotmatch11boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BooleanEnumWithTrueDoesNotMatch1Enums
 public enum BooleanEnumWithTrueDoesNotMatch1Enums<br>
 extends `Enum<BooleanEnumWithTrueDoesNotMatch1Enums>`

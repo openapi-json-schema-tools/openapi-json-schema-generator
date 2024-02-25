@@ -17,7 +17,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class PropertiesValidatorTest {
-    public static class ObjectWithPropsSchema extends JsonSchema {
+    public sealed interface ObjectWithPropsSchemaBoxed permits ObjectWithPropsSchemaBoxedMap {}
+    public record ObjectWithPropsSchemaBoxedMap() implements ObjectWithPropsSchemaBoxed {}
+
+    public static class ObjectWithPropsSchema extends JsonSchema<ObjectWithPropsSchemaBoxed> {
         private ObjectWithPropsSchema() {
             super(new JsonSchemaInfo()
                     .type(Set.of(Map.class))
@@ -42,6 +45,11 @@ public class PropertiesValidatorTest {
                 return validate(mapArg, configuration);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public ObjectWithPropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            return new ObjectWithPropsSchemaBoxedMap();
         }
     }
 
@@ -76,7 +84,7 @@ public class PropertiesValidatorTest {
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someString");
-        LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
+        LinkedHashMap<JsonSchema<?>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(JsonSchemaFactory.getInstance(StringJsonSchema.StringJsonSchema1.class), null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);

@@ -18,13 +18,13 @@ public class JsonSchemaInfo {
         this.format = format;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> items = null;
-    public JsonSchemaInfo items(Class<? extends JsonSchema> items) {
+    public @Nullable Class<? extends JsonSchema<?>> items = null;
+    public JsonSchemaInfo items(Class<? extends JsonSchema<?>> items) {
         this.items = items;
         return this;
     }
-    public @Nullable Map<String, Class<? extends JsonSchema>> properties = null;
-    public JsonSchemaInfo properties(Map<String, Class<? extends JsonSchema>> properties) {
+    public @Nullable Map<String, Class<? extends JsonSchema<?>>> properties = null;
+    public JsonSchemaInfo properties(Map<String, Class<? extends JsonSchema<?>>> properties) {
         this.properties = properties;
         return this;
     }
@@ -88,28 +88,28 @@ public class JsonSchemaInfo {
         this.multipleOf = multipleOf;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> additionalProperties;
-    public JsonSchemaInfo additionalProperties(Class<? extends JsonSchema> additionalProperties) {
+    public @Nullable Class<? extends JsonSchema<?>> additionalProperties;
+    public JsonSchemaInfo additionalProperties(Class<? extends JsonSchema<?>> additionalProperties) {
         this.additionalProperties = additionalProperties;
         return this;
     }
-    public @Nullable List<Class<? extends JsonSchema>> allOf = null;
-    public JsonSchemaInfo allOf(List<Class<? extends JsonSchema>> allOf) {
+    public @Nullable List<Class<? extends JsonSchema<?>>> allOf = null;
+    public JsonSchemaInfo allOf(List<Class<? extends JsonSchema<?>>> allOf) {
         this.allOf = allOf;
         return this;
     }
-    public @Nullable List<Class<? extends JsonSchema>> anyOf = null;
-    public JsonSchemaInfo anyOf(List<Class<? extends JsonSchema>> anyOf) {
+    public @Nullable List<Class<? extends JsonSchema<?>>> anyOf = null;
+    public JsonSchemaInfo anyOf(List<Class<? extends JsonSchema<?>>> anyOf) {
         this.anyOf = anyOf;
         return this;
     }
-    public @Nullable List<Class<? extends JsonSchema>> oneOf = null;
-    public JsonSchemaInfo oneOf(List<Class<? extends JsonSchema>> oneOf) {
+    public @Nullable List<Class<? extends JsonSchema<?>>> oneOf = null;
+    public JsonSchemaInfo oneOf(List<Class<? extends JsonSchema<?>>> oneOf) {
         this.oneOf = oneOf;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> not = null;
-    public JsonSchemaInfo not(Class<? extends JsonSchema> not) {
+    public @Nullable Class<? extends JsonSchema<?>> not = null;
+    public JsonSchemaInfo not(Class<? extends JsonSchema<?>> not) {
         this.not = not;
         return this;
     }
@@ -142,8 +142,8 @@ public class JsonSchemaInfo {
         this.constValueSet = true;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> contains = null;
-    public JsonSchemaInfo contains(Class<? extends JsonSchema> contains) {
+    public @Nullable Class<? extends JsonSchema<?>> contains = null;
+    public JsonSchemaInfo contains(Class<? extends JsonSchema<?>> contains) {
         this.contains = contains;
         return this;
     }
@@ -157,8 +157,8 @@ public class JsonSchemaInfo {
         this.minContains = minContains;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> propertyNames = null;
-    public JsonSchemaInfo propertyNames(Class<? extends JsonSchema> propertyNames) {
+    public @Nullable Class<? extends JsonSchema<?>> propertyNames = null;
+    public JsonSchemaInfo propertyNames(Class<? extends JsonSchema<?>> propertyNames) {
         this.propertyNames = propertyNames;
         return this;
     }
@@ -167,43 +167,43 @@ public class JsonSchemaInfo {
         this.dependentRequired = dependentRequired;
         return this;
     }
-    public @Nullable Map<String, Class<? extends JsonSchema>> dependentSchemas = null;
-    public JsonSchemaInfo dependentSchemas(Map<String, Class<? extends JsonSchema>> dependentSchemas) {
+    public @Nullable Map<String, Class<? extends JsonSchema<?>>> dependentSchemas = null;
+    public JsonSchemaInfo dependentSchemas(Map<String, Class<? extends JsonSchema<?>>> dependentSchemas) {
         this.dependentSchemas = dependentSchemas;
         return this;
     }
-    public @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties = null;
-    public JsonSchemaInfo patternProperties(Map<Pattern, Class<? extends JsonSchema>> patternProperties) {
+    public @Nullable Map<Pattern, Class<? extends JsonSchema<?>>> patternProperties = null;
+    public JsonSchemaInfo patternProperties(Map<Pattern, Class<? extends JsonSchema<?>>> patternProperties) {
         this.patternProperties = patternProperties;
         return this;
     }
-    public @Nullable List<Class<? extends JsonSchema>> prefixItems = null;
-    public JsonSchemaInfo prefixItems(List<Class<? extends JsonSchema>> prefixItems) {
+    public @Nullable List<Class<? extends JsonSchema<?>>> prefixItems = null;
+    public JsonSchemaInfo prefixItems(List<Class<? extends JsonSchema<?>>> prefixItems) {
         this.prefixItems = prefixItems;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> ifSchema = null;
-    public JsonSchemaInfo ifSchema(Class<? extends JsonSchema> ifSchema) {
+    public @Nullable Class<? extends JsonSchema<?>> ifSchema = null;
+    public JsonSchemaInfo ifSchema(Class<? extends JsonSchema<?>> ifSchema) {
         this.ifSchema = ifSchema;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> then = null;
-    public JsonSchemaInfo then(Class<? extends JsonSchema> then) {
+    public @Nullable Class<? extends JsonSchema<?>> then = null;
+    public JsonSchemaInfo then(Class<? extends JsonSchema<?>> then) {
         this.then = then;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> elseSchema = null;
-    public JsonSchemaInfo elseSchema(Class<? extends JsonSchema> elseSchema) {
+    public @Nullable Class<? extends JsonSchema<?>> elseSchema = null;
+    public JsonSchemaInfo elseSchema(Class<? extends JsonSchema<?>> elseSchema) {
         this.elseSchema = elseSchema;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> unevaluatedItems = null;
-    public JsonSchemaInfo unevaluatedItems(Class<? extends JsonSchema> unevaluatedItems) {
+    public @Nullable Class<? extends JsonSchema<?>> unevaluatedItems = null;
+    public JsonSchemaInfo unevaluatedItems(Class<? extends JsonSchema<?>> unevaluatedItems) {
         this.unevaluatedItems = unevaluatedItems;
         return this;
     }
-    public @Nullable Class<? extends JsonSchema> unevaluatedProperties = null;
-    public JsonSchemaInfo unevaluatedProperties(Class<? extends JsonSchema> unevaluatedProperties) {
+    public @Nullable Class<? extends JsonSchema<?>> unevaluatedProperties = null;
+    public JsonSchemaInfo unevaluatedProperties(Class<? extends JsonSchema<?>> unevaluatedProperties) {
         this.unevaluatedProperties = unevaluatedProperties;
         return this;
     }

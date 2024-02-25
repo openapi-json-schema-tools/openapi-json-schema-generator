@@ -36,24 +36,20 @@ public class ApplicationxwwwformurlencodedSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedIntegerBoxed permits ApplicationxwwwformurlencodedIntegerBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedIntegerBoxed permits ApplicationxwwwformurlencodedIntegerBoxedNumber {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedIntegerBoxedNumber extends ApplicationxwwwformurlencodedIntegerBoxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedIntegerBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedIntegerBoxedNumber(Number data) implements ApplicationxwwwformurlencodedIntegerBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedInteger extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedIntegerBoxedNumber> {
+    public static class ApplicationxwwwformurlencodedInteger extends JsonSchema<ApplicationxwwwformurlencodedIntegerBoxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedIntegerBoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedInteger instance = null;
     
         protected ApplicationxwwwformurlencodedInteger() {
@@ -122,26 +118,29 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedIntegerBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedIntegerBoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedIntegerBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedInt32Boxed permits ApplicationxwwwformurlencodedInt32BoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedInt32Boxed permits ApplicationxwwwformurlencodedInt32BoxedNumber {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedInt32BoxedNumber extends ApplicationxwwwformurlencodedInt32Boxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedInt32BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedInt32BoxedNumber(Number data) implements ApplicationxwwwformurlencodedInt32Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedInt32 extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedInt32BoxedNumber> {
+    public static class ApplicationxwwwformurlencodedInt32 extends JsonSchema<ApplicationxwwwformurlencodedInt32Boxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedInt32BoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedInt32 instance = null;
     
         protected ApplicationxwwwformurlencodedInt32() {
@@ -202,6 +201,13 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedInt32BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedInt32BoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedInt32Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class ApplicationxwwwformurlencodedInt64 extends Int64JsonSchema.Int64JsonSchema1 {
@@ -215,24 +221,20 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedNumberBoxed permits ApplicationxwwwformurlencodedNumberBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedNumberBoxed permits ApplicationxwwwformurlencodedNumberBoxedNumber {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedNumberBoxedNumber extends ApplicationxwwwformurlencodedNumberBoxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedNumberBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedNumberBoxedNumber(Number data) implements ApplicationxwwwformurlencodedNumberBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedNumber extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedNumberBoxedNumber> {
+    public static class ApplicationxwwwformurlencodedNumber extends JsonSchema<ApplicationxwwwformurlencodedNumberBoxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedNumberBoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedNumber instance = null;
     
         protected ApplicationxwwwformurlencodedNumber() {
@@ -300,26 +302,29 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedNumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedNumberBoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedNumberBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedFloatBoxed permits ApplicationxwwwformurlencodedFloatBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedFloatBoxed permits ApplicationxwwwformurlencodedFloatBoxedNumber {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedFloatBoxedNumber extends ApplicationxwwwformurlencodedFloatBoxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedFloatBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedFloatBoxedNumber(Number data) implements ApplicationxwwwformurlencodedFloatBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedFloat extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedFloatBoxedNumber> {
+    public static class ApplicationxwwwformurlencodedFloat extends JsonSchema<ApplicationxwwwformurlencodedFloatBoxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedFloatBoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedFloat instance = null;
     
         protected ApplicationxwwwformurlencodedFloat() {
@@ -374,26 +379,29 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedFloatBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedFloatBoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedFloatBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedDoubleBoxed permits ApplicationxwwwformurlencodedDoubleBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedDoubleBoxed permits ApplicationxwwwformurlencodedDoubleBoxedNumber {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedDoubleBoxedNumber extends ApplicationxwwwformurlencodedDoubleBoxed {
-        public final Number data;
-        private ApplicationxwwwformurlencodedDoubleBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedDoubleBoxedNumber(Number data) implements ApplicationxwwwformurlencodedDoubleBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedDouble extends JsonSchema implements NumberSchemaValidator<ApplicationxwwwformurlencodedDoubleBoxedNumber> {
+    public static class ApplicationxwwwformurlencodedDouble extends JsonSchema<ApplicationxwwwformurlencodedDoubleBoxed> implements NumberSchemaValidator<ApplicationxwwwformurlencodedDoubleBoxedNumber> {
         private static @Nullable ApplicationxwwwformurlencodedDouble instance = null;
     
         protected ApplicationxwwwformurlencodedDouble() {
@@ -449,26 +457,29 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedDoubleBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedDoubleBoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedDoubleBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedStringBoxed permits ApplicationxwwwformurlencodedStringBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedStringBoxed permits ApplicationxwwwformurlencodedStringBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedStringBoxedString extends ApplicationxwwwformurlencodedStringBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedStringBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedStringBoxedString(String data) implements ApplicationxwwwformurlencodedStringBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedString extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedStringBoxedString> {
+    public static class ApplicationxwwwformurlencodedString extends JsonSchema<ApplicationxwwwformurlencodedStringBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedStringBoxedString> {
         private static @Nullable ApplicationxwwwformurlencodedString instance = null;
     
         protected ApplicationxwwwformurlencodedString() {
@@ -519,26 +530,29 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedStringBoxedString(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedStringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed permits ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed permits ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString extends ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString(String data) implements ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedPatternWithoutDelimiter extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString> {
+    public static class ApplicationxwwwformurlencodedPatternWithoutDelimiter extends JsonSchema<ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString> {
         private static @Nullable ApplicationxwwwformurlencodedPatternWithoutDelimiter instance = null;
     
         protected ApplicationxwwwformurlencodedPatternWithoutDelimiter() {
@@ -588,6 +602,13 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class ApplicationxwwwformurlencodedByte extends StringJsonSchema.StringJsonSchema1 {
@@ -624,24 +645,20 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedDateTimeBoxed permits ApplicationxwwwformurlencodedDateTimeBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedDateTimeBoxed permits ApplicationxwwwformurlencodedDateTimeBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedDateTimeBoxedString extends ApplicationxwwwformurlencodedDateTimeBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedDateTimeBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedDateTimeBoxedString(String data) implements ApplicationxwwwformurlencodedDateTimeBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedDateTime extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedDateTimeBoxedString>, DefaultValueMethod<String> {
+    public static class ApplicationxwwwformurlencodedDateTime extends JsonSchema<ApplicationxwwwformurlencodedDateTimeBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedDateTimeBoxedString>, DefaultValueMethod<String> {
         private static @Nullable ApplicationxwwwformurlencodedDateTime instance = null;
     
         protected ApplicationxwwwformurlencodedDateTime() {
@@ -696,26 +713,29 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedDateTimeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedDateTimeBoxedString(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedDateTimeBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class ApplicationxwwwformurlencodedPasswordBoxed permits ApplicationxwwwformurlencodedPasswordBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedPasswordBoxed permits ApplicationxwwwformurlencodedPasswordBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedPasswordBoxedString extends ApplicationxwwwformurlencodedPasswordBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedPasswordBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedPasswordBoxedString(String data) implements ApplicationxwwwformurlencodedPasswordBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedPassword extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedPasswordBoxedString> {
+    public static class ApplicationxwwwformurlencodedPassword extends JsonSchema<ApplicationxwwwformurlencodedPasswordBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedPasswordBoxedString> {
         private static @Nullable ApplicationxwwwformurlencodedPassword instance = null;
     
         protected ApplicationxwwwformurlencodedPassword() {
@@ -764,6 +784,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedPasswordBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedPasswordBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedPasswordBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -1451,23 +1478,19 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap extends ApplicationxwwwformurlencodedSchema1Boxed {
-        public final ApplicationxwwwformurlencodedSchemaMap data;
-        private ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) implements ApplicationxwwwformurlencodedSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
+    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema<ApplicationxwwwformurlencodedSchema1Boxed> implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
         private static @Nullable ApplicationxwwwformurlencodedSchema1 instance = null;
     
         protected ApplicationxwwwformurlencodedSchema1() {
@@ -1516,11 +1539,11 @@ public class ApplicationxwwwformurlencodedSchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -1556,6 +1579,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedSchema1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

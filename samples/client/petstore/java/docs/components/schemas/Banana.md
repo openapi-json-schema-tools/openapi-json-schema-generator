@@ -4,7 +4,7 @@ public class Banana<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,37 +12,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Banana.Banana1Boxed](#banana1boxed)<br> abstract sealed validated payload class |
-| static class | [Banana.Banana1BoxedMap](#banana1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Banana.Banana1Boxed](#banana1boxed)<br> sealed interface for validated payloads |
+| record | [Banana.Banana1BoxedMap](#banana1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Banana.Banana1](#banana1)<br> schema class |
 | static class | [Banana.BananaMapBuilder](#bananamapbuilder)<br> builder for Map payloads |
 | static class | [Banana.BananaMap](#bananamap)<br> output class for Map payloads |
-| static class | [Banana.LengthCmBoxed](#lengthcmboxed)<br> abstract sealed validated payload class |
-| static class | [Banana.LengthCmBoxedNumber](#lengthcmboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Banana.LengthCmBoxed](#lengthcmboxed)<br> sealed interface for validated payloads |
+| record | [Banana.LengthCmBoxedNumber](#lengthcmboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Banana.LengthCm](#lengthcm)<br> schema class |
 
 ## Banana1Boxed
-public static abstract sealed class Banana1Boxed<br>
+public sealed interface Banana1Boxed<br>
 permits<br>
 [Banana1BoxedMap](#banana1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Banana1BoxedMap
-public static final class Banana1BoxedMap<br>
-extends [Banana1Boxed](#banana1boxed)
+public record Banana1BoxedMap<br>
+implements [Banana1Boxed](#banana1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Banana1BoxedMap([BananaMap](#bananamap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [BananaMap](#bananamap) | data<br>validated payload |
+| [BananaMap](#bananamap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Banana1
 public static class Banana1<br>
@@ -88,7 +89,9 @@ Banana.BananaMap validatedPayload =
 | ----------------- | ---------------------- |
 | [BananaMap](#bananamap) | validate([Map&lt;?, ?&gt;](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | [Banana1BoxedMap](#banana1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#bananamapbuilder) arg, SchemaConfiguration configuration) |
+| [Banana1Boxed](#banana1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BananaMap0Builder
 public class BananaMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -147,27 +150,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## LengthCmBoxed
-public static abstract sealed class LengthCmBoxed<br>
+public sealed interface LengthCmBoxed<br>
 permits<br>
 [LengthCmBoxedNumber](#lengthcmboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## LengthCmBoxedNumber
-public static final class LengthCmBoxedNumber<br>
-extends [LengthCmBoxed](#lengthcmboxed)
+public record LengthCmBoxedNumber<br>
+implements [LengthCmBoxed](#lengthcmboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | LengthCmBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## LengthCm
 public static class LengthCm<br>

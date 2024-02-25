@@ -4,38 +4,39 @@ public class BooleanTypeMatchesBooleans<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1Boxed](#booleantypematchesbooleans1boxed)<br> abstract sealed validated payload class |
-| static class | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1BoxedBoolean](#booleantypematchesbooleans1boxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1Boxed](#booleantypematchesbooleans1boxed)<br> sealed interface for validated payloads |
+| record | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1BoxedBoolean](#booleantypematchesbooleans1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1](#booleantypematchesbooleans1)<br> schema class |
 
 ## BooleanTypeMatchesBooleans1Boxed
-public static abstract sealed class BooleanTypeMatchesBooleans1Boxed<br>
+public sealed interface BooleanTypeMatchesBooleans1Boxed<br>
 permits<br>
 [BooleanTypeMatchesBooleans1BoxedBoolean](#booleantypematchesbooleans1boxedboolean)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BooleanTypeMatchesBooleans1BoxedBoolean
-public static final class BooleanTypeMatchesBooleans1BoxedBoolean<br>
-extends [BooleanTypeMatchesBooleans1Boxed](#booleantypematchesbooleans1boxed)
+public record BooleanTypeMatchesBooleans1BoxedBoolean<br>
+implements [BooleanTypeMatchesBooleans1Boxed](#booleantypematchesbooleans1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BooleanTypeMatchesBooleans1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BooleanTypeMatchesBooleans1
 public static class BooleanTypeMatchesBooleans1<br>

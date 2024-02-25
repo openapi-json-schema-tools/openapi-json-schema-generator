@@ -4,40 +4,41 @@ public class BooleanEnum<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [BooleanEnum.BooleanEnum1Boxed](#booleanenum1boxed)<br> abstract sealed validated payload class |
-| static class | [BooleanEnum.BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean)<br> boxed class to store validated boolean payloads |
+| sealed interface | [BooleanEnum.BooleanEnum1Boxed](#booleanenum1boxed)<br> sealed interface for validated payloads |
+| record | [BooleanEnum.BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [BooleanEnum.BooleanEnum1](#booleanenum1)<br> schema class |
 | enum | [BooleanEnum.BooleanBooleanEnumEnums](#booleanbooleanenumenums)<br>boolean enum |
 
 ## BooleanEnum1Boxed
-public static abstract sealed class BooleanEnum1Boxed<br>
+public sealed interface BooleanEnum1Boxed<br>
 permits<br>
 [BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BooleanEnum1BoxedBoolean
-public static final class BooleanEnum1BoxedBoolean<br>
-extends [BooleanEnum1Boxed](#booleanenum1boxed)
+public record BooleanEnum1BoxedBoolean<br>
+implements [BooleanEnum1Boxed](#booleanenum1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BooleanEnum1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## BooleanEnum1
 public static class BooleanEnum1<br>
@@ -79,7 +80,9 @@ boolean validatedPayload = BooleanEnum.BooleanEnum1.validate(
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | boolean | validate([BooleanBooleanEnumEnums](#booleanbooleanenumenums) arg, SchemaConfiguration configuration) |
 | [BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [BooleanEnum1Boxed](#booleanenum1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BooleanBooleanEnumEnums
 public enum BooleanBooleanEnumEnums<br>
 extends `Enum<BooleanBooleanEnumEnums>`

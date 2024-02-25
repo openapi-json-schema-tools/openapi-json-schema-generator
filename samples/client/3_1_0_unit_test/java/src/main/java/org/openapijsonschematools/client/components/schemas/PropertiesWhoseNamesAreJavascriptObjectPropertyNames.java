@@ -127,78 +127,54 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public static abstract sealed class ToStringSchemaBoxed permits ToStringSchemaBoxedVoid, ToStringSchemaBoxedBoolean, ToStringSchemaBoxedNumber, ToStringSchemaBoxedString, ToStringSchemaBoxedList, ToStringSchemaBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ToStringSchemaBoxed permits ToStringSchemaBoxedVoid, ToStringSchemaBoxedBoolean, ToStringSchemaBoxedNumber, ToStringSchemaBoxedString, ToStringSchemaBoxedList, ToStringSchemaBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ToStringSchemaBoxedVoid extends ToStringSchemaBoxed {
-        public final Void data;
-        private ToStringSchemaBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ToStringSchemaBoxedVoid(Void data) implements ToStringSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ToStringSchemaBoxedBoolean extends ToStringSchemaBoxed {
-        public final boolean data;
-        private ToStringSchemaBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ToStringSchemaBoxedBoolean(boolean data) implements ToStringSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ToStringSchemaBoxedNumber extends ToStringSchemaBoxed {
-        public final Number data;
-        private ToStringSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ToStringSchemaBoxedNumber(Number data) implements ToStringSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ToStringSchemaBoxedString extends ToStringSchemaBoxed {
-        public final String data;
-        private ToStringSchemaBoxedString(String data) {
-            this.data = data;
-        }
+    public record ToStringSchemaBoxedString(String data) implements ToStringSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ToStringSchemaBoxedList extends ToStringSchemaBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private ToStringSchemaBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ToStringSchemaBoxedList(FrozenList<@Nullable Object> data) implements ToStringSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ToStringSchemaBoxedMap extends ToStringSchemaBoxed {
-        public final ToStringMap data;
-        private ToStringSchemaBoxedMap(ToStringMap data) {
-            this.data = data;
-        }
+    public record ToStringSchemaBoxedMap(ToStringMap data) implements ToStringSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ToStringSchema extends JsonSchema implements NullSchemaValidator<ToStringSchemaBoxedVoid>, BooleanSchemaValidator<ToStringSchemaBoxedBoolean>, NumberSchemaValidator<ToStringSchemaBoxedNumber>, StringSchemaValidator<ToStringSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ToStringSchemaBoxedList>, MapSchemaValidator<ToStringMap, ToStringSchemaBoxedMap> {
+    public static class ToStringSchema extends JsonSchema<ToStringSchemaBoxed> implements NullSchemaValidator<ToStringSchemaBoxedVoid>, BooleanSchemaValidator<ToStringSchemaBoxedBoolean>, NumberSchemaValidator<ToStringSchemaBoxedNumber>, StringSchemaValidator<ToStringSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ToStringSchemaBoxedList>, MapSchemaValidator<ToStringMap, ToStringSchemaBoxedMap> {
         private static @Nullable ToStringSchema instance = null;
     
         protected ToStringSchema() {
@@ -299,11 +275,11 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -334,11 +310,11 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -416,6 +392,25 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         @Override
         public ToStringSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ToStringSchemaBoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ToStringSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -612,78 +607,54 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public static abstract sealed class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed permits PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed permits PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
-        public final Void data;
-        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid(Void data) implements PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
-        public final boolean data;
-        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean(boolean data) implements PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
-        public final Number data;
-        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber(Number data) implements PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
-        public final String data;
-        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString(String data) {
-            this.data = data;
-        }
+    public record PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString(String data) implements PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList(FrozenList<@Nullable Object> data) implements PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
-        public final PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap data;
-        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap(PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap data) {
-            this.data = data;
-        }
+    public record PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap(PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap data) implements PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1 extends JsonSchema implements NullSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid>, BooleanSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean>, NumberSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber>, StringSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList>, MapSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap> {
+    public static class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1 extends JsonSchema<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed> implements NullSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid>, BooleanSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean>, NumberSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber>, StringSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList>, MapSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -792,11 +763,11 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -827,11 +798,11 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -909,6 +880,25 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         @Override
         public PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

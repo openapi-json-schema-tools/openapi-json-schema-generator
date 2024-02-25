@@ -4,38 +4,39 @@ public class Bar<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Bar.Bar1Boxed](#bar1boxed)<br> abstract sealed validated payload class |
-| static class | [Bar.Bar1BoxedString](#bar1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Bar.Bar1Boxed](#bar1boxed)<br> sealed interface for validated payloads |
+| record | [Bar.Bar1BoxedString](#bar1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Bar.Bar1](#bar1)<br> schema class |
 
 ## Bar1Boxed
-public static abstract sealed class Bar1Boxed<br>
+public sealed interface Bar1Boxed<br>
 permits<br>
 [Bar1BoxedString](#bar1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Bar1BoxedString
-public static final class Bar1BoxedString<br>
-extends [Bar1Boxed](#bar1boxed)
+public record Bar1BoxedString<br>
+implements [Bar1Boxed](#bar1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Bar1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Bar1
 public static class Bar1<br>
@@ -76,5 +77,7 @@ String validatedPayload = Bar.Bar1.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | [Bar1BoxedString](#bar1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Bar1Boxed](#bar1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

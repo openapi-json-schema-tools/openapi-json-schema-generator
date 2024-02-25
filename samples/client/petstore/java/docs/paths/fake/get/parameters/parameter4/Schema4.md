@@ -3,15 +3,15 @@ public class Schema4<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema4.Schema41Boxed](#schema41boxed)<br> abstract sealed validated payload class |
-| static class | [Schema4.Schema41BoxedNumber](#schema41boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Schema4.Schema41Boxed](#schema41boxed)<br> sealed interface for validated payloads |
+| record | [Schema4.Schema41BoxedNumber](#schema41boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
 | enum | [Schema4.IntegerSchemaEnums4](#integerschemaenums4)<br>Integer enum |
 | enum | [Schema4.LongSchemaEnums4](#longschemaenums4)<br>Long enum |
@@ -19,27 +19,28 @@ A class that contains necessary nested
 | enum | [Schema4.DoubleSchemaEnums4](#doubleschemaenums4)<br>Double enum |
 
 ## Schema41Boxed
-public static abstract sealed class Schema41Boxed<br>
+public sealed interface Schema41Boxed<br>
 permits<br>
 [Schema41BoxedNumber](#schema41boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema41BoxedNumber
-public static final class Schema41BoxedNumber<br>
-extends [Schema41Boxed](#schema41boxed)
+public record Schema41BoxedNumber<br>
+implements [Schema41Boxed](#schema41boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema41BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema41
 public static class Schema41<br>
@@ -81,7 +82,9 @@ int validatedPayload = Schema4.Schema41.validate(
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
 | [Schema41BoxedNumber](#schema41boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [Schema41Boxed](#schema41boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## IntegerSchemaEnums4
 public enum IntegerSchemaEnums4<br>
 extends `Enum<IntegerSchemaEnums4>`

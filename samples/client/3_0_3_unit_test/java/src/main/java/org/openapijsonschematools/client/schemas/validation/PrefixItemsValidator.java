@@ -31,7 +31,7 @@ public class PrefixItemsValidator implements KeywordValidator {
                     data.validationMetadata().validatedPathToSchemas(),
                     data.validationMetadata().seenClasses()
             );
-            JsonSchema itemsSchema = JsonSchemaFactory.getInstance(prefixItems.get(i));
+            JsonSchema<?> itemsSchema = JsonSchemaFactory.getInstance(prefixItems.get(i));
             PathToSchemasMap otherPathToSchemas = JsonSchema.validate(itemsSchema, listArg.get(i), itemValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
         }

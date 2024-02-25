@@ -6,22 +6,27 @@ package org.openapijsonschematools.client.paths.fakepemcontenttype.get;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.GenericRequestBody;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.get.requestbody.content.applicationxpemfile.ApplicationxpemfileSchema;
-import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits ApplicationxpemfileMediaType {}
 
-    public static class ApplicationxpemfileMediaType extends MediaType<ApplicationxpemfileSchema.ApplicationxpemfileSchema1> {
+    public record ApplicationxpemfileMediaType(ApplicationxpemfileSchema.ApplicationxpemfileSchema1 schema) implements SealedMediaType, MediaType<ApplicationxpemfileSchema.ApplicationxpemfileSchema1, Void> {
         public ApplicationxpemfileMediaType() {
-            super(ApplicationxpemfileSchema.ApplicationxpemfileSchema1.getInstance());
+            this(ApplicationxpemfileSchema.ApplicationxpemfileSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(
@@ -33,26 +38,15 @@ public class RequestBody {
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             ApplicationxpemfileRequestBody requestBody0 = (ApplicationxpemfileRequestBody) requestBody;
-            return serialize(requestBody0.contentType(), requestBody0.body().data());
+            return serialize(requestBody0.contentType(), requestBody0.body().getData());
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationxpemfileRequestBody {}
-    public static final class ApplicationxpemfileRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationxpemfileSchema.StringJsonSchema1Boxed> {
-        private final String contentType;
-        private final ApplicationxpemfileSchema.StringJsonSchema1Boxed body;
-        public ApplicationxpemfileRequestBody(ApplicationxpemfileSchema.StringJsonSchema1Boxed body) {
-            contentType = "application/x-pem-file";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationxpemfileRequestBody {}
+    public record ApplicationxpemfileRequestBody(ApplicationxpemfileSchema.StringJsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationxpemfileSchema.StringJsonSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationxpemfileSchema.StringJsonSchema1Boxed body() {
-            return body;
+            return "application/x-pem-file";
         }
     }
 }

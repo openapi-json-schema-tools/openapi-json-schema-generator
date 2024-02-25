@@ -15,7 +15,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class RequiredValidatorTest {
-    public static class ObjectWithRequiredSchema extends JsonSchema {
+    public sealed interface ObjectWithRequiredSchemaBoxed permits ObjectWithRequiredSchemaBoxedMap {}
+    public record ObjectWithRequiredSchemaBoxedMap() implements ObjectWithRequiredSchemaBoxed {}
+
+    public static class ObjectWithRequiredSchema extends JsonSchema<ObjectWithRequiredSchemaBoxed> {
         private ObjectWithRequiredSchema() {
             super(new JsonSchemaInfo()
                     .type(Set.of(Map.class))
@@ -38,6 +41,11 @@ public class RequiredValidatorTest {
                 return validate(mapArg, configuration);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public ObjectWithRequiredSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            return new ObjectWithRequiredSchemaBoxedMap();
         }
     }
 

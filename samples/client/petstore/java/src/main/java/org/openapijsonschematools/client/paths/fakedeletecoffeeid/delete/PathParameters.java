@@ -100,23 +100,19 @@ public class PathParameters {
     }
     
     
-    public static abstract sealed class PathParameters1Boxed permits PathParameters1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface PathParameters1Boxed permits PathParameters1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class PathParameters1BoxedMap extends PathParameters1Boxed {
-        public final PathParametersMap data;
-        private PathParameters1BoxedMap(PathParametersMap data) {
-            this.data = data;
-        }
+    public record PathParameters1BoxedMap(PathParametersMap data) implements PathParameters1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class PathParameters1 extends JsonSchema implements MapSchemaValidator<PathParametersMap, PathParameters1BoxedMap> {
+    public static class PathParameters1 extends JsonSchema<PathParameters1Boxed> implements MapSchemaValidator<PathParametersMap, PathParameters1BoxedMap> {
         private static @Nullable PathParameters1 instance = null;
     
         protected PathParameters1() {
@@ -150,11 +146,11 @@ public class PathParameters {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof String)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -193,6 +189,13 @@ public class PathParameters {
         @Override
         public PathParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PathParameters1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public PathParameters1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

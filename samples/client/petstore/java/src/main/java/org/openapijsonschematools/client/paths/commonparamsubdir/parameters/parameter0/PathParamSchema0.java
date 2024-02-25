@@ -35,24 +35,20 @@ public class PathParamSchema0 {
     }
     
     
-    public static abstract sealed class PathParamSchema01Boxed permits PathParamSchema01BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface PathParamSchema01Boxed permits PathParamSchema01BoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class PathParamSchema01BoxedString extends PathParamSchema01Boxed {
-        public final String data;
-        private PathParamSchema01BoxedString(String data) {
-            this.data = data;
-        }
+    public record PathParamSchema01BoxedString(String data) implements PathParamSchema01Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class PathParamSchema01 extends JsonSchema implements StringSchemaValidator<PathParamSchema01BoxedString>, StringEnumValidator<StringPathParamSchemaEnums0> {
+    public static class PathParamSchema01 extends JsonSchema<PathParamSchema01Boxed> implements StringSchemaValidator<PathParamSchema01BoxedString>, StringEnumValidator<StringPathParamSchemaEnums0> {
         private static @Nullable PathParamSchema01 instance = null;
     
         protected PathParamSchema01() {
@@ -107,6 +103,13 @@ public class PathParamSchema0 {
         @Override
         public PathParamSchema01BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PathParamSchema01BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public PathParamSchema01Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

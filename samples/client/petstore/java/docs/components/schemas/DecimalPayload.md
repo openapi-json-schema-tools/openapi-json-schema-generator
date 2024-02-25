@@ -4,38 +4,39 @@ public class DecimalPayload<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [DecimalPayload.DecimalPayload1Boxed](#decimalpayload1boxed)<br> abstract sealed validated payload class |
-| static class | [DecimalPayload.DecimalPayload1BoxedString](#decimalpayload1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [DecimalPayload.DecimalPayload1Boxed](#decimalpayload1boxed)<br> sealed interface for validated payloads |
+| record | [DecimalPayload.DecimalPayload1BoxedString](#decimalpayload1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [DecimalPayload.DecimalPayload1](#decimalpayload1)<br> schema class |
 
 ## DecimalPayload1Boxed
-public static abstract sealed class DecimalPayload1Boxed<br>
+public sealed interface DecimalPayload1Boxed<br>
 permits<br>
 [DecimalPayload1BoxedString](#decimalpayload1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## DecimalPayload1BoxedString
-public static final class DecimalPayload1BoxedString<br>
-extends [DecimalPayload1Boxed](#decimalpayload1boxed)
+public record DecimalPayload1BoxedString<br>
+implements [DecimalPayload1Boxed](#decimalpayload1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DecimalPayload1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## DecimalPayload1
 public static class DecimalPayload1<br>

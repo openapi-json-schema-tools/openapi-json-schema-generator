@@ -35,78 +35,54 @@ public class ExclusivemaximumValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ExclusivemaximumValidation1Boxed permits ExclusivemaximumValidation1BoxedVoid, ExclusivemaximumValidation1BoxedBoolean, ExclusivemaximumValidation1BoxedNumber, ExclusivemaximumValidation1BoxedString, ExclusivemaximumValidation1BoxedList, ExclusivemaximumValidation1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ExclusivemaximumValidation1Boxed permits ExclusivemaximumValidation1BoxedVoid, ExclusivemaximumValidation1BoxedBoolean, ExclusivemaximumValidation1BoxedNumber, ExclusivemaximumValidation1BoxedString, ExclusivemaximumValidation1BoxedList, ExclusivemaximumValidation1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ExclusivemaximumValidation1BoxedVoid extends ExclusivemaximumValidation1Boxed {
-        public final Void data;
-        private ExclusivemaximumValidation1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ExclusivemaximumValidation1BoxedVoid(Void data) implements ExclusivemaximumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusivemaximumValidation1BoxedBoolean extends ExclusivemaximumValidation1Boxed {
-        public final boolean data;
-        private ExclusivemaximumValidation1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ExclusivemaximumValidation1BoxedBoolean(boolean data) implements ExclusivemaximumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusivemaximumValidation1BoxedNumber extends ExclusivemaximumValidation1Boxed {
-        public final Number data;
-        private ExclusivemaximumValidation1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ExclusivemaximumValidation1BoxedNumber(Number data) implements ExclusivemaximumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusivemaximumValidation1BoxedString extends ExclusivemaximumValidation1Boxed {
-        public final String data;
-        private ExclusivemaximumValidation1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ExclusivemaximumValidation1BoxedString(String data) implements ExclusivemaximumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusivemaximumValidation1BoxedList extends ExclusivemaximumValidation1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ExclusivemaximumValidation1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ExclusivemaximumValidation1BoxedList(FrozenList<@Nullable Object> data) implements ExclusivemaximumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusivemaximumValidation1BoxedMap extends ExclusivemaximumValidation1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ExclusivemaximumValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ExclusivemaximumValidation1BoxedMap(FrozenMap<@Nullable Object> data) implements ExclusivemaximumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ExclusivemaximumValidation1 extends JsonSchema implements NullSchemaValidator<ExclusivemaximumValidation1BoxedVoid>, BooleanSchemaValidator<ExclusivemaximumValidation1BoxedBoolean>, NumberSchemaValidator<ExclusivemaximumValidation1BoxedNumber>, StringSchemaValidator<ExclusivemaximumValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ExclusivemaximumValidation1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ExclusivemaximumValidation1BoxedMap> {
+    public static class ExclusivemaximumValidation1 extends JsonSchema<ExclusivemaximumValidation1Boxed> implements NullSchemaValidator<ExclusivemaximumValidation1BoxedVoid>, BooleanSchemaValidator<ExclusivemaximumValidation1BoxedBoolean>, NumberSchemaValidator<ExclusivemaximumValidation1BoxedNumber>, StringSchemaValidator<ExclusivemaximumValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ExclusivemaximumValidation1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ExclusivemaximumValidation1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -211,11 +187,11 @@ public class ExclusivemaximumValidation {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -246,11 +222,11 @@ public class ExclusivemaximumValidation {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -328,6 +304,25 @@ public class ExclusivemaximumValidation {
         @Override
         public ExclusivemaximumValidation1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ExclusivemaximumValidation1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ExclusivemaximumValidation1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

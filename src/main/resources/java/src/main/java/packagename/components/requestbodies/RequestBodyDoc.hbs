@@ -28,27 +28,39 @@ a class that serializes SealedRequestBody request bodies, extended from the $ref
 public class {{jsonPathPiece.pascalCase}}
 
 A class that contains necessary nested request body classes
-- supporting XMediaType classes which store the openapi request body contentType to schema information
+- SealedMediaType, a sealed interface which contains all the schema/encoding info for each contentType
+- records which implement SealedMediaType, the concrete media types
 - a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances
-- SealedRequestBody class, an abstract sealed class which contains all the contentType/schema input types
-- final classes which extend SealedRequestBody, the concrete request body types
+- SealedRequestBody, a sealed interface which contains all the contentType/schema input types
+- records which implement SealedRequestBody, the concrete request body types
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
+| sealed interface | [{{jsonPathPiece.pascalCase}}.SealedMediaType](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedmediatype") }})<br>media type sealed interface |
 {{#each content}}
-| static class | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)<br>class storing schema info for a specific contentType |
+| record | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)<br>record storing schema + encoding for a specific contentType |
 {{/each}}
 | static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br>class that serializes request bodies |
-| static class | [{{jsonPathPiece.pascalCase}}.SealedRequestBody](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedrequestbody") }})<br>abstract sealed request body class |
+| sealed interface | [{{jsonPathPiece.pascalCase}}.SealedRequestBody](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedrequestbody") }})<br>request body sealed interface |
 {{#each content}}
-| static class | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody)<br>implementing sealed class to store request body input |
+| record | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody)<br>implements sealed interface to store request body input |
 {{/each}}
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "SealedMediaType") }}
+public sealed interface SealedMediaType<br>
+permits<br>
+{{#each content}}
+[{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype){{#unless @last}},{{/unless}}
+{{/each}}
+
+sealed interface that stores schema and encoding info
+
 {{#each content}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join @key.pascalCase "MediaType" "")) }}
-public static class {{@key.pascalCase}}MediaType<br>
-extends MediaType<{{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}}>
+public record {{@key.pascalCase}}MediaType<br>
+implements [SealedMediaType](#sealedmediatype), MediaType<{{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}}, Void>
 
 class storing schema info for a specific contentType
 
@@ -57,10 +69,11 @@ class storing schema info for a specific contentType
 | --------------------------- |
 | {{@key.pascalCase}}MediaType()<br>Creates an instance |
 
-{{headerSize}}## Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | --------------------- |
-| {{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}} | schema<br>the schema for this MediaType |
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}} | schema()<br>the schema for this MediaType |
+| Void | encoding()<br>the encoding info |
 {{/each}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
@@ -77,7 +90,7 @@ a class that serializes SealedRequestBody request bodies
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | boolean | required = {{required}}<br>whether the request body is required |
-| Map<String, MediaType<?>> | content =  Map.ofEntries(<br>{{#each content}}&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)()){{#unless @last}},{{/unless}}<br>{{/each}})<br>the contentType to schema info |
+| Map<String, [SealedMediaType](#sealedmediatype)> | content =  Map.ofEntries(<br>{{#each content}}&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)()){{#unless @last}},{{/unless}}<br>{{/each}})<br>the contentType to schema info |
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
@@ -85,21 +98,21 @@ a class that serializes SealedRequestBody request bodies
 | SerializedRequestBody | serialize([SealedRequestBody](#sealedrequestbody) requestBody)<br>called by endpoint when creating request body bytes |
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "SealedRequestBody") }}
-public static abstract sealed class SealedRequestBody<br>
+public sealed interface SealedRequestBody<br>
 permits<br>
 {{#each content}}
 [{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody){{#unless @last}},{{/unless}}
 {{/each}}
 
-abstract sealed class that stores request contentType + validated schema data
+sealed interface that stores request contentType + validated schema data
 
 {{#each content}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join @key.pascalCase "RequestBody" "")) }}
-public static final class {{@key.pascalCase}}RequestBody<br>
-extends [SealedRequestBody](#sealedrequestbody)<br>
-implements GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}}><br>
+public record {{@key.pascalCase}}RequestBody<br>
+implements [SealedRequestBody](#sealedrequestbody),<br>
+GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}}><br>
 
-A final class to store request body input for contentType="{{{@key.original}}}"
+A record class to store request body input for contentType="{{{@key.original}}}"
 
 {{headerSize}}## Constructor Summary
 | Constructor and Description |

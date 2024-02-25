@@ -36,78 +36,54 @@ public class ValidateAgainstCorrectBranchThenVsElse {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ElseSchemaBoxedVoid extends ElseSchemaBoxed {
-        public final Void data;
-        private ElseSchemaBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ElseSchemaBoxedVoid(Void data) implements ElseSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ElseSchemaBoxedBoolean extends ElseSchemaBoxed {
-        public final boolean data;
-        private ElseSchemaBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ElseSchemaBoxedBoolean(boolean data) implements ElseSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ElseSchemaBoxedNumber extends ElseSchemaBoxed {
-        public final Number data;
-        private ElseSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ElseSchemaBoxedNumber(Number data) implements ElseSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ElseSchemaBoxedString extends ElseSchemaBoxed {
-        public final String data;
-        private ElseSchemaBoxedString(String data) {
-            this.data = data;
-        }
+    public record ElseSchemaBoxedString(String data) implements ElseSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ElseSchemaBoxedList extends ElseSchemaBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private ElseSchemaBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ElseSchemaBoxedList(FrozenList<@Nullable Object> data) implements ElseSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ElseSchemaBoxedMap extends ElseSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ElseSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ElseSchema extends JsonSchema implements NullSchemaValidator<ElseSchemaBoxedVoid>, BooleanSchemaValidator<ElseSchemaBoxedBoolean>, NumberSchemaValidator<ElseSchemaBoxedNumber>, StringSchemaValidator<ElseSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ElseSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ElseSchemaBoxedMap> {
+    public static class ElseSchema extends JsonSchema<ElseSchemaBoxed> implements NullSchemaValidator<ElseSchemaBoxedVoid>, BooleanSchemaValidator<ElseSchemaBoxedBoolean>, NumberSchemaValidator<ElseSchemaBoxedNumber>, StringSchemaValidator<ElseSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ElseSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ElseSchemaBoxedMap> {
         private static @Nullable ElseSchema instance = null;
     
         protected ElseSchema() {
@@ -206,11 +182,11 @@ public class ValidateAgainstCorrectBranchThenVsElse {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -241,11 +217,11 @@ public class ValidateAgainstCorrectBranchThenVsElse {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -324,80 +300,75 @@ public class ValidateAgainstCorrectBranchThenVsElse {
         public ElseSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ElseSchemaBoxedMap(validate(arg, configuration));
         }
+        @Override
+        public ElseSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class IfSchemaBoxedVoid extends IfSchemaBoxed {
-        public final Void data;
-        private IfSchemaBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record IfSchemaBoxedVoid(Void data) implements IfSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IfSchemaBoxedBoolean extends IfSchemaBoxed {
-        public final boolean data;
-        private IfSchemaBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record IfSchemaBoxedBoolean(boolean data) implements IfSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IfSchemaBoxedNumber extends IfSchemaBoxed {
-        public final Number data;
-        private IfSchemaBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record IfSchemaBoxedNumber(Number data) implements IfSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IfSchemaBoxedString extends IfSchemaBoxed {
-        public final String data;
-        private IfSchemaBoxedString(String data) {
-            this.data = data;
-        }
+    public record IfSchemaBoxedString(String data) implements IfSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IfSchemaBoxedList extends IfSchemaBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private IfSchemaBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record IfSchemaBoxedList(FrozenList<@Nullable Object> data) implements IfSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class IfSchemaBoxedMap extends IfSchemaBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private IfSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record IfSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements IfSchemaBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class IfSchema extends JsonSchema implements NullSchemaValidator<IfSchemaBoxedVoid>, BooleanSchemaValidator<IfSchemaBoxedBoolean>, NumberSchemaValidator<IfSchemaBoxedNumber>, StringSchemaValidator<IfSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IfSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IfSchemaBoxedMap> {
+    public static class IfSchema extends JsonSchema<IfSchemaBoxed> implements NullSchemaValidator<IfSchemaBoxedVoid>, BooleanSchemaValidator<IfSchemaBoxedBoolean>, NumberSchemaValidator<IfSchemaBoxedNumber>, StringSchemaValidator<IfSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IfSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IfSchemaBoxedMap> {
         private static @Nullable IfSchema instance = null;
     
         protected IfSchema() {
@@ -496,11 +467,11 @@ public class ValidateAgainstCorrectBranchThenVsElse {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -531,11 +502,11 @@ public class ValidateAgainstCorrectBranchThenVsElse {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -614,80 +585,75 @@ public class ValidateAgainstCorrectBranchThenVsElse {
         public IfSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new IfSchemaBoxedMap(validate(arg, configuration));
         }
+        @Override
+        public IfSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class ThenBoxed permits ThenBoxedVoid, ThenBoxedBoolean, ThenBoxedNumber, ThenBoxedString, ThenBoxedList, ThenBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ThenBoxed permits ThenBoxedVoid, ThenBoxedBoolean, ThenBoxedNumber, ThenBoxedString, ThenBoxedList, ThenBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ThenBoxedVoid extends ThenBoxed {
-        public final Void data;
-        private ThenBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ThenBoxedVoid(Void data) implements ThenBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ThenBoxedBoolean extends ThenBoxed {
-        public final boolean data;
-        private ThenBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ThenBoxedBoolean(boolean data) implements ThenBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ThenBoxedNumber extends ThenBoxed {
-        public final Number data;
-        private ThenBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ThenBoxedNumber(Number data) implements ThenBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ThenBoxedString extends ThenBoxed {
-        public final String data;
-        private ThenBoxedString(String data) {
-            this.data = data;
-        }
+    public record ThenBoxedString(String data) implements ThenBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ThenBoxedList extends ThenBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private ThenBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ThenBoxedList(FrozenList<@Nullable Object> data) implements ThenBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ThenBoxedMap extends ThenBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ThenBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ThenBoxedMap(FrozenMap<@Nullable Object> data) implements ThenBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Then extends JsonSchema implements NullSchemaValidator<ThenBoxedVoid>, BooleanSchemaValidator<ThenBoxedBoolean>, NumberSchemaValidator<ThenBoxedNumber>, StringSchemaValidator<ThenBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ThenBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ThenBoxedMap> {
+    public static class Then extends JsonSchema<ThenBoxed> implements NullSchemaValidator<ThenBoxedVoid>, BooleanSchemaValidator<ThenBoxedBoolean>, NumberSchemaValidator<ThenBoxedNumber>, StringSchemaValidator<ThenBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ThenBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ThenBoxedMap> {
         private static @Nullable Then instance = null;
     
         protected Then() {
@@ -786,11 +752,11 @@ public class ValidateAgainstCorrectBranchThenVsElse {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -821,11 +787,11 @@ public class ValidateAgainstCorrectBranchThenVsElse {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -904,80 +870,75 @@ public class ValidateAgainstCorrectBranchThenVsElse {
         public ThenBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ThenBoxedMap(validate(arg, configuration));
         }
+        @Override
+        public ThenBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class ValidateAgainstCorrectBranchThenVsElse1Boxed permits ValidateAgainstCorrectBranchThenVsElse1BoxedVoid, ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean, ValidateAgainstCorrectBranchThenVsElse1BoxedNumber, ValidateAgainstCorrectBranchThenVsElse1BoxedString, ValidateAgainstCorrectBranchThenVsElse1BoxedList, ValidateAgainstCorrectBranchThenVsElse1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ValidateAgainstCorrectBranchThenVsElse1Boxed permits ValidateAgainstCorrectBranchThenVsElse1BoxedVoid, ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean, ValidateAgainstCorrectBranchThenVsElse1BoxedNumber, ValidateAgainstCorrectBranchThenVsElse1BoxedString, ValidateAgainstCorrectBranchThenVsElse1BoxedList, ValidateAgainstCorrectBranchThenVsElse1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ValidateAgainstCorrectBranchThenVsElse1BoxedVoid extends ValidateAgainstCorrectBranchThenVsElse1Boxed {
-        public final Void data;
-        private ValidateAgainstCorrectBranchThenVsElse1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ValidateAgainstCorrectBranchThenVsElse1BoxedVoid(Void data) implements ValidateAgainstCorrectBranchThenVsElse1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean extends ValidateAgainstCorrectBranchThenVsElse1Boxed {
-        public final boolean data;
-        private ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean(boolean data) implements ValidateAgainstCorrectBranchThenVsElse1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ValidateAgainstCorrectBranchThenVsElse1BoxedNumber extends ValidateAgainstCorrectBranchThenVsElse1Boxed {
-        public final Number data;
-        private ValidateAgainstCorrectBranchThenVsElse1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ValidateAgainstCorrectBranchThenVsElse1BoxedNumber(Number data) implements ValidateAgainstCorrectBranchThenVsElse1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ValidateAgainstCorrectBranchThenVsElse1BoxedString extends ValidateAgainstCorrectBranchThenVsElse1Boxed {
-        public final String data;
-        private ValidateAgainstCorrectBranchThenVsElse1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ValidateAgainstCorrectBranchThenVsElse1BoxedString(String data) implements ValidateAgainstCorrectBranchThenVsElse1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ValidateAgainstCorrectBranchThenVsElse1BoxedList extends ValidateAgainstCorrectBranchThenVsElse1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ValidateAgainstCorrectBranchThenVsElse1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ValidateAgainstCorrectBranchThenVsElse1BoxedList(FrozenList<@Nullable Object> data) implements ValidateAgainstCorrectBranchThenVsElse1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ValidateAgainstCorrectBranchThenVsElse1BoxedMap extends ValidateAgainstCorrectBranchThenVsElse1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ValidateAgainstCorrectBranchThenVsElse1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ValidateAgainstCorrectBranchThenVsElse1BoxedMap(FrozenMap<@Nullable Object> data) implements ValidateAgainstCorrectBranchThenVsElse1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ValidateAgainstCorrectBranchThenVsElse1 extends JsonSchema implements NullSchemaValidator<ValidateAgainstCorrectBranchThenVsElse1BoxedVoid>, BooleanSchemaValidator<ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean>, NumberSchemaValidator<ValidateAgainstCorrectBranchThenVsElse1BoxedNumber>, StringSchemaValidator<ValidateAgainstCorrectBranchThenVsElse1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ValidateAgainstCorrectBranchThenVsElse1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ValidateAgainstCorrectBranchThenVsElse1BoxedMap> {
+    public static class ValidateAgainstCorrectBranchThenVsElse1 extends JsonSchema<ValidateAgainstCorrectBranchThenVsElse1Boxed> implements NullSchemaValidator<ValidateAgainstCorrectBranchThenVsElse1BoxedVoid>, BooleanSchemaValidator<ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean>, NumberSchemaValidator<ValidateAgainstCorrectBranchThenVsElse1BoxedNumber>, StringSchemaValidator<ValidateAgainstCorrectBranchThenVsElse1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ValidateAgainstCorrectBranchThenVsElse1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ValidateAgainstCorrectBranchThenVsElse1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -1084,11 +1045,11 @@ public class ValidateAgainstCorrectBranchThenVsElse {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -1119,11 +1080,11 @@ public class ValidateAgainstCorrectBranchThenVsElse {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -1201,6 +1162,25 @@ public class ValidateAgainstCorrectBranchThenVsElse {
         @Override
         public ValidateAgainstCorrectBranchThenVsElse1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ValidateAgainstCorrectBranchThenVsElse1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ValidateAgainstCorrectBranchThenVsElse1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

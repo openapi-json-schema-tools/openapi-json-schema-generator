@@ -170,78 +170,54 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
     }
     
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class Schema0BoxedVoid extends Schema0Boxed {
-        public final Void data;
-        private Schema0BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Schema0BoxedVoid(Void data) implements Schema0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema0BoxedBoolean extends Schema0Boxed {
-        public final boolean data;
-        private Schema0BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record Schema0BoxedBoolean(boolean data) implements Schema0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema0BoxedNumber extends Schema0Boxed {
-        public final Number data;
-        private Schema0BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record Schema0BoxedNumber(Number data) implements Schema0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema0BoxedString extends Schema0Boxed {
-        public final String data;
-        private Schema0BoxedString(String data) {
-            this.data = data;
-        }
+    public record Schema0BoxedString(String data) implements Schema0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema0BoxedList extends Schema0Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private Schema0BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record Schema0BoxedList(FrozenList<@Nullable Object> data) implements Schema0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Schema0BoxedMap extends Schema0Boxed {
-        public final Schema0Map data;
-        private Schema0BoxedMap(Schema0Map data) {
-            this.data = data;
-        }
+    public record Schema0BoxedMap(Schema0Map data) implements Schema0Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Schema0 extends JsonSchema implements NullSchemaValidator<Schema0BoxedVoid>, BooleanSchemaValidator<Schema0BoxedBoolean>, NumberSchemaValidator<Schema0BoxedNumber>, StringSchemaValidator<Schema0BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Schema0BoxedList>, MapSchemaValidator<Schema0Map, Schema0BoxedMap> {
+    public static class Schema0 extends JsonSchema<Schema0Boxed> implements NullSchemaValidator<Schema0BoxedVoid>, BooleanSchemaValidator<Schema0BoxedBoolean>, NumberSchemaValidator<Schema0BoxedNumber>, StringSchemaValidator<Schema0BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Schema0BoxedList>, MapSchemaValidator<Schema0Map, Schema0BoxedMap> {
         private static @Nullable Schema0 instance = null;
     
         protected Schema0() {
@@ -342,11 +318,11 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -377,11 +353,11 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -460,6 +436,25 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
         public Schema0BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema0BoxedMap(validate(arg, configuration));
         }
+        @Override
+        public Schema0Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class AdditionalpropertiesDoesNotLookInApplicatorsMap extends FrozenMap<Boolean> {
@@ -516,78 +511,54 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
     }
     
     
-    public static abstract sealed class AdditionalpropertiesDoesNotLookInApplicators1Boxed permits AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid, AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean, AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber, AdditionalpropertiesDoesNotLookInApplicators1BoxedString, AdditionalpropertiesDoesNotLookInApplicators1BoxedList, AdditionalpropertiesDoesNotLookInApplicators1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AdditionalpropertiesDoesNotLookInApplicators1Boxed permits AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid, AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean, AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber, AdditionalpropertiesDoesNotLookInApplicators1BoxedString, AdditionalpropertiesDoesNotLookInApplicators1BoxedList, AdditionalpropertiesDoesNotLookInApplicators1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
-        public final Void data;
-        private AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid(Void data) implements AdditionalpropertiesDoesNotLookInApplicators1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
-        public final boolean data;
-        private AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean(boolean data) implements AdditionalpropertiesDoesNotLookInApplicators1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
-        public final Number data;
-        private AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber(Number data) implements AdditionalpropertiesDoesNotLookInApplicators1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedString extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
-        public final String data;
-        private AdditionalpropertiesDoesNotLookInApplicators1BoxedString(String data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesDoesNotLookInApplicators1BoxedString(String data) implements AdditionalpropertiesDoesNotLookInApplicators1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedList extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private AdditionalpropertiesDoesNotLookInApplicators1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesDoesNotLookInApplicators1BoxedList(FrozenList<@Nullable Object> data) implements AdditionalpropertiesDoesNotLookInApplicators1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedMap extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
-        public final AdditionalpropertiesDoesNotLookInApplicatorsMap data;
-        private AdditionalpropertiesDoesNotLookInApplicators1BoxedMap(AdditionalpropertiesDoesNotLookInApplicatorsMap data) {
-            this.data = data;
-        }
+    public record AdditionalpropertiesDoesNotLookInApplicators1BoxedMap(AdditionalpropertiesDoesNotLookInApplicatorsMap data) implements AdditionalpropertiesDoesNotLookInApplicators1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class AdditionalpropertiesDoesNotLookInApplicators1 extends JsonSchema implements NullSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid>, BooleanSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean>, NumberSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber>, StringSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AdditionalpropertiesDoesNotLookInApplicators1BoxedList>, MapSchemaValidator<AdditionalpropertiesDoesNotLookInApplicatorsMap, AdditionalpropertiesDoesNotLookInApplicators1BoxedMap> {
+    public static class AdditionalpropertiesDoesNotLookInApplicators1 extends JsonSchema<AdditionalpropertiesDoesNotLookInApplicators1Boxed> implements NullSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid>, BooleanSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean>, NumberSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber>, StringSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AdditionalpropertiesDoesNotLookInApplicators1BoxedList>, MapSchemaValidator<AdditionalpropertiesDoesNotLookInApplicatorsMap, AdditionalpropertiesDoesNotLookInApplicators1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -695,11 +666,11 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -730,11 +701,11 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof Boolean)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -815,6 +786,25 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
         @Override
         public AdditionalpropertiesDoesNotLookInApplicators1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalpropertiesDoesNotLookInApplicators1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalpropertiesDoesNotLookInApplicators1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

@@ -18,21 +18,17 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DecimalJsonSchema {
-    public static abstract sealed class DecimalJsonSchema1Boxed permits DecimalJsonSchema1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface DecimalJsonSchema1Boxed permits DecimalJsonSchema1BoxedString {
+        @Nullable Object getData();
     }
-    public static final class DecimalJsonSchema1BoxedString extends DecimalJsonSchema1Boxed {
-        public final String data;
-        private DecimalJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record DecimalJsonSchema1BoxedString(String data) implements DecimalJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
 
-    public static class DecimalJsonSchema1 extends JsonSchema implements StringSchemaValidator<DecimalJsonSchema1BoxedString> {
+    public static class DecimalJsonSchema1 extends JsonSchema<DecimalJsonSchema1Boxed> implements StringSchemaValidator<DecimalJsonSchema1BoxedString> {
         private static @Nullable DecimalJsonSchema1 instance = null;
 
         protected DecimalJsonSchema1() {
@@ -79,6 +75,14 @@ public class DecimalJsonSchema {
         @Override
         public DecimalJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DecimalJsonSchema1BoxedString(validate(arg, configuration));
+        }
+
+        @Override
+        public DecimalJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

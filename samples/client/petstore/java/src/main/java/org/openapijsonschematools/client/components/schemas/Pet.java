@@ -101,24 +101,20 @@ public class Pet {
     }
     
     
-    public static abstract sealed class PhotoUrlsBoxed permits PhotoUrlsBoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface PhotoUrlsBoxed permits PhotoUrlsBoxedList {
+        @Nullable Object getData();
     }
     
-    public static final class PhotoUrlsBoxedList extends PhotoUrlsBoxed {
-        public final PhotoUrlsList data;
-        private PhotoUrlsBoxedList(PhotoUrlsList data) {
-            this.data = data;
-        }
+    public record PhotoUrlsBoxedList(PhotoUrlsList data) implements PhotoUrlsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class PhotoUrls extends JsonSchema implements ListSchemaValidator<PhotoUrlsList, PhotoUrlsBoxedList> {
+    public static class PhotoUrls extends JsonSchema<PhotoUrlsBoxed> implements ListSchemaValidator<PhotoUrlsList, PhotoUrlsBoxedList> {
         private static @Nullable PhotoUrls instance = null;
     
         protected PhotoUrls() {
@@ -142,11 +138,11 @@ public class Pet {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof String)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -186,6 +182,13 @@ public class Pet {
         public PhotoUrlsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PhotoUrlsBoxedList(validate(arg, configuration));
         }
+        @Override
+        public PhotoUrlsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     public enum StringStatusEnums implements StringValueMethod {
         AVAILABLE("available"),
@@ -202,24 +205,20 @@ public class Pet {
     }
     
     
-    public static abstract sealed class StatusBoxed permits StatusBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface StatusBoxed permits StatusBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class StatusBoxedString extends StatusBoxed {
-        public final String data;
-        private StatusBoxedString(String data) {
-            this.data = data;
-        }
+    public record StatusBoxedString(String data) implements StatusBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Status extends JsonSchema implements StringSchemaValidator<StatusBoxedString>, StringEnumValidator<StringStatusEnums> {
+    public static class Status extends JsonSchema<StatusBoxed> implements StringSchemaValidator<StatusBoxedString>, StringEnumValidator<StringStatusEnums> {
         private static @Nullable Status instance = null;
     
         protected Status() {
@@ -276,6 +275,13 @@ public class Pet {
         public StatusBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new StatusBoxedString(validate(arg, configuration));
         }
+        @Override
+        public StatusBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class TagsList extends FrozenList<Tag.TagMap> {
@@ -310,24 +316,20 @@ public class Pet {
     }
     
     
-    public static abstract sealed class TagsBoxed permits TagsBoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface TagsBoxed permits TagsBoxedList {
+        @Nullable Object getData();
     }
     
-    public static final class TagsBoxedList extends TagsBoxed {
-        public final TagsList data;
-        private TagsBoxedList(TagsList data) {
-            this.data = data;
-        }
+    public record TagsBoxedList(TagsList data) implements TagsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Tags extends JsonSchema implements ListSchemaValidator<TagsList, TagsBoxedList> {
+    public static class Tags extends JsonSchema<TagsBoxed> implements ListSchemaValidator<TagsList, TagsBoxedList> {
         private static @Nullable Tags instance = null;
     
         protected Tags() {
@@ -351,11 +353,11 @@ public class Pet {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof Tag.TagMap)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -394,6 +396,13 @@ public class Pet {
         @Override
         public TagsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new TagsBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public TagsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -650,23 +659,19 @@ public class Pet {
     }
     
     
-    public static abstract sealed class Pet1Boxed permits Pet1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Pet1Boxed permits Pet1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class Pet1BoxedMap extends Pet1Boxed {
-        public final PetMap data;
-        private Pet1BoxedMap(PetMap data) {
-            this.data = data;
-        }
+    public record Pet1BoxedMap(PetMap data) implements Pet1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Pet1 extends JsonSchema implements MapSchemaValidator<PetMap, Pet1BoxedMap> {
+    public static class Pet1 extends JsonSchema<Pet1Boxed> implements MapSchemaValidator<PetMap, Pet1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -713,11 +718,11 @@ public class Pet {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -753,6 +758,13 @@ public class Pet {
         @Override
         public Pet1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Pet1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public Pet1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

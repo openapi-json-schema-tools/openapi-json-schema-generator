@@ -734,7 +734,7 @@ public class DefaultGenerator implements Generator {
 
     public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
-    public String getPascalCaseResponse(String componentName) { return toModelName(componentName, null); }
+    public String getPascalCaseResponse(String componentName, String jsonPath) { return toModelName(componentName, null); }
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
@@ -3109,7 +3109,8 @@ public class DefaultGenerator implements Generator {
         TreeSet<String> finalImports = imports;
         CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath + "/" + "Headers", sourceJsonPath + "/" + "Headers");
         String pathFromDocRoot = responsePathFromDocRoot(sourceJsonPath);
-        r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule, pathFromDocRoot);
+        String subpackage = getSubpackage(sourceJsonPath);
+        r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule, pathFromDocRoot, subpackage);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }
@@ -3774,8 +3775,7 @@ public class DefaultGenerator implements Generator {
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
-            String responseJsonPath = "#/components/responses/" + pathPieces[3];
-            pathPieces[3] = toResponseModuleName(pathPieces[3], responseJsonPath);
+            pathPieces[3] = toResponseModuleName(pathPieces[3], jsonPath);
 
             if (pathPieces.length == 5 && pathPieces[4].equals("Headers")) {
                 // synthetic json path
@@ -3821,7 +3821,6 @@ public class DefaultGenerator implements Generator {
             return;
         }
         // #/paths/somePath
-        String path = pathPieces[2];
         pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), null);
         if (pathPieces.length < 4) {
             return;
@@ -3899,8 +3898,7 @@ public class DefaultGenerator implements Generator {
                 return;
             }
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
-            String responseJsonPath = "#/paths/" + path + "/" + pathPieces[3] + "/responses/" +  pathPieces[5];
-            pathPieces[5] = toResponseModuleName(pathPieces[5], responseJsonPath);
+            pathPieces[5] = toResponseModuleName(pathPieces[5], jsonPath);
             if (pathPieces.length == 7 && pathPieces[6].equals("Headers")) {
                 // synthetic json path
                 // #/paths/user_login/get/responses/200/Headers
@@ -4893,7 +4891,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseResponse(usedKey);
+                pascalCaseName = getPascalCaseResponse(usedKey, sourceJsonPath);
                 break;
             case "securitySchemes":
                 usedKey = escapeUnsafeCharacters(key);

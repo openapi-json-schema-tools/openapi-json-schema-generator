@@ -48,24 +48,20 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedItemsBoxed permits ApplicationxwwwformurlencodedItemsBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedItemsBoxed permits ApplicationxwwwformurlencodedItemsBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedItemsBoxedString extends ApplicationxwwwformurlencodedItemsBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedItemsBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedItemsBoxedString(String data) implements ApplicationxwwwformurlencodedItemsBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedItems extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedItemsBoxedString>, StringEnumValidator<StringApplicationxwwwformurlencodedItemsEnums>, DefaultValueMethod<String> {
+    public static class ApplicationxwwwformurlencodedItems extends JsonSchema<ApplicationxwwwformurlencodedItemsBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedItemsBoxedString>, StringEnumValidator<StringApplicationxwwwformurlencodedItemsEnums>, DefaultValueMethod<String> {
         private static @Nullable ApplicationxwwwformurlencodedItems instance = null;
     
         protected ApplicationxwwwformurlencodedItems() {
@@ -128,6 +124,13 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedItemsBoxedString(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedItemsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class ApplicationxwwwformurlencodedEnumFormStringArrayList extends FrozenList<String> {
@@ -167,24 +170,20 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedEnumFormStringArrayBoxed permits ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedEnumFormStringArrayBoxed permits ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList extends ApplicationxwwwformurlencodedEnumFormStringArrayBoxed {
-        public final ApplicationxwwwformurlencodedEnumFormStringArrayList data;
-        private ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList(ApplicationxwwwformurlencodedEnumFormStringArrayList data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList(ApplicationxwwwformurlencodedEnumFormStringArrayList data) implements ApplicationxwwwformurlencodedEnumFormStringArrayBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedEnumFormStringArray extends JsonSchema implements ListSchemaValidator<ApplicationxwwwformurlencodedEnumFormStringArrayList, ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList> {
+    public static class ApplicationxwwwformurlencodedEnumFormStringArray extends JsonSchema<ApplicationxwwwformurlencodedEnumFormStringArrayBoxed> implements ListSchemaValidator<ApplicationxwwwformurlencodedEnumFormStringArrayList, ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList> {
         private static @Nullable ApplicationxwwwformurlencodedEnumFormStringArray instance = null;
     
         protected ApplicationxwwwformurlencodedEnumFormStringArray() {
@@ -208,11 +207,11 @@ public class ApplicationxwwwformurlencodedSchema {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof String)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -252,6 +251,13 @@ public class ApplicationxwwwformurlencodedSchema {
         public ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList(validate(arg, configuration));
         }
+        @Override
+        public ApplicationxwwwformurlencodedEnumFormStringArrayBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     public enum StringApplicationxwwwformurlencodedEnumFormStringEnums implements StringValueMethod {
         _ABC("_abc"),
@@ -268,24 +274,20 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedEnumFormStringBoxed permits ApplicationxwwwformurlencodedEnumFormStringBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedEnumFormStringBoxed permits ApplicationxwwwformurlencodedEnumFormStringBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedEnumFormStringBoxedString extends ApplicationxwwwformurlencodedEnumFormStringBoxed {
-        public final String data;
-        private ApplicationxwwwformurlencodedEnumFormStringBoxedString(String data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedEnumFormStringBoxedString(String data) implements ApplicationxwwwformurlencodedEnumFormStringBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class ApplicationxwwwformurlencodedEnumFormString extends JsonSchema implements StringSchemaValidator<ApplicationxwwwformurlencodedEnumFormStringBoxedString>, StringEnumValidator<StringApplicationxwwwformurlencodedEnumFormStringEnums>, DefaultValueMethod<String> {
+    public static class ApplicationxwwwformurlencodedEnumFormString extends JsonSchema<ApplicationxwwwformurlencodedEnumFormStringBoxed> implements StringSchemaValidator<ApplicationxwwwformurlencodedEnumFormStringBoxedString>, StringEnumValidator<StringApplicationxwwwformurlencodedEnumFormStringEnums>, DefaultValueMethod<String> {
         private static @Nullable ApplicationxwwwformurlencodedEnumFormString instance = null;
     
         protected ApplicationxwwwformurlencodedEnumFormString() {
@@ -348,6 +350,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedEnumFormStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedEnumFormStringBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedEnumFormStringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -449,23 +458,19 @@ public class ApplicationxwwwformurlencodedSchema {
     }
     
     
-    public static abstract sealed class ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ApplicationxwwwformurlencodedSchema1Boxed permits ApplicationxwwwformurlencodedSchema1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ApplicationxwwwformurlencodedSchema1BoxedMap extends ApplicationxwwwformurlencodedSchema1Boxed {
-        public final ApplicationxwwwformurlencodedSchemaMap data;
-        private ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) {
-            this.data = data;
-        }
+    public record ApplicationxwwwformurlencodedSchema1BoxedMap(ApplicationxwwwformurlencodedSchemaMap data) implements ApplicationxwwwformurlencodedSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
+    public static class ApplicationxwwwformurlencodedSchema1 extends JsonSchema<ApplicationxwwwformurlencodedSchema1Boxed> implements MapSchemaValidator<ApplicationxwwwformurlencodedSchemaMap, ApplicationxwwwformurlencodedSchema1BoxedMap> {
         private static @Nullable ApplicationxwwwformurlencodedSchema1 instance = null;
     
         protected ApplicationxwwwformurlencodedSchema1() {
@@ -496,11 +501,11 @@ public class ApplicationxwwwformurlencodedSchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -536,6 +541,13 @@ public class ApplicationxwwwformurlencodedSchema {
         @Override
         public ApplicationxwwwformurlencodedSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ApplicationxwwwformurlencodedSchema1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ApplicationxwwwformurlencodedSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

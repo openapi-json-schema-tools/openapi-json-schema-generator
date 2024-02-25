@@ -4,7 +4,7 @@ public class ApiResponseSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,43 +12,44 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ApiResponseSchema.ApiResponseSchema1Boxed](#apiresponseschema1boxed)<br> abstract sealed validated payload class |
-| static class | [ApiResponseSchema.ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ApiResponseSchema.ApiResponseSchema1Boxed](#apiresponseschema1boxed)<br> sealed interface for validated payloads |
+| record | [ApiResponseSchema.ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ApiResponseSchema.ApiResponseSchema1](#apiresponseschema1)<br> schema class |
 | static class | [ApiResponseSchema.ApiResponseMapBuilder](#apiresponsemapbuilder)<br> builder for Map payloads |
 | static class | [ApiResponseSchema.ApiResponseMap](#apiresponsemap)<br> output class for Map payloads |
-| static class | [ApiResponseSchema.MessageBoxed](#messageboxed)<br> abstract sealed validated payload class |
-| static class | [ApiResponseSchema.MessageBoxedString](#messageboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ApiResponseSchema.MessageBoxed](#messageboxed)<br> sealed interface for validated payloads |
+| record | [ApiResponseSchema.MessageBoxedString](#messageboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApiResponseSchema.Message](#message)<br> schema class |
-| static class | [ApiResponseSchema.TypeBoxed](#typeboxed)<br> abstract sealed validated payload class |
-| static class | [ApiResponseSchema.TypeBoxedString](#typeboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [ApiResponseSchema.TypeBoxed](#typeboxed)<br> sealed interface for validated payloads |
+| record | [ApiResponseSchema.TypeBoxedString](#typeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApiResponseSchema.Type](#type)<br> schema class |
-| static class | [ApiResponseSchema.CodeBoxed](#codeboxed)<br> abstract sealed validated payload class |
-| static class | [ApiResponseSchema.CodeBoxedNumber](#codeboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [ApiResponseSchema.CodeBoxed](#codeboxed)<br> sealed interface for validated payloads |
+| record | [ApiResponseSchema.CodeBoxedNumber](#codeboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ApiResponseSchema.Code](#code)<br> schema class |
 
 ## ApiResponseSchema1Boxed
-public static abstract sealed class ApiResponseSchema1Boxed<br>
+public sealed interface ApiResponseSchema1Boxed<br>
 permits<br>
 [ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ApiResponseSchema1BoxedMap
-public static final class ApiResponseSchema1BoxedMap<br>
-extends [ApiResponseSchema1Boxed](#apiresponseschema1boxed)
+public record ApiResponseSchema1BoxedMap<br>
+implements [ApiResponseSchema1Boxed](#apiresponseschema1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ApiResponseSchema1BoxedMap([ApiResponseMap](#apiresponsemap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApiResponseMap](#apiresponsemap) | data<br>validated payload |
+| [ApiResponseMap](#apiresponsemap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ApiResponseSchema1
 public static class ApiResponseSchema1<br>
@@ -97,7 +98,9 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ApiResponseMap](#apiresponsemap) | validate([Map&lt;?, ?&gt;](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
 | [ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
+| [ApiResponseSchema1Boxed](#apiresponseschema1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ApiResponseMapBuilder
 public class ApiResponseMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -143,27 +146,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MessageBoxed
-public static abstract sealed class MessageBoxed<br>
+public sealed interface MessageBoxed<br>
 permits<br>
 [MessageBoxedString](#messageboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MessageBoxedString
-public static final class MessageBoxedString<br>
-extends [MessageBoxed](#messageboxed)
+public record MessageBoxedString<br>
+implements [MessageBoxed](#messageboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MessageBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Message
 public static class Message<br>
@@ -177,27 +181,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## TypeBoxed
-public static abstract sealed class TypeBoxed<br>
+public sealed interface TypeBoxed<br>
 permits<br>
 [TypeBoxedString](#typeboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## TypeBoxedString
-public static final class TypeBoxedString<br>
-extends [TypeBoxed](#typeboxed)
+public record TypeBoxedString<br>
+implements [TypeBoxed](#typeboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | TypeBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Type
 public static class Type<br>
@@ -211,27 +216,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## CodeBoxed
-public static abstract sealed class CodeBoxed<br>
+public sealed interface CodeBoxed<br>
 permits<br>
 [CodeBoxedNumber](#codeboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## CodeBoxedNumber
-public static final class CodeBoxedNumber<br>
-extends [CodeBoxed](#codeboxed)
+public record CodeBoxedNumber<br>
+implements [CodeBoxed](#codeboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CodeBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Code
 public static class Code<br>

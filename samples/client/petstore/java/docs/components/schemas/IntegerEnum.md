@@ -4,15 +4,15 @@ public class IntegerEnum<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerEnum.IntegerEnum1Boxed](#integerenum1boxed)<br> abstract sealed validated payload class |
-| static class | [IntegerEnum.IntegerEnum1BoxedNumber](#integerenum1boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [IntegerEnum.IntegerEnum1Boxed](#integerenum1boxed)<br> sealed interface for validated payloads |
+| record | [IntegerEnum.IntegerEnum1BoxedNumber](#integerenum1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerEnum.IntegerEnum1](#integerenum1)<br> schema class |
 | enum | [IntegerEnum.IntegerIntegerEnumEnums](#integerintegerenumenums)<br>Integer enum |
 | enum | [IntegerEnum.LongIntegerEnumEnums](#longintegerenumenums)<br>Long enum |
@@ -20,27 +20,28 @@ A class that contains necessary nested
 | enum | [IntegerEnum.DoubleIntegerEnumEnums](#doubleintegerenumenums)<br>Double enum |
 
 ## IntegerEnum1Boxed
-public static abstract sealed class IntegerEnum1Boxed<br>
+public sealed interface IntegerEnum1Boxed<br>
 permits<br>
 [IntegerEnum1BoxedNumber](#integerenum1boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IntegerEnum1BoxedNumber
-public static final class IntegerEnum1BoxedNumber<br>
-extends [IntegerEnum1Boxed](#integerenum1boxed)
+public record IntegerEnum1BoxedNumber<br>
+implements [IntegerEnum1Boxed](#integerenum1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IntegerEnum1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IntegerEnum1
 public static class IntegerEnum1<br>
@@ -82,7 +83,9 @@ int validatedPayload = IntegerEnum.IntegerEnum1.validate(
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | [IntegerEnum1BoxedNumber](#integerenum1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [IntegerEnum1Boxed](#integerenum1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## IntegerIntegerEnumEnums
 public enum IntegerIntegerEnumEnums<br>
 extends `Enum<IntegerIntegerEnumEnums>`

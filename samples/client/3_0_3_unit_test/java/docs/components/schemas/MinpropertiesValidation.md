@@ -4,23 +4,23 @@ public class MinpropertiesValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [MinpropertiesValidation.MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)<br> abstract sealed validated payload class |
-| static class | [MinpropertiesValidation.MinpropertiesValidation1BoxedVoid](#minpropertiesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [MinpropertiesValidation.MinpropertiesValidation1BoxedBoolean](#minpropertiesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [MinpropertiesValidation.MinpropertiesValidation1BoxedNumber](#minpropertiesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [MinpropertiesValidation.MinpropertiesValidation1BoxedString](#minpropertiesvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [MinpropertiesValidation.MinpropertiesValidation1BoxedList](#minpropertiesvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [MinpropertiesValidation.MinpropertiesValidation1BoxedMap](#minpropertiesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [MinpropertiesValidation.MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)<br> sealed interface for validated payloads |
+| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedVoid](#minpropertiesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedBoolean](#minpropertiesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedNumber](#minpropertiesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedString](#minpropertiesvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedList](#minpropertiesvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedMap](#minpropertiesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MinpropertiesValidation.MinpropertiesValidation1](#minpropertiesvalidation1)<br> schema class |
 
 ## MinpropertiesValidation1Boxed
-public static abstract sealed class MinpropertiesValidation1Boxed<br>
+public sealed interface MinpropertiesValidation1Boxed<br>
 permits<br>
 [MinpropertiesValidation1BoxedVoid](#minpropertiesvalidation1boxedvoid),
 [MinpropertiesValidation1BoxedBoolean](#minpropertiesvalidation1boxedboolean),
@@ -29,103 +29,109 @@ permits<br>
 [MinpropertiesValidation1BoxedList](#minpropertiesvalidation1boxedlist),
 [MinpropertiesValidation1BoxedMap](#minpropertiesvalidation1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## MinpropertiesValidation1BoxedVoid
-public static final class MinpropertiesValidation1BoxedVoid<br>
-extends [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
+public record MinpropertiesValidation1BoxedVoid<br>
+implements [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MinpropertiesValidation1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MinpropertiesValidation1BoxedBoolean
-public static final class MinpropertiesValidation1BoxedBoolean<br>
-extends [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
+public record MinpropertiesValidation1BoxedBoolean<br>
+implements [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MinpropertiesValidation1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MinpropertiesValidation1BoxedNumber
-public static final class MinpropertiesValidation1BoxedNumber<br>
-extends [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
+public record MinpropertiesValidation1BoxedNumber<br>
+implements [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MinpropertiesValidation1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MinpropertiesValidation1BoxedString
-public static final class MinpropertiesValidation1BoxedString<br>
-extends [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
+public record MinpropertiesValidation1BoxedString<br>
+implements [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MinpropertiesValidation1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MinpropertiesValidation1BoxedList
-public static final class MinpropertiesValidation1BoxedList<br>
-extends [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
+public record MinpropertiesValidation1BoxedList<br>
+implements [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MinpropertiesValidation1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MinpropertiesValidation1BoxedMap
-public static final class MinpropertiesValidation1BoxedMap<br>
-extends [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
+public record MinpropertiesValidation1BoxedMap<br>
+implements [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MinpropertiesValidation1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## MinpropertiesValidation1
 public static class MinpropertiesValidation1<br>
@@ -157,5 +163,7 @@ A schema class that validates payloads
 | [MinpropertiesValidation1BoxedBoolean](#minpropertiesvalidation1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [MinpropertiesValidation1BoxedMap](#minpropertiesvalidation1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [MinpropertiesValidation1BoxedList](#minpropertiesvalidation1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

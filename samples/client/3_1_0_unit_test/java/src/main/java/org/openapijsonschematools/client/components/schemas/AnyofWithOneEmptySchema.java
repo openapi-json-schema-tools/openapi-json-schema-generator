@@ -59,78 +59,54 @@ public class AnyofWithOneEmptySchema {
     }
     
     
-    public static abstract sealed class AnyofWithOneEmptySchema1Boxed permits AnyofWithOneEmptySchema1BoxedVoid, AnyofWithOneEmptySchema1BoxedBoolean, AnyofWithOneEmptySchema1BoxedNumber, AnyofWithOneEmptySchema1BoxedString, AnyofWithOneEmptySchema1BoxedList, AnyofWithOneEmptySchema1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AnyofWithOneEmptySchema1Boxed permits AnyofWithOneEmptySchema1BoxedVoid, AnyofWithOneEmptySchema1BoxedBoolean, AnyofWithOneEmptySchema1BoxedNumber, AnyofWithOneEmptySchema1BoxedString, AnyofWithOneEmptySchema1BoxedList, AnyofWithOneEmptySchema1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class AnyofWithOneEmptySchema1BoxedVoid extends AnyofWithOneEmptySchema1Boxed {
-        public final Void data;
-        private AnyofWithOneEmptySchema1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AnyofWithOneEmptySchema1BoxedVoid(Void data) implements AnyofWithOneEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyofWithOneEmptySchema1BoxedBoolean extends AnyofWithOneEmptySchema1Boxed {
-        public final boolean data;
-        private AnyofWithOneEmptySchema1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AnyofWithOneEmptySchema1BoxedBoolean(boolean data) implements AnyofWithOneEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyofWithOneEmptySchema1BoxedNumber extends AnyofWithOneEmptySchema1Boxed {
-        public final Number data;
-        private AnyofWithOneEmptySchema1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AnyofWithOneEmptySchema1BoxedNumber(Number data) implements AnyofWithOneEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyofWithOneEmptySchema1BoxedString extends AnyofWithOneEmptySchema1Boxed {
-        public final String data;
-        private AnyofWithOneEmptySchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record AnyofWithOneEmptySchema1BoxedString(String data) implements AnyofWithOneEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyofWithOneEmptySchema1BoxedList extends AnyofWithOneEmptySchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private AnyofWithOneEmptySchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyofWithOneEmptySchema1BoxedList(FrozenList<@Nullable Object> data) implements AnyofWithOneEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyofWithOneEmptySchema1BoxedMap extends AnyofWithOneEmptySchema1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AnyofWithOneEmptySchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyofWithOneEmptySchema1BoxedMap(FrozenMap<@Nullable Object> data) implements AnyofWithOneEmptySchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class AnyofWithOneEmptySchema1 extends JsonSchema implements NullSchemaValidator<AnyofWithOneEmptySchema1BoxedVoid>, BooleanSchemaValidator<AnyofWithOneEmptySchema1BoxedBoolean>, NumberSchemaValidator<AnyofWithOneEmptySchema1BoxedNumber>, StringSchemaValidator<AnyofWithOneEmptySchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AnyofWithOneEmptySchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AnyofWithOneEmptySchema1BoxedMap> {
+    public static class AnyofWithOneEmptySchema1 extends JsonSchema<AnyofWithOneEmptySchema1Boxed> implements NullSchemaValidator<AnyofWithOneEmptySchema1BoxedVoid>, BooleanSchemaValidator<AnyofWithOneEmptySchema1BoxedBoolean>, NumberSchemaValidator<AnyofWithOneEmptySchema1BoxedNumber>, StringSchemaValidator<AnyofWithOneEmptySchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AnyofWithOneEmptySchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AnyofWithOneEmptySchema1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -238,11 +214,11 @@ public class AnyofWithOneEmptySchema {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -273,11 +249,11 @@ public class AnyofWithOneEmptySchema {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -355,6 +331,25 @@ public class AnyofWithOneEmptySchema {
         @Override
         public AnyofWithOneEmptySchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyofWithOneEmptySchema1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public AnyofWithOneEmptySchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

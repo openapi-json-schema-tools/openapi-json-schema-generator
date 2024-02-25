@@ -142,34 +142,26 @@ public class User {
     }
     
     
-    public static abstract sealed class ObjectWithNoDeclaredPropsNullableBoxed permits ObjectWithNoDeclaredPropsNullableBoxedVoid, ObjectWithNoDeclaredPropsNullableBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ObjectWithNoDeclaredPropsNullableBoxed permits ObjectWithNoDeclaredPropsNullableBoxedVoid, ObjectWithNoDeclaredPropsNullableBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ObjectWithNoDeclaredPropsNullableBoxedVoid extends ObjectWithNoDeclaredPropsNullableBoxed {
-        public final Void data;
-        private ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data) implements ObjectWithNoDeclaredPropsNullableBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ObjectWithNoDeclaredPropsNullableBoxedMap extends ObjectWithNoDeclaredPropsNullableBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithNoDeclaredPropsNullableBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema implements NullSchemaValidator<ObjectWithNoDeclaredPropsNullableBoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithNoDeclaredPropsNullableBoxedMap> {
+    public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema<ObjectWithNoDeclaredPropsNullableBoxed> implements NullSchemaValidator<ObjectWithNoDeclaredPropsNullableBoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithNoDeclaredPropsNullableBoxedMap> {
         private static @Nullable ObjectWithNoDeclaredPropsNullable instance = null;
     
         protected ObjectWithNoDeclaredPropsNullable() {
@@ -210,11 +202,11 @@ public class User {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -259,6 +251,16 @@ public class User {
         public ObjectWithNoDeclaredPropsNullableBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ObjectWithNoDeclaredPropsNullableBoxedMap(validate(arg, configuration));
         }
+        @Override
+        public ObjectWithNoDeclaredPropsNullableBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
     public static class AnyTypeProp extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
@@ -283,78 +285,54 @@ public class User {
     }
     
     
-    public static abstract sealed class AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class AnyTypeExceptNullPropBoxedVoid extends AnyTypeExceptNullPropBoxed {
-        public final Void data;
-        private AnyTypeExceptNullPropBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedVoid(Void data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedBoolean extends AnyTypeExceptNullPropBoxed {
-        public final boolean data;
-        private AnyTypeExceptNullPropBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedBoolean(boolean data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedNumber extends AnyTypeExceptNullPropBoxed {
-        public final Number data;
-        private AnyTypeExceptNullPropBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedNumber(Number data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedString extends AnyTypeExceptNullPropBoxed {
-        public final String data;
-        private AnyTypeExceptNullPropBoxedString(String data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedString(String data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedList extends AnyTypeExceptNullPropBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class AnyTypeExceptNullPropBoxedMap extends AnyTypeExceptNullPropBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data) implements AnyTypeExceptNullPropBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class AnyTypeExceptNullProp extends JsonSchema implements NullSchemaValidator<AnyTypeExceptNullPropBoxedVoid>, BooleanSchemaValidator<AnyTypeExceptNullPropBoxedBoolean>, NumberSchemaValidator<AnyTypeExceptNullPropBoxedNumber>, StringSchemaValidator<AnyTypeExceptNullPropBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AnyTypeExceptNullPropBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AnyTypeExceptNullPropBoxedMap> {
+    public static class AnyTypeExceptNullProp extends JsonSchema<AnyTypeExceptNullPropBoxed> implements NullSchemaValidator<AnyTypeExceptNullPropBoxedVoid>, BooleanSchemaValidator<AnyTypeExceptNullPropBoxedBoolean>, NumberSchemaValidator<AnyTypeExceptNullPropBoxedNumber>, StringSchemaValidator<AnyTypeExceptNullPropBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AnyTypeExceptNullPropBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AnyTypeExceptNullPropBoxedMap> {
         private static @Nullable AnyTypeExceptNullProp instance = null;
     
         protected AnyTypeExceptNullProp() {
@@ -453,11 +431,11 @@ public class User {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -488,11 +466,11 @@ public class User {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -570,6 +548,25 @@ public class User {
         @Override
         public AnyTypeExceptNullPropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public AnyTypeExceptNullPropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -1118,23 +1115,19 @@ public class User {
     }
     
     
-    public static abstract sealed class User1Boxed permits User1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface User1Boxed permits User1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class User1BoxedMap extends User1Boxed {
-        public final UserMap data;
-        private User1BoxedMap(UserMap data) {
-            this.data = data;
-        }
+    public record User1BoxedMap(UserMap data) implements User1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class User1 extends JsonSchema implements MapSchemaValidator<UserMap, User1BoxedMap> {
+    public static class User1 extends JsonSchema<User1Boxed> implements MapSchemaValidator<UserMap, User1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -1182,11 +1175,11 @@ public class User {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -1222,6 +1215,13 @@ public class User {
         @Override
         public User1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new User1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public User1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

@@ -53,78 +53,54 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     
-    public static abstract sealed class FoBoxed permits FoBoxedVoid, FoBoxedBoolean, FoBoxedNumber, FoBoxedString, FoBoxedList, FoBoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface FoBoxed permits FoBoxedVoid, FoBoxedBoolean, FoBoxedNumber, FoBoxedString, FoBoxedList, FoBoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class FoBoxedVoid extends FoBoxed {
-        public final Void data;
-        private FoBoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record FoBoxedVoid(Void data) implements FoBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoBoxedBoolean extends FoBoxed {
-        public final boolean data;
-        private FoBoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record FoBoxedBoolean(boolean data) implements FoBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoBoxedNumber extends FoBoxed {
-        public final Number data;
-        private FoBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record FoBoxedNumber(Number data) implements FoBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoBoxedString extends FoBoxed {
-        public final String data;
-        private FoBoxedString(String data) {
-            this.data = data;
-        }
+    public record FoBoxedString(String data) implements FoBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoBoxedList extends FoBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private FoBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FoBoxedList(FrozenList<@Nullable Object> data) implements FoBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class FoBoxedMap extends FoBoxed {
-        public final FrozenMap<@Nullable Object> data;
-        private FoBoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FoBoxedMap(FrozenMap<@Nullable Object> data) implements FoBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Fo extends JsonSchema implements NullSchemaValidator<FoBoxedVoid>, BooleanSchemaValidator<FoBoxedBoolean>, NumberSchemaValidator<FoBoxedNumber>, StringSchemaValidator<FoBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FoBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FoBoxedMap> {
+    public static class Fo extends JsonSchema<FoBoxed> implements NullSchemaValidator<FoBoxedVoid>, BooleanSchemaValidator<FoBoxedBoolean>, NumberSchemaValidator<FoBoxedNumber>, StringSchemaValidator<FoBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FoBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FoBoxedMap> {
         private static @Nullable Fo instance = null;
     
         protected Fo() {
@@ -223,11 +199,11 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -258,11 +234,11 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -341,26 +317,41 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         public FoBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FoBoxedMap(validate(arg, configuration));
         }
+        @Override
+        public FoBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class FooBoxed permits FooBoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface FooBoxed permits FooBoxedList {
+        @Nullable Object getData();
     }
     
-    public static final class FooBoxedList extends FooBoxed {
-        public final FrozenList<@Nullable Object> data;
-        private FooBoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record FooBoxedList(FrozenList<@Nullable Object> data) implements FooBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Foo extends JsonSchema implements ListSchemaValidator<FrozenList<@Nullable Object>, FooBoxedList> {
+    public static class Foo extends JsonSchema<FooBoxed> implements ListSchemaValidator<FrozenList<@Nullable Object>, FooBoxedList> {
         private static @Nullable Foo instance = null;
     
         protected Foo() {
@@ -384,11 +375,11 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -424,6 +415,13 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         @Override
         public FooBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FooBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public FooBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -567,23 +565,19 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     
-    public static abstract sealed class PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed permits PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed permits PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap extends PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed {
-        public final PropertiesPatternpropertiesAdditionalpropertiesInteractionMap data;
-        private PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap(PropertiesPatternpropertiesAdditionalpropertiesInteractionMap data) {
-            this.data = data;
-        }
+    public record PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap(PropertiesPatternpropertiesAdditionalpropertiesInteractionMap data) implements PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class PropertiesPatternpropertiesAdditionalpropertiesInteraction1 extends JsonSchema implements MapSchemaValidator<PropertiesPatternpropertiesAdditionalpropertiesInteractionMap, PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap> {
+    public static class PropertiesPatternpropertiesAdditionalpropertiesInteraction1 extends JsonSchema<PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed> implements MapSchemaValidator<PropertiesPatternpropertiesAdditionalpropertiesInteractionMap, PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -624,11 +618,11 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof Object)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -667,6 +661,13 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         @Override
         public PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

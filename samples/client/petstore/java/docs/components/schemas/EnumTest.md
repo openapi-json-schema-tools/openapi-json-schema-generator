@@ -4,7 +4,7 @@ public class EnumTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -13,54 +13,55 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [EnumTest.EnumTest1Boxed](#enumtest1boxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumTest1BoxedMap](#enumtest1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [EnumTest.EnumTest1Boxed](#enumtest1boxed)<br> sealed interface for validated payloads |
+| record | [EnumTest.EnumTest1BoxedMap](#enumtest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EnumTest.EnumTest1](#enumtest1)<br> schema class |
 | static class | [EnumTest.EnumTestMapBuilder](#enumtestmapbuilder)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
-| static class | [EnumTest.EnumNumberBoxed](#enumnumberboxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumNumberBoxedNumber](#enumnumberboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [EnumTest.EnumNumberBoxed](#enumnumberboxed)<br> sealed interface for validated payloads |
+| record | [EnumTest.EnumNumberBoxedNumber](#enumnumberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
 | enum | [EnumTest.DoubleEnumNumberEnums](#doubleenumnumberenums)<br>Double enum |
 | enum | [EnumTest.FloatEnumNumberEnums](#floatenumnumberenums)<br>Float enum |
-| static class | [EnumTest.EnumIntegerBoxed](#enumintegerboxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumIntegerBoxedNumber](#enumintegerboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [EnumTest.EnumIntegerBoxed](#enumintegerboxed)<br> sealed interface for validated payloads |
+| record | [EnumTest.EnumIntegerBoxedNumber](#enumintegerboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
 | enum | [EnumTest.IntegerEnumIntegerEnums](#integerenumintegerenums)<br>Integer enum |
 | enum | [EnumTest.LongEnumIntegerEnums](#longenumintegerenums)<br>Long enum |
 | enum | [EnumTest.FloatEnumIntegerEnums](#floatenumintegerenums)<br>Float enum |
 | enum | [EnumTest.DoubleEnumIntegerEnums](#doubleenumintegerenums)<br>Double enum |
-| static class | [EnumTest.EnumStringRequiredBoxed](#enumstringrequiredboxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [EnumTest.EnumStringRequiredBoxed](#enumstringrequiredboxed)<br> sealed interface for validated payloads |
+| record | [EnumTest.EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumTest.EnumStringRequired](#enumstringrequired)<br> schema class |
 | enum | [EnumTest.StringEnumStringRequiredEnums](#stringenumstringrequiredenums)<br>String enum |
-| static class | [EnumTest.EnumStringBoxed](#enumstringboxed)<br> abstract sealed validated payload class |
-| static class | [EnumTest.EnumStringBoxedString](#enumstringboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [EnumTest.EnumStringBoxed](#enumstringboxed)<br> sealed interface for validated payloads |
+| record | [EnumTest.EnumStringBoxedString](#enumstringboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumTest.EnumString](#enumstring)<br> schema class |
 | enum | [EnumTest.StringEnumStringEnums](#stringenumstringenums)<br>String enum |
 
 ## EnumTest1Boxed
-public static abstract sealed class EnumTest1Boxed<br>
+public sealed interface EnumTest1Boxed<br>
 permits<br>
 [EnumTest1BoxedMap](#enumtest1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumTest1BoxedMap
-public static final class EnumTest1BoxedMap<br>
-extends [EnumTest1Boxed](#enumtest1boxed)
+public record EnumTest1BoxedMap<br>
+implements [EnumTest1Boxed](#enumtest1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumTest1BoxedMap([EnumTestMap](#enumtestmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumTestMap](#enumtestmap) | data<br>validated payload |
+| [EnumTestMap](#enumtestmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumTest1
 public static class EnumTest1<br>
@@ -112,7 +113,9 @@ EnumTest.EnumTestMap validatedPayload =
 | ----------------- | ---------------------- |
 | [EnumTestMap](#enumtestmap) | validate([Map&lt;?, ?&gt;](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
 | [EnumTest1BoxedMap](#enumtest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumTest1Boxed](#enumtest1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## EnumTestMap0Builder
 public class EnumTestMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -221,27 +224,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## EnumNumberBoxed
-public static abstract sealed class EnumNumberBoxed<br>
+public sealed interface EnumNumberBoxed<br>
 permits<br>
 [EnumNumberBoxedNumber](#enumnumberboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumNumberBoxedNumber
-public static final class EnumNumberBoxedNumber<br>
-extends [EnumNumberBoxed](#enumnumberboxed)
+public record EnumNumberBoxedNumber<br>
+implements [EnumNumberBoxed](#enumnumberboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumNumberBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumNumber
 public static class EnumNumber<br>
@@ -283,7 +287,9 @@ double validatedPayload = EnumTest.EnumNumber.validate(
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | [EnumNumberBoxedNumber](#enumnumberboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [EnumNumberBoxed](#enumnumberboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## DoubleEnumNumberEnums
 public enum DoubleEnumNumberEnums<br>
 extends `Enum<DoubleEnumNumberEnums>`
@@ -309,27 +315,28 @@ A class that stores Float enum values
 | NEGATIVE_1_PT_2 | value = -1.2f |
 
 ## EnumIntegerBoxed
-public static abstract sealed class EnumIntegerBoxed<br>
+public sealed interface EnumIntegerBoxed<br>
 permits<br>
 [EnumIntegerBoxedNumber](#enumintegerboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumIntegerBoxedNumber
-public static final class EnumIntegerBoxedNumber<br>
-extends [EnumIntegerBoxed](#enumintegerboxed)
+public record EnumIntegerBoxedNumber<br>
+implements [EnumIntegerBoxed](#enumintegerboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumIntegerBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumInteger
 public static class EnumInteger<br>
@@ -371,7 +378,9 @@ int validatedPayload = EnumTest.EnumInteger.validate(
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
 | [EnumIntegerBoxedNumber](#enumintegerboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [EnumIntegerBoxed](#enumintegerboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## IntegerEnumIntegerEnums
 public enum IntegerEnumIntegerEnums<br>
 extends `Enum<IntegerEnumIntegerEnums>`
@@ -421,27 +430,28 @@ A class that stores Double enum values
 | NEGATIVE_1 | value = -1.0d |
 
 ## EnumStringRequiredBoxed
-public static abstract sealed class EnumStringRequiredBoxed<br>
+public sealed interface EnumStringRequiredBoxed<br>
 permits<br>
 [EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumStringRequiredBoxedString
-public static final class EnumStringRequiredBoxedString<br>
-extends [EnumStringRequiredBoxed](#enumstringrequiredboxed)
+public record EnumStringRequiredBoxedString<br>
+implements [EnumStringRequiredBoxed](#enumstringrequiredboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumStringRequiredBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumStringRequired
 public static class EnumStringRequired<br>
@@ -483,7 +493,9 @@ String validatedPayload = EnumTest.EnumStringRequired.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumStringRequiredEnums](#stringenumstringrequiredenums) arg, SchemaConfiguration configuration) |
 | [EnumStringRequiredBoxedString](#enumstringrequiredboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [EnumStringRequiredBoxed](#enumstringrequiredboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringEnumStringRequiredEnums
 public enum StringEnumStringRequiredEnums<br>
 extends `Enum<StringEnumStringRequiredEnums>`
@@ -498,27 +510,28 @@ A class that stores String enum values
 | EMPTY | value = "" |
 
 ## EnumStringBoxed
-public static abstract sealed class EnumStringBoxed<br>
+public sealed interface EnumStringBoxed<br>
 permits<br>
 [EnumStringBoxedString](#enumstringboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumStringBoxedString
-public static final class EnumStringBoxedString<br>
-extends [EnumStringBoxed](#enumstringboxed)
+public record EnumStringBoxedString<br>
+implements [EnumStringBoxed](#enumstringboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumStringBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumString
 public static class EnumString<br>
@@ -560,7 +573,9 @@ String validatedPayload = EnumTest.EnumString.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumStringEnums](#stringenumstringenums) arg, SchemaConfiguration configuration) |
 | [EnumStringBoxedString](#enumstringboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [EnumStringBoxed](#enumstringboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringEnumStringEnums
 public enum StringEnumStringEnums<br>
 extends `Enum<StringEnumStringEnums>`

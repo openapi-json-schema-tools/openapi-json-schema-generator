@@ -35,78 +35,54 @@ public class ExclusiveminimumValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ExclusiveminimumValidation1Boxed permits ExclusiveminimumValidation1BoxedVoid, ExclusiveminimumValidation1BoxedBoolean, ExclusiveminimumValidation1BoxedNumber, ExclusiveminimumValidation1BoxedString, ExclusiveminimumValidation1BoxedList, ExclusiveminimumValidation1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface ExclusiveminimumValidation1Boxed permits ExclusiveminimumValidation1BoxedVoid, ExclusiveminimumValidation1BoxedBoolean, ExclusiveminimumValidation1BoxedNumber, ExclusiveminimumValidation1BoxedString, ExclusiveminimumValidation1BoxedList, ExclusiveminimumValidation1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class ExclusiveminimumValidation1BoxedVoid extends ExclusiveminimumValidation1Boxed {
-        public final Void data;
-        private ExclusiveminimumValidation1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record ExclusiveminimumValidation1BoxedVoid(Void data) implements ExclusiveminimumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusiveminimumValidation1BoxedBoolean extends ExclusiveminimumValidation1Boxed {
-        public final boolean data;
-        private ExclusiveminimumValidation1BoxedBoolean(boolean data) {
-            this.data = data;
-        }
+    public record ExclusiveminimumValidation1BoxedBoolean(boolean data) implements ExclusiveminimumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusiveminimumValidation1BoxedNumber extends ExclusiveminimumValidation1Boxed {
-        public final Number data;
-        private ExclusiveminimumValidation1BoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record ExclusiveminimumValidation1BoxedNumber(Number data) implements ExclusiveminimumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusiveminimumValidation1BoxedString extends ExclusiveminimumValidation1Boxed {
-        public final String data;
-        private ExclusiveminimumValidation1BoxedString(String data) {
-            this.data = data;
-        }
+    public record ExclusiveminimumValidation1BoxedString(String data) implements ExclusiveminimumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusiveminimumValidation1BoxedList extends ExclusiveminimumValidation1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ExclusiveminimumValidation1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ExclusiveminimumValidation1BoxedList(FrozenList<@Nullable Object> data) implements ExclusiveminimumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class ExclusiveminimumValidation1BoxedMap extends ExclusiveminimumValidation1Boxed {
-        public final FrozenMap<@Nullable Object> data;
-        private ExclusiveminimumValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ExclusiveminimumValidation1BoxedMap(FrozenMap<@Nullable Object> data) implements ExclusiveminimumValidation1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class ExclusiveminimumValidation1 extends JsonSchema implements NullSchemaValidator<ExclusiveminimumValidation1BoxedVoid>, BooleanSchemaValidator<ExclusiveminimumValidation1BoxedBoolean>, NumberSchemaValidator<ExclusiveminimumValidation1BoxedNumber>, StringSchemaValidator<ExclusiveminimumValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ExclusiveminimumValidation1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ExclusiveminimumValidation1BoxedMap> {
+    public static class ExclusiveminimumValidation1 extends JsonSchema<ExclusiveminimumValidation1Boxed> implements NullSchemaValidator<ExclusiveminimumValidation1BoxedVoid>, BooleanSchemaValidator<ExclusiveminimumValidation1BoxedBoolean>, NumberSchemaValidator<ExclusiveminimumValidation1BoxedNumber>, StringSchemaValidator<ExclusiveminimumValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ExclusiveminimumValidation1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ExclusiveminimumValidation1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -211,11 +187,11 @@ public class ExclusiveminimumValidation {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(itemInstance);
                 i += 1;
@@ -246,11 +222,11 @@ public class ExclusiveminimumValidation {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -328,6 +304,25 @@ public class ExclusiveminimumValidation {
         @Override
         public ExclusiveminimumValidation1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ExclusiveminimumValidation1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public ExclusiveminimumValidation1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Boolean booleanArg) {
+                boolean castArg = booleanArg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

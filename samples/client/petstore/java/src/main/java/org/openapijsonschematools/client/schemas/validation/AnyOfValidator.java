@@ -16,8 +16,8 @@ public class AnyOfValidator implements KeywordValidator {
             return null;
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        List<Class<? extends JsonSchema>> validatedAnyOfClasses = new ArrayList<>();
-        for(Class<? extends JsonSchema> anyOfClass: anyOf) {
+        List<Class<? extends JsonSchema<?>>> validatedAnyOfClasses = new ArrayList<>();
+        for(Class<? extends JsonSchema<?>> anyOfClass: anyOf) {
             if (anyOfClass == data.schema().getClass()) {
                 /*
                 optimistically assume that schema will pass validation
@@ -27,7 +27,7 @@ public class AnyOfValidator implements KeywordValidator {
                 continue;
             }
             try {
-                JsonSchema anyOfSchema = JsonSchemaFactory.getInstance(anyOfClass);
+                JsonSchema<?> anyOfSchema = JsonSchemaFactory.getInstance(anyOfClass);
                 PathToSchemasMap otherPathToSchemas = JsonSchema.validate(anyOfSchema, data.arg(), data.validationMetadata());
                 validatedAnyOfClasses.add(anyOfClass);
                 pathToSchemas.update(otherPathToSchemas);

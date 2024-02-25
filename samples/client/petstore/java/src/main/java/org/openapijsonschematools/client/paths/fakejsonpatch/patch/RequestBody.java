@@ -6,22 +6,27 @@ package org.openapijsonschematools.client.paths.fakejsonpatch.patch;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.GenericRequestBody;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.requestbody.content.applicationjsonpatchjson.ApplicationjsonpatchjsonSchema;
-import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits ApplicationjsonpatchjsonMediaType {}
 
-    public static class ApplicationjsonpatchjsonMediaType extends MediaType<ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1> {
+    public record ApplicationjsonpatchjsonMediaType(ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1, Void> {
         public ApplicationjsonpatchjsonMediaType() {
-            super(ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1.getInstance());
+            this(ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(
@@ -33,26 +38,15 @@ public class RequestBody {
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             ApplicationjsonpatchjsonRequestBody requestBody0 = (ApplicationjsonpatchjsonRequestBody) requestBody;
-            return serialize(requestBody0.contentType(), requestBody0.body().data());
+            return serialize(requestBody0.contentType(), requestBody0.body().getData());
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonpatchjsonRequestBody {}
-    public static final class ApplicationjsonpatchjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed> {
-        private final String contentType;
-        private final ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body;
-        public ApplicationjsonpatchjsonRequestBody(ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body) {
-            contentType = "application/json-patch+json";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationjsonpatchjsonRequestBody {}
+    public record ApplicationjsonpatchjsonRequestBody(ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body() {
-            return body;
+            return "application/json-patch+json";
         }
     }
 }

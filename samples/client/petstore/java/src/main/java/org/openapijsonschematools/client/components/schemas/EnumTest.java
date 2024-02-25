@@ -56,24 +56,20 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumStringBoxed permits EnumStringBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface EnumStringBoxed permits EnumStringBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class EnumStringBoxedString extends EnumStringBoxed {
-        public final String data;
-        private EnumStringBoxedString(String data) {
-            this.data = data;
-        }
+    public record EnumStringBoxedString(String data) implements EnumStringBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class EnumString extends JsonSchema implements StringSchemaValidator<EnumStringBoxedString>, StringEnumValidator<StringEnumStringEnums> {
+    public static class EnumString extends JsonSchema<EnumStringBoxed> implements StringSchemaValidator<EnumStringBoxedString>, StringEnumValidator<StringEnumStringEnums> {
         private static @Nullable EnumString instance = null;
     
         protected EnumString() {
@@ -130,6 +126,13 @@ public class EnumTest {
         public EnumStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumStringBoxedString(validate(arg, configuration));
         }
+        @Override
+        public EnumStringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     public enum StringEnumStringRequiredEnums implements StringValueMethod {
         UPPER("UPPER"),
@@ -146,24 +149,20 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class EnumStringRequiredBoxedString extends EnumStringRequiredBoxed {
-        public final String data;
-        private EnumStringRequiredBoxedString(String data) {
-            this.data = data;
-        }
+    public record EnumStringRequiredBoxedString(String data) implements EnumStringRequiredBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class EnumStringRequired extends JsonSchema implements StringSchemaValidator<EnumStringRequiredBoxedString>, StringEnumValidator<StringEnumStringRequiredEnums> {
+    public static class EnumStringRequired extends JsonSchema<EnumStringRequiredBoxed> implements StringSchemaValidator<EnumStringRequiredBoxedString>, StringEnumValidator<StringEnumStringRequiredEnums> {
         private static @Nullable EnumStringRequired instance = null;
     
         protected EnumStringRequired() {
@@ -220,6 +219,13 @@ public class EnumTest {
         public EnumStringRequiredBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumStringRequiredBoxedString(validate(arg, configuration));
         }
+        @Override
+        public EnumStringRequiredBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     public enum IntegerEnumIntegerEnums implements IntegerValueMethod {
         POSITIVE_1(1),
@@ -274,24 +280,20 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumIntegerBoxed permits EnumIntegerBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface EnumIntegerBoxed permits EnumIntegerBoxedNumber {
+        @Nullable Object getData();
     }
     
-    public static final class EnumIntegerBoxedNumber extends EnumIntegerBoxed {
-        public final Number data;
-        private EnumIntegerBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record EnumIntegerBoxedNumber(Number data) implements EnumIntegerBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class EnumInteger extends JsonSchema implements IntegerEnumValidator<IntegerEnumIntegerEnums>, LongEnumValidator<LongEnumIntegerEnums>, FloatEnumValidator<FloatEnumIntegerEnums>, DoubleEnumValidator<DoubleEnumIntegerEnums>, NumberSchemaValidator<EnumIntegerBoxedNumber> {
+    public static class EnumInteger extends JsonSchema<EnumIntegerBoxed> implements IntegerEnumValidator<IntegerEnumIntegerEnums>, LongEnumValidator<LongEnumIntegerEnums>, FloatEnumValidator<FloatEnumIntegerEnums>, DoubleEnumValidator<DoubleEnumIntegerEnums>, NumberSchemaValidator<EnumIntegerBoxedNumber> {
         private static @Nullable EnumInteger instance = null;
     
         protected EnumInteger() {
@@ -374,6 +376,13 @@ public class EnumTest {
         public EnumIntegerBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumIntegerBoxedNumber(validate(arg, configuration));
         }
+        @Override
+        public EnumIntegerBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     public enum DoubleEnumNumberEnums implements DoubleValueMethod {
         POSITIVE_1_PT_1(1.1d),
@@ -402,24 +411,20 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumNumberBoxed permits EnumNumberBoxedNumber {
-        public abstract @Nullable Object data();
+    public sealed interface EnumNumberBoxed permits EnumNumberBoxedNumber {
+        @Nullable Object getData();
     }
     
-    public static final class EnumNumberBoxedNumber extends EnumNumberBoxed {
-        public final Number data;
-        private EnumNumberBoxedNumber(Number data) {
-            this.data = data;
-        }
+    public record EnumNumberBoxedNumber(Number data) implements EnumNumberBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class EnumNumber extends JsonSchema implements FloatEnumValidator<FloatEnumNumberEnums>, DoubleEnumValidator<DoubleEnumNumberEnums>, NumberSchemaValidator<EnumNumberBoxedNumber> {
+    public static class EnumNumber extends JsonSchema<EnumNumberBoxed> implements FloatEnumValidator<FloatEnumNumberEnums>, DoubleEnumValidator<DoubleEnumNumberEnums>, NumberSchemaValidator<EnumNumberBoxedNumber> {
         private static @Nullable EnumNumber instance = null;
     
         protected EnumNumber() {
@@ -486,6 +491,13 @@ public class EnumTest {
         @Override
         public EnumNumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumNumberBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public EnumNumberBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Number castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -994,23 +1006,19 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumTest1Boxed permits EnumTest1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface EnumTest1Boxed permits EnumTest1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class EnumTest1BoxedMap extends EnumTest1Boxed {
-        public final EnumTestMap data;
-        private EnumTest1BoxedMap(EnumTestMap data) {
-            this.data = data;
-        }
+    public record EnumTest1BoxedMap(EnumTestMap data) implements EnumTest1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class EnumTest1 extends JsonSchema implements MapSchemaValidator<EnumTestMap, EnumTest1BoxedMap> {
+    public static class EnumTest1 extends JsonSchema<EnumTest1Boxed> implements MapSchemaValidator<EnumTestMap, EnumTest1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -1057,11 +1065,11 @@ public class EnumTest {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -1097,6 +1105,13 @@ public class EnumTest {
         @Override
         public EnumTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumTest1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public EnumTest1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

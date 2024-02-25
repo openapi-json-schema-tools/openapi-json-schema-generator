@@ -59,24 +59,20 @@ public class Variables {
     }
     
     
-    public static abstract sealed class VersionBoxed permits VersionBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface VersionBoxed permits VersionBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class VersionBoxedString extends VersionBoxed {
-        public final String data;
-        private VersionBoxedString(String data) {
-            this.data = data;
-        }
+    public record VersionBoxedString(String data) implements VersionBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Version extends JsonSchema implements StringSchemaValidator<VersionBoxedString>, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
+    public static class Version extends JsonSchema<VersionBoxed> implements StringSchemaValidator<VersionBoxedString>, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
         private static @Nullable Version instance = null;
     
         protected Version() {
@@ -138,6 +134,13 @@ public class Variables {
         @Override
         public VersionBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new VersionBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public VersionBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -205,23 +208,19 @@ public class Variables {
     }
     
     
-    public static abstract sealed class Variables1Boxed permits Variables1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Variables1Boxed permits Variables1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class Variables1BoxedMap extends Variables1Boxed {
-        public final VariablesMap data;
-        private Variables1BoxedMap(VariablesMap data) {
-            this.data = data;
-        }
+    public record Variables1BoxedMap(VariablesMap data) implements Variables1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Variables1 extends JsonSchema implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
+    public static class Variables1 extends JsonSchema<Variables1Boxed> implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
         private static @Nullable Variables1 instance = null;
     
         protected Variables1() {
@@ -255,11 +254,11 @@ public class Variables {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof String)) {
                     throw new InvalidTypeException("Invalid instantiated value");
@@ -298,6 +297,13 @@ public class Variables {
         @Override
         public Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Variables1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public Variables1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

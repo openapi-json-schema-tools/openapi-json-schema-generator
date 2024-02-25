@@ -4,7 +4,7 @@ public class Name<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,28 +12,28 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Name.Name1Boxed](#name1boxed)<br> abstract sealed validated payload class |
-| static class | [Name.Name1BoxedVoid](#name1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [Name.Name1BoxedBoolean](#name1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [Name.Name1BoxedNumber](#name1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [Name.Name1BoxedString](#name1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [Name.Name1BoxedList](#name1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [Name.Name1BoxedMap](#name1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [Name.Name1Boxed](#name1boxed)<br> sealed interface for validated payloads |
+| record | [Name.Name1BoxedVoid](#name1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [Name.Name1BoxedBoolean](#name1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Name.Name1BoxedNumber](#name1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [Name.Name1BoxedString](#name1boxedstring)<br> boxed class to store validated String payloads |
+| record | [Name.Name1BoxedList](#name1boxedlist)<br> boxed class to store validated List payloads |
+| record | [Name.Name1BoxedMap](#name1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Name.Name1](#name1)<br> schema class |
 | static class | [Name.NameMapBuilder1](#namemapbuilder1)<br> builder for Map payloads |
 | static class | [Name.NameMap](#namemap)<br> output class for Map payloads |
-| static class | [Name.PropertyBoxed](#propertyboxed)<br> abstract sealed validated payload class |
-| static class | [Name.PropertyBoxedString](#propertyboxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [Name.PropertyBoxed](#propertyboxed)<br> sealed interface for validated payloads |
+| record | [Name.PropertyBoxedString](#propertyboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Name.Property](#property)<br> schema class |
-| static class | [Name.SnakeCaseBoxed](#snakecaseboxed)<br> abstract sealed validated payload class |
-| static class | [Name.SnakeCaseBoxedNumber](#snakecaseboxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Name.SnakeCaseBoxed](#snakecaseboxed)<br> sealed interface for validated payloads |
+| record | [Name.SnakeCaseBoxedNumber](#snakecaseboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Name.SnakeCase](#snakecase)<br> schema class |
-| static class | [Name.Name2Boxed](#name2boxed)<br> abstract sealed validated payload class |
-| static class | [Name.Name2BoxedNumber](#name2boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [Name.Name2Boxed](#name2boxed)<br> sealed interface for validated payloads |
+| record | [Name.Name2BoxedNumber](#name2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Name.Name2](#name2)<br> schema class |
 
 ## Name1Boxed
-public static abstract sealed class Name1Boxed<br>
+public sealed interface Name1Boxed<br>
 permits<br>
 [Name1BoxedVoid](#name1boxedvoid),
 [Name1BoxedBoolean](#name1boxedboolean),
@@ -42,103 +42,109 @@ permits<br>
 [Name1BoxedList](#name1boxedlist),
 [Name1BoxedMap](#name1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Name1BoxedVoid
-public static final class Name1BoxedVoid<br>
-extends [Name1Boxed](#name1boxed)
+public record Name1BoxedVoid<br>
+implements [Name1Boxed](#name1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Name1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedBoolean
-public static final class Name1BoxedBoolean<br>
-extends [Name1Boxed](#name1boxed)
+public record Name1BoxedBoolean<br>
+implements [Name1Boxed](#name1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Name1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedNumber
-public static final class Name1BoxedNumber<br>
-extends [Name1Boxed](#name1boxed)
+public record Name1BoxedNumber<br>
+implements [Name1Boxed](#name1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Name1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedString
-public static final class Name1BoxedString<br>
-extends [Name1Boxed](#name1boxed)
+public record Name1BoxedString<br>
+implements [Name1Boxed](#name1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Name1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedList
-public static final class Name1BoxedList<br>
-extends [Name1Boxed](#name1boxed)
+public record Name1BoxedList<br>
+implements [Name1Boxed](#name1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Name1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1BoxedMap
-public static final class Name1BoxedMap<br>
-extends [Name1Boxed](#name1boxed)
+public record Name1BoxedMap<br>
+implements [Name1Boxed](#name1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Name1BoxedMap([NameMap](#namemap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NameMap](#namemap) | data<br>validated payload |
+| [NameMap](#namemap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name1
 public static class Name1<br>
@@ -174,7 +180,9 @@ Model for testing model name same as property name
 | [Name1BoxedBoolean](#name1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [Name1BoxedMap](#name1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#namemapbuilder1) arg, SchemaConfiguration configuration) |
 | [Name1BoxedList](#name1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [Name1Boxed](#name1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## NameMap0Builder
 public class NameMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -236,27 +244,28 @@ A class to store validated Map payloads
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## PropertyBoxed
-public static abstract sealed class PropertyBoxed<br>
+public sealed interface PropertyBoxed<br>
 permits<br>
 [PropertyBoxedString](#propertyboxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PropertyBoxedString
-public static final class PropertyBoxedString<br>
-extends [PropertyBoxed](#propertyboxed)
+public record PropertyBoxedString<br>
+implements [PropertyBoxed](#propertyboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PropertyBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Property
 public static class Property<br>
@@ -273,27 +282,28 @@ this is a reserved python keyword
 | validateAndBox                                                     |
 
 ## SnakeCaseBoxed
-public static abstract sealed class SnakeCaseBoxed<br>
+public sealed interface SnakeCaseBoxed<br>
 permits<br>
 [SnakeCaseBoxedNumber](#snakecaseboxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## SnakeCaseBoxedNumber
-public static final class SnakeCaseBoxedNumber<br>
-extends [SnakeCaseBoxed](#snakecaseboxed)
+public record SnakeCaseBoxedNumber<br>
+implements [SnakeCaseBoxed](#snakecaseboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SnakeCaseBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## SnakeCase
 public static class SnakeCase<br>
@@ -307,27 +317,28 @@ A schema class that validates payloads
 | validateAndBox                                                     |
 
 ## Name2Boxed
-public static abstract sealed class Name2Boxed<br>
+public sealed interface Name2Boxed<br>
 permits<br>
 [Name2BoxedNumber](#name2boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Name2BoxedNumber
-public static final class Name2BoxedNumber<br>
-extends [Name2Boxed](#name2boxed)
+public record Name2BoxedNumber<br>
+implements [Name2Boxed](#name2boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Name2BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Name2
 public static class Name2<br>

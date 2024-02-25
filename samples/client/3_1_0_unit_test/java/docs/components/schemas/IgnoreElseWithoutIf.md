@@ -4,33 +4,33 @@ public class IgnoreElseWithoutIf<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)<br> abstract sealed validated payload class |
-| static class | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedVoid](#ignoreelsewithoutif1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedBoolean](#ignoreelsewithoutif1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedNumber](#ignoreelsewithoutif1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedString](#ignoreelsewithoutif1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedList](#ignoreelsewithoutif1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedMap](#ignoreelsewithoutif1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)<br> sealed interface for validated payloads |
+| record | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedVoid](#ignoreelsewithoutif1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedBoolean](#ignoreelsewithoutif1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedNumber](#ignoreelsewithoutif1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedString](#ignoreelsewithoutif1boxedstring)<br> boxed class to store validated String payloads |
+| record | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedList](#ignoreelsewithoutif1boxedlist)<br> boxed class to store validated List payloads |
+| record | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedMap](#ignoreelsewithoutif1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1](#ignoreelsewithoutif1)<br> schema class |
-| static class | [IgnoreElseWithoutIf.ElseSchemaBoxed](#elseschemaboxed)<br> abstract sealed validated payload class |
-| static class | [IgnoreElseWithoutIf.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [IgnoreElseWithoutIf.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [IgnoreElseWithoutIf.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [IgnoreElseWithoutIf.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
-| static class | [IgnoreElseWithoutIf.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
-| static class | [IgnoreElseWithoutIf.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [IgnoreElseWithoutIf.ElseSchemaBoxed](#elseschemaboxed)<br> sealed interface for validated payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IgnoreElseWithoutIf.ElseSchema](#elseschema)<br> schema class |
 | enum | [IgnoreElseWithoutIf.StringElseConst](#stringelseconst)<br>String enum |
 
 ## IgnoreElseWithoutIf1Boxed
-public static abstract sealed class IgnoreElseWithoutIf1Boxed<br>
+public sealed interface IgnoreElseWithoutIf1Boxed<br>
 permits<br>
 [IgnoreElseWithoutIf1BoxedVoid](#ignoreelsewithoutif1boxedvoid),
 [IgnoreElseWithoutIf1BoxedBoolean](#ignoreelsewithoutif1boxedboolean),
@@ -39,103 +39,109 @@ permits<br>
 [IgnoreElseWithoutIf1BoxedList](#ignoreelsewithoutif1boxedlist),
 [IgnoreElseWithoutIf1BoxedMap](#ignoreelsewithoutif1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## IgnoreElseWithoutIf1BoxedVoid
-public static final class IgnoreElseWithoutIf1BoxedVoid<br>
-extends [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
+public record IgnoreElseWithoutIf1BoxedVoid<br>
+implements [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreElseWithoutIf1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreElseWithoutIf1BoxedBoolean
-public static final class IgnoreElseWithoutIf1BoxedBoolean<br>
-extends [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
+public record IgnoreElseWithoutIf1BoxedBoolean<br>
+implements [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreElseWithoutIf1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreElseWithoutIf1BoxedNumber
-public static final class IgnoreElseWithoutIf1BoxedNumber<br>
-extends [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
+public record IgnoreElseWithoutIf1BoxedNumber<br>
+implements [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreElseWithoutIf1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreElseWithoutIf1BoxedString
-public static final class IgnoreElseWithoutIf1BoxedString<br>
-extends [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
+public record IgnoreElseWithoutIf1BoxedString<br>
+implements [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreElseWithoutIf1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreElseWithoutIf1BoxedList
-public static final class IgnoreElseWithoutIf1BoxedList<br>
-extends [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
+public record IgnoreElseWithoutIf1BoxedList<br>
+implements [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreElseWithoutIf1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreElseWithoutIf1BoxedMap
-public static final class IgnoreElseWithoutIf1BoxedMap<br>
-extends [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
+public record IgnoreElseWithoutIf1BoxedMap<br>
+implements [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | IgnoreElseWithoutIf1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## IgnoreElseWithoutIf1
 public static class IgnoreElseWithoutIf1<br>
@@ -167,9 +173,11 @@ A schema class that validates payloads
 | [IgnoreElseWithoutIf1BoxedBoolean](#ignoreelsewithoutif1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [IgnoreElseWithoutIf1BoxedMap](#ignoreelsewithoutif1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [IgnoreElseWithoutIf1BoxedList](#ignoreelsewithoutif1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ElseSchemaBoxed
-public static abstract sealed class ElseSchemaBoxed<br>
+public sealed interface ElseSchemaBoxed<br>
 permits<br>
 [ElseSchemaBoxedVoid](#elseschemaboxedvoid),
 [ElseSchemaBoxedBoolean](#elseschemaboxedboolean),
@@ -178,103 +186,109 @@ permits<br>
 [ElseSchemaBoxedList](#elseschemaboxedlist),
 [ElseSchemaBoxedMap](#elseschemaboxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ElseSchemaBoxedVoid
-public static final class ElseSchemaBoxedVoid<br>
-extends [ElseSchemaBoxed](#elseschemaboxed)
+public record ElseSchemaBoxedVoid<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ElseSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ElseSchemaBoxedBoolean
-public static final class ElseSchemaBoxedBoolean<br>
-extends [ElseSchemaBoxed](#elseschemaboxed)
+public record ElseSchemaBoxedBoolean<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ElseSchemaBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ElseSchemaBoxedNumber
-public static final class ElseSchemaBoxedNumber<br>
-extends [ElseSchemaBoxed](#elseschemaboxed)
+public record ElseSchemaBoxedNumber<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ElseSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ElseSchemaBoxedString
-public static final class ElseSchemaBoxedString<br>
-extends [ElseSchemaBoxed](#elseschemaboxed)
+public record ElseSchemaBoxedString<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ElseSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ElseSchemaBoxedList
-public static final class ElseSchemaBoxedList<br>
-extends [ElseSchemaBoxed](#elseschemaboxed)
+public record ElseSchemaBoxedList<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ElseSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ElseSchemaBoxedMap
-public static final class ElseSchemaBoxedMap<br>
-extends [ElseSchemaBoxed](#elseschemaboxed)
+public record ElseSchemaBoxedMap<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ElseSchema
 public static class ElseSchema<br>
@@ -306,7 +320,9 @@ A schema class that validates payloads
 | [ElseSchemaBoxedBoolean](#elseschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [ElseSchemaBoxedMap](#elseschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [ElseSchemaBoxedList](#elseschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxed](#elseschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringElseConst
 public enum StringElseConst<br>
 extends `Enum<StringElseConst>`

@@ -21,21 +21,17 @@ import java.util.Objects;
 import java.util.Set;
 
 public class ListJsonSchema {
-    public static abstract sealed class ListJsonSchema1Boxed permits ListJsonSchema1BoxedList {
-        public abstract @Nullable Object data();
+    public sealed interface ListJsonSchema1Boxed permits ListJsonSchema1BoxedList {
+        @Nullable Object getData();
     }
-    public static final class ListJsonSchema1BoxedList extends ListJsonSchema1Boxed {
-        public final FrozenList<@Nullable Object> data;
-        private ListJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
-            this.data = data;
-        }
+    public record ListJsonSchema1BoxedList(FrozenList<@Nullable Object> data) implements ListJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
 
-    public static class ListJsonSchema1 extends JsonSchema implements ListSchemaValidator<FrozenList<@Nullable Object>, ListJsonSchema1BoxedList> {
+    public static class ListJsonSchema1 extends JsonSchema<ListJsonSchema1Boxed> implements ListSchemaValidator<FrozenList<@Nullable Object>, ListJsonSchema1BoxedList> {
         private static @Nullable ListJsonSchema1 instance = null;
 
         protected ListJsonSchema1() {
@@ -58,11 +54,11 @@ public class ListJsonSchema {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
@@ -100,6 +96,14 @@ public class ListJsonSchema {
         @Override
         public ListJsonSchema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ListJsonSchema1BoxedList(validate(arg, configuration));
+        }
+
+        @Override
+        public ListJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof List<?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

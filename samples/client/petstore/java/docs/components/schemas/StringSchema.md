@@ -4,38 +4,39 @@ public class StringSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [StringSchema.StringSchema1Boxed](#stringschema1boxed)<br> abstract sealed validated payload class |
-| static class | [StringSchema.StringSchema1BoxedString](#stringschema1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [StringSchema.StringSchema1Boxed](#stringschema1boxed)<br> sealed interface for validated payloads |
+| record | [StringSchema.StringSchema1BoxedString](#stringschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [StringSchema.StringSchema1](#stringschema1)<br> schema class |
 
 ## StringSchema1Boxed
-public static abstract sealed class StringSchema1Boxed<br>
+public sealed interface StringSchema1Boxed<br>
 permits<br>
 [StringSchema1BoxedString](#stringschema1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## StringSchema1BoxedString
-public static final class StringSchema1BoxedString<br>
-extends [StringSchema1Boxed](#stringschema1boxed)
+public record StringSchema1BoxedString<br>
+implements [StringSchema1Boxed](#stringschema1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringSchema1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## StringSchema1
 public static class StringSchema1<br>

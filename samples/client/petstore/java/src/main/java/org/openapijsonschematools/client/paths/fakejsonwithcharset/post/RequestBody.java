@@ -6,22 +6,27 @@ package org.openapijsonschematools.client.paths.fakejsonwithcharset.post;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.GenericRequestBody;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.requestbody.content.applicationjsoncharsetutf8.Applicationjsoncharsetutf8Schema;
-import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits Applicationjsoncharsetutf8MediaType {}
 
-    public static class Applicationjsoncharsetutf8MediaType extends MediaType<Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1> {
+    public record Applicationjsoncharsetutf8MediaType(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1 schema) implements SealedMediaType, MediaType<Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1, Void> {
         public Applicationjsoncharsetutf8MediaType() {
-            super(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1.getInstance());
+            this(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(
@@ -33,26 +38,15 @@ public class RequestBody {
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             Applicationjsoncharsetutf8RequestBody requestBody0 = (Applicationjsoncharsetutf8RequestBody) requestBody;
-            return serialize(requestBody0.contentType(), requestBody0.body().data());
+            return serialize(requestBody0.contentType(), requestBody0.body().getData());
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits Applicationjsoncharsetutf8RequestBody {}
-    public static final class Applicationjsoncharsetutf8RequestBody extends SealedRequestBody implements GenericRequestBody<Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed> {
-        private final String contentType;
-        private final Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed body;
-        public Applicationjsoncharsetutf8RequestBody(Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed body) {
-            contentType = "application/json; charset=utf-8";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits Applicationjsoncharsetutf8RequestBody {}
+    public record Applicationjsoncharsetutf8RequestBody(Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public Applicationjsoncharsetutf8Schema.AnyTypeJsonSchema1Boxed body() {
-            return body;
+            return "application/json; charset=utf-8";
         }
     }
 }

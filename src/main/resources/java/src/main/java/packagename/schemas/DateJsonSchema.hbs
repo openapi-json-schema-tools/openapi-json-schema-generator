@@ -19,21 +19,17 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DateJsonSchema {
-    public static abstract sealed class DateJsonSchema1Boxed permits DateJsonSchema1BoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface DateJsonSchema1Boxed permits DateJsonSchema1BoxedString {
+        @Nullable Object getData();
     }
-    public static final class DateJsonSchema1BoxedString extends DateJsonSchema1Boxed {
-        public final String data;
-        private DateJsonSchema1BoxedString(String data) {
-            this.data = data;
-        }
+    public record DateJsonSchema1BoxedString(String data) implements DateJsonSchema1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
 
-    public static class DateJsonSchema1 extends JsonSchema implements StringSchemaValidator<DateJsonSchema1BoxedString> {
+    public static class DateJsonSchema1 extends JsonSchema<DateJsonSchema1Boxed> implements StringSchemaValidator<DateJsonSchema1BoxedString> {
         private static @Nullable DateJsonSchema1 instance = null;
 
         protected DateJsonSchema1() {
@@ -86,6 +82,14 @@ public class DateJsonSchema {
         @Override
         public DateJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DateJsonSchema1BoxedString(validate(arg, configuration));
+        }
+
+        @Override
+        public DateJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

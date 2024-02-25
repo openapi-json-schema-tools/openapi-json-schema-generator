@@ -4,7 +4,7 @@ public class ReqPropsFromUnsetAddProps<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
@@ -12,34 +12,35 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed)<br> abstract sealed validated payload class |
-| static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed)<br> sealed interface for validated payloads |
+| record | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1](#reqpropsfromunsetaddprops1)<br> schema class |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMapBuilder](#reqpropsfromunsetaddpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap)<br> output class for Map payloads |
 
 ## ReqPropsFromUnsetAddProps1Boxed
-public static abstract sealed class ReqPropsFromUnsetAddProps1Boxed<br>
+public sealed interface ReqPropsFromUnsetAddProps1Boxed<br>
 permits<br>
 [ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ReqPropsFromUnsetAddProps1BoxedMap
-public static final class ReqPropsFromUnsetAddProps1BoxedMap<br>
-extends [ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed)
+public record ReqPropsFromUnsetAddProps1BoxedMap<br>
+implements [ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromUnsetAddProps1BoxedMap([ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | data<br>validated payload |
+| [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ReqPropsFromUnsetAddProps1
 public static class ReqPropsFromUnsetAddProps1<br>
@@ -82,7 +83,9 @@ ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map&lt;?, ?&gt;](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | [ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromUnsetAddProps1Boxed](#reqpropsfromunsetaddprops1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## ReqPropsFromUnsetAddPropsMap00Builder
 public class ReqPropsFromUnsetAddPropsMap00Builder<br>
 builder for `Map<String, @Nullable Object>`

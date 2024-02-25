@@ -4,25 +4,25 @@ public class ConstNulCharactersInStrings<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)<br> abstract sealed validated payload class |
-| static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedVoid](#constnulcharactersinstrings1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedNumber](#constnulcharactersinstrings1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedString](#constnulcharactersinstrings1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedList](#constnulcharactersinstrings1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)<br> sealed interface for validated payloads |
+| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedVoid](#constnulcharactersinstrings1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedNumber](#constnulcharactersinstrings1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedString](#constnulcharactersinstrings1boxedstring)<br> boxed class to store validated String payloads |
+| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedList](#constnulcharactersinstrings1boxedlist)<br> boxed class to store validated List payloads |
+| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1](#constnulcharactersinstrings1)<br> schema class |
 | enum | [ConstNulCharactersInStrings.StringConstNulCharactersInStringsConst](#stringconstnulcharactersinstringsconst)<br>String enum |
 
 ## ConstNulCharactersInStrings1Boxed
-public static abstract sealed class ConstNulCharactersInStrings1Boxed<br>
+public sealed interface ConstNulCharactersInStrings1Boxed<br>
 permits<br>
 [ConstNulCharactersInStrings1BoxedVoid](#constnulcharactersinstrings1boxedvoid),
 [ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean),
@@ -31,103 +31,109 @@ permits<br>
 [ConstNulCharactersInStrings1BoxedList](#constnulcharactersinstrings1boxedlist),
 [ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## ConstNulCharactersInStrings1BoxedVoid
-public static final class ConstNulCharactersInStrings1BoxedVoid<br>
-extends [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
+public record ConstNulCharactersInStrings1BoxedVoid<br>
+implements [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ConstNulCharactersInStrings1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ConstNulCharactersInStrings1BoxedBoolean
-public static final class ConstNulCharactersInStrings1BoxedBoolean<br>
-extends [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
+public record ConstNulCharactersInStrings1BoxedBoolean<br>
+implements [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ConstNulCharactersInStrings1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ConstNulCharactersInStrings1BoxedNumber
-public static final class ConstNulCharactersInStrings1BoxedNumber<br>
-extends [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
+public record ConstNulCharactersInStrings1BoxedNumber<br>
+implements [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ConstNulCharactersInStrings1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ConstNulCharactersInStrings1BoxedString
-public static final class ConstNulCharactersInStrings1BoxedString<br>
-extends [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
+public record ConstNulCharactersInStrings1BoxedString<br>
+implements [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ConstNulCharactersInStrings1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ConstNulCharactersInStrings1BoxedList
-public static final class ConstNulCharactersInStrings1BoxedList<br>
-extends [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
+public record ConstNulCharactersInStrings1BoxedList<br>
+implements [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ConstNulCharactersInStrings1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ConstNulCharactersInStrings1BoxedMap
-public static final class ConstNulCharactersInStrings1BoxedMap<br>
-extends [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
+public record ConstNulCharactersInStrings1BoxedMap<br>
+implements [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ConstNulCharactersInStrings1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## ConstNulCharactersInStrings1
 public static class ConstNulCharactersInStrings1<br>
@@ -159,7 +165,9 @@ A schema class that validates payloads
 | [ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [ConstNulCharactersInStrings1BoxedList](#constnulcharactersinstrings1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringConstNulCharactersInStringsConst
 public enum StringConstNulCharactersInStringsConst<br>
 extends `Enum<StringConstNulCharactersInStringsConst>`

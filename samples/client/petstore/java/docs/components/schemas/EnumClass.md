@@ -4,40 +4,41 @@ public class EnumClass<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [EnumClass.EnumClass1Boxed](#enumclass1boxed)<br> abstract sealed validated payload class |
-| static class | [EnumClass.EnumClass1BoxedString](#enumclass1boxedstring)<br> boxed class to store validated String payloads |
+| sealed interface | [EnumClass.EnumClass1Boxed](#enumclass1boxed)<br> sealed interface for validated payloads |
+| record | [EnumClass.EnumClass1BoxedString](#enumclass1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumClass.EnumClass1](#enumclass1)<br> schema class |
 | enum | [EnumClass.StringEnumClassEnums](#stringenumclassenums)<br>String enum |
 
 ## EnumClass1Boxed
-public static abstract sealed class EnumClass1Boxed<br>
+public sealed interface EnumClass1Boxed<br>
 permits<br>
 [EnumClass1BoxedString](#enumclass1boxedstring)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## EnumClass1BoxedString
-public static final class EnumClass1BoxedString<br>
-extends [EnumClass1Boxed](#enumclass1boxed)
+public record EnumClass1BoxedString<br>
+implements [EnumClass1Boxed](#enumclass1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumClass1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## EnumClass1
 public static class EnumClass1<br>
@@ -80,7 +81,9 @@ String validatedPayload = EnumClass.EnumClass1.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumClassEnums](#stringenumclassenums) arg, SchemaConfiguration configuration) |
 | [EnumClass1BoxedString](#enumclass1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [EnumClass1Boxed](#enumclass1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## StringEnumClassEnums
 public enum StringEnumClassEnums<br>
 extends `Enum<StringEnumClassEnums>`

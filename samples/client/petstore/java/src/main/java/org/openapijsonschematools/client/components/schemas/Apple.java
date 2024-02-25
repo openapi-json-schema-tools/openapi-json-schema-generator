@@ -31,24 +31,20 @@ public class Apple {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class CultivarBoxed permits CultivarBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface CultivarBoxed permits CultivarBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class CultivarBoxedString extends CultivarBoxed {
-        public final String data;
-        private CultivarBoxedString(String data) {
-            this.data = data;
-        }
+    public record CultivarBoxedString(String data) implements CultivarBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Cultivar extends JsonSchema implements StringSchemaValidator<CultivarBoxedString> {
+    public static class Cultivar extends JsonSchema<CultivarBoxed> implements StringSchemaValidator<CultivarBoxedString> {
         private static @Nullable Cultivar instance = null;
     
         protected Cultivar() {
@@ -98,26 +94,29 @@ public class Apple {
         public CultivarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new CultivarBoxedString(validate(arg, configuration));
         }
+        @Override
+        public CultivarBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }    
     
-    public static abstract sealed class OriginBoxed permits OriginBoxedString {
-        public abstract @Nullable Object data();
+    public sealed interface OriginBoxed permits OriginBoxedString {
+        @Nullable Object getData();
     }
     
-    public static final class OriginBoxedString extends OriginBoxed {
-        public final String data;
-        private OriginBoxedString(String data) {
-            this.data = data;
-        }
+    public record OriginBoxedString(String data) implements OriginBoxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
     
-    public static class Origin extends JsonSchema implements StringSchemaValidator<OriginBoxedString> {
+    public static class Origin extends JsonSchema<OriginBoxed> implements StringSchemaValidator<OriginBoxedString> {
         private static @Nullable Origin instance = null;
     
         protected Origin() {
@@ -167,6 +166,13 @@ public class Apple {
         @Override
         public OriginBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new OriginBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public OriginBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg instanceof String castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -271,34 +277,26 @@ public class Apple {
     }
     
     
-    public static abstract sealed class Apple1Boxed permits Apple1BoxedVoid, Apple1BoxedMap {
-        public abstract @Nullable Object data();
+    public sealed interface Apple1Boxed permits Apple1BoxedVoid, Apple1BoxedMap {
+        @Nullable Object getData();
     }
     
-    public static final class Apple1BoxedVoid extends Apple1Boxed {
-        public final Void data;
-        private Apple1BoxedVoid(Void data) {
-            this.data = data;
-        }
+    public record Apple1BoxedVoid(Void data) implements Apple1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
-    public static final class Apple1BoxedMap extends Apple1Boxed {
-        public final AppleMap data;
-        private Apple1BoxedMap(AppleMap data) {
-            this.data = data;
-        }
+    public record Apple1BoxedMap(AppleMap data) implements Apple1Boxed {
         @Override
-        public @Nullable Object data() {
+        public @Nullable Object getData() {
             return data;
         }
     }
     
     
-    public static class Apple1 extends JsonSchema implements NullSchemaValidator<Apple1BoxedVoid>, MapSchemaValidator<AppleMap, Apple1BoxedMap> {
+    public static class Apple1 extends JsonSchema<Apple1Boxed> implements NullSchemaValidator<Apple1BoxedVoid>, MapSchemaValidator<AppleMap, Apple1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -352,11 +350,11 @@ public class Apple {
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
                     throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
-                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, propertyInstance);
             }
@@ -400,6 +398,16 @@ public class Apple {
         @Override
         public Apple1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Apple1BoxedMap(validate(arg, configuration));
+        }
+        @Override
+        public Apple1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                Void castArg = (Void) arg;
+                return validateAndBox(castArg, configuration);
+            } else if (arg instanceof Map<?, ?> castArg) {
+                return validateAndBox(castArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

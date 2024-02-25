@@ -6,22 +6,27 @@ package org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.GenericRequestBody;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.requestbody.content.applicationoctetstream.ApplicationoctetstreamSchema;
-import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits ApplicationoctetstreamMediaType {}
 
-    public static class ApplicationoctetstreamMediaType extends MediaType<ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1> {
+    public record ApplicationoctetstreamMediaType(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1 schema) implements SealedMediaType, MediaType<ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1, Void> {
         public ApplicationoctetstreamMediaType() {
-            super(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1.getInstance());
+            this(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(
@@ -33,26 +38,15 @@ public class RequestBody {
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             ApplicationoctetstreamRequestBody requestBody0 = (ApplicationoctetstreamRequestBody) requestBody;
-            return serialize(requestBody0.contentType(), requestBody0.body().data());
+            return serialize(requestBody0.contentType(), requestBody0.body().getData());
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationoctetstreamRequestBody {}
-    public static final class ApplicationoctetstreamRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationoctetstreamSchema.StringJsonSchema1Boxed> {
-        private final String contentType;
-        private final ApplicationoctetstreamSchema.StringJsonSchema1Boxed body;
-        public ApplicationoctetstreamRequestBody(ApplicationoctetstreamSchema.StringJsonSchema1Boxed body) {
-            contentType = "application/octet-stream";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationoctetstreamRequestBody {}
+    public record ApplicationoctetstreamRequestBody(ApplicationoctetstreamSchema.StringJsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationoctetstreamSchema.StringJsonSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationoctetstreamSchema.StringJsonSchema1Boxed body() {
-            return body;
+            return "application/octet-stream";
         }
     }
 }

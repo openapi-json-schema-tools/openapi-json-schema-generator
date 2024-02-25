@@ -6,29 +6,38 @@ package org.openapijsonschematools.client.paths.fakemultiplerequestbodycontentty
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.GenericRequestBody;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.requestbody.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.requestbody.content.multipartformdata.MultipartformdataSchema;
-import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody {
+    public sealed interface SealedMediaType permits ApplicationjsonMediaType, MultipartformdataMediaType {}
 
-    public static class ApplicationjsonMediaType extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1> {
+    public record ApplicationjsonMediaType(ApplicationjsonSchema.ApplicationjsonSchema1 schema) implements SealedMediaType, MediaType<ApplicationjsonSchema.ApplicationjsonSchema1, Void> {
         public ApplicationjsonMediaType() {
-            super(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
+            this(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class MultipartformdataMediaType extends MediaType<MultipartformdataSchema.MultipartformdataSchema1> {
+    public record MultipartformdataMediaType(MultipartformdataSchema.MultipartformdataSchema1 schema) implements SealedMediaType, MediaType<MultipartformdataSchema.MultipartformdataSchema1, Void> {
         public MultipartformdataMediaType() {
-            super(MultipartformdataSchema.MultipartformdataSchema1.getInstance());
+            this(MultipartformdataSchema.MultipartformdataSchema1.getInstance());
+        }
+        @Override
+        public Void encoding() {
+            return null;
         }
     }
 
-    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
+    public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
         public RequestBody1() {
             super(
                 Map.ofEntries(
@@ -41,47 +50,25 @@ public class RequestBody {
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             if (requestBody instanceof ApplicationjsonRequestBody requestBody0) {
-                return serialize(requestBody0.contentType(), requestBody0.body().data());
+                return serialize(requestBody0.contentType(), requestBody0.body().getData());
             } else  {
                 MultipartformdataRequestBody requestBody1 = (MultipartformdataRequestBody) requestBody;
-                return serialize(requestBody1.contentType(), requestBody1.body().data());
+                return serialize(requestBody1.contentType(), requestBody1.body().getData());
             }
         }
     }
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody, MultipartformdataRequestBody {}
-    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
-        private final String contentType;
-        private final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
-        public ApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
-            contentType = "application/json";
-            this.body = body;
-        }
+    public sealed interface SealedRequestBody permits ApplicationjsonRequestBody, MultipartformdataRequestBody {}
+    public record ApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public ApplicationjsonSchema.ApplicationjsonSchema1Boxed body() {
-            return body;
+            return "application/json";
         }
     }
-    public static final class MultipartformdataRequestBody extends SealedRequestBody implements GenericRequestBody<MultipartformdataSchema.MultipartformdataSchema1Boxed> {
-        private final String contentType;
-        private final MultipartformdataSchema.MultipartformdataSchema1Boxed body;
-        public MultipartformdataRequestBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) {
-            contentType = "multipart/form-data";
-            this.body = body;
-        }
+    public record MultipartformdataRequestBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) implements SealedRequestBody, GenericRequestBody<MultipartformdataSchema.MultipartformdataSchema1Boxed> {
         @Override
         public String contentType() {
-            return contentType;
-        }
-
-        @Override
-        public MultipartformdataSchema.MultipartformdataSchema1Boxed body() {
-            return body;
+            return "multipart/form-data";
         }
     }
 }

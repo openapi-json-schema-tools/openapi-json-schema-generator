@@ -4,26 +4,26 @@ public class PatternpropertiesWithNullValuedInstanceProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)<br> abstract sealed validated payload class |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid](#patternpropertieswithnullvaluedinstanceproperties1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#patternpropertieswithnullvaluedinstanceproperties1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber](#patternpropertieswithnullvaluedinstanceproperties1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedString](#patternpropertieswithnullvaluedinstanceproperties1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedList](#patternpropertieswithnullvaluedinstanceproperties1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedMap](#patternpropertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)<br> sealed interface for validated payloads |
+| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid](#patternpropertieswithnullvaluedinstanceproperties1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#patternpropertieswithnullvaluedinstanceproperties1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber](#patternpropertieswithnullvaluedinstanceproperties1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedString](#patternpropertieswithnullvaluedinstanceproperties1boxedstring)<br> boxed class to store validated String payloads |
+| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedList](#patternpropertieswithnullvaluedinstanceproperties1boxedlist)<br> boxed class to store validated List payloads |
+| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedMap](#patternpropertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1](#patternpropertieswithnullvaluedinstanceproperties1)<br> schema class |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
+| sealed interface | [PatternpropertiesWithNullValuedInstanceProperties.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
+| record | [PatternpropertiesWithNullValuedInstanceProperties.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [PatternpropertiesWithNullValuedInstanceProperties.Bar](#bar)<br> schema class |
 
 ## PatternpropertiesWithNullValuedInstanceProperties1Boxed
-public static abstract sealed class PatternpropertiesWithNullValuedInstanceProperties1Boxed<br>
+public sealed interface PatternpropertiesWithNullValuedInstanceProperties1Boxed<br>
 permits<br>
 [PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid](#patternpropertieswithnullvaluedinstanceproperties1boxedvoid),
 [PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#patternpropertieswithnullvaluedinstanceproperties1boxedboolean),
@@ -32,103 +32,109 @@ permits<br>
 [PatternpropertiesWithNullValuedInstanceProperties1BoxedList](#patternpropertieswithnullvaluedinstanceproperties1boxedlist),
 [PatternpropertiesWithNullValuedInstanceProperties1BoxedMap](#patternpropertieswithnullvaluedinstanceproperties1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid
-public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid<br>
-extends [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
+public record PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid<br>
+implements [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean
-public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean<br>
-extends [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
+public record PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean<br>
+implements [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber
-public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber<br>
-extends [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
+public record PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber<br>
+implements [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PatternpropertiesWithNullValuedInstanceProperties1BoxedString
-public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedString<br>
-extends [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
+public record PatternpropertiesWithNullValuedInstanceProperties1BoxedString<br>
+implements [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PatternpropertiesWithNullValuedInstanceProperties1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PatternpropertiesWithNullValuedInstanceProperties1BoxedList
-public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedList<br>
-extends [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
+public record PatternpropertiesWithNullValuedInstanceProperties1BoxedList<br>
+implements [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PatternpropertiesWithNullValuedInstanceProperties1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenList<@Nullable Object> | data<br>validated payload |
+| FrozenList<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PatternpropertiesWithNullValuedInstanceProperties1BoxedMap
-public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedMap<br>
-extends [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
+public record PatternpropertiesWithNullValuedInstanceProperties1BoxedMap<br>
+implements [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PatternpropertiesWithNullValuedInstanceProperties1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## PatternpropertiesWithNullValuedInstanceProperties1
 public static class PatternpropertiesWithNullValuedInstanceProperties1<br>
@@ -160,29 +166,32 @@ A schema class that validates payloads
 | [PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#patternpropertieswithnullvaluedinstanceproperties1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [PatternpropertiesWithNullValuedInstanceProperties1BoxedMap](#patternpropertieswithnullvaluedinstanceproperties1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [PatternpropertiesWithNullValuedInstanceProperties1BoxedList](#patternpropertieswithnullvaluedinstanceproperties1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## BarBoxed
-public static abstract sealed class BarBoxed<br>
+public sealed interface BarBoxed<br>
 permits<br>
 [BarBoxedVoid](#barboxedvoid)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## BarBoxedVoid
-public static final class BarBoxedVoid<br>
-extends [BarBoxed](#barboxed)
+public record BarBoxedVoid<br>
+implements [BarBoxed](#barboxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BarBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Bar
 public static class Bar<br>

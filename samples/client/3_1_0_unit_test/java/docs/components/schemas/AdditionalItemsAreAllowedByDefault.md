@@ -4,7 +4,7 @@ public class AdditionalItemsAreAllowedByDefault<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- abstract sealed classes which store validated payloads, java version of a sum type
+- sealed interfaces which store validated payloads, java version of a sum type
 - boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -12,22 +12,22 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)<br> abstract sealed validated payload class |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedVoid](#additionalitemsareallowedbydefault1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedBoolean](#additionalitemsareallowedbydefault1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedNumber](#additionalitemsareallowedbydefault1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedString](#additionalitemsareallowedbydefault1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedList](#additionalitemsareallowedbydefault1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedMap](#additionalitemsareallowedbydefault1boxedmap)<br> boxed class to store validated Map payloads |
+| sealed interface | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)<br> sealed interface for validated payloads |
+| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedVoid](#additionalitemsareallowedbydefault1boxedvoid)<br> boxed class to store validated null payloads |
+| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedBoolean](#additionalitemsareallowedbydefault1boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedNumber](#additionalitemsareallowedbydefault1boxednumber)<br> boxed class to store validated Number payloads |
+| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedString](#additionalitemsareallowedbydefault1boxedstring)<br> boxed class to store validated String payloads |
+| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedList](#additionalitemsareallowedbydefault1boxedlist)<br> boxed class to store validated List payloads |
+| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedMap](#additionalitemsareallowedbydefault1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1](#additionalitemsareallowedbydefault1)<br> schema class |
-| static class | [AdditionalItemsAreAllowedByDefault.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
-| static class | [AdditionalItemsAreAllowedByDefault.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| sealed interface | [AdditionalItemsAreAllowedByDefault.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
+| record | [AdditionalItemsAreAllowedByDefault.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [AdditionalItemsAreAllowedByDefault.Schema0](#schema0)<br> schema class |
 | static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefaultListBuilder](#additionalitemsareallowedbydefaultlistbuilder)<br> builder for List payloads |
 | static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefaultList](#additionalitemsareallowedbydefaultlist)<br> output class for List payloads |
 
 ## AdditionalItemsAreAllowedByDefault1Boxed
-public static abstract sealed class AdditionalItemsAreAllowedByDefault1Boxed<br>
+public sealed interface AdditionalItemsAreAllowedByDefault1Boxed<br>
 permits<br>
 [AdditionalItemsAreAllowedByDefault1BoxedVoid](#additionalitemsareallowedbydefault1boxedvoid),
 [AdditionalItemsAreAllowedByDefault1BoxedBoolean](#additionalitemsareallowedbydefault1boxedboolean),
@@ -36,103 +36,109 @@ permits<br>
 [AdditionalItemsAreAllowedByDefault1BoxedList](#additionalitemsareallowedbydefault1boxedlist),
 [AdditionalItemsAreAllowedByDefault1BoxedMap](#additionalitemsareallowedbydefault1boxedmap)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## AdditionalItemsAreAllowedByDefault1BoxedVoid
-public static final class AdditionalItemsAreAllowedByDefault1BoxedVoid<br>
-extends [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
+public record AdditionalItemsAreAllowedByDefault1BoxedVoid<br>
+implements [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
 
-a boxed class to store validated null payloads, sealed permits class implementation
+record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalItemsAreAllowedByDefault1BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | data<br>validated payload |
+| Void | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalItemsAreAllowedByDefault1BoxedBoolean
-public static final class AdditionalItemsAreAllowedByDefault1BoxedBoolean<br>
-extends [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
+public record AdditionalItemsAreAllowedByDefault1BoxedBoolean<br>
+implements [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
 
-a boxed class to store validated boolean payloads, sealed permits class implementation
+record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalItemsAreAllowedByDefault1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | data<br>validated payload |
+| boolean | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalItemsAreAllowedByDefault1BoxedNumber
-public static final class AdditionalItemsAreAllowedByDefault1BoxedNumber<br>
-extends [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
+public record AdditionalItemsAreAllowedByDefault1BoxedNumber<br>
+implements [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalItemsAreAllowedByDefault1BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalItemsAreAllowedByDefault1BoxedString
-public static final class AdditionalItemsAreAllowedByDefault1BoxedString<br>
-extends [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
+public record AdditionalItemsAreAllowedByDefault1BoxedString<br>
+implements [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
 
-a boxed class to store validated String payloads, sealed permits class implementation
+record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalItemsAreAllowedByDefault1BoxedString(String data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| String | data<br>validated payload |
+| String | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalItemsAreAllowedByDefault1BoxedList
-public static final class AdditionalItemsAreAllowedByDefault1BoxedList<br>
-extends [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
+public record AdditionalItemsAreAllowedByDefault1BoxedList<br>
+implements [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
 
-a boxed class to store validated List payloads, sealed permits class implementation
+record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalItemsAreAllowedByDefault1BoxedList([AdditionalItemsAreAllowedByDefaultList](#additionalitemsareallowedbydefaultlist) data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalItemsAreAllowedByDefaultList](#additionalitemsareallowedbydefaultlist) | data<br>validated payload |
+| [AdditionalItemsAreAllowedByDefaultList](#additionalitemsareallowedbydefaultlist) | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalItemsAreAllowedByDefault1BoxedMap
-public static final class AdditionalItemsAreAllowedByDefault1BoxedMap<br>
-extends [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
+public record AdditionalItemsAreAllowedByDefault1BoxedMap<br>
+implements [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
 
-a boxed class to store validated Map payloads, sealed permits class implementation
+record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalItemsAreAllowedByDefault1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<@Nullable Object> | data<br>validated payload |
+| FrozenMap<@Nullable Object> | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## AdditionalItemsAreAllowedByDefault1
 public static class AdditionalItemsAreAllowedByDefault1<br>
@@ -164,29 +170,32 @@ A schema class that validates payloads
 | [AdditionalItemsAreAllowedByDefault1BoxedBoolean](#additionalitemsareallowedbydefault1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | [AdditionalItemsAreAllowedByDefault1BoxedMap](#additionalitemsareallowedbydefault1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | [AdditionalItemsAreAllowedByDefault1BoxedList](#additionalitemsareallowedbydefault1boxedlist) | validateAndBox([List<?>](#additionalitemsareallowedbydefaultlistbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
 ## Schema0Boxed
-public static abstract sealed class Schema0Boxed<br>
+public sealed interface Schema0Boxed<br>
 permits<br>
 [Schema0BoxedNumber](#schema0boxednumber)
 
-abstract sealed class that stores validated payloads using boxed classes
+sealed interface that stores validated payloads using boxed classes
 
 ## Schema0BoxedNumber
-public static final class Schema0BoxedNumber<br>
-extends [Schema0Boxed](#schema0boxed)
+public record Schema0BoxedNumber<br>
+implements [Schema0Boxed](#schema0boxed)
 
-a boxed class to store validated Number payloads, sealed permits class implementation
+record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
-### Field Summary
-| Modifier and Type | Field and Description |
+### Method Summary
+| Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Number | data<br>validated payload |
+| Number | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>
