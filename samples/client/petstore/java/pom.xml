@@ -43,8 +43,8 @@
                     <fork>true</fork>
                     <meminitial>128m</meminitial>
                     <maxmem>512m</maxmem>
+                    <release>17</release>
                     <compilerArgument>-Xlint:all</compilerArgument>
-                    <testCompilerArgument>--add-modules=java.net.http</testCompilerArgument>
                     <compilerArgs combine.children="append">
                         <arg>-Awarns</arg>
                         <arg>-J-Xss4m</arg><!-- Compiling the generated JSON.java file may require larger stack size. -->
@@ -57,20 +57,19 @@
                         <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
                         <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
                         <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
-                        <arg>--add-modules=java.net.http</arg>
                     </compilerArgs>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.checkerframework</groupId>
-                            <artifactId>checker</artifactId>
-                            <version>${checker-version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                    <annotationProcessors>
-                        <annotationProcessor>
-                            org.checkerframework.checker.nullness.NullnessChecker
-                        </annotationProcessor>
-                    </annotationProcessors>
+<!--                    <annotationProcessorPaths>-->
+<!--                        <path>-->
+<!--                            <groupId>org.checkerframework</groupId>-->
+<!--                            <artifactId>checker</artifactId>-->
+<!--                            <version>${checker-version}</version>-->
+<!--                        </path>-->
+<!--                    </annotationProcessorPaths>-->
+<!--                    <annotationProcessors>-->
+<!--                        <annotationProcessor>-->
+<!--                            org.checkerframework.checker.nullness.NullnessChecker-->
+<!--                        </annotationProcessor>-->
+<!--                    </annotationProcessors>-->
                 </configuration>
             </plugin>
             <plugin>
@@ -96,7 +95,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12</version>
+                <version>3.2.5</version>
                 <configuration>
                     <systemProperties>
                         <property>
@@ -106,7 +105,6 @@
                     </systemProperties>
                     <argLine>-Xms512m -Xmx1500m</argLine>
                     <parallel>methods</parallel>
-                    <forkMode>pertest</forkMode>
                 </configuration>
             </plugin>
             <plugin>
@@ -179,6 +177,10 @@
                 <configuration>
                     <doclint>none</doclint>
                     <source>1.8</source>
+                    <additionalOptions>
+                        <additionalOption>--add-modules</additionalOption>
+                        <additionalOption>java.net.http</additionalOption>
+                    </additionalOptions>
                 </configuration>
                 <executions>
                     <execution>
@@ -232,7 +234,6 @@
         </dependency>
     </dependencies>
     <properties>
-        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <checker-version>3.42.0</checker-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
