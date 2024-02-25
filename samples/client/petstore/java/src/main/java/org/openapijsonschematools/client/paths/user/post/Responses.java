@@ -8,12 +8,12 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import java.net.http.HttpResponse;
 
 public class Responses {
-    public sealed interface SealedEndpointResponse permits EndpointCodedefaultResponse {}
+    public sealed interface EndpointResponse permits EndpointCodedefaultResponse {}
 
     public record EndpointCodedefaultResponse(
         HttpResponse<byte[]> response
         
-    ) implements SealedEndpointResponse, ApiResponse<Void, Void>{
+    ) implements EndpointResponse, ApiResponse<Void, Void>{
         @Override
         public Void body() {
             return null;
@@ -24,13 +24,9 @@ public class Responses {
         }
     }
 
-    // seal the defined status codes into extended response classes
-    // seal the wildcard status codes into extended response classes
-    // pass them as map inputs into the below Responses1
+    public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
 
-    public static class Responses1 implements ResponsesDeserializer<SealedEndpointResponse> {
-
-        public SealedEndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
         }
     }
 }

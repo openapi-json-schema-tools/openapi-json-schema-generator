@@ -7,15 +7,11 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import java.net.http.HttpResponse;
 
 public class  {
-    public sealed interface SealedEndpointResponse permits  {}
+    public sealed interface EndpointResponse permits  {}
 
-    // seal the defined status codes into extended response classes
-    // seal the wildcard status codes into extended response classes
-    // pass them as map inputs into the below 1
+    public static final class 1 implements ResponsesDeserializer<EndpointResponse> {
 
-    public static class 1 implements ResponsesDeserializer<SealedEndpointResponse> {
-
-        public SealedEndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
         }
     }
 }

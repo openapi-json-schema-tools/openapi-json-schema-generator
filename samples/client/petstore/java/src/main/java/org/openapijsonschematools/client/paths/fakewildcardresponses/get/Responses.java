@@ -13,12 +13,12 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import java.net.http.HttpResponse;
 
 public class Responses {
-    public sealed interface SealedEndpointResponse permits EndpointCode1XXResponse, EndpointCode200Response, EndpointCode2XXResponse, EndpointCode3XXResponse, EndpointCode4XXResponse, EndpointCode5XXResponse {}
+    public sealed interface EndpointResponse permits EndpointCode1XXResponse, EndpointCode200Response, EndpointCode2XXResponse, EndpointCode3XXResponse, EndpointCode4XXResponse, EndpointCode5XXResponse {}
 
     public record EndpointCode1XXResponse(
         HttpResponse<byte[]> response,
         Code1XXResponse.SealedResponseBody body
-    ) implements SealedEndpointResponse, ApiResponse<Code1XXResponse.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<Code1XXResponse.SealedResponseBody, Void>{
         @Override
         public Void headers() {
             return null;
@@ -28,7 +28,7 @@ public class Responses {
     public record EndpointCode200Response(
         HttpResponse<byte[]> response,
         Code200Response.SealedResponseBody body
-    ) implements SealedEndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
         @Override
         public Void headers() {
             return null;
@@ -38,7 +38,7 @@ public class Responses {
     public record EndpointCode2XXResponse(
         HttpResponse<byte[]> response,
         Code2XXResponse.SealedResponseBody body
-    ) implements SealedEndpointResponse, ApiResponse<Code2XXResponse.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<Code2XXResponse.SealedResponseBody, Void>{
         @Override
         public Void headers() {
             return null;
@@ -48,7 +48,7 @@ public class Responses {
     public record EndpointCode3XXResponse(
         HttpResponse<byte[]> response,
         Code3XXResponse.SealedResponseBody body
-    ) implements SealedEndpointResponse, ApiResponse<Code3XXResponse.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<Code3XXResponse.SealedResponseBody, Void>{
         @Override
         public Void headers() {
             return null;
@@ -58,7 +58,7 @@ public class Responses {
     public record EndpointCode4XXResponse(
         HttpResponse<byte[]> response,
         Code4XXResponse.SealedResponseBody body
-    ) implements SealedEndpointResponse, ApiResponse<Code4XXResponse.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<Code4XXResponse.SealedResponseBody, Void>{
         @Override
         public Void headers() {
             return null;
@@ -68,20 +68,33 @@ public class Responses {
     public record EndpointCode5XXResponse(
         HttpResponse<byte[]> response,
         Code5XXResponse.SealedResponseBody body
-    ) implements SealedEndpointResponse, ApiResponse<Code5XXResponse.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<Code5XXResponse.SealedResponseBody, Void>{
         @Override
         public Void headers() {
             return null;
         }
     }
 
-    // seal the defined status codes into extended response classes
-    // seal the wildcard status codes into extended response classes
-    // pass them as map inputs into the below Responses1
+    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
 
-    public static class Responses1 implements ResponsesDeserializer<SealedEndpointResponse> {
+    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    }
+    public sealed interface WildcardCodeResponseDeserializer permits WildcardCode1XXResponseDeserializer, WildcardCode2XXResponseDeserializer, WildcardCode3XXResponseDeserializer, WildcardCode4XXResponseDeserializer, WildcardCode5XXResponseDeserializer {}
 
-        public SealedEndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+    public static final class WildcardCode1XXResponseDeserializer extends Code1XXResponse.Code1XXResponse1 implements WildcardCodeResponseDeserializer {
+    }
+    public static final class WildcardCode2XXResponseDeserializer extends Code2XXResponse.Code2XXResponse1 implements WildcardCodeResponseDeserializer {
+    }
+    public static final class WildcardCode3XXResponseDeserializer extends Code3XXResponse.Code3XXResponse1 implements WildcardCodeResponseDeserializer {
+    }
+    public static final class WildcardCode4XXResponseDeserializer extends Code4XXResponse.Code4XXResponse1 implements WildcardCodeResponseDeserializer {
+    }
+    public static final class WildcardCode5XXResponseDeserializer extends Code5XXResponse.Code5XXResponse1 implements WildcardCodeResponseDeserializer {
+    }
+
+    public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
+
+        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
         }
     }
 }
