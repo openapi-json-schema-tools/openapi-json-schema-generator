@@ -516,7 +516,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
                 if (operation.responses != null && !operation.responses.isEmpty()) {
                     String responsesJsonPath = operationJsonPath + "/responses";
-                    generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, null, true);
+                    Map<String, Object> responsesInfo = new HashMap<>();
+                    responsesInfo.put("responses", operation.responses);
+                    generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, true);
                     for (Map.Entry<String, CodegenResponse> responseEntry: operation.responses.entrySet()) {
                         // paths.some_path.post.responses.response_200.__init__.py (file per response)
                         // response is a package because responses have Headers which can be refed

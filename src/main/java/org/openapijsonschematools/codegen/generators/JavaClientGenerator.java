@@ -786,6 +786,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "response",
                 "ResponseDeserializer.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/response/ResponsesDeserializer.hbs",
+                packagePath() + File.separatorChar + "response",
+                "ResponsesDeserializer.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/test/java/packagename/response/ResponseDeserializerTest.hbs",
                 testPackagePath() + File.separatorChar + "response",
                 "ResponseDeserializerTest.java"));
@@ -809,6 +813,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
                 new HashMap<>() {{
                     put("src/main/java/packagename/components/responses/Response.hbs", ".java");
+                }}
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/responses/Responses.hbs", ".java");
                 }}
         );
         jsonPathDocTemplateFiles.put(
@@ -925,11 +935,16 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
             return toModuleFilename(componentName, jsonPath);
         }
-        if (pathPieces.length == 6) {
-            // #/paths/somePath/verb/responses/200
-            return toModelName("Code"+componentName+"Response", null);
+        switch (pathPieces.length) {
+            case 5:
+                // #/paths/somePath/verb/responses
+                return "Responses";
+            case 6:
+                // #/paths/somePath/verb/responses/200
+                return toModelName("Code"+componentName+"Response", null);
+            default:
+                return toModuleFilename("code"+componentName+"response", null);
         }
-        return toModuleFilename("code"+componentName+"response", null);
     }
 
     @Override

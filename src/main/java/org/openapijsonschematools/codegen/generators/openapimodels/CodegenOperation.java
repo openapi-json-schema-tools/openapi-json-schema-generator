@@ -44,7 +44,7 @@ public class CodegenOperation {
     public final boolean hasOptionalParamOrBody;
     public final CodegenList<CodegenSecurityRequirementObject> security;
     public final Map<String, CodegenTag> tags;
-    public final TreeMap<String, CodegenResponse> responses;
+    public final CodegenMap<CodegenResponse> responses;
     public final TreeMap<Integer, CodegenResponse> statusCodeResponses;
     public final TreeMap<Integer, CodegenResponse> wildcardCodeResponses;
     public final TreeMap<String, CodegenResponse> nonDefaultResponses;
@@ -75,7 +75,7 @@ public class CodegenOperation {
             boolean hasOptionalParamOrBody,
             CodegenList<CodegenSecurityRequirementObject> security,
             Map<String, CodegenTag> tags,
-            TreeMap<String, CodegenResponse> responses,
+            CodegenMap<CodegenResponse> responses,
             TreeMap<Integer, CodegenResponse> statusCodeResponses,
             TreeMap<Integer, CodegenResponse> wildcardCodeResponses,
             TreeMap<String, CodegenResponse> nonDefaultResponses,

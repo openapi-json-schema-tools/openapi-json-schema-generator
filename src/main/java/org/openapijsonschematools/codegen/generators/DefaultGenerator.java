@@ -54,6 +54,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenEncoding;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenMap;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenMediaType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenOauthFlow;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenOauthFlows;
@@ -2690,7 +2691,7 @@ public class DefaultGenerator implements Generator {
         CodegenText description = getCodegenText(operation.getDescription());
         Boolean deprecated = operation.getDeprecated();
 
-        TreeMap<String, CodegenResponse> responses = null;
+        CodegenMap<CodegenResponse> responses = null;
         LinkedHashSet<String> produces = null;
         CodegenResponse defaultResponse = null;
         TreeMap<String, CodegenResponse> nonDefaultResponses = null;
@@ -2701,7 +2702,8 @@ public class DefaultGenerator implements Generator {
         LinkedHashSet<String> nonErrorStatusCodes = null;
         LinkedHashSet<Integer> nonErrorWildcardStatusCodes = null;
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
-            responses = new TreeMap<>();
+            Map<String, CodegenResponse> responsesMap = new TreeMap<>();
+            String responsesJsonPath = jsonPath + "/responses";
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
                 String key = operationGetResponsesEntry.getKey();
                 ApiResponse response = operationGetResponsesEntry.getValue();
@@ -2712,10 +2714,10 @@ public class DefaultGenerator implements Generator {
                     }
                     produces.addAll(responseProduces);
                 }
-                String usedSourceJsonPath = jsonPath + "/responses/" + key;
+                String usedSourceJsonPath = responsesJsonPath + "/" + key;
                 CodegenResponse r = fromResponse(response, usedSourceJsonPath);
 
-                responses.put(key, r);
+                responsesMap.put(key, r);
                 if ("default".equals(key)) {
                     defaultResponse = r;
                     continue;
@@ -2764,7 +2766,7 @@ public class DefaultGenerator implements Generator {
             }
 
             // sort them
-            responses = new TreeMap<>(responses);
+            responsesMap = new TreeMap<>(responsesMap);
             if (nonDefaultResponses != null) {
                 nonDefaultResponses = new TreeMap<>(nonDefaultResponses);
             }
@@ -2774,6 +2776,8 @@ public class DefaultGenerator implements Generator {
             if (wildcardCodeResponses != null) {
                 wildcardCodeResponses = new TreeMap<>(wildcardCodeResponses);
             }
+            CodegenKey responsesJsonPathPiece = getKey("responses", "misc", responsesJsonPath);
+            responses = new CodegenMap<>(responsesMap, responsesJsonPathPiece, getSubpackage(responsesJsonPath));
         }
 
         List<CodegenCallback> callbacks = null;
@@ -3893,8 +3897,9 @@ public class DefaultGenerator implements Generator {
             }
             return;
         } else if (pathPieces[4].equals("responses")) {
-            if (pathPieces.length < 6) {
+            if (pathPieces.length == 5) {
                 // #/paths/user_login/get/responses -> length 5
+                pathPieces[4] = toResponseModuleName(pathPieces[4], jsonPath);
                 return;
             }
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6

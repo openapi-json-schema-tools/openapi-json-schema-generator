@@ -1,0 +1,42 @@
+package {{packageName}}.{{responses.subpackage}};
+
+{{#each responses}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+{{/each}}
+import {{{packageName}}}.response.ApiResponse;
+import {{{packageName}}}.response.ResponsesDeserializer;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+
+import java.net.http.HttpResponse;
+
+public class {{responses.jsonPathPiece.pascalCase}} {
+    public sealed interface SealedEndpointResponse permits {{#each responses}}Endpoint{{jsonPathPiece.pascalCase}}{{#unless @last}}, {{/unless}}{{/each}} {}
+    {{#each responses}}
+
+    public record Endpoint{{jsonPathPiece.pascalCase}}(
+        HttpResponse<byte[]> response{{#if hasContentSchema}},{{/if}}
+        {{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody body{{/if}}
+    ) implements SealedEndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}}, Void>{
+        {{#unless hasContentSchema}}
+        @Override
+        public Void body() {
+            return null;
+        }
+        {{/unless}}
+        @Override
+        public Void headers() {
+            return null;
+        }
+    }
+    {{/each}}
+
+    // seal the defined status codes into extended response classes
+    // seal the wildcard status codes into extended response classes
+    // pass them as map inputs into the below {{responses.jsonPathPiece.pascalCase}}1
+
+    public static class {{responses.jsonPathPiece.pascalCase}}1 implements ResponsesDeserializer<SealedEndpointResponse> {
+
+        public SealedEndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+        }
+    }
+}
