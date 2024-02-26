@@ -73,7 +73,11 @@ public class Responses {
             }
             WildcardCode3XXResponseDeserializer castDeserializer = (WildcardCode3XXResponseDeserializer) wildcardCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode3XXResponse(response, deserializedResponse.body());
+            throw new Code3XXResponse.ResponseApiException(
+                "Received error statusCode response from server",
+                response,
+                deserializedResponse
+            );
         }
     }
 }

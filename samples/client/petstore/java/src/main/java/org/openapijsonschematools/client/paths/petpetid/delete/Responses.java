@@ -36,7 +36,11 @@ public class Responses {
             }
             StatusCode400ResponseDeserializer castDeserializer = (StatusCode400ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode400Response(response, deserializedResponse.body());
+            throw new Code400Response.ResponseApiException(
+                "Received error statusCode response from server",
+                response,
+                deserializedResponse
+            );
         }
     }
 }

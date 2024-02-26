@@ -2,7 +2,7 @@
     {{#each statusCodeResponses}}
 Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Status{{jsonPathPiece.pascalCase}}Deserializer) statusCodeDeserializer;
 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+{{> src/main/java/packagename/components/responses/_returnOrThrow }}
     {{/each}}
 {{else}}
     {{#each statusCodeResponses}}
@@ -17,23 +17,7 @@ if (statusCodeDeserializer instanceof Status{{jsonPathPiece.pascalCase}}Deserial
             {{/if}}
         {{/if}}
     var deserializedResponse = castDeserializer.deserialize(response, configuration);
-        {{#if nonErrorStatusCodes}}
-            {{#contains nonErrorStatusCodes @key }}
-    return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
-            {{else}}
-    throw new {{jsonPathPiece.pascalCase}}.ResponseApiException(
-        "Received error statusCode response from server",
-        response,
-        deserializedResponse
-    );
-            {{/contains}}
-        {{else}}
-    throw new {{jsonPathPiece.pascalCase}}.ResponseApiException(
-        "Received error statusCode response from server",
-        response,
-        deserializedResponse
-    );
-        {{/if}}
+    {{> src/main/java/packagename/components/responses/_returnOrThrow }}
     {{/each}}
 }
 {{/eq}}

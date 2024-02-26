@@ -109,13 +109,25 @@ public class Responses {
             }
             if (wildcardCodeDeserializer instanceof WildcardCode1XXResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode1XXResponse(response, deserializedResponse.body());
+                throw new Code1XXResponse.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
             } else if (wildcardCodeDeserializer instanceof WildcardCode2XXResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode2XXResponse(response, deserializedResponse.body());
+                throw new Code2XXResponse.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
             } else if (wildcardCodeDeserializer instanceof WildcardCode3XXResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode3XXResponse(response, deserializedResponse.body());
+                throw new Code3XXResponse.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
             } else if (wildcardCodeDeserializer instanceof WildcardCode4XXResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
                 throw new Code4XXResponse.ResponseApiException(
