@@ -3,6 +3,7 @@ package {{packageName}}.{{responses.subpackage}};
 {{#each responses}}
 import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
+import {{{packageName}}}.exceptions.ApiException;
 import {{{packageName}}}.response.ApiResponse;
 import {{{packageName}}}.response.ResponsesDeserializer;
 import {{{packageName}}}.configurations.SchemaConfiguration;
@@ -84,8 +85,10 @@ public class {{responses.jsonPathPiece.pascalCase}} {
         {{#if statusCodeResponses}}
             @Nullable StatusCodeResponseDeserializer deserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (deserializer == null) {
-                // todo throw ApiException and include the response in it
-                throw new RuntimeException("Invalid response statusCode="+statusCode+" has no response defined in the openapi document");
+                throw new ApiException(
+                    "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
+                    response
+                );
             }
             {{#eq statusCodeResponses.size 1}}
                 {{#each statusCodeResponses}}
@@ -101,11 +104,11 @@ public class {{responses.jsonPathPiece.pascalCase}} {
             } else if (deserializer instanceof Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
                     {{/if}}
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                    {{#if nonErrorResponses}}
+                    {{#if nonErrorStatusCodes}}
                         {{#contains nonErrorStatusCodes @key }}
                 return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
                         {{else}}
-                return new {{jsonPathPiece.pascalCase}}.ResponseApiException(
+                throw new {{jsonPathPiece.pascalCase}}.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
@@ -120,8 +123,55 @@ public class {{responses.jsonPathPiece.pascalCase}} {
                     {{/if}}
                 {{/each}}
             }
+                {{#if defaultResponse}}
+            // todo handle defaultResponse here
+                {{/if}}
             {{/eq}}
         {{else}}
+            @Nullable WildcardCodeResponseDeserializer deserializer = wildcardCodeToResponseDeserializer.get(statusCode);
+            if (deserializer == null) {
+                throw new ApiException(
+                    "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
+                    response
+                );
+            }
+            {{#eq wildcardCodeResponses.size 1}}
+                {{#each wildcardCodeResponses}}
+            Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Wildcard{{jsonPathPiece.pascalCase}}Deserializer) deserializer;
+            var deserializedResponse = castDeserializer.deserialize(response, configuration);
+            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+                {{/each}}
+            {{else}}
+                {{#each wildcardCodeResponses}}
+                    {{#if @first}}
+            if (deserializer instanceof Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
+                    {{else}}
+            } else if (deserializer instanceof Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
+                    {{/if}}
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                    {{#if nonErrorWildcardStatusCodes}}
+                        {{#contains nonErrorWildcardStatusCodes @key }}
+                return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+                        {{else}}
+                throw new {{jsonPathPiece.pascalCase}}.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
+                        {{/contains}}
+                    {{else}}
+                return new {{jsonPathPiece.pascalCase}}.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
+                    {{/if}}
+                {{/each}}
+            }
+                {{#if defaultResponse}}
+            // todo handle defaultResponse here
+                {{/if}}
+            {{/eq}}
         {{/if}}
     {{else}}
     {{/or}}

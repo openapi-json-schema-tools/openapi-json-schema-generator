@@ -2,10 +2,10 @@ package org.openapijsonschematools.client.paths.storeorderorderid.delete;
 
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.Code400Response;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.Code404Response;
+import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ApiException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.http.HttpResponse;
@@ -34,8 +34,10 @@ public class Responses {
             String statusCode = String.valueOf(response.statusCode());
             @Nullable StatusCodeResponseDeserializer deserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (deserializer == null) {
-                // todo throw ApiException and include the response in it
-                throw new RuntimeException("Invalid response statusCode="+statusCode+" has no response defined in the openapi document");
+                throw new ApiException(
+                    "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
+                    response
+                );
             }
             if (deserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);

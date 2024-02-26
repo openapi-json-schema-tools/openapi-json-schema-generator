@@ -56,12 +56,10 @@ public class SuccessInlineContentAndHeader {
 
     @SuppressWarnings("serial")
     public class ResponseApiException extends ApiException {
-        public HttpResponse<byte[]> response;
         public ApiResponse<SealedResponseBody, Void> apiResponse;
 
         public ValidationException(String s, HttpResponse<byte[]> response, ApiResponse<SealedResponseBody, Void> apiResponse) {
             super(s, response);
-            this.response = response;
             this.apiResponse = apiResponse;
         }
     }

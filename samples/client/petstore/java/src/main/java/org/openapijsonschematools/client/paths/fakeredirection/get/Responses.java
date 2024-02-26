@@ -2,10 +2,10 @@ package org.openapijsonschematools.client.paths.fakeredirection.get;
 
 import org.openapijsonschematools.client.paths.fakeredirection.get.responses.Code303Response;
 import org.openapijsonschematools.client.paths.fakeredirection.get.responses.Code3XXResponse;
+import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ApiException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.http.HttpResponse;

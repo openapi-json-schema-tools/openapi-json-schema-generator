@@ -522,6 +522,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     responsesInfo.put("wildcardCodeResponses", operation.wildcardCodeResponses);
                     responsesInfo.put("nonErrorResponses", operation.nonErrorResponses);
                     responsesInfo.put("nonErrorStatusCodes", operation.nonErrorStatusCodes);
+                    responsesInfo.put("nonErrorWildcardStatusCodes", operation.nonErrorWildcardStatusCodes);
+                    responsesInfo.put("defaultResponse", operation.defaultResponse);
                     generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, true);
                     for (Map.Entry<String, CodegenResponse> responseEntry: operation.responses.entrySet()) {
                         // paths.some_path.post.responses.response_200.__init__.py (file per response)

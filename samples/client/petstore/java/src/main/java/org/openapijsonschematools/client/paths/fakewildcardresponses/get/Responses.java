@@ -6,10 +6,10 @@ import org.openapijsonschematools.client.paths.fakewildcardresponses.get.respons
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code3XXResponse;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code4XXResponse;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code5XXResponse;
+import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ApiException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.http.HttpResponse;
