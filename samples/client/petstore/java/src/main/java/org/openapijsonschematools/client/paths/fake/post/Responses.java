@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.paths.fake.post.responses.Code404Respon
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ApiException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.http.HttpResponse;
@@ -56,7 +57,11 @@ public class Responses {
                 return new EndpointCode200Response(response, deserializedResponse.body());
             } else if (deserializer instanceof StatusCode404ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                // throw exception because this is an error
+                return new Code404Response.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
             }
         }
     }

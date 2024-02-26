@@ -4,6 +4,7 @@ import org.openapijsonschematools.client.paths.fakejsonpatch.patch.responses.Cod
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ApiException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.http.HttpResponse;

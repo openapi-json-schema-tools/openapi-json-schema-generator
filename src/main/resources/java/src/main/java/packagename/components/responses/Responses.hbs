@@ -105,10 +105,18 @@ public class {{responses.jsonPathPiece.pascalCase}} {
                         {{#contains nonErrorStatusCodes @key }}
                 return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
                         {{else}}
-                // throw exception because this is an error
+                return new {{jsonPathPiece.pascalCase}}.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
                         {{/contains}}
                     {{else}}
-                // throw exception because this is an error
+                return new {{jsonPathPiece.pascalCase}}.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
                     {{/if}}
                 {{/each}}
             }

@@ -711,6 +711,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         // exceptions
         List<String> exceptionClasses = new ArrayList<>();
+        exceptionClasses.add("ApiException");
         exceptionClasses.add("BaseException");
         exceptionClasses.add("InvalidAdditionalPropertyException");
         exceptionClasses.add("InvalidTypeException");

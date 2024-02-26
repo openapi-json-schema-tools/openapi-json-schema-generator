@@ -2,6 +2,8 @@ package org.openapijsonschematools.client.paths.fakejsonwithcharset.post.respons
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
+import org.openapijsonschematools.client.response.ApiResponse;
+import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.responses.code200response.content.applicationjsoncharsetutf8.Applicationjsoncharsetutf8Schema;
 
@@ -49,6 +51,18 @@ public class Code200Response {
         @Override
         protected Void getHeaders(HttpHeaders headers) {
             return null;
+        }
+    }
+
+    @SuppressWarnings("serial")
+    public class ResponseApiException extends ApiException {
+        public HttpResponse<byte[]> response;
+        public ApiResponse<SealedResponseBody, Void> apiResponse;
+
+        public ValidationException(String s, HttpResponse<byte[]> response, ApiResponse<SealedResponseBody, Void> apiResponse) {
+            super(s, response);
+            this.response = response;
+            this.apiResponse = apiResponse;
         }
     }
 }

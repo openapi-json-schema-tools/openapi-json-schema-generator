@@ -12,6 +12,8 @@ public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
 {{else}}
 import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.response.ResponseDeserializer;
+import {{packageName}}.response.ApiResponse;
+import {{packageName}}.exceptions.ApiException;
     {{#if hasContentSchema}}
 import {{packageName}}.mediatype.MediaType;
     {{else}}
@@ -100,6 +102,32 @@ public class {{jsonPathPiece.pascalCase}} {
             return null;
         }
     }
+
+    {{#if hasContentSchema}}
+    @SuppressWarnings("serial")
+    public class ResponseApiException extends ApiException {
+        public HttpResponse<byte[]> response;
+        public ApiResponse<SealedResponseBody, Void> apiResponse;
+
+        public ValidationException(String s, HttpResponse<byte[]> response, ApiResponse<SealedResponseBody, Void> apiResponse) {
+            super(s, response);
+            this.response = response;
+            this.apiResponse = apiResponse;
+        }
+    }
+    {{else}}
+    @SuppressWarnings("serial")
+    public class ResponseApiException extends ApiException {
+        public HttpResponse<byte[]> response;
+        public ApiResponse<Void, Void> apiResponse;
+
+        public ValidationException(String s, HttpResponse<byte[]> response, ApiResponse<Void, Void> apiResponse) {
+            super(s, response);
+            this.response = response;
+            this.apiResponse = apiResponse;
+        }
+    }
+    {{/if}}
 }
 {{/if}}
 {{/with}}
