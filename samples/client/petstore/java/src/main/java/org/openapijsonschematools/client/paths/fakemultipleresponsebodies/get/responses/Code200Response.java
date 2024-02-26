@@ -9,6 +9,7 @@ import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.re
 
 import java.util.AbstractMap;
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class Code200Response {

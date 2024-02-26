@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.paths.pet.put.responses.Code400Response
 import org.openapijsonschematools.client.paths.pet.put.responses.Code404Response;
 import org.openapijsonschematools.client.paths.pet.put.responses.Code405Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
-import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -24,7 +23,7 @@ public class Responses {
     public static final class StatusCode405ResponseDeserializer extends Code405Response.Code405Response1 implements StatusCodeResponseDeserializer {
     }
 
-    public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
+    public static final class Responses1 implements ResponsesDeserializer<Void> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public Responses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
@@ -34,32 +33,33 @@ public class Responses {
             );
         }
 
-        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+        public Void deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             String statusCode = String.valueOf(response.statusCode());
-            @Nullable StatusCodeResponseDeserializer deserializer = statusCodeToResponseDeserializer.get(statusCode);
-            if (deserializer == null) {
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer == null) {
                 throw new ApiException(
                     "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
                     response
                 );
             }
-            if (deserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new Code400Response.ResponseApiException(
+                throw new Code400Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
-            } else if (deserializer instanceof StatusCode404ResponseDeserializer castDeserializer) {
+            } else if (statusCodeDeserializer instanceof StatusCode404ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new Code404Response.ResponseApiException(
+                throw new Code404Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
-            } else if (deserializer instanceof StatusCode405ResponseDeserializer castDeserializer) {
+            } else {
+                StatusCode405ResponseDeserializer castDeserializer = (StatusCode405ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new Code405Response.ResponseApiException(
+                throw new Code405Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

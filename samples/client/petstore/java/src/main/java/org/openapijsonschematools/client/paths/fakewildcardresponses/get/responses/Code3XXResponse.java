@@ -9,6 +9,7 @@ import org.openapijsonschematools.client.paths.fakewildcardresponses.get.respons
 
 import java.util.AbstractMap;
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class Code3XXResponse {

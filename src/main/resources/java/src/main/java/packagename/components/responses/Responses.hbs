@@ -4,7 +4,9 @@ package {{packageName}}.{{responses.subpackage}};
 import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
 import {{{packageName}}}.exceptions.ApiException;
+{{#if nonErrorResponses }}
 import {{{packageName}}}.response.ApiResponse;
+{{/if}}
 import {{{packageName}}}.response.ResponsesDeserializer;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -19,15 +21,9 @@ public class {{responses.jsonPathPiece.pascalCase}} {
         {{#each nonErrorResponses}}
 
     public record Endpoint{{jsonPathPiece.pascalCase}}(
-        HttpResponse<byte[]> response{{#if hasContentSchema}},{{/if}}
-        {{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody body{{/if}}
+        HttpResponse<byte[]> response,
+        {{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody body{{else}}Void body{{/if}}
     ) implements EndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}}, Void>{
-        {{#unless hasContentSchema}}
-        @Override
-        public Void body() {
-            return null;
-        }
-        {{/unless}}
         @Override
         public Void headers() {
             return null;
@@ -53,7 +49,7 @@ public class {{responses.jsonPathPiece.pascalCase}} {
         {{/each}}
     {{/if}}
 
-    public static final class {{responses.jsonPathPiece.pascalCase}}1 implements ResponsesDeserializer<EndpointResponse> {
+    public static final class {{responses.jsonPathPiece.pascalCase}}1 implements ResponsesDeserializer<{{#if nonErrorResponses }}EndpointResponse{{else}}Void{{/if}}> {
     {{#if statusCodeResponses}}
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
     {{/if}}
@@ -77,105 +73,46 @@ public class {{responses.jsonPathPiece.pascalCase}} {
     {{/if}}
         }
 
-        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+        public {{#if nonErrorResponses }}EndpointResponse{{else}}Void{{/if}} deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             String statusCode = String.valueOf(response.statusCode());
-{{#and wildcardCodeResponses statusCodeResponses }}
-{{else}}
-    {{#or wildcardCodeResponses statusCodeResponses}}
-        {{#if statusCodeResponses}}
-            @Nullable StatusCodeResponseDeserializer deserializer = statusCodeToResponseDeserializer.get(statusCode);
-            if (deserializer == null) {
+{{#eq defaultResponse null }}
+    {{#and statusCodeResponses wildcardCodeResponses }}
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer != null) {
+                {{> src/main/java/packagename/components/responses/_statusCodeDeserialization }}
+            }
+            @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
+            if (wildcardCodeDeserializer == null) {
                 throw new ApiException(
                     "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
                     response
                 );
             }
-            {{#eq statusCodeResponses.size 1}}
-                {{#each statusCodeResponses}}
-            Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Status{{jsonPathPiece.pascalCase}}Deserializer) deserializer;
-            var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
-                {{/each}}
-            {{else}}
-                {{#each statusCodeResponses}}
-                    {{#if @first}}
-            if (deserializer instanceof Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
-                    {{else}}
-            } else if (deserializer instanceof Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
-                    {{/if}}
-                var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                    {{#if nonErrorStatusCodes}}
-                        {{#contains nonErrorStatusCodes @key }}
-                return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
-                        {{else}}
-                throw new {{jsonPathPiece.pascalCase}}.ResponseApiException(
-                    "Received error statusCode response from server",
-                    response,
-                    deserializedResponse
-                );
-                        {{/contains}}
-                    {{else}}
-                return new {{jsonPathPiece.pascalCase}}.ResponseApiException(
-                    "Received error statusCode response from server",
-                    response,
-                    deserializedResponse
-                );
-                    {{/if}}
-                {{/each}}
-            }
-                {{#if defaultResponse}}
-            // todo handle defaultResponse here
-                {{/if}}
-            {{/eq}}
-        {{else}}
-            @Nullable WildcardCodeResponseDeserializer deserializer = wildcardCodeToResponseDeserializer.get(statusCode);
-            if (deserializer == null) {
-                throw new ApiException(
-                    "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
-                    response
-                );
-            }
-            {{#eq wildcardCodeResponses.size 1}}
-                {{#each wildcardCodeResponses}}
-            Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Wildcard{{jsonPathPiece.pascalCase}}Deserializer) deserializer;
-            var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
-                {{/each}}
-            {{else}}
-                {{#each wildcardCodeResponses}}
-                    {{#if @first}}
-            if (deserializer instanceof Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
-                    {{else}}
-            } else if (deserializer instanceof Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
-                    {{/if}}
-                var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                    {{#if nonErrorWildcardStatusCodes}}
-                        {{#contains nonErrorWildcardStatusCodes @key }}
-                return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
-                        {{else}}
-                throw new {{jsonPathPiece.pascalCase}}.ResponseApiException(
-                    "Received error statusCode response from server",
-                    response,
-                    deserializedResponse
-                );
-                        {{/contains}}
-                    {{else}}
-                return new {{jsonPathPiece.pascalCase}}.ResponseApiException(
-                    "Received error statusCode response from server",
-                    response,
-                    deserializedResponse
-                );
-                    {{/if}}
-                {{/each}}
-            }
-                {{#if defaultResponse}}
-            // todo handle defaultResponse here
-                {{/if}}
-            {{/eq}}
-        {{/if}}
+            {{> src/main/java/packagename/components/responses/_wildcardCodeDeserialization }}
     {{else}}
-    {{/or}}
-{{/and}}
+        {{#or statusCodeResponses wildcardCodeResponses }}
+            {{#if statusCodeResponses }}
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer == null) {
+                throw new ApiException(
+                    "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
+                    response
+                );
+            }
+            {{> src/main/java/packagename/components/responses/_statusCodeDeserialization }}
+            {{else}}
+            @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
+            if (wildcardCodeDeserializer == null) {
+                throw new ApiException(
+                    "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
+                    response
+                );
+            }
+            {{> src/main/java/packagename/components/responses/_wildcardCodeDeserialization }}
+            {{/if}}
+        {{/or}}
+    {{/and}}
+{{/eq}}
         }
     }
 }

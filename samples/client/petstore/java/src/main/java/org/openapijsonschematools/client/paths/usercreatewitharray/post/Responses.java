@@ -15,13 +15,9 @@ public class Responses {
     public sealed interface EndpointResponse permits EndpointCodedefaultResponse {}
 
     public record EndpointCodedefaultResponse(
-        HttpResponse<byte[]> response
-        
+        HttpResponse<byte[]> response,
+        Void body
     ) implements EndpointResponse, ApiResponse<Void, Void>{
-        @Override
-        public Void body() {
-            return null;
-        }
         @Override
         public Void headers() {
             return null;

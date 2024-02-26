@@ -39,14 +39,14 @@ public class Responses {
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             String statusCode = String.valueOf(response.statusCode());
-            @Nullable StatusCodeResponseDeserializer deserializer = statusCodeToResponseDeserializer.get(statusCode);
-            if (deserializer == null) {
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer == null) {
                 throw new ApiException(
                     "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) deserializer;
+            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
             return new EndpointCode200Response(response, deserializedResponse.body());
         }

@@ -84,6 +84,44 @@ public class Responses {
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             String statusCode = String.valueOf(response.statusCode());
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer != null) {
+                StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                return new EndpointCode200Response(response, deserializedResponse.body());
+            }
+            @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
+            if (wildcardCodeDeserializer == null) {
+                throw new ApiException(
+                    "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
+                    response
+                );
+            }
+            if (wildcardCodeDeserializer instanceof WildcardCode1XXResponseDeserializer castDeserializer) {
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                return new EndpointCode1XXResponse(response, deserializedResponse.body());
+            } else if (wildcardCodeDeserializer instanceof WildcardCode2XXResponseDeserializer castDeserializer) {
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                return new EndpointCode2XXResponse(response, deserializedResponse.body());
+            } else if (wildcardCodeDeserializer instanceof WildcardCode3XXResponseDeserializer castDeserializer) {
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                return new EndpointCode3XXResponse(response, deserializedResponse.body());
+            } else if (wildcardCodeDeserializer instanceof WildcardCode4XXResponseDeserializer castDeserializer) {
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                throw new Code4XXResponse.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
+            } else {
+                WildcardCode5XXResponseDeserializer castDeserializer = (WildcardCode5XXResponseDeserializer) wildcardCodeDeserializer;
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                throw new Code5XXResponse.ResponseApiException(
+                    "Received error statusCode response from server",
+                    response,
+                    deserializedResponse
+                );
+            }
         }
     }
 }

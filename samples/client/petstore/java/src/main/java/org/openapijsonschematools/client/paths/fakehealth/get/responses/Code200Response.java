@@ -9,6 +9,7 @@ import org.openapijsonschematools.client.paths.fakehealth.get.responses.code200r
 
 import java.util.AbstractMap;
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class Code200Response {

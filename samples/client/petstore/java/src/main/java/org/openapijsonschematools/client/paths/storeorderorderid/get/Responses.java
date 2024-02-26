@@ -47,24 +47,25 @@ public class Responses {
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             String statusCode = String.valueOf(response.statusCode());
-            @Nullable StatusCodeResponseDeserializer deserializer = statusCodeToResponseDeserializer.get(statusCode);
-            if (deserializer == null) {
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer == null) {
                 throw new ApiException(
                     "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
                     response
                 );
             }
-            if (deserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
                 return new EndpointCode200Response(response, deserializedResponse.body());
-            } else if (deserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
+            } else if (statusCodeDeserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
                 throw new Code400Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
-            } else if (deserializer instanceof StatusCode404ResponseDeserializer castDeserializer) {
+            } else {
+                StatusCode404ResponseDeserializer castDeserializer = (StatusCode404ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
                 throw new Code404Response.ResponseApiException(
                     "Received error statusCode response from server",

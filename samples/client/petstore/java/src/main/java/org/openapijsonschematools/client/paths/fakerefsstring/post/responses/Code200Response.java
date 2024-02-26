@@ -9,6 +9,7 @@ import org.openapijsonschematools.client.paths.fakerefsstring.post.responses.cod
 
 import java.util.AbstractMap;
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class Code200Response {

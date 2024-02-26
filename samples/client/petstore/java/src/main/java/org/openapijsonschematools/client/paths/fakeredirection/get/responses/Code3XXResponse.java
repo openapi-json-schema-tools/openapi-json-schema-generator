@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class Code3XXResponse {
@@ -31,13 +32,11 @@ public class Code3XXResponse {
     }
 
     @SuppressWarnings("serial")
-    public class ResponseApiException extends ApiException {
-        public HttpResponse<byte[]> response;
+    public static class ResponseApiException extends ApiException {
         public ApiResponse<Void, Void> apiResponse;
 
-        public ValidationException(String s, HttpResponse<byte[]> response, ApiResponse<Void, Void> apiResponse) {
+        public ResponseApiException(String s, HttpResponse<byte[]> response, ApiResponse<Void, Void> apiResponse) {
             super(s, response);
-            this.response = response;
             this.apiResponse = apiResponse;
         }
     }

@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.petpetid.delete;
 
 import org.openapijsonschematools.client.paths.petpetid.delete.responses.Code400Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
-import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -18,7 +17,7 @@ public class Responses {
     public static final class StatusCode400ResponseDeserializer extends Code400Response.Code400Response1 implements StatusCodeResponseDeserializer {
     }
 
-    public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
+    public static final class Responses1 implements ResponsesDeserializer<Void> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public Responses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
@@ -26,16 +25,16 @@ public class Responses {
             );
         }
 
-        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+        public Void deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             String statusCode = String.valueOf(response.statusCode());
-            @Nullable StatusCodeResponseDeserializer deserializer = statusCodeToResponseDeserializer.get(statusCode);
-            if (deserializer == null) {
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer == null) {
                 throw new ApiException(
                     "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
                     response
                 );
             }
-            StatusCode400ResponseDeserializer castDeserializer = (StatusCode400ResponseDeserializer) deserializer;
+            StatusCode400ResponseDeserializer castDeserializer = (StatusCode400ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
             return new EndpointCode400Response(response, deserializedResponse.body());
         }

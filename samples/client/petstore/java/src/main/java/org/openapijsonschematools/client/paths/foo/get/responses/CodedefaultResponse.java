@@ -9,6 +9,7 @@ import org.openapijsonschematools.client.paths.foo.get.responses.codedefaultresp
 
 import java.util.AbstractMap;
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class CodedefaultResponse {

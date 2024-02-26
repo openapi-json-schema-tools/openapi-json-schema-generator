@@ -9,6 +9,7 @@ import org.openapijsonschematools.client.components.responses.successwithjsonapi
 
 import java.util.AbstractMap;
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class SuccessWithJsonApiResponse {

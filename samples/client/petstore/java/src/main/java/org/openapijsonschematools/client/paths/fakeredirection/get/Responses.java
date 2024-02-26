@@ -16,13 +16,9 @@ public class Responses {
     public sealed interface EndpointResponse permits EndpointCode3XXResponse, EndpointCode303Response {}
 
     public record EndpointCode3XXResponse(
-        HttpResponse<byte[]> response
-        
+        HttpResponse<byte[]> response,
+        Void body
     ) implements EndpointResponse, ApiResponse<Void, Void>{
-        @Override
-        public Void body() {
-            return null;
-        }
         @Override
         public Void headers() {
             return null;
@@ -30,13 +26,9 @@ public class Responses {
     }
 
     public record EndpointCode303Response(
-        HttpResponse<byte[]> response
-        
+        HttpResponse<byte[]> response,
+        Void body
     ) implements EndpointResponse, ApiResponse<Void, Void>{
-        @Override
-        public Void body() {
-            return null;
-        }
         @Override
         public Void headers() {
             return null;
@@ -66,6 +58,22 @@ public class Responses {
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             String statusCode = String.valueOf(response.statusCode());
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer != null) {
+                StatusCode303ResponseDeserializer castDeserializer = (StatusCode303ResponseDeserializer) statusCodeDeserializer;
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                return new EndpointCode303Response(response, deserializedResponse.body());
+            }
+            @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
+            if (wildcardCodeDeserializer == null) {
+                throw new ApiException(
+                    "Invalid response statusCode="+statusCode+" has no response defined in the openapi document",
+                    response
+                );
+            }
+            WildcardCode3XXResponseDeserializer castDeserializer = (WildcardCode3XXResponseDeserializer) wildcardCodeDeserializer;
+            var deserializedResponse = castDeserializer.deserialize(response, configuration);
+            return new EndpointCode3XXResponse(response, deserializedResponse.body());
         }
     }
 }

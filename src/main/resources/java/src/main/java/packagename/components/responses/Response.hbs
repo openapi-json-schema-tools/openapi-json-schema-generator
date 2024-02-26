@@ -29,6 +29,7 @@ import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
 import java.util.AbstractMap;
     {{/if}}
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class {{jsonPathPiece.pascalCase}} {
@@ -115,13 +116,11 @@ public class {{jsonPathPiece.pascalCase}} {
     }
     {{else}}
     @SuppressWarnings("serial")
-    public class ResponseApiException extends ApiException {
-        public HttpResponse<byte[]> response;
+    public static class ResponseApiException extends ApiException {
         public ApiResponse<Void, Void> apiResponse;
 
-        public ValidationException(String s, HttpResponse<byte[]> response, ApiResponse<Void, Void> apiResponse) {
+        public ResponseApiException(String s, HttpResponse<byte[]> response, ApiResponse<Void, Void> apiResponse) {
             super(s, response);
-            this.response = response;
             this.apiResponse = apiResponse;
         }
     }
