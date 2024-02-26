@@ -48,6 +48,7 @@ public class CodegenOperation {
     public final TreeMap<Integer, CodegenResponse> statusCodeResponses;
     public final TreeMap<Integer, CodegenResponse> wildcardCodeResponses;
     public final TreeMap<String, CodegenResponse> nonDefaultResponses;
+    public final TreeMap<String, CodegenResponse> nonErrorResponses;
     public final CodegenResponse defaultResponse;
     public final List<CodegenCallback> callbacks;
     public final ExternalDocumentation externalDocs;
@@ -119,9 +120,43 @@ public class CodegenOperation {
         this.jsonPathPiece = jsonPathPiece;
         this.requestBodySchema = requestBodySchema;
         this.pathItemParameters = pathItemParameters;
+        TreeMap<String,CodegenResponse> nonErrorResponsesMap = new TreeMap<>();
+        if (statusCodeResponses != null) {
+            for (Map.Entry<Integer, CodegenResponse> entry: statusCodeResponses.entrySet()) {
+                if (entry.getKey() >= 200 && entry.getKey() <= 399) {
+                    nonErrorResponsesMap.put(entry.getKey().toString(), entry.getValue());
+                }
+            }
+        }
+        if (wildcardCodeResponses != null) {
+            for (Map.Entry<Integer, CodegenResponse> entry: wildcardCodeResponses.entrySet()) {
+                if (entry.getKey() == 2 || entry.getKey() == 3) {
+                    nonErrorResponsesMap.put(entry.getKey().toString(), entry.getValue());
+                }
+            }
+        }
+        if (defaultResponse != null) {
+            if (nonErrorResponsesMap.isEmpty()) {
+                /* default response should be non-error because
+                The Responses Object MUST contain at least one response code, and if only one response code
+                is provided it SHOULD be the response for a successful operation call.
+                 */
+                nonErrorResponsesMap.put("default", defaultResponse);
+            } else {
+                // the code does not know if this is an error response or non-error
+                // TODO add generation option that specifies it?
+                nonErrorResponsesMap.put("default", defaultResponse);
+            }
+        }
+        if (nonErrorResponsesMap.isEmpty()) {
+            nonErrorResponses = null;
+        } else {
+            nonErrorResponses = nonErrorResponsesMap;
+        }
     }
 
     // used by operation templates
+    @Deprecated
     public Map<String, CodegenResponse> getNonErrorResponses() {
         HashMap<String,CodegenResponse> nonErrorResponses = new HashMap<>();
         if (statusCodeResponses != null) {

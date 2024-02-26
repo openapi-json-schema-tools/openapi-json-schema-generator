@@ -9,16 +9,19 @@ import org.openapijsonschematools.client.paths.fakewildcardresponses.get.respons
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.http.HttpResponse;
+import java.util.Map;
+import java.util.AbstractMap;
 
 public class Responses {
-    public sealed interface EndpointResponse permits EndpointCode1XXResponse, EndpointCode200Response, EndpointCode2XXResponse, EndpointCode3XXResponse, EndpointCode4XXResponse, EndpointCode5XXResponse {}
+    public sealed interface EndpointResponse permits EndpointCode2XXResponse, EndpointCode200Response, EndpointCode3XXResponse {}
 
-    public record EndpointCode1XXResponse(
+    public record EndpointCode2XXResponse(
         HttpResponse<byte[]> response,
-        Code1XXResponse.SealedResponseBody body
-    ) implements EndpointResponse, ApiResponse<Code1XXResponse.SealedResponseBody, Void>{
+        Code2XXResponse.SealedResponseBody body
+    ) implements EndpointResponse, ApiResponse<Code2XXResponse.SealedResponseBody, Void>{
         @Override
         public Void headers() {
             return null;
@@ -35,40 +38,10 @@ public class Responses {
         }
     }
 
-    public record EndpointCode2XXResponse(
-        HttpResponse<byte[]> response,
-        Code2XXResponse.SealedResponseBody body
-    ) implements EndpointResponse, ApiResponse<Code2XXResponse.SealedResponseBody, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
-    }
-
     public record EndpointCode3XXResponse(
         HttpResponse<byte[]> response,
         Code3XXResponse.SealedResponseBody body
     ) implements EndpointResponse, ApiResponse<Code3XXResponse.SealedResponseBody, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
-    }
-
-    public record EndpointCode4XXResponse(
-        HttpResponse<byte[]> response,
-        Code4XXResponse.SealedResponseBody body
-    ) implements EndpointResponse, ApiResponse<Code4XXResponse.SealedResponseBody, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
-    }
-
-    public record EndpointCode5XXResponse(
-        HttpResponse<byte[]> response,
-        Code5XXResponse.SealedResponseBody body
-    ) implements EndpointResponse, ApiResponse<Code5XXResponse.SealedResponseBody, Void>{
         @Override
         public Void headers() {
             return null;
@@ -93,8 +66,23 @@ public class Responses {
     }
 
     public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
+        private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
+        private final Map<String, WildcardCodeResponseDeserializer> wildcardCodeToResponseDeserializer;
+        public Responses1() {
+            this.statusCodeToResponseDeserializer = Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+            );
+            this.wildcardCodeToResponseDeserializer = Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("1", new WildcardCode1XXResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("2", new WildcardCode2XXResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("3", new WildcardCode3XXResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("4", new WildcardCode4XXResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("5", new WildcardCode5XXResponseDeserializer())
+            );
+        }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+            String statusCode = String.valueOf(response.statusCode());
         }
     }
 }

@@ -50,7 +50,7 @@
 ) -> api_response.ApiResponseWithoutDeserialization: ...
 {{/eq}}
 {{#eq skipDeserialization false}}
-) -> {{#if getAllResponsesAreErrors}}api_response.ApiResponseWithoutDeserialization: ...{{else}}{{#gt getNonErrorResponses.size 1}}typing.Union[
+) -> {{#if getAllResponsesAreErrors}}api_response.ApiResponseWithoutDeserialization: ...{{else}}{{#gt nonErrorResponses.size 1}}typing.Union[
     {{> paths/path/verb/_helper_operation_response_type_hint multiple=true }}
 ]{{else}}{{> paths/path/verb/_helper_operation_response_type_hint multiple=false }}{{/gt}}: ...
     {{/if}}

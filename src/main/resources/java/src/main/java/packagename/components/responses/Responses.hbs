@@ -6,12 +6,16 @@ import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 import {{{packageName}}}.response.ApiResponse;
 import {{{packageName}}}.response.ResponsesDeserializer;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.http.HttpResponse;
+import java.util.Map;
+import java.util.AbstractMap;
 
 public class {{responses.jsonPathPiece.pascalCase}} {
-    public sealed interface EndpointResponse permits {{#each responses}}Endpoint{{jsonPathPiece.pascalCase}}{{#unless @last}}, {{/unless}}{{/each}} {}
-    {{#each responses}}
+    {{#if nonErrorResponses}}
+    public sealed interface EndpointResponse permits {{#each nonErrorResponses}}Endpoint{{jsonPathPiece.pascalCase}}{{#unless @last}}, {{/unless}}{{/each}} {}
+        {{#each nonErrorResponses}}
 
     public record Endpoint{{jsonPathPiece.pascalCase}}(
         HttpResponse<byte[]> response{{#if hasContentSchema}},{{/if}}
@@ -28,7 +32,8 @@ public class {{responses.jsonPathPiece.pascalCase}} {
             return null;
         }
     }
-    {{/each}}
+        {{/each}}
+    {{/if}}
     {{#if statusCodeResponses}}
 
     public sealed interface StatusCodeResponseDeserializer permits {{#each statusCodeResponses}}Status{{jsonPathPiece.pascalCase}}Deserializer{{#unless @last}}, {{/unless}}{{/each}} {}
@@ -48,8 +53,64 @@ public class {{responses.jsonPathPiece.pascalCase}} {
     {{/if}}
 
     public static final class {{responses.jsonPathPiece.pascalCase}}1 implements ResponsesDeserializer<EndpointResponse> {
+    {{#if statusCodeResponses}}
+        private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
+    {{/if}}
+    {{#if wildcardCodeResponses}}
+        private final Map<String, WildcardCodeResponseDeserializer> wildcardCodeToResponseDeserializer;
+    {{/if}}
+        public {{responses.jsonPathPiece.pascalCase}}1() {
+    {{#if statusCodeResponses }}
+            this.statusCodeToResponseDeserializer = Map.ofEntries(
+        {{#each statusCodeResponses }}
+                new AbstractMap.SimpleEntry<>("{{@key}}", new Status{{jsonPathPiece.snakeCase}}Deserializer()){{#unless @last}},{{/unless}}
+        {{/each}}
+            );
+    {{/if}}
+    {{#if wildcardCodeResponses }}
+            this.wildcardCodeToResponseDeserializer = Map.ofEntries(
+        {{#each wildcardCodeResponses }}
+                new AbstractMap.SimpleEntry<>("{{@key}}", new Wildcard{{jsonPathPiece.snakeCase}}Deserializer()){{#unless @last}},{{/unless}}
+        {{/each}}
+            );
+    {{/if}}
+        }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+            String statusCode = String.valueOf(response.statusCode());
+{{#and wildcardCodeResponses statusCodeResponses }}
+{{else}}
+    {{#or wildcardCodeResponses statusCodeResponses}}
+        {{#if statusCodeResponses}}
+            @Nullable StatusCodeResponseDeserializer deserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (deserializer == null) {
+                // todo throw ApiException and include the response in it
+                throw new RuntimeException("Invalid response statusCode="+statusCode+" has no response defined in the openapi document");
+            }
+            {{#eq statusCodeResponses.size 1}}
+                {{#each statusCodeResponses}}
+            Status{{jsonPathPiece.snakeCase}}Deserializer castDeserializer = (Status{{jsonPathPiece.snakeCase}}Deserializer) deserializer;
+            var deserializedResponse = castDeserializer.deserialize(response, configuration);
+            return new Endpoint{{jsonPathPiece.snakeCase}}(response, deserializedResponse.body());
+                {{/each}}
+            {{else}}
+                {{#each statusCodeResponses}}
+                    {{#if @first}}
+            if (deserializer instanceof Status{{jsonPathPiece.snakeCase}}Deserializer castDeserializer) {
+                    {{else}}
+            } else if (deserializer instanceof Status{{jsonPathPiece.snakeCase}}Deserializer castDeserializer) {
+                    {{/if}}
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                // todo switch on the status code and return the endpoint class instance
+                return new Endpoint{{jsonPathPiece.snakeCase}}(response, deserializedResponse.body());
+                {{/each}}
+            }
+            {{/eq}}
+        {{else}}
+        {{/if}}
+    {{else}}
+    {{/or}}
+{{/and}}
         }
     }
 }

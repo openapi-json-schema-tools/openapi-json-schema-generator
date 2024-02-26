@@ -3310,6 +3310,11 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
+    public boolean generateComponentResponsesFile() {
+        return true;
+    }
+
+    @Override
     @SuppressWarnings("static-method")
     public HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityRequirement, String sourceJsonPath) {
         if (securityRequirement == null) {

@@ -3037,4 +3037,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
         return cp;
     }
+
+    @Override
+    public boolean generateComponentResponsesFile() {
+        return false;
+    }
 }

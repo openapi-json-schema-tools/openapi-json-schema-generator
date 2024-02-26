@@ -520,6 +520,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     responsesInfo.put("responses", operation.responses);
                     responsesInfo.put("statusCodeResponses", operation.statusCodeResponses);
                     responsesInfo.put("wildcardCodeResponses", operation.wildcardCodeResponses);
+                    responsesInfo.put("nonErrorResponses", operation.nonErrorResponses);
                     generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, true);
                     for (Map.Entry<String, CodegenResponse> responseEntry: operation.responses.entrySet()) {
                         // paths.some_path.post.responses.response_200.__init__.py (file per response)
@@ -677,7 +678,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         TreeMap<String, CodegenResponse> responses = new TreeMap<>();
         String responsesJsonPath = "#/components/responses";
-        generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, null, true);
+        if (generator.generateComponentResponsesFile()) {
+            generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, null, true);
+        }
         for (Map.Entry<String, ApiResponse> responseEntry: specResponses.entrySet()) {
             String componentName = responseEntry.getKey();
             ApiResponse apiResponse = responseEntry.getValue();

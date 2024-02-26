@@ -4,8 +4,11 @@ import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.respo
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.http.HttpResponse;
+import java.util.Map;
+import java.util.AbstractMap;
 
 public class Responses {
     public sealed interface EndpointResponse permits EndpointCode200Response {}
@@ -30,8 +33,23 @@ public class Responses {
     }
 
     public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
+        private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
+        public Responses1() {
+            this.statusCodeToResponseDeserializer = Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+            );
+        }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+            String statusCode = String.valueOf(response.statusCode());
+            @Nullable StatusCodeResponseDeserializer deserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (deserializer == null) {
+                // todo throw ApiException and include the response in it
+                throw new RuntimeException("Invalid response statusCode="+statusCode+" has no response defined in the openapi document");
+            }
+            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) deserializer;
+            var deserializedResponse = castDeserializer.deserialize(response, configuration);
+            return new EndpointCode200Response(response, deserializedResponse.body());
         }
     }
 }

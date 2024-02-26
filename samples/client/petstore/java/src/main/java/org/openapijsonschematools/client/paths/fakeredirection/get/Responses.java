@@ -5,13 +5,16 @@ import org.openapijsonschematools.client.paths.fakeredirection.get.responses.Cod
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.http.HttpResponse;
+import java.util.Map;
+import java.util.AbstractMap;
 
 public class Responses {
-    public sealed interface EndpointResponse permits EndpointCode303Response, EndpointCode3XXResponse {}
+    public sealed interface EndpointResponse permits EndpointCode3XXResponse, EndpointCode303Response {}
 
-    public record EndpointCode303Response(
+    public record EndpointCode3XXResponse(
         HttpResponse<byte[]> response
         
     ) implements EndpointResponse, ApiResponse<Void, Void>{
@@ -25,7 +28,7 @@ public class Responses {
         }
     }
 
-    public record EndpointCode3XXResponse(
+    public record EndpointCode303Response(
         HttpResponse<byte[]> response
         
     ) implements EndpointResponse, ApiResponse<Void, Void>{
@@ -49,8 +52,19 @@ public class Responses {
     }
 
     public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
+        private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
+        private final Map<String, WildcardCodeResponseDeserializer> wildcardCodeToResponseDeserializer;
+        public Responses1() {
+            this.statusCodeToResponseDeserializer = Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("303", new StatusCode303ResponseDeserializer())
+            );
+            this.wildcardCodeToResponseDeserializer = Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("3", new WildcardCode3XXResponseDeserializer())
+            );
+        }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+            String statusCode = String.valueOf(response.statusCode());
         }
     }
 }

@@ -340,7 +340,6 @@ src/main/java/org/openapijsonschematools/client/components/requestbodies/client/
 src/main/java/org/openapijsonschematools/client/components/requestbodies/pet/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/components/requestbodies/pet/content/applicationxml/ApplicationxmlSchema.java
 src/main/java/org/openapijsonschematools/client/components/requestbodies/userarray/content/applicationjson/ApplicationjsonSchema.java
-src/main/java/org/openapijsonschematools/client/components/responses.java
 src/main/java/org/openapijsonschematools/client/components/responses/HeadersWithNoBody.java
 src/main/java/org/openapijsonschematools/client/components/responses/RefSuccessDescriptionOnly.java
 src/main/java/org/openapijsonschematools/client/components/responses/RefSuccessfulXmlAndJsonArrayOfPet.java
