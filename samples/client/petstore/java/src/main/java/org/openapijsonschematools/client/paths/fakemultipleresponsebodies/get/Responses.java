@@ -59,11 +59,9 @@ public class Responses {
             }
             if (deserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                // todo switch on the status code and return the endpoint class instance
                 return new EndpointCode200Response(response, deserializedResponse.body());
             } else if (deserializer instanceof StatusCode202ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                // todo switch on the status code and return the endpoint class instance
                 return new EndpointCode202Response(response, deserializedResponse.body());
             }
         }

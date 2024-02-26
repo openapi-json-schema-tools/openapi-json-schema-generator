@@ -2699,7 +2699,7 @@ public class DefaultGenerator implements Generator {
         TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
         LinkedHashSet<String> errorStatusCodes = null;
         LinkedHashSet<Integer> errorWildcardStatusCodes = null;
-        LinkedHashSet<String> nonErrorStatusCodes = null;
+        LinkedHashSet<Integer> nonErrorStatusCodes = null;
         LinkedHashSet<Integer> nonErrorWildcardStatusCodes = null;
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
             Map<String, CodegenResponse> responsesMap = new TreeMap<>();
@@ -2761,7 +2761,7 @@ public class DefaultGenerator implements Generator {
                     if (nonErrorStatusCodes == null) {
                         nonErrorStatusCodes = new LinkedHashSet<>();
                     }
-                    nonErrorStatusCodes.add(key);
+                    nonErrorStatusCodes.add(statusCode);
                 }
             }
 

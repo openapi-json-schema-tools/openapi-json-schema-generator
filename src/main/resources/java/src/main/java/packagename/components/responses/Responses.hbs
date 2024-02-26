@@ -63,7 +63,7 @@ public class {{responses.jsonPathPiece.pascalCase}} {
     {{#if statusCodeResponses }}
             this.statusCodeToResponseDeserializer = Map.ofEntries(
         {{#each statusCodeResponses }}
-                new AbstractMap.SimpleEntry<>("{{@key}}", new Status{{jsonPathPiece.snakeCase}}Deserializer()){{#unless @last}},{{/unless}}
+                new AbstractMap.SimpleEntry<>("{{@key}}", new Status{{jsonPathPiece.pascalCase}}Deserializer()){{#unless @last}},{{/unless}}
         {{/each}}
             );
     {{/if}}
@@ -89,20 +89,27 @@ public class {{responses.jsonPathPiece.pascalCase}} {
             }
             {{#eq statusCodeResponses.size 1}}
                 {{#each statusCodeResponses}}
-            Status{{jsonPathPiece.snakeCase}}Deserializer castDeserializer = (Status{{jsonPathPiece.snakeCase}}Deserializer) deserializer;
+            Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Status{{jsonPathPiece.pascalCase}}Deserializer) deserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new Endpoint{{jsonPathPiece.snakeCase}}(response, deserializedResponse.body());
+            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
                 {{/each}}
             {{else}}
                 {{#each statusCodeResponses}}
                     {{#if @first}}
-            if (deserializer instanceof Status{{jsonPathPiece.snakeCase}}Deserializer castDeserializer) {
+            if (deserializer instanceof Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
                     {{else}}
-            } else if (deserializer instanceof Status{{jsonPathPiece.snakeCase}}Deserializer castDeserializer) {
+            } else if (deserializer instanceof Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
                     {{/if}}
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                // todo switch on the status code and return the endpoint class instance
-                return new Endpoint{{jsonPathPiece.snakeCase}}(response, deserializedResponse.body());
+                    {{#if nonErrorResponses}}
+                        {{#contains nonErrorStatusCodes @key }}
+                return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+                        {{else}}
+                // throw exception because this is an error
+                        {{/contains}}
+                    {{else}}
+                // throw exception because this is an error
+                    {{/if}}
                 {{/each}}
             }
             {{/eq}}

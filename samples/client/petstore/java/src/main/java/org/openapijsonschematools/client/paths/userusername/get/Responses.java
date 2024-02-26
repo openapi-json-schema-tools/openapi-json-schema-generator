@@ -53,16 +53,13 @@ public class Responses {
             }
             if (deserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                // todo switch on the status code and return the endpoint class instance
                 return new EndpointCode200Response(response, deserializedResponse.body());
             } else if (deserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                // todo switch on the status code and return the endpoint class instance
-                return new EndpointCode400Response(response, deserializedResponse.body());
+                // throw exception because this is an error
             } else if (deserializer instanceof StatusCode404ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                // todo switch on the status code and return the endpoint class instance
-                return new EndpointCode404Response(response, deserializedResponse.body());
+                // throw exception because this is an error
             }
         }
     }
