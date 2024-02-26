@@ -3310,7 +3310,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public boolean generateComponentResponsesFile() {
+    public boolean shouldGenerateFile(String jsonPath) {
         return true;
     }
 

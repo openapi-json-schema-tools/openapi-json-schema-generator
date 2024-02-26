@@ -3040,7 +3040,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
-    public boolean generateComponentResponsesFile() {
-        return false;
+    public boolean shouldGenerateFile(String jsonPath) {
+        if (jsonPath.equals("#/components/responses")) {
+            return false;
+        }
+        return true;
     }
 }

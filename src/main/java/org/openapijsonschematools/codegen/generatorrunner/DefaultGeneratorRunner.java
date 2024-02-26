@@ -524,7 +524,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     responsesInfo.put("nonErrorStatusCodes", operation.nonErrorStatusCodes);
                     responsesInfo.put("nonErrorWildcardStatusCodes", operation.nonErrorWildcardStatusCodes);
                     responsesInfo.put("defaultResponse", operation.defaultResponse);
-                    generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, true);
+                    generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, generator.shouldGenerateFile(responsesJsonPath));
                     for (Map.Entry<String, CodegenResponse> responseEntry: operation.responses.entrySet()) {
                         // paths.some_path.post.responses.response_200.__init__.py (file per response)
                         // response is a package because responses have Headers which can be refed
@@ -681,9 +681,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         TreeMap<String, CodegenResponse> responses = new TreeMap<>();
         String responsesJsonPath = "#/components/responses";
-        if (generator.generateComponentResponsesFile()) {
-            generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, null, true);
-        }
+        generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, null, generator.shouldGenerateFile(responsesJsonPath));
         for (Map.Entry<String, ApiResponse> responseEntry: specResponses.entrySet()) {
             String componentName = responseEntry.getKey();
             ApiResponse apiResponse = responseEntry.getValue();

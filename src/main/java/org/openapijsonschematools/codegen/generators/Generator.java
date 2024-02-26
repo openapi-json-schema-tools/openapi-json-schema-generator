@@ -302,6 +302,5 @@ public interface Generator {
     Function<CodegenSchema, List<CodegenSchema>> getSchemasFn();
 
     boolean generateSeparateServerSchemas();
-
-    boolean generateComponentResponsesFile();
+    boolean shouldGenerateFile(String jsonPath);
 }
