@@ -123,14 +123,14 @@ public class CodegenOperation {
         TreeMap<String,CodegenResponse> nonErrorResponsesMap = new TreeMap<>();
         if (statusCodeResponses != null) {
             for (Map.Entry<Integer, CodegenResponse> entry: statusCodeResponses.entrySet()) {
-                if (entry.getKey() >= 200 && entry.getKey() <= 399) {
+                if (entry.getKey() >= 1 && entry.getKey() <= 399) {
                     nonErrorResponsesMap.put(entry.getKey().toString(), entry.getValue());
                 }
             }
         }
         if (wildcardCodeResponses != null) {
             for (Map.Entry<Integer, CodegenResponse> entry: wildcardCodeResponses.entrySet()) {
-                if (entry.getKey() == 2 || entry.getKey() == 3) {
+                if (entry.getKey() < 4) {
                     nonErrorResponsesMap.put(entry.getKey().toString(), entry.getValue());
                 }
             }

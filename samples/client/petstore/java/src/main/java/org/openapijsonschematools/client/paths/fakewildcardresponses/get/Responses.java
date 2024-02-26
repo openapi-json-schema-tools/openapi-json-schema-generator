@@ -17,7 +17,17 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class Responses {
-    public sealed interface EndpointResponse permits EndpointCode2XXResponse, EndpointCode200Response, EndpointCode3XXResponse {}
+    public sealed interface EndpointResponse permits EndpointCode1XXResponse, EndpointCode2XXResponse, EndpointCode200Response, EndpointCode3XXResponse {}
+
+    public record EndpointCode1XXResponse(
+        HttpResponse<byte[]> response,
+        Code1XXResponse.SealedResponseBody body
+    ) implements EndpointResponse, ApiResponse<Code1XXResponse.SealedResponseBody, Void>{
+        @Override
+        public Void headers() {
+            return null;
+        }
+    }
 
     public record EndpointCode2XXResponse(
         HttpResponse<byte[]> response,

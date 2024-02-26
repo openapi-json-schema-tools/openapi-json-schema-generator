@@ -72,10 +72,10 @@ public class Code200Response {
     }
 
     @SuppressWarnings("serial")
-    public class ResponseApiException extends ApiException {
+    public static class ResponseApiException extends ApiException {
         public ApiResponse<SealedResponseBody, Void> apiResponse;
 
-        public ValidationException(String s, HttpResponse<byte[]> response, ApiResponse<SealedResponseBody, Void> apiResponse) {
+        public ResponseApiException(String s, HttpResponse<byte[]> response, ApiResponse<SealedResponseBody, Void> apiResponse) {
             super(s, response);
             this.apiResponse = apiResponse;
         }
