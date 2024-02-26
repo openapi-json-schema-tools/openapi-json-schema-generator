@@ -16,8 +16,8 @@ public class Responses {
 
     public record EndpointCode200Response(
         HttpResponse<byte[]> response,
-        Void body
-    ) implements EndpointResponse, ApiResponse<Void, Void>{
+        Code200Response.SealedResponseBody body
+    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
         @Override
         public Void headers() {
             return null;

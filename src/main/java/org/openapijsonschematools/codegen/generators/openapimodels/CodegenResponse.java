@@ -63,10 +63,11 @@ public class CodegenResponse {
      * @return true if there is an inline header
      */
     public boolean hasContentSchema() {
-        if (content == null) {
+        CodegenResponse inst = getSelfOrDeepestRef();
+        if (inst.content == null) {
             return false;
         }
-        for (CodegenMediaType mediaType: content.values()) {
+        for (CodegenMediaType mediaType: inst.content.values()) {
             if (mediaType == null) {
                 continue;
             }
