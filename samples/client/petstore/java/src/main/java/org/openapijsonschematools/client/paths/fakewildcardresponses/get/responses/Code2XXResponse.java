@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakewildcardresponses.get.respon
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
-import org.openapijsonschematools.client.response.ApiResponse;
+import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.code2xxresponse.content.applicationjson.ApplicationjsonSchema;
@@ -57,11 +57,11 @@ public class Code2XXResponse {
 
     @SuppressWarnings("serial")
     public static class ResponseApiException extends ApiException {
-        public ApiResponse<SealedResponseBody, Void> apiResponse;
+        public DeserializedHttpResponse<SealedResponseBody, Void> deserializedResponse;
 
-        public ResponseApiException(String s, HttpResponse<byte[]> response, ApiResponse<SealedResponseBody, Void> apiResponse) {
+        public ResponseApiException(String s, HttpResponse<byte[]> response, DeserializedHttpResponse<SealedResponseBody, Void> deserializedResponse) {
             super(s, response);
-            this.apiResponse = apiResponse;
+            this.deserializedResponse = deserializedResponse;
         }
     }
 }

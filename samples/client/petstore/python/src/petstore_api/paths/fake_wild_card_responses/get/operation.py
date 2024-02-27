@@ -73,8 +73,9 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
     ) -> typing.Union[
-        response_200.ApiResponse,
+        response_1xx.ApiResponse,
         response_2xx.ApiResponse,
+        response_200.ApiResponse,
         response_3xx.ApiResponse,
     ]: ...
 

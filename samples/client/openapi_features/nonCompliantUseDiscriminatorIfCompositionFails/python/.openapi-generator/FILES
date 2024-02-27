@@ -42,7 +42,7 @@ src/this_package/paths/operators/post/request_body/__init__.py
 src/this_package/paths/operators/post/request_body/content/__init__.py
 src/this_package/paths/operators/post/request_body/content/application_json/__init__.py
 src/this_package/paths/operators/post/request_body/content/application_json/schema.py
-src/this_package/paths/operators/post/responses/__init__.py
+src/this_package/paths/operators/post/response_responses/__init__.py
 src/this_package/paths/operators/post/responses/response_200/__init__.py
 src/this_package/py.typed
 src/this_package/rest.py

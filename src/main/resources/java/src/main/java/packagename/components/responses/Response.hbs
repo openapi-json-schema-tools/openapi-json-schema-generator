@@ -12,7 +12,7 @@ public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
 {{else}}
 import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.response.ResponseDeserializer;
-import {{packageName}}.response.ApiResponse;
+import {{packageName}}.response.DeserializedHttpResponse;
 import {{packageName}}.exceptions.ApiException;
     {{#if hasContentSchema}}
 import {{packageName}}.mediatype.MediaType;
@@ -107,21 +107,21 @@ public class {{jsonPathPiece.pascalCase}} {
     {{#if hasContentSchema}}
     @SuppressWarnings("serial")
     public static class ResponseApiException extends ApiException {
-        public ApiResponse<SealedResponseBody, Void> apiResponse;
+        public DeserializedHttpResponse<SealedResponseBody, Void> deserializedResponse;
 
-        public ResponseApiException(String s, HttpResponse<byte[]> response, ApiResponse<SealedResponseBody, Void> apiResponse) {
+        public ResponseApiException(String s, HttpResponse<byte[]> response, DeserializedHttpResponse<SealedResponseBody, Void> deserializedResponse) {
             super(s, response);
-            this.apiResponse = apiResponse;
+            this.deserializedResponse = deserializedResponse;
         }
     }
     {{else}}
     @SuppressWarnings("serial")
     public static class ResponseApiException extends ApiException {
-        public ApiResponse<Void, Void> apiResponse;
+        public DeserializedHttpResponse<Void, Void> deserializedResponse;
 
-        public ResponseApiException(String s, HttpResponse<byte[]> response, ApiResponse<Void, Void> apiResponse) {
+        public ResponseApiException(String s, HttpResponse<byte[]> response, DeserializedHttpResponse<Void, Void> deserializedResponse) {
             super(s, response);
-            this.apiResponse = apiResponse;
+            this.deserializedResponse = deserializedResponse;
         }
     }
     {{/if}}

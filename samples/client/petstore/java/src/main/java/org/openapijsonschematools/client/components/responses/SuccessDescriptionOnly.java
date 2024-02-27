@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.components.responses;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
-import org.openapijsonschematools.client.response.ApiResponse;
+import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 
@@ -33,11 +33,11 @@ public class SuccessDescriptionOnly {
 
     @SuppressWarnings("serial")
     public static class ResponseApiException extends ApiException {
-        public ApiResponse<Void, Void> apiResponse;
+        public DeserializedHttpResponse<Void, Void> deserializedResponse;
 
-        public ResponseApiException(String s, HttpResponse<byte[]> response, ApiResponse<Void, Void> apiResponse) {
+        public ResponseApiException(String s, HttpResponse<byte[]> response, DeserializedHttpResponse<Void, Void> deserializedResponse) {
             super(s, response);
-            this.apiResponse = apiResponse;
+            this.deserializedResponse = deserializedResponse;
         }
     }
 }

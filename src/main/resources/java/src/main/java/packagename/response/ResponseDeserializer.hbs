@@ -63,7 +63,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         throw new RuntimeException("Deserialization for contentType="+contentType+" has not yet been implemented.");
     }
 
-	public ApiResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+	public DeserializedHttpResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
         Optional<String> contentTypeInfo = response.headers().firstValue("Content-Type");
         if (contentTypeInfo.isEmpty()) {
             throw new RuntimeException("Invalid response returned, Content-Type header is missing and it must be included");
@@ -78,6 +78,6 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         byte[] bodyBytes = response.body();
         SealedBodyClass body = getBody(contentType, bodyBytes, configuration);
         HeaderClass headers = getHeaders(response.headers());
-        return new DeserializedApiResponse<>(response, body, headers);
+        return new DeserializedHttpResponse<>(body, headers);
 	}
 }
