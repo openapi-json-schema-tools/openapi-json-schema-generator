@@ -52,6 +52,14 @@ public class Responses {
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             String statusCode = String.valueOf(response.statusCode());
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer != null) {
+                StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+                var deserializedResponse = castDeserializer.deserialize(response, configuration);
+                return new EndpointCode200Response(response, deserializedResponse.body());
+            }
+            var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
+            return new EndpointCodedefaultResponse(response, deserializedResponse.body());
         }
     }
 }

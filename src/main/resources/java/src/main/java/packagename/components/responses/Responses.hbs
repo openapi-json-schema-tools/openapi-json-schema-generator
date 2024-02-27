@@ -124,6 +124,21 @@ public class {{responses.jsonPathPiece.pascalCase}} {
     {{else}}
         {{#or statusCodeResponses wildcardCodeResponses }}
             String statusCode = String.valueOf(response.statusCode());
+            {{#if statusCodeResponses}}
+            @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
+            if (statusCodeDeserializer != null) {
+                {{> src/main/java/packagename/components/responses/_statusCodeDeserialization }}
+            }
+            {{else}}
+            @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
+            if (wildcardCodeDeserializer != null) {
+                {{> src/main/java/packagename/components/responses/_wildcardCodeDeserialization }}
+            }
+            {{/if}}
+            var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
+            {{#with defaultResponse}}
+            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+            {{/with}}
         {{else}}
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
             {{#with defaultResponse}}

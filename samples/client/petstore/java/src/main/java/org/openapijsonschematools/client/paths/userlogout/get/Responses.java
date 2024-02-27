@@ -31,7 +31,6 @@ public class Responses {
         }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
-            String statusCode = String.valueOf(response.statusCode());
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
             return new EndpointCodedefaultResponse(response, deserializedResponse.body());
         }
