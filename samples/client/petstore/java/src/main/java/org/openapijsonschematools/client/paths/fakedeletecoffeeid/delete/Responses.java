@@ -42,10 +42,12 @@ public class Responses {
 
     public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
+        private final CodedefaultResponse.CodedefaultResponse1 defaultResponseDeserializer;
         public Responses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
                 new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
             );
+            this.defaultResponseDeserializer = new CodedefaultResponse.CodedefaultResponse1();
         }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {

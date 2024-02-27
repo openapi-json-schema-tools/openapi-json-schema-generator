@@ -56,6 +56,9 @@ public class {{responses.jsonPathPiece.pascalCase}} {
     {{#if wildcardCodeResponses}}
         private final Map<String, WildcardCodeResponseDeserializer> wildcardCodeToResponseDeserializer;
     {{/if}}
+    {{#with defaultResponse}}
+        private final {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 defaultResponseDeserializer;
+    {{/with}}
         public {{responses.jsonPathPiece.pascalCase}}1() {
     {{#if statusCodeResponses }}
             this.statusCodeToResponseDeserializer = Map.ofEntries(
@@ -71,6 +74,9 @@ public class {{responses.jsonPathPiece.pascalCase}} {
         {{/each}}
             );
     {{/if}}
+    {{#with defaultResponse}}
+            this.defaultResponseDeserializer = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1();
+    {{/with}}
         }
 
         public {{#if nonErrorResponses }}EndpointResponse{{else}}Void{{/if}} deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {

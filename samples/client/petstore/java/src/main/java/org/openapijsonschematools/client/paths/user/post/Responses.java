@@ -25,7 +25,9 @@ public class Responses {
     }
 
     public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
+        private final CodedefaultResponse.CodedefaultResponse1 defaultResponseDeserializer;
         public Responses1() {
+            this.defaultResponseDeserializer = new CodedefaultResponse.CodedefaultResponse1();
         }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
