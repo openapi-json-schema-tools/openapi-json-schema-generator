@@ -1757,15 +1757,24 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
     @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
-        if (!jsonPath.startsWith("#/components/responses/")) {
-            return "response_" + componentName.toLowerCase(Locale.ROOT);
+        String[] pathPieces = jsonPath.split("/");
+        if (jsonPath.startsWith("#/components/responses")) {
+            if (pathPieces.length == 3) {
+                return "responses";
+            }// #/components/responses/SomeResponse
+            // #/components/responses/SomeResponse/content/schema
+            String suffix = toModuleFilename(componentName, jsonPath);
+            String spacer = "";
+            if (!suffix.startsWith("_")) {
+                spacer = "_";
+            }
+            return "response" + spacer + suffix;
         }
-        String suffix = toModuleFilename(componentName, jsonPath);
-        String spacer = "";
-        if (!suffix.startsWith("_")) {
-            spacer = "_";
-        }
-        return "response" + spacer + suffix;
+        if (pathPieces.length == 5) {// #/paths/somePath/verb/responses
+            return "responses";
+        }// #/paths/somePath/verb/responses/200
+        // #/paths/somePath/verb/responses/200/content/schema
+        return "response_" + componentName.toLowerCase(Locale.ROOT);
     }
 
     @Override
