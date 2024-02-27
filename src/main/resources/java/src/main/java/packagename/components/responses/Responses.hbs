@@ -80,8 +80,8 @@ public class {{responses.jsonPathPiece.pascalCase}} {
         }
 
         public {{#if nonErrorResponses }}EndpointResponse{{else}}Void{{/if}} deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
-            String statusCode = String.valueOf(response.statusCode());
 {{#eq defaultResponse null }}
+            String statusCode = String.valueOf(response.statusCode());
     {{#and statusCodeResponses wildcardCodeResponses }}
             @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (statusCodeDeserializer != null) {
@@ -116,6 +116,19 @@ public class {{responses.jsonPathPiece.pascalCase}} {
             }
             {{> src/main/java/packagename/components/responses/_wildcardCodeDeserialization }}
             {{/if}}
+        {{/or}}
+    {{/and}}
+{{else}}
+    {{#and statusCodeResponses wildcardCodeResponses }}
+            String statusCode = String.valueOf(response.statusCode());
+    {{else}}
+        {{#or statusCodeResponses wildcardCodeResponses }}
+            String statusCode = String.valueOf(response.statusCode());
+        {{else}}
+            var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
+            {{#with defaultResponse}}
+            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+            {{/with}}
         {{/or}}
     {{/and}}
 {{/eq}}
