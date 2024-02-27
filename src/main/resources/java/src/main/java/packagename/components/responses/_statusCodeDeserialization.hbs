@@ -1,0 +1,23 @@
+{{#eq statusCodeResponses.size 1}}
+    {{#each statusCodeResponses}}
+Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Status{{jsonPathPiece.pascalCase}}Deserializer) statusCodeDeserializer;
+var deserializedResponse = castDeserializer.deserialize(response, configuration);
+{{> src/main/java/packagename/components/responses/_returnOrThrow }}
+    {{/each}}
+{{else}}
+    {{#each statusCodeResponses}}
+        {{#if @first}}
+if (statusCodeDeserializer instanceof Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
+        {{else}}
+            {{#if @last}}
+} else {
+    Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Status{{jsonPathPiece.pascalCase}}Deserializer) statusCodeDeserializer;
+            {{else}}
+} else if (statusCodeDeserializer instanceof Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
+            {{/if}}
+        {{/if}}
+    var deserializedResponse = castDeserializer.deserialize(response, configuration);
+    {{> src/main/java/packagename/components/responses/_returnOrThrow }}
+    {{/each}}
+}
+{{/eq}}

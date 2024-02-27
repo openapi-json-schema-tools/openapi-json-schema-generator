@@ -2,11 +2,14 @@ package org.openapijsonschematools.client.paths.fake.get.responses;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
+import org.openapijsonschematools.client.response.DeserializedHttpResponse;
+import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fake.get.responses.code404response.content.applicationjson.ApplicationjsonSchema;
 
 import java.util.AbstractMap;
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class Code404Response {
@@ -49,6 +52,16 @@ public class Code404Response {
         @Override
         protected Void getHeaders(HttpHeaders headers) {
             return null;
+        }
+    }
+
+    @SuppressWarnings("serial")
+    public static class ResponseApiException extends ApiException {
+        public DeserializedHttpResponse<SealedResponseBody, Void> deserializedResponse;
+
+        public ResponseApiException(String s, HttpResponse<byte[]> response, DeserializedHttpResponse<SealedResponseBody, Void> deserializedResponse) {
+            super(s, response);
+            this.deserializedResponse = deserializedResponse;
         }
     }
 }

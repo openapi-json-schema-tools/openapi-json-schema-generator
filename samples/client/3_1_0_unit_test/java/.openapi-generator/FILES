@@ -291,6 +291,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/ValidateAgain
 src/main/java/org/openapijsonschematools/client/configurations/ApiConfiguration.java
 src/main/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlags.java
 src/main/java/org/openapijsonschematools/client/configurations/SchemaConfiguration.java
+src/main/java/org/openapijsonschematools/client/exceptions/ApiException.java
 src/main/java/org/openapijsonschematools/client/exceptions/BaseException.java
 src/main/java/org/openapijsonschematools/client/exceptions/InvalidAdditionalPropertyException.java
 src/main/java/org/openapijsonschematools/client/exceptions/InvalidTypeException.java
@@ -303,8 +304,9 @@ src/main/java/org/openapijsonschematools/client/requestbody/GenericRequestBody.j
 src/main/java/org/openapijsonschematools/client/requestbody/RequestBodySerializer.java
 src/main/java/org/openapijsonschematools/client/requestbody/SerializedRequestBody.java
 src/main/java/org/openapijsonschematools/client/response/ApiResponse.java
-src/main/java/org/openapijsonschematools/client/response/DeserializedApiResponse.java
+src/main/java/org/openapijsonschematools/client/response/DeserializedHttpResponse.java
 src/main/java/org/openapijsonschematools/client/response/ResponseDeserializer.java
+src/main/java/org/openapijsonschematools/client/response/ResponsesDeserializer.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java

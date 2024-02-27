@@ -157,8 +157,7 @@ public class ResponseDeserializerTest {
         byte[] bodyBytes = toJson(null).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-        ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
-        Assert.assertEquals(response, apiResponse.response());
+        DeserializedHttpResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
         if (!(apiResponse.body() instanceof ApplicationjsonBody jsonBody)) {
             throw new RuntimeException("body must be type ApplicationjsonBody");
         }
@@ -174,8 +173,7 @@ public class ResponseDeserializerTest {
         byte[] bodyBytes = toJson(true).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-        ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
-        Assert.assertEquals(response, apiResponse.response());
+        DeserializedHttpResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
         if (!(apiResponse.body() instanceof ApplicationjsonBody jsonBody)) {
             throw new RuntimeException("body must be type ApplicationjsonBody");
         }
@@ -191,8 +189,7 @@ public class ResponseDeserializerTest {
         byte[] bodyBytes = toJson(false).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-        ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
-        Assert.assertEquals(response, apiResponse.response());
+        DeserializedHttpResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
         if (!(apiResponse.body() instanceof ApplicationjsonBody jsonBody)) {
             throw new RuntimeException("body must be type ApplicationjsonBody");
         }
@@ -208,8 +205,7 @@ public class ResponseDeserializerTest {
         byte[] bodyBytes = toJson(1).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-        ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
-        Assert.assertEquals(response, apiResponse.response());
+        DeserializedHttpResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
         if (!(apiResponse.body() instanceof ApplicationjsonBody jsonBody)) {
             throw new RuntimeException("body must be type ApplicationjsonBody");
         }
@@ -225,8 +221,7 @@ public class ResponseDeserializerTest {
         byte[] bodyBytes = toJson(3.14).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-        ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
-        Assert.assertEquals(response, apiResponse.response());
+        DeserializedHttpResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
         if (!(apiResponse.body() instanceof ApplicationjsonBody jsonBody)) {
             throw new RuntimeException("body must be type ApplicationjsonBody");
         }
@@ -242,8 +237,7 @@ public class ResponseDeserializerTest {
         byte[] bodyBytes = toJson("a").getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-        ApiResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
-        Assert.assertEquals(response, apiResponse.response());
+        DeserializedHttpResponse<SealedResponseBody, Void> apiResponse = deserializer.deserialize(response, configuration);
         if (!(apiResponse.body() instanceof ApplicationjsonBody jsonBody)) {
             throw new RuntimeException("body must be type ApplicationjsonBody");
         }

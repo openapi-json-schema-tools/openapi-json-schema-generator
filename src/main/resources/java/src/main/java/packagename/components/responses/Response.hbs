@@ -12,6 +12,8 @@ public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
 {{else}}
 import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.response.ResponseDeserializer;
+import {{packageName}}.response.DeserializedHttpResponse;
+import {{packageName}}.exceptions.ApiException;
     {{#if hasContentSchema}}
 import {{packageName}}.mediatype.MediaType;
     {{else}}
@@ -27,6 +29,7 @@ import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
 import java.util.AbstractMap;
     {{/if}}
 import java.util.Map;
+import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 
 public class {{jsonPathPiece.pascalCase}} {
@@ -100,6 +103,28 @@ public class {{jsonPathPiece.pascalCase}} {
             return null;
         }
     }
+
+    {{#if hasContentSchema}}
+    @SuppressWarnings("serial")
+    public static class ResponseApiException extends ApiException {
+        public DeserializedHttpResponse<SealedResponseBody, Void> deserializedResponse;
+
+        public ResponseApiException(String s, HttpResponse<byte[]> response, DeserializedHttpResponse<SealedResponseBody, Void> deserializedResponse) {
+            super(s, response);
+            this.deserializedResponse = deserializedResponse;
+        }
+    }
+    {{else}}
+    @SuppressWarnings("serial")
+    public static class ResponseApiException extends ApiException {
+        public DeserializedHttpResponse<Void, Void> deserializedResponse;
+
+        public ResponseApiException(String s, HttpResponse<byte[]> response, DeserializedHttpResponse<Void, Void> deserializedResponse) {
+            super(s, response);
+            this.deserializedResponse = deserializedResponse;
+        }
+    }
+    {{/if}}
 }
 {{/if}}
 {{/with}}
