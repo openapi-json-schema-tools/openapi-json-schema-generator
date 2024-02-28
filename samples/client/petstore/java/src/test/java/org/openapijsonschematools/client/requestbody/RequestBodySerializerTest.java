@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.requestbody;
 
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
@@ -58,13 +59,13 @@ public final class RequestBodySerializerTest {
 
     @Test
     public void testContentTypeIsJson() {
-        Assert.assertTrue(RequestBodySerializer.contentTypeIsJson("application/json"));
-        Assert.assertTrue(RequestBodySerializer.contentTypeIsJson("application/json; charset=UTF-8"));
-        Assert.assertTrue(RequestBodySerializer.contentTypeIsJson("application/json-patch+json"));
-        Assert.assertTrue(RequestBodySerializer.contentTypeIsJson("application/geo+json"));
+        Assert.assertTrue(ContentTypeDetector.contentTypeIsJson("application/json"));
+        Assert.assertTrue(ContentTypeDetector.contentTypeIsJson("application/json; charset=UTF-8"));
+        Assert.assertTrue(ContentTypeDetector.contentTypeIsJson("application/json-patch+json"));
+        Assert.assertTrue(ContentTypeDetector.contentTypeIsJson("application/geo+json"));
 
-        Assert.assertFalse(RequestBodySerializer.contentTypeIsJson("application/octet-stream"));
-        Assert.assertFalse(RequestBodySerializer.contentTypeIsJson("text/plain"));
+        Assert.assertFalse(ContentTypeDetector.contentTypeIsJson("application/octet-stream"));
+        Assert.assertFalse(ContentTypeDetector.contentTypeIsJson("text/plain"));
     }
 
     static final class StringSubscriber implements Flow.Subscriber<ByteBuffer> {

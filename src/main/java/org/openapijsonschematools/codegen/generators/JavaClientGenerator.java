@@ -768,6 +768,15 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/mediatype/Encoding.hbs",
                 packagePath() + File.separatorChar + "mediatype",
                 "Encoding.java"));
+        // contenttype
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/contenttype/ContentTypeDetector.hbs",
+                packagePath() + File.separatorChar + "contenttype",
+                "ContentTypeDetector.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/contenttype/ContentTypeSerializer.hbs",
+                packagePath() + File.separatorChar + "contenttype",
+                "ContentTypeSerializer.java"));
         // header
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/header/Header.hbs",
@@ -781,6 +790,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/header/SchemaHeader.hbs",
                 packagePath() + File.separatorChar + "header",
                 "SchemaHeader.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/ContentHeader.hbs",
+                packagePath() + File.separatorChar + "header",
+                "ContentHeader.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/header/StyleSimpleSerializer.hbs",
                 packagePath() + File.separatorChar + "header",

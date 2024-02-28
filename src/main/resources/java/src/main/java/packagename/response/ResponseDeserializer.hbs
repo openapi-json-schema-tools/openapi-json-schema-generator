@@ -5,7 +5,6 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Optional;
-import java.util.regex.Pattern;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.gson.Gson;
@@ -14,18 +13,15 @@ import com.google.gson.ToNumberPolicy;
 
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.contenttype.ContentTypeDetector;
 
 public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedMediaTypeClass> {
     public final Map<String, SealedMediaTypeClass> content;
     public final @Nullable Map<String, String> headers; // todo change the value to header
-    private static final Pattern jsonContentTypePattern = Pattern.compile(
-            "application/[^+]*[+]?(json);?.*"
-    );
     private static final Gson gson = new GsonBuilder()
             .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
             .setNumberToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
             .create();
-    protected static final String textPlainContentType = "text/plain";
 
     public ResponseDeserializer(Map<String, SealedMediaTypeClass> content) {
         this.content = content;
@@ -44,19 +40,11 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         return new String(body, StandardCharsets.UTF_8);
     }
 
-    protected static boolean contentTypeIsJson(String contentType) {
-        return jsonContentTypePattern.matcher(contentType).find();
-    }
-
-    protected static boolean contentTypeIsTextPlain(String contentType) {
-        return textPlainContentType.equals(contentType);
-    }
-
     protected <T> T deserializeBody(String contentType, byte[] body, JsonSchema<T> schema, SchemaConfiguration configuration) {
-        if (contentTypeIsJson(contentType)) {
+        if (ContentTypeDetector.contentTypeIsJson(contentType)) {
             @Nullable Object bodyData = deserializeJson(body);
             return schema.validateAndBox(bodyData, configuration);
-        } else if (contentTypeIsTextPlain(contentType)) {
+        } else if (ContentTypeDetector.contentTypeIsTextPlain(contentType)) {
             String bodyData = deserializeTextPlain(body);
             return schema.validateAndBox(bodyData, configuration);
         }

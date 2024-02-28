@@ -505,12 +505,15 @@ src/main/java/org/openapijsonschematools/client/components/securityschemes/Petst
 src/main/java/org/openapijsonschematools/client/configurations/ApiConfiguration.java
 src/main/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlags.java
 src/main/java/org/openapijsonschematools/client/configurations/SchemaConfiguration.java
+src/main/java/org/openapijsonschematools/client/contenttype/ContentTypeDetector.java
+src/main/java/org/openapijsonschematools/client/contenttype/ContentTypeSerializer.java
 src/main/java/org/openapijsonschematools/client/exceptions/ApiException.java
 src/main/java/org/openapijsonschematools/client/exceptions/BaseException.java
 src/main/java/org/openapijsonschematools/client/exceptions/InvalidAdditionalPropertyException.java
 src/main/java/org/openapijsonschematools/client/exceptions/InvalidTypeException.java
 src/main/java/org/openapijsonschematools/client/exceptions/UnsetPropertyException.java
 src/main/java/org/openapijsonschematools/client/exceptions/ValidationException.java
+src/main/java/org/openapijsonschematools/client/header/ContentHeader.java
 src/main/java/org/openapijsonschematools/client/header/Header.java
 src/main/java/org/openapijsonschematools/client/header/HeaderBase.java
 src/main/java/org/openapijsonschematools/client/header/PrefixSeparatorIterator.java
