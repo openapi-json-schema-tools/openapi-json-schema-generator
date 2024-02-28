@@ -1,0 +1,10 @@
+package {{{packageName}}}.header;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+
+import java.net.http.HttpHeaders;
+
+public interface Header {
+    HttpHeaders serialize(@Nullable Object inData, String name, boolean skipValidation, SchemaConfiguration configuration);
+}

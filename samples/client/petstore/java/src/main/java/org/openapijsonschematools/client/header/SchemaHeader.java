@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiPredicate;
 
-public class SchemaHeader extends HeaderBase {
+public class SchemaHeader extends HeaderBase implements Header {
     public final JsonSchema<?> schema;
 
     public SchemaHeader(boolean required, @Nullable boolean allowReserved, JsonSchema<?> schema) {
@@ -24,6 +24,7 @@ public class SchemaHeader extends HeaderBase {
         return HttpHeaders.of(map, headerFilter);
     }
 
+    @Override
     public HttpHeaders serialize(@Nullable Object inData, String name, boolean skipValidation, SchemaConfiguration configuration) {
         var castInData = skipValidation ? inData : schema.validate(inData, configuration);
         var value = StyleSimpleSerializer.serializeSimple(castInData, name, explode, false);

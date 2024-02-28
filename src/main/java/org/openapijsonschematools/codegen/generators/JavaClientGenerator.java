@@ -770,6 +770,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "Encoding.java"));
         // header
         supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/Header.hbs",
+                packagePath() + File.separatorChar + "header",
+                "Header.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/header/HeaderBase.hbs",
                 packagePath() + File.separatorChar + "header",
                 "HeaderBase.java"));
