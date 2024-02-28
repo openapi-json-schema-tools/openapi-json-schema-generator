@@ -13,8 +13,8 @@ import java.util.function.BiPredicate;
 public class SchemaHeader extends HeaderBase implements Header {
     public final JsonSchema<?> schema;
 
-    public SchemaHeader(boolean required, @Nullable boolean allowReserved, JsonSchema<?> schema) {
-        super(required, ParameterStyle.SIMPLE, false, allowReserved);
+    public SchemaHeader(boolean required, @Nullable Boolean allowReserved, @Nullable Boolean explode, JsonSchema<?> schema) {
+        super(required, ParameterStyle.SIMPLE, explode, allowReserved);
         this.schema = schema;
     }
 
@@ -27,7 +27,8 @@ public class SchemaHeader extends HeaderBase implements Header {
     @Override
     public HttpHeaders serialize(@Nullable Object inData, String name, boolean skipValidation, SchemaConfiguration configuration) {
         var castInData = skipValidation ? inData : schema.validate(inData, configuration);
-        var value = StyleSimpleSerializer.serializeSimple(castInData, name, explode, false);
+        boolean usedExplode = explode != null && explode;
+        var value = StyleSimpleSerializer.serializeSimple(castInData, name, usedExplode, false);
         return toHeaders(name, value);
     }
 }

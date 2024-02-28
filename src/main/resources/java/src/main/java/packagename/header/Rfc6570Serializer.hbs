@@ -6,7 +6,7 @@ import {{{packageName}}}.exceptions.InvalidTypeException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.AbstractMap;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -64,7 +64,7 @@ public class Rfc6570Serializer {
         }
         throw new InvalidTypeException("Unable to generate a rfc6570 item representation of "+item);
     }
-    
+
     private static String rfc6570StrNumberExpansion(
         @Nullable Object inData,
         boolean percentEncode,
@@ -120,7 +120,7 @@ public class Rfc6570Serializer {
         var inDataMap = inData.entrySet().stream()
                 .map(entry -> new AbstractMap.SimpleEntry<>(entry.getKey(), rfc6570ItemValue(entry.getValue(), percentEncode)))
                 .filter(entry -> entry.getValue() != null)
-                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (x, y) -> y, HashMap::new));
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (x, y) -> y, LinkedHashMap::new));
 
         if (inDataMap.isEmpty()) {
             // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1

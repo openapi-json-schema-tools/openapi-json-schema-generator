@@ -793,6 +793,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/header/PrefixSeparatorIterator.hbs",
                 packagePath() + File.separatorChar + "header",
                 "PrefixSeparatorIterator.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/header/SchemaHeaderTest.hbs",
+                testPackagePath() + File.separatorChar + "header",
+                "SchemaHeaderTest.java"));
 
         // parameter
         supportingFiles.add(new SupportingFile(
