@@ -1307,11 +1307,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     @Override
     public String getRefModuleLocation(String ref) {
-        // modules are always in a package one above them, so strip off the last jsonPath fragment
-        String smallerRef = ref.substring(0, ref.lastIndexOf("/"));
-        String filePath = getFilepath(smallerRef);
+        String filePath = getFilepath(ref);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
-        String localFilepath = filePath.substring(prefix.length());
+        // modules are always in a package one above them, so strip off the last jsonPath fragment
+        String localFilepath = filePath.substring(prefix.length(), filePath.lastIndexOf(File.separatorChar));
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
