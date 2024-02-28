@@ -522,7 +522,6 @@ src/main/java/org/openapijsonschematools/client/header/SchemaHeader.java
 src/main/java/org/openapijsonschematools/client/header/StyleSimpleSerializer.java
 src/main/java/org/openapijsonschematools/client/mediatype/Encoding.java
 src/main/java/org/openapijsonschematools/client/mediatype/MediaType.java
-src/main/java/org/openapijsonschematools/client/parameter/ParameterBase.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterInType.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterStyle.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/RequestBody.java
@@ -1077,6 +1076,7 @@ src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.j
 src/main/java/org/openapijsonschematools/client/servers/server0/Variables.java
 src/main/java/org/openapijsonschematools/client/servers/server1/Variables.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
+src/test/java/org/openapijsonschematools/client/header/ContentHeaderTest.java
 src/test/java/org/openapijsonschematools/client/header/SchemaHeaderTest.java
 src/test/java/org/openapijsonschematools/client/requestbody/RequestBodySerializerTest.java
 src/test/java/org/openapijsonschematools/client/response/ResponseDeserializerTest.java

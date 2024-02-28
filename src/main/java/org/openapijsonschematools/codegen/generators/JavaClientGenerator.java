@@ -810,6 +810,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/test/java/packagename/header/SchemaHeaderTest.hbs",
                 testPackagePath() + File.separatorChar + "header",
                 "SchemaHeaderTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/header/ContentHeaderTest.hbs",
+                testPackagePath() + File.separatorChar + "header",
+                "ContentHeaderTest.java"));
 
         // parameter
         supportingFiles.add(new SupportingFile(
@@ -820,10 +824,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/parameter/ParameterInType.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterInType.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/ParameterBase.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "ParameterBase.java"));
 
         // response
         supportingFiles.add(new SupportingFile(
