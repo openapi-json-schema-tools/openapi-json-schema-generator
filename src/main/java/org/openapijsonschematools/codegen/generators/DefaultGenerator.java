@@ -3194,7 +3194,8 @@ public class DefaultGenerator implements Generator {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        codegenHeader = new CodegenHeader(description, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, refInfo);
+        String subpackage = getSubpackage(sourceJsonPath);
+        codegenHeader = new CodegenHeader(description, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, refInfo, subpackage);
         codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }
@@ -3749,7 +3750,7 @@ public class DefaultGenerator implements Generator {
             return;
         }
         if (pathPieces[2].equals("headers")) {
-            pathPieces[3] = toHeaderFilename(pathPieces[3], null);
+            pathPieces[3] = toHeaderFilename(pathPieces[3], jsonPath);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
@@ -3798,7 +3799,7 @@ public class DefaultGenerator implements Generator {
             }
             if (pathPieces[4].equals("headers")) {
                 // #/components/responses/someResponse/headers/SomeHeader-> length 6
-                pathPieces[5] = toHeaderFilename(pathPieces[5], null);
+                pathPieces[5] = toHeaderFilename(pathPieces[5], jsonPath);
                 if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
@@ -3928,7 +3929,7 @@ public class DefaultGenerator implements Generator {
                 }
             } else if (pathPieces[6].equals("headers")) {
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
-                pathPieces[7] = toHeaderFilename(pathPieces[7], null);
+                pathPieces[7] = toHeaderFilename(pathPieces[7], jsonPath);
 
                 if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
                     // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10

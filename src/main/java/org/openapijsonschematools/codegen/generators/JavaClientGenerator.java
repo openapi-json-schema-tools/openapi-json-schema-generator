@@ -861,6 +861,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/requestbodies/RequestBodyDoc.hbs", ".md");
                 }}
         );
+        // header
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/headers/Header.hbs", ".java");
+                }}
+        );
         // responses
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
@@ -958,7 +965,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         String[] pathPieces = jsonPath.split("/");
         if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
             if (pathPieces.length == 4) {
-                // #/components/requestBodies/Pet (can collide with component schema Pet import)
+                // #/components/requestBodies/Pet
                 return toModelName( componentName, null);
             }
             return toModuleFilename(componentName, null);
@@ -968,6 +975,31 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return toModelName(componentName, null);
         }
         return toModuleFilename(componentName, null);
+    }
+
+    public String toHeaderFilename(String componentName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (jsonPath.startsWith("#/components/headers/")) {
+            if (pathPieces.length == 4) {
+                // #/components/headers/SomeHeader
+                return toModelName(componentName, null);
+            }
+            // deeper paths
+            return toModuleFilename(componentName, jsonPath);
+        } else if (jsonPath.startsWith("#/components/responses/")) {
+            if (pathPieces.length == 6) {
+                // #/components/responses/SomeResponse/headers/SomeHeader
+                return toModelName(componentName, null);
+            }
+            // deeper paths
+            return toModuleFilename(componentName, jsonPath);
+        }
+        if (pathPieces.length == 8) {
+            // #/paths/somePath/verb/responses/200/headers/SomeHeader
+            return toModelName(componentName, null);
+        }
+        // deeper paths
+        return toModuleFilename(componentName, jsonPath);
     }
 
     public String getPascalCaseResponse(String componentName, String jsonPath) {

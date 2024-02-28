@@ -43,8 +43,9 @@ public class CodegenHeader {
     public final Boolean deprecated;
     public final CodegenSchema schema;
     public final CodegenRefInfo<CodegenHeader> refInfo;
+    public final String subpackage;
 
-    public CodegenHeader(CodegenText description, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo) {
+    public CodegenHeader(CodegenText description, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo, String subpackage) {
         this.description = description;
         this.example = example;
         this.vendorExtensions = vendorExtensions;
@@ -58,6 +59,7 @@ public class CodegenHeader {
         this.deprecated = deprecated;
         this.schema = schema;
         this.refInfo = refInfo;
+        this.subpackage = subpackage;
     }
 
     public CodegenHeader getSelfOrDeepestRef() {
