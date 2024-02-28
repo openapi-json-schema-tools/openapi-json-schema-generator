@@ -768,23 +768,37 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/mediatype/Encoding.hbs",
                 packagePath() + File.separatorChar + "mediatype",
                 "Encoding.java"));
+        // header
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/HeaderBase.hbs",
+                packagePath() + File.separatorChar + "header",
+                "HeaderBase.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/SchemaHeader.hbs",
+                packagePath() + File.separatorChar + "header",
+                "SchemaHeader.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/StyleSimpleSerializer.hbs",
+                packagePath() + File.separatorChar + "header",
+                "StyleSimpleSerializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/Rfc6570Serializer.hbs",
+                packagePath() + File.separatorChar + "header",
+                "Rfc6570Serializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/PrefixSeparatorIterator.hbs",
+                packagePath() + File.separatorChar + "header",
+                "PrefixSeparatorIterator.java"));
+
         // parameter
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ParameterStyle.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterStyle.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/ParameterSerializerBase.hbs",
+                "src/main/java/packagename/parameter/ParameterInType.hbs",
                 packagePath() + File.separatorChar + "parameter",
-                "ParameterSerializerBase.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/PrefixSeparatorIterator.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "PrefixSeparatorIterator.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/StyleSimpleSerializer.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "StyleSimpleSerializer.java"));
+                "ParameterInType.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ParameterBase.hbs",
                 packagePath() + File.separatorChar + "parameter",

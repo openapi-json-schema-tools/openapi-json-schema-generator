@@ -1,8 +1,8 @@
-package {{{packageName}}}.parameter;
+package org.openapijsonschematools.client.header;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-public class StyleSimpleSerializer extends ParameterSerializerBase {
+public class StyleSimpleSerializer extends Rfc6570Serializer {
     public static String serializeSimple(
             @Nullable Object inData,
             String name,

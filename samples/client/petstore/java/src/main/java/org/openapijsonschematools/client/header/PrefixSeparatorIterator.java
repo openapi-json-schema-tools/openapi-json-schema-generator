@@ -1,4 +1,4 @@
-package {{{packageName}}}.parameter;
+package org.openapijsonschematools.client.header;
 
 import java.util.Set;
 

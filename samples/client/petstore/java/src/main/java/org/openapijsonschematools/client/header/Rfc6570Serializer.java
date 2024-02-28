@@ -1,7 +1,7 @@
-package {{{packageName}}}.parameter;
+package org.openapijsonschematools.client.header;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import {{{packageName}}}.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
-public class ParameterSerializerBase {
+public class Rfc6570Serializer {
     private static final String ENCODING = "UTF-8";
     private static final Set<String> namedParameterSeparators = Set.of("&", ";");
 
@@ -56,10 +56,10 @@ public class ParameterSerializerBase {
             // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return null;
         } else if (item instanceof List<?> && ((List<?>) item).isEmpty()) {
-            // // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
+            // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return null;
         } else if (item instanceof Map<?, ?> && ((Map<?, ?>) item).isEmpty()) {
-            // // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
+            // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return null;
         }
         throw new InvalidTypeException("Unable to generate a rfc6570 item representation of "+item);

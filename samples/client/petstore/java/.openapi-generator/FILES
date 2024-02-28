@@ -511,8 +511,17 @@ src/main/java/org/openapijsonschematools/client/exceptions/InvalidAdditionalProp
 src/main/java/org/openapijsonschematools/client/exceptions/InvalidTypeException.java
 src/main/java/org/openapijsonschematools/client/exceptions/UnsetPropertyException.java
 src/main/java/org/openapijsonschematools/client/exceptions/ValidationException.java
+src/main/java/org/openapijsonschematools/client/header/ContentHeaderBase.java
+src/main/java/org/openapijsonschematools/client/header/HeaderBase.java
+src/main/java/org/openapijsonschematools/client/header/PrefixSeparatorIterator.java
+src/main/java/org/openapijsonschematools/client/header/Rfc6570Serializer.java
+src/main/java/org/openapijsonschematools/client/header/SchemaHeader.java
+src/main/java/org/openapijsonschematools/client/header/SchemaHeaderBase.java
+src/main/java/org/openapijsonschematools/client/header/StyleSimpleSerializer.java
 src/main/java/org/openapijsonschematools/client/mediatype/Encoding.java
 src/main/java/org/openapijsonschematools/client/mediatype/MediaType.java
+src/main/java/org/openapijsonschematools/client/parameter/ParameterBase.java
+src/main/java/org/openapijsonschematools/client/parameter/ParameterInType.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterStyle.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/Responses.java
