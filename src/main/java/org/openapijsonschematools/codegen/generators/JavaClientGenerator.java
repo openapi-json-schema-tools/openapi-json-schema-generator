@@ -773,6 +773,23 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/parameter/ParameterStyle.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterStyle.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ParameterSerializerBase.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ParameterSerializerBase.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/PrefixSeparatorIterator.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "PrefixSeparatorIterator.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/StyleSimpleSerializer.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "StyleSimpleSerializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ParameterBase.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ParameterBase.java"));
+
         // response
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/response/ApiResponse.hbs",

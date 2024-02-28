@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Encoding {
     public final String contentType;
-    public final @Nullable Map<String, String> headers; // todo change value to HeaderParameter
+    public final @Nullable Map<String, String> headers; // todo change value to Header
     public final @Nullable ParameterStyle style;
     public final boolean explode;
     public final boolean allowReserved;

@@ -1,7 +1,7 @@
-package {{{packageName}}}.parameter;
+package org.openapijsonschematools.client.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import {{{packageName}}}.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
@@ -63,27 +64,27 @@ public class ParameterSerializerBase {
         }
         throw new InvalidTypeException("Unable to generate a rfc6570 item representation of "+item);
     }
-
+    
     private static String rfc6570StrNumberExpansion(
         @Nullable Object inData,
         boolean percentEncode,
-        Object prefixSeparatorIterator, // todo fix this
+        PrefixSeparatorIterator prefixSeparatorIterator,
         String varNamePiece,
         boolean namedParameterExpansion
     ) {
         var itemValue = rfc6570ItemValue(inData, percentEncode);
-        if (itemValue == null || (itemValue.isEmpty() && prefixSeparatorIterator.separator == ';')) {
-            return next(prefixSeparatorIterator) + varNamePiece;
+        if (itemValue == null || (itemValue.isEmpty() && prefixSeparatorIterator.separator.equals(";"))) {
+            return prefixSeparatorIterator.next() + varNamePiece;
         }
         var valuePairEquals = namedParameterExpansion ? "=" : "";
-        return next(prefixSeparatorIterator) + varNamePiece + valuePairEquals + itemValue;
+        return prefixSeparatorIterator.next() + varNamePiece + valuePairEquals + itemValue;
     }
 
     private static String rfc6570ListExpansion(
         List<?> inData,
         boolean explode,
         boolean percentEncode,
-        Object prefixSeparatorIterator, // todo fix this
+        PrefixSeparatorIterator prefixSeparatorIterator,
         String varNamePiece,
         boolean namedParameterExpansion
     ) {
@@ -98,23 +99,21 @@ public class ParameterSerializerBase {
         var valuePairEquals = namedParameterExpansion ? "=" : "";
         if (!explode) {
             return (
-                    next(prefixSeparatorIterator) +
+                    prefixSeparatorIterator.next() +
                             varNamePiece +
                             valuePairEquals +
-                            prefixSeparatorIterator.itemSeparator.join(itemValues)
+                            String.join(prefixSeparatorIterator.itemSeparator, itemValues)
             );
         }
         // exploded
-        return next(prefixSeparatorIterator) + next(prefixSeparatorIterator).join(
-                itemValues.stream().map(v -> varNamePiece + valuePairEquals + v).collect(toList())
-        );
+        return prefixSeparatorIterator.next() + itemValues.stream().map(v -> varNamePiece + valuePairEquals + v).collect(Collectors.joining(prefixSeparatorIterator.next()));
     }
 
     private static String rfc6570MapExpansion(
         Map<?, ?> inData,
         boolean explode,
         boolean percentEncode,
-        Object prefixSeparatorIterator, // todo fix this
+        PrefixSeparatorIterator prefixSeparatorIterator,
         String varNamePiece,
         boolean namedParameterExpansion
     ) {
@@ -129,29 +128,21 @@ public class ParameterSerializerBase {
         }
         var valuePairEquals = namedParameterExpansion ? "=" : "";
         if (!explode) {
-            return (
-                    next(prefixSeparatorIterator) +
-                            varNamePiece +
-                            valuePairEquals +
-                            prefixSeparatorIterator.itemSeparator.join(
-                                    prefixSeparatorIterator.itemSeparator.join(
-                                            inDataMap.entrySet().stream().map(e -> List.of(e.getKey(), e.getValue()))
-                                    )
-                            )
-            );
+            return prefixSeparatorIterator.next() +
+                varNamePiece +
+                valuePairEquals +
+                    inDataMap.entrySet().stream().map(e -> e.getKey()+prefixSeparatorIterator.itemSeparator+e.getValue()).collect(Collectors.joining(prefixSeparatorIterator.itemSeparator));
         }
         // exploded
-        return next(prefixSeparatorIterator) + next(prefixSeparatorIterator).join(
-                inDataMap.entrySet().stream().map(e -> e.getKey() + "=" + e.getValue()).collect(toList())
-        );
+        return prefixSeparatorIterator.next() + inDataMap.entrySet().stream().map(e -> e.getKey() + "=" + e.getValue()).collect(Collectors.joining(prefixSeparatorIterator.next()));
     }
 
-    public static String rfc6570Expansion(
+    protected static String rfc6570Expansion(
         String variableName,
         @Nullable Object inData,
         boolean explode,
         boolean percentEncode,
-        Object prefixSeparatorIterator // todo fix this
+        PrefixSeparatorIterator prefixSeparatorIterator
     ) {
         /*
         Separator is for separate variables like dict with explode true,
