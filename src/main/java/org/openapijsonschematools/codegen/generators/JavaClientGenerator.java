@@ -777,6 +777,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/contenttype/ContentTypeSerializer.hbs",
                 packagePath() + File.separatorChar + "contenttype",
                 "ContentTypeSerializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/contenttype/ContentTypeDeserializer.hbs",
+                packagePath() + File.separatorChar + "contenttype",
+                "ContentTypeDeserializer.java"));
         // header
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/header/Header.hbs",

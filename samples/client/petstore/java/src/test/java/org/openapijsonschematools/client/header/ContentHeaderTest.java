@@ -110,7 +110,7 @@ public class ContentHeaderTest {
                     testCase.explode,
                     content
             );
-            var serialization = header.serialize(testCase.payload, "color", true, configuration);
+            var serialization = header.serialize(testCase.payload, "color", false, configuration);
             Assert.assertEquals(HttpHeaders.of(testCase.expectedSerialization, headerFilter), serialization);
         }
     }

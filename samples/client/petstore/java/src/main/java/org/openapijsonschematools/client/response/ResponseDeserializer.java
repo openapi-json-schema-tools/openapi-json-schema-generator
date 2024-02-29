@@ -14,6 +14,7 @@ import com.google.gson.ToNumberPolicy;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
+import org.openapijsonschematools.client.contenttype.ContentTypeDeserializer;
 import org.openapijsonschematools.client.header.Header;
 
 public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedMediaTypeClass> {
@@ -34,7 +35,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
 
     protected @Nullable Object deserializeJson(byte[] body) {
         String bodyStr = new String(body, StandardCharsets.UTF_8);
-        return gson.fromJson(bodyStr, Object.class);
+        return ContentTypeDeserializer.fromJson(bodyStr);
 	}
 
     protected String deserializeTextPlain(byte[] body) {

@@ -2,12 +2,17 @@ package org.openapijsonschematools.client.header;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.contenttype.ContentTypeDeserializer;
 import org.openapijsonschematools.client.parameter.ParameterStyle;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
+import org.openapijsonschematools.client.schemas.validation.UnsetAnyTypeJsonSchema;
 
 import java.net.http.HttpHeaders;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.BiPredicate;
 
 public class SchemaHeader extends HeaderBase implements Header {
@@ -25,10 +30,59 @@ public class SchemaHeader extends HeaderBase implements Header {
     }
 
     @Override
-    public HttpHeaders serialize(@Nullable Object inData, String name, boolean skipValidation, SchemaConfiguration configuration) {
-        var castInData = skipValidation ? inData : schema.validate(inData, configuration);
+    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) {
+        var castInData = validate ? schema.validate(inData, configuration) : inData;
         boolean usedExplode = explode != null && explode;
         var value = StyleSimpleSerializer.serializeSimple(castInData, name, usedExplode, false);
         return toHeaders(name, value);
+    }
+
+    private static final Set<Class<?>> VOID_TYPES = Set.of(Void.class);
+    private static final Set<Class<?>> BOOLEAN_TYPES = Set.of(Boolean.class);
+    private static final Set<Class<?>> NUMERIC_TYPES = Set.of(
+            Integer.class,
+            Long.class,
+            Float.class,
+            Double.class
+    );
+    private static final Set<Class<?>> STRING_TYPES = Set.of(String.class);
+    private static final Set<Class<?>> LIST_TYPES = Set.of(List.class);
+    private static final Set<Class<?>> MAP_TYPES = Set.of(Map.class);
+
+    private @Nullable Object getCastInData(JsonSchema<?> schema, List<String> inData) {
+        if (schema.type == null) {
+            return inData;
+        } else if (schema.type.size() == 1) {
+            if (schema.type.equals(BOOLEAN_TYPES)) {
+                throw new RuntimeException("Boolean serialization is not defined in Rfc6570, there is no agreed upon way to sent a boolean, send a string enum instead");
+            } else if (schema.type.equals(VOID_TYPES) && inData.size() == 1 && inData.get(0).isEmpty()) {
+                return null;
+            } else if (schema.type.equals(NUMERIC_TYPES) && inData.size() == 1) {
+                return ContentTypeDeserializer.fromJson(inData.get(0));
+            } else if (schema.type.equals(STRING_TYPES) && inData.size() == 1) {
+                return inData;
+            } else if (schema.type.equals(LIST_TYPES)) {
+                Class<? extends JsonSchema<?>> itemsSchemaCls = schema.items == null ? UnsetAnyTypeJsonSchema.UnsetAnyTypeJsonSchema1.class : schema.items;
+                JsonSchema<?> itemSchema = JsonSchemaFactory.getInstance(itemsSchemaCls);
+                List<@Nullable Object> castList = new ArrayList<>();
+                for (String inDataItem: inData) {
+                    @Nullable Object castInDataItem = getCastInData(itemSchema, List.of(inDataItem));
+                    castList.add(castInDataItem);
+                }
+                return castList;
+            } else if (schema.type.equals(MAP_TYPES)) {
+                throw new RuntimeException("Header map deserialization has not yet been implemented");
+            }
+        }
+        throw new RuntimeException("Header deserialization for schemas with multiple types has not yet been implemented");
+    }
+
+    @Override
+    public @Nullable Object deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration) {
+        @Nullable Object castInData = getCastInData(schema, inData);
+        if (validate) {
+            return schema.validate(castInData, configuration);
+        }
+        return castInData;
     }
 }

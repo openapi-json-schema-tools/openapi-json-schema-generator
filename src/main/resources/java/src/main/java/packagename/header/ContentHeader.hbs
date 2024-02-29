@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.contenttype.ContentTypeDetector;
 import {{{packageName}}}.contenttype.ContentTypeSerializer;
+import {{{packageName}}}.contenttype.ContentTypeDeserializer;
 import {{{packageName}}}.mediatype.MediaType;
 import {{{packageName}}}.parameter.ParameterStyle;
 
@@ -27,9 +28,9 @@ public class ContentHeader extends HeaderBase implements Header {
     }
 
     @Override
-    public HttpHeaders serialize(@Nullable Object inData, String name, boolean skipValidation, SchemaConfiguration configuration) {
+    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) {
         for (Map.Entry<String, MediaType<?, ?>> entry: content.entrySet()) {
-            var castInData = skipValidation ? inData : entry.getValue().schema().validate(inData, configuration);
+            var castInData = validate ? entry.getValue().schema().validate(inData, configuration) : inData ;
             String contentType = entry.getKey();
             if (ContentTypeDetector.contentTypeIsJson(contentType)) {
                 var value = ContentTypeSerializer.toJson(castInData);
@@ -39,5 +40,23 @@ public class ContentHeader extends HeaderBase implements Header {
             }
         }
         throw new RuntimeException("Invalid value for content, it was empty and must have 1 key value pair");
+    }
+
+    @Override
+    public @Nullable Object deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration) {
+        String inDataJoined = String.join(",", inData); // unsure if this is needed
+        @Nullable Object deserializedJson = ContentTypeDeserializer.fromJson(inDataJoined);
+        if (validate) {
+            for (Map.Entry<String, MediaType<?, ?>> entry: content.entrySet()) {
+                String contentType = entry.getKey();
+                if (ContentTypeDetector.contentTypeIsJson(contentType)) {
+                    return entry.getValue().schema().validate(deserializedJson, configuration);
+                } else {
+                    throw new RuntimeException("Header deserialization of "+contentType+" has not yet been implemented");
+                }
+            }
+            throw new RuntimeException("Invalid value for content, it was empty and must have 1 key value pair");
+        }
+        return deserializedJson;
     }
 }

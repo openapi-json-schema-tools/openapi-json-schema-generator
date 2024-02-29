@@ -89,7 +89,7 @@ public class SchemaHeaderTest {
                     testCase.explode,
                     AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance()
             );
-            var serialization = header.serialize(testCase.payload, "color", true, configuration);
+            var serialization = header.serialize(testCase.payload, "color", false, configuration);
             Assert.assertEquals(HttpHeaders.of(testCase.expectedSerialization, headerFilter), serialization);
         }
         SchemaHeader boolHeader = new SchemaHeader(
@@ -101,7 +101,7 @@ public class SchemaHeaderTest {
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
                     InvalidTypeException.class,
-                    () -> boolHeader.serialize(value, "color", true, configuration)
+                    () -> boolHeader.serialize(value, "color", false, configuration)
             );
         }
     }
