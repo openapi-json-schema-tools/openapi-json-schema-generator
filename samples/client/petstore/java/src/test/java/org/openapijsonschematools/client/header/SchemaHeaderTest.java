@@ -111,6 +111,15 @@ public class SchemaHeaderTest {
         }
     }
 
+    private static SchemaHeader getHeader(JsonSchema<?> schema) {
+        return new SchemaHeader(
+                true,
+                false,
+                false,
+                schema
+        );
+    }
+
     @Test
     public void testDeserialization() {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
