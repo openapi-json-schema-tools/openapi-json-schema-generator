@@ -839,6 +839,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "response",
                 "DeserializedHttpResponse.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/response/HeadersDeserializer.hbs",
+                packagePath() + File.separatorChar + "response",
+                "HeadersDeserializer.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/response/ResponseDeserializer.hbs",
                 packagePath() + File.separatorChar + "response",
                 "ResponseDeserializer.java"));

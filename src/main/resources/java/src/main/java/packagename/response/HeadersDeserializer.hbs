@@ -1,0 +1,34 @@
+package {{{packageName}}}.response;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.header.Header;
+import {{{packageName}}}.schemas.validation.MapSchemaValidator;
+
+import java.net.http.HttpHeaders;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public abstract class HeadersDeserializer<OutType> {
+    private final Map<String, Header> headers;
+    final private MapSchemaValidator<OutType, ?> headersSchema;
+    public HeadersDeserializer(Map<String, Header> headers, MapSchemaValidator<OutType, ?> headersSchema) {
+        this.headers = headers;
+        this.headersSchema = headersSchema;
+    }
+
+    public OutType deserialize(HttpHeaders responseHeaders, SchemaConfiguration configuration) {
+        Map<String, @Nullable Object> headersToValidate = new HashMap<>();
+        for (Map.Entry<String, List<String>> entry: responseHeaders.map().entrySet()) {
+            String headerName = entry.getKey();
+            Header headerDeserializer = headers.get(headerName);
+            if (headerDeserializer == null) {
+                continue;
+            }
+            @Nullable Object headerValue = headerDeserializer.deserialize(entry.getValue(), false, configuration);
+            headersToValidate.put(headerName, headerValue);
+        }
+        return headersSchema.validate(headersToValidate, configuration);
+    }
+}
