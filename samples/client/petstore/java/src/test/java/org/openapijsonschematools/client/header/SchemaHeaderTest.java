@@ -7,6 +7,11 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.ListJsonSchema;
+import org.openapijsonschematools.client.schemas.NullJsonSchema;
+import org.openapijsonschematools.client.schemas.NumberJsonSchema;
+import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 
 import java.net.http.HttpHeaders;
 import java.util.LinkedHashMap;
@@ -104,5 +109,34 @@ public class SchemaHeaderTest {
                     () -> boolHeader.serialize(value, "color", false, configuration)
             );
         }
+    }
+
+    @Test
+    public void testDeserialization() {
+        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+        SchemaHeader header = getHeader(NullJsonSchema.NullJsonSchema1.getInstance());
+        var deserialized = header.deserialize(List.of(""), false, configuration);
+        Assert.assertEquals(deserialized, null);
+
+        header = getHeader(NumberJsonSchema.NumberJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("1"), false, configuration);
+        Assert.assertEquals(deserialized, 1L);
+
+        header = getHeader(NumberJsonSchema.NumberJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("3.14"), false, configuration);
+        Assert.assertEquals(deserialized, 3.14d);
+
+        header = getHeader(StringJsonSchema.StringJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("blue"), false, configuration);
+        Assert.assertEquals(deserialized, "blue");
+
+        header = getHeader(StringJsonSchema.StringJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("hello world"), false, configuration);
+        Assert.assertEquals(deserialized, "hello world");
+
+        header = getHeader(ListJsonSchema.ListJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("blue", "black", "brown"), false, configuration);
+        Assert.assertEquals(deserialized, List.of("blue", "black", "brown"));
     }
 }

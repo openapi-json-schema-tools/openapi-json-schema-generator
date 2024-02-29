@@ -32,7 +32,7 @@ class storing schema info for a specific contentType
 | Void | encoding()<br>the encoding info |
 
 ## Int32JsonContentTypeHeader1
-public static class Int32JsonContentTypeHeader1<br>
+public static class Int32JsonContentTypeHeader1 implements Header<br>
 
 a class that deserializes a header value
 
@@ -49,5 +49,11 @@ a class that deserializes a header value
 | @Nullable ParameterStyle | ParameterStyle.SIMPLE |
 | @Nullable Boolean explode | false |
 | Map<String, [SealedMediaType](#sealedmediatype)> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("application/json", new [ApplicationjsonMediaType](#applicationjsonmediatype)())<br>)<br>the contentType to schema info |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| HttpHeaders | serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) |
+| @Nullable Object | deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration)<br>deserializes the header value |
 
 [[Back to top]](#top) [[Back to Component Headers]](../../../README.md#Component-Headers) [[Back to README]](../../../README.md)

@@ -49,30 +49,37 @@ public class SchemaHeader extends HeaderBase implements Header {
     private static final Set<Class<?>> LIST_TYPES = Set.of(List.class);
     private static final Set<Class<?>> MAP_TYPES = Set.of(Map.class);
 
+    private List<@Nullable Object> getList(JsonSchema<?> schema, List<String> inData) {
+        Class<? extends JsonSchema<?>> itemsSchemaCls = schema.items == null ? UnsetAnyTypeJsonSchema.UnsetAnyTypeJsonSchema1.class : schema.items;
+        JsonSchema<?> itemSchema = JsonSchemaFactory.getInstance(itemsSchemaCls);
+        List<@Nullable Object> castList = new ArrayList<>();
+        for (String inDataItem: inData) {
+            @Nullable Object castInDataItem = getCastInData(itemSchema, List.of(inDataItem));
+            castList.add(castInDataItem);
+        }
+        return castList;
+    }
+
     private @Nullable Object getCastInData(JsonSchema<?> schema, List<String> inData) {
         if (schema.type == null) {
-            return inData;
+            if (inData.size() == 1) {
+                return inData.get(0);
+            }
+            return getList(schema, inData);
         } else if (schema.type.size() == 1) {
             if (schema.type.equals(BOOLEAN_TYPES)) {
                 throw new RuntimeException("Boolean serialization is not defined in Rfc6570, there is no agreed upon way to sent a boolean, send a string enum instead");
             } else if (schema.type.equals(VOID_TYPES) && inData.size() == 1 && inData.get(0).isEmpty()) {
                 return null;
-            } else if (schema.type.equals(NUMERIC_TYPES) && inData.size() == 1) {
-                return ContentTypeDeserializer.fromJson(inData.get(0));
             } else if (schema.type.equals(STRING_TYPES) && inData.size() == 1) {
-                return inData;
+                return inData.get(0);
             } else if (schema.type.equals(LIST_TYPES)) {
-                Class<? extends JsonSchema<?>> itemsSchemaCls = schema.items == null ? UnsetAnyTypeJsonSchema.UnsetAnyTypeJsonSchema1.class : schema.items;
-                JsonSchema<?> itemSchema = JsonSchemaFactory.getInstance(itemsSchemaCls);
-                List<@Nullable Object> castList = new ArrayList<>();
-                for (String inDataItem: inData) {
-                    @Nullable Object castInDataItem = getCastInData(itemSchema, List.of(inDataItem));
-                    castList.add(castInDataItem);
-                }
-                return castList;
+                return getList(schema, inData);
             } else if (schema.type.equals(MAP_TYPES)) {
                 throw new RuntimeException("Header map deserialization has not yet been implemented");
             }
+        } else if (schema.type.size() == 4 && schema.type.equals(NUMERIC_TYPES) && inData.size() == 1) {
+            return ContentTypeDeserializer.fromJson(inData.get(0));
         }
         throw new RuntimeException("Header deserialization for schemas with multiple types has not yet been implemented");
     }

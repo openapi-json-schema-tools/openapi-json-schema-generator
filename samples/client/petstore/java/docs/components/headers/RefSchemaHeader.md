@@ -13,7 +13,7 @@ A class that contains necessary nested header classes
 
 
 ## RefSchemaHeader1
-public static class RefSchemaHeader1<br>
+public static class RefSchemaHeader1 implements Header<br>
 
 a class that deserializes a header value
 
@@ -30,5 +30,11 @@ a class that deserializes a header value
 | @Nullable ParameterStyle | ParameterStyle.SIMPLE |
 | @Nullable Boolean explode | false |
 | JsonSchema<?> | schema = RefSchemaHeaderSchema.RefSchemaHeaderSchema1.getInstance()
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| HttpHeaders | serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) |
+| @Nullable Object | deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration)<br>deserializes the header value |
 
 [[Back to top]](#top) [[Back to Component Headers]](../../../README.md#Component-Headers) [[Back to README]](../../../README.md)

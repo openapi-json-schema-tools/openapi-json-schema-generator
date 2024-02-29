@@ -62,7 +62,7 @@ class storing schema info for a specific contentType
 {{/each}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
-public static class {{jsonPathPiece.pascalCase}}1<br>
+public static class {{jsonPathPiece.pascalCase}}1 implements Header<br>
 
 a class that deserializes a header value
 
@@ -83,6 +83,12 @@ a class that deserializes a header value
     {{else}}
 | JsonSchema<?> | schema = {{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}
     {{/if}}
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| HttpHeaders | serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) |
+| @Nullable Object | deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration)<br>deserializes the header value |
 {{/if}}
 {{#if componentModule}}
 
