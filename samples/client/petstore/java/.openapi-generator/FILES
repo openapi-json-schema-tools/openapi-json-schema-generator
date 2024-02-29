@@ -360,16 +360,19 @@ src/main/java/org/openapijsonschematools/client/components/responses/SuccessInli
 src/main/java/org/openapijsonschematools/client/components/responses/SuccessWithJsonApiResponse.java
 src/main/java/org/openapijsonschematools/client/components/responses/SuccessfulXmlAndJsonArrayOfPet.java
 src/main/java/org/openapijsonschematools/client/components/responses/headerswithnobody/Headers.java
+src/main/java/org/openapijsonschematools/client/components/responses/headerswithnobody/headers.java
 src/main/java/org/openapijsonschematools/client/components/responses/headerswithnobody/headers/Location.java
 src/main/java/org/openapijsonschematools/client/components/responses/headerswithnobody/headers/location/LocationSchema.java
 src/main/java/org/openapijsonschematools/client/components/responses/successfulxmlandjsonarrayofpet/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/components/responses/successfulxmlandjsonarrayofpet/content/applicationxml/ApplicationxmlSchema.java
 src/main/java/org/openapijsonschematools/client/components/responses/successinlinecontentandheader/Headers.java
 src/main/java/org/openapijsonschematools/client/components/responses/successinlinecontentandheader/content/applicationjson/ApplicationjsonSchema.java
+src/main/java/org/openapijsonschematools/client/components/responses/successinlinecontentandheader/headers.java
 src/main/java/org/openapijsonschematools/client/components/responses/successinlinecontentandheader/headers/SomeHeader.java
 src/main/java/org/openapijsonschematools/client/components/responses/successinlinecontentandheader/headers/someheader/SomeHeaderSchema.java
 src/main/java/org/openapijsonschematools/client/components/responses/successwithjsonapiresponse/Headers.java
 src/main/java/org/openapijsonschematools/client/components/responses/successwithjsonapiresponse/content/applicationjson/ApplicationjsonSchema.java
+src/main/java/org/openapijsonschematools/client/components/responses/successwithjsonapiresponse/headers.java
 src/main/java/org/openapijsonschematools/client/components/responses/successwithjsonapiresponse/headers/Int32.java
 src/main/java/org/openapijsonschematools/client/components/responses/successwithjsonapiresponse/headers/NumberHeader.java
 src/main/java/org/openapijsonschematools/client/components/responses/successwithjsonapiresponse/headers/Refcontentschemaheader.java
@@ -949,6 +952,7 @@ src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/Co
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/Headers.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.java
+src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/headers.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/headers/Int32.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/headers/NumberHeader.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/headers/Refcontentschemaheader.java
@@ -980,6 +984,7 @@ src/main/java/org/openapijsonschematools/client/requestbody/RequestBodySerialize
 src/main/java/org/openapijsonschematools/client/requestbody/SerializedRequestBody.java
 src/main/java/org/openapijsonschematools/client/response/ApiResponse.java
 src/main/java/org/openapijsonschematools/client/response/DeserializedHttpResponse.java
+src/main/java/org/openapijsonschematools/client/response/HeadersDeserializer.java
 src/main/java/org/openapijsonschematools/client/response/ResponseDeserializer.java
 src/main/java/org/openapijsonschematools/client/response/ResponsesDeserializer.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java

@@ -3070,17 +3070,17 @@ public class DefaultGenerator implements Generator {
         }
 
         Map<String, Header> responseHeaders = response.getHeaders();
-        Map<String, CodegenHeader> headers = null;
+        CodegenMap<CodegenHeader> headers = null;
         HashMap<String, Schema> headersProperties = new HashMap<>();
         List<String> headersRequired = new ArrayList<>();
         if (responseHeaders != null && !responseHeaders.isEmpty()) {
-            headers = new HashMap<>();
+            var headersMap = new HashMap<String, CodegenHeader>();
             for (Entry<String, Header> entry : responseHeaders.entrySet()) {
                 String headerName = entry.getKey();
                 Header header = entry.getValue();
                 String headerSourceJsonPath = sourceJsonPath + "/headers/" + headerName;
                 CodegenHeader responseHeader = fromHeader(header, headerSourceJsonPath);
-                headers.put(headerName, responseHeader);
+                headersMap.put(headerName, responseHeader);
                 CodegenHeader derefParam = responseHeader.getSelfOrDeepestRef();
                 if (Boolean.TRUE.equals(derefParam.required)) {
                     headersRequired.add(headerName);
@@ -3090,6 +3090,10 @@ public class DefaultGenerator implements Generator {
                 parameterSchema.set$ref(schemaJsonPath);
                 headersProperties.put(headerName, parameterSchema);
             }
+            String headersJsonPath = sourceJsonPath + "/headers";
+            CodegenKey headersJsonPathPiece = getKey("headers", "headers", headersJsonPath);
+            String subpackage = getSubpackage(headersJsonPath);
+            headers = new CodegenMap<>(headersMap, headersJsonPathPiece, subpackage);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = getContent(response.getContent(), sourceJsonPath + "/content");
         String expectedComponentType = "responses";

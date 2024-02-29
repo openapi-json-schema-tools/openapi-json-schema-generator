@@ -1,0 +1,12 @@
+package {{packageName}}.{{headers.subpackage}};
+
+import {{packageName}}.response.HeadersDeserializer;
+{{#each headers}}
+import {{packageName}}.{{subpackage}};
+{{/each}}
+{{#with headersObjectSchema}}
+import {{packageName}}.{{subpackage}};
+{{/with}}
+
+public class {{headers.jsonPathPiece.pascalCase}} extends HeadersDeserializer {
+}

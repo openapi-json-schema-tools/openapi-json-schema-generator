@@ -901,6 +901,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/responses/ResponseDoc.hbs", ".md");
                 }}
         );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/responses/HeadersDeserializer.hbs", ".java");
+                }}
+        );
 
         // schema
         HashMap<String, String> schemaTemplates = new HashMap<>();
@@ -3139,6 +3145,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public boolean shouldGenerateFile(String jsonPath) {
         if (jsonPath.equals("#/components/responses")) {
+            return false;
+        }
+        if (jsonPath.equals("#/components/headers")) {
             return false;
         }
         return true;
