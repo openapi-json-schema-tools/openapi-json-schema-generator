@@ -5,10 +5,12 @@ package {{packageName}}.{{subpackage}};
     {{#neq subpackage refInfo.ref.subpackage}}
 import {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}};
     {{/neq}}
+{{#neq jsonPathPiece.pascalCase refInfo.ref.jsonPathPiece.pascalCase}}
 
 public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
     public static class {{jsonPathPiece.pascalCase}}1 extends {{refInfo.refModule}}1 {}
 }
+{{/neq}}
 {{else}}
     {{#if schema}}
 import {{packageName}}.header.SchemaHeader;
