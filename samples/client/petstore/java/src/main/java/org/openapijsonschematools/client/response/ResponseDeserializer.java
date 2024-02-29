@@ -14,10 +14,11 @@ import com.google.gson.ToNumberPolicy;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
+import org.openapijsonschematools.client.header.Header;
 
 public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedMediaTypeClass> {
     public final Map<String, SealedMediaTypeClass> content;
-    public final @Nullable Map<String, String> headers; // todo change the value to header
+    public final @Nullable Map<String, Header> headers;
     private static final Gson gson = new GsonBuilder()
             .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
             .setNumberToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
