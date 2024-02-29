@@ -868,6 +868,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/headers/Header.hbs", ".java");
                 }}
         );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/headers/HeaderDoc.hbs", ".md");
+                }}
+        );
         // responses
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,

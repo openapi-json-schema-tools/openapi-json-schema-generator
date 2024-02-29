@@ -1,4 +1,10 @@
 README.md
+docs/components/headers/Int32JsonContentTypeHeader.md
+docs/components/headers/NumberHeader.md
+docs/components/headers/RefContentSchemaHeader.md
+docs/components/headers/RefSchemaHeader.md
+docs/components/headers/RefStringHeader.md
+docs/components/headers/StringHeader.md
 docs/components/headers/int32jsoncontenttypeheader/content/applicationjson/Int32JsonContentTypeHeaderSchema.md
 docs/components/headers/numberheader/NumberHeaderSchema.md
 docs/components/headers/refcontentschemaheader/content/applicationjson/RefContentSchemaHeaderSchema.md
