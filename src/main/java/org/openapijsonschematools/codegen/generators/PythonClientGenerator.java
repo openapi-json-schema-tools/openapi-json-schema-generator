@@ -1785,7 +1785,15 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return toModuleFilename("request_body", null);
     }
 
-    public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename("header_" + componentName, null); }
+    public String toHeaderFilename(String componentName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (pathPieces.length == 5 || pathPieces.length == 7) {
+            // #/components/responses/SomeResponse/headers
+            // #/paths/somePath/verb/responses/200/headers
+            return "headers";
+        }
+        return toModuleFilename("header_" + componentName, null);
+    }
 
     public void setUseNose(String val) {
         this.useNose = Boolean.parseBoolean(val);

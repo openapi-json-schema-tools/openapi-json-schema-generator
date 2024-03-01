@@ -12,9 +12,9 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.components.headers.header_int32_json_content_type_header.content.application_json import schema
-from petstore_api.components.headers.header_number_header import schema as schema_3
-from petstore_api.components.headers.header_string_header import schema as schema_2
+from petstore_api.components.headers.headers import schema as schema_2
+from petstore_api.components.headers.headers import schema as schema_3
+from petstore_api.components.headers.headers.content.application_json import schema
 from petstore_api.components.schema import string_with_validation
 Properties = typing.TypedDict(
     'Properties',
