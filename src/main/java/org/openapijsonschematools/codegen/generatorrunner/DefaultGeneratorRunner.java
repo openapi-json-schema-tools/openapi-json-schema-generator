@@ -653,7 +653,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             Map<String, Object> headersInfo = new HashMap<>();
             headersInfo.put("headers", response.headers);
             headersInfo.put("headersObjectSchema", response.headersObjectSchema);
-            generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, null, generator.shouldGenerateFile(headersJsonPath));
+            generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, headersInfo, generator.shouldGenerateFile(headersJsonPath));
             for (Map.Entry<String, CodegenHeader> headerInfo: response.headers.entrySet()) {
                 String headerName = headerInfo.getKey();
                 CodegenHeader header = headerInfo.getValue();
@@ -661,8 +661,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 generateHeader(files, header, headerJsonPath, docRoot + "../../");
             }
             // synthetic json path
-            String headersObjectJsonPath = jsonPath + "/Headers";
-            generateSchema(files, response.headersObjectSchema, headersObjectJsonPath);
+            generateSchema(files, response.headersObjectSchema, response.headersObjectSchema.jsonPath);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content;
         if (content != null && !content.isEmpty()) {

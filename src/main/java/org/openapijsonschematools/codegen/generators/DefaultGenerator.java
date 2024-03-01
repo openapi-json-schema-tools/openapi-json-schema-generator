@@ -153,6 +153,7 @@ public class DefaultGenerator implements Generator {
 
 
     protected String templateEngineName;
+    protected String headersSchemaFragment = "Headers";
 
     static {
         DefaultFeatureSet = FeatureSet.newBuilder()
@@ -3115,7 +3116,7 @@ public class DefaultGenerator implements Generator {
 
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         TreeSet<String> finalImports = imports;
-        CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath + "/" + "Headers", sourceJsonPath + "/" + "Headers");
+        CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath + "/" + headersSchemaFragment, sourceJsonPath + "/" + headersSchemaFragment);
         String pathFromDocRoot = responsePathFromDocRoot(sourceJsonPath);
         String subpackage = getSubpackage(sourceJsonPath);
         r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule, pathFromDocRoot, subpackage);
@@ -3791,7 +3792,7 @@ public class DefaultGenerator implements Generator {
             // #/components/responses/SuccessWithJsonApiResponse/headers
             pathPieces[3] = toResponseModuleName(pathPieces[3], jsonPath);
 
-            if (pathPieces.length == 5 && pathPieces[4].equals("Headers")) {
+            if (pathPieces.length == 5 && pathPieces[4].equals(headersSchemaFragment)) {
                 // synthetic json path
                 // #/components/responses/someResponse/Headers
                 pathPieces[4] = getSchemaFilename(jsonPath);
@@ -3802,6 +3803,7 @@ public class DefaultGenerator implements Generator {
                 return;
             }
             if (pathPieces[4].equals("headers")) {
+                pathPieces[4] = toHeaderFilename(pathPieces[4], jsonPath);
                 // #/components/responses/someResponse/headers/SomeHeader-> length 6
                 pathPieces[5] = toHeaderFilename(pathPieces[5], jsonPath);
                 if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
@@ -3916,7 +3918,7 @@ public class DefaultGenerator implements Generator {
             }
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             pathPieces[5] = toResponseModuleName(pathPieces[5], jsonPath);
-            if (pathPieces.length == 7 && pathPieces[6].equals("Headers")) {
+            if (pathPieces.length == 7 && pathPieces[6].equals(headersSchemaFragment)) {
                 // synthetic json path
                 // #/paths/user_login/get/responses/200/Headers
                 pathPieces[6] = getSchemaFilename(jsonPath);
@@ -3934,6 +3936,7 @@ public class DefaultGenerator implements Generator {
                     pathPieces[8] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces[6].equals("headers")) {
+                pathPieces[6] = toHeaderFilename(pathPieces[6], jsonPath);
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
                 pathPieces[7] = toHeaderFilename(pathPieces[7], jsonPath);
 

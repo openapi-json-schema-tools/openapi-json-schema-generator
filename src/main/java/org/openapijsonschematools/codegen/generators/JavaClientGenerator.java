@@ -187,6 +187,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     public JavaClientGenerator() {
         super();
+        headersSchemaFragment = "HeadersSchema";
 
         supportsInheritance = true;
 
@@ -1007,14 +1008,20 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             // deeper paths
             return toModuleFilename(componentName, jsonPath);
         } else if (jsonPath.startsWith("#/components/responses/")) {
-            if (pathPieces.length == 6) {
+            if (pathPieces.length == 5) {
+                // #/components/responses/SomeResponse/headers
+                return "Headers";
+            } else if (pathPieces.length == 6 && !componentName.equals("headers")) {
                 // #/components/responses/SomeResponse/headers/SomeHeader
                 return toModelName(componentName, null);
             }
             // deeper paths
             return toModuleFilename(componentName, jsonPath);
         }
-        if (pathPieces.length == 8) {
+        if (pathPieces.length == 7) {
+            // #/paths/somePath/verb/responses/200/headers
+            return "Headers";
+        } else if (pathPieces.length == 8 && !componentName.equals("headers")) {
             // #/paths/somePath/verb/responses/200/headers/SomeHeader
             return toModelName(componentName, null);
         }
