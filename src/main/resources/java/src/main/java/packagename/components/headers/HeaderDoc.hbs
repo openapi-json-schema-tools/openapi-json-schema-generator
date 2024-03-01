@@ -78,17 +78,17 @@ a class that deserializes a header value
 | @Nullable Boolean allowReserved | null |
 | @Nullable ParameterStyle | ParameterStyle.SIMPLE |
 | @Nullable Boolean explode | {{explode}} |
-    {{#if content}}
-| Map<String, [SealedMediaType](#sealedmediatype)> | content =  Map.ofEntries(<br>{{#each content}}&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)()){{#unless @last}},{{/unless}}<br>{{/each}})<br>the contentType to schema info |
+    {{#each content}}
+| Map<String, [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)())<br>)<br>the contentType to schema info |
     {{else}}
-| JsonSchema<?> | schema = {{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}
-    {{/if}}
+| JsonSchema<?> | schema = {{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}})().getInstance(){{/with}}
+    {{/each}}
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | HttpHeaders | serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) |
-| @Nullable Object | deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration)<br>deserializes the header value |
+| @Nullable Object | deserialize(List&lt;String&gt; inData, boolean validate, SchemaConfiguration configuration)<br>deserializes the header value |
 {{/if}}
 {{#if componentModule}}
 

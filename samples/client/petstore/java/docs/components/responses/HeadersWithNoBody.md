@@ -13,7 +13,7 @@ A class that contains necessary nested response classes
 
 ## HeadersWithNoBody1
 public static class HeadersWithNoBody1<br>
-extends ResponseDeserializer<Void, Void, Void>
+extends ResponseDeserializer<Void, [HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchemaMap](../../components/responses/headerswithnobody/HeadersWithNoBodyHeadersSchema.md#headerswithnobodyheadersschemamap), Void>
 
 a class that deserializes responses
 
@@ -30,6 +30,6 @@ a class that deserializes responses
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| ApiResponse<Void, Void> | deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration)<br>called by endpoint when deserialize responses |
+| ApiResponse<Void, [HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchemaMap](../../components/responses/headerswithnobody/HeadersWithNoBodyHeadersSchema.md#headerswithnobodyheadersschemamap)> | deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration)<br>called by endpoint when deserialize responses |
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)
