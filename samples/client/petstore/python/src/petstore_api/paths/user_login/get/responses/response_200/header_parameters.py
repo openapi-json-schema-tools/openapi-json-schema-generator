@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.components.headers.header_int32_json_content_type_header.content.application_json import schema as schema_2
-from petstore_api.components.headers.headers import schema as schema_4
+from petstore_api.components.headers.header_number_header import schema as schema_4
 from petstore_api.components.schema import string_with_validation
 from petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after import schema as schema_3
 from petstore_api.paths.user_login.get.responses.response_200.headers.header_x_rate_limit.content.application_json import schema

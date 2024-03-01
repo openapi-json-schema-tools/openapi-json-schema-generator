@@ -3755,28 +3755,30 @@ public class DefaultGenerator implements Generator {
             return;
         }
         if (pathPieces[2].equals("headers")) {
+            // #/components/headers
             pathPieces[3] = toHeaderFilename(pathPieces[3], jsonPath);
-            if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
+            if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
+                // #/components/headers/someHeader/schema
+                pathPieces[4] = getSchemaFilename(jsonPath);
+            } else if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 7) {
                     pathPieces[6] = getSchemaFilename(jsonPath);
                 }
-            } else if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
-                pathPieces[4] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[2].equals("parameters")) {
             pathPieces[3] = toParameterFilename(pathPieces[3], null);
-            if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
+            if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
+                pathPieces[4] = getSchemaFilename(jsonPath);
+            } else if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/parameters/someParam/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 7) {
                     pathPieces[6] = getSchemaFilename(jsonPath);
                 }
-            } else if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
-                pathPieces[4] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
             pathPieces[3] = toRequestBodyFilename(pathPieces[3], jsonPath);
@@ -3811,7 +3813,10 @@ public class DefaultGenerator implements Generator {
                 }
                 // #/components/responses/someResponse/headers/SomeHeader-> length 6
                 pathPieces[5] = toHeaderFilename(pathPieces[5], jsonPath);
-                if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
+                if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
+                    // #/components/responses/someResponse/headers/SomeHeader/schema
+                    pathPieces[6] = getSchemaFilename(jsonPath);
+                } else if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                     pathPieces[7] = toContentTypeFilename(contentType);
@@ -3819,9 +3824,6 @@ public class DefaultGenerator implements Generator {
                         // #/components/responses/someResponse/headers/SomeHeader/content/application-json/schema
                         pathPieces[8] = getSchemaFilename(jsonPath);
                     }
-                } else if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
-                    // #/components/responses/someResponse/headers/SomeHeader/schema
-                    pathPieces[6] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces[4].equals("content")) {
                 if (pathPieces.length == 5) {
