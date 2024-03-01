@@ -25,12 +25,9 @@ public class {{responses.jsonPathPiece.pascalCase}} {
 
     public record Endpoint{{jsonPathPiece.pascalCase}}(
         HttpResponse<byte[]> response,
-        {{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody body{{else}}Void body{{/if}}
-    ) implements EndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}}, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
+        {{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}} body,
+        {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}} headers
+    ) implements EndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}}, {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}}>{
     }
         {{/each}}
     {{/if}}
@@ -140,12 +137,12 @@ public class {{responses.jsonPathPiece.pascalCase}} {
             {{/if}}
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
             {{#with defaultResponse}}
-            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body(), deserializedResponse.headers());
             {{/with}}
         {{else}}
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
             {{#with defaultResponse}}
-            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body(), deserializedResponse.headers());
             {{/with}}
         {{/or}}
     {{/and}}

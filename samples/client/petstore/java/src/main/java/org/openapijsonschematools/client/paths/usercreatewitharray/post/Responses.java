@@ -16,12 +16,9 @@ public class Responses {
 
     public record EndpointCodedefaultResponse(
         HttpResponse<byte[]> response,
-        Void body
+        Void body,
+        Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
     }
 
     public static final class Responses1 implements ResponsesDeserializer<EndpointResponse> {
@@ -32,7 +29,7 @@ public class Responses {
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
-            return new EndpointCodedefaultResponse(response, deserializedResponse.body());
+            return new EndpointCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

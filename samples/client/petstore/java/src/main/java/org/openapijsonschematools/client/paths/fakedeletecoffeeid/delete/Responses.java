@@ -17,22 +17,16 @@ public class Responses {
 
     public record EndpointCode200Response(
         HttpResponse<byte[]> response,
-        Void body
+        Void body,
+        Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
     }
 
     public record EndpointCodedefaultResponse(
         HttpResponse<byte[]> response,
-        Void body
+        Void body,
+        Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
     }
 
     public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
@@ -56,10 +50,10 @@ public class Responses {
             if (statusCodeDeserializer != null) {
                 StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body());
+                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             }
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
-            return new EndpointCodedefaultResponse(response, deserializedResponse.body());
+            return new EndpointCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }
