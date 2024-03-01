@@ -182,7 +182,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |parameters|✗|OAS3
 |examples|✗|OAS3
 |requestBodies|✓|OAS3
-|headers|✗|OAS3
+|headers|✓|OAS3
 |securitySchemes|✓|OAS3
 |links|✗|OAS3
 |callbacks|✗|OAS3
@@ -223,7 +223,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |ComponentResponses|✓|OAS3
 |ComponentParameters|✗|OAS3
 |ComponentRequestBodies|✓|OAS3
-|ComponentHeaders|✗|OAS3
+|ComponentHeaders|✓|OAS3
 |ComponentSecuritySchemes|✓|OAS3
 |ComponentLinks|✗|OAS3
 |ComponentCallbacks|✗|OAS3
@@ -245,10 +245,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Operation Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Responses_HttpStatusCode|✗|OAS3
-|Responses_RangedResponseCodes|✗|OAS3
-|Responses_Default|✗|OAS3
-|Responses_RedirectionResponse|✗|OAS3
+|Responses_HttpStatusCode|✓|OAS3
+|Responses_RangedResponseCodes|✓|OAS3
+|Responses_Default|✓|OAS3
+|Responses_RedirectionResponse|✓|OAS3
 |Security|✓|OAS2,OAS3
 |Servers|✓|OAS3
 

@@ -3824,6 +3824,10 @@ public class DefaultGenerator implements Generator {
                     pathPieces[6] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces[4].equals("content")) {
+                if (pathPieces.length == 5) {
+                    // #/components/responses/someResponse/content -> length 5
+                    return;
+                }
                 // #/components/responses/someResponse/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = toContentTypeFilename(contentType);
@@ -3936,6 +3940,10 @@ public class DefaultGenerator implements Generator {
             }
 
             if (pathPieces[6].equals("content")) {
+                if (pathPieces.length  == 7) {
+                    // #/paths/somePath/get/responses/200/content
+                    return;
+                }
                 // #/paths/somePath/get/responses/200/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                 pathPieces[7] = toContentTypeFilename(contentType);
