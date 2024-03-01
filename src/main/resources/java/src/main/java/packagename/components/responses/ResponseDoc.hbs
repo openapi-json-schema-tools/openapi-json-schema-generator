@@ -110,7 +110,7 @@ A record class to store response body for contentType="{{{@key.original}}}"
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
 public static class {{jsonPathPiece.pascalCase}}1<br>
-extends ResponseDeserializer<{{#if hasContentSchema}}[SealedResponseBody](#sealedresponsebody){{else}}Void{{/if}}, Void, {{#if hasContentSchema}}[SealedMediaType](#sealedmediatype){{else}}Void{{/if}}>
+extends ResponseDeserializer<{{#if hasContentSchema}}[SealedResponseBody](#sealedresponsebody){{else}}Void{{/if}}, {{#with headersObjectSchema}}[{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{else}}Void{{/with}}, {{#if hasContentSchema}}[SealedMediaType](#sealedmediatype){{else}}Void{{/if}}>
 
 a class that deserializes responses
 

@@ -28,11 +28,14 @@ docs/components/responses/SuccessDescriptionOnly.md
 docs/components/responses/SuccessInlineContentAndHeader.md
 docs/components/responses/SuccessWithJsonApiResponse.md
 docs/components/responses/SuccessfulXmlAndJsonArrayOfPet.md
+docs/components/responses/headerswithnobody/HeadersWithNoBodyHeadersSchema.md
 docs/components/responses/headerswithnobody/headers/location/LocationSchema.md
 docs/components/responses/successfulxmlandjsonarrayofpet/content/applicationjson/ApplicationjsonSchema.md
 docs/components/responses/successfulxmlandjsonarrayofpet/content/applicationxml/ApplicationxmlSchema.md
+docs/components/responses/successinlinecontentandheader/SuccessInlineContentAndHeaderHeadersSchema.md
 docs/components/responses/successinlinecontentandheader/content/applicationjson/ApplicationjsonSchema.md
 docs/components/responses/successinlinecontentandheader/headers/someheader/SomeHeaderSchema.md
+docs/components/responses/successwithjsonapiresponse/SuccessWithJsonApiResponseHeadersSchema.md
 docs/components/responses/successwithjsonapiresponse/content/applicationjson/ApplicationjsonSchema.md
 docs/components/schemas/AbstractStepMessage.md
 docs/components/schemas/AdditionalPropertiesClass.md
@@ -318,6 +321,7 @@ docs/paths/storeorderorderid/get/responses/code200response/content/applicationxm
 docs/paths/user/post/requestbody/content/applicationjson/ApplicationjsonSchema.md
 docs/paths/userlogin/get/parameters/parameter0/Schema0.md
 docs/paths/userlogin/get/parameters/parameter1/Schema1.md
+docs/paths/userlogin/get/responses/code200response/Code200ResponseHeadersSchema.md
 docs/paths/userlogin/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md
 docs/paths/userlogin/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md
 docs/paths/userlogin/get/responses/code200response/headers/xexpiresafter/XExpiresAfterSchema.md

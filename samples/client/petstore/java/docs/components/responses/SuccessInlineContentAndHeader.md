@@ -68,7 +68,7 @@ A record class to store response body for contentType="application/json"
 
 ## SuccessInlineContentAndHeader1
 public static class SuccessInlineContentAndHeader1<br>
-extends ResponseDeserializer<[SealedResponseBody](#sealedresponsebody), Void, [SealedMediaType](#sealedmediatype)>
+extends ResponseDeserializer<[SealedResponseBody](#sealedresponsebody), [SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap](../../components/responses/successinlinecontentandheader/SuccessInlineContentAndHeaderHeadersSchema.md#successinlinecontentandheaderheadersschema1), [SealedMediaType](#sealedmediatype)>
 
 a class that deserializes responses
 

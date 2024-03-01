@@ -13,7 +13,7 @@ A class that contains necessary nested response classes
 
 ## HeadersWithNoBody1
 public static class HeadersWithNoBody1<br>
-extends ResponseDeserializer<Void, Void, Void>
+extends ResponseDeserializer<Void, [HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchemaMap](../../components/responses/headerswithnobody/HeadersWithNoBodyHeadersSchema.md#headerswithnobodyheadersschema1), Void>
 
 a class that deserializes responses
 
