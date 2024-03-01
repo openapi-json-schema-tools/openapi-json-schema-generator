@@ -3923,6 +3923,11 @@ public class DefaultGenerator implements Generator {
             }
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             pathPieces[5] = toResponseModuleName(pathPieces[5], jsonPath);
+            if (pathPieces.length == 6) {
+                // #/paths/user_login/get/responses/200
+                return;
+            }
+
             if (pathPieces.length == 7 && pathPieces[6].equals(headersSchemaFragment)) {
                 // synthetic json path
                 // #/paths/user_login/get/responses/200/Headers
@@ -3930,9 +3935,6 @@ public class DefaultGenerator implements Generator {
                 return;
             }
 
-            if (pathPieces.length < 8) {
-                return;
-            }
             if (pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/responses/200/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
@@ -3941,7 +3943,11 @@ public class DefaultGenerator implements Generator {
                     pathPieces[8] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces[6].equals("headers")) {
-                pathPieces[6] = toHeaderFilename(pathPieces[6], jsonPath);
+                if (pathPieces.length == 7) {
+                    // #/paths/somePath/get/responses/200/headers
+                    pathPieces[6] = toHeaderFilename(pathPieces[6], jsonPath);
+                    return;
+                }
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
                 pathPieces[7] = toHeaderFilename(pathPieces[7], jsonPath);
 

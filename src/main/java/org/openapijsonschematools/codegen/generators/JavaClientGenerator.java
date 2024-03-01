@@ -1011,7 +1011,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             if (pathPieces.length == 5) {
                 // #/components/responses/SomeResponse/headers
                 return "Headers";
-            } else if (pathPieces.length == 6 && !componentName.equals("headers")) {
+            } else if (pathPieces.length == 6) {
                 // #/components/responses/SomeResponse/headers/SomeHeader
                 return toModelName(componentName, null);
             }
@@ -1021,7 +1021,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (pathPieces.length == 7) {
             // #/paths/somePath/verb/responses/200/headers
             return "Headers";
-        } else if (pathPieces.length == 8 && !componentName.equals("headers")) {
+        } else if (pathPieces.length == 8) {
             // #/paths/somePath/verb/responses/200/headers/SomeHeader
             return toModelName(componentName, null);
         }

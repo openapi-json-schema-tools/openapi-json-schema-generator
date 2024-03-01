@@ -950,9 +950,9 @@ src/main/java/org/openapijsonschematools/client/paths/userlogin/get/parameters/p
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/Code400Response.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/Code200ResponseHeadersSchema.java
+src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/Headers.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.java
-src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/headers.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/headers/Int32.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/headers/NumberHeader.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/headers/Refcontentschemaheader.java
