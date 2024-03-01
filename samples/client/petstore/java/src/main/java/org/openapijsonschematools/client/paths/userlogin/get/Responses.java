@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.paths.userlogin.get;
 
 import org.openapijsonschematools.client.paths.userlogin.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.Code200ResponseHeadersSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.Code400Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.response.ApiResponse;
@@ -17,12 +18,9 @@ public class Responses {
 
     public record EndpointCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
+        Code200Response.SealedResponseBody body,
+        Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap headers
+    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap>{
     }
 
     public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode400ResponseDeserializer {}
@@ -52,7 +50,7 @@ public class Responses {
             }
             if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body());
+                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             } else {
                 StatusCode400ResponseDeserializer castDeserializer = (StatusCode400ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);

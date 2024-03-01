@@ -17,22 +17,16 @@ public class Responses {
 
     public record EndpointCode3XXResponse(
         HttpResponse<byte[]> response,
-        Void body
+        Void body,
+        Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
     }
 
     public record EndpointCode303Response(
         HttpResponse<byte[]> response,
-        Void body
+        Void body,
+        Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
     }
 
     public sealed interface StatusCodeResponseDeserializer permits StatusCode303ResponseDeserializer {}
@@ -62,7 +56,7 @@ public class Responses {
             if (statusCodeDeserializer != null) {
                 StatusCode303ResponseDeserializer castDeserializer = (StatusCode303ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode303Response(response, deserializedResponse.body());
+                return new EndpointCode303Response(response, deserializedResponse.body(), deserializedResponse.headers());
             }
             @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
             if (wildcardCodeDeserializer == null) {

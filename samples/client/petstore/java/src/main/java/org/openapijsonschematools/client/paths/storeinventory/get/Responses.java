@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.paths.storeinventory.get;
 
 import org.openapijsonschematools.client.paths.storeinventory.get.responses.Code200Response;
+import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.SuccessInlineContentAndHeaderHeadersSchema;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
@@ -16,12 +17,9 @@ public class Responses {
 
     public record EndpointCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
+        Code200Response.SealedResponseBody body,
+        SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap headers
+    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap>{
     }
 
     public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
@@ -48,7 +46,7 @@ public class Responses {
             }
             StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body());
+            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

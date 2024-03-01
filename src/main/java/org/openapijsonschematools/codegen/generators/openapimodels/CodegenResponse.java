@@ -21,7 +21,7 @@ import java.util.*;
 
 public class CodegenResponse {
     public final CodegenText description;
-    public final Map<String, CodegenHeader> headers;
+    public final CodegenMap<CodegenHeader> headers;
     public final CodegenSchema headersObjectSchema;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final CodegenRefInfo<CodegenResponse> refInfo;
@@ -44,7 +44,7 @@ public class CodegenResponse {
         return refObject;
     }
 
-    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, CodegenSchema headersObjectSchema, CodegenText description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule, String pathFromDocRoot, String subpackage) {
+    public CodegenResponse(CodegenKey jsonPathPiece, CodegenMap<CodegenHeader> headers, CodegenSchema headersObjectSchema, CodegenText description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule, String pathFromDocRoot, String subpackage) {
         this.jsonPathPiece = jsonPathPiece;
         this.headers = headers;
         this.headersObjectSchema = headersObjectSchema;

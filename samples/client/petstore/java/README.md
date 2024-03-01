@@ -320,6 +320,17 @@ Class | Description
 [SuccessWithJsonApiResponse.SuccessWithJsonApiResponse1](docs/components/responses/SuccessWithJsonApiResponse.md#successwithjsonapiresponse1) | successful operation
 [SuccessfulXmlAndJsonArrayOfPet.SuccessfulXmlAndJsonArrayOfPet1](docs/components/responses/SuccessfulXmlAndJsonArrayOfPet.md#successfulxmlandjsonarrayofpet1) | successful operation, multiple content types
 
+## Component Headers
+
+Class | Description
+----- | ------------
+[Int32JsonContentTypeHeader.Int32JsonContentTypeHeader1](docs/components/headers/Int32JsonContentTypeHeader.md#int32jsoncontenttypeheader1) | int32 JSON content-type header
+[NumberHeader.NumberHeader1](docs/components/headers/NumberHeader.md#numberheader1) | number header description
+[RefContentSchemaHeader.RefContentSchemaHeader1](docs/components/headers/RefContentSchemaHeader.md#refcontentschemaheader1) | int32 JSON content-type header
+[RefSchemaHeader.RefSchemaHeader1](docs/components/headers/RefSchemaHeader.md#refschemaheader1) | header that has a ref in the schema
+[RefStringHeader.RefStringHeader1](docs/components/headers/RefStringHeader.md#refstringheader1) |
+[StringHeader.StringHeader1](docs/components/headers/StringHeader.md#stringheader1) | string header description
+
 ## Component SecuritySchemes
 
 | Class | Description |

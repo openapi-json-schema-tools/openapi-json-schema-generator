@@ -650,7 +650,10 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         // headers
         if (response.headers != null && !response.headers.isEmpty()) {
             String headersJsonPath = jsonPath + "/headers";
-            generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, null, true);
+            Map<String, Object> headersInfo = new HashMap<>();
+            headersInfo.put("headers", response.headers);
+            headersInfo.put("headersObjectSchema", response.headersObjectSchema);
+            generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, headersInfo, generator.shouldGenerateFile(headersJsonPath));
             for (Map.Entry<String, CodegenHeader> headerInfo: response.headers.entrySet()) {
                 String headerName = headerInfo.getKey();
                 CodegenHeader header = headerInfo.getValue();
@@ -658,8 +661,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 generateHeader(files, header, headerJsonPath, docRoot + "../../");
             }
             // synthetic json path
-            String headersObjectJsonPath = jsonPath + "/Headers";
-            generateSchema(files, response.headersObjectSchema, headersObjectJsonPath);
+            generateSchema(files, response.headersObjectSchema, response.headersObjectSchema.jsonPath);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content;
         if (content != null && !content.isEmpty()) {
@@ -983,7 +985,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         TreeMap<String, CodegenHeader> headers = new TreeMap<>();
         String headersJsonPath = "#/components/headers";
-        generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, null, true);
+        generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, null, generator.shouldGenerateFile(headersJsonPath));
         for (Map.Entry<String, Header> entry: specHeaders.entrySet()) {
             String componentName = entry.getKey();
             Header specHeader = entry.getValue();

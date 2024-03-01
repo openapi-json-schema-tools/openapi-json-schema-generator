@@ -187,6 +187,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     public JavaClientGenerator() {
         super();
+        headersSchemaFragment = "HeadersSchema";
 
         supportsInheritance = true;
 
@@ -284,7 +285,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         DocumentationFeature.ComponentSchemas,
                         DocumentationFeature.ComponentSecuritySchemes,
                         DocumentationFeature.ComponentRequestBodies,
-                        DocumentationFeature.ComponentResponses
+                        DocumentationFeature.ComponentResponses,
+                        DocumentationFeature.ComponentHeaders
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
@@ -295,7 +297,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         ComponentsFeature.schemas,
                         ComponentsFeature.securitySchemes,
                         ComponentsFeature.requestBodies,
-                        ComponentsFeature.responses
+                        ComponentsFeature.responses,
+                        ComponentsFeature.headers
                 )
                 .includeSecurityFeatures(
                         SecurityFeature.ApiKey,
@@ -304,7 +307,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 )
                 .includeOperationFeatures(
                         OperationFeature.Security,
-                        OperationFeature.Servers
+                        OperationFeature.Servers,
+                        OperationFeature.Responses_Default,
+                        OperationFeature.Responses_HttpStatusCode,
+                        OperationFeature.Responses_RangedResponseCodes,
+                        OperationFeature.Responses_RedirectionResponse
                 )
                 .includeSchemaFeatures(
                         SchemaFeature.AdditionalProperties,
@@ -768,11 +775,67 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/mediatype/Encoding.hbs",
                 packagePath() + File.separatorChar + "mediatype",
                 "Encoding.java"));
+        // contenttype
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/contenttype/ContentTypeDetector.hbs",
+                packagePath() + File.separatorChar + "contenttype",
+                "ContentTypeDetector.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/contenttype/ContentTypeSerializer.hbs",
+                packagePath() + File.separatorChar + "contenttype",
+                "ContentTypeSerializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/contenttype/ContentTypeDeserializer.hbs",
+                packagePath() + File.separatorChar + "contenttype",
+                "ContentTypeDeserializer.java"));
+        // header
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/Header.hbs",
+                packagePath() + File.separatorChar + "header",
+                "Header.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/HeaderBase.hbs",
+                packagePath() + File.separatorChar + "header",
+                "HeaderBase.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/SchemaHeader.hbs",
+                packagePath() + File.separatorChar + "header",
+                "SchemaHeader.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/ContentHeader.hbs",
+                packagePath() + File.separatorChar + "header",
+                "ContentHeader.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/StyleSimpleSerializer.hbs",
+                packagePath() + File.separatorChar + "header",
+                "StyleSimpleSerializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/Rfc6570Serializer.hbs",
+                packagePath() + File.separatorChar + "header",
+                "Rfc6570Serializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/header/PrefixSeparatorIterator.hbs",
+                packagePath() + File.separatorChar + "header",
+                "PrefixSeparatorIterator.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/header/SchemaHeaderTest.hbs",
+                testPackagePath() + File.separatorChar + "header",
+                "SchemaHeaderTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/header/ContentHeaderTest.hbs",
+                testPackagePath() + File.separatorChar + "header",
+                "ContentHeaderTest.java"));
+
         // parameter
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ParameterStyle.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterStyle.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ParameterInType.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ParameterInType.java"));
+
         // response
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/response/ApiResponse.hbs",
@@ -782,6 +845,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/response/DeserializedHttpResponse.hbs",
                 packagePath() + File.separatorChar + "response",
                 "DeserializedHttpResponse.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/response/HeadersDeserializer.hbs",
+                packagePath() + File.separatorChar + "response",
+                "HeadersDeserializer.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/response/ResponseDeserializer.hbs",
                 packagePath() + File.separatorChar + "response",
@@ -809,6 +876,19 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/requestbodies/RequestBodyDoc.hbs", ".md");
                 }}
         );
+        // header
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/headers/Header.hbs", ".java");
+                }}
+        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/headers/HeaderDoc.hbs", ".md");
+                }}
+        );
         // responses
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
@@ -826,6 +906,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
                 new HashMap<>() {{
                     put("src/main/java/packagename/components/responses/ResponseDoc.hbs", ".md");
+                }}
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/responses/HeadersDeserializer.hbs", ".java");
                 }}
         );
 
@@ -906,7 +992,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         String[] pathPieces = jsonPath.split("/");
         if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
             if (pathPieces.length == 4) {
-                // #/components/requestBodies/Pet (can collide with component schema Pet import)
+                // #/components/requestBodies/Pet
                 return toModelName( componentName, null);
             }
             return toModuleFilename(componentName, null);
@@ -916,6 +1002,37 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return toModelName(componentName, null);
         }
         return toModuleFilename(componentName, null);
+    }
+
+    public String toHeaderFilename(String componentName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (jsonPath.startsWith("#/components/headers/")) {
+            if (pathPieces.length == 4) {
+                // #/components/headers/SomeHeader
+                return toModelName(componentName, null);
+            }
+            // deeper paths
+            return toModuleFilename(componentName, jsonPath);
+        } else if (jsonPath.startsWith("#/components/responses/")) {
+            if (pathPieces.length == 5) {
+                // #/components/responses/SomeResponse/headers
+                return "Headers";
+            } else if (pathPieces.length == 6) {
+                // #/components/responses/SomeResponse/headers/SomeHeader
+                return toModelName(componentName, null);
+            }
+            // deeper paths
+            return toModuleFilename(componentName, jsonPath);
+        }
+        if (pathPieces.length == 7) {
+            // #/paths/somePath/verb/responses/200/headers
+            return "Headers";
+        } else if (pathPieces.length == 8) {
+            // #/paths/somePath/verb/responses/200/headers/SomeHeader
+            return toModelName(componentName, null);
+        }
+        // deeper paths
+        return toModuleFilename(componentName, jsonPath);
     }
 
     public String getPascalCaseResponse(String componentName, String jsonPath) {
@@ -1036,21 +1153,32 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 ) {
                 if (pathPieces[2].equals("headers")) {
                     // #/components/headers/someHeader/schema -> SomeHeaderSchema
-                    usedKey =  camelize(pathPieces[3])+ camelize(usedKey);
+                    String headerFragment = pathPieces[3];
+                    usedKey =  camelize(headerFragment)+ camelize(usedKey);
                 } else if (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/")) {
-                    // #/components/response/SomeResponse/headers/someHeader/schema
-                    usedKey =  camelize(pathPieces[5])+ camelize(usedKey);
+                    // #/components/responses/SomeResponse/headers/someHeader/schema
+                    String headerFragment = pathPieces[5];
+                    usedKey =  camelize(headerFragment)+ camelize(usedKey);
                 } else {
                     // #/paths/path/verb/responses/SomeResponse/headers/someHeader/schema
-                    usedKey =  camelize(pathPieces[7])+ camelize(usedKey);
+                    String headerFragment = pathPieces[7];
+                    usedKey =  camelize(headerFragment)+ camelize(usedKey);
                 }
             } else if (pathPieces[pathPieces.length-3].equals("content")) {
                 // #/requestBodies/SomeRequestBody/content/application-json/schema
-                String prefix = ModelUtils.decodeSlashes(pathPieces[pathPieces.length-2]);
+                String contentTypeFragment = pathPieces[pathPieces.length-2];
+                String prefix = ModelUtils.decodeSlashes(contentTypeFragment);
                 prefix = sanitizeName(prefix, "[^a-zA-Z0-9]+");
                 prefix = camelize(prefix);
                 usedKey = prefix + camelize(usedKey);
             }
+        } else if (sourceJsonPath.endsWith(headersSchemaFragment) && pathPieces[pathPieces.length-3].equals("responses")) {
+            // #/components/responses/SomeResponse/HeadersSchema
+            // #/paths/path/verb/responses/200/HeadersSchema
+            String responseJsonPath = String.join("/", Arrays.copyOfRange(pathPieces, 0, pathPieces.length-1));
+            String responseFragment = pathPieces[pathPieces.length-2];
+            String pascalCaseResponse = getPascalCaseResponse(responseFragment, responseJsonPath);
+            usedKey =  pascalCaseResponse + camelize(usedKey);
         }
 
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
@@ -1223,11 +1351,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     @Override
     public String getRefModuleLocation(String ref) {
-        // modules are always in a package one above them, so strip off the last jsonPath fragment
-        String smallerRef = ref.substring(0, ref.lastIndexOf("/"));
-        String filePath = getFilepath(smallerRef);
+        String filePath = getFilepath(ref);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
-        String localFilepath = filePath.substring(prefix.length());
+        // modules are always in a package one above them, so strip off the last jsonPath fragment
+        String localFilepath = filePath.substring(prefix.length(), filePath.lastIndexOf(File.separatorChar));
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
@@ -3042,6 +3169,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public boolean shouldGenerateFile(String jsonPath) {
         if (jsonPath.equals("#/components/responses")) {
+            return false;
+        }
+        if (jsonPath.equals("#/components/headers")) {
             return false;
         }
         return true;

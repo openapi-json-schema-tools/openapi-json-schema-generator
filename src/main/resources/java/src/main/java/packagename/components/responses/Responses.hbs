@@ -2,6 +2,11 @@ package {{packageName}}.{{responses.subpackage}};
 
 {{#each responses}}
 import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{#with getSelfOrDeepestRef}}
+        {{#with headersObjectSchema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+        {{/with}}
+    {{/with}}
 {{/each}}
 import {{{packageName}}}.exceptions.ApiException;
 {{#if nonErrorResponses }}
@@ -22,12 +27,9 @@ public class {{responses.jsonPathPiece.pascalCase}} {
 
     public record Endpoint{{jsonPathPiece.pascalCase}}(
         HttpResponse<byte[]> response,
-        {{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody body{{else}}Void body{{/if}}
-    ) implements EndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}}, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
+        {{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}} body,
+        {{#with getSelfOrDeepestRef}}{{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}}{{/with}} headers
+    ) implements EndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}}, {{#with getSelfOrDeepestRef}}{{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}}{{/with}}>{
     }
         {{/each}}
     {{/if}}
@@ -137,12 +139,12 @@ public class {{responses.jsonPathPiece.pascalCase}} {
             {{/if}}
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
             {{#with defaultResponse}}
-            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body(), deserializedResponse.headers());
             {{/with}}
         {{else}}
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
             {{#with defaultResponse}}
-            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body());
+            return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body(), deserializedResponse.headers());
             {{/with}}
         {{/or}}
     {{/and}}

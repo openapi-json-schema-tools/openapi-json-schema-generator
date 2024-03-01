@@ -1,0 +1,161 @@
+package {{{packageName}}}.header;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.junit.Assert;
+import org.junit.Test;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.schemas.AnyTypeJsonSchema;
+import {{{packageName}}}.schemas.ListJsonSchema;
+import {{{packageName}}}.schemas.NullJsonSchema;
+import {{{packageName}}}.schemas.NumberJsonSchema;
+import {{{packageName}}}.schemas.StringJsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchema;
+
+import java.net.http.HttpHeaders;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.BiPredicate;
+
+public class SchemaHeaderTest {
+    public record ParamTestCase(@Nullable Object payload, Map<String, List<String>> expectedSerialization, @Nullable Boolean explode) {
+        public ParamTestCase(@Nullable Object payload,  Map<String, List<String>> expectedSerialization) {
+            this(payload, expectedSerialization, null);
+        }
+    }
+
+    @Test
+    public void testSerialization() {
+        var mapPayload = new LinkedHashMap<String, Integer>();
+        mapPayload.put("R", 100);
+        mapPayload.put("G", 200);
+        mapPayload.put("B", 150);
+        var testCases = List.of(
+                new ParamTestCase(
+                        null,
+                        Map.of("color", List.of(""))
+                ),
+                new ParamTestCase(
+                        1,
+                        Map.of("color", List.of("1"))
+                ),
+                new ParamTestCase(
+                        3.14,
+                        Map.of("color",List.of("3.14"))
+                ),
+                new ParamTestCase(
+                        "blue",
+                        Map.of("color", List.of("blue"))
+                ),
+                new ParamTestCase(
+                        "hello world",
+                        Map.of("color", List.of("hello world"))
+                ),
+                new ParamTestCase(
+                        "",
+                        Map.of("color", List.of(""))
+                ),
+                new ParamTestCase(
+                        List.of(),
+                        Map.of("color", List.of(""))
+                ),
+                new ParamTestCase(
+                        List.of("blue", "black", "brown"),
+                        Map.of("color", List.of("blue,black,brown"))
+                ),
+                new ParamTestCase(
+                        List.of("blue", "black", "brown"),
+                        Map.of("color", List.of("blue,black,brown")),
+                    true
+                ),
+                new ParamTestCase(
+                        Map.of(),
+                        Map.of("color", List.of(""))
+                ),
+                new ParamTestCase(
+                        mapPayload,
+                        Map.of("color", List.of("R,100,G,200,B,150"))
+                ),
+                new ParamTestCase(
+                        mapPayload,
+                        Map.of("color", List.of("R=100,G=200,B=150")),
+                        true
+                )
+        );
+        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+        BiPredicate<String, String> headerFilter = (key, val) -> true;
+        for (ParamTestCase testCase: testCases) {
+            var header = new SchemaHeader(
+                    true,
+                    false,
+                    testCase.explode,
+                    AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance()
+            );
+            var serialization = header.serialize(testCase.payload, "color", false, configuration);
+            Assert.assertEquals(HttpHeaders.of(testCase.expectedSerialization, headerFilter), serialization);
+        }
+        SchemaHeader boolHeader = new SchemaHeader(
+                true,
+                false,
+                false,
+                AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance()
+        );
+        for (boolean value: Set.of(true, false)) {
+            Assert.assertThrows(
+                    InvalidTypeException.class,
+                    () -> boolHeader.serialize(value, "color", false, configuration)
+            );
+        }
+    }
+
+    private static SchemaHeader getHeader(JsonSchema<?> schema) {
+        return new SchemaHeader(
+                true,
+                false,
+                false,
+                schema
+        );
+    }
+
+    @SuppressWarnings("nullness")
+    private void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+    }
+
+    @Test
+    public void testDeserialization() {
+        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+        SchemaHeader header = getHeader(NullJsonSchema.NullJsonSchema1.getInstance());
+        var deserialized = header.deserialize(List.of(""), false, configuration);
+        assertNull(deserialized);
+
+        header = getHeader(NumberJsonSchema.NumberJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("1"), false, configuration);
+        @Nullable Object expected = 1L;
+        Assert.assertEquals(expected, deserialized);
+
+        header = getHeader(NumberJsonSchema.NumberJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("3.14"), false, configuration);
+        expected = 3.14d;
+        Assert.assertEquals(expected, deserialized);
+
+        header = getHeader(StringJsonSchema.StringJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("blue"), false, configuration);
+        expected = "blue";
+        Assert.assertEquals(expected, deserialized);
+
+        header = getHeader(StringJsonSchema.StringJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("hello world"), false, configuration);
+        expected = "hello world";
+        Assert.assertEquals(expected, deserialized);
+
+        header = getHeader(ListJsonSchema.ListJsonSchema1.getInstance());
+        deserialized = header.deserialize(List.of("blue", "black", "brown"), false, configuration);
+        expected = List.of("blue", "black", "brown");
+        Assert.assertEquals(expected, deserialized);
+    }
+}

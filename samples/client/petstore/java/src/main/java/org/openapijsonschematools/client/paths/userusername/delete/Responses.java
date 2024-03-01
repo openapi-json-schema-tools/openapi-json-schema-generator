@@ -17,12 +17,9 @@ public class Responses {
 
     public record EndpointCode200Response(
         HttpResponse<byte[]> response,
-        Void body
+        Void body,
+        Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
-        @Override
-        public Void headers() {
-            return null;
-        }
     }
 
     public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode404ResponseDeserializer {}
@@ -52,7 +49,7 @@ public class Responses {
             }
             if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body());
+                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             } else {
                 StatusCode404ResponseDeserializer castDeserializer = (StatusCode404ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);

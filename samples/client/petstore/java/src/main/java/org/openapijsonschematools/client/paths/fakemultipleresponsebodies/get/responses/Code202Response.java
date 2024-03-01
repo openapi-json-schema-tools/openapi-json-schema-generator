@@ -50,7 +50,7 @@ public class Code202Response {
         }
 
         @Override
-        protected Void getHeaders(HttpHeaders headers) {
+        protected Void getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
             return null;
         }
     }

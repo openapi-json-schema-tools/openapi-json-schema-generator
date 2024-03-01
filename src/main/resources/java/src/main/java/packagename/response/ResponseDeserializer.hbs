@@ -5,7 +5,6 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Optional;
-import java.util.regex.Pattern;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import com.google.gson.Gson;
@@ -14,18 +13,17 @@ import com.google.gson.ToNumberPolicy;
 
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.contenttype.ContentTypeDetector;
+import {{{packageName}}}.contenttype.ContentTypeDeserializer;
+import {{{packageName}}}.header.Header;
 
 public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedMediaTypeClass> {
     public final Map<String, SealedMediaTypeClass> content;
-    public final @Nullable Map<String, String> headers; // todo change the value to header
-    private static final Pattern jsonContentTypePattern = Pattern.compile(
-            "application/[^+]*[+]?(json);?.*"
-    );
+    public final @Nullable Map<String, Header> headers;
     private static final Gson gson = new GsonBuilder()
             .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
             .setNumberToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
             .create();
-    protected static final String textPlainContentType = "text/plain";
 
     public ResponseDeserializer(Map<String, SealedMediaTypeClass> content) {
         this.content = content;
@@ -33,30 +31,22 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
     }
 
     protected abstract SealedBodyClass getBody(String contentType, byte[] body, SchemaConfiguration configuration);
-    protected abstract HeaderClass getHeaders(HttpHeaders headers);
+    protected abstract HeaderClass getHeaders(HttpHeaders headers, SchemaConfiguration configuration);
 
     protected @Nullable Object deserializeJson(byte[] body) {
         String bodyStr = new String(body, StandardCharsets.UTF_8);
-        return gson.fromJson(bodyStr, Object.class);
+        return ContentTypeDeserializer.fromJson(bodyStr);
 	}
 
     protected String deserializeTextPlain(byte[] body) {
         return new String(body, StandardCharsets.UTF_8);
     }
 
-    protected static boolean contentTypeIsJson(String contentType) {
-        return jsonContentTypePattern.matcher(contentType).find();
-    }
-
-    protected static boolean contentTypeIsTextPlain(String contentType) {
-        return textPlainContentType.equals(contentType);
-    }
-
     protected <T> T deserializeBody(String contentType, byte[] body, JsonSchema<T> schema, SchemaConfiguration configuration) {
-        if (contentTypeIsJson(contentType)) {
+        if (ContentTypeDetector.contentTypeIsJson(contentType)) {
             @Nullable Object bodyData = deserializeJson(body);
             return schema.validateAndBox(bodyData, configuration);
-        } else if (contentTypeIsTextPlain(contentType)) {
+        } else if (ContentTypeDetector.contentTypeIsTextPlain(contentType)) {
             String bodyData = deserializeTextPlain(body);
             return schema.validateAndBox(bodyData, configuration);
         }
@@ -77,7 +67,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         }
         byte[] bodyBytes = response.body();
         SealedBodyClass body = getBody(contentType, bodyBytes, configuration);
-        HeaderClass headers = getHeaders(response.headers());
+        HeaderClass headers = getHeaders(response.headers(), configuration);
         return new DeserializedHttpResponse<>(body, headers);
 	}
 }

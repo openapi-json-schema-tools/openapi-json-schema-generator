@@ -1,0 +1,97 @@
+{{#with header}}
+{{#eq identifierPieces.size 0}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{else}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces }}
+{{/eq}}
+{{#if componentModule}}
+{{jsonPathPiece.pascalCase}}.java
+{{/if}}
+
+{{#if refInfo}}
+public class {{jsonPathPiece.pascalCase}} extends [{{refInfo.refClass}}](../../components/headers/{{refInfo.refClass}}.md)
+
+A class (extended from the $ref class) that contains necessary nested header classes
+- a class that extends SchemaHeader/ContentHeader and is used to deserialize header content
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br> class that deserializes header value |
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
+public static class {{jsonPathPiece.pascalCase}}1 extends [{{refInfo.refClass}}](../../components/headers/{{refInfo.refClass}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}}1)<br>
+
+a class that deserializes header, extended from the $ref class
+
+{{else}}
+public class {{jsonPathPiece.pascalCase}}
+
+A class that contains necessary nested header classes
+{{#if content}}
+- a class that implements MediaType to store content schema info
+{{/if}}
+- a class that extends SchemaHeader/ContentHeader and is used to deserialize the header value
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+{{#each content}}
+| record | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)<br>record storing schema + encoding for a specific contentType |
+{{/each}}
+| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br>class that deserializes a header |
+
+{{#each content}}
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join @key.pascalCase "MediaType" "")) }}
+public record {{@key.pascalCase}}MediaType<br>
+implements [MediaType<{{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}}, Void>
+
+class storing schema info for a specific contentType
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{@key.pascalCase}}MediaType()<br>Creates an instance |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}} | schema()<br>the schema for this MediaType |
+| Void | encoding()<br>the encoding info |
+{{/each}}
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
+public static class {{jsonPathPiece.pascalCase}}1 implements Header<br>
+
+a class that deserializes a header value
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{jsonPathPiece.pascalCase}}1()<br>Creates an instance |
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| boolean | required = {{#eq required null}}false{{else}}{{required}}{{/eq}}<br>whether the header is required |
+| @Nullable Boolean allowReserved | null |
+| @Nullable ParameterStyle | ParameterStyle.SIMPLE |
+| @Nullable Boolean explode | {{explode}} |
+    {{#if content}}
+| Map<String, [SealedMediaType](#sealedmediatype)> | content =  Map.ofEntries(<br>{{#each content}}&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)()){{#unless @last}},{{/unless}}<br>{{/each}})<br>the contentType to schema info |
+    {{else}}
+| JsonSchema<?> | schema = {{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}
+    {{/if}}
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| HttpHeaders | serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) |
+| @Nullable Object | deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration)<br>deserializes the header value |
+{{/if}}
+{{#if componentModule}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" headersLink=true}}
+{{/if}}
+{{/with}}
