@@ -131,7 +131,7 @@ a class that deserializes responses
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| ApiResponse<{{#if hasContentSchema}}[SealedResponseBody](#sealedresponsebody){{else}}Void{{/if}}, Void> | deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration)<br>called by endpoint when deserialize responses |
+| ApiResponse<{{#if hasContentSchema}}[SealedResponseBody](#sealedresponsebody){{else}}Void{{/if}}, {{#with headersObjectSchema}}[{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{else}}Void{{/with}}> | deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration)<br>called by endpoint when deserialize responses |
 {{/if}}
 {{#if componentModule}}
 

@@ -30,6 +30,6 @@ a class that deserializes responses
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| ApiResponse<Void, Void> | deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration)<br>called by endpoint when deserialize responses |
+| ApiResponse<Void, [HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchemaMap](../../components/responses/headerswithnobody/HeadersWithNoBodyHeadersSchema.md#headerswithnobodyheadersschema1)> | deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration)<br>called by endpoint when deserialize responses |
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)
