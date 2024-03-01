@@ -24,6 +24,12 @@ import {{packageName}}.schemas.validation.MapUtils;
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/each}}
+    {{#with headersObjectSchema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+    {{/with}}
+    {{#if headers}}
+import {{{packageName}}}.{{headers.subpackage}}.{{headers.jsonPathPiece.pascalCase}};
+    {{/if}}
 
     {{#if content}}
 import java.util.AbstractMap;
@@ -53,7 +59,7 @@ public class {{jsonPathPiece.pascalCase}} {
         {{/each}}
     {{/if}}
 
-    public static class {{jsonPathPiece.pascalCase}}1 extends ResponseDeserializer<{{#if hasContentSchema}}SealedResponseBody{{else}}Void{{/if}}, Void, {{#if hasContentSchema}}SealedMediaType{{else}}Void{{/if}}> {
+    public static class {{jsonPathPiece.pascalCase}}1 extends ResponseDeserializer<{{#if hasContentSchema}}SealedResponseBody{{else}}Void{{/if}}, {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}}, {{#if hasContentSchema}}SealedMediaType{{else}}Void{{/if}}> {
         public {{jsonPathPiece.pascalCase}}1() {
             super(
         {{#if hasContentSchema}}
@@ -99,8 +105,12 @@ public class {{jsonPathPiece.pascalCase}} {
         {{/if}}
 
         @Override
-        protected Void getHeaders(HttpHeaders headers) {
+        protected {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}} getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
+        {{#if headers}}
+            return new {{headers.jsonPathPiece.pascalCase}}().deserialize(headers, configuration);
+        {{else}}
             return null;
+        {{/if}}
         }
     }
 

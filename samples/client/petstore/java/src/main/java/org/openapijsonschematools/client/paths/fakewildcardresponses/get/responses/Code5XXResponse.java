@@ -50,7 +50,7 @@ public class Code5XXResponse {
         }
 
         @Override
-        protected Void getHeaders(HttpHeaders headers) {
+        protected Void getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
             return null;
         }
     }

@@ -31,7 +31,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
     }
 
     protected abstract SealedBodyClass getBody(String contentType, byte[] body, SchemaConfiguration configuration);
-    protected abstract HeaderClass getHeaders(HttpHeaders headers);
+    protected abstract HeaderClass getHeaders(HttpHeaders headers, SchemaConfiguration configuration);
 
     protected @Nullable Object deserializeJson(byte[] body) {
         String bodyStr = new String(body, StandardCharsets.UTF_8);
