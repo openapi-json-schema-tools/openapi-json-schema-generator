@@ -1787,7 +1787,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
     public String toHeaderFilename(String componentName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
-        if (pathPieces.length == 5 || pathPieces.length == 7) {
+        if (pathPieces.length == 5 || pathPieces.length == 7 && pathPieces[pathPieces.length-1].equals("headers")) {
             // #/components/responses/SomeResponse/headers
             // #/paths/somePath/verb/responses/200/headers
             return "headers";
