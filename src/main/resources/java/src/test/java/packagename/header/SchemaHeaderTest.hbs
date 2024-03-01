@@ -120,32 +120,42 @@ public class SchemaHeaderTest {
         );
     }
 
+    @SuppressWarnings("nullness")
+    private void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+    }
+
     @Test
     public void testDeserialization() {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
         SchemaHeader header = getHeader(NullJsonSchema.NullJsonSchema1.getInstance());
         var deserialized = header.deserialize(List.of(""), false, configuration);
-        Assert.assertEquals(deserialized, null);
+        assertNull(deserialized);
 
         header = getHeader(NumberJsonSchema.NumberJsonSchema1.getInstance());
         deserialized = header.deserialize(List.of("1"), false, configuration);
-        Assert.assertEquals(deserialized, 1L);
+        @Nullable Object expected = 1L;
+        Assert.assertEquals(expected, deserialized);
 
         header = getHeader(NumberJsonSchema.NumberJsonSchema1.getInstance());
         deserialized = header.deserialize(List.of("3.14"), false, configuration);
-        Assert.assertEquals(deserialized, 3.14d);
+        expected = 3.14d;
+        Assert.assertEquals(expected, deserialized);
 
         header = getHeader(StringJsonSchema.StringJsonSchema1.getInstance());
         deserialized = header.deserialize(List.of("blue"), false, configuration);
-        Assert.assertEquals(deserialized, "blue");
+        expected = "blue";
+        Assert.assertEquals(expected, deserialized);
 
         header = getHeader(StringJsonSchema.StringJsonSchema1.getInstance());
         deserialized = header.deserialize(List.of("hello world"), false, configuration);
-        Assert.assertEquals(deserialized, "hello world");
+        expected = "hello world";
+        Assert.assertEquals(expected, deserialized);
 
         header = getHeader(ListJsonSchema.ListJsonSchema1.getInstance());
         deserialized = header.deserialize(List.of("blue", "black", "brown"), false, configuration);
-        Assert.assertEquals(deserialized, List.of("blue", "black", "brown"));
+        expected = List.of("blue", "black", "brown");
+        Assert.assertEquals(expected, deserialized);
     }
 }
