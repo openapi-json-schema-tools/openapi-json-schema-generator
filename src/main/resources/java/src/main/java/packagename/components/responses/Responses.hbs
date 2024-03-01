@@ -2,8 +2,10 @@ package {{packageName}}.{{responses.subpackage}};
 
 {{#each responses}}
 import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
-    {{#with headersObjectSchema}}
+    {{#with getSelfOrDeepestRef}}
+        {{#with headersObjectSchema}}
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+        {{/with}}
     {{/with}}
 {{/each}}
 import {{{packageName}}}.exceptions.ApiException;
@@ -26,8 +28,8 @@ public class {{responses.jsonPathPiece.pascalCase}} {
     public record Endpoint{{jsonPathPiece.pascalCase}}(
         HttpResponse<byte[]> response,
         {{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}} body,
-        {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}} headers
-    ) implements EndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}}, {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}}>{
+        {{#with getSelfOrDeepestRef}}{{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}}{{/with}} headers
+    ) implements EndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}}, {{#with getSelfOrDeepestRef}}{{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}}{{/with}}>{
     }
         {{/each}}
     {{/if}}

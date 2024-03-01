@@ -67,7 +67,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         }
         byte[] bodyBytes = response.body();
         SealedBodyClass body = getBody(contentType, bodyBytes, configuration);
-        HeaderClass headers = getHeaders(response.headers());
+        HeaderClass headers = getHeaders(response.headers(), configuration);
         return new DeserializedHttpResponse<>(body, headers);
 	}
 }

@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.paths.petpetiduploadimage.post;
 
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.Code200Response;
+import org.openapijsonschematools.client.components.responses.successwithjsonapiresponse.SuccessWithJsonApiResponseHeadersSchema;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
@@ -17,8 +18,8 @@ public class Responses {
     public record EndpointCode200Response(
         HttpResponse<byte[]> response,
         Code200Response.SealedResponseBody body,
-        Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+        SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap headers
+    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap>{
     }
 
     public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
