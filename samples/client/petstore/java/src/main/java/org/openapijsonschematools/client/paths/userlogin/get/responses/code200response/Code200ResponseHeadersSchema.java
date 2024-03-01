@@ -30,24 +30,24 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
-public class HeadersSchema {
+public class Code200ResponseHeadersSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class Code200ResponseAdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable AdditionalProperties instance = null;
-        public static AdditionalProperties getInstance() {
+        private static @Nullable Code200ResponseAdditionalProperties instance = null;
+        public static Code200ResponseAdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new AdditionalProperties();
+                instance = new Code200ResponseAdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class HeadersSchemaMap extends FrozenMap<@Nullable Object> {
-        protected HeadersSchemaMap(FrozenMap<@Nullable Object> m) {
+    public static class Code200ResponseHeadersSchemaMap extends FrozenMap<@Nullable Object> {
+        protected Code200ResponseHeadersSchemaMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -59,8 +59,8 @@ public class HeadersSchema {
             "X-Expires-After",
             "numberHeader"
         );
-        public static HeadersSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return HeadersSchema1.getInstance().validate(arg, configuration);
+        public static Code200ResponseHeadersSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return Code200ResponseHeadersSchema1.getInstance().validate(arg, configuration);
         }
         
         public Number int32() {
@@ -82,74 +82,74 @@ public class HeadersSchema {
         }
     }
     
-    public interface SetterForXRateLimit <T> {
+    public interface SetterForCode200ResponseXRateLimit <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance);
+        T getBuilderAfterCode200ResponseXRateLimit(Map<String, @Nullable Object> instance);
         
         default T setXHyphenMinusRateHyphenMinusLimit(int value) {
             var instance = getInstance();
             instance.put("X-Rate-Limit", value);
-            return getBuilderAfterXRateLimit(instance);
+            return getBuilderAfterCode200ResponseXRateLimit(instance);
         }
         
         default T setXHyphenMinusRateHyphenMinusLimit(float value) {
             var instance = getInstance();
             instance.put("X-Rate-Limit", value);
-            return getBuilderAfterXRateLimit(instance);
+            return getBuilderAfterCode200ResponseXRateLimit(instance);
         }
     }
     
-    public interface SetterForInt32 <T> {
+    public interface SetterForCode200ResponseInt32 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterInt32(Map<String, @Nullable Object> instance);
+        T getBuilderAfterCode200ResponseInt32(Map<String, @Nullable Object> instance);
         
         default T int32(int value) {
             var instance = getInstance();
             instance.put("int32", value);
-            return getBuilderAfterInt32(instance);
+            return getBuilderAfterCode200ResponseInt32(instance);
         }
         
         default T int32(float value) {
             var instance = getInstance();
             instance.put("int32", value);
-            return getBuilderAfterInt32(instance);
+            return getBuilderAfterCode200ResponseInt32(instance);
         }
     }
     
-    public interface SetterForRefcontentschemaheader <T> {
+    public interface SetterForCode200ResponseRefcontentschemaheader <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance);
+        T getBuilderAfterCode200ResponseRefcontentschemaheader(Map<String, @Nullable Object> instance);
         
         default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) {
             var instance = getInstance();
             instance.put("ref-content-schema-header", value);
-            return getBuilderAfterRefcontentschemaheader(instance);
+            return getBuilderAfterCode200ResponseRefcontentschemaheader(instance);
         }
     }
     
-    public interface SetterForXExpiresAfter <T> {
+    public interface SetterForCode200ResponseXExpiresAfter <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterXExpiresAfter(Map<String, @Nullable Object> instance);
+        T getBuilderAfterCode200ResponseXExpiresAfter(Map<String, @Nullable Object> instance);
         
         default T setXHyphenMinusExpiresHyphenMinusAfter(String value) {
             var instance = getInstance();
             instance.put("X-Expires-After", value);
-            return getBuilderAfterXExpiresAfter(instance);
+            return getBuilderAfterCode200ResponseXExpiresAfter(instance);
         }
     }
     
-    public interface SetterForNumberHeader <T> {
+    public interface SetterForCode200ResponseNumberHeader <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterNumberHeader(Map<String, @Nullable Object> instance);
+        T getBuilderAfterCode200ResponseNumberHeader(Map<String, @Nullable Object> instance);
         
         default T numberHeader(String value) {
             var instance = getInstance();
             instance.put("numberHeader", value);
-            return getBuilderAfterNumberHeader(instance);
+            return getBuilderAfterCode200ResponseNumberHeader(instance);
         }
     }
     
-    public static class HeadersSchemaMap000Builder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForXExpiresAfter<HeadersSchemaMap000Builder>, SetterForNumberHeader<HeadersSchemaMap000Builder> {
+    public static class Code200ResponseHeadersSchemaMap000Builder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForCode200ResponseXExpiresAfter<Code200ResponseHeadersSchemaMap000Builder>, SetterForCode200ResponseNumberHeader<Code200ResponseHeadersSchemaMap000Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "X-Rate-Limit",
@@ -161,7 +161,7 @@ public class HeadersSchema {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public HeadersSchemaMap000Builder(Map<String, @Nullable Object> instance) {
+        public Code200ResponseHeadersSchemaMap000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -170,126 +170,126 @@ public class HeadersSchema {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public HeadersSchemaMap000Builder getBuilderAfterXExpiresAfter(Map<String, @Nullable Object> instance) {
+        public Code200ResponseHeadersSchemaMap000Builder getBuilderAfterCode200ResponseXExpiresAfter(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public HeadersSchemaMap000Builder getBuilderAfterNumberHeader(Map<String, @Nullable Object> instance) {
+        public Code200ResponseHeadersSchemaMap000Builder getBuilderAfterCode200ResponseNumberHeader(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class HeadersSchemaMap001Builder implements SetterForRefcontentschemaheader<HeadersSchemaMap000Builder> {
+    public static class Code200ResponseHeadersSchemaMap001Builder implements SetterForCode200ResponseRefcontentschemaheader<Code200ResponseHeadersSchemaMap000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public HeadersSchemaMap001Builder(Map<String, @Nullable Object> instance) {
+        public Code200ResponseHeadersSchemaMap001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public HeadersSchemaMap000Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap000Builder(instance);
+        public Code200ResponseHeadersSchemaMap000Builder getBuilderAfterCode200ResponseRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap000Builder(instance);
         }
     }
     
-    public static class HeadersSchemaMap010Builder implements SetterForInt32<HeadersSchemaMap000Builder> {
+    public static class Code200ResponseHeadersSchemaMap010Builder implements SetterForCode200ResponseInt32<Code200ResponseHeadersSchemaMap000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public HeadersSchemaMap010Builder(Map<String, @Nullable Object> instance) {
+        public Code200ResponseHeadersSchemaMap010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public HeadersSchemaMap000Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap000Builder(instance);
+        public Code200ResponseHeadersSchemaMap000Builder getBuilderAfterCode200ResponseInt32(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap000Builder(instance);
         }
     }
     
-    public static class HeadersSchemaMap011Builder implements SetterForInt32<HeadersSchemaMap001Builder>, SetterForRefcontentschemaheader<HeadersSchemaMap010Builder> {
+    public static class Code200ResponseHeadersSchemaMap011Builder implements SetterForCode200ResponseInt32<Code200ResponseHeadersSchemaMap001Builder>, SetterForCode200ResponseRefcontentschemaheader<Code200ResponseHeadersSchemaMap010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public HeadersSchemaMap011Builder(Map<String, @Nullable Object> instance) {
+        public Code200ResponseHeadersSchemaMap011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public HeadersSchemaMap001Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap001Builder(instance);
+        public Code200ResponseHeadersSchemaMap001Builder getBuilderAfterCode200ResponseInt32(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap001Builder(instance);
         }
-        public HeadersSchemaMap010Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap010Builder(instance);
+        public Code200ResponseHeadersSchemaMap010Builder getBuilderAfterCode200ResponseRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap010Builder(instance);
         }
     }
     
-    public static class HeadersSchemaMap100Builder implements SetterForXRateLimit<HeadersSchemaMap000Builder> {
+    public static class Code200ResponseHeadersSchemaMap100Builder implements SetterForCode200ResponseXRateLimit<Code200ResponseHeadersSchemaMap000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public HeadersSchemaMap100Builder(Map<String, @Nullable Object> instance) {
+        public Code200ResponseHeadersSchemaMap100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public HeadersSchemaMap000Builder getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap000Builder(instance);
+        public Code200ResponseHeadersSchemaMap000Builder getBuilderAfterCode200ResponseXRateLimit(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap000Builder(instance);
         }
     }
     
-    public static class HeadersSchemaMap101Builder implements SetterForXRateLimit<HeadersSchemaMap001Builder>, SetterForRefcontentschemaheader<HeadersSchemaMap100Builder> {
+    public static class Code200ResponseHeadersSchemaMap101Builder implements SetterForCode200ResponseXRateLimit<Code200ResponseHeadersSchemaMap001Builder>, SetterForCode200ResponseRefcontentschemaheader<Code200ResponseHeadersSchemaMap100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public HeadersSchemaMap101Builder(Map<String, @Nullable Object> instance) {
+        public Code200ResponseHeadersSchemaMap101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public HeadersSchemaMap001Builder getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap001Builder(instance);
+        public Code200ResponseHeadersSchemaMap001Builder getBuilderAfterCode200ResponseXRateLimit(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap001Builder(instance);
         }
-        public HeadersSchemaMap100Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap100Builder(instance);
+        public Code200ResponseHeadersSchemaMap100Builder getBuilderAfterCode200ResponseRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap100Builder(instance);
         }
     }
     
-    public static class HeadersSchemaMap110Builder implements SetterForXRateLimit<HeadersSchemaMap010Builder>, SetterForInt32<HeadersSchemaMap100Builder> {
+    public static class Code200ResponseHeadersSchemaMap110Builder implements SetterForCode200ResponseXRateLimit<Code200ResponseHeadersSchemaMap010Builder>, SetterForCode200ResponseInt32<Code200ResponseHeadersSchemaMap100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public HeadersSchemaMap110Builder(Map<String, @Nullable Object> instance) {
+        public Code200ResponseHeadersSchemaMap110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public HeadersSchemaMap010Builder getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap010Builder(instance);
+        public Code200ResponseHeadersSchemaMap010Builder getBuilderAfterCode200ResponseXRateLimit(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap010Builder(instance);
         }
-        public HeadersSchemaMap100Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap100Builder(instance);
+        public Code200ResponseHeadersSchemaMap100Builder getBuilderAfterCode200ResponseInt32(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap100Builder(instance);
         }
     }
     
-    public static class HeadersSchemaMapBuilder implements SetterForXRateLimit<HeadersSchemaMap011Builder>, SetterForInt32<HeadersSchemaMap101Builder>, SetterForRefcontentschemaheader<HeadersSchemaMap110Builder> {
+    public static class Code200ResponseHeadersSchemaMapBuilder implements SetterForCode200ResponseXRateLimit<Code200ResponseHeadersSchemaMap011Builder>, SetterForCode200ResponseInt32<Code200ResponseHeadersSchemaMap101Builder>, SetterForCode200ResponseRefcontentschemaheader<Code200ResponseHeadersSchemaMap110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public HeadersSchemaMapBuilder() {
+        public Code200ResponseHeadersSchemaMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public HeadersSchemaMap011Builder getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap011Builder(instance);
+        public Code200ResponseHeadersSchemaMap011Builder getBuilderAfterCode200ResponseXRateLimit(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap011Builder(instance);
         }
-        public HeadersSchemaMap101Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap101Builder(instance);
+        public Code200ResponseHeadersSchemaMap101Builder getBuilderAfterCode200ResponseInt32(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap101Builder(instance);
         }
-        public HeadersSchemaMap110Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
-            return new HeadersSchemaMap110Builder(instance);
+        public Code200ResponseHeadersSchemaMap110Builder getBuilderAfterCode200ResponseRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new Code200ResponseHeadersSchemaMap110Builder(instance);
         }
     }
     
     
-    public sealed interface HeadersSchema1Boxed permits HeadersSchema1BoxedMap {
+    public sealed interface Code200ResponseHeadersSchema1Boxed permits Code200ResponseHeadersSchema1BoxedMap {
         @Nullable Object getData();
     }
     
-    public record HeadersSchema1BoxedMap(HeadersSchemaMap data) implements HeadersSchema1Boxed {
+    public record Code200ResponseHeadersSchema1BoxedMap(Code200ResponseHeadersSchemaMap data) implements Code200ResponseHeadersSchema1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -297,10 +297,10 @@ public class HeadersSchema {
     }
     
     
-    public static class HeadersSchema1 extends JsonSchema<HeadersSchema1Boxed> implements MapSchemaValidator<HeadersSchemaMap, HeadersSchema1BoxedMap> {
-        private static @Nullable HeadersSchema1 instance = null;
+    public static class Code200ResponseHeadersSchema1 extends JsonSchema<Code200ResponseHeadersSchema1Boxed> implements MapSchemaValidator<Code200ResponseHeadersSchemaMap, Code200ResponseHeadersSchema1BoxedMap> {
+        private static @Nullable Code200ResponseHeadersSchema1 instance = null;
     
-        protected HeadersSchema1() {
+        protected Code200ResponseHeadersSchema1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
@@ -315,18 +315,18 @@ public class HeadersSchema {
                     "int32",
                     "ref-content-schema-header"
                 ))
-                .additionalProperties(AdditionalProperties.class)
+                .additionalProperties(Code200ResponseAdditionalProperties.class)
             );
         }
     
-        public static HeadersSchema1 getInstance() {
+        public static Code200ResponseHeadersSchema1 getInstance() {
             if (instance == null) {
-                instance = new HeadersSchema1();
+                instance = new Code200ResponseHeadersSchema1();
             }
             return instance;
         }
         
-        public HeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public Code200ResponseHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -346,10 +346,10 @@ public class HeadersSchema {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new HeadersSchemaMap(castProperties);
+            return new Code200ResponseHeadersSchemaMap(castProperties);
         }
         
-        public HeadersSchemaMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Code200ResponseHeadersSchemaMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -375,11 +375,11 @@ public class HeadersSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public HeadersSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-            return new HeadersSchema1BoxedMap(validate(arg, configuration));
+        public Code200ResponseHeadersSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Code200ResponseHeadersSchema1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public HeadersSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Code200ResponseHeadersSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }

@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.content.applicationxml.ApplicationxmlSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.content.applicationjson.ApplicationjsonSchema;
-import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.HeadersSchema;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.Code200ResponseHeadersSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.Headers;
 
 import java.util.AbstractMap;
@@ -41,7 +41,7 @@ public class Code200Response {
     public record ApplicationxmlResponseBody(ApplicationxmlSchema.StringJsonSchema1Boxed body) implements SealedResponseBody { }
     public record ApplicationjsonResponseBody(ApplicationjsonSchema.StringJsonSchema1Boxed body) implements SealedResponseBody { }
 
-    public static class Code200Response1 extends ResponseDeserializer<SealedResponseBody, HeadersSchema.HeadersSchemaMap, SealedMediaType> {
+    public static class Code200Response1 extends ResponseDeserializer<SealedResponseBody, Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap, SealedMediaType> {
         public Code200Response1() {
             super(
                 Map.ofEntries(
@@ -68,7 +68,7 @@ public class Code200Response {
         }
 
         @Override
-        protected HeadersSchema.HeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
+        protected Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
             return new Headers().deserialize(headers, configuration);
         }
     }

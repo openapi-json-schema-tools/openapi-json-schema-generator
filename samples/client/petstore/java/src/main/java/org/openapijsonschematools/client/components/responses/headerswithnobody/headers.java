@@ -6,13 +6,13 @@ import org.openapijsonschematools.client.components.responses.headerswithnobody.
 import java.util.Map;
 import java.util.AbstractMap;
 
-public class Headers extends HeadersDeserializer<HeadersSchema.HeadersSchemaMap> {
+public class Headers extends HeadersDeserializer<HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchemaMap> {
     public Headers() {
         super(
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>("location", new Location.Location1())
             ),
-            HeadersSchema.HeadersSchema1.getInstance()
+            HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchema1.getInstance()
         );
     }
 }

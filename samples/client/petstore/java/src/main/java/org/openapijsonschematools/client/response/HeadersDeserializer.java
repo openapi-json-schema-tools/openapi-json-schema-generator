@@ -24,6 +24,7 @@ public abstract class HeadersDeserializer<OutType> {
             String headerName = entry.getKey();
             Header headerDeserializer = headers.get(headerName);
             if (headerDeserializer == null) {
+                // todo put this data in headersToValidate, if only one item in list load it in, otherwise join them with commas
                 continue;
             }
             @Nullable Object headerValue = headerDeserializer.deserialize(entry.getValue(), false, configuration);

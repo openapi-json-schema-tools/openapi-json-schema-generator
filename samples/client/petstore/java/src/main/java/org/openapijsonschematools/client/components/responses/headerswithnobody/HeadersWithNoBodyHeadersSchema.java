@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.components.responses.successinlinecontentandheader;
+package org.openapijsonschematools.client.components.responses.headerswithnobody;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.headers.someheader.SomeHeaderSchema;
+import org.openapijsonschematools.client.components.responses.headerswithnobody.headers.location.LocationSchema;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -26,59 +26,59 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
-public class HeadersSchema {
+public class HeadersWithNoBodyHeadersSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class HeadersWithNoBodyAdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable AdditionalProperties instance = null;
-        public static AdditionalProperties getInstance() {
+        private static @Nullable HeadersWithNoBodyAdditionalProperties instance = null;
+        public static HeadersWithNoBodyAdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new AdditionalProperties();
+                instance = new HeadersWithNoBodyAdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class HeadersSchemaMap extends FrozenMap<String> {
-        protected HeadersSchemaMap(FrozenMap<String> m) {
+    public static class HeadersWithNoBodyHeadersSchemaMap extends FrozenMap<String> {
+        protected HeadersWithNoBodyHeadersSchemaMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
-            "someHeader"
+            "location"
         );
-        public static HeadersSchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return HeadersSchema1.getInstance().validate(arg, configuration);
+        public static HeadersWithNoBodyHeadersSchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+            return HeadersWithNoBodyHeadersSchema1.getInstance().validate(arg, configuration);
         }
         
-        public String someHeader() throws UnsetPropertyException {
-            return getOrThrow("someHeader");
+        public String location() throws UnsetPropertyException {
+            return getOrThrow("location");
         }
     }
     
-    public interface SetterForSomeHeader <T> {
+    public interface SetterForHeadersWithNoBodyLocation <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterSomeHeader(Map<String, String> instance);
+        T getBuilderAfterHeadersWithNoBodyLocation(Map<String, String> instance);
         
-        default T someHeader(String value) {
+        default T location(String value) {
             var instance = getInstance();
-            instance.put("someHeader", value);
-            return getBuilderAfterSomeHeader(instance);
+            instance.put("location", value);
+            return getBuilderAfterHeadersWithNoBodyLocation(instance);
         }
     }
     
-    public static class HeadersSchemaMapBuilder implements GenericBuilder<Map<String, String>>, SetterForSomeHeader<HeadersSchemaMapBuilder> {
+    public static class HeadersWithNoBodyHeadersSchemaMapBuilder implements GenericBuilder<Map<String, String>>, SetterForHeadersWithNoBodyLocation<HeadersWithNoBodyHeadersSchemaMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
-            "someHeader"
+            "location"
         );
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public HeadersSchemaMapBuilder() {
+        public HeadersWithNoBodyHeadersSchemaMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> build() {
@@ -87,17 +87,17 @@ public class HeadersSchema {
         public Map<String, String> getInstance() {
             return instance;
         }
-        public HeadersSchemaMapBuilder getBuilderAfterSomeHeader(Map<String, String> instance) {
+        public HeadersWithNoBodyHeadersSchemaMapBuilder getBuilderAfterHeadersWithNoBodyLocation(Map<String, String> instance) {
             return this;
         }
     }
     
     
-    public sealed interface HeadersSchema1Boxed permits HeadersSchema1BoxedMap {
+    public sealed interface HeadersWithNoBodyHeadersSchema1Boxed permits HeadersWithNoBodyHeadersSchema1BoxedMap {
         @Nullable Object getData();
     }
     
-    public record HeadersSchema1BoxedMap(HeadersSchemaMap data) implements HeadersSchema1Boxed {
+    public record HeadersWithNoBodyHeadersSchema1BoxedMap(HeadersWithNoBodyHeadersSchemaMap data) implements HeadersWithNoBodyHeadersSchema1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -105,27 +105,27 @@ public class HeadersSchema {
     }
     
     
-    public static class HeadersSchema1 extends JsonSchema<HeadersSchema1Boxed> implements MapSchemaValidator<HeadersSchemaMap, HeadersSchema1BoxedMap> {
-        private static @Nullable HeadersSchema1 instance = null;
+    public static class HeadersWithNoBodyHeadersSchema1 extends JsonSchema<HeadersWithNoBodyHeadersSchema1Boxed> implements MapSchemaValidator<HeadersWithNoBodyHeadersSchemaMap, HeadersWithNoBodyHeadersSchema1BoxedMap> {
+        private static @Nullable HeadersWithNoBodyHeadersSchema1 instance = null;
     
-        protected HeadersSchema1() {
+        protected HeadersWithNoBodyHeadersSchema1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("someHeader", SomeHeaderSchema.SomeHeaderSchema1.class)
+                    new PropertyEntry("location", LocationSchema.LocationSchema1.class)
                 ))
-                .additionalProperties(AdditionalProperties.class)
+                .additionalProperties(HeadersWithNoBodyAdditionalProperties.class)
             );
         }
     
-        public static HeadersSchema1 getInstance() {
+        public static HeadersWithNoBodyHeadersSchema1 getInstance() {
             if (instance == null) {
-                instance = new HeadersSchema1();
+                instance = new HeadersWithNoBodyHeadersSchema1();
             }
             return instance;
         }
         
-        public HeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public HeadersWithNoBodyHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -148,10 +148,10 @@ public class HeadersSchema {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new HeadersSchemaMap(castProperties);
+            return new HeadersWithNoBodyHeadersSchemaMap(castProperties);
         }
         
-        public HeadersSchemaMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public HeadersWithNoBodyHeadersSchemaMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -177,11 +177,11 @@ public class HeadersSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public HeadersSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-            return new HeadersSchema1BoxedMap(validate(arg, configuration));
+        public HeadersWithNoBodyHeadersSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new HeadersWithNoBodyHeadersSchema1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public HeadersSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public HeadersWithNoBodyHeadersSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }

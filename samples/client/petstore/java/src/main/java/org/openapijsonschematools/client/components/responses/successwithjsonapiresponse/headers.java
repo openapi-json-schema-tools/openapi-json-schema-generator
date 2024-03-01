@@ -10,7 +10,7 @@ import org.openapijsonschematools.client.components.responses.successwithjsonapi
 import java.util.Map;
 import java.util.AbstractMap;
 
-public class Headers extends HeadersDeserializer<HeadersSchema.HeadersSchemaMap> {
+public class Headers extends HeadersDeserializer<SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap> {
     public Headers() {
         super(
             Map.ofEntries(
@@ -20,7 +20,7 @@ public class Headers extends HeadersDeserializer<HeadersSchema.HeadersSchemaMap>
                 new AbstractMap.SimpleEntry<>("stringHeader", new StringHeader.StringHeader1()),
                 new AbstractMap.SimpleEntry<>("numberHeader", new NumberHeader.NumberHeader1())
             ),
-            HeadersSchema.HeadersSchema1.getInstance()
+            SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchema1.getInstance()
         );
     }
 }

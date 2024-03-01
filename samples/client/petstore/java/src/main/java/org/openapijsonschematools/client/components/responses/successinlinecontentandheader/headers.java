@@ -6,13 +6,13 @@ import org.openapijsonschematools.client.components.responses.successinlineconte
 import java.util.Map;
 import java.util.AbstractMap;
 
-public class Headers extends HeadersDeserializer<HeadersSchema.HeadersSchemaMap> {
+public class Headers extends HeadersDeserializer<SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap> {
     public Headers() {
         super(
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>("someHeader", new SomeHeader.SomeHeader1())
             ),
-            HeadersSchema.HeadersSchema1.getInstance()
+            SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchema1.getInstance()
         );
     }
 }

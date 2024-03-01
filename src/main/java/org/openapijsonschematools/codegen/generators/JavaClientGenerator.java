@@ -1147,21 +1147,32 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 ) {
                 if (pathPieces[2].equals("headers")) {
                     // #/components/headers/someHeader/schema -> SomeHeaderSchema
-                    usedKey =  camelize(pathPieces[3])+ camelize(usedKey);
+                    String headerFragment = pathPieces[3];
+                    usedKey =  camelize(headerFragment)+ camelize(usedKey);
                 } else if (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/")) {
-                    // #/components/response/SomeResponse/headers/someHeader/schema
-                    usedKey =  camelize(pathPieces[5])+ camelize(usedKey);
+                    // #/components/responses/SomeResponse/headers/someHeader/schema
+                    String headerFragment = pathPieces[5];
+                    usedKey =  camelize(headerFragment)+ camelize(usedKey);
                 } else {
                     // #/paths/path/verb/responses/SomeResponse/headers/someHeader/schema
-                    usedKey =  camelize(pathPieces[7])+ camelize(usedKey);
+                    String headerFragment = pathPieces[7];
+                    usedKey =  camelize(headerFragment)+ camelize(usedKey);
                 }
             } else if (pathPieces[pathPieces.length-3].equals("content")) {
                 // #/requestBodies/SomeRequestBody/content/application-json/schema
-                String prefix = ModelUtils.decodeSlashes(pathPieces[pathPieces.length-2]);
+                String contentTypeFragment = pathPieces[pathPieces.length-2];
+                String prefix = ModelUtils.decodeSlashes(contentTypeFragment);
                 prefix = sanitizeName(prefix, "[^a-zA-Z0-9]+");
                 prefix = camelize(prefix);
                 usedKey = prefix + camelize(usedKey);
             }
+        } else if (sourceJsonPath.endsWith(headersSchemaFragment) && pathPieces[pathPieces.length-3].equals("responses")) {
+            // #/components/responses/SomeResponse/HeadersSchema
+            // #/paths/path/verb/responses/200/HeadersSchema
+            String responseJsonPath = String.join("/", Arrays.copyOfRange(pathPieces, 0, pathPieces.length-1));
+            String responseFragment = pathPieces[pathPieces.length-2];
+            String pascalCaseResponse = getPascalCaseResponse(responseFragment, responseJsonPath);
+            usedKey =  pascalCaseResponse + camelize(usedKey);
         }
 
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());

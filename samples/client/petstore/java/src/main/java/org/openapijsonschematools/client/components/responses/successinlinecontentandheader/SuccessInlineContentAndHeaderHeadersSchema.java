@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.components.responses.headerswithnobody;
+package org.openapijsonschematools.client.components.responses.successinlinecontentandheader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.components.responses.headerswithnobody.headers.location.LocationSchema;
+import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.headers.someheader.SomeHeaderSchema;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -26,59 +26,59 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
-public class HeadersSchema {
+public class SuccessInlineContentAndHeaderHeadersSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class SuccessInlineContentAndHeaderAdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable AdditionalProperties instance = null;
-        public static AdditionalProperties getInstance() {
+        private static @Nullable SuccessInlineContentAndHeaderAdditionalProperties instance = null;
+        public static SuccessInlineContentAndHeaderAdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new AdditionalProperties();
+                instance = new SuccessInlineContentAndHeaderAdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class HeadersSchemaMap extends FrozenMap<String> {
-        protected HeadersSchemaMap(FrozenMap<String> m) {
+    public static class SuccessInlineContentAndHeaderHeadersSchemaMap extends FrozenMap<String> {
+        protected SuccessInlineContentAndHeaderHeadersSchemaMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
-            "location"
+            "someHeader"
         );
-        public static HeadersSchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return HeadersSchema1.getInstance().validate(arg, configuration);
+        public static SuccessInlineContentAndHeaderHeadersSchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+            return SuccessInlineContentAndHeaderHeadersSchema1.getInstance().validate(arg, configuration);
         }
         
-        public String location() throws UnsetPropertyException {
-            return getOrThrow("location");
+        public String someHeader() throws UnsetPropertyException {
+            return getOrThrow("someHeader");
         }
     }
     
-    public interface SetterForLocation <T> {
+    public interface SetterForSuccessInlineContentAndHeaderSomeHeader <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterLocation(Map<String, String> instance);
+        T getBuilderAfterSuccessInlineContentAndHeaderSomeHeader(Map<String, String> instance);
         
-        default T location(String value) {
+        default T someHeader(String value) {
             var instance = getInstance();
-            instance.put("location", value);
-            return getBuilderAfterLocation(instance);
+            instance.put("someHeader", value);
+            return getBuilderAfterSuccessInlineContentAndHeaderSomeHeader(instance);
         }
     }
     
-    public static class HeadersSchemaMapBuilder implements GenericBuilder<Map<String, String>>, SetterForLocation<HeadersSchemaMapBuilder> {
+    public static class SuccessInlineContentAndHeaderHeadersSchemaMapBuilder implements GenericBuilder<Map<String, String>>, SetterForSuccessInlineContentAndHeaderSomeHeader<SuccessInlineContentAndHeaderHeadersSchemaMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
-            "location"
+            "someHeader"
         );
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public HeadersSchemaMapBuilder() {
+        public SuccessInlineContentAndHeaderHeadersSchemaMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> build() {
@@ -87,17 +87,17 @@ public class HeadersSchema {
         public Map<String, String> getInstance() {
             return instance;
         }
-        public HeadersSchemaMapBuilder getBuilderAfterLocation(Map<String, String> instance) {
+        public SuccessInlineContentAndHeaderHeadersSchemaMapBuilder getBuilderAfterSuccessInlineContentAndHeaderSomeHeader(Map<String, String> instance) {
             return this;
         }
     }
     
     
-    public sealed interface HeadersSchema1Boxed permits HeadersSchema1BoxedMap {
+    public sealed interface SuccessInlineContentAndHeaderHeadersSchema1Boxed permits SuccessInlineContentAndHeaderHeadersSchema1BoxedMap {
         @Nullable Object getData();
     }
     
-    public record HeadersSchema1BoxedMap(HeadersSchemaMap data) implements HeadersSchema1Boxed {
+    public record SuccessInlineContentAndHeaderHeadersSchema1BoxedMap(SuccessInlineContentAndHeaderHeadersSchemaMap data) implements SuccessInlineContentAndHeaderHeadersSchema1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -105,27 +105,27 @@ public class HeadersSchema {
     }
     
     
-    public static class HeadersSchema1 extends JsonSchema<HeadersSchema1Boxed> implements MapSchemaValidator<HeadersSchemaMap, HeadersSchema1BoxedMap> {
-        private static @Nullable HeadersSchema1 instance = null;
+    public static class SuccessInlineContentAndHeaderHeadersSchema1 extends JsonSchema<SuccessInlineContentAndHeaderHeadersSchema1Boxed> implements MapSchemaValidator<SuccessInlineContentAndHeaderHeadersSchemaMap, SuccessInlineContentAndHeaderHeadersSchema1BoxedMap> {
+        private static @Nullable SuccessInlineContentAndHeaderHeadersSchema1 instance = null;
     
-        protected HeadersSchema1() {
+        protected SuccessInlineContentAndHeaderHeadersSchema1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("location", LocationSchema.LocationSchema1.class)
+                    new PropertyEntry("someHeader", SomeHeaderSchema.SomeHeaderSchema1.class)
                 ))
-                .additionalProperties(AdditionalProperties.class)
+                .additionalProperties(SuccessInlineContentAndHeaderAdditionalProperties.class)
             );
         }
     
-        public static HeadersSchema1 getInstance() {
+        public static SuccessInlineContentAndHeaderHeadersSchema1 getInstance() {
             if (instance == null) {
-                instance = new HeadersSchema1();
+                instance = new SuccessInlineContentAndHeaderHeadersSchema1();
             }
             return instance;
         }
         
-        public HeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public SuccessInlineContentAndHeaderHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -148,10 +148,10 @@ public class HeadersSchema {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new HeadersSchemaMap(castProperties);
+            return new SuccessInlineContentAndHeaderHeadersSchemaMap(castProperties);
         }
         
-        public HeadersSchemaMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public SuccessInlineContentAndHeaderHeadersSchemaMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -177,11 +177,11 @@ public class HeadersSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public HeadersSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-            return new HeadersSchema1BoxedMap(validate(arg, configuration));
+        public SuccessInlineContentAndHeaderHeadersSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SuccessInlineContentAndHeaderHeadersSchema1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public HeadersSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public SuccessInlineContentAndHeaderHeadersSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }

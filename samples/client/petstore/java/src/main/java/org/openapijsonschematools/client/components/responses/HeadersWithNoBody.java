@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.response.ResponseDeserializer;
 import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.components.responses.headerswithnobody.HeadersSchema;
+import org.openapijsonschematools.client.components.responses.headerswithnobody.HeadersWithNoBodyHeadersSchema;
 import org.openapijsonschematools.client.components.responses.headerswithnobody.Headers;
 
 import java.util.Map;
@@ -14,7 +14,7 @@ import java.net.http.HttpHeaders;
 
 public class HeadersWithNoBody {
 
-    public static class HeadersWithNoBody1 extends ResponseDeserializer<Void, HeadersSchema.HeadersSchemaMap, Void> {
+    public static class HeadersWithNoBody1 extends ResponseDeserializer<Void, HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchemaMap, Void> {
         public HeadersWithNoBody1() {
             super(
                 MapUtils.makeMap(
@@ -28,7 +28,7 @@ public class HeadersWithNoBody {
         }
 
         @Override
-        protected HeadersSchema.HeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
+        protected HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
             return new Headers().deserialize(headers, configuration);
         }
     }

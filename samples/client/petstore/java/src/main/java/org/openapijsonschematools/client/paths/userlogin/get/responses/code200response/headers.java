@@ -10,7 +10,7 @@ import org.openapijsonschematools.client.paths.userlogin.get.responses.code200re
 import java.util.Map;
 import java.util.AbstractMap;
 
-public class Headers extends HeadersDeserializer<HeadersSchema.HeadersSchemaMap> {
+public class Headers extends HeadersDeserializer<Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap> {
     public Headers() {
         super(
             Map.ofEntries(
@@ -20,7 +20,7 @@ public class Headers extends HeadersDeserializer<HeadersSchema.HeadersSchemaMap>
                 new AbstractMap.SimpleEntry<>("ref-content-schema-header", new Refcontentschemaheader.Refcontentschemaheader1()),
                 new AbstractMap.SimpleEntry<>("numberHeader", new NumberHeader.NumberHeader1())
             ),
-            HeadersSchema.HeadersSchema1.getInstance()
+            Code200ResponseHeadersSchema.Code200ResponseHeadersSchema1.getInstance()
         );
     }
 }

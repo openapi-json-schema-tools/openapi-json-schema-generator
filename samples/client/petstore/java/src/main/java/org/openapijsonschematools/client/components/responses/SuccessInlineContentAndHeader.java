@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.content.applicationjson.ApplicationjsonSchema;
-import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.HeadersSchema;
+import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.SuccessInlineContentAndHeaderHeadersSchema;
 import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.Headers;
 
 import java.util.AbstractMap;
@@ -29,7 +29,7 @@ public class SuccessInlineContentAndHeader {
     public sealed interface SealedResponseBody permits ApplicationjsonResponseBody {}
     public record ApplicationjsonResponseBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) implements SealedResponseBody { }
 
-    public static class SuccessInlineContentAndHeader1 extends ResponseDeserializer<SealedResponseBody, HeadersSchema.HeadersSchemaMap, SealedMediaType> {
+    public static class SuccessInlineContentAndHeader1 extends ResponseDeserializer<SealedResponseBody, SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap, SealedMediaType> {
         public SuccessInlineContentAndHeader1() {
             super(
                 Map.ofEntries(
@@ -52,7 +52,7 @@ public class SuccessInlineContentAndHeader {
         }
 
         @Override
-        protected HeadersSchema.HeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
+        protected SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
             return new Headers().deserialize(headers, configuration);
         }
     }
