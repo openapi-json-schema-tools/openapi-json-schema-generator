@@ -3791,6 +3791,10 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
             pathPieces[3] = toResponseModuleName(pathPieces[3], jsonPath);
+            if (pathPieces.length == 4) {
+                // #/components/responses/SuccessWithJsonApiResponse
+                return;
+            }
 
             if (pathPieces.length == 5 && pathPieces[4].equals(headersSchemaFragment)) {
                 // synthetic json path
@@ -3799,11 +3803,12 @@ public class DefaultGenerator implements Generator {
                 return;
             }
 
-            if (pathPieces.length < 6) {
-                return;
-            }
             if (pathPieces[4].equals("headers")) {
-                pathPieces[4] = toHeaderFilename(pathPieces[4], jsonPath);
+                if (pathPieces.length == 5) {
+                    pathPieces[4] = toHeaderFilename(pathPieces[4], jsonPath);
+                    // #/components/responses/someResponse/headers
+                    return;
+                }
                 // #/components/responses/someResponse/headers/SomeHeader-> length 6
                 pathPieces[5] = toHeaderFilename(pathPieces[5], jsonPath);
                 if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
