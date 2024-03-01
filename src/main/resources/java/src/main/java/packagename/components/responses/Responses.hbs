@@ -2,6 +2,9 @@ package {{packageName}}.{{responses.subpackage}};
 
 {{#each responses}}
 import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{#with headersObjectSchema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+    {{/with}}
 {{/each}}
 import {{{packageName}}}.exceptions.ApiException;
 {{#if nonErrorResponses }}

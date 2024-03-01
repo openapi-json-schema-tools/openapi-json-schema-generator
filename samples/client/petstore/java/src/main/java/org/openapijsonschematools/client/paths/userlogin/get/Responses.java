@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.paths.userlogin.get;
 
 import org.openapijsonschematools.client.paths.userlogin.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.Code200ResponseHeadersSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.Code400Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.response.ApiResponse;
