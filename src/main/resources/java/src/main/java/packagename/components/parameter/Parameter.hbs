@@ -1,4 +1,4 @@
-{{#with header}}
+{{#with parameter}}
 package {{packageName}}.{{subpackage}};
 
 {{#if refInfo}}
@@ -18,14 +18,21 @@ public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
 public class {{jsonPathPiece.pascalCase}} extends {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}} {}
 {{/neq}}
 {{else}}
+import {{packageName}}.header.ParameterStyle;
+import {{packageName}}.parameter.ParameterInType;
+    {{#eq in "query"}}
+import {{packageName}}.parameter.QueryParameter;
+    {{else}}
+import {{packageName}}.parameter.NonQueryQueryParameter;
+    {{/eq}}
     {{#if schema}}
-import {{packageName}}.header.SchemaHeader;
+import {{packageName}}.parameter.SchemaParameter;
         {{#with schema}}
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/if}}
     {{#if content}}
-import {{packageName}}.header.ContentHeader;
+import {{packageName}}.parameter.ContentParameter;
 import {{packageName}}.mediatype.MediaType;
         {{#each content}}
             {{#with schema}}
@@ -51,11 +58,13 @@ public class {{jsonPathPiece.pascalCase}} {
     }
     {{/each}}
 
-    public static class {{jsonPathPiece.pascalCase}}1 extends {{#if schema}}SchemaHeader{{else}}ContentHeader{{/if}} {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{#if schema}}SchemaParameter{{else}}ContentParameter{{/if}} implements {{#eq in "query"}}QueryParameter{{else}}NonQueryQueryParameter{{/eq}} {
         public {{jsonPathPiece.pascalCase}}1() {
             super(
+                "{{{name}}}",
+                ParameterInType.{{in}},
                 {{#eq required null}}false{{else}}{{required}}{{/eq}},
-                null,
+                {{#eq style null}}null{{else}}ParameterStyle.{{style}}{{/eq}},
                 {{#eq explode null}}null{{else}}{{explode}}{{/eq}},
     {{#if schema}}
                 {{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}
