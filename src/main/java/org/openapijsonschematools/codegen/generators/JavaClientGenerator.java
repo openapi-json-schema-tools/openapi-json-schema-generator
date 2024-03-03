@@ -806,9 +806,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "header",
                 "ContentHeader.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/header/StyleSimpleSerializer.hbs",
+                "src/main/java/packagename/header/StyleSerializer.hbs",
                 packagePath() + File.separatorChar + "header",
-                "StyleSimpleSerializer.java"));
+                "StyleSerializer.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/header/Rfc6570Serializer.hbs",
                 packagePath() + File.separatorChar + "header",
@@ -828,13 +828,29 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         // parameter
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/ParameterStyle.hbs",
+                "src/main/java/packagename/parameter/ContentParameter.hbs",
                 packagePath() + File.separatorChar + "parameter",
-                "ParameterStyle.java"));
+                "ContentParameter.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/NonQueryParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "NonQueryParameter.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ParameterInType.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterInType.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ParameterStyle.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ParameterStyle.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/QueryParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "QueryParameter.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/SchemaParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "SchemaParameter.java"));
 
         // response
         supportingFiles.add(new SupportingFile(
