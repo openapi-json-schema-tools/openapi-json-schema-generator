@@ -64,21 +64,21 @@ public class {{jsonPathPiece.pascalCase}} {
         public {{jsonPathPiece.pascalCase}}1() {
             super(
                 "{{{name}}}",
-                ParameterInType.{{in}},
+                ParameterInType.{{#eq in "query"}}QUERY{{else}}{{#eq in "path"}}PATH{{else}}{{#eq in "header"}}HEADER{{else}}{{#eq in "cookie"}}COOKIE{{/eq}}{{/eq}}{{/eq}}{{/eq}},
                 {{#eq required null}}false{{else}}{{required}}{{/eq}},
-                {{#eq style null}}null{{else}}ParameterStyle.{{style}}{{/eq}},
+                {{#eq style null}}null{{else}}ParameterStyle.{{#eq style "matrix"}}MATRIX{{else}}{{#eq style "label"}}LABEL{{else}}{{#eq style "form"}}FORM{{else}}{{#eq style "simple"}}SIMPLE{{else}}{{#eq style "spaceDelimited"}}SPACE_DELIMITED{{else}}{{#eq style "pipeDelimited"}}PIPE_DELIMITED{{else}}{{#eq style "deepObject"}}DEEP_OBJECT{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}},
+                {{#eq allowReserved null}}false{{else}}{{allowReserved}}{{/eq}},
                 {{#eq explode null}}null{{else}}{{explode}}{{/eq}},
     {{#if schema}}
                 {{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}
-            );
     {{else}}
                 Map.ofEntries(
         {{#each content}}
                     new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
         {{/each}}
                 )
-            );
     {{/if}}
+            );
         }
     }
 }

@@ -12,9 +12,10 @@ public class RefSchemaStringWithValidation {
         public RefSchemaStringWithValidation1() {
             super(
                 "RSstringWithValidation",
-                ParameterInType.path,
+                ParameterInType.PATH,
                 true,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema.Schema1.getInstance()
             );

@@ -12,9 +12,10 @@ public class Parameter3 {
         public Parameter31() {
             super(
                 "enum_query_string",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 false,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema3.Schema31.getInstance()
             );

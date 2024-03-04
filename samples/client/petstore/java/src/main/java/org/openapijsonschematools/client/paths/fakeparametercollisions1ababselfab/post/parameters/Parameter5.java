@@ -12,9 +12,10 @@ public class Parameter5 {
         public Parameter51() {
             super(
                 "1",
-                ParameterInType.header,
+                ParameterInType.HEADER,
                 false,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema5.Schema51.getInstance()
             );

@@ -12,9 +12,10 @@ public class Parameter1 {
         public Parameter11() {
             super(
                 "required_boolean_group",
-                ParameterInType.header,
+                ParameterInType.HEADER,
                 true,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema1.Schema11.getInstance()
             );

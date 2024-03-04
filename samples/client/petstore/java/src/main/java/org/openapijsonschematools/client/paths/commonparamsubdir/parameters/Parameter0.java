@@ -12,9 +12,10 @@ public class Parameter0 {
         public Parameter01() {
             super(
                 "subDir",
-                ParameterInType.path,
+                ParameterInType.PATH,
                 true,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 PathParamSchema0.PathParamSchema01.getInstance()
             );

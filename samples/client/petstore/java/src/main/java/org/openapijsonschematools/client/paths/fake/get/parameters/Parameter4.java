@@ -12,9 +12,10 @@ public class Parameter4 {
         public Parameter41() {
             super(
                 "enum_query_integer",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 false,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema4.Schema41.getInstance()
             );

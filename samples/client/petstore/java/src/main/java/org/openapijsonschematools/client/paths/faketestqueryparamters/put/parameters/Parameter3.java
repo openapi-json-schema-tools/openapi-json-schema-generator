@@ -12,9 +12,10 @@ public class Parameter3 {
         public Parameter31() {
             super(
                 "url",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 true,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 false,
                 Schema3.Schema31.getInstance()
             );

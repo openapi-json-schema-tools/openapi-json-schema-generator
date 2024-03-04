@@ -12,9 +12,10 @@ public class Parameter2 {
         public Parameter21() {
             super(
                 "required_int64_group",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 true,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema2.Schema21.getInstance()
             );

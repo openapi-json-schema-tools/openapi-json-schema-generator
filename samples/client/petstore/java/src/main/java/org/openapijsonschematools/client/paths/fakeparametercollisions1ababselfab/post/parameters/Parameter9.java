@@ -12,9 +12,10 @@ public class Parameter9 {
         public Parameter91() {
             super(
                 "1",
-                ParameterInType.path,
+                ParameterInType.PATH,
                 true,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema9.Schema91.getInstance()
             );

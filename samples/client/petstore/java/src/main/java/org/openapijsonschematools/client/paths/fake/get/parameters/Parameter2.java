@@ -12,9 +12,10 @@ public class Parameter2 {
         public Parameter21() {
             super(
                 "enum_query_string_array",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 false,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema2.Schema21.getInstance()
             );

@@ -12,9 +12,10 @@ public class Parameter0 {
         public Parameter01() {
             super(
                 "someHeader",
-                ParameterInType.header,
+                ParameterInType.HEADER,
                 false,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema0.Schema01.getInstance()
             );

@@ -12,9 +12,10 @@ public class Parameter1 {
         public Parameter11() {
             super(
                 "SomeVar",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 true,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema1.Schema11.getInstance()
             );

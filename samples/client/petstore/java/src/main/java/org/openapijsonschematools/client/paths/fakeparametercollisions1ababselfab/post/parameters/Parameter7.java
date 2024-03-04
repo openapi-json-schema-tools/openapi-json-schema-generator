@@ -12,9 +12,10 @@ public class Parameter7 {
         public Parameter71() {
             super(
                 "self",
-                ParameterInType.header,
+                ParameterInType.HEADER,
                 false,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema7.Schema71.getInstance()
             );

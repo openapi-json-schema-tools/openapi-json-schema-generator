@@ -12,9 +12,10 @@ public class Parameter4 {
         public Parameter41() {
             super(
                 "context",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 true,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema4.Schema41.getInstance()
             );

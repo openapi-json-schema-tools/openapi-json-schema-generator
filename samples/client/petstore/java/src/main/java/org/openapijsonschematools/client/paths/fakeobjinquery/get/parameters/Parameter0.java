@@ -12,9 +12,10 @@ public class Parameter0 {
         public Parameter01() {
             super(
                 "mapBean",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 false,
-                ParameterStyle.deepObject,
+                ParameterStyle.DEEP_OBJECT,
+                false,
                 true,
                 Schema0.Schema01.getInstance()
             );

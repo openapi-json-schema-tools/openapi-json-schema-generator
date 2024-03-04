@@ -25,9 +25,10 @@ public class ComponentRefSchemaStringWithValidation {
         public ComponentRefSchemaStringWithValidation1() {
             super(
                 "CRSstringWithValidation",
-                ParameterInType.path,
+                ParameterInType.PATH,
                 true,
                 null,
+                false,
                 null,
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())

@@ -12,9 +12,10 @@ public class Parameter1 {
         public Parameter11() {
             super(
                 "enum_header_string",
-                ParameterInType.header,
+                ParameterInType.HEADER,
                 false,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema1.Schema11.getInstance()
             );

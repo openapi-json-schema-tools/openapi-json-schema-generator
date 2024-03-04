@@ -12,9 +12,10 @@ public class Parameter5 {
         public Parameter51() {
             super(
                 "int64_group",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 false,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema5.Schema51.getInstance()
             );

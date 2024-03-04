@@ -12,9 +12,10 @@ public class Parameter0 {
         public Parameter01() {
             super(
                 "tags",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 true,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 false,
                 Schema0.Schema01.getInstance()
             );

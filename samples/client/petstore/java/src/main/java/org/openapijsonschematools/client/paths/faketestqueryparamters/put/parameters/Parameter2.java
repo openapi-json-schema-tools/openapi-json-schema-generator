@@ -12,9 +12,10 @@ public class Parameter2 {
         public Parameter21() {
             super(
                 "http",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 true,
-                ParameterStyle.spaceDelimited,
+                ParameterStyle.SPACE_DELIMITED,
+                false,
                 false,
                 Schema2.Schema21.getInstance()
             );

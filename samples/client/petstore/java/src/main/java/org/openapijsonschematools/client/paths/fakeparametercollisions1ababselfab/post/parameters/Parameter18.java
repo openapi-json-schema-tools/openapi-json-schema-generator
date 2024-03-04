@@ -12,9 +12,10 @@ public class Parameter18 {
         public Parameter181() {
             super(
                 "A-B",
-                ParameterInType.cookie,
+                ParameterInType.COOKIE,
                 false,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema18.Schema181.getInstance()
             );

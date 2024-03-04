@@ -12,9 +12,10 @@ public class Parameter6 {
         public Parameter61() {
             super(
                 "aB",
-                ParameterInType.header,
+                ParameterInType.HEADER,
                 false,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema6.Schema61.getInstance()
             );

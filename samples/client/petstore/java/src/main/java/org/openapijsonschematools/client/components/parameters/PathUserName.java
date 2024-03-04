@@ -12,9 +12,10 @@ public class PathUserName {
         public PathUserName1() {
             super(
                 "username",
-                ParameterInType.path,
+                ParameterInType.PATH,
                 true,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema.Schema1.getInstance()
             );

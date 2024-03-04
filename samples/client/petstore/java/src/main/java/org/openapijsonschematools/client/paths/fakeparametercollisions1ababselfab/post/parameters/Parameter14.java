@@ -12,9 +12,10 @@ public class Parameter14 {
         public Parameter141() {
             super(
                 "1",
-                ParameterInType.cookie,
+                ParameterInType.COOKIE,
                 false,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema14.Schema141.getInstance()
             );

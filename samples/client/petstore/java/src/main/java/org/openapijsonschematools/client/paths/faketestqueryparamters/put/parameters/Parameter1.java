@@ -12,9 +12,10 @@ public class Parameter1 {
         public Parameter11() {
             super(
                 "ioutil",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 true,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 false,
                 Schema1.Schema11.getInstance()
             );

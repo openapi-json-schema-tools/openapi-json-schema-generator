@@ -12,9 +12,10 @@ public class Parameter8 {
         public Parameter81() {
             super(
                 "A-B",
-                ParameterInType.header,
+                ParameterInType.HEADER,
                 false,
-                ParameterStyle.simple,
+                ParameterStyle.SIMPLE,
+                false,
                 false,
                 Schema8.Schema81.getInstance()
             );

@@ -12,9 +12,10 @@ public class Parameter5 {
         public Parameter51() {
             super(
                 "refParam",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 true,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema5.Schema51.getInstance()
             );

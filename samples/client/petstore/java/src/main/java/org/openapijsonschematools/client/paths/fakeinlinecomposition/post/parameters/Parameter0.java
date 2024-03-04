@@ -12,9 +12,10 @@ public class Parameter0 {
         public Parameter01() {
             super(
                 "compositionAtRoot",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 false,
-                ParameterStyle.form,
+                ParameterStyle.FORM,
+                false,
                 true,
                 Schema0.Schema01.getInstance()
             );

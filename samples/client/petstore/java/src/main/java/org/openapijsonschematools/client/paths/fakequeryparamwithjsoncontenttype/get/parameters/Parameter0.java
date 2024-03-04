@@ -25,9 +25,10 @@ public class Parameter0 {
         public Parameter01() {
             super(
                 "someParam",
-                ParameterInType.query,
+                ParameterInType.QUERY,
                 true,
                 null,
+                false,
                 null,
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
