@@ -2,11 +2,10 @@ package {{{packageName}}}.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.contenttype.ContentTypeDeserializer;
+import {{{packageName}}}.header.HeaderBase;
+import {{{packageName}}}.header.PrefixSeparatorIterator;
 import {{{packageName}}}.header.StyleSerializer;
 import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
-import {{{packageName}}}.schemas.validation.UnsetAnyTypeJsonSchema;
 
 import java.util.Map;
 
@@ -33,31 +32,29 @@ public class SchemaParameter extends HeaderBase {
         return ParameterStyle.SIMPLE;
     }
 
-    public PrefixSeparatorIterator iterator getPrefixSeparatorIterator() {
+    public PrefixSeparatorIterator getPrefixSeparatorIterator() {
         ParameterStyle usedStyle = getStyle();
-        if (usedStyle is ParameterStyle.FORM) {
-            return PrefixSeparatorIterator('?', '&')
+        if (usedStyle == ParameterStyle.FORM) {
+            return new PrefixSeparatorIterator("?", "&");
         } else if (usedStyle == ParameterStyle.SPACE_DELIMITED) {
-            return PrefixSeparatorIterator('', '%20')
+            return new PrefixSeparatorIterator("", "%20");
         } else if (usedStyle == ParameterStyle.PIPE_DELIMITED) {
-            return PrefixSeparatorIterator('', '|')
+            return new PrefixSeparatorIterator("", "|");
         }
         throw new RuntimeException("No iterator possible for style="+usedStyle);
     }
 
-    @Override
     public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration, @Nullable PrefixSeparatorIterator iterator) {
         var castInData = validate ? schema.validate(inData, configuration) : inData;
         ParameterStyle usedStyle = getStyle();
-        boolean percentEncode = (inType == ParameterInType.QUERY || inType == ParameterInType.PATH) ? true : false;
+        boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;
         String value;
+        boolean usedExplode = explode == null || explode;
         if (usedStyle == ParameterStyle.SIMPLE) {
             // header OR path
-            boolean usedExplode = explode == null ? false : explode;
             value = StyleSerializer.serializeSimple(castInData, name, usedExplode, percentEncode);
         } else if (usedStyle == ParameterStyle.FORM) {
             // query OR cookie
-            boolean usedExplode = explode == null ? true : explode;
             boolean isCookie = inType == ParameterInType.COOKIE;
             value = StyleSerializer.serializeForm(castInData, name, usedExplode, percentEncode, iterator, isCookie);
         } else if (usedStyle == ParameterStyle.LABEL) {
@@ -72,7 +69,8 @@ public class SchemaParameter extends HeaderBase {
         } else if (usedStyle == ParameterStyle.PIPE_DELIMITED) {
             // query
             value = StyleSerializer.serializePipeDelimited(castInData, name, usedExplode, iterator);
-        } else if (usedStyle == ParameterStyle.DEEP_OBJECT) {
+        } else {
+            // usedStyle == ParameterStyle.DEEP_OBJECT
             // query
             throw new RuntimeException("Style deep object serialization has not yet been implemented.");
         }

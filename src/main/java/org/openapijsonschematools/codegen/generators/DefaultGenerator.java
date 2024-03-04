@@ -951,7 +951,7 @@ public class DefaultGenerator implements Generator {
         return "Server" + basename;
     }
 
-    public String getPascalCaseParameter(String basename) {
+    public String getPascalCaseParameter(String basename, String jsonPath) {
         return toModelName(basename, null);
     }
 
@@ -3770,7 +3770,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         } else if (pathPieces[2].equals("parameters")) {
-            pathPieces[3] = toParameterFilename(pathPieces[3], null);
+            pathPieces[3] = toParameterFilename(pathPieces[3], jsonPath);
             if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
                 pathPieces[4] = getSchemaFilename(jsonPath);
             } else if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
@@ -3879,7 +3879,7 @@ public class DefaultGenerator implements Generator {
                 return;
             }
             // #/paths/somePath/parameters/0
-            pathPieces[4] = toParameterFilename(pathPieces[4], null);
+            pathPieces[4] = toParameterFilename(pathPieces[4], jsonPath);
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/parameters/0/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
@@ -3978,7 +3978,7 @@ public class DefaultGenerator implements Generator {
                 return;
             }
             // #/paths/somePath/get/parameters/0 -> length 6
-            pathPieces[5] = toParameterFilename(pathPieces[5], null);
+            pathPieces[5] = toParameterFilename(pathPieces[5], jsonPath);
 
             if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/parameters/1/content/application-json -> length 8
@@ -4914,7 +4914,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseParameter(usedKey);
+                pascalCaseName = getPascalCaseParameter(usedKey, sourceJsonPath);
                 break;
             case "requestBodies":
                 usedKey = escapeUnsafeCharacters(key);

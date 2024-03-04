@@ -1261,17 +1261,54 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
     }
 
+    private static boolean isInteger(String str) {
+        if (str == null) {
+            return false;
+        }
+        int length = str.length();
+        if (length == 0) {
+            return false;
+        }
+        int i = 0;
+        if (str.charAt(0) == '-') {
+            if (length == 1) {
+                return false;
+            }
+            i = 1;
+        }
+        for (; i < length; i++) {
+            char c = str.charAt(i);
+            if (c < '0' || c > '9') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public String getPascalCaseParameter(String basename, String jsonPath) {
+
+        return toParameterFilename(basename, jsonPath);
+
+    }
+
     @Override
     public String toParameterFilename(String name, String jsonPath) {
         // adds prefix parameter_ onto the result so modules do not start with _
-        try {
-            Integer.parseInt(name);
-            // for parameters in path, or an endpoint
-            return "parameter" + name;
-        } catch (NumberFormatException nfe) {
-            // for header parameters in responses
-            return toModuleFilename(name, null);
+        String[] pathPieces = jsonPath.split("/");
+        if (jsonPath.startsWith("#/components/parameters/")) {
+            if (pathPieces.length == 4) {
+                // #/components/parameters/SomeParameter
+                return toModelName(name, null);
+            }
+            return toModuleFilename(name, jsonPath);
         }
+        if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && (pathPieces.length == 5 || pathPieces.length == 6)) {
+            // #/paths/somePath/parameters/0
+            // #/paths/somePath/verb/parameters/0
+            return "Parameter" + name;
+        }
+        return "parameter" + name;
     }
 
     private String toSchemaRefClass(String ref, String sourceJsonPath) {

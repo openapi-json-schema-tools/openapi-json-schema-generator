@@ -1887,7 +1887,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String getPascalCaseParameter(String name) {
+    public String getPascalCaseParameter(String name, String jsonPath) {
         try {
             Integer.parseInt(name);
             // for parameters in path, or an endpoint

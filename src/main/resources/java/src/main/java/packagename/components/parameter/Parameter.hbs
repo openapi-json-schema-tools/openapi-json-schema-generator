@@ -18,7 +18,9 @@ public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
 public class {{jsonPathPiece.pascalCase}} extends {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}} {}
 {{/neq}}
 {{else}}
-import {{packageName}}.header.ParameterStyle;
+    {{#neq style null}}
+import {{packageName}}.parameter.ParameterStyle;
+    {{/neq}}
 import {{packageName}}.parameter.ParameterInType;
     {{#eq in "query"}}
 import {{packageName}}.parameter.QueryParameter;

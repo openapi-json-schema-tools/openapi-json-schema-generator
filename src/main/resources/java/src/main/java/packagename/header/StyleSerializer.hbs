@@ -29,14 +29,14 @@ public class StyleSerializer extends Rfc6570Serializer {
     ) {
         // todo check that the prefix and suffix matches this one
         String prefix = isCookie ? "" : "?";
-        PrefixSeparatorIterator usedIterator = iterator == null ? new PrefixSeparatorIterator(isCookie, "&") : iterator;
-        return cls.rfc6570Expansion(
+        PrefixSeparatorIterator usedIterator = iterator == null ? new PrefixSeparatorIterator(prefix, "&") : iterator;
+        return rfc6570Expansion(
             name,
             inData,
             explode,
             percentEncode,
             usedIterator
-        )
+        );
     }
 
     public static String serializeMatrix(
@@ -44,8 +44,8 @@ public class StyleSerializer extends Rfc6570Serializer {
             String name,
             boolean explode
     ) {
-        PrefixSeparatorIterator usedIterator = PrefixSeparatorIterator(";", ";");
-        return cls.rfc6570Expansion(
+        PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator(";", ";");
+        return rfc6570Expansion(
             name,
             inData,
             explode,
@@ -59,8 +59,8 @@ public class StyleSerializer extends Rfc6570Serializer {
             String name,
             boolean explode
     ) {
-        PrefixSeparatorIterator usedIterator = PrefixSeparatorIterator(".", ".");
-        return cls.rfc6570Expansion(
+        PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator(".", ".");
+        return rfc6570Expansion(
             name,
             inData,
             explode,
@@ -76,13 +76,13 @@ public class StyleSerializer extends Rfc6570Serializer {
             @Nullable PrefixSeparatorIterator iterator
     ) {
         PrefixSeparatorIterator usedIterator = iterator == null ? new PrefixSeparatorIterator("", "%20") : iterator;
-        return cls.rfc6570Expansion(
+        return rfc6570Expansion(
             name,
             inData,
             explode,
             true,
             usedIterator
-        )
+        );
     }
 
     public static String serializePipeDelimited(
@@ -92,13 +92,12 @@ public class StyleSerializer extends Rfc6570Serializer {
             @Nullable PrefixSeparatorIterator iterator
     ) {
         PrefixSeparatorIterator usedIterator = iterator == null ? new PrefixSeparatorIterator("", "|") : iterator;
-        return cls.rfc6570Expansion(
+        return rfc6570Expansion(
             name,
             inData,
             explode,
             true,
             usedIterator
-        )
+        );
     }
-
 }

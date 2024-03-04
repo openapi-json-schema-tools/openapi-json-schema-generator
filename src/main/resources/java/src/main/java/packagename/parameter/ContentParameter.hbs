@@ -1,27 +1,26 @@
-package {{{packageName}}}.header;
+package {{{packageName}}}.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.contenttype.ContentTypeDetector;
 import {{{packageName}}}.contenttype.ContentTypeSerializer;
-import {{{packageName}}}.contenttype.ContentTypeDeserializer;
+import {{{packageName}}}.header.HeaderBase;
 import {{{packageName}}}.mediatype.MediaType;
 
 import java.util.Map;
 
-public class ContentParameter extends HeaderBase implements Parameter {
+public class ContentParameter extends HeaderBase {
     public final String name;
     public final ParameterInType inType;
     public final Map<String, MediaType<?, ?>> content;
 
-    public ContentHeader(String name, ParameterInType inType, boolean required, @Nullable ParameterStyle style, @Nullable Boolean allowReserved, @Nullable Boolean explode, Map<String, MediaType<?, ?>> content) {
+    public ContentParameter(String name, ParameterInType inType, boolean required, @Nullable ParameterStyle style, @Nullable Boolean allowReserved, @Nullable Boolean explode, Map<String, MediaType<?, ?>> content) {
         super(required, style, explode, allowReserved);
         this.name = name;
         this.inType = inType;
         this.content = content;
     }
 
-    @Override
     public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
         for (Map.Entry<String, MediaType<?, ?>> entry: content.entrySet()) {
             var castInData = validate ? entry.getValue().schema().validate(inData, configuration) : inData ;
