@@ -553,12 +553,17 @@ src/main/java/org/openapijsonschematools/client/header/SchemaHeader.java
 src/main/java/org/openapijsonschematools/client/header/StyleSerializer.java
 src/main/java/org/openapijsonschematools/client/mediatype/Encoding.java
 src/main/java/org/openapijsonschematools/client/mediatype/MediaType.java
+src/main/java/org/openapijsonschematools/client/parameter/ContentNonQueryParameter.java
 src/main/java/org/openapijsonschematools/client/parameter/ContentParameter.java
+src/main/java/org/openapijsonschematools/client/parameter/ContentQueryParameter.java
 src/main/java/org/openapijsonschematools/client/parameter/NonQueryParameter.java
+src/main/java/org/openapijsonschematools/client/parameter/ParameterBase.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterInType.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterStyle.java
 src/main/java/org/openapijsonschematools/client/parameter/QueryParameter.java
+src/main/java/org/openapijsonschematools/client/parameter/SchemaNonQueryParameter.java
 src/main/java/org/openapijsonschematools/client/parameter/SchemaParameter.java
+src/main/java/org/openapijsonschematools/client/parameter/SchemaQueryParameter.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/responses/Code200Response.java

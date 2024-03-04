@@ -2,13 +2,12 @@ package org.openapijsonschematools.client.paths.commonparamsubdir.delete.paramet
 
 import org.openapijsonschematools.client.parameter.ParameterStyle;
 import org.openapijsonschematools.client.parameter.ParameterInType;
-import org.openapijsonschematools.client.parameter.NonQueryQueryParameter;
-import org.openapijsonschematools.client.parameter.SchemaParameter;
+import org.openapijsonschematools.client.parameter.SchemaNonQueryParameter;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.parameters.parameter1.Schema1;
 
 public class Parameter1 {
 
-    public static class Parameter11 extends SchemaParameter implements NonQueryQueryParameter {
+    public static class Parameter11 extends SchemaNonQueryParameter {
         public Parameter11() {
             super(
                 "subDir",

@@ -4,24 +4,19 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.contenttype.ContentTypeDetector;
 import {{{packageName}}}.contenttype.ContentTypeSerializer;
-import {{{packageName}}}.header.HeaderBase;
 import {{{packageName}}}.mediatype.MediaType;
 
 import java.util.Map;
 
-public class ContentParameter extends HeaderBase {
-    public final String name;
-    public final ParameterInType inType;
+public class ContentParameter extends ParameterBase {
     public final Map<String, MediaType<?, ?>> content;
 
-    public ContentParameter(String name, ParameterInType inType, boolean required, @Nullable ParameterStyle style, @Nullable Boolean allowReserved, @Nullable Boolean explode, Map<String, MediaType<?, ?>> content) {
-        super(required, style, explode, allowReserved);
-        this.name = name;
-        this.inType = inType;
+    public ContentParameter(String name, ParameterInType inType, boolean required, @Nullable ParameterStyle style, @Nullable Boolean explode, @Nullable Boolean allowReserved, Map<String, MediaType<?, ?>> content) {
+        super(name, inType, required, style, explode, allowReserved);
         this.content = content;
     }
 
-    public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
+    protected Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
         for (Map.Entry<String, MediaType<?, ?>> entry: content.entrySet()) {
             var castInData = validate ? entry.getValue().schema().validate(inData, configuration) : inData ;
             String contentType = entry.getKey();

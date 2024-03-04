@@ -3,6 +3,8 @@ package {{{packageName}}}.parameter;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 
+import java.util.Map;
+
 public interface NonQueryParameter {
     Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration);
 }

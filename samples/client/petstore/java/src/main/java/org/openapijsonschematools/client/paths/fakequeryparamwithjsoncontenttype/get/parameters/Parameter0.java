@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.parameters;
 
 import org.openapijsonschematools.client.parameter.ParameterInType;
-import org.openapijsonschematools.client.parameter.QueryParameter;
+import org.openapijsonschematools.client.parameter.ContentQueryParameter;
 import org.openapijsonschematools.client.parameter.ContentParameter;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.parameters.parameter0.content.applicationjson.Schema0;
@@ -21,15 +21,15 @@ public class Parameter0 {
         }
     }
 
-    public static class Parameter01 extends ContentParameter implements QueryParameter {
+    public static class Parameter01 extends ContentQueryParameter {
         public Parameter01() {
             super(
                 "someParam",
                 ParameterInType.QUERY,
                 true,
                 null,
-                false,
                 null,
+                false,
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
                 )

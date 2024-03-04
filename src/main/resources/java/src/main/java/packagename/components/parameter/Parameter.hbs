@@ -22,18 +22,22 @@ public class {{jsonPathPiece.pascalCase}} extends {{packageName}}.{{refInfo.ref.
 import {{packageName}}.parameter.ParameterStyle;
     {{/neq}}
 import {{packageName}}.parameter.ParameterInType;
-    {{#eq in "query"}}
-import {{packageName}}.parameter.QueryParameter;
-    {{else}}
-import {{packageName}}.parameter.NonQueryQueryParameter;
-    {{/eq}}
     {{#if schema}}
-import {{packageName}}.parameter.SchemaParameter;
+        {{#eq in "query"}}
+import {{packageName}}.parameter.SchemaQueryParameter;
+        {{else}}
+import {{packageName}}.parameter.SchemaNonQueryParameter;
+        {{/eq}}
         {{#with schema}}
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/if}}
     {{#if content}}
+        {{#eq in "query"}}
+import {{packageName}}.parameter.ContentQueryParameter;
+        {{else}}
+import {{packageName}}.parameter.ContentNonQueryParameter;
+        {{/eq}}
 import {{packageName}}.parameter.ContentParameter;
 import {{packageName}}.mediatype.MediaType;
         {{#each content}}
@@ -60,15 +64,15 @@ public class {{jsonPathPiece.pascalCase}} {
     }
     {{/each}}
 
-    public static class {{jsonPathPiece.pascalCase}}1 extends {{#if schema}}SchemaParameter{{else}}ContentParameter{{/if}} implements {{#eq in "query"}}QueryParameter{{else}}NonQueryQueryParameter{{/eq}} {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{#if schema}}Schema{{else}}Content{{/if}}{{#eq in "query"}}QueryParameter{{else}}NonQueryParameter{{/eq}} {
         public {{jsonPathPiece.pascalCase}}1() {
             super(
                 "{{{name}}}",
                 ParameterInType.{{#eq in "query"}}QUERY{{else}}{{#eq in "path"}}PATH{{else}}{{#eq in "header"}}HEADER{{else}}{{#eq in "cookie"}}COOKIE{{/eq}}{{/eq}}{{/eq}}{{/eq}},
                 {{#eq required null}}false{{else}}{{required}}{{/eq}},
                 {{#eq style null}}null{{else}}ParameterStyle.{{#eq style "matrix"}}MATRIX{{else}}{{#eq style "label"}}LABEL{{else}}{{#eq style "form"}}FORM{{else}}{{#eq style "simple"}}SIMPLE{{else}}{{#eq style "spaceDelimited"}}SPACE_DELIMITED{{else}}{{#eq style "pipeDelimited"}}PIPE_DELIMITED{{else}}{{#eq style "deepObject"}}DEEP_OBJECT{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}},
-                {{#eq allowReserved null}}false{{else}}{{allowReserved}}{{/eq}},
                 {{#eq explode null}}null{{else}}{{explode}}{{/eq}},
+                {{#eq allowReserved null}}false{{else}}{{allowReserved}}{{/eq}},
     {{#if schema}}
                 {{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}
     {{else}}

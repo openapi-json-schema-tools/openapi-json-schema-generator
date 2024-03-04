@@ -2,49 +2,21 @@ package {{{packageName}}}.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.header.HeaderBase;
 import {{{packageName}}}.header.PrefixSeparatorIterator;
 import {{{packageName}}}.header.StyleSerializer;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 
 import java.util.Map;
 
-public class SchemaParameter extends HeaderBase {
-    public final String name;
-    public final ParameterInType inType;
+public class SchemaParameter extends ParameterBase {
     public final JsonSchema<?> schema;
 
-    public SchemaParameter(String name, ParameterInType inType, boolean required, @Nullable ParameterStyle style, @Nullable Boolean allowReserved, @Nullable Boolean explode, JsonSchema<?> schema) {
-        super(required, ParameterStyle.SIMPLE, explode, allowReserved);
-        this.name = name;
-        this.inType = inType;
+    public SchemaParameter(String name, ParameterInType inType, boolean required, @Nullable ParameterStyle style, @Nullable Boolean explode, @Nullable Boolean allowReserved, JsonSchema<?> schema) {
+        super(name, inType, required, ParameterStyle.SIMPLE, explode, allowReserved);
         this.schema = schema;
     }
 
-    private ParameterStyle getStyle() {
-        if (style != null) {
-            return style;
-        }
-        if (inType == ParameterInType.QUERY || inType == ParameterInType.COOKIE) {
-            return ParameterStyle.FORM;
-        }
-        //  ParameterInType.HEADER || ParameterInType.PATH
-        return ParameterStyle.SIMPLE;
-    }
-
-    public PrefixSeparatorIterator getPrefixSeparatorIterator() {
-        ParameterStyle usedStyle = getStyle();
-        if (usedStyle == ParameterStyle.FORM) {
-            return new PrefixSeparatorIterator("?", "&");
-        } else if (usedStyle == ParameterStyle.SPACE_DELIMITED) {
-            return new PrefixSeparatorIterator("", "%20");
-        } else if (usedStyle == ParameterStyle.PIPE_DELIMITED) {
-            return new PrefixSeparatorIterator("", "|");
-        }
-        throw new RuntimeException("No iterator possible for style="+usedStyle);
-    }
-
-    public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration, @Nullable PrefixSeparatorIterator iterator) {
+    protected Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration, @Nullable PrefixSeparatorIterator iterator) {
         var castInData = validate ? schema.validate(inData, configuration) : inData;
         ParameterStyle usedStyle = getStyle();
         boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;
