@@ -33,13 +33,8 @@ public class CodegenOperation {
     public final CodegenRequestBody requestBody;
     // properties where key is contentType, value is a ref schema, encapsulates imports
     public final CodegenSchema requestBodySchema;
-    public final ParameterCollection parameters;
-    public final CodegenSchema pathParametersSchema;
-    public final CodegenSchema queryParametersSchema;
-    public final CodegenSchema headerParametersSchema;
-    public final CodegenSchema cookieParametersSchema;
-    public final ParameterCollection pathItemParameters;
 
+    public final CodegenParametersInfo parametersInfo;
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
     public final CodegenList<CodegenSecurityRequirementObject> security;
@@ -67,11 +62,7 @@ public class CodegenOperation {
             LinkedHashSet<String> produces,
             CodegenList<CodegenServer> servers,
             CodegenRequestBody requestBody,
-            ParameterCollection parameters,
-            CodegenSchema pathParametersSchema,
-            CodegenSchema queryParametersSchema,
-            CodegenSchema headerParametersSchema,
-            CodegenSchema cookieParametersSchema,
+            CodegenParametersInfo parametersInfo,
             boolean hasRequiredParamOrBody,
             boolean hasOptionalParamOrBody,
             CodegenList<CodegenSecurityRequirementObject> security,
@@ -86,8 +77,7 @@ public class CodegenOperation {
             Map<String, Object> vendorExtensions,
             CodegenKey operationId,
             CodegenKey jsonPathPiece,
-            CodegenSchema requestBodySchema,
-            ParameterCollection pathItemParameters
+            CodegenSchema requestBodySchema
 ) {
         this.deprecated = deprecated;
         this.nonErrorStatusCodes = nonErrorStatusCodes;
@@ -99,11 +89,7 @@ public class CodegenOperation {
         this.produces = produces;
         this.servers = servers;
         this.requestBody = requestBody;
-        this.parameters = parameters;
-        this.pathParametersSchema = pathParametersSchema;
-        this.queryParametersSchema = queryParametersSchema;
-        this.headerParametersSchema = headerParametersSchema;
-        this.cookieParametersSchema = cookieParametersSchema;
+        this.parametersInfo = parametersInfo;
         this.hasRequiredParamOrBody = hasRequiredParamOrBody;
         this.hasOptionalParamOrBody = hasOptionalParamOrBody;
         this.security = security;
@@ -119,7 +105,6 @@ public class CodegenOperation {
         this.operationId = operationId;
         this.jsonPathPiece = jsonPathPiece;
         this.requestBodySchema = requestBodySchema;
-        this.pathItemParameters = pathItemParameters;
         TreeMap<String,CodegenResponse> nonErrorResponsesMap = new TreeMap<>();
         if (statusCodeResponses != null) {
             for (Map.Entry<Integer, CodegenResponse> entry: statusCodeResponses.entrySet()) {
@@ -153,6 +138,36 @@ public class CodegenOperation {
         } else {
             nonErrorResponses = nonErrorResponsesMap;
         }
+    }
+
+    @Deprecated
+    public ParameterCollection parameters() {
+        return parametersInfo.parameters;
+    }
+
+    @Deprecated
+    public ParameterCollection pathItemParameters() {
+        return parametersInfo.pathItemParameters;
+    }
+
+    @Deprecated
+    public CodegenSchema pathParametersSchema() {
+        return parametersInfo.pathParametersSchema;
+    }
+
+    @Deprecated
+    public CodegenSchema queryParametersSchema() {
+        return parametersInfo.queryParametersSchema;
+    }
+
+    @Deprecated
+    public CodegenSchema headerParametersSchema() {
+        return parametersInfo.headerParametersSchema;
+    }
+
+    @Deprecated
+    public CodegenSchema cookieParametersSchema() {
+        return parametersInfo.cookieParametersSchema;
     }
 
     // used by operation templates
@@ -221,7 +236,7 @@ public class CodegenOperation {
         sb.append(", produces=").append(produces);
         sb.append(", servers=").append(servers);
         sb.append(", requestBody=").append(requestBody);
-        sb.append(", parameters=").append(parameters);
+        sb.append(", parametersInfo=").append(parametersInfo);
         sb.append(", hasRequiredParamOrBody=").append(hasRequiredParamOrBody);
         sb.append(", hasOptionalParamOrBody=").append(hasOptionalParamOrBody);
         sb.append(", security=").append(security);
@@ -251,7 +266,7 @@ public class CodegenOperation {
                 Objects.equals(produces, that.produces) &&
                 Objects.equals(servers, that.servers) &&
                 Objects.equals(requestBody, that.requestBody) &&
-                Objects.equals(parameters, that.parameters) &&
+                Objects.equals(parametersInfo, that.parametersInfo) &&
                 Objects.equals(hasRequiredParamOrBody, that.hasRequiredParamOrBody) &&
                 Objects.equals(hasOptionalParamOrBody, that.hasOptionalParamOrBody) &&
                 Objects.equals(security, that.security) &&
@@ -271,7 +286,7 @@ public class CodegenOperation {
 
         return Objects.hash(deprecated, operationId,
                 summary, description, defaultResponse,
-                produces, servers, requestBody, parameters,
+                produces, servers, requestBody, parametersInfo,
                 hasRequiredParamOrBody, hasOptionalParamOrBody,
                 security, tags, responses, callbacks, externalDocs,
                 vendorExtensions, statusCodeResponses, wildcardCodeResponses,

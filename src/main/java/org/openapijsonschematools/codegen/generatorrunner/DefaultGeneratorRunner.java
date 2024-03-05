@@ -454,21 +454,23 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointMap.put("security", security);
                 endpointMap.put("path", pathKey);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
-                if (operation.pathParametersSchema != null) {
-                    String objectJsonPath = operationJsonPath + "/" + "PathParameters";
-                    generateSchema(files, operation.pathParametersSchema, objectJsonPath);
-                }
-                if (operation.queryParametersSchema != null) {
-                    String objectJsonPath = operationJsonPath + "/" + "QueryParameters";
-                    generateSchema(files, operation.queryParametersSchema, objectJsonPath);
-                }
-                if (operation.headerParametersSchema != null) {
-                    String objectJsonPath = operationJsonPath + "/" + "HeaderParameters";
-                    generateSchema(files, operation.headerParametersSchema, objectJsonPath);
-                }
-                if (operation.cookieParametersSchema != null) {
-                    String objectJsonPath = operationJsonPath + "/" + "CookieParameters";
-                    generateSchema(files, operation.cookieParametersSchema, objectJsonPath);
+                if (operation.parametersInfo != null) {
+                    if (operation.parametersInfo.pathParametersSchema != null) {
+                        String objectJsonPath = operationJsonPath + "/" + "PathParameters";
+                        generateSchema(files, operation.parametersInfo.pathParametersSchema, objectJsonPath);
+                    }
+                    if (operation.parametersInfo.queryParametersSchema != null) {
+                        String objectJsonPath = operationJsonPath + "/" + "QueryParameters";
+                        generateSchema(files, operation.parametersInfo.queryParametersSchema, objectJsonPath);
+                    }
+                    if (operation.parametersInfo.headerParametersSchema != null) {
+                        String objectJsonPath = operationJsonPath + "/" + "HeaderParameters";
+                        generateSchema(files, operation.parametersInfo.headerParametersSchema, objectJsonPath);
+                    }
+                    if (operation.parametersInfo.cookieParametersSchema != null) {
+                        String objectJsonPath = operationJsonPath + "/" + "CookieParameters";
+                        generateSchema(files, operation.parametersInfo.cookieParametersSchema, objectJsonPath);
+                    }
                 }
 
                 // operation docs
@@ -503,14 +505,16 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 }
 
                 // paths.some_path.post.parameters.parameter_0.py
-                if (operation.parameters != null && !operation.parameters.allParameters.isEmpty()) {
-                    String parametersJsonPath = operationJsonPath + "/parameters";
-                    generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
-                    Integer i = 0;
-                    for (CodegenParameter cp: operation.parameters.allParameters) {
-                        String parameterJsonPath = parametersJsonPath + "/" + i.toString();
-                        generateParameter(files, cp, parameterJsonPath);
-                        i++;
+                if (operation.parametersInfo != null) {
+                    if (operation.parametersInfo.parameters != null && !operation.parametersInfo.parameters.allParameters.isEmpty()) {
+                        String parametersJsonPath = operationJsonPath + "/parameters";
+                        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
+                        Integer i = 0;
+                        for (CodegenParameter cp: operation.parametersInfo.parameters.allParameters) {
+                            String parameterJsonPath = parametersJsonPath + "/" + i.toString();
+                            generateParameter(files, cp, parameterJsonPath);
+                            i++;
+                        }
                     }
                 }
 

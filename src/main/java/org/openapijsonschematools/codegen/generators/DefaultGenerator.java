@@ -59,6 +59,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenMediaT
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenOauthFlow;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenOauthFlows;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenOperation;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParametersInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPathItem;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
@@ -2639,6 +2640,110 @@ public class DefaultGenerator implements Generator {
         xParametersProperties.put(derefParam.name, parameterSchema);
     }
 
+    private CodegenParametersInfo getParametersInfo(LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters, List<Parameter> parameters, String operationJsonPath) {
+        if (pathItemParameters.isEmpty() && (parameters == null || parameters.isEmpty())) {
+            return null;
+        }
+        List<CodegenParameter> allParams = new ArrayList<>();
+        List<CodegenParameter> pathParams = new ArrayList<>();
+        List<CodegenParameter> queryParams = new ArrayList<>();
+        List<CodegenParameter> headerParams = new ArrayList<>();
+        List<CodegenParameter> cookieParams = new ArrayList<>();
+        HashMap<String, Schema> pathParametersProperties = new HashMap<>();
+        List<String> pathParametersRequired = new ArrayList<>();
+        HashMap<String, Schema> queryParametersProperties = new HashMap<>();
+        List<String> queryParametersRequired = new ArrayList<>();
+        HashMap<String, Schema> headerParametersProperties = new HashMap<>();
+        List<String> headerParametersRequired = new ArrayList<>();
+        HashMap<String, Schema> cookieParametersProperties = new HashMap<>();
+        List<String> cookieParametersRequired = new ArrayList<>();
+        ArrayList<CodegenParameter> usedPathItemParams = null;
+        LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>();
+        if (pathItemParameters != null) {
+            usedPathItemParameters.putAll(pathItemParameters);
+        }
+        ParameterCollection operationParameters = null;
+        if (parameters != null) {
+            int i = 0;
+            for (Parameter param : parameters) {
+                String usedSourceJsonPath = operationJsonPath + "/parameters/" + i;
+                CodegenParameter p = fromParameter(param, usedSourceJsonPath);
+                allParams.add(p);
+                i++;
+
+                CodegenParameter derefParam = p.getSelfOrDeepestRef();
+                Pair<String, String> inName = Pair.of(derefParam.in, derefParam.name);
+                if (pathItemParameters != null && usedPathItemParameters.containsKey(inName)) {
+                    // do not use a path item parameter if it is overridden by an operation parameter
+                    usedPathItemParameters.remove(inName);
+                }
+
+                switch (derefParam.in) {
+                    case "query":
+                        updateXParameters(derefParam, p, queryParams, queryParametersRequired, queryParametersProperties);
+                        break;
+                    case "path":
+                        updateXParameters(derefParam, p, pathParams, pathParametersRequired, pathParametersProperties);
+                        break;
+                    case "header":
+                        updateXParameters(derefParam, p, headerParams, headerParametersRequired, headerParametersProperties);
+                        break;
+                    case "cookie":
+                        updateXParameters(derefParam, p, cookieParams, cookieParametersRequired, cookieParametersProperties);
+                        break;
+                    default:
+                        LOGGER.warn("Unknown parameter type for {}", derefParam.name);
+                        break;
+                }
+            }
+            operationParameters = new ParameterCollection(allParams, pathParams, queryParams, headerParams, cookieParams);
+        }
+        ArrayList<CodegenParameter> pathItemQueryParams;
+        ArrayList<CodegenParameter> pathItemPathParams;
+        ArrayList<CodegenParameter> pathItemHeaderParams;
+        ArrayList<CodegenParameter> pathItemCookieParams;
+        ParameterCollection pathItemParams = null;
+        if (!usedPathItemParameters.isEmpty()) {
+            pathItemQueryParams = new ArrayList<>();
+            pathItemPathParams = new ArrayList<>();
+            pathItemHeaderParams = new ArrayList<>();
+            pathItemCookieParams = new ArrayList<>();
+            if (!usedPathItemParameters.isEmpty()) {
+                usedPathItemParams = new ArrayList<>();
+            }
+            for (CodegenParameter pathItemParam: usedPathItemParameters.values()) {
+                usedPathItemParams.add(pathItemParam);
+                CodegenParameter derefParam = pathItemParam.getSelfOrDeepestRef();
+                switch (derefParam.in) {
+                    case "query":
+                        updateXParameters(derefParam, pathItemParam, pathItemQueryParams, queryParametersRequired, queryParametersProperties);
+                        break;
+                    case "path":
+                        updateXParameters(derefParam, pathItemParam, pathItemPathParams, pathParametersRequired, pathParametersProperties);
+                        break;
+                    case "header":
+                        updateXParameters(derefParam, pathItemParam, pathItemHeaderParams, headerParametersRequired, headerParametersProperties);
+                        break;
+                    case "cookie":
+                        updateXParameters(derefParam, pathItemParam, pathItemCookieParams, cookieParametersRequired, cookieParametersProperties);
+                        break;
+                    default:
+                        LOGGER.warn("Unknown parameter type for {}", derefParam.name);
+                        break;
+                }
+            }
+            pathItemParams = new ParameterCollection(usedPathItemParams, pathItemPathParams, pathItemQueryParams, pathItemHeaderParams, pathItemCookieParams);
+        }
+        String parametersJsonPath = operationJsonPath + "/parameters";
+        CodegenKey jsonPathPiece = getKey("parameters", "misc", parametersJsonPath);
+        String subpackage = getSubpackage(parametersJsonPath);
+        CodegenSchema pathParametersSchema = getXParametersSchema(pathParametersProperties, pathParametersRequired, operationJsonPath + "/" + "PathParameters", operationJsonPath + "/" + "PathParameters");
+        CodegenSchema queryParametersSchema = getXParametersSchema(queryParametersProperties, queryParametersRequired, operationJsonPath + "/" + "QueryParameters", operationJsonPath + "/" + "QueryParameters");
+        CodegenSchema headerParametersSchema = getXParametersSchema(headerParametersProperties, headerParametersRequired, operationJsonPath + "/" + "HeaderParameters", operationJsonPath + "/" + "HeaderParameters");
+        CodegenSchema cookieParametersSchema = getXParametersSchema(cookieParametersProperties, cookieParametersRequired, operationJsonPath + "/" + "CookieParameters", operationJsonPath + "/" + "CookieParameters");
+        return new CodegenParametersInfo(jsonPathPiece, subpackage, operationParameters, pathParametersSchema, queryParametersSchema, headerParametersSchema, cookieParametersSchema, pathItemParams);
+    }
+
     /**
      * Convert OAS Operation object to Codegen Operation object
      *
@@ -2791,12 +2896,6 @@ public class DefaultGenerator implements Generator {
 //            callbacks = foundCallbacks;
 //        }
 
-        List<Parameter> parameters = operation.getParameters();
-        List<CodegenParameter> allParams = new ArrayList<>();
-        List<CodegenParameter> pathParams = new ArrayList<>();
-        List<CodegenParameter> queryParams = new ArrayList<>();
-        List<CodegenParameter> headerParams = new ArrayList<>();
-        List<CodegenParameter> cookieParams = new ArrayList<>();
         boolean hasRequiredParamOrBody = false;
         boolean hasOptionalParamOrBody = false;
 
@@ -2828,115 +2927,18 @@ public class DefaultGenerator implements Generator {
             requestBodySchema = getXParametersSchema(requestBodySchemaProperties, new ArrayList<>(), jsonPath, jsonPath);
         }
 
-        HashMap<String, Schema> pathParametersProperties = new HashMap<>();
-        List<String> pathParametersRequired = new ArrayList<>();
-        HashMap<String, Schema> queryParametersProperties = new HashMap<>();
-        List<String> queryParametersRequired = new ArrayList<>();
-        HashMap<String, Schema> headerParametersProperties = new HashMap<>();
-        List<String> headerParametersRequired = new ArrayList<>();
-        HashMap<String, Schema> cookieParametersProperties = new HashMap<>();
-        List<String> cookieParametersRequired = new ArrayList<>();
-        ArrayList<CodegenParameter> usedPathItemParams = null;
-        LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>();
-        if (pathItemParameters != null) {
-            usedPathItemParameters.putAll(pathItemParameters);
-        }
-        ParameterCollection operationParameters = null;
-        if (parameters != null) {
-            int i = 0;
-            for (Parameter param : parameters) {
-                String usedSourceJsonPath = jsonPath + "/parameters/" + i;
-                CodegenParameter p = fromParameter(param, usedSourceJsonPath);
-                allParams.add(p);
-                i++;
-
-                CodegenParameter derefParam = p.getSelfOrDeepestRef();
-                Pair<String, String> inName = Pair.of(derefParam.in, derefParam.name);
-                if (pathItemParameters != null && usedPathItemParameters.containsKey(inName)) {
-                    // do not use a path item parameter if it is overridden by an operation parameter
-                    usedPathItemParameters.remove(inName);
-                }
-
-                switch (derefParam.in) {
-                    case "query":
-                        updateXParameters(derefParam, p, queryParams, queryParametersRequired, queryParametersProperties);
-                        break;
-                    case "path":
-                        updateXParameters(derefParam, p, pathParams, pathParametersRequired, pathParametersProperties);
-                        break;
-                    case "header":
-                        updateXParameters(derefParam, p, headerParams, headerParametersRequired, headerParametersProperties);
-                        break;
-                    case "cookie":
-                        updateXParameters(derefParam, p, cookieParams, cookieParametersRequired, cookieParametersProperties);
-                        break;
-                    default:
-                        LOGGER.warn("Unknown parameter type for {}", derefParam.name);
-                        break;
-                }
-            }
-            operationParameters = new ParameterCollection(allParams, pathParams, queryParams, headerParams, cookieParams);
-        }
-        ArrayList<CodegenParameter> pathItemQueryParams;
-        ArrayList<CodegenParameter> pathItemPathParams;
-        ArrayList<CodegenParameter> pathItemHeaderParams;
-        ArrayList<CodegenParameter> pathItemCookieParams;
-        ParameterCollection pathItemParams = null;
-        if (!usedPathItemParameters.isEmpty()) {
-            pathItemQueryParams = new ArrayList<>();
-            pathItemPathParams = new ArrayList<>();
-            pathItemHeaderParams = new ArrayList<>();
-            pathItemCookieParams = new ArrayList<>();
-            if (!usedPathItemParameters.isEmpty()) {
-                usedPathItemParams = new ArrayList<>();
-            }
-            for (CodegenParameter pathItemParam: usedPathItemParameters.values()) {
-                usedPathItemParams.add(pathItemParam);
-                CodegenParameter derefParam = pathItemParam.getSelfOrDeepestRef();
-                switch (derefParam.in) {
-                    case "query":
-                        updateXParameters(derefParam, pathItemParam, pathItemQueryParams, queryParametersRequired, queryParametersProperties);
-                        break;
-                    case "path":
-                        updateXParameters(derefParam, pathItemParam, pathItemPathParams, pathParametersRequired, pathParametersProperties);
-                        break;
-                    case "header":
-                        updateXParameters(derefParam, pathItemParam, pathItemHeaderParams, headerParametersRequired, headerParametersProperties);
-                        break;
-                    case "cookie":
-                        updateXParameters(derefParam, pathItemParam, pathItemCookieParams, cookieParametersRequired, cookieParametersProperties);
-                        break;
-                    default:
-                        LOGGER.warn("Unknown parameter type for {}", derefParam.name);
-                        break;
-                }
-            }
-            pathItemParams = new ParameterCollection(usedPathItemParams, pathItemPathParams, pathItemQueryParams, pathItemHeaderParams, pathItemCookieParams);
-        }
-
+        CodegenParametersInfo parametersInfo = getParametersInfo(pathItemParameters, operation.getParameters(), jsonPath);
         // create optional, required parameters
-        for (CodegenParameter cp : allParams) {
-            if (cp.refInfo != null) {
-                if (Boolean.TRUE.equals(cp.getDeepestRef().required)) { //required parameters
-                    hasRequiredParamOrBody = true;
-                } else { // optional parameters
-                    hasOptionalParamOrBody = true;
-                }
+        if (parametersInfo != null) {
+            if (parametersInfo.hasRequired) {
+                hasRequiredParamOrBody = true;
             } else {
-                if (Boolean.TRUE.equals(cp.required)) { //required parameters
-                    hasRequiredParamOrBody = true;
-                } else { // optional parameters
-                    hasOptionalParamOrBody = true;
-                }
+                hasOptionalParamOrBody = true;
             }
         }
         CodegenList<CodegenSecurityRequirementObject> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
-        CodegenSchema pathParametersSchema = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath + "/" + "PathParameters", jsonPath + "/" + "PathParameters");
-        CodegenSchema queryParametersSchema = getXParametersSchema(queryParametersProperties, queryParametersRequired, jsonPath + "/" + "QueryParameters", jsonPath + "/" + "QueryParameters");
-        CodegenSchema headerParametersSchema = getXParametersSchema(headerParametersProperties, headerParametersRequired, jsonPath + "/" + "HeaderParameters", jsonPath + "/" + "HeaderParameters");
-        CodegenSchema cookieParametersSchema = getXParametersSchema(cookieParametersProperties, cookieParametersRequired, jsonPath + "/" + "CookieParameters", jsonPath + "/" + "CookieParameters");
 
         return new CodegenOperation(
                 deprecated,
@@ -2949,11 +2951,7 @@ public class DefaultGenerator implements Generator {
                 produces,
                 codegenList,
                 requestBody,
-                operationParameters,
-                pathParametersSchema,
-                queryParametersSchema,
-                headerParametersSchema,
-                cookieParametersSchema,
+                parametersInfo,
                 hasRequiredParamOrBody,
                 hasOptionalParamOrBody,
                 security,
@@ -2968,8 +2966,8 @@ public class DefaultGenerator implements Generator {
                 vendorExtensions,
                 operationId,
                 jsonPathPiece,
-                requestBodySchema,
-                pathItemParams);
+                requestBodySchema
+            );
     }
 
     private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String sourceJsonPath, String currentJsonPath) {
