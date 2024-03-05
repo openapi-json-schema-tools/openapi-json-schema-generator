@@ -39,23 +39,23 @@ public class SchemaQueryParameterTest {
                 ),
                 new ParamTestCase(
                         1,
-                        Map.of("color", "?color=1")
+                        Map.of("color", "color=1")
                 ),
                 new ParamTestCase(
                         3.14,
-                        Map.of("color","?color=3.14")
+                        Map.of("color","color=3.14")
                 ),
                 new ParamTestCase(
                         "blue",
-                        Map.of("color", "?color=blue")
+                        Map.of("color", "color=blue")
                 ),
                 new ParamTestCase(
                         "hello world",
-                        Map.of("color", "?color=hello%20world")
+                        Map.of("color", "color=hello%20world")
                 ),
                 new ParamTestCase(
                         "",
-                        Map.of("color", "?color=")
+                        Map.of("color", "color=")
                 ),
                 new ParamTestCase(
                         List.of(),
@@ -63,11 +63,11 @@ public class SchemaQueryParameterTest {
                 ),
                 new ParamTestCase(
                         List.of("blue", "black", "brown"),
-                        Map.of("color", "?color=blue&color=black&color=brown")
+                        Map.of("color", "color=blue&color=black&color=brown")
                 ),
                 new ParamTestCase(
                         List.of("blue", "black", "brown"),
-                        Map.of("color", "?color=blue&color=black&color=brown"),
+                        Map.of("color", "color=blue&color=black&color=brown"),
                     true
                 ),
                 new ParamTestCase(
@@ -76,11 +76,11 @@ public class SchemaQueryParameterTest {
                 ),
                 new ParamTestCase(
                         mapPayload,
-                        Map.of("color", "?R=100&G=200&B=150")
+                        Map.of("color", "R=100&G=200&B=150")
                 ),
                 new ParamTestCase(
                         mapPayload,
-                        Map.of("color", "?R=100&G=200&B=150"),
+                        Map.of("color", "R=100&G=200&B=150"),
                         true
                 )
         );

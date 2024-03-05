@@ -24,12 +24,10 @@ public class StyleSerializer extends Rfc6570Serializer {
             String name,
             boolean explode,
             boolean percentEncode,
-            @Nullable PrefixSeparatorIterator iterator,
-            boolean isCookie
+            @Nullable PrefixSeparatorIterator iterator
     ) {
         // todo check that the prefix and suffix matches this one
-        String prefix = isCookie ? "" : "?";
-        PrefixSeparatorIterator usedIterator = iterator == null ? new PrefixSeparatorIterator(prefix, "&") : iterator;
+        PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator("", "&");
         return rfc6570Expansion(
             name,
             inData,

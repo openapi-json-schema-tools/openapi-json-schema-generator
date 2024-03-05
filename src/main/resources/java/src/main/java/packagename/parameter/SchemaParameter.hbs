@@ -30,8 +30,7 @@ public class SchemaParameter extends ParameterBase {
             value = StyleSerializer.serializeSimple(castInData, name, usedExplode, percentEncode);
         } else if (usedStyle == ParameterStyle.FORM) {
             // query OR cookie
-            boolean isCookie = inType == ParameterInType.COOKIE;
-            value = StyleSerializer.serializeForm(castInData, name, usedExplode, percentEncode, iterator, isCookie);
+            value = StyleSerializer.serializeForm(castInData, name, usedExplode, percentEncode, iterator);
         } else if (usedStyle == ParameterStyle.LABEL) {
             // path
             value = StyleSerializer.serializeLabel(castInData, name, usedExplode);

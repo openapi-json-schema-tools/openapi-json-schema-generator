@@ -28,7 +28,7 @@ public class ParameterBase extends HeaderBase {
     public PrefixSeparatorIterator getPrefixSeparatorIterator() {
         ParameterStyle usedStyle = getStyle();
         if (usedStyle == ParameterStyle.FORM) {
-            return new PrefixSeparatorIterator("?", "&");
+            return new PrefixSeparatorIterator("", "&");
         } else if (usedStyle == ParameterStyle.SPACE_DELIMITED) {
             return new PrefixSeparatorIterator("", "%20");
         } else if (usedStyle == ParameterStyle.PIPE_DELIMITED) {
