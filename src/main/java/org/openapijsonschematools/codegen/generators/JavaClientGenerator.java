@@ -3291,8 +3291,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public boolean shouldGenerateFile(String jsonPath) {
         if (jsonPath.equals("#/components/responses")) {
             return false;
+        } else if (jsonPath.equals("#/components/headers")) {
+            return false;
+        } else if (jsonPath.equals("#/components/parameters")) {
+            return false;
         }
-        if (jsonPath.equals("#/components/headers")) {
+        String[] pathPieces = jsonPath.split("/");
+        if (pathPieces.length == 4 && jsonPath.endsWith("/parameters")) {
+            // #/paths/path/parameters
             return false;
         }
         return true;

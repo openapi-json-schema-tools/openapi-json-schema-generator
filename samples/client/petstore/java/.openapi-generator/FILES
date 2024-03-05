@@ -349,7 +349,6 @@ src/main/java/org/openapijsonschematools/client/components/headers/numberheader/
 src/main/java/org/openapijsonschematools/client/components/headers/refcontentschemaheader/content/applicationjson/RefContentSchemaHeaderSchema.java
 src/main/java/org/openapijsonschematools/client/components/headers/refschemaheader/RefSchemaHeaderSchema.java
 src/main/java/org/openapijsonschematools/client/components/headers/stringheader/StringHeaderSchema.java
-src/main/java/org/openapijsonschematools/client/components/parameters.java
 src/main/java/org/openapijsonschematools/client/components/parameters/ComponentRefSchemaStringWithValidation.java
 src/main/java/org/openapijsonschematools/client/components/parameters/PathUserName.java
 src/main/java/org/openapijsonschematools/client/components/parameters/RefPathUserName.java
@@ -589,7 +588,6 @@ src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/para
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/parameters/Parameter0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/parameters/parameter0/Schema0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/responses/Code200Response.java
-src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/RouteParameter0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/routeparameter0/RouteParamSchema0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/HeaderParameters.java

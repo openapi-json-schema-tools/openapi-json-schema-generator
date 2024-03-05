@@ -430,10 +430,11 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
 
         if (pathItem.parameters != null) {
-            generateXs(files, jsonPath + "/parameters", CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
+            String parametersJsonPath = jsonPath + "/parameters";
+            generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, generator.shouldGenerateFile(parametersJsonPath));
             int i = 0;
             for (CodegenParameter param: pathItem.parameters) {
-                generateParameter(files, param, jsonPath + "/parameters/" + i);
+                generateParameter(files, param, parametersJsonPath + "/" + i);
                 i += 1;
             }
         }
@@ -841,7 +842,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         TreeMap<String, CodegenParameter> parameters = new TreeMap<>();
         String parametersJsonPath = "#/components/parameters";
-        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
+        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, generator.shouldGenerateFile(parametersJsonPath));
         for (Map.Entry<String, Parameter> entry: specParameters.entrySet()) {
             String componentName = entry.getKey();
             Parameter specParameter = entry.getValue();
