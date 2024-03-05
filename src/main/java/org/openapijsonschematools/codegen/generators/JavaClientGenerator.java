@@ -1334,9 +1334,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     }
 
-    private static final Set<String> operationVerbs = Set.of("get", "put", "post", "delete", "options", "head", "patch", "trace");
-
-
     @Override
     public String toParameterFilename(String name, String jsonPath) {
         // adds prefix parameter_ onto the result so modules do not start with _
@@ -1349,8 +1346,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return toModuleFilename(name, jsonPath);
         }
         if (operationVerbs.contains(pathPieces[3])) {
-            // #/paths/somePath/verb/parameters/0
+            if (pathPieces.length == 5) {
+                // #/paths/somePath/verb/parameters
+                return "Parameters";
+            }
             if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && pathPieces.length == 6) {
+                // #/paths/somePath/verb/parameters/0
                 return "Parameter" + name;
             }
             return "parameter" + name;

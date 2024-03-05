@@ -155,6 +155,7 @@ public class DefaultGenerator implements Generator {
 
     protected String templateEngineName;
     protected String headersSchemaFragment = "Headers";
+    protected static final Set<String> operationVerbs = Set.of("get", "put", "post", "delete", "options", "head", "patch", "trace");
 
     static {
         DefaultFeatureSet = FeatureSet.newBuilder()
@@ -2735,7 +2736,7 @@ public class DefaultGenerator implements Generator {
             pathItemParams = new ParameterCollection(usedPathItemParams, pathItemPathParams, pathItemQueryParams, pathItemHeaderParams, pathItemCookieParams);
         }
         String parametersJsonPath = operationJsonPath + "/parameters";
-        CodegenKey jsonPathPiece = getKey("parameters", "misc", parametersJsonPath);
+        CodegenKey jsonPathPiece = getKey("parameters", "parameters", parametersJsonPath);
         String subpackage = getSubpackage(parametersJsonPath);
         CodegenSchema pathParametersSchema = getXParametersSchema(pathParametersProperties, pathParametersRequired, operationJsonPath + "/" + "PathParameters", operationJsonPath + "/" + "PathParameters");
         CodegenSchema queryParametersSchema = getXParametersSchema(queryParametersProperties, queryParametersRequired, operationJsonPath + "/" + "QueryParameters", operationJsonPath + "/" + "QueryParameters");
@@ -3974,6 +3975,8 @@ public class DefaultGenerator implements Generator {
             }
         } else if (pathPieces[4].equals("parameters")) {
             if (pathPieces.length == 5) {
+                // #/paths/somePath/get/parameters -> length 5
+                pathPieces[4] = toParameterFilename(pathPieces[4], jsonPath);
                 return;
             }
             // #/paths/somePath/get/parameters/0 -> length 6

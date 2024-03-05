@@ -1864,6 +1864,11 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
     @Override
     public String toParameterFilename(String name, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (operationVerbs.contains(pathPieces[3]) && pathPieces.length == 5) {
+            // #/paths/somePath/verb/parameters
+            return "parameters";
+        }
         // adds prefix parameter_ onto the result so modules do not start with _
         try {
             Integer.parseInt(name);
