@@ -335,10 +335,10 @@ Class | Description
 
 Class | Description
 ----- | ------------
-[ComponentRefSchemaStringWithValidation.ComponentRefSchemaStringWithValidation1](docs/components/headers/ComponentRefSchemaStringWithValidation.md#componentrefschemastringwithvalidation1) | a path string with validation
-[PathUserName.PathUserName1](docs/components/headers/PathUserName.md#pathusername1) | the use name to use
-[RefPathUserName.RefPathUserName1](docs/components/headers/RefPathUserName.md#refpathusername1) |
-[RefSchemaStringWithValidation.RefSchemaStringWithValidation1](docs/components/headers/RefSchemaStringWithValidation.md#refschemastringwithvalidation1) | a path string with validation
+[ComponentRefSchemaStringWithValidation.ComponentRefSchemaStringWithValidation1](docs/components/parameters/ComponentRefSchemaStringWithValidation.md#componentrefschemastringwithvalidation1) | a path string with validation
+[PathUserName.PathUserName1](docs/components/parameters/PathUserName.md#pathusername1) | the use name to use
+[RefPathUserName.RefPathUserName1](docs/components/parameters/RefPathUserName.md#refpathusername1) |
+[RefSchemaStringWithValidation.RefSchemaStringWithValidation1](docs/components/parameters/RefSchemaStringWithValidation.md#refschemastringwithvalidation1) | a path string with validation
 
 ## Component SecuritySchemes
 
