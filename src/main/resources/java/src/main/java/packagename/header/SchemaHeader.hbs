@@ -33,7 +33,7 @@ public class SchemaHeader extends HeaderBase implements Header {
     public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) {
         var castInData = validate ? schema.validate(inData, configuration) : inData;
         boolean usedExplode = explode != null && explode;
-        var value = StyleSimpleSerializer.serializeSimple(castInData, name, usedExplode, false);
+        var value = StyleSerializer.serializeSimple(castInData, name, usedExplode, false);
         return toHeaders(name, value);
     }
 

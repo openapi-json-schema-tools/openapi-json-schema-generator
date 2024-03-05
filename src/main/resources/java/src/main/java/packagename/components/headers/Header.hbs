@@ -56,7 +56,7 @@ public class {{jsonPathPiece.pascalCase}} {
             super(
                 {{#eq required null}}false{{else}}{{required}}{{/eq}},
                 null,
-                {{explode}},
+                {{#eq explode null}}null{{else}}{{explode}}{{/eq}},
     {{#if schema}}
                 {{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}
             );

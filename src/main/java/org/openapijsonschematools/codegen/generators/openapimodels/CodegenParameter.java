@@ -45,6 +45,7 @@ public class CodegenParameter {
     public final String name;
     public final CodegenRefInfo<CodegenParameter> refInfo;
     public final Boolean allowReserved;
+    public final String subpackage;
 
     public CodegenParameter getSelfOrDeepestRef() {
         CodegenParameter selfOrRefParam = this;
@@ -71,7 +72,7 @@ public class CodegenParameter {
         return schema.jsonPath;
     }
 
-    public CodegenParameter(CodegenText description, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, boolean componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, String in, Boolean allowEmptyValue, String name, CodegenRefInfo<CodegenParameter> refInfo, Boolean allowReserved) {
+    public CodegenParameter(CodegenText description, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, boolean componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, String in, Boolean allowEmptyValue, String name, CodegenRefInfo<CodegenParameter> refInfo, Boolean allowReserved, String subpackage) {
         this.description = description;
         this.example = example;
         this.vendorExtensions = vendorExtensions;
@@ -89,6 +90,7 @@ public class CodegenParameter {
         this.name = name;
         this.refInfo = refInfo;
         this.allowReserved = allowReserved;
+        this.subpackage = subpackage;
     }
 
     public CodegenParameter getDeepestRef() {

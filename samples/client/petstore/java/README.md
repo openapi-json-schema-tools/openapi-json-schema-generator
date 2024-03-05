@@ -331,6 +331,15 @@ Class | Description
 [RefStringHeader.RefStringHeader1](docs/components/headers/RefStringHeader.md#refstringheader1) |
 [StringHeader.StringHeader1](docs/components/headers/StringHeader.md#stringheader1) | string header description
 
+## Component Parameters
+
+Class | Description
+----- | ------------
+[ComponentRefSchemaStringWithValidation.ComponentRefSchemaStringWithValidation1](docs/components/parameters/ComponentRefSchemaStringWithValidation.md#componentrefschemastringwithvalidation1) | a path string with validation
+[PathUserName.PathUserName1](docs/components/parameters/PathUserName.md#pathusername1) | the use name to use
+[RefPathUserName.RefPathUserName1](docs/components/parameters/RefPathUserName.md#refpathusername1) |
+[RefSchemaStringWithValidation.RefSchemaStringWithValidation1](docs/components/parameters/RefSchemaStringWithValidation.md#refschemastringwithvalidation1) | a path string with validation
+
 ## Component SecuritySchemes
 
 | Class | Description |

@@ -26,9 +26,9 @@ a class that deserializes a header value
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | boolean | required = true<br>whether the header is required |
-| @Nullable Boolean allowReserved | null |
 | @Nullable ParameterStyle | ParameterStyle.SIMPLE |
 | @Nullable Boolean explode | false |
+| @Nullable Boolean allowReserved | null |
 | JsonSchema<?> | schema = [StringHeaderSchema.StringHeaderSchema1](../../components/headers/stringheader/StringHeaderSchema.md#stringheaderschema1)().getInstance()
 
 ### Method Summary

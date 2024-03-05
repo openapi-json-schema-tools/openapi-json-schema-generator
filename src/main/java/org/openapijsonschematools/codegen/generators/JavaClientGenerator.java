@@ -286,7 +286,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         DocumentationFeature.ComponentSecuritySchemes,
                         DocumentationFeature.ComponentRequestBodies,
                         DocumentationFeature.ComponentResponses,
-                        DocumentationFeature.ComponentHeaders
+                        DocumentationFeature.ComponentHeaders,
+                        DocumentationFeature.ComponentParameters
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
@@ -298,7 +299,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         ComponentsFeature.securitySchemes,
                         ComponentsFeature.requestBodies,
                         ComponentsFeature.responses,
-                        ComponentsFeature.headers
+                        ComponentsFeature.headers,
+                        ComponentsFeature.parameters
                 )
                 .includeSecurityFeatures(
                         SecurityFeature.ApiKey,
@@ -806,9 +808,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "header",
                 "ContentHeader.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/header/StyleSimpleSerializer.hbs",
+                "src/main/java/packagename/header/StyleSerializer.hbs",
                 packagePath() + File.separatorChar + "header",
-                "StyleSimpleSerializer.java"));
+                "StyleSerializer.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/header/Rfc6570Serializer.hbs",
                 packagePath() + File.separatorChar + "header",
@@ -828,13 +830,57 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         // parameter
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/ParameterStyle.hbs",
+                "src/main/java/packagename/parameter/ContentNonQueryParameter.hbs",
                 packagePath() + File.separatorChar + "parameter",
-                "ParameterStyle.java"));
+                "ContentNonQueryParameter.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ContentParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ContentParameter.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ContentQueryParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ContentQueryParameter.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ParameterBase.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ParameterBase.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/NonQueryParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "NonQueryParameter.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ParameterInType.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterInType.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ParameterStyle.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ParameterStyle.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/QueryParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "QueryParameter.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/SchemaNonQueryParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "SchemaNonQueryParameter.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/SchemaParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "SchemaParameter.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/SchemaQueryParameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "SchemaQueryParameter.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/parameter/SchemaNonQueryParameterTest.hbs",
+                testPackagePath() + File.separatorChar + "parameter",
+                "SchemaNonQueryParameterTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/parameter/SchemaQueryParameterTest.hbs",
+                testPackagePath() + File.separatorChar + "parameter",
+                "SchemaQueryParameterTest.java"));
 
         // response
         supportingFiles.add(new SupportingFile(
@@ -887,6 +933,19 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
                 new HashMap<>() {{
                     put("src/main/java/packagename/components/headers/HeaderDoc.hbs", ".md");
+                }}
+        );
+        // parameter
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/parameter/Parameter.hbs", ".java");
+                }}
+        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/parameter/ParameterDoc.hbs", ".md");
                 }}
         );
         // responses
@@ -1238,17 +1297,54 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
     }
 
+    private static boolean isInteger(String str) {
+        if (str == null) {
+            return false;
+        }
+        int length = str.length();
+        if (length == 0) {
+            return false;
+        }
+        int i = 0;
+        if (str.charAt(0) == '-') {
+            if (length == 1) {
+                return false;
+            }
+            i = 1;
+        }
+        for (; i < length; i++) {
+            char c = str.charAt(i);
+            if (c < '0' || c > '9') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public String getPascalCaseParameter(String basename, String jsonPath) {
+
+        return toParameterFilename(basename, jsonPath);
+
+    }
+
     @Override
     public String toParameterFilename(String name, String jsonPath) {
         // adds prefix parameter_ onto the result so modules do not start with _
-        try {
-            Integer.parseInt(name);
-            // for parameters in path, or an endpoint
-            return "parameter" + name;
-        } catch (NumberFormatException nfe) {
-            // for header parameters in responses
-            return toModuleFilename(name, null);
+        String[] pathPieces = jsonPath.split("/");
+        if (jsonPath.startsWith("#/components/parameters/")) {
+            if (pathPieces.length == 4) {
+                // #/components/parameters/SomeParameter
+                return toModelName(name, null);
+            }
+            return toModuleFilename(name, jsonPath);
         }
+        if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && (pathPieces.length == 5 || pathPieces.length == 6)) {
+            // #/paths/somePath/parameters/0
+            // #/paths/somePath/verb/parameters/0
+            return "Parameter" + name;
+        }
+        return "parameter" + name;
     }
 
     private String toSchemaRefClass(String ref, String sourceJsonPath) {
