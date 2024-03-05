@@ -286,7 +286,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         DocumentationFeature.ComponentSecuritySchemes,
                         DocumentationFeature.ComponentRequestBodies,
                         DocumentationFeature.ComponentResponses,
-                        DocumentationFeature.ComponentHeaders
+                        DocumentationFeature.ComponentHeaders,
+                        DocumentationFeature.ComponentParameters
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
@@ -298,7 +299,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         ComponentsFeature.securitySchemes,
                         ComponentsFeature.requestBodies,
                         ComponentsFeature.responses,
-                        ComponentsFeature.headers
+                        ComponentsFeature.headers,
+                        ComponentsFeature.parameters
                 )
                 .includeSecurityFeatures(
                         SecurityFeature.ApiKey,
