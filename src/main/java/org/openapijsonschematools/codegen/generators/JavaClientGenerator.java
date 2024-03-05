@@ -942,6 +942,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/parameter/Parameter.hbs", ".java");
                 }}
         );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/paths/path/verb/Parameters.hbs", ".java");
+                }}
+        );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
                 new HashMap<>() {{
@@ -958,7 +964,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
                 new HashMap<>() {{
-                    put("src/main/java/packagename/components/responses/Responses.hbs", ".java");
+                    put("src/main/java/packagename/paths/path/verb/Responses.hbs", ".java");
                 }}
         );
         jsonPathDocTemplateFiles.put(

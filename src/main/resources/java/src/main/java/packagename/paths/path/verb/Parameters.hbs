@@ -1,0 +1,98 @@
+{{#with parametersInfo}}
+package {{packageName}}.{{subpackage}};
+
+    {{#with pathItemParameters}}
+        {{#each allParameters}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+        {{/each}}
+    {{/with}}
+    {{#with parameters}}
+        {{#each allParameters}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+        {{/each}}
+    {{/with}}
+    {{#if queryParametersSchema}}
+import {{packageName}}.parameter.QueryParameter;
+    {{/if}}
+    {{#or pathParametersSchema headerParametersSchema cookieParametersSchema}}
+import {{packageName}}.parameter.NonQueryParameter;
+    {{/or}}
+
+import java.util.Map;
+import java.util.AbstractMap;
+
+public class {{jsonPathPiece.pascalCase}} {
+    {{#if pathParametersSchema}}
+
+    public static class PathParametersDeserializer {
+        Map<String, NonQueryParameter> parameters;
+
+        public PathParametersDeserializer() {
+            parameters = Map.ofEntries(
+                {{#each pathParameters}}
+                new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
+                {{/each}}
+            );
+        }
+
+        {{#with pathParametersSchema}}
+        // deserialize {{containerJsonPathPiece.pascalCase}}
+        {{/with}}
+    }
+    {{/if}}
+    {{#if queryParametersSchema}}
+
+    public static class QueryParametersDeserializer {
+        Map<String, QueryParameter> parameters;
+
+        public QueryParametersDeserializer() {
+            parameters = Map.ofEntries(
+                {{#each queryParameters}}
+                new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
+                {{/each}}
+            );
+        }
+
+        {{#with queryParametersSchema}}
+        // {{containerJsonPathPiece.pascalCase}}
+        {{/with}}
+    }
+    {{/if}}
+    {{#if headerParametersSchema}}
+
+    public static class HeaderParametersDeserializer {
+        Map<String, NonQueryParameter> parameters;
+
+        public HeaderParametersDeserializer() {
+            parameters = Map.ofEntries(
+                {{#each headerParameters}}
+                new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
+                {{/each}}
+            );
+        }
+
+        {{#with headerParametersSchema}}
+        // {{containerJsonPathPiece.pascalCase}}
+        {{/with}}
+    }
+    {{/if}}
+    {{#if cookieParametersSchema}}
+
+    public static class CookieParametersDeserializer {
+        Map<String, NonQueryParameter> parameters;
+
+        public CookieParametersDeserializer() {
+            parameters = Map.ofEntries(
+                {{#each cookieParameters}}
+                new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
+                {{/each}}
+            );
+        }
+
+        {{#with cookieParametersSchema}}
+        // {{containerJsonPathPiece.pascalCase}}
+        {{/with}}
+    }
+    {{/if}}
+}
+{{/with}}

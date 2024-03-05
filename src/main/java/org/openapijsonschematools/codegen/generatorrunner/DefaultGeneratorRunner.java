@@ -508,7 +508,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 if (operation.parametersInfo != null) {
                     if (operation.parametersInfo.parameters != null && !operation.parametersInfo.parameters.allParameters.isEmpty()) {
                         String parametersJsonPath = operationJsonPath + "/parameters";
-                        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
+                        Map<String, Object> parametersTemplateInfo = new HashMap<>();
+                        parametersTemplateInfo.put("parametersInfo", operation.parametersInfo);
+                        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, parametersTemplateInfo, true);
                         Integer i = 0;
                         for (CodegenParameter cp: operation.parametersInfo.parameters.allParameters) {
                             String parameterJsonPath = parametersJsonPath + "/" + i.toString();

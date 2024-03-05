@@ -2,7 +2,7 @@
     {{#each wildcardCodeResponses}}
 Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Wildcard{{jsonPathPiece.pascalCase}}Deserializer) wildcardCodeDeserializer;
 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-{{> src/main/java/packagename/components/responses/_returnOrThrow }}
+{{> src/main/java/packagename/paths/path/verb/_returnOrThrow }}
     {{/each}}
 {{else}}
     {{#each wildcardCodeResponses}}
@@ -17,7 +17,7 @@ if (wildcardCodeDeserializer instanceof Wildcard{{jsonPathPiece.pascalCase}}Dese
             {{/if}}
         {{/if}}
     var deserializedResponse = castDeserializer.deserialize(response, configuration);
-    {{> src/main/java/packagename/components/responses/_returnOrThrow }}
+    {{> src/main/java/packagename/paths/path/verb/_returnOrThrow }}
     {{/each}}
 }
 {{/eq}}

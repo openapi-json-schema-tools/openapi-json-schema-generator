@@ -2,7 +2,7 @@
     {{#each statusCodeResponses}}
 Status{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Status{{jsonPathPiece.pascalCase}}Deserializer) statusCodeDeserializer;
 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-{{> src/main/java/packagename/components/responses/_returnOrThrow }}
+{{> src/main/java/packagename/paths/path/verb/_returnOrThrow }}
     {{/each}}
 {{else}}
     {{#each statusCodeResponses}}
@@ -17,7 +17,7 @@ if (statusCodeDeserializer instanceof Status{{jsonPathPiece.pascalCase}}Deserial
             {{/if}}
         {{/if}}
     var deserializedResponse = castDeserializer.deserialize(response, configuration);
-    {{> src/main/java/packagename/components/responses/_returnOrThrow }}
+    {{> src/main/java/packagename/paths/path/verb/_returnOrThrow }}
     {{/each}}
 }
 {{/eq}}

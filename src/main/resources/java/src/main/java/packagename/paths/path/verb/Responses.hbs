@@ -87,7 +87,7 @@ public class {{responses.jsonPathPiece.pascalCase}} {
     {{#and statusCodeResponses wildcardCodeResponses }}
             @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (statusCodeDeserializer != null) {
-                {{> src/main/java/packagename/components/responses/_statusCodeDeserialization }}
+                {{> src/main/java/packagename/paths/path/verb/_statusCodeDeserialization }}
             }
             @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
             if (wildcardCodeDeserializer == null) {
@@ -96,7 +96,7 @@ public class {{responses.jsonPathPiece.pascalCase}} {
                     response
                 );
             }
-            {{> src/main/java/packagename/components/responses/_wildcardCodeDeserialization }}
+            {{> src/main/java/packagename/paths/path/verb/_wildcardCodeDeserialization }}
     {{else}}
         {{#or statusCodeResponses wildcardCodeResponses }}
             {{#if statusCodeResponses }}
@@ -107,7 +107,7 @@ public class {{responses.jsonPathPiece.pascalCase}} {
                     response
                 );
             }
-            {{> src/main/java/packagename/components/responses/_statusCodeDeserialization }}
+            {{> src/main/java/packagename/paths/path/verb/_statusCodeDeserialization }}
             {{else}}
             @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
             if (wildcardCodeDeserializer == null) {
@@ -116,7 +116,7 @@ public class {{responses.jsonPathPiece.pascalCase}} {
                     response
                 );
             }
-            {{> src/main/java/packagename/components/responses/_wildcardCodeDeserialization }}
+            {{> src/main/java/packagename/paths/path/verb/_wildcardCodeDeserialization }}
             {{/if}}
         {{/or}}
     {{/and}}
@@ -129,12 +129,12 @@ public class {{responses.jsonPathPiece.pascalCase}} {
             {{#if statusCodeResponses}}
             @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (statusCodeDeserializer != null) {
-                {{> src/main/java/packagename/components/responses/_statusCodeDeserialization }}
+                {{> src/main/java/packagename/paths/path/verb/_statusCodeDeserialization }}
             }
             {{else}}
             @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
             if (wildcardCodeDeserializer != null) {
-                {{> src/main/java/packagename/components/responses/_wildcardCodeDeserialization }}
+                {{> src/main/java/packagename/paths/path/verb/_wildcardCodeDeserialization }}
             }
             {{/if}}
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
