@@ -5,14 +5,17 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.header.PrefixSeparatorIterator;
 import org.openapijsonschematools.client.header.StyleSerializer;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-
+import org.openapijsonschematools.client.header.HeaderBase;
+import org.openapijsonschematools.client.header.PrefixSeparatorIterator;
+import org.openapijsonschematools.client.header.StyleSerializer;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import java.util.Map;
 
 public class SchemaParameter extends ParameterBase {
     public final JsonSchema<?> schema;
 
     public SchemaParameter(String name, ParameterInType inType, boolean required, @Nullable ParameterStyle style, @Nullable Boolean explode, @Nullable Boolean allowReserved, JsonSchema<?> schema) {
-        super(name, inType, required, ParameterStyle.SIMPLE, explode, allowReserved);
+        super(name, inType, required, style, explode, allowReserved);
         this.schema = schema;
     }
 
@@ -21,7 +24,7 @@ public class SchemaParameter extends ParameterBase {
         ParameterStyle usedStyle = getStyle();
         boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;
         String value;
-        boolean usedExplode = explode == null || explode;
+        boolean usedExplode = explode == null ? usedStyle == ParameterStyle.FORM : explode;
         if (usedStyle == ParameterStyle.SIMPLE) {
             // header OR path
             value = StyleSerializer.serializeSimple(castInData, name, usedExplode, percentEncode);

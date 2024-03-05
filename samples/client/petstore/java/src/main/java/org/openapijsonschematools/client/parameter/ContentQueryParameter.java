@@ -15,6 +15,6 @@ public class ContentQueryParameter extends ContentParameter implements QueryPara
 
     @Override
     public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration, PrefixSeparatorIterator iterator) {
-        return serialize(inData, validate, configuration);
+        return super.serialize(inData, validate, configuration);
     }
 }

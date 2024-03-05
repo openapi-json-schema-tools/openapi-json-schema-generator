@@ -2,6 +2,7 @@ package {{{packageName}}}.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.header.PrefixSeparatorIterator;
 import {{{packageName}}}.mediatype.MediaType;
 
 import java.util.Map;
@@ -14,6 +15,6 @@ public class ContentQueryParameter extends ContentParameter implements QueryPara
 
     @Override
     public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration, PrefixSeparatorIterator iterator) {
-        return serialize(inData, validate, configuration);
+        return super.serialize(inData, validate, configuration);
     }
 }
