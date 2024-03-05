@@ -15,6 +15,6 @@ public class SchemaQueryParameter extends SchemaParameter implements QueryParame
 
     @Override
     public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration, PrefixSeparatorIterator iterator) {
-        return serialize(inType, validate, configuration, iterator);
+        return super.serialize(inData, validate, configuration, iterator);
     }
 }
