@@ -130,7 +130,7 @@ public class SchemaHeaderTest {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
         SchemaHeader header = getHeader(NullJsonSchema.NullJsonSchema1.getInstance());
-        var deserialized = header.deserialize(List.of(""), false, configuration);
+        @Nullable Object deserialized = header.deserialize(List.of(""), false, configuration);
         assertNull(deserialized);
 
         header = getHeader(NumberJsonSchema.NumberJsonSchema1.getInstance());

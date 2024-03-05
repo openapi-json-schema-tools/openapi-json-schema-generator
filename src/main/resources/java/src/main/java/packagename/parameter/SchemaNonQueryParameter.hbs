@@ -15,6 +15,6 @@ public class SchemaNonQueryParameter extends SchemaParameter implements QueryPar
 
     @Override
     public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration, PrefixSeparatorIterator iterator) {
-        return serialize(inType, validate, configuration, iterator);
+        return super.serialize(inType, validate, configuration, iterator);
     }
 }
