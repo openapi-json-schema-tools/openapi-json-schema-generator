@@ -26,9 +26,9 @@ a class that deserializes a header value
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | boolean | required = false<br>whether the header is required |
-| @Nullable Boolean allowReserved | null |
 | @Nullable ParameterStyle | ParameterStyle.SIMPLE |
 | @Nullable Boolean explode | false |
+| @Nullable Boolean allowReserved | null |
 | JsonSchema<?> | schema = [NumberHeaderSchema.NumberHeaderSchema1](../../components/headers/numberheader/NumberHeaderSchema.md#numberheaderschema1)().getInstance()
 
 ### Method Summary

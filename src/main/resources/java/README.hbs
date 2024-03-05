@@ -209,6 +209,18 @@ Class | Description
     {{/with}}
 {{/each}}
 {{/if}}
+{{#if parameters}}
+
+## Component Parameters
+
+Class | Description
+----- | ------------
+{{#each parameters}}
+    {{#with this}}
+[{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/headers/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}
+    {{/with}}
+{{/each}}
+{{/if}}
 {{#if securitySchemes}}
 
 ## Component SecuritySchemes

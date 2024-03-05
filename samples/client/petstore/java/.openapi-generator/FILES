@@ -10,6 +10,10 @@ docs/components/headers/numberheader/NumberHeaderSchema.md
 docs/components/headers/refcontentschemaheader/content/applicationjson/RefContentSchemaHeaderSchema.md
 docs/components/headers/refschemaheader/RefSchemaHeaderSchema.md
 docs/components/headers/stringheader/StringHeaderSchema.md
+docs/components/parameters/ComponentRefSchemaStringWithValidation.md
+docs/components/parameters/PathUserName.md
+docs/components/parameters/RefPathUserName.md
+docs/components/parameters/RefSchemaStringWithValidation.md
 docs/components/parameters/componentrefschemastringwithvalidation/content/applicationjson/ApplicationjsonSchema.md
 docs/components/parameters/pathusername/Schema.md
 docs/components/parameters/refschemastringwithvalidation/Schema.md

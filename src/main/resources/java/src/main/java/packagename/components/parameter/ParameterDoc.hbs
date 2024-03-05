@@ -1,4 +1,4 @@
-{{#with header}}
+{{#with parameter}}
 {{#eq identifierPieces.size 0}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
 {{else}}
@@ -9,29 +9,29 @@
 {{/if}}
 
 {{#if refInfo}}
-public class {{jsonPathPiece.pascalCase}} extends [{{refInfo.refClass}}](../../components/headers/{{refInfo.refClass}}.md)
+public class {{jsonPathPiece.pascalCase}} extends [{{refInfo.refClass}}](../../components/parameters/{{refInfo.refClass}}.md)
 
-A class (extended from the $ref class) that contains necessary nested header classes
-- a class that extends SchemaHeader/ContentHeader and is used to deserialize header content
+A class (extended from the $ref class) that contains necessary nested parameter classes
+- a class that extends SchemaHeader/ContentHeader and is used to deserialize parameter content
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br> class that deserializes header value |
+| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br> class that deserializes parameter value |
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
-public static class {{jsonPathPiece.pascalCase}}1 extends [{{refInfo.refClass}}](../../components/headers/{{refInfo.refClass}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}}1)<br>
+public static class {{jsonPathPiece.pascalCase}}1 extends [{{refInfo.refClass}}](../../components/parameters/{{refInfo.refClass}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}}1)<br>
 
-a class that deserializes header, extended from the $ref class
+a class that deserializes parameter, extended from the $ref class
 
 {{else}}
 public class {{jsonPathPiece.pascalCase}}
 
-A class that contains necessary nested header classes
+A class that contains necessary nested parameter classes
 {{#if content}}
 - a class that implements MediaType to store content schema info
 {{/if}}
-- a class that extends SchemaHeader/ContentHeader and is used to deserialize the header value
+- a class that extends SchemaHeader/ContentHeader and is used to deserialize the parameter value
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -39,7 +39,7 @@ A class that contains necessary nested header classes
 {{#each content}}
 | record | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)<br>record storing schema + encoding for a specific contentType |
 {{/each}}
-| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br>class that deserializes a header |
+| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br>class that deserializes a parameter |
 
 {{#each content}}
 
@@ -62,9 +62,9 @@ class storing schema info for a specific contentType
 {{/each}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
-public static class {{jsonPathPiece.pascalCase}}1 implements Header<br>
+public static class {{jsonPathPiece.pascalCase}}1 extends {{#if schema}}Schema{{else}}Content{{/if}}{{#eq in "query"}}QueryParameter{{else}}NonQueryParameter{{/eq}}<br>
 
-a class that deserializes a header value
+a class that deserializes a parameter value
 
 {{headerSize}}## Constructor Summary
 | Constructor and Description |
@@ -74,10 +74,12 @@ a class that deserializes a header value
 {{headerSize}}## Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| boolean | required = {{#eq required null}}false{{else}}{{required}}{{/eq}}<br>whether the header is required |
-| @Nullable ParameterStyle | ParameterStyle.SIMPLE |
-| @Nullable Boolean explode | {{explode}} |
-| @Nullable Boolean allowReserved | null |
+| String | name = "{{{name}}}"<br>the parameter name |
+| ParameterInType | inType = ParameterInType.{{#eq in "query"}}QUERY{{else}}{{#eq in "path"}}PATH{{else}}{{#eq in "header"}}HEADER{{else}}{{#eq in "cookie"}}COOKIE{{/eq}}{{/eq}}{{/eq}}{{/eq}}<br>the parameter in value |
+| boolean | required = {{#eq required null}}false{{else}}{{required}}{{/eq}}<br>whether the parameter is required |
+| @Nullable Boolean explode | {{#eq explode null}}null{{else}}{{explode}}{{/eq}} |
+| @Nullable ParameterStyle | {{#eq style null}}null{{else}}ParameterStyle.{{#eq style "matrix"}}MATRIX{{else}}{{#eq style "label"}}LABEL{{else}}{{#eq style "form"}}FORM{{else}}{{#eq style "simple"}}SIMPLE{{else}}{{#eq style "spaceDelimited"}}SPACE_DELIMITED{{else}}{{#eq style "pipeDelimited"}}PIPE_DELIMITED{{else}}{{#eq style "deepObject"}}DEEP_OBJECT{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}} |
+| @Nullable Boolean allowReserved | {{#eq allowReserved null}}false{{else}}{{allowReserved}}{{/eq}} |
     {{#each content}}
 | Map<String, [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)())<br>)<br>the contentType to schema info |
     {{else}}
@@ -87,11 +89,10 @@ a class that deserializes a header value
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| HttpHeaders | serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) |
-| @Nullable Object | deserialize(List&lt;String&gt; inData, boolean validate, SchemaConfiguration configuration)<br>deserializes the header value |
+| Map<String, String> | serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration{{#eq in "query"}}, PrefixSeparatorIterator iterator{{/eq}})<br>deserializes the parameter value |
 {{/if}}
 {{#if componentModule}}
 
-[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" headersLink=true}}
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" parametersLink=true}}
 {{/if}}
 {{/with}}

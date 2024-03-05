@@ -26,9 +26,9 @@ a class that deserializes a header value
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | boolean | required = true<br>whether the header is required |
-| @Nullable Boolean allowReserved | null |
 | @Nullable ParameterStyle | ParameterStyle.SIMPLE |
 | @Nullable Boolean explode | false |
+| @Nullable Boolean allowReserved | null |
 | JsonSchema<?> | schema = [RefSchemaHeaderSchema.RefSchemaHeaderSchema1](../../components/headers/refschemaheader/RefSchemaHeaderSchema.md#refschemaheaderschema1)().getInstance()
 
 ### Method Summary
