@@ -1200,7 +1200,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             if (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/parameters/")) {
                 if (pathPieces[3].equals("parameters")) {
                     // #/paths/path/parameters/0/Schema -> PathParamSchema0
-                    usedKey = "PathParam" + camelize(usedKey) + pathPieces[4]; // PathParamSchema0
+                    usedKey = "RouteParam" + camelize(usedKey) + pathPieces[4]; // RouteParamSchema0
                 } else {
                     // #/paths/path/get/parameters/0/Schema -> Schema0
                     usedKey = camelize(usedKey) + pathPieces[5]; // Schema0
@@ -1328,6 +1328,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     }
 
+    private static final Set<String> operationVerbs = Set.of("get", "put", "post", "delete", "options", "head", "patch", "trace");
+
+
     @Override
     public String toParameterFilename(String name, String jsonPath) {
         // adds prefix parameter_ onto the result so modules do not start with _
@@ -1339,12 +1342,18 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
             return toModuleFilename(name, jsonPath);
         }
-        if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && (pathPieces.length == 5 || pathPieces.length == 6)) {
-            // #/paths/somePath/parameters/0
+        if (operationVerbs.contains(pathPieces[3])) {
             // #/paths/somePath/verb/parameters/0
-            return "Parameter" + name;
+            if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && pathPieces.length == 6) {
+                return "Parameter" + name;
+            }
+            return "parameter" + name;
         }
-        return "parameter" + name;
+        if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && pathPieces.length == 5) {
+            // #/paths/somePath/parameters/0
+            return "RouteParameter" + name;
+        }
+        return "routeparameter" + name;
     }
 
     private String toSchemaRefClass(String ref, String sourceJsonPath) {

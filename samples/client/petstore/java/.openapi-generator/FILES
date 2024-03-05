@@ -191,7 +191,7 @@ docs/paths/anotherfakedummy/patch/responses/code200response/content/applicationj
 docs/paths/commonparamsubdir/delete/parameters/parameter0/Schema0.md
 docs/paths/commonparamsubdir/delete/parameters/parameter1/Schema1.md
 docs/paths/commonparamsubdir/get/parameters/parameter0/Schema0.md
-docs/paths/commonparamsubdir/parameters/parameter0/PathParamSchema0.md
+docs/paths/commonparamsubdir/parameters/routeparameter0/RouteParamSchema0.md
 docs/paths/commonparamsubdir/post/parameters/parameter0/Schema0.md
 docs/paths/fake/delete/parameters/parameter0/Schema0.md
 docs/paths/fake/delete/parameters/parameter1/Schema1.md
@@ -586,8 +586,8 @@ src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/Resp
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/parameters/Parameter0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/parameters/parameter0/Schema0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/responses/Code200Response.java
-src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/Parameter0.java
-src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/parameter0/PathParamSchema0.java
+src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/RouteParameter0.java
+src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/routeparameter0/RouteParamSchema0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/HeaderParameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/Responses.java

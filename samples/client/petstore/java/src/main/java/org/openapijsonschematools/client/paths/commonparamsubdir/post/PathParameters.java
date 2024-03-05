@@ -13,7 +13,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.paths.commonparamsubdir.parameters.parameter0.PathParamSchema0;
+import org.openapijsonschematools.client.paths.commonparamsubdir.parameters.routeparameter0.RouteParamSchema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
@@ -69,7 +69,7 @@ public class PathParameters {
             return getBuilderAfterSubDir(instance);
         }
         
-        default T subDir(PathParamSchema0.StringPathParamSchemaEnums0 value) {
+        default T subDir(RouteParamSchema0.StringRouteParamSchemaEnums0 value) {
             var instance = getInstance();
             instance.put("subDir", value.value());
             return getBuilderAfterSubDir(instance);
@@ -125,7 +125,7 @@ public class PathParameters {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("subDir", PathParamSchema0.PathParamSchema01.class)
+                    new PropertyEntry("subDir", RouteParamSchema0.RouteParamSchema01.class)
                 ))
                 .required(Set.of(
                     "subDir"

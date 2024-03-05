@@ -2853,6 +2853,7 @@ public class DefaultGenerator implements Generator {
                 CodegenParameter derefParam = p.getSelfOrDeepestRef();
                 Pair<String, String> inName = Pair.of(derefParam.in, derefParam.name);
                 if (pathItemParameters != null && usedPathItemParameters.containsKey(inName)) {
+                    // do not use a path item parameter if it is overridden by an operation parameter
                     usedPathItemParameters.remove(inName);
                 }
 

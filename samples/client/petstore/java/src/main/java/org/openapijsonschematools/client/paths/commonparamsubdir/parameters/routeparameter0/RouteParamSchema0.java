@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.paths.commonparamsubdir.parameters.parameter0;
+package org.openapijsonschematools.client.paths.commonparamsubdir.parameters.routeparameter0;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -18,15 +18,15 @@ import org.openapijsonschematools.client.schemas.validation.StringSchemaValidato
 import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
-public class PathParamSchema0 {
+public class RouteParamSchema0 {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum StringPathParamSchemaEnums0 implements StringValueMethod {
+    public enum StringRouteParamSchemaEnums0 implements StringValueMethod {
         A("a"),
         B("b");
         private final String value;
     
-        StringPathParamSchemaEnums0(String value) {
+        StringRouteParamSchemaEnums0(String value) {
             this.value = value;
         }
         public String value() {
@@ -35,11 +35,11 @@ public class PathParamSchema0 {
     }
     
     
-    public sealed interface PathParamSchema01Boxed permits PathParamSchema01BoxedString {
+    public sealed interface RouteParamSchema01Boxed permits RouteParamSchema01BoxedString {
         @Nullable Object getData();
     }
     
-    public record PathParamSchema01BoxedString(String data) implements PathParamSchema01Boxed {
+    public record RouteParamSchema01BoxedString(String data) implements RouteParamSchema01Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -48,10 +48,10 @@ public class PathParamSchema0 {
     
     
     
-    public static class PathParamSchema01 extends JsonSchema<PathParamSchema01Boxed> implements StringSchemaValidator<PathParamSchema01BoxedString>, StringEnumValidator<StringPathParamSchemaEnums0> {
-        private static @Nullable PathParamSchema01 instance = null;
+    public static class RouteParamSchema01 extends JsonSchema<RouteParamSchema01Boxed> implements StringSchemaValidator<RouteParamSchema01BoxedString>, StringEnumValidator<StringRouteParamSchemaEnums0> {
+        private static @Nullable RouteParamSchema01 instance = null;
     
-        protected PathParamSchema01() {
+        protected RouteParamSchema01() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
@@ -63,9 +63,9 @@ public class PathParamSchema0 {
             );
         }
     
-        public static PathParamSchema01 getInstance() {
+        public static RouteParamSchema01 getInstance() {
             if (instance == null) {
-                instance = new PathParamSchema01();
+                instance = new RouteParamSchema01();
             }
             return instance;
         }
@@ -82,7 +82,7 @@ public class PathParamSchema0 {
         }
         
         @Override
-        public String validate(StringPathParamSchemaEnums0 arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringRouteParamSchemaEnums0 arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -101,11 +101,11 @@ public class PathParamSchema0 {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public PathParamSchema01BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-            return new PathParamSchema01BoxedString(validate(arg, configuration));
+        public RouteParamSchema01BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new RouteParamSchema01BoxedString(validate(arg, configuration));
         }
         @Override
-        public PathParamSchema01Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public RouteParamSchema01Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
