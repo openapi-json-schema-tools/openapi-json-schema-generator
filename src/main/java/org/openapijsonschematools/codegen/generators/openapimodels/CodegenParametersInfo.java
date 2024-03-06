@@ -13,6 +13,7 @@ public class CodegenParametersInfo {
     public final CodegenSchema headerParametersSchema;
     public final CodegenSchema cookieParametersSchema;
     public final boolean hasRequired;
+    public final boolean hasOptional;
 
     public List<CodegenParameter> pathParameters() {
         List<CodegenParameter> params = new ArrayList<>();
@@ -96,11 +97,13 @@ public class CodegenParametersInfo {
         this.cookieParametersSchema = cookieParametersSchema;
         this.pathItemParameters = pathItemParameters;
         boolean hasRequired = false;
+        boolean hasOptional = false;
         if (parameters != null) {
             for (CodegenParameter param: parameters.allParameters) {
                 if (Boolean.TRUE.equals(param.getSelfOrDeepestRef().required)) {
                     hasRequired = true;
-                    break;
+                } else {
+                    hasOptional = true;
                 }
             }
         }
@@ -108,10 +111,12 @@ public class CodegenParametersInfo {
             for (CodegenParameter param : pathItemParameters.allParameters) {
                 if (Boolean.TRUE.equals(param.getSelfOrDeepestRef().required)) {
                     hasRequired = true;
-                    break;
+                } else {
+                    hasOptional = true;
                 }
             }
         }
         this.hasRequired = hasRequired;
+        this.hasOptional = hasOptional;
     }
 }

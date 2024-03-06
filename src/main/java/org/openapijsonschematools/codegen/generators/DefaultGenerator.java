@@ -2933,7 +2933,8 @@ public class DefaultGenerator implements Generator {
         if (parametersInfo != null) {
             if (parametersInfo.hasRequired) {
                 hasRequiredParamOrBody = true;
-            } else {
+            }
+            if (parametersInfo.hasOptional) {
                 hasOptionalParamOrBody = true;
             }
         }

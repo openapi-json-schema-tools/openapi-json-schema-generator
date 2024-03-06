@@ -215,6 +215,23 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling PetApi->delete_pet: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'petId': 1,
+    }
+    header_params: operation.HeaderParametersDictInput = {
+        'api_key': "api_key_example",
+    }
+    try:
+        # Deletes a pet
+        api_response = api_instance.delete_pet(
+            path_params=path_params,
+            header_params=header_params,
+        )
+        pprint(api_response)
+    except petstore_api.ApiException as e:
+        print("Exception when calling PetApi->delete_pet: %s\n" % e)
 ```
 
 [[Back to top]](#top)
