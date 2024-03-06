@@ -16,12 +16,12 @@ public abstract class CookieSerializer {
         String result = "";
         for (Map.Entry<String, ?> entry: inData.entrySet()) {
             String mapKey = entry.getKey();
-            @Nullable Object value = entry.getValue();
             @Nullable Parameter parameter = parameters.get(mapKey);
             if (parameter == null) {
                 throw new RuntimeException("Invalid state, a parameter must exist for every key");
             }
-            AbstractMap.SimpleEntry<String, String> serialized = parameter.serialize(inData);
+            @Nullable Object value = entry.getValue();
+            AbstractMap.SimpleEntry<String, String> serialized = parameter.serialize(value);
             if (result.isEmpty()) {
                 result = serialized.getValue();
             } else {
