@@ -3,8 +3,8 @@ package org.openapijsonschematools.client.parameter;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 
-import java.util.Map;
+import java.util.AbstractMap;
 
 public interface Parameter {
-    Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration);
+    AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration);
 }

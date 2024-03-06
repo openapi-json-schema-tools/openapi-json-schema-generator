@@ -1218,6 +1218,7 @@ src/main/java/org/openapijsonschematools/client/servers/server1/Variables.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/header/ContentHeaderTest.java
 src/test/java/org/openapijsonschematools/client/header/SchemaHeaderTest.java
+src/test/java/org/openapijsonschematools/client/parameter/SchemaNonQueryParameterTest.java
 src/test/java/org/openapijsonschematools/client/parameter/SchemaQueryParameterTest.java
 src/test/java/org/openapijsonschematools/client/requestbody/RequestBodySerializerTest.java
 src/test/java/org/openapijsonschematools/client/response/ResponseDeserializerTest.java

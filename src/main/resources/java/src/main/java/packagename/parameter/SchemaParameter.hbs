@@ -2,14 +2,10 @@ package {{{packageName}}}.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.header.PrefixSeparatorIterator;
 import {{{packageName}}}.header.StyleSerializer;
 import {{{packageName}}}.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.header.HeaderBase;
-import org.openapijsonschematools.client.header.PrefixSeparatorIterator;
-import org.openapijsonschematools.client.header.StyleSerializer;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import java.util.Map;
+
+import java.util.AbstractMap;
 
 public class SchemaParameter extends ParameterBase implements Parameter {
     public final JsonSchema<?> schema;
@@ -30,7 +26,7 @@ public class SchemaParameter extends ParameterBase implements Parameter {
         return ParameterStyle.SIMPLE;
     }
 
-    public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
+    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
         var castInData = validate ? schema.validate(inData, configuration) : inData;
         ParameterStyle usedStyle = getStyle();
         boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;
@@ -59,6 +55,6 @@ public class SchemaParameter extends ParameterBase implements Parameter {
             // query
             throw new RuntimeException("Style deep object serialization has not yet been implemented.");
         }
-        return Map.of(name, value);
+        return new AbstractMap.SimpleEntry<>(name, value);
     }
 }

@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.contenttype.ContentTypeSerializer;
 import org.openapijsonschematools.client.mediatype.MediaType;
 
 import java.util.Map;
+import java.util.AbstractMap;
 
 public class ContentParameter extends ParameterBase implements Parameter {
     public final Map<String, MediaType<?, ?>> content;
@@ -16,13 +17,13 @@ public class ContentParameter extends ParameterBase implements Parameter {
         this.content = content;
     }
 
-    public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
+    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
         for (Map.Entry<String, MediaType<?, ?>> entry: content.entrySet()) {
             var castInData = validate ? entry.getValue().schema().validate(inData, configuration) : inData ;
             String contentType = entry.getKey();
             if (ContentTypeDetector.contentTypeIsJson(contentType)) {
                 var value = ContentTypeSerializer.toJson(castInData);
-                return Map.of(name, value);
+                return new AbstractMap.SimpleEntry<>(name, value);
             } else {
                 throw new RuntimeException("Serialization of "+contentType+" has not yet been implemented");
             }

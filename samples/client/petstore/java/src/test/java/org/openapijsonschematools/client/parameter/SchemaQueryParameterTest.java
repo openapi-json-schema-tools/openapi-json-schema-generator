@@ -10,12 +10,13 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Set;
 
 public class SchemaQueryParameterTest {
-    public record ParamTestCase(@Nullable Object payload, Map<String, String> expectedSerialization, @Nullable Boolean explode) {
-        public ParamTestCase(@Nullable Object payload,  Map<String, String> expectedSerialization) {
+    public record ParamTestCase(@Nullable Object payload, AbstractMap.SimpleEntry<String, String> expectedSerialization, @Nullable Boolean explode) {
+        public ParamTestCase(@Nullable Object payload,  AbstractMap.SimpleEntry<String, String> expectedSerialization) {
             this(payload, expectedSerialization, null);
         }
     }
@@ -35,52 +36,52 @@ public class SchemaQueryParameterTest {
         var testCases = List.of(
                 new ParamTestCase(
                         null,
-                        Map.of("color", "")
+                        new AbstractMap.SimpleEntry<>("color", "")
                 ),
                 new ParamTestCase(
                         1,
-                        Map.of("color", "color=1")
+                        new AbstractMap.SimpleEntry<>("color", "color=1")
                 ),
                 new ParamTestCase(
                         3.14,
-                        Map.of("color","color=3.14")
+                        new AbstractMap.SimpleEntry<>("color","color=3.14")
                 ),
                 new ParamTestCase(
                         "blue",
-                        Map.of("color", "color=blue")
+                        new AbstractMap.SimpleEntry<>("color", "color=blue")
                 ),
                 new ParamTestCase(
                         "hello world",
-                        Map.of("color", "color=hello%20world")
+                        new AbstractMap.SimpleEntry<>("color", "color=hello%20world")
                 ),
                 new ParamTestCase(
                         "",
-                        Map.of("color", "color=")
+                        new AbstractMap.SimpleEntry<>("color", "color=")
                 ),
                 new ParamTestCase(
                         List.of(),
-                        Map.of("color", "")
+                        new AbstractMap.SimpleEntry<>("color", "")
                 ),
                 new ParamTestCase(
                         List.of("blue", "black", "brown"),
-                        Map.of("color", "color=blue&color=black&color=brown")
+                        new AbstractMap.SimpleEntry<>("color", "color=blue&color=black&color=brown")
                 ),
                 new ParamTestCase(
                         List.of("blue", "black", "brown"),
-                        Map.of("color", "color=blue&color=black&color=brown"),
+                        new AbstractMap.SimpleEntry<>("color", "color=blue&color=black&color=brown"),
                     true
                 ),
                 new ParamTestCase(
                         Map.of(),
-                        Map.of("color", "")
+                        new AbstractMap.SimpleEntry<>("color", "")
                 ),
                 new ParamTestCase(
                         mapPayload,
-                        Map.of("color", "R=100&G=200&B=150")
+                        new AbstractMap.SimpleEntry<>("color", "R=100&G=200&B=150")
                 ),
                 new ParamTestCase(
                         mapPayload,
-                        Map.of("color", "R=100&G=200&B=150"),
+                        new AbstractMap.SimpleEntry<>("color", "R=100&G=200&B=150"),
                         true
                 )
         );
@@ -114,28 +115,28 @@ public class SchemaQueryParameterTest {
         var testCases = List.of(
                 new ParamTestCase(
                         List.of(),
-                        Map.of("color", "")
+                        new AbstractMap.SimpleEntry<>("color", "")
                 ),
                 new ParamTestCase(
                         List.of("blue", "black", "brown"),
-                        Map.of("color", "blue%20black%20brown")
+                        new AbstractMap.SimpleEntry<>("color", "blue%20black%20brown")
                 ),
                 new ParamTestCase(
                         List.of("blue", "black", "brown"),
-                        Map.of("color", "blue%20black%20brown"),
+                        new AbstractMap.SimpleEntry<>("color", "blue%20black%20brown"),
                         true
                 ),
                 new ParamTestCase(
                         Map.of(),
-                        Map.of("color", "")
+                        new AbstractMap.SimpleEntry<>("color", "")
                 ),
                 new ParamTestCase(
                         mapPayload,
-                        Map.of("color", "R%20100%20G%20200%20B%20150")
+                        new AbstractMap.SimpleEntry<>("color", "R%20100%20G%20200%20B%20150")
                 ),
                 new ParamTestCase(
                         mapPayload,
-                        Map.of("color", "R=100%20G=200%20B=150"),
+                        new AbstractMap.SimpleEntry<>("color", "R=100%20G=200%20B=150"),
                         true
                 )
         );
@@ -162,28 +163,28 @@ public class SchemaQueryParameterTest {
         var testCases = List.of(
                 new ParamTestCase(
                         List.of(),
-                        Map.of("color", "")
+                        new AbstractMap.SimpleEntry<>("color", "")
                 ),
                 new ParamTestCase(
                         List.of("blue", "black", "brown"),
-                        Map.of("color", "blue|black|brown")
+                        new AbstractMap.SimpleEntry<>("color", "blue|black|brown")
                 ),
                 new ParamTestCase(
                         List.of("blue", "black", "brown"),
-                        Map.of("color", "blue|black|brown"),
+                        new AbstractMap.SimpleEntry<>("color", "blue|black|brown"),
                         true
                 ),
                 new ParamTestCase(
                         Map.of(),
-                        Map.of("color", "")
+                        new AbstractMap.SimpleEntry<>("color", "")
                 ),
                 new ParamTestCase(
                         mapPayload,
-                        Map.of("color", "R|100|G|200|B|150")
+                        new AbstractMap.SimpleEntry<>("color", "R|100|G|200|B|150")
                 ),
                 new ParamTestCase(
                         mapPayload,
-                        Map.of("color", "R=100|G=200|B=150"),
+                        new AbstractMap.SimpleEntry<>("color", "R=100|G=200|B=150"),
                         true
                 )
         );
