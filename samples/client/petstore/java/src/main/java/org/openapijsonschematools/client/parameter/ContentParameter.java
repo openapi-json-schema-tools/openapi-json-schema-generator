@@ -16,6 +16,7 @@ public class ContentParameter extends ParameterBase implements Parameter {
         this.content = content;
     }
 
+    @Override
     public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) {
         for (Map.Entry<String, MediaType<?, ?>> entry: content.entrySet()) {
             String contentType = entry.getKey();

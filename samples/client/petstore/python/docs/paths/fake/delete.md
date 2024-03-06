@@ -201,27 +201,6 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
-
-    # example passing only optional values
-    query_params: operation.QueryParametersDictInput = {
-        'required_string_group': "required_string_group_example",
-        'required_int64_group': 1,
-        'string_group': "string_group_example",
-        'int64_group': 1,
-    }
-    header_params: operation.HeaderParametersDictInput = {
-        'required_boolean_group': "true",
-        'boolean_group': "true",
-    }
-    try:
-        # Fake endpoint to test group parameters (optional)
-        api_response = api_instance.group_parameters(
-            query_params=query_params,
-            header_params=header_params,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 ```
 
 [[Back to top]](#top)

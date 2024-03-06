@@ -5,19 +5,17 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
-public abstract class CookieSerializer {
+public abstract class HeadersSerializer {
     private final Map<String, Parameter> parameters;
 
-    protected CookieSerializer(Map<String, Parameter> parameters) {
+    protected HeadersSerializer(Map<String, Parameter> parameters) {
         this.parameters = parameters;
     }
 
-    public String serialize(Map<String, ?> inData) {
-        String result = "";
-        Map<String, ?> sortedData = new TreeMap<>(inData);
-        for (Map.Entry<String, ?> entry: sortedData.entrySet()) {
+    public Map<String, String> serialize(Map<String, ?> inData) {
+        Map<String, String> results = new LinkedHashMap<>();
+        for (Map.Entry<String, ?> entry: inData.entrySet()) {
             String mapKey = entry.getKey();
             @Nullable Parameter parameter = parameters.get(mapKey);
             if (parameter == null) {
@@ -25,12 +23,8 @@ public abstract class CookieSerializer {
             }
             @Nullable Object value = entry.getValue();
             AbstractMap.SimpleEntry<String, String> serialized = parameter.serialize(value);
-            if (result.isEmpty()) {
-                result = serialized.getValue();
-            } else {
-                result = result + "; " + serialized.getValue();
-            }
+            results.put(serialized.getKey(), serialized.getValue());
         }
-        return result;
+        return results;
     }
 }

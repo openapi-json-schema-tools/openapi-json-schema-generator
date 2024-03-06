@@ -142,31 +142,49 @@ public class CodegenOperation {
 
     @Deprecated
     public ParameterCollection parameters() {
+        if (parametersInfo == null) {
+            return null;
+        }
         return parametersInfo.parameters;
     }
 
     @Deprecated
     public ParameterCollection pathItemParameters() {
+        if (parametersInfo == null) {
+            return null;
+        }
         return parametersInfo.pathItemParameters;
     }
 
     @Deprecated
     public CodegenSchema pathParametersSchema() {
+        if (parametersInfo == null) {
+            return null;
+        }
         return parametersInfo.pathParametersSchema;
     }
 
     @Deprecated
     public CodegenSchema queryParametersSchema() {
+        if (parametersInfo == null) {
+            return null;
+        }
         return parametersInfo.queryParametersSchema;
     }
 
     @Deprecated
     public CodegenSchema headerParametersSchema() {
+        if (parametersInfo == null) {
+            return null;
+        }
         return parametersInfo.headerParametersSchema;
     }
 
     @Deprecated
     public CodegenSchema cookieParametersSchema() {
+        if (parametersInfo == null) {
+            return null;
+        }
         return parametersInfo.cookieParametersSchema;
     }
 

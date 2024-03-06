@@ -158,22 +158,6 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         pprint(api_response)
     except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->delete_common_param: %s\n" % e)
-
-    # example passing only optional values
-    path_params = {
-        'subDir': "c",
-    }
-    header_params: operation.HeaderParametersDictInput = {
-        'someHeader': "someHeader_example",
-    }
-    try:
-        api_response = api_instance.delete_common_param(
-            path_params=path_params,
-            header_params=header_params,
-        )
-        pprint(api_response)
-    except petstore_api.ApiException as e:
-        print("Exception when calling FakeApi->delete_common_param: %s\n" % e)
 ```
 
 [[Back to top]](#top)

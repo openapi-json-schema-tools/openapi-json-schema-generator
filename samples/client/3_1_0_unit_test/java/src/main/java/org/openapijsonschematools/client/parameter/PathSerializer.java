@@ -3,21 +3,18 @@ package org.openapijsonschematools.client.parameter;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.AbstractMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
-public abstract class CookieSerializer {
+public abstract class PathSerializer {
     private final Map<String, Parameter> parameters;
 
-    protected CookieSerializer(Map<String, Parameter> parameters) {
+    protected PathSerializer(Map<String, Parameter> parameters) {
         this.parameters = parameters;
     }
 
-    public String serialize(Map<String, ?> inData) {
-        String result = "";
-        Map<String, ?> sortedData = new TreeMap<>(inData);
-        for (Map.Entry<String, ?> entry: sortedData.entrySet()) {
+    public String serialize(Map<String, ?> inData, String pathWithPlaceholders) {
+        String result = pathWithPlaceholders;
+        for (Map.Entry<String, ?> entry: inData.entrySet()) {
             String mapKey = entry.getKey();
             @Nullable Parameter parameter = parameters.get(mapKey);
             if (parameter == null) {
@@ -25,11 +22,7 @@ public abstract class CookieSerializer {
             }
             @Nullable Object value = entry.getValue();
             AbstractMap.SimpleEntry<String, String> serialized = parameter.serialize(value);
-            if (result.isEmpty()) {
-                result = serialized.getValue();
-            } else {
-                result = result + "; " + serialized.getValue();
-            }
+            result = result.replace("{" + mapKey + "}", serialized.getValue());
         }
         return result;
     }

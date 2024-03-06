@@ -25,6 +25,7 @@ public class SchemaParameter extends ParameterBase implements Parameter {
         return ParameterStyle.SIMPLE;
     }
 
+    @Override
     public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) {
         ParameterStyle usedStyle = getStyle();
         boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;
