@@ -1,0 +1,33 @@
+package {{{packageName}}}.parameter;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+import java.util.AbstractMap;
+import java.util.Map;
+
+public abstract class CookieSerializer {
+    private final Map<String, Parameter> parameters;
+
+    protected CookieSerializer(Map<String, Parameter> parameters) {
+        this.parameters = parameters;
+    }
+
+    public String serialize(Map<String, ?> inData) {
+        String result = "";
+        for (Map.Entry<String, ?> entry: inData.entrySet()) {
+            String mapKey = entry.getKey();
+            @Nullable Object value = entry.getValue();
+            @Nullable Parameter parameter = parameters.get(mapKey);
+            if (parameter == null) {
+                throw new RuntimeException("Invalid state, a parameter must exist for every key");
+            }
+            AbstractMap.SimpleEntry<String, String> serialized = parameter.serialize(inData);
+            if (result.isEmpty()) {
+                result = serialized.getValue();
+            } else {
+                result = result + "; " + serialized.getValue();
+            }
+        }
+        return result;
+    }
+}

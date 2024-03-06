@@ -14,6 +14,10 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
     {{#if headerParametersSchema}}
 import {{packageName}}.parameter.HeadersSerializer;
     {{/if}}
+    {{#if cookieParametersSchema}}
+import {{packageName}}.parameter.CookieSerializer;
+    {{/if}}
+
 import {{packageName}}.parameter.Parameter;
 
 import java.util.Map;
@@ -72,20 +76,16 @@ public class {{jsonPathPiece.pascalCase}} {
     {{/if}}
     {{#if cookieParametersSchema}}
 
-    public static class CookieParametersSerializer {
-        Map<String, Parameter> parameters;
-
+    public static class CookieParametersSerializer extends CookieSerializer {
         public CookieParametersSerializer() {
-            parameters = Map.ofEntries(
+            super(
+                Map.ofEntries(
                 {{#each cookieParameters}}
-                new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
+                    new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
                 {{/each}}
+                )
             );
         }
-
-        {{#with cookieParametersSchema}}
-        // {{containerJsonPathPiece.pascalCase}}
-        {{/with}}
     }
     {{/if}}
 }
