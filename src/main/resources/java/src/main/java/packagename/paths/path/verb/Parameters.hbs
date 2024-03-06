@@ -14,6 +14,9 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
     {{#if headerParametersSchema}}
 import {{packageName}}.parameter.HeadersSerializer;
     {{/if}}
+    {{#if queryParametersSchema}}
+import {{packageName}}.parameter.QuerySerializer;
+    {{/if}}
     {{#if cookieParametersSchema}}
 import {{packageName}}.parameter.CookieSerializer;
     {{/if}}
@@ -44,20 +47,16 @@ public class {{jsonPathPiece.pascalCase}} {
     {{/if}}
     {{#if queryParametersSchema}}
 
-    public static class QueryParametersSerializer {
-        Map<String, Parameter> parameters;
-
+    public static class QueryParametersSerializer extends QuerySerializer {
         public QueryParametersSerializer() {
-            parameters = Map.ofEntries(
+            super(
+                Map.ofEntries(
                 {{#each queryParameters}}
-                new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
+                    new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
                 {{/each}}
+                )
             );
         }
-
-        {{#with queryParametersSchema}}
-        // {{containerJsonPathPiece.pascalCase}}
-        {{/with}}
     }
     {{/if}}
     {{#if headerParametersSchema}}

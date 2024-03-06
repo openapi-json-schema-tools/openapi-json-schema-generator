@@ -19,6 +19,10 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.Parameter16;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.Parameter17;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.Parameter18;
+import org.openapijsonschematools.client.parameter.HeadersSerializer;
+import org.openapijsonschematools.client.parameter.QuerySerializer;
+import org.openapijsonschematools.client.parameter.CookieSerializer;
+
 import org.openapijsonschematools.client.parameter.Parameter;
 
 import java.util.Map;
@@ -26,10 +30,10 @@ import java.util.AbstractMap;
 
 public class Parameters {
 
-    public static class PathParametersDeserializer {
+    public static class PathParametersSerializer {
         Map<String, Parameter> parameters;
 
-        public PathParametersDeserializer() {
+        public PathParametersSerializer() {
             parameters = Map.ofEntries(
                 new AbstractMap.SimpleEntry<>("1", new Parameter9.Parameter91()),
                 new AbstractMap.SimpleEntry<>("aB", new Parameter10.Parameter101()),
@@ -42,50 +46,44 @@ public class Parameters {
         // deserialize PathParameters
     }
 
-    public static class QueryParametersDeserializer {
-        Map<String, Parameter> parameters;
-
-        public QueryParametersDeserializer() {
-            parameters = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("1", new Parameter0.Parameter01()),
-                new AbstractMap.SimpleEntry<>("aB", new Parameter1.Parameter11()),
-                new AbstractMap.SimpleEntry<>("Ab", new Parameter2.Parameter21()),
-                new AbstractMap.SimpleEntry<>("self", new Parameter3.Parameter31()),
-                new AbstractMap.SimpleEntry<>("A-B", new Parameter4.Parameter41())
+    public static class QueryParametersSerializer extends QuerySerializer {
+        public QueryParametersSerializer() {
+            super(
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("1", new Parameter0.Parameter01()),
+                    new AbstractMap.SimpleEntry<>("aB", new Parameter1.Parameter11()),
+                    new AbstractMap.SimpleEntry<>("Ab", new Parameter2.Parameter21()),
+                    new AbstractMap.SimpleEntry<>("self", new Parameter3.Parameter31()),
+                    new AbstractMap.SimpleEntry<>("A-B", new Parameter4.Parameter41())
+                )
             );
         }
-
-        // QueryParameters
     }
 
-    public static class HeaderParametersDeserializer {
-        Map<String, Parameter> parameters;
-
-        public HeaderParametersDeserializer() {
-            parameters = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("1", new Parameter5.Parameter51()),
-                new AbstractMap.SimpleEntry<>("aB", new Parameter6.Parameter61()),
-                new AbstractMap.SimpleEntry<>("self", new Parameter7.Parameter71()),
-                new AbstractMap.SimpleEntry<>("A-B", new Parameter8.Parameter81())
+    public static class HeaderParametersSerializer extends HeadersSerializer {
+        public HeaderParametersSerializer() {
+            super(
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("1", new Parameter5.Parameter51()),
+                    new AbstractMap.SimpleEntry<>("aB", new Parameter6.Parameter61()),
+                    new AbstractMap.SimpleEntry<>("self", new Parameter7.Parameter71()),
+                    new AbstractMap.SimpleEntry<>("A-B", new Parameter8.Parameter81())
+                )
             );
         }
-
-        // HeaderParameters
     }
 
-    public static class CookieParametersDeserializer {
-        Map<String, Parameter> parameters;
-
-        public CookieParametersDeserializer() {
-            parameters = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("1", new Parameter14.Parameter141()),
-                new AbstractMap.SimpleEntry<>("aB", new Parameter15.Parameter151()),
-                new AbstractMap.SimpleEntry<>("Ab", new Parameter16.Parameter161()),
-                new AbstractMap.SimpleEntry<>("self", new Parameter17.Parameter171()),
-                new AbstractMap.SimpleEntry<>("A-B", new Parameter18.Parameter181())
+    public static class CookieParametersSerializer extends CookieSerializer {
+        public CookieParametersSerializer() {
+            super(
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("1", new Parameter14.Parameter141()),
+                    new AbstractMap.SimpleEntry<>("aB", new Parameter15.Parameter151()),
+                    new AbstractMap.SimpleEntry<>("Ab", new Parameter16.Parameter161()),
+                    new AbstractMap.SimpleEntry<>("self", new Parameter17.Parameter171()),
+                    new AbstractMap.SimpleEntry<>("A-B", new Parameter18.Parameter181())
+                )
             );
         }
-
-        // CookieParameters
     }
 }

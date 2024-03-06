@@ -26,30 +26,29 @@ public class SchemaParameter extends ParameterBase implements Parameter {
         return ParameterStyle.SIMPLE;
     }
 
-    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
-        var castInData = validate ? schema.validate(inData, configuration) : inData;
+    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) {
         ParameterStyle usedStyle = getStyle();
         boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;
         String value;
         boolean usedExplode = explode == null ? usedStyle == ParameterStyle.FORM : explode;
         if (usedStyle == ParameterStyle.SIMPLE) {
             // header OR path
-            value = StyleSerializer.serializeSimple(castInData, name, usedExplode, percentEncode);
+            value = StyleSerializer.serializeSimple(inData, name, usedExplode, percentEncode);
         } else if (usedStyle == ParameterStyle.FORM) {
             // query OR cookie
-            value = StyleSerializer.serializeForm(castInData, name, usedExplode, percentEncode);
+            value = StyleSerializer.serializeForm(inData, name, usedExplode, percentEncode);
         } else if (usedStyle == ParameterStyle.LABEL) {
             // path
-            value = StyleSerializer.serializeLabel(castInData, name, usedExplode);
+            value = StyleSerializer.serializeLabel(inData, name, usedExplode);
         } else if (usedStyle == ParameterStyle.MATRIX) {
             // path
-            value = StyleSerializer.serializeMatrix(castInData, name, usedExplode);
+            value = StyleSerializer.serializeMatrix(inData, name, usedExplode);
         } else if (usedStyle == ParameterStyle.SPACE_DELIMITED) {
             // query
-            value = StyleSerializer.serializeSpaceDelimited(castInData, name, usedExplode);
+            value = StyleSerializer.serializeSpaceDelimited(inData, name, usedExplode);
         } else if (usedStyle == ParameterStyle.PIPE_DELIMITED) {
             // query
-            value = StyleSerializer.serializePipeDelimited(castInData, name, usedExplode);
+            value = StyleSerializer.serializePipeDelimited(inData, name, usedExplode);
         } else {
             // usedStyle == ParameterStyle.DEEP_OBJECT
             // query
