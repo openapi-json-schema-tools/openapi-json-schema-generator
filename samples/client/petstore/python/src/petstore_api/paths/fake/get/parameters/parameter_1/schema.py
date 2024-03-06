@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class SchemaEnums:
 
     @schemas.classproperty
-    def _ABC(cls) -> typing.Literal["_abc"]:
+    def LOW_LINE_ABC(cls) -> typing.Literal["_abc"]:
         return Schema.validate("_abc")
 
     @schemas.classproperty
@@ -37,7 +37,7 @@ class Schema(
     default: typing.Literal["-efg"] = "-efg"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
-            "_abc": "_ABC",
+            "_abc": "LOW_LINE_ABC",
             "-efg": "HYPHEN_MINUS_EFG",
             "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
         }

@@ -460,25 +460,25 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterProto(Map<String, @Nullable Object> instance);
         
-        default T setProto(int value) {
+        default T setLowLineProto(int value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(float value) {
+        default T setLowLineProto(float value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(long value) {
+        default T setLowLineProto(long value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(double value) {
+        default T setLowLineProto(double value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);

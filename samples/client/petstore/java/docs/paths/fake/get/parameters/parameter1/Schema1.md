@@ -93,6 +93,6 @@ A class that stores String enum values
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| _ABC | value = "_abc" |
+| LOW_LINE_ABC | value = "_abc" |
 | HYPHEN_MINUS_EFG | value = "-efg" |
 | LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS | value = "(xyz)" |

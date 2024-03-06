@@ -23,7 +23,7 @@ public class Schema1 {
     // nest classes so all schemas and input/output classes can be public
     
     public enum StringSchemaEnums1 implements StringValueMethod {
-        _ABC("_abc"),
+        LOW_LINE_ABC("_abc"),
         HYPHEN_MINUS_EFG("-efg"),
         LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS("(xyz)");
         private final String value;

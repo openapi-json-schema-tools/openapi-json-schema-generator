@@ -140,7 +140,7 @@ class EnumFormStringArray(
 class EnumFormStringEnums:
 
     @schemas.classproperty
-    def _ABC(cls) -> typing.Literal["_abc"]:
+    def LOW_LINE_ABC(cls) -> typing.Literal["_abc"]:
         return EnumFormString.validate("_abc")
 
     @schemas.classproperty
@@ -162,7 +162,7 @@ class EnumFormString(
     default: typing.Literal["-efg"] = "-efg"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
-            "_abc": "_ABC",
+            "_abc": "LOW_LINE_ABC",
             "-efg": "HYPHEN_MINUS_EFG",
             "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
         }
