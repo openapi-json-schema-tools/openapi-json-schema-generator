@@ -1113,12 +1113,22 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         usedValue = usedValue.replaceAll("[ ]+", "_");
 
         // replace all invalid characters with their character name descriptions
-        Pattern nonWordCharPattern = Pattern.compile("\\W+");
-        Matcher matcher = nonWordCharPattern.matcher(usedValue);
         Stack<AbstractMap.SimpleEntry<Integer, String>> matchStartToGroup = new Stack<>();
+        Pattern nonLetterCharPattern = Pattern.compile("^[^a-zA-Z]");
+        Matcher matcher = nonLetterCharPattern.matcher(usedValue);
         while (matcher.find()) {
             matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
         }
+        Pattern nonWordPattern = Pattern.compile("\\W+");
+        matcher = nonWordPattern.matcher(usedValue);
+        while (matcher.find()) {
+            if (matcher.start() == 0) {
+                // skip adding first because it was already added
+                continue;
+            }
+            matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
+        }
+
         char underscore = '_';
         while (!matchStartToGroup.isEmpty()) {
             AbstractMap.SimpleEntry<Integer, String> entry = matchStartToGroup.pop();

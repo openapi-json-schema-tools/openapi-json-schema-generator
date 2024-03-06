@@ -224,15 +224,11 @@ public class PythonClientGeneratorTest {
                 "#/components/schemas/" + modelName
         );
 
-        TreeMap<String, CodegenSchema> schemas = new TreeMap<>();
-        schemas.put("StringEnum", cm);
-
-        codegen.postProcessModels(schemas);
-
         Map<EnumValue, String> enumVars = cm.enumInfo.valueToName;
-        Assert.assertEquals(enumVars.size(), 2);
+        Assert.assertEquals(enumVars.size(), 3);
         Assert.assertEquals(enumVars.get(new EnumValue("#367B9C", "string", null)), "NUMBER_SIGN_367B9C");
         Assert.assertEquals(enumVars.get(new EnumValue("#FFA5A4", "string", null)), "NUMBER_SIGN_FFA5A4");
+        Assert.assertEquals(enumVars.get(new EnumValue("2D_Object", "string", null)), "DIGIT_TWO_D_OBJECT");
     }
 
     @Test(description = "format imports of models using a package containing dots")
