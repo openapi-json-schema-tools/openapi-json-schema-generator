@@ -12,6 +12,9 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
         {{/each}}
     {{/with}}
     {{#if headerParametersSchema}}
+import {{packageName}}.parameter.PathSerializer;
+    {{/if}}
+    {{#if headerParametersSchema}}
 import {{packageName}}.parameter.HeadersSerializer;
     {{/if}}
     {{#if queryParametersSchema}}
@@ -29,20 +32,16 @@ import java.util.AbstractMap;
 public class {{jsonPathPiece.pascalCase}} {
     {{#if pathParametersSchema}}
 
-    public static class PathParametersSerializer {
-        Map<String, Parameter> parameters;
-
+    public static class PathParametersSerializer extends PathSerializer {
         public PathParametersSerializer() {
-            parameters = Map.ofEntries(
+            super(
+                Map.ofEntries(
                 {{#each pathParameters}}
-                new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
+                    new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
                 {{/each}}
+                )
             );
         }
-
-        {{#with pathParametersSchema}}
-        // deserialize {{containerJsonPathPiece.pascalCase}}
-        {{/with}}
     }
     {{/if}}
     {{#if queryParametersSchema}}

@@ -854,6 +854,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterStyle.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/PathSerializer.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "PathSerializer.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/QuerySerializer.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "QuerySerializer.java"));

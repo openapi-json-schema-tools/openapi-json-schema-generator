@@ -19,6 +19,7 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.Parameter16;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.Parameter17;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.Parameter18;
+import org.openapijsonschematools.client.parameter.PathSerializer;
 import org.openapijsonschematools.client.parameter.HeadersSerializer;
 import org.openapijsonschematools.client.parameter.QuerySerializer;
 import org.openapijsonschematools.client.parameter.CookieSerializer;
@@ -30,20 +31,18 @@ import java.util.AbstractMap;
 
 public class Parameters {
 
-    public static class PathParametersSerializer {
-        Map<String, Parameter> parameters;
-
+    public static class PathParametersSerializer extends PathSerializer {
         public PathParametersSerializer() {
-            parameters = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("1", new Parameter9.Parameter91()),
-                new AbstractMap.SimpleEntry<>("aB", new Parameter10.Parameter101()),
-                new AbstractMap.SimpleEntry<>("Ab", new Parameter11.Parameter111()),
-                new AbstractMap.SimpleEntry<>("self", new Parameter12.Parameter121()),
-                new AbstractMap.SimpleEntry<>("A-B", new Parameter13.Parameter131())
+            super(
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("1", new Parameter9.Parameter91()),
+                    new AbstractMap.SimpleEntry<>("aB", new Parameter10.Parameter101()),
+                    new AbstractMap.SimpleEntry<>("Ab", new Parameter11.Parameter111()),
+                    new AbstractMap.SimpleEntry<>("self", new Parameter12.Parameter121()),
+                    new AbstractMap.SimpleEntry<>("A-B", new Parameter13.Parameter131())
+                )
             );
         }
-
-        // deserialize PathParameters
     }
 
     public static class QueryParametersSerializer extends QuerySerializer {

@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.fake.get.parameters.Parameter2;
 import org.openapijsonschematools.client.paths.fake.get.parameters.Parameter3;
 import org.openapijsonschematools.client.paths.fake.get.parameters.Parameter4;
 import org.openapijsonschematools.client.paths.fake.get.parameters.Parameter5;
+import org.openapijsonschematools.client.parameter.PathSerializer;
 import org.openapijsonschematools.client.parameter.HeadersSerializer;
 import org.openapijsonschematools.client.parameter.QuerySerializer;
 

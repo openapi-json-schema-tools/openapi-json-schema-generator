@@ -563,6 +563,7 @@ src/main/java/org/openapijsonschematools/client/parameter/Parameter.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterBase.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterInType.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterStyle.java
+src/main/java/org/openapijsonschematools/client/parameter/PathSerializer.java
 src/main/java/org/openapijsonschematools/client/parameter/QuerySerializer.java
 src/main/java/org/openapijsonschematools/client/parameter/SchemaParameter.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/RequestBody.java

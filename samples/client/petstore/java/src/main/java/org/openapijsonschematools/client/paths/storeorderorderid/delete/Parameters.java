@@ -9,15 +9,13 @@ import java.util.AbstractMap;
 
 public class Parameters {
 
-    public static class PathParametersSerializer {
-        Map<String, Parameter> parameters;
-
+    public static class PathParametersSerializer extends PathSerializer {
         public PathParametersSerializer() {
-            parameters = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("order_id", new Parameter0.Parameter01())
+            super(
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("order_id", new Parameter0.Parameter01())
+                )
             );
         }
-
-        // deserialize PathParameters
     }
 }
