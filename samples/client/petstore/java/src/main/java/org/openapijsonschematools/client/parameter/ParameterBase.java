@@ -13,27 +13,4 @@ public class ParameterBase extends HeaderBase {
         this.name = name;
         this.inType = inType;
     }
-
-    protected ParameterStyle getStyle() {
-        if (style != null) {
-            return style;
-        }
-        if (inType == ParameterInType.QUERY || inType == ParameterInType.COOKIE) {
-            return ParameterStyle.FORM;
-        }
-        //  ParameterInType.HEADER || ParameterInType.PATH
-        return ParameterStyle.SIMPLE;
-    }
-
-    public PrefixSeparatorIterator getPrefixSeparatorIterator() {
-        ParameterStyle usedStyle = getStyle();
-        if (usedStyle == ParameterStyle.FORM) {
-            return new PrefixSeparatorIterator("", "&");
-        } else if (usedStyle == ParameterStyle.SPACE_DELIMITED) {
-            return new PrefixSeparatorIterator("", "%20");
-        } else if (usedStyle == ParameterStyle.PIPE_DELIMITED) {
-            return new PrefixSeparatorIterator("", "|");
-        }
-        throw new RuntimeException("No iterator possible for style="+usedStyle);
-    }
 }

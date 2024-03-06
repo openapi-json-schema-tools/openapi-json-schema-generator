@@ -11,7 +11,7 @@ import org.openapijsonschematools.client.header.StyleSerializer;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import java.util.Map;
 
-public class SchemaParameter extends ParameterBase {
+public class SchemaParameter extends ParameterBase implements Parameter {
     public final JsonSchema<?> schema;
 
     public SchemaParameter(String name, ParameterInType inType, boolean required, @Nullable ParameterStyle style, @Nullable Boolean explode, @Nullable Boolean allowReserved, JsonSchema<?> schema) {
@@ -19,7 +19,18 @@ public class SchemaParameter extends ParameterBase {
         this.schema = schema;
     }
 
-    protected Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration, @Nullable PrefixSeparatorIterator iterator) {
+    private ParameterStyle getStyle() {
+        if (style != null) {
+            return style;
+        }
+        if (inType == ParameterInType.QUERY || inType == ParameterInType.COOKIE) {
+            return ParameterStyle.FORM;
+        }
+        //  ParameterInType.HEADER || ParameterInType.PATH
+        return ParameterStyle.SIMPLE;
+    }
+
+    public Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
         var castInData = validate ? schema.validate(inData, configuration) : inData;
         ParameterStyle usedStyle = getStyle();
         boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;
@@ -30,7 +41,7 @@ public class SchemaParameter extends ParameterBase {
             value = StyleSerializer.serializeSimple(castInData, name, usedExplode, percentEncode);
         } else if (usedStyle == ParameterStyle.FORM) {
             // query OR cookie
-            value = StyleSerializer.serializeForm(castInData, name, usedExplode, percentEncode, iterator);
+            value = StyleSerializer.serializeForm(castInData, name, usedExplode, percentEncode);
         } else if (usedStyle == ParameterStyle.LABEL) {
             // path
             value = StyleSerializer.serializeLabel(castInData, name, usedExplode);
@@ -39,10 +50,10 @@ public class SchemaParameter extends ParameterBase {
             value = StyleSerializer.serializeMatrix(castInData, name, usedExplode);
         } else if (usedStyle == ParameterStyle.SPACE_DELIMITED) {
             // query
-            value = StyleSerializer.serializeSpaceDelimited(castInData, name, usedExplode, iterator);
+            value = StyleSerializer.serializeSpaceDelimited(castInData, name, usedExplode);
         } else if (usedStyle == ParameterStyle.PIPE_DELIMITED) {
             // query
-            value = StyleSerializer.serializePipeDelimited(castInData, name, usedExplode, iterator);
+            value = StyleSerializer.serializePipeDelimited(castInData, name, usedExplode);
         } else {
             // usedStyle == ParameterStyle.DEEP_OBJECT
             // query

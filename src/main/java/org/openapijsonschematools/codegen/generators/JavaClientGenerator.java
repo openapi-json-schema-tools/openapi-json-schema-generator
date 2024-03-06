@@ -830,25 +830,17 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         // parameter
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/ContentNonQueryParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "ContentNonQueryParameter.java"));
-        supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ContentParameter.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ContentParameter.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/ContentQueryParameter.hbs",
+                "src/main/java/packagename/parameter/Parameter.hbs",
                 packagePath() + File.separatorChar + "parameter",
-                "ContentQueryParameter.java"));
+                "Parameter.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ParameterBase.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterBase.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/NonQueryParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "NonQueryParameter.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ParameterInType.hbs",
                 packagePath() + File.separatorChar + "parameter",
@@ -858,25 +850,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterStyle.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/QueryParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "QueryParameter.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/SchemaNonQueryParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "SchemaNonQueryParameter.java"));
-        supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/SchemaParameter.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "SchemaParameter.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/SchemaQueryParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "SchemaQueryParameter.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/packagename/parameter/SchemaNonQueryParameterTest.hbs",
-                testPackagePath() + File.separatorChar + "parameter",
-                "SchemaNonQueryParameterTest.java"));
         supportingFiles.add(new SupportingFile(
                 "src/test/java/packagename/parameter/SchemaQueryParameterTest.hbs",
                 testPackagePath() + File.separatorChar + "parameter",

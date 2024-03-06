@@ -20,7 +20,7 @@ public class SchemaQueryParameterTest {
         }
     }
 
-    public static class QueryParameterNoStyle extends SchemaQueryParameter {
+    public static class QueryParameterNoStyle extends SchemaParameter {
         public QueryParameterNoStyle(@Nullable Boolean explode) {
             super("color", ParameterInType.QUERY, true, null, explode, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
         }
@@ -87,21 +87,19 @@ public class SchemaQueryParameterTest {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         for (ParamTestCase testCase: testCases) {
             var parameter = new QueryParameterNoStyle(testCase.explode);
-            var iterator = parameter.getPrefixSeparatorIterator();
-            var serialization = parameter.serialize(testCase.payload, false, configuration, iterator);
+            var serialization = parameter.serialize(testCase.payload, false, configuration);
             Assert.assertEquals(testCase.expectedSerialization, serialization);
         }
         var parameter = new QueryParameterNoStyle(false);
-        var iterator = parameter.getPrefixSeparatorIterator();
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
                     InvalidTypeException.class,
-                    () -> parameter.serialize(value, false, configuration, iterator)
+                    () -> parameter.serialize(value, false, configuration)
             );
         }
     }
 
-    public static class QueryParameterSpaceDelimited extends SchemaQueryParameter {
+    public static class QueryParameterSpaceDelimited extends SchemaParameter {
         public QueryParameterSpaceDelimited(@Nullable Boolean explode) {
             super("color", ParameterInType.QUERY, true, ParameterStyle.SPACE_DELIMITED, explode, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
         }
@@ -144,13 +142,12 @@ public class SchemaQueryParameterTest {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         for (ParamTestCase testCase: testCases) {
             var parameter = new QueryParameterSpaceDelimited(testCase.explode);
-            var iterator = parameter.getPrefixSeparatorIterator();
-            var serialization = parameter.serialize(testCase.payload, false, configuration, iterator);
+            var serialization = parameter.serialize(testCase.payload, false, configuration);
             Assert.assertEquals(testCase.expectedSerialization, serialization);
         }
     }
 
-    public static class QueryParameterPipeDelimited extends SchemaQueryParameter {
+    public static class QueryParameterPipeDelimited extends SchemaParameter {
         public QueryParameterPipeDelimited(@Nullable Boolean explode) {
             super("color", ParameterInType.QUERY, true, ParameterStyle.PIPE_DELIMITED, explode, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
         }
@@ -193,8 +190,7 @@ public class SchemaQueryParameterTest {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         for (ParamTestCase testCase: testCases) {
             var parameter = new QueryParameterPipeDelimited(testCase.explode);
-            var iterator = parameter.getPrefixSeparatorIterator();
-            var serialization = parameter.serialize(testCase.payload, false, configuration, iterator);
+            var serialization = parameter.serialize(testCase.payload, false, configuration);
             Assert.assertEquals(testCase.expectedSerialization, serialization);
         }
     }

@@ -23,17 +23,16 @@ public class StyleSerializer extends Rfc6570Serializer {
             @Nullable Object inData,
             String name,
             boolean explode,
-            boolean percentEncode,
-            @Nullable PrefixSeparatorIterator iterator
+            boolean percentEncode
     ) {
         // todo check that the prefix and suffix matches this one
-        PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator("", "&");
+        PrefixSeparatorIterator iterator = new PrefixSeparatorIterator("", "&");
         return rfc6570Expansion(
             name,
             inData,
             explode,
             percentEncode,
-            usedIterator
+            iterator
         );
     }
 
@@ -70,10 +69,9 @@ public class StyleSerializer extends Rfc6570Serializer {
     public static String serializeSpaceDelimited(
             @Nullable Object inData,
             String name,
-            boolean explode,
-            @Nullable PrefixSeparatorIterator iterator
+            boolean explode
     ) {
-        PrefixSeparatorIterator usedIterator = iterator == null ? new PrefixSeparatorIterator("", "%20") : iterator;
+        PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator("", "%20");
         return rfc6570Expansion(
             name,
             inData,
@@ -86,10 +84,9 @@ public class StyleSerializer extends Rfc6570Serializer {
     public static String serializePipeDelimited(
             @Nullable Object inData,
             String name,
-            boolean explode,
-            @Nullable PrefixSeparatorIterator iterator
+            boolean explode
     ) {
-        PrefixSeparatorIterator usedIterator = iterator == null ? new PrefixSeparatorIterator("", "|") : iterator;
+        PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator("", "|");
         return rfc6570Expansion(
             name,
             inData,

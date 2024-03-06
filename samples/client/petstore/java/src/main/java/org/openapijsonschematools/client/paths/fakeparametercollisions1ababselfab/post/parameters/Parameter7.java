@@ -2,12 +2,12 @@ package org.openapijsonschematools.client.paths.fakeparametercollisions1ababself
 
 import org.openapijsonschematools.client.parameter.ParameterStyle;
 import org.openapijsonschematools.client.parameter.ParameterInType;
-import org.openapijsonschematools.client.parameter.SchemaNonQueryParameter;
+import org.openapijsonschematools.client.parameter.SchemaParameter;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter7.Schema7;
 
 public class Parameter7 {
 
-    public static class Parameter71 extends SchemaNonQueryParameter {
+    public static class Parameter71 extends SchemaParameter {
         public Parameter71() {
             super(
                 "self",

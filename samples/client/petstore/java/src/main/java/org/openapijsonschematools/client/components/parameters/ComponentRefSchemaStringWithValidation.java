@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.components.parameters;
 
 import org.openapijsonschematools.client.parameter.ParameterInType;
-import org.openapijsonschematools.client.parameter.ContentNonQueryParameter;
+import org.openapijsonschematools.client.parameter.ContentParameter;
 import org.openapijsonschematools.client.parameter.ContentParameter;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.parameters.componentrefschemastringwithvalidation.content.applicationjson.ApplicationjsonSchema;
@@ -21,7 +21,7 @@ public class ComponentRefSchemaStringWithValidation {
         }
     }
 
-    public static class ComponentRefSchemaStringWithValidation1 extends ContentNonQueryParameter {
+    public static class ComponentRefSchemaStringWithValidation1 extends ContentParameter {
         public ComponentRefSchemaStringWithValidation1() {
             super(
                 "CRSstringWithValidation",

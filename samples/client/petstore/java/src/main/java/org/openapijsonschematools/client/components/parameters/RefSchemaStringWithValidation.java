@@ -2,12 +2,12 @@ package org.openapijsonschematools.client.components.parameters;
 
 import org.openapijsonschematools.client.parameter.ParameterStyle;
 import org.openapijsonschematools.client.parameter.ParameterInType;
-import org.openapijsonschematools.client.parameter.SchemaNonQueryParameter;
+import org.openapijsonschematools.client.parameter.SchemaParameter;
 import org.openapijsonschematools.client.components.parameters.refschemastringwithvalidation.Schema;
 
 public class RefSchemaStringWithValidation {
 
-    public static class RefSchemaStringWithValidation1 extends SchemaNonQueryParameter {
+    public static class RefSchemaStringWithValidation1 extends SchemaParameter {
         public RefSchemaStringWithValidation1() {
             super(
                 "RSstringWithValidation",
