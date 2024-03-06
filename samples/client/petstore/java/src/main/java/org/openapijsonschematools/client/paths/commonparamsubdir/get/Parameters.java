@@ -2,9 +2,8 @@ package org.openapijsonschematools.client.paths.commonparamsubdir.get;
 
 import org.openapijsonschematools.client.paths.commonparamsubdir.parameters.RouteParameter0;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.parameters.Parameter0;
+import org.openapijsonschematools.client.parameter.PathSerializer;
 import org.openapijsonschematools.client.parameter.QuerySerializer;
-
-import org.openapijsonschematools.client.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;

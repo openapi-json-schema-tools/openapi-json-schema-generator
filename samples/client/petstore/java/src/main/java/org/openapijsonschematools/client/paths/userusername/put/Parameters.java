@@ -1,8 +1,7 @@
 package org.openapijsonschematools.client.paths.userusername.put;
 
 import org.openapijsonschematools.client.paths.userusername.put.parameters.Parameter0;
-
-import org.openapijsonschematools.client.parameter.Parameter;
+import org.openapijsonschematools.client.parameter.PathSerializer;
 
 import java.util.Map;
 import java.util.AbstractMap;

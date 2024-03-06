@@ -3,8 +3,9 @@ package org.openapijsonschematools.client.parameter;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.AbstractMap;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public abstract class QuerySerializer {
     private final Map<String, Parameter> parameters;
@@ -14,18 +15,18 @@ public abstract class QuerySerializer {
     }
 
     public Map<String, String> getQueryMap(Map<String, ?> inData) {
-        Map<String, String> results = new LinkedHashMap<>();
+        Map<String, String> results = new HashMap<>();
         for (Map.Entry<String, ?> entry: inData.entrySet()) {
             String mapKey = entry.getKey();
-            @Nullable Object value = entry.getValue();
             @Nullable Parameter parameter = parameters.get(mapKey);
             if (parameter == null) {
                 throw new RuntimeException("Invalid state, a parameter must exist for every key");
             }
-            AbstractMap.SimpleEntry<String, String> serialized = parameter.serialize(inData);
+            @Nullable Object value = entry.getValue();
+            AbstractMap.SimpleEntry<String, String> serialized = parameter.serialize(value);
             results.put(serialized.getKey(), serialized.getValue());
         }
-        return results;
+        return new TreeMap<>(results);
     }
 
     public String serialize(Map<String, String> queryMap) {

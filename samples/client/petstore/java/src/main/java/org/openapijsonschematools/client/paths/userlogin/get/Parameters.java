@@ -4,8 +4,6 @@ import org.openapijsonschematools.client.paths.userlogin.get.parameters.Paramete
 import org.openapijsonschematools.client.paths.userlogin.get.parameters.Parameter1;
 import org.openapijsonschematools.client.parameter.QuerySerializer;
 
-import org.openapijsonschematools.client.parameter.Parameter;
-
 import java.util.Map;
 import java.util.AbstractMap;
 

@@ -24,8 +24,6 @@ import org.openapijsonschematools.client.parameter.HeadersSerializer;
 import org.openapijsonschematools.client.parameter.QuerySerializer;
 import org.openapijsonschematools.client.parameter.CookieSerializer;
 
-import org.openapijsonschematools.client.parameter.Parameter;
-
 import java.util.Map;
 import java.util.AbstractMap;
 

@@ -6,11 +6,8 @@ import org.openapijsonschematools.client.paths.fake.delete.parameters.Parameter2
 import org.openapijsonschematools.client.paths.fake.delete.parameters.Parameter3;
 import org.openapijsonschematools.client.paths.fake.delete.parameters.Parameter4;
 import org.openapijsonschematools.client.paths.fake.delete.parameters.Parameter5;
-import org.openapijsonschematools.client.parameter.PathSerializer;
 import org.openapijsonschematools.client.parameter.HeadersSerializer;
 import org.openapijsonschematools.client.parameter.QuerySerializer;
-
-import org.openapijsonschematools.client.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;

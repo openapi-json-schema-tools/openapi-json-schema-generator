@@ -8,8 +8,6 @@ import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parame
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.Parameter5;
 import org.openapijsonschematools.client.parameter.QuerySerializer;
 
-import org.openapijsonschematools.client.parameter.Parameter;
-
 import java.util.Map;
 import java.util.AbstractMap;
 

@@ -5,8 +5,6 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.delete.paramete
 import org.openapijsonschematools.client.parameter.PathSerializer;
 import org.openapijsonschematools.client.parameter.HeadersSerializer;
 
-import org.openapijsonschematools.client.parameter.Parameter;
-
 import java.util.Map;
 import java.util.AbstractMap;
 

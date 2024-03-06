@@ -1,7 +1,6 @@
 package org.openapijsonschematools.client.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
 import org.openapijsonschematools.client.contenttype.ContentTypeSerializer;
 import org.openapijsonschematools.client.mediatype.MediaType;

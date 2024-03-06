@@ -1,7 +1,6 @@
 package {{{packageName}}}.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.header.StyleSerializer;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 
@@ -26,6 +25,7 @@ public class SchemaParameter extends ParameterBase implements Parameter {
         return ParameterStyle.SIMPLE;
     }
 
+    @Override
     public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) {
         ParameterStyle usedStyle = getStyle();
         boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;

@@ -1,7 +1,6 @@
 package {{{packageName}}}.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.contenttype.ContentTypeDetector;
 import {{{packageName}}}.contenttype.ContentTypeSerializer;
 import {{{packageName}}}.mediatype.MediaType;
@@ -17,6 +16,7 @@ public class ContentParameter extends ParameterBase implements Parameter {
         this.content = content;
     }
 
+    @Override
     public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) {
         for (Map.Entry<String, MediaType<?, ?>> entry: content.entrySet()) {
             String contentType = entry.getKey();

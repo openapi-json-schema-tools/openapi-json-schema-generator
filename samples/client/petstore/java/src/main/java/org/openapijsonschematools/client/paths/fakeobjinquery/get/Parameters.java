@@ -3,8 +3,6 @@ package org.openapijsonschematools.client.paths.fakeobjinquery.get;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.parameters.Parameter0;
 import org.openapijsonschematools.client.parameter.QuerySerializer;
 
-import org.openapijsonschematools.client.parameter.Parameter;
-
 import java.util.Map;
 import java.util.AbstractMap;
 

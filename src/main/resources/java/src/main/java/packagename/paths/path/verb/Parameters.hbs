@@ -11,7 +11,7 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
         {{/each}}
     {{/with}}
-    {{#if headerParametersSchema}}
+    {{#if pathParametersSchema}}
 import {{packageName}}.parameter.PathSerializer;
     {{/if}}
     {{#if headerParametersSchema}}
@@ -23,8 +23,6 @@ import {{packageName}}.parameter.QuerySerializer;
     {{#if cookieParametersSchema}}
 import {{packageName}}.parameter.CookieSerializer;
     {{/if}}
-
-import {{packageName}}.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;

@@ -4,8 +4,6 @@ import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.parame
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.parameters.Parameter1;
 import org.openapijsonschematools.client.parameter.QuerySerializer;
 
-import org.openapijsonschematools.client.parameter.Parameter;
-
 import java.util.Map;
 import java.util.AbstractMap;
 

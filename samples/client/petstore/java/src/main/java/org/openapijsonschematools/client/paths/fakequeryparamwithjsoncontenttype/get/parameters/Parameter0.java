@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttyp
 
 import org.openapijsonschematools.client.parameter.ParameterInType;
 import org.openapijsonschematools.client.parameter.ContentParameter;
-import org.openapijsonschematools.client.parameter.ContentParameter;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.parameters.parameter0.content.applicationjson.Schema0;
 

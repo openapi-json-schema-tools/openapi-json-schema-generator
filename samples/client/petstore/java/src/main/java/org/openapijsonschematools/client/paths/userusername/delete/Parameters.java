@@ -1,8 +1,7 @@
 package org.openapijsonschematools.client.paths.userusername.delete;
 
 import org.openapijsonschematools.client.paths.userusername.delete.parameters.Parameter0;
-
-import org.openapijsonschematools.client.parameter.Parameter;
+import org.openapijsonschematools.client.parameter.PathSerializer;
 
 import java.util.Map;
 import java.util.AbstractMap;

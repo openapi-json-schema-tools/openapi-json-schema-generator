@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.header.HeaderBase;
-import org.openapijsonschematools.client.header.PrefixSeparatorIterator;
 
 public class ParameterBase extends HeaderBase {
     public final String name;

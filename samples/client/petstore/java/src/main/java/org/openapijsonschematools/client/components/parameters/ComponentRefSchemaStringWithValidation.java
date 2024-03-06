@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.components.parameters;
 
 import org.openapijsonschematools.client.parameter.ParameterInType;
 import org.openapijsonschematools.client.parameter.ContentParameter;
-import org.openapijsonschematools.client.parameter.ContentParameter;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.parameters.componentrefschemastringwithvalidation.content.applicationjson.ApplicationjsonSchema;
 
