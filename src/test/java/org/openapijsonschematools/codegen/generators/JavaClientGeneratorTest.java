@@ -17,14 +17,19 @@
 
 package org.openapijsonschematools.codegen.generators;
 
+import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
+import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
+import java.util.Map;
 
 public class JavaClientGeneratorTest {
 
@@ -125,5 +130,27 @@ public class JavaClientGeneratorTest {
         parameter.setSchema(sc);
         final CodegenParameter p = generator.fromParameter(parameter, "#/components/parameters/uuidGivenExample");
         Assert.assertEquals(p.example, "UUID.fromString(\"13b48713-b931-45ea-bd60-b07491245960\")");
+    }
+
+    @Test
+    public void testEnumNames() {
+        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/70_schema_enum_names.yaml");
+        var javaGenerator = new JavaClientGenerator();
+        javaGenerator.setOpenAPI(openAPI);
+
+        String modelName = "StringEnum";
+        Schema schema = openAPI.getComponents().getSchemas().get(modelName);
+
+        CodegenSchema cm = javaGenerator.fromSchema(
+                schema,
+                "#/components/schemas/" + modelName,
+                "#/components/schemas/" + modelName
+        );
+
+        Map<EnumValue, String> enumVars = cm.enumInfo.valueToName;
+        Assert.assertEquals(enumVars.size(), 3);
+        Assert.assertEquals(enumVars.get(new EnumValue("#367B9C", "string", null)), "NUMBER_SIGN_367B9C");
+        Assert.assertEquals(enumVars.get(new EnumValue("#FFA5A4", "string", null)), "NUMBER_SIGN_FFA5A4");
+        Assert.assertEquals(enumVars.get(new EnumValue("2D_Object", "string", null)), "DIGIT_TWO_D_OBJECT");
     }
 }

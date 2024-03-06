@@ -80,11 +80,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayload =
     ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1.validate(
     new ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMapBuilder()
-        .set123HyphenMinusList("a")
+        .setDigitOne23HyphenMinusList("a")
 
         .setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(1L)
 
-        .set123number(1)
+        .setDigitOne23number(1)
 
     .build(),
     configuration
@@ -125,10 +125,10 @@ A class that builds the Map input type
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(float value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(long value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(double value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(int value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(float value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(long value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(double value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23number(int value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23number(float value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23number(long value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23number(double value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, Void value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, boolean value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, String value) |
@@ -153,7 +153,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123HyphenMinusList(String value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23HyphenMinusList(String value) |
 
 ## ObjectWithDifficultlyNamedPropsMap
 public static class ObjectWithDifficultlyNamedPropsMap<br>

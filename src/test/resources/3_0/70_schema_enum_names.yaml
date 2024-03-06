@@ -10,3 +10,4 @@ components:
       enum:
         - "#367B9C"
         - "#FFA5A4"
+        - "2D_Object"

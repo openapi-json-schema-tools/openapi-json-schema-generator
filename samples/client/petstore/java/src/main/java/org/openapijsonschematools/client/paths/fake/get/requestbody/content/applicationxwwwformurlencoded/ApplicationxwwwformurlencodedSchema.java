@@ -260,7 +260,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
     }    
     public enum StringApplicationxwwwformurlencodedEnumFormStringEnums implements StringValueMethod {
-        _ABC("_abc"),
+        LOW_LINE_ABC("_abc"),
         HYPHEN_MINUS_EFG("-efg"),
         LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS("(xyz)");
         private final String value;

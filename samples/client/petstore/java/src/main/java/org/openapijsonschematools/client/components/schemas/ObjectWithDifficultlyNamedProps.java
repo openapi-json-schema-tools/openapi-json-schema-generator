@@ -90,7 +90,7 @@ public class ObjectWithDifficultlyNamedProps {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSchema123list(Map<String, @Nullable Object> instance);
         
-        default T set123HyphenMinusList(String value) {
+        default T setDigitOne23HyphenMinusList(String value) {
             var instance = getInstance();
             instance.put("123-list", value);
             return getBuilderAfterSchema123list(instance);
@@ -130,25 +130,25 @@ public class ObjectWithDifficultlyNamedProps {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSchema123Number(Map<String, @Nullable Object> instance);
         
-        default T set123number(int value) {
+        default T setDigitOne23number(int value) {
             var instance = getInstance();
             instance.put("123Number", value);
             return getBuilderAfterSchema123Number(instance);
         }
         
-        default T set123number(float value) {
+        default T setDigitOne23number(float value) {
             var instance = getInstance();
             instance.put("123Number", value);
             return getBuilderAfterSchema123Number(instance);
         }
         
-        default T set123number(long value) {
+        default T setDigitOne23number(long value) {
             var instance = getInstance();
             instance.put("123Number", value);
             return getBuilderAfterSchema123Number(instance);
         }
         
-        default T set123number(double value) {
+        default T setDigitOne23number(double value) {
             var instance = getInstance();
             instance.put("123Number", value);
             return getBuilderAfterSchema123Number(instance);

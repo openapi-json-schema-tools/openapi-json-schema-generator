@@ -65,55 +65,55 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterProto(Map<String, @Nullable Object> instance);
         
-        default T setProto(Void value) {
+        default T setLowLineProto(Void value) {
             var instance = getInstance();
             instance.put("__proto__", null);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(boolean value) {
+        default T setLowLineProto(boolean value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(String value) {
+        default T setLowLineProto(String value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(int value) {
+        default T setLowLineProto(int value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(float value) {
+        default T setLowLineProto(float value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(long value) {
+        default T setLowLineProto(long value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(double value) {
+        default T setLowLineProto(double value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(List<?> value) {
+        default T setLowLineProto(List<?> value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setProto(Map<String, ?> value) {
+        default T setLowLineProto(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
