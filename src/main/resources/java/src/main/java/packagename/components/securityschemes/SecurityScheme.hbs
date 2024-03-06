@@ -65,7 +65,7 @@ public class {{jsonPathPiece.pascalCase}} extends ApiKeyQuerySecurityScheme {
             {{/if}}
             {{#eq in "cookie"}}
     public {{jsonPathPiece.pascalCase}}(String apiKey) {
-        super(apiKey);
+        super(apiKey, "{{{name}}}");
     }
             {{else}}
                 {{#eq in "header"}}

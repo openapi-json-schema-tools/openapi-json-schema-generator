@@ -12,7 +12,7 @@ public interface SecurityScheme {
         String resourcePath,
         String method,
         HttpRequest.BodyPublisher bodyPublisher,
-        @Nullable String queryParamsSuffix,
+        Map<String, String> queryMap,
         List<String> scopeNames
     );
 }

@@ -5,6 +5,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.List;
 
 public abstract class HeadersSerializer {
     private final Map<String, Parameter> parameters;
@@ -13,8 +14,8 @@ public abstract class HeadersSerializer {
         this.parameters = parameters;
     }
 
-    public Map<String, String> serialize(Map<String, ?> inData) {
-        Map<String, String> results = new LinkedHashMap<>();
+    public Map<String, List<String>> serialize(Map<String, ?> inData) {
+        Map<String, List<String>> results = new LinkedHashMap<>();
         for (Map.Entry<String, ?> entry: inData.entrySet()) {
             String mapKey = entry.getKey();
             @Nullable Parameter parameter = parameters.get(mapKey);
@@ -23,7 +24,7 @@ public abstract class HeadersSerializer {
             }
             @Nullable Object value = entry.getValue();
             AbstractMap.SimpleEntry<String, String> serialized = parameter.serialize(value);
-            results.put(serialized.getKey(), serialized.getValue());
+            results.put(serialized.getKey(), List.of(serialized.getValue()));
         }
         return results;
     }

@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
 import java.util.AbstractMap;
 import java.util.Map;
+import java.util.List;
 
 public class HeadersSerializerTest {
     public static class Param1HeaderParameter extends SchemaParameter {
@@ -37,11 +38,11 @@ public class HeadersSerializerTest {
                 new AbstractMap.SimpleEntry<>("param1", "a"),
                 new AbstractMap.SimpleEntry<>("param2", 3.14d)
         );
-        Map<String, String> expectedHeaders = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("param1", "a"),
-                new AbstractMap.SimpleEntry<>("param2", "3.14")
+        Map<String, List<String>> expectedHeaders = Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("param1", List.of("a")),
+                new AbstractMap.SimpleEntry<>("param2", List.of("3.14"))
         );
-        Map<String, String> headers = new HeaderParametersSerializer().serialize(inData);
+        Map<String, List<String>> headers = new HeaderParametersSerializer().serialize(inData);
         Assert.assertEquals(expectedHeaders, headers);
     }
 }
