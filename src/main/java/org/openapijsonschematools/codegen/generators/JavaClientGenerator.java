@@ -866,6 +866,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "parameter",
                 "SchemaParameter.java"));
         supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/parameter/HeadersSerializerTest.hbs",
+                testPackagePath() + File.separatorChar + "parameter",
+                "HeadersSerializerTest.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/test/java/packagename/parameter/QuerySerializerTest.hbs",
                 testPackagePath() + File.separatorChar + "parameter",
                 "QuerySerializerTest.java"));
