@@ -11,6 +11,9 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
         {{/each}}
     {{/with}}
+    {{#if headerParametersSchema}}
+import {{packageName}}.parameter.HeadersSerializer;
+    {{/if}}
 import {{packageName}}.parameter.Parameter;
 
 import java.util.Map;
@@ -19,10 +22,10 @@ import java.util.AbstractMap;
 public class {{jsonPathPiece.pascalCase}} {
     {{#if pathParametersSchema}}
 
-    public static class PathParametersDeserializer {
+    public static class PathParametersSerializer {
         Map<String, Parameter> parameters;
 
-        public PathParametersDeserializer() {
+        public PathParametersSerializer() {
             parameters = Map.ofEntries(
                 {{#each pathParameters}}
                 new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
@@ -37,10 +40,10 @@ public class {{jsonPathPiece.pascalCase}} {
     {{/if}}
     {{#if queryParametersSchema}}
 
-    public static class QueryParametersDeserializer {
+    public static class QueryParametersSerializer {
         Map<String, Parameter> parameters;
 
-        public QueryParametersDeserializer() {
+        public QueryParametersSerializer() {
             parameters = Map.ofEntries(
                 {{#each queryParameters}}
                 new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
@@ -55,28 +58,24 @@ public class {{jsonPathPiece.pascalCase}} {
     {{/if}}
     {{#if headerParametersSchema}}
 
-    public static class HeaderParametersDeserializer {
-        Map<String, Parameter> parameters;
-
-        public HeaderParametersDeserializer() {
-            parameters = Map.ofEntries(
+    public static class HeaderParametersSerializer extends HeadersSerializer {
+        public HeaderParametersSerializer() {
+            super(
+                Map.ofEntries(
                 {{#each headerParameters}}
-                new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
+                    new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
                 {{/each}}
+                )
             );
         }
-
-        {{#with headerParametersSchema}}
-        // {{containerJsonPathPiece.pascalCase}}
-        {{/with}}
     }
     {{/if}}
     {{#if cookieParametersSchema}}
 
-    public static class CookieParametersDeserializer {
+    public static class CookieParametersSerializer {
         Map<String, Parameter> parameters;
 
-        public CookieParametersDeserializer() {
+        public CookieParametersSerializer() {
             parameters = Map.ofEntries(
                 {{#each cookieParameters}}
                 new AbstractMap.SimpleEntry<>("{{{name}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}

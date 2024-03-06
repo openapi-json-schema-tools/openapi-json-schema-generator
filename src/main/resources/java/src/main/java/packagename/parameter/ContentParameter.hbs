@@ -17,12 +17,11 @@ public class ContentParameter extends ParameterBase implements Parameter {
         this.content = content;
     }
 
-    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration) {
+    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) {
         for (Map.Entry<String, MediaType<?, ?>> entry: content.entrySet()) {
-            var castInData = validate ? entry.getValue().schema().validate(inData, configuration) : inData ;
             String contentType = entry.getKey();
             if (ContentTypeDetector.contentTypeIsJson(contentType)) {
-                var value = ContentTypeSerializer.toJson(castInData);
+                var value = ContentTypeSerializer.toJson(inData);
                 return new AbstractMap.SimpleEntry<>(name, value);
             } else {
                 throw new RuntimeException("Serialization of "+contentType+" has not yet been implemented");

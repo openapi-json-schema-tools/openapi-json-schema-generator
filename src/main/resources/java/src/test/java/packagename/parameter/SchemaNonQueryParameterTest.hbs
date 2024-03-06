@@ -85,17 +85,16 @@ public class SchemaNonQueryParameterTest {
                         true
                 )
         );
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         for (ParamTestCase testCase: testCases) {
             var header = new HeaderParameter(testCase.explode);
-            var serialization = header.serialize(testCase.payload, false, configuration);
+            var serialization = header.serialize(testCase.payload);
             Assert.assertEquals(testCase.expectedSerialization, serialization);
         }
         var boolHeader = new HeaderParameter(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
                     InvalidTypeException.class,
-                    () -> boolHeader.serialize(value, false, configuration)
+                    () -> boolHeader.serialize(value)
             );
         }
     }
@@ -164,17 +163,16 @@ public class SchemaNonQueryParameterTest {
                         true
                 )
         );
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         for (ParamTestCase testCase: testCases) {
             var pathParameter = new PathParameter(testCase.explode);
-            var serialization = pathParameter.serialize(testCase.payload, false, configuration);
+            var serialization = pathParameter.serialize(testCase.payload);
             Assert.assertEquals(testCase.expectedSerialization, serialization);
         }
         var pathParameter = new PathParameter(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
                     InvalidTypeException.class,
-                    () -> pathParameter.serialize(value, false, configuration)
+                    () -> pathParameter.serialize(value)
             );
         }
     }
@@ -243,17 +241,16 @@ public class SchemaNonQueryParameterTest {
                         true
                 )
         );
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         for (ParamTestCase testCase: testCases) {
             var cookieParameter = new CookieParameter(testCase.explode);
-            var serialization = cookieParameter.serialize(testCase.payload, false, configuration);
+            var serialization = cookieParameter.serialize(testCase.payload);
             Assert.assertEquals(testCase.expectedSerialization, serialization);
         }
         var cookieParameter = new CookieParameter(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
                     InvalidTypeException.class,
-                    () -> cookieParameter.serialize(value, false, configuration)
+                    () -> cookieParameter.serialize(value)
             );
         }
     }
@@ -322,10 +319,9 @@ public class SchemaNonQueryParameterTest {
                         true
                 )
         );
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         for (ParamTestCase testCase: testCases) {
             var pathParameter = new PathMatrixParameter(testCase.explode);
-            var serialization = pathParameter.serialize(testCase.payload, false, configuration);
+            var serialization = pathParameter.serialize(testCase.payload);
             Assert.assertEquals(testCase.expectedSerialization, serialization);
         }
     }
@@ -394,10 +390,9 @@ public class SchemaNonQueryParameterTest {
                         true
                 )
         );
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         for (ParamTestCase testCase: testCases) {
             var pathParameter = new PathLabelParameter(testCase.explode);
-            var serialization = pathParameter.serialize(testCase.payload, false, configuration);
+            var serialization = pathParameter.serialize(testCase.payload);
             Assert.assertEquals(testCase.expectedSerialization, serialization);
         }
     }

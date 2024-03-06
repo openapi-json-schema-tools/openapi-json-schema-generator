@@ -6,5 +6,5 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import java.util.AbstractMap;
 
 public interface Parameter {
-    AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration);
+    AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData);
 }
