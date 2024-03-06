@@ -2642,7 +2642,7 @@ public class DefaultGenerator implements Generator {
     }
 
     private CodegenParametersInfo getParametersInfo(LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters, List<Parameter> parameters, String operationJsonPath) {
-        if (pathItemParameters.isEmpty() && (parameters == null || parameters.isEmpty())) {
+        if ((pathItemParameters == null || pathItemParameters.isEmpty()) && (parameters == null || parameters.isEmpty())) {
             return null;
         }
         List<CodegenParameter> allParams = new ArrayList<>();
