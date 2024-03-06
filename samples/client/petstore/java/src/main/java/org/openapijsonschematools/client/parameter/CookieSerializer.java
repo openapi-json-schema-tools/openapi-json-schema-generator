@@ -14,9 +14,9 @@ public abstract class CookieSerializer {
         this.parameters = parameters;
     }
 
-    public String serialize(Map<String, ?> inData) {
+    public String serialize(Map<String, @Nullable Object> inData) {
         String result = "";
-        Map<String, ?> sortedData = new TreeMap<>(inData);
+        Map<String, @Nullable Object> sortedData = new TreeMap<>(inData);
         for (Map.Entry<String, ?> entry: sortedData.entrySet()) {
             String mapKey = entry.getKey();
             @Nullable Parameter parameter = parameters.get(mapKey);
