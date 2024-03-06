@@ -11,12 +11,7 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
         {{/each}}
     {{/with}}
-    {{#if queryParametersSchema}}
-import {{packageName}}.parameter.QueryParameter;
-    {{/if}}
-    {{#or pathParametersSchema headerParametersSchema cookieParametersSchema}}
-import {{packageName}}.parameter.NonQueryParameter;
-    {{/or}}
+import {{packageName}}.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;
@@ -25,7 +20,7 @@ public class {{jsonPathPiece.pascalCase}} {
     {{#if pathParametersSchema}}
 
     public static class PathParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public PathParametersDeserializer() {
             parameters = Map.ofEntries(
@@ -43,7 +38,7 @@ public class {{jsonPathPiece.pascalCase}} {
     {{#if queryParametersSchema}}
 
     public static class QueryParametersDeserializer {
-        Map<String, QueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public QueryParametersDeserializer() {
             parameters = Map.ofEntries(
@@ -61,7 +56,7 @@ public class {{jsonPathPiece.pascalCase}} {
     {{#if headerParametersSchema}}
 
     public static class HeaderParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public HeaderParametersDeserializer() {
             parameters = Map.ofEntries(
@@ -79,7 +74,7 @@ public class {{jsonPathPiece.pascalCase}} {
     {{#if cookieParametersSchema}}
 
     public static class CookieParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public CookieParametersDeserializer() {
             parameters = Map.ofEntries(

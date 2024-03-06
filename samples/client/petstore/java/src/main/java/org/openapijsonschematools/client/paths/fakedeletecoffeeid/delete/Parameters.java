@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete;
 
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.parameters.Parameter0;
-import org.openapijsonschematools.client.parameter.NonQueryParameter;
+import org.openapijsonschematools.client.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;
@@ -9,7 +9,7 @@ import java.util.AbstractMap;
 public class Parameters {
 
     public static class PathParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public PathParametersDeserializer() {
             parameters = Map.ofEntries(

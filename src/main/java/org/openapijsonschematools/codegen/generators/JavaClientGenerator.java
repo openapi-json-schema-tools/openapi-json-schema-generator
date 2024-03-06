@@ -854,6 +854,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "parameter",
                 "SchemaParameter.java"));
         supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/parameter/SchemaNonQueryParameterTest.hbs",
+                testPackagePath() + File.separatorChar + "parameter",
+                "SchemaNonQueryParameterTest.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/test/java/packagename/parameter/SchemaQueryParameterTest.hbs",
                 testPackagePath() + File.separatorChar + "parameter",
                 "SchemaQueryParameterTest.java"));

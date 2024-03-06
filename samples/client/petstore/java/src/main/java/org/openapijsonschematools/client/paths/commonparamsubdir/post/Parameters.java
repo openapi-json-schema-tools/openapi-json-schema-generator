@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.commonparamsubdir.post;
 
 import org.openapijsonschematools.client.paths.commonparamsubdir.parameters.RouteParameter0;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.parameters.Parameter0;
-import org.openapijsonschematools.client.parameter.NonQueryParameter;
+import org.openapijsonschematools.client.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;
@@ -10,7 +10,7 @@ import java.util.AbstractMap;
 public class Parameters {
 
     public static class PathParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public PathParametersDeserializer() {
             parameters = Map.ofEntries(
@@ -22,7 +22,7 @@ public class Parameters {
     }
 
     public static class HeaderParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public HeaderParametersDeserializer() {
             parameters = Map.ofEntries(

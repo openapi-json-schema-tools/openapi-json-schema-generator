@@ -20,7 +20,7 @@ public class SchemaNonQueryParameterTest {
         }
     }
 
-    public static class HeaderParameter extends SchemaNonQueryParameter {
+    public static class HeaderParameter extends SchemaParameter {
         public HeaderParameter(@Nullable Boolean explode) {
             super("color", ParameterInType.HEADER, true, null, explode, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
         }
@@ -99,7 +99,7 @@ public class SchemaNonQueryParameterTest {
         }
     }
 
-    public static class PathParameter extends SchemaNonQueryParameter {
+    public static class PathParameter extends SchemaParameter {
         public PathParameter(@Nullable Boolean explode) {
             super("color", ParameterInType.PATH, true, null, explode, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
         }
@@ -178,7 +178,7 @@ public class SchemaNonQueryParameterTest {
         }
     }
 
-    public static class CookieParameter extends SchemaNonQueryParameter {
+    public static class CookieParameter extends SchemaParameter {
         public CookieParameter(@Nullable Boolean explode) {
             super("color", ParameterInType.COOKIE, true, null, explode, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
         }
@@ -257,7 +257,7 @@ public class SchemaNonQueryParameterTest {
         }
     }
 
-    public static class PathMatrixParameter extends SchemaNonQueryParameter {
+    public static class PathMatrixParameter extends SchemaParameter {
         public PathMatrixParameter(@Nullable Boolean explode) {
             super("color", ParameterInType.PATH, true, ParameterStyle.MATRIX, explode, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
         }
@@ -329,7 +329,7 @@ public class SchemaNonQueryParameterTest {
         }
     }
 
-    public static class PathLabelParameter extends SchemaNonQueryParameter {
+    public static class PathLabelParameter extends SchemaParameter {
         public PathLabelParameter(@Nullable Boolean explode) {
             super("color", ParameterInType.PATH, true, ParameterStyle.LABEL, explode, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
         }

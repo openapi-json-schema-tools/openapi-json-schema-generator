@@ -6,8 +6,7 @@ import org.openapijsonschematools.client.paths.fake.get.parameters.Parameter2;
 import org.openapijsonschematools.client.paths.fake.get.parameters.Parameter3;
 import org.openapijsonschematools.client.paths.fake.get.parameters.Parameter4;
 import org.openapijsonschematools.client.paths.fake.get.parameters.Parameter5;
-import org.openapijsonschematools.client.parameter.QueryParameter;
-import org.openapijsonschematools.client.parameter.NonQueryParameter;
+import org.openapijsonschematools.client.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;
@@ -15,7 +14,7 @@ import java.util.AbstractMap;
 public class Parameters {
 
     public static class QueryParametersDeserializer {
-        Map<String, QueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public QueryParametersDeserializer() {
             parameters = Map.ofEntries(
@@ -30,7 +29,7 @@ public class Parameters {
     }
 
     public static class HeaderParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public HeaderParametersDeserializer() {
             parameters = Map.ofEntries(

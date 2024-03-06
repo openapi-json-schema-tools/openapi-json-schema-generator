@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.userlogin.get;
 
 import org.openapijsonschematools.client.paths.userlogin.get.parameters.Parameter0;
 import org.openapijsonschematools.client.paths.userlogin.get.parameters.Parameter1;
-import org.openapijsonschematools.client.parameter.QueryParameter;
+import org.openapijsonschematools.client.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;
@@ -10,7 +10,7 @@ import java.util.AbstractMap;
 public class Parameters {
 
     public static class QueryParametersDeserializer {
-        Map<String, QueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public QueryParametersDeserializer() {
             parameters = Map.ofEntries(

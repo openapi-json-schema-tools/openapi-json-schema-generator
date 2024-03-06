@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parame
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.Parameter3;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.Parameter4;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.Parameter5;
-import org.openapijsonschematools.client.parameter.QueryParameter;
+import org.openapijsonschematools.client.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;
@@ -14,7 +14,7 @@ import java.util.AbstractMap;
 public class Parameters {
 
     public static class QueryParametersDeserializer {
-        Map<String, QueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public QueryParametersDeserializer() {
             parameters = Map.ofEntries(

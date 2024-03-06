@@ -19,8 +19,7 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.Parameter16;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.Parameter17;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.Parameter18;
-import org.openapijsonschematools.client.parameter.QueryParameter;
-import org.openapijsonschematools.client.parameter.NonQueryParameter;
+import org.openapijsonschematools.client.parameter.Parameter;
 
 import java.util.Map;
 import java.util.AbstractMap;
@@ -28,7 +27,7 @@ import java.util.AbstractMap;
 public class Parameters {
 
     public static class PathParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public PathParametersDeserializer() {
             parameters = Map.ofEntries(
@@ -44,7 +43,7 @@ public class Parameters {
     }
 
     public static class QueryParametersDeserializer {
-        Map<String, QueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public QueryParametersDeserializer() {
             parameters = Map.ofEntries(
@@ -60,7 +59,7 @@ public class Parameters {
     }
 
     public static class HeaderParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public HeaderParametersDeserializer() {
             parameters = Map.ofEntries(
@@ -75,7 +74,7 @@ public class Parameters {
     }
 
     public static class CookieParametersDeserializer {
-        Map<String, NonQueryParameter> parameters;
+        Map<String, Parameter> parameters;
 
         public CookieParametersDeserializer() {
             parameters = Map.ofEntries(
