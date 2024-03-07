@@ -13,7 +13,7 @@ A class that contains necessary nested parameter classes
 
 
 ## PathUserName1
-public static class PathUserName1 extends SchemaNonQueryParameter<br>
+public static class PathUserName1 extends SchemaParameter<br>
 
 a class that deserializes a parameter value
 

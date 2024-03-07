@@ -32,7 +32,7 @@ class storing schema info for a specific contentType
 | Void | encoding()<br>the encoding info |
 
 ## ComponentRefSchemaStringWithValidation1
-public static class ComponentRefSchemaStringWithValidation1 extends ContentNonQueryParameter<br>
+public static class ComponentRefSchemaStringWithValidation1 extends ContentParameter<br>
 
 a class that deserializes a parameter value
 

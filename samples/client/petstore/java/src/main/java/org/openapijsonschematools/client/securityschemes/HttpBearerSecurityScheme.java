@@ -27,7 +27,7 @@ public class HttpBearerSecurityScheme implements SecurityScheme {
     }
 
     @Override
-    public void applyAuth(Map<String, List<String>> headers, String resourcePath, String method, HttpRequest.BodyPublisher bodyPublisher, @Nullable String queryParamsSuffix, List<String> scopeNames) {
+    public void applyAuth(Map<String, List<String>> headers, String resourcePath, String method, HttpRequest.BodyPublisher bodyPublisher, Map<String, String> queryMap, List<String> scopeNames) {
         List<String> headerValue = headers.getOrDefault("Authorization", new ArrayList<>());
         headerValue.add("Bearer " + accessToken);
     }

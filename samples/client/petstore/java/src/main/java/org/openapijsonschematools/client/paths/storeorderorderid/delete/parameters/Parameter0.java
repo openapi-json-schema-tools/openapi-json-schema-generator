@@ -2,12 +2,12 @@ package org.openapijsonschematools.client.paths.storeorderorderid.delete.paramet
 
 import org.openapijsonschematools.client.parameter.ParameterStyle;
 import org.openapijsonschematools.client.parameter.ParameterInType;
-import org.openapijsonschematools.client.parameter.SchemaNonQueryParameter;
+import org.openapijsonschematools.client.parameter.SchemaParameter;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.parameters.parameter0.Schema0;
 
 public class Parameter0 {
 
-    public static class Parameter01 extends SchemaNonQueryParameter {
+    public static class Parameter01 extends SchemaParameter {
         public Parameter01() {
             super(
                 "order_id",

@@ -17,7 +17,7 @@ public class ApiKeyQuerySecurityScheme implements SecurityScheme {
     }
 
     @Override
-    public void applyAuth(Map<String, List<String>> headers, String resourcePath, String method, HttpRequest.BodyPublisher bodyPublisher, @Nullable String queryParamsSuffix, List<String> scopeNames) {
-        throw new UnsupportedOperationException("If you need this, submit a PR adding this feature");
+    public void applyAuth(Map<String, List<String>> headers, String resourcePath, String method, HttpRequest.BodyPublisher bodyPublisher, Map<String, String> queryMap, List<String> scopeNames) {
+        queryMap.put(name, apiKey);
     }
 }

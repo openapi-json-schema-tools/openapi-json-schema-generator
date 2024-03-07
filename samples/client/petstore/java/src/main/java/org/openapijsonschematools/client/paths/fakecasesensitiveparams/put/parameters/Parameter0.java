@@ -2,12 +2,12 @@ package org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.para
 
 import org.openapijsonschematools.client.parameter.ParameterStyle;
 import org.openapijsonschematools.client.parameter.ParameterInType;
-import org.openapijsonschematools.client.parameter.SchemaQueryParameter;
+import org.openapijsonschematools.client.parameter.SchemaParameter;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.parameters.parameter0.Schema0;
 
 public class Parameter0 {
 
-    public static class Parameter01 extends SchemaQueryParameter {
+    public static class Parameter01 extends SchemaParameter {
         public Parameter01() {
             super(
                 "someVar",

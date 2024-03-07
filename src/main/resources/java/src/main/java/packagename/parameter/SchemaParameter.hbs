@@ -1,17 +1,12 @@
 package {{{packageName}}}.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.header.PrefixSeparatorIterator;
 import {{{packageName}}}.header.StyleSerializer;
 import {{{packageName}}}.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.header.HeaderBase;
-import org.openapijsonschematools.client.header.PrefixSeparatorIterator;
-import org.openapijsonschematools.client.header.StyleSerializer;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import java.util.Map;
 
-public class SchemaParameter extends ParameterBase {
+import java.util.AbstractMap;
+
+public class SchemaParameter extends ParameterBase implements Parameter {
     public final JsonSchema<?> schema;
 
     public SchemaParameter(String name, ParameterInType inType, boolean required, @Nullable ParameterStyle style, @Nullable Boolean explode, @Nullable Boolean allowReserved, JsonSchema<?> schema) {
@@ -19,36 +14,46 @@ public class SchemaParameter extends ParameterBase {
         this.schema = schema;
     }
 
-    protected Map<String, String> serialize(@Nullable Object inData, boolean validate, SchemaConfiguration configuration, @Nullable PrefixSeparatorIterator iterator) {
-        var castInData = validate ? schema.validate(inData, configuration) : inData;
+    private ParameterStyle getStyle() {
+        if (style != null) {
+            return style;
+        }
+        if (inType == ParameterInType.QUERY || inType == ParameterInType.COOKIE) {
+            return ParameterStyle.FORM;
+        }
+        //  ParameterInType.HEADER || ParameterInType.PATH
+        return ParameterStyle.SIMPLE;
+    }
+
+    @Override
+    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) {
         ParameterStyle usedStyle = getStyle();
         boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;
         String value;
         boolean usedExplode = explode == null ? usedStyle == ParameterStyle.FORM : explode;
         if (usedStyle == ParameterStyle.SIMPLE) {
             // header OR path
-            value = StyleSerializer.serializeSimple(castInData, name, usedExplode, percentEncode);
+            value = StyleSerializer.serializeSimple(inData, name, usedExplode, percentEncode);
         } else if (usedStyle == ParameterStyle.FORM) {
             // query OR cookie
-            boolean isCookie = inType == ParameterInType.COOKIE;
-            value = StyleSerializer.serializeForm(castInData, name, usedExplode, percentEncode, iterator, isCookie);
+            value = StyleSerializer.serializeForm(inData, name, usedExplode, percentEncode);
         } else if (usedStyle == ParameterStyle.LABEL) {
             // path
-            value = StyleSerializer.serializeLabel(castInData, name, usedExplode);
+            value = StyleSerializer.serializeLabel(inData, name, usedExplode);
         } else if (usedStyle == ParameterStyle.MATRIX) {
             // path
-            value = StyleSerializer.serializeMatrix(castInData, name, usedExplode);
+            value = StyleSerializer.serializeMatrix(inData, name, usedExplode);
         } else if (usedStyle == ParameterStyle.SPACE_DELIMITED) {
             // query
-            value = StyleSerializer.serializeSpaceDelimited(castInData, name, usedExplode, iterator);
+            value = StyleSerializer.serializeSpaceDelimited(inData, name, usedExplode);
         } else if (usedStyle == ParameterStyle.PIPE_DELIMITED) {
             // query
-            value = StyleSerializer.serializePipeDelimited(castInData, name, usedExplode, iterator);
+            value = StyleSerializer.serializePipeDelimited(inData, name, usedExplode);
         } else {
             // usedStyle == ParameterStyle.DEEP_OBJECT
             // query
             throw new RuntimeException("Style deep object serialization has not yet been implemented.");
         }
-        return Map.of(name, value);
+        return new AbstractMap.SimpleEntry<>(name, value);
     }
 }

@@ -191,7 +191,7 @@ docs/paths/anotherfakedummy/patch/responses/code200response/content/applicationj
 docs/paths/commonparamsubdir/delete/parameters/parameter0/Schema0.md
 docs/paths/commonparamsubdir/delete/parameters/parameter1/Schema1.md
 docs/paths/commonparamsubdir/get/parameters/parameter0/Schema0.md
-docs/paths/commonparamsubdir/parameters/parameter0/PathParamSchema0.md
+docs/paths/commonparamsubdir/parameters/routeparameter0/RouteParamSchema0.md
 docs/paths/commonparamsubdir/post/parameters/parameter0/Schema0.md
 docs/paths/fake/delete/parameters/parameter0/Schema0.md
 docs/paths/fake/delete/parameters/parameter1/Schema1.md
@@ -557,22 +557,22 @@ src/main/java/org/openapijsonschematools/client/header/SchemaHeader.java
 src/main/java/org/openapijsonschematools/client/header/StyleSerializer.java
 src/main/java/org/openapijsonschematools/client/mediatype/Encoding.java
 src/main/java/org/openapijsonschematools/client/mediatype/MediaType.java
-src/main/java/org/openapijsonschematools/client/parameter/ContentNonQueryParameter.java
 src/main/java/org/openapijsonschematools/client/parameter/ContentParameter.java
-src/main/java/org/openapijsonschematools/client/parameter/ContentQueryParameter.java
-src/main/java/org/openapijsonschematools/client/parameter/NonQueryParameter.java
+src/main/java/org/openapijsonschematools/client/parameter/CookieSerializer.java
+src/main/java/org/openapijsonschematools/client/parameter/HeadersSerializer.java
+src/main/java/org/openapijsonschematools/client/parameter/Parameter.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterBase.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterInType.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterStyle.java
-src/main/java/org/openapijsonschematools/client/parameter/QueryParameter.java
-src/main/java/org/openapijsonschematools/client/parameter/SchemaNonQueryParameter.java
+src/main/java/org/openapijsonschematools/client/parameter/PathSerializer.java
+src/main/java/org/openapijsonschematools/client/parameter/QuerySerializer.java
 src/main/java/org/openapijsonschematools/client/parameter/SchemaParameter.java
-src/main/java/org/openapijsonschematools/client/parameter/SchemaQueryParameter.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/responses/code200response/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/HeaderParameters.java
+src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/parameters/Parameter0.java
@@ -580,15 +580,17 @@ src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/p
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/parameters/parameter0/Schema0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/parameters/parameter1/Schema1.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/responses/Code200Response.java
+src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/parameters/Parameter0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/parameters/parameter0/Schema0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/get/responses/Code200Response.java
-src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/Parameter0.java
-src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/parameter0/PathParamSchema0.java
+src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/RouteParameter0.java
+src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/parameters/routeparameter0/RouteParamSchema0.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/HeaderParameters.java
+src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/parameters/Parameter0.java
@@ -596,6 +598,7 @@ src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/par
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/post/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/fake/delete/FakeDeleteSecurityInfo.java
 src/main/java/org/openapijsonschematools/client/paths/fake/delete/HeaderParameters.java
+src/main/java/org/openapijsonschematools/client/paths/fake/delete/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fake/delete/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fake/delete/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fake/delete/parameters/Parameter0.java
@@ -613,6 +616,7 @@ src/main/java/org/openapijsonschematools/client/paths/fake/delete/parameters/par
 src/main/java/org/openapijsonschematools/client/paths/fake/delete/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/fake/delete/security/FakeDeleteSecurityRequirementObject0.java
 src/main/java/org/openapijsonschematools/client/paths/fake/get/HeaderParameters.java
+src/main/java/org/openapijsonschematools/client/paths/fake/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fake/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fake/get/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/fake/get/Responses.java
@@ -652,6 +656,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakebodywithfileschema/put
 src/main/java/org/openapijsonschematools/client/paths/fakebodywithfileschema/put/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fakebodywithfileschema/put/requestbody/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/fakebodywithfileschema/put/responses/Code200Response.java
+src/main/java/org/openapijsonschematools/client/paths/fakebodywithqueryparams/put/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakebodywithqueryparams/put/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakebodywithqueryparams/put/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/fakebodywithqueryparams/put/Responses.java
@@ -659,6 +664,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakebodywithqueryparams/pu
 src/main/java/org/openapijsonschematools/client/paths/fakebodywithqueryparams/put/parameters/parameter0/Schema0.java
 src/main/java/org/openapijsonschematools/client/paths/fakebodywithqueryparams/put/requestbody/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/fakebodywithqueryparams/put/responses/Code200Response.java
+src/main/java/org/openapijsonschematools/client/paths/fakecasesensitiveparams/put/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakecasesensitiveparams/put/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakecasesensitiveparams/put/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fakecasesensitiveparams/put/parameters/Parameter0.java
@@ -674,6 +680,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakeclassnametest/patch/Re
 src/main/java/org/openapijsonschematools/client/paths/fakeclassnametest/patch/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/fakeclassnametest/patch/responses/code200response/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/fakeclassnametest/patch/security/FakeclassnametestPatchSecurityRequirementObject0.java
+src/main/java/org/openapijsonschematools/client/paths/fakedeletecoffeeid/delete/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakedeletecoffeeid/delete/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakedeletecoffeeid/delete/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fakedeletecoffeeid/delete/parameters/Parameter0.java
@@ -687,6 +694,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakeinlineadditionalproper
 src/main/java/org/openapijsonschematools/client/paths/fakeinlineadditionalproperties/post/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fakeinlineadditionalproperties/post/requestbody/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/fakeinlineadditionalproperties/post/responses/Code200Response.java
+src/main/java/org/openapijsonschematools/client/paths/fakeinlinecomposition/post/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakeinlinecomposition/post/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakeinlinecomposition/post/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/fakeinlinecomposition/post/Responses.java
@@ -730,6 +738,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakemultiplesecurities/get
 src/main/java/org/openapijsonschematools/client/paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject0.java
 src/main/java/org/openapijsonschematools/client/paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject1.java
 src/main/java/org/openapijsonschematools/client/paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject2.java
+src/main/java/org/openapijsonschematools/client/paths/fakeobjinquery/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakeobjinquery/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakeobjinquery/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fakeobjinquery/get/parameters/Parameter0.java
@@ -737,6 +746,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakeobjinquery/get/paramet
 src/main/java/org/openapijsonschematools/client/paths/fakeobjinquery/get/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ababselfab/post/CookieParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ababselfab/post/HeaderParameters.java
+src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ababselfab/post/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ababselfab/post/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ababselfab/post/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ababselfab/post/RequestBody.java
@@ -788,6 +798,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakepemcontenttype/get/req
 src/main/java/org/openapijsonschematools/client/paths/fakepemcontenttype/get/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/fakepemcontenttype/get/responses/code200response/content/applicationxpemfile/ApplicationxpemfileSchema.java
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.java
+src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/Responses.java
@@ -797,6 +808,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithre
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/security/FakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0.java
+src/main/java/org/openapijsonschematools/client/paths/fakequeryparamwithjsoncontenttype/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakequeryparamwithjsoncontenttype/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakequeryparamwithjsoncontenttype/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fakequeryparamwithjsoncontenttype/get/parameters/Parameter0.java
@@ -806,6 +818,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakequeryparamwithjsoncont
 src/main/java/org/openapijsonschematools/client/paths/fakeredirection/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fakeredirection/get/responses/Code303Response.java
 src/main/java/org/openapijsonschematools/client/paths/fakeredirection/get/responses/Code3XXResponse.java
+src/main/java/org/openapijsonschematools/client/paths/fakerefobjinquery/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakerefobjinquery/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakerefobjinquery/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fakerefobjinquery/get/parameters/Parameter0.java
@@ -858,6 +871,7 @@ src/main/java/org/openapijsonschematools/client/paths/fakerefsstring/post/respon
 src/main/java/org/openapijsonschematools/client/paths/fakerefsstring/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/fakeresponsewithoutschema/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/fakeresponsewithoutschema/get/responses/Code200Response.java
+src/main/java/org/openapijsonschematools/client/paths/faketestqueryparamters/put/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/faketestqueryparamters/put/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/faketestqueryparamters/put/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/faketestqueryparamters/put/parameters/Parameter0.java
@@ -925,6 +939,7 @@ src/main/java/org/openapijsonschematools/client/paths/pet/put/responses/Code405R
 src/main/java/org/openapijsonschematools/client/paths/pet/put/security/PetPutSecurityRequirementObject0.java
 src/main/java/org/openapijsonschematools/client/paths/pet/put/security/PetPutSecurityRequirementObject1.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/PetfindbystatusServerInfo.java
+src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/Responses.java
@@ -938,6 +953,7 @@ src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/securi
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/PetfindbystatusServer0.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/PetfindbystatusServer1.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/server1/Variables.java
+src/main/java/org/openapijsonschematools/client/paths/petfindbytags/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbytags/get/PetfindbytagsGetSecurityInfo.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbytags/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbytags/get/Responses.java
@@ -948,6 +964,7 @@ src/main/java/org/openapijsonschematools/client/paths/petfindbytags/get/response
 src/main/java/org/openapijsonschematools/client/paths/petfindbytags/get/security/PetfindbytagsGetSecurityRequirementObject0.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbytags/get/security/PetfindbytagsGetSecurityRequirementObject1.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/HeaderParameters.java
+src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/PetpetidDeleteSecurityInfo.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/Responses.java
@@ -958,6 +975,7 @@ src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/parameters
 src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/responses/Code400Response.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/security/PetpetidDeleteSecurityRequirementObject0.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/security/PetpetidDeleteSecurityRequirementObject1.java
+src/main/java/org/openapijsonschematools/client/paths/petpetid/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/get/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/get/PetpetidGetSecurityInfo.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/get/Responses.java
@@ -969,6 +987,7 @@ src/main/java/org/openapijsonschematools/client/paths/petpetid/get/responses/Cod
 src/main/java/org/openapijsonschematools/client/paths/petpetid/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/get/security/PetpetidGetSecurityRequirementObject0.java
+src/main/java/org/openapijsonschematools/client/paths/petpetid/post/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/post/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/post/PetpetidPostSecurityInfo.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/post/RequestBody.java
@@ -979,6 +998,7 @@ src/main/java/org/openapijsonschematools/client/paths/petpetid/post/requestbody/
 src/main/java/org/openapijsonschematools/client/paths/petpetid/post/responses/Code405Response.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/post/security/PetpetidPostSecurityRequirementObject0.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/post/security/PetpetidPostSecurityRequirementObject1.java
+src/main/java/org/openapijsonschematools/client/paths/petpetiduploadimage/post/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/petpetiduploadimage/post/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.java
 src/main/java/org/openapijsonschematools/client/paths/petpetiduploadimage/post/RequestBody.java
@@ -1001,12 +1021,14 @@ src/main/java/org/openapijsonschematools/client/paths/storeorder/post/responses/
 src/main/java/org/openapijsonschematools/client/paths/storeorder/post/responses/Code400Response.java
 src/main/java/org/openapijsonschematools/client/paths/storeorder/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/storeorder/post/responses/code200response/content/applicationxml/ApplicationxmlSchema.java
+src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/delete/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/delete/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/delete/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/delete/parameters/Parameter0.java
 src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/delete/parameters/parameter0/Schema0.java
 src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/delete/responses/Code400Response.java
 src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/delete/responses/Code404Response.java
+src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/get/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/storeorderorderid/get/parameters/Parameter0.java
@@ -1026,6 +1048,7 @@ src/main/java/org/openapijsonschematools/client/paths/usercreatewitharray/post/r
 src/main/java/org/openapijsonschematools/client/paths/usercreatewithlist/post/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/usercreatewithlist/post/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/usercreatewithlist/post/responses/CodedefaultResponse.java
+src/main/java/org/openapijsonschematools/client/paths/userlogin/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/parameters/Parameter0.java
@@ -1047,11 +1070,13 @@ src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/co
 src/main/java/org/openapijsonschematools/client/paths/userlogin/get/responses/code200response/headers/xratelimit/content/applicationjson/XRateLimitSchema.java
 src/main/java/org/openapijsonschematools/client/paths/userlogout/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/userlogout/get/responses/CodedefaultResponse.java
+src/main/java/org/openapijsonschematools/client/paths/userusername/delete/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/delete/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/delete/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/delete/parameters/Parameter0.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/delete/responses/Code200Response.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/delete/responses/Code404Response.java
+src/main/java/org/openapijsonschematools/client/paths/userusername/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/get/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/get/parameters/Parameter0.java
@@ -1060,6 +1085,7 @@ src/main/java/org/openapijsonschematools/client/paths/userusername/get/responses
 src/main/java/org/openapijsonschematools/client/paths/userusername/get/responses/Code404Response.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.java
+src/main/java/org/openapijsonschematools/client/paths/userusername/put/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/put/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/put/RequestBody.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/put/Responses.java
@@ -1196,6 +1222,10 @@ src/main/java/org/openapijsonschematools/client/servers/server1/Variables.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/header/ContentHeaderTest.java
 src/test/java/org/openapijsonschematools/client/header/SchemaHeaderTest.java
+src/test/java/org/openapijsonschematools/client/parameter/CookieSerializerTest.java
+src/test/java/org/openapijsonschematools/client/parameter/HeadersSerializerTest.java
+src/test/java/org/openapijsonschematools/client/parameter/PathSerializerTest.java
+src/test/java/org/openapijsonschematools/client/parameter/QuerySerializerTest.java
 src/test/java/org/openapijsonschematools/client/parameter/SchemaNonQueryParameterTest.java
 src/test/java/org/openapijsonschematools/client/parameter/SchemaQueryParameterTest.java
 src/test/java/org/openapijsonschematools/client/requestbody/RequestBodySerializerTest.java

@@ -13,7 +13,7 @@ A class that contains necessary nested parameter classes
 
 
 ## RefSchemaStringWithValidation1
-public static class RefSchemaStringWithValidation1 extends SchemaNonQueryParameter<br>
+public static class RefSchemaStringWithValidation1 extends SchemaParameter<br>
 
 a class that deserializes a parameter value
 

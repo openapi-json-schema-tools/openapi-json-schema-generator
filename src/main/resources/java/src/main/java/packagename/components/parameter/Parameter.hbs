@@ -23,21 +23,12 @@ import {{packageName}}.parameter.ParameterStyle;
     {{/neq}}
 import {{packageName}}.parameter.ParameterInType;
     {{#if schema}}
-        {{#eq in "query"}}
-import {{packageName}}.parameter.SchemaQueryParameter;
-        {{else}}
-import {{packageName}}.parameter.SchemaNonQueryParameter;
-        {{/eq}}
+import {{packageName}}.parameter.SchemaParameter;
         {{#with schema}}
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/if}}
     {{#if content}}
-        {{#eq in "query"}}
-import {{packageName}}.parameter.ContentQueryParameter;
-        {{else}}
-import {{packageName}}.parameter.ContentNonQueryParameter;
-        {{/eq}}
 import {{packageName}}.parameter.ContentParameter;
 import {{packageName}}.mediatype.MediaType;
         {{#each content}}
@@ -64,7 +55,7 @@ public class {{jsonPathPiece.pascalCase}} {
     }
     {{/each}}
 
-    public static class {{jsonPathPiece.pascalCase}}1 extends {{#if schema}}Schema{{else}}Content{{/if}}{{#eq in "query"}}QueryParameter{{else}}NonQueryParameter{{/eq}} {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{#if schema}}Schema{{else}}Content{{/if}}Parameter {
         public {{jsonPathPiece.pascalCase}}1() {
             super(
                 "{{{name}}}",

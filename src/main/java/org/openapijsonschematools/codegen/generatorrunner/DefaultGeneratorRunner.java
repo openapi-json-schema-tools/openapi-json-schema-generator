@@ -430,10 +430,11 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
 
         if (pathItem.parameters != null) {
-            generateXs(files, jsonPath + "/parameters", CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
+            String parametersJsonPath = jsonPath + "/parameters";
+            generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, generator.shouldGenerateFile(parametersJsonPath));
             int i = 0;
             for (CodegenParameter param: pathItem.parameters) {
-                generateParameter(files, param, jsonPath + "/parameters/" + i);
+                generateParameter(files, param, parametersJsonPath + "/" + i);
                 i += 1;
             }
         }
@@ -454,21 +455,23 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointMap.put("security", security);
                 endpointMap.put("path", pathKey);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
-                if (operation.pathParametersSchema != null) {
-                    String objectJsonPath = operationJsonPath + "/" + "PathParameters";
-                    generateSchema(files, operation.pathParametersSchema, objectJsonPath);
-                }
-                if (operation.queryParametersSchema != null) {
-                    String objectJsonPath = operationJsonPath + "/" + "QueryParameters";
-                    generateSchema(files, operation.queryParametersSchema, objectJsonPath);
-                }
-                if (operation.headerParametersSchema != null) {
-                    String objectJsonPath = operationJsonPath + "/" + "HeaderParameters";
-                    generateSchema(files, operation.headerParametersSchema, objectJsonPath);
-                }
-                if (operation.cookieParametersSchema != null) {
-                    String objectJsonPath = operationJsonPath + "/" + "CookieParameters";
-                    generateSchema(files, operation.cookieParametersSchema, objectJsonPath);
+                if (operation.parametersInfo != null) {
+                    if (operation.parametersInfo.pathParametersSchema != null) {
+                        String objectJsonPath = operationJsonPath + "/" + "PathParameters";
+                        generateSchema(files, operation.parametersInfo.pathParametersSchema, objectJsonPath);
+                    }
+                    if (operation.parametersInfo.queryParametersSchema != null) {
+                        String objectJsonPath = operationJsonPath + "/" + "QueryParameters";
+                        generateSchema(files, operation.parametersInfo.queryParametersSchema, objectJsonPath);
+                    }
+                    if (operation.parametersInfo.headerParametersSchema != null) {
+                        String objectJsonPath = operationJsonPath + "/" + "HeaderParameters";
+                        generateSchema(files, operation.parametersInfo.headerParametersSchema, objectJsonPath);
+                    }
+                    if (operation.parametersInfo.cookieParametersSchema != null) {
+                        String objectJsonPath = operationJsonPath + "/" + "CookieParameters";
+                        generateSchema(files, operation.parametersInfo.cookieParametersSchema, objectJsonPath);
+                    }
                 }
 
                 // operation docs
@@ -503,14 +506,18 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 }
 
                 // paths.some_path.post.parameters.parameter_0.py
-                if (operation.parameters != null && !operation.parameters.allParameters.isEmpty()) {
-                    String parametersJsonPath = operationJsonPath + "/parameters";
-                    generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
-                    Integer i = 0;
-                    for (CodegenParameter cp: operation.parameters.allParameters) {
-                        String parameterJsonPath = parametersJsonPath + "/" + i.toString();
-                        generateParameter(files, cp, parameterJsonPath);
-                        i++;
+                if (operation.parametersInfo != null) {
+                    if (operation.parametersInfo.parameters != null && !operation.parametersInfo.parameters.allParameters.isEmpty()) {
+                        String parametersJsonPath = operationJsonPath + "/parameters";
+                        Map<String, Object> parametersTemplateInfo = new HashMap<>();
+                        parametersTemplateInfo.put("parametersInfo", operation.parametersInfo);
+                        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, parametersTemplateInfo, true);
+                        Integer i = 0;
+                        for (CodegenParameter cp: operation.parametersInfo.parameters.allParameters) {
+                            String parameterJsonPath = parametersJsonPath + "/" + i.toString();
+                            generateParameter(files, cp, parameterJsonPath);
+                            i++;
+                        }
                     }
                 }
 
@@ -835,7 +842,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         TreeMap<String, CodegenParameter> parameters = new TreeMap<>();
         String parametersJsonPath = "#/components/parameters";
-        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
+        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, generator.shouldGenerateFile(parametersJsonPath));
         for (Map.Entry<String, Parameter> entry: specParameters.entrySet()) {
             String componentName = entry.getKey();
             Parameter specParameter = entry.getValue();

@@ -830,25 +830,25 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         // parameter
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/ContentNonQueryParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "ContentNonQueryParameter.java"));
-        supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ContentParameter.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ContentParameter.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/ContentQueryParameter.hbs",
+                "src/main/java/packagename/parameter/CookieSerializer.hbs",
                 packagePath() + File.separatorChar + "parameter",
-                "ContentQueryParameter.java"));
+                "CookieSerializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/HeadersSerializer.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "HeadersSerializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/Parameter.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "Parameter.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ParameterBase.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterBase.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/NonQueryParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "NonQueryParameter.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/ParameterInType.hbs",
                 packagePath() + File.separatorChar + "parameter",
@@ -858,21 +858,33 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterStyle.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/QueryParameter.hbs",
+                "src/main/java/packagename/parameter/PathSerializer.hbs",
                 packagePath() + File.separatorChar + "parameter",
-                "QueryParameter.java"));
+                "PathSerializer.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/SchemaNonQueryParameter.hbs",
+                "src/main/java/packagename/parameter/QuerySerializer.hbs",
                 packagePath() + File.separatorChar + "parameter",
-                "SchemaNonQueryParameter.java"));
+                "QuerySerializer.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/SchemaParameter.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "SchemaParameter.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/parameter/SchemaQueryParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "SchemaQueryParameter.java"));
+                "src/test/java/packagename/parameter/CookieSerializerTest.hbs",
+                testPackagePath() + File.separatorChar + "parameter",
+                "CookieSerializerTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/parameter/HeadersSerializerTest.hbs",
+                testPackagePath() + File.separatorChar + "parameter",
+                "HeadersSerializerTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/parameter/PathSerializerTest.hbs",
+                testPackagePath() + File.separatorChar + "parameter",
+                "PathSerializerTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/parameter/QuerySerializerTest.hbs",
+                testPackagePath() + File.separatorChar + "parameter",
+                "QuerySerializerTest.java"));
         supportingFiles.add(new SupportingFile(
                 "src/test/java/packagename/parameter/SchemaNonQueryParameterTest.hbs",
                 testPackagePath() + File.separatorChar + "parameter",
@@ -942,6 +954,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/parameter/Parameter.hbs", ".java");
                 }}
         );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/paths/path/verb/Parameters.hbs", ".java");
+                }}
+        );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
                 new HashMap<>() {{
@@ -958,7 +976,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
                 new HashMap<>() {{
-                    put("src/main/java/packagename/components/responses/Responses.hbs", ".java");
+                    put("src/main/java/packagename/paths/path/verb/Responses.hbs", ".java");
                 }}
         );
         jsonPathDocTemplateFiles.put(
@@ -1200,7 +1218,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             if (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/parameters/")) {
                 if (pathPieces[3].equals("parameters")) {
                     // #/paths/path/parameters/0/Schema -> PathParamSchema0
-                    usedKey = "PathParam" + camelize(usedKey) + pathPieces[4]; // PathParamSchema0
+                    usedKey = "RouteParam" + camelize(usedKey) + pathPieces[4]; // RouteParamSchema0
                 } else {
                     // #/paths/path/get/parameters/0/Schema -> Schema0
                     usedKey = camelize(usedKey) + pathPieces[5]; // Schema0
@@ -1339,12 +1357,22 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
             return toModuleFilename(name, jsonPath);
         }
-        if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && (pathPieces.length == 5 || pathPieces.length == 6)) {
-            // #/paths/somePath/parameters/0
-            // #/paths/somePath/verb/parameters/0
-            return "Parameter" + name;
+        if (operationVerbs.contains(pathPieces[3])) {
+            if (pathPieces.length == 5) {
+                // #/paths/somePath/verb/parameters
+                return "Parameters";
+            }
+            if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && pathPieces.length == 6) {
+                // #/paths/somePath/verb/parameters/0
+                return "Parameter" + name;
+            }
+            return "parameter" + name;
         }
-        return "parameter" + name;
+        if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && pathPieces.length == 5) {
+            // #/paths/somePath/parameters/0
+            return "RouteParameter" + name;
+        }
+        return "routeparameter" + name;
     }
 
     private String toSchemaRefClass(String ref, String sourceJsonPath) {
@@ -3276,8 +3304,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public boolean shouldGenerateFile(String jsonPath) {
         if (jsonPath.equals("#/components/responses")) {
             return false;
+        } else if (jsonPath.equals("#/components/headers")) {
+            return false;
+        } else if (jsonPath.equals("#/components/parameters")) {
+            return false;
         }
-        if (jsonPath.equals("#/components/headers")) {
+        String[] pathPieces = jsonPath.split("/");
+        if (pathPieces.length == 4 && jsonPath.endsWith("/parameters")) {
+            // #/paths/path/parameters
             return false;
         }
         return true;
