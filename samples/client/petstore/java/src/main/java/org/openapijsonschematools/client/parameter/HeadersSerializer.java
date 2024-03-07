@@ -14,9 +14,9 @@ public abstract class HeadersSerializer {
         this.parameters = parameters;
     }
 
-    public Map<String, List<String>> serialize(Map<String, ?> inData) {
+    public Map<String, List<String>> serialize(Map<String, @Nullable Object> inData) {
         Map<String, List<String>> results = new LinkedHashMap<>();
-        for (Map.Entry<String, ?> entry: inData.entrySet()) {
+        for (Map.Entry<String, @Nullable Object> entry: inData.entrySet()) {
             String mapKey = entry.getKey();
             @Nullable Parameter parameter = parameters.get(mapKey);
             if (parameter == null) {

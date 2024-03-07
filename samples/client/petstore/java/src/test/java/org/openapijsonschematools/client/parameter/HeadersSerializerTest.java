@@ -34,7 +34,7 @@ public class HeadersSerializerTest {
 
     @Test
     public void testSerialization() {
-        Map<String, ?> inData = Map.ofEntries(
+        Map<String, @Nullable Object>> inData = Map.ofEntries(
                 new AbstractMap.SimpleEntry<>("param1", "a"),
                 new AbstractMap.SimpleEntry<>("param2", 3.14d)
         );

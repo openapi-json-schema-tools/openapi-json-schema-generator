@@ -14,9 +14,9 @@ public abstract class QuerySerializer {
         this.parameters = parameters;
     }
 
-    public Map<String, String> getQueryMap(Map<String, ?> inData) {
+    public Map<String, String> getQueryMap(Map<String, @Nullable Object> inData) {
         Map<String, String> results = new HashMap<>();
-        for (Map.Entry<String, ?> entry: inData.entrySet()) {
+        for (Map.Entry<String, @Nullable Object> entry: inData.entrySet()) {
             String mapKey = entry.getKey();
             @Nullable Parameter parameter = parameters.get(mapKey);
             if (parameter == null) {

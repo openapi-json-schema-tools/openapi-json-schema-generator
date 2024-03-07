@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.parameter;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
