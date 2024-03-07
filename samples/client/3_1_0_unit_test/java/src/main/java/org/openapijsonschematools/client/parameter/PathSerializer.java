@@ -12,9 +12,9 @@ public abstract class PathSerializer {
         this.parameters = parameters;
     }
 
-    public String serialize(Map<String, @Nullable Object> inData, String pathWithPlaceholders) {
+    public String serialize(Map<String, ?> inData, String pathWithPlaceholders) {
         String result = pathWithPlaceholders;
-        for (Map.Entry<String, @Nullable Object> entry: inData.entrySet()) {
+        for (Map.Entry<String, ?> entry: inData.entrySet()) {
             String mapKey = entry.getKey();
             @Nullable Parameter parameter = parameters.get(mapKey);
             if (parameter == null) {

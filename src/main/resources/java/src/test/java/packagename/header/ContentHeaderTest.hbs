@@ -27,7 +27,7 @@ public class ContentHeaderTest {
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
         mapPayload.put("B", 150);
-        var testCases = List.of(
+        List<ParamTestCase> testCases = List.of(
                 new ParamTestCase(
                         null,
                         Map.of("color", List.of("null"))

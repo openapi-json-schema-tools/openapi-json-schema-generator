@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.parameter;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
@@ -34,7 +33,7 @@ public class QuerySerializerTest {
 
     @Test
     public void testSerialization() {
-        Map<String, @Nullable Object> inData = Map.ofEntries(
+        Map<String, ?> inData = Map.ofEntries(
                 new AbstractMap.SimpleEntry<>("param1", "a"),
                 new AbstractMap.SimpleEntry<>("param2", 3.14d)
         );

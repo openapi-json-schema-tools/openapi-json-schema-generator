@@ -31,7 +31,7 @@ public class SchemaQueryParameterTest {
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
         mapPayload.put("B", 150);
-        var testCases = List.of(
+        List<ParamTestCase> testCases = List.of(
                 new ParamTestCase(
                         null,
                         new AbstractMap.SimpleEntry<>("color", "")
@@ -109,7 +109,7 @@ public class SchemaQueryParameterTest {
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
         mapPayload.put("B", 150);
-        var testCases = List.of(
+        List<ParamTestCase> testCases = List.of(
                 new ParamTestCase(
                         List.of(),
                         new AbstractMap.SimpleEntry<>("color", "")
@@ -156,7 +156,7 @@ public class SchemaQueryParameterTest {
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
         mapPayload.put("B", 150);
-        var testCases = List.of(
+        List<ParamTestCase> testCases = List.of(
                 new ParamTestCase(
                         List.of(),
                         new AbstractMap.SimpleEntry<>("color", "")
