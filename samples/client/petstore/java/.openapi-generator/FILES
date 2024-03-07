@@ -558,6 +558,7 @@ src/main/java/org/openapijsonschematools/client/header/StyleSerializer.java
 src/main/java/org/openapijsonschematools/client/mediatype/Encoding.java
 src/main/java/org/openapijsonschematools/client/mediatype/MediaType.java
 src/main/java/org/openapijsonschematools/client/parameter/ContentParameter.java
+src/main/java/org/openapijsonschematools/client/parameter/CookieSerializer.java
 src/main/java/org/openapijsonschematools/client/parameter/HeadersSerializer.java
 src/main/java/org/openapijsonschematools/client/parameter/Parameter.java
 src/main/java/org/openapijsonschematools/client/parameter/ParameterBase.java

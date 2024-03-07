@@ -834,6 +834,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "parameter",
                 "ContentParameter.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/CookieSerializer.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "CookieSerializer.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/parameter/HeadersSerializer.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "HeadersSerializer.java"));
