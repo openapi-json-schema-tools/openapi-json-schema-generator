@@ -54,6 +54,27 @@ security_index_info: api_configuration.SecurityIndexInfo = {
         {{/gt}}
     {{/neq}}
 {{/neq}}
+{{#each security}}
+    {{#each this}}
+        {{#with refInfo.ref}}
+            {{#eq type "oauth2"}}
+                {{#with flows}}
+                    {{#with password}}
+                        {{#with tokenUrl}}
+# oauth_server_client_info for oauth security schema
+oauth_server_client_info = security_schemes.OauthServerClientInfo = {
+    "{{getAuthority}}": security_schemes.OauthClientInfo(
+        client_id="client_id",
+        client_secret="client",
+    ),
+}
+                        {{/with}}
+                    {{/with}}
+                {{/with}}
+            {{/eq}}
+        {{/with}}
+    {{/each}}
+{{/each}}
 used_configuration = api_configuration.ApiConfiguration(
 {{#neq security null}}
     {{#gt security.size 0}}
@@ -72,4 +93,13 @@ used_configuration = api_configuration.ApiConfiguration(
         {{/gt}}
     {{/neq}}
 {{/neq}}
+{{#each security}}
+    {{#each this}}
+        {{#with refInfo.ref}}
+            {{#eq type "oauth2"}}
+    oauth_server_client_info=oauth_server_client_info,
+            {{/eq}}
+        {{/with}}
+    {{/each}}
+{{/each}}
 )

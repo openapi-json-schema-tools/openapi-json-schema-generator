@@ -100,6 +100,8 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Stability
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.io.File;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -1328,6 +1330,9 @@ public class DefaultGenerator implements Generator {
     // json path to instance
     Map<String, CodegenResponse> codegenResponseCache = new HashMap<>();
     Map<String, CodegenHeader> codegenHeaderCache = new HashMap<>();
+
+    // used to know what oauth servers there are
+    LinkedHashSet<String> oauthServerHostnames = new LinkedHashSet<>();
     Map<String, CodegenRequestBody> codegenRequestBodyCache = new HashMap<>();
     Map<String, CodegenSecurityScheme> codegenSecuritySchemeCache = new HashMap<>();
     Map<String, CodegenSecurityRequirementValue> codegenSecurityRequirementCache = new HashMap<>();
@@ -1366,6 +1371,10 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+    }
+
+    public LinkedHashSet<String> getOauthServerHostnames() {
+        return oauthServerHostnames;
     }
 
     protected String toTestCaseName(String specTestCaseName) {
@@ -3404,9 +3413,16 @@ public class DefaultGenerator implements Generator {
             Map<String, Object> flowsVendorExtensions = sourceFlows.getExtensions();
             OAuthFlow sourceFlow = sourceFlows.getImplicit();
             if (sourceFlow != null) {
+                URL authorizationUrl = null;
+                try {
+                    authorizationUrl = new URL(sourceFlow.getAuthorizationUrl());
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
+                oauthServerHostnames.add(authorizationUrl.getHost());
                 implicit = new CodegenOauthFlow(
-                        sourceFlow.getAuthorizationUrl(),
-                        sourceFlow.getTokenUrl(),
+                        authorizationUrl,
+                        null,
                         sourceFlow.getRefreshUrl(),
                         sourceFlow.getScopes(),
                         sourceFlow.getExtensions()
@@ -3414,9 +3430,16 @@ public class DefaultGenerator implements Generator {
             }
             sourceFlow = sourceFlows.getPassword();
             if (sourceFlow != null) {
+                URL tokenUrl = null;
+                try {
+                    tokenUrl = new URL(sourceFlow.getTokenUrl());
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
+                oauthServerHostnames.add(tokenUrl.getHost());
                 password = new CodegenOauthFlow(
-                        sourceFlow.getAuthorizationUrl(),
-                        sourceFlow.getTokenUrl(),
+                        null,
+                        tokenUrl,
                         sourceFlow.getRefreshUrl(),
                         sourceFlow.getScopes(),
                         sourceFlow.getExtensions()
@@ -3424,9 +3447,16 @@ public class DefaultGenerator implements Generator {
             }
             sourceFlow = sourceFlows.getClientCredentials();
             if (sourceFlow != null) {
+                URL tokenUrl = null;
+                try {
+                    tokenUrl = new URL(sourceFlow.getTokenUrl());
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
+                oauthServerHostnames.add(tokenUrl.getHost());
                 clientCredentials = new CodegenOauthFlow(
-                        sourceFlow.getAuthorizationUrl(),
-                        sourceFlow.getTokenUrl(),
+                        null,
+                        tokenUrl,
                         sourceFlow.getRefreshUrl(),
                         sourceFlow.getScopes(),
                         sourceFlow.getExtensions()
@@ -3434,9 +3464,22 @@ public class DefaultGenerator implements Generator {
             }
             sourceFlow = sourceFlows.getAuthorizationCode();
             if (sourceFlow != null) {
+                URL authorizationUrl = null;
+                try {
+                    authorizationUrl = new URL(sourceFlow.getAuthorizationUrl());
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
+                oauthServerHostnames.add(authorizationUrl.getHost());
+                URL tokenUrl = null;
+                try {
+                    tokenUrl = new URL(sourceFlow.getTokenUrl());
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
                 authorizationCode = new CodegenOauthFlow(
-                        sourceFlow.getAuthorizationUrl(),
-                        sourceFlow.getTokenUrl(),
+                        authorizationUrl,
+                        tokenUrl,
                         sourceFlow.getRefreshUrl(),
                         sourceFlow.getScopes(),
                         sourceFlow.getExtensions()

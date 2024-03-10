@@ -10,6 +10,10 @@ security:
   - {}
   - api_key: []
     http_basic_test: []
+  - oauthClientCredentials:
+      - 'read:pets'
+  - oauthPassword:
+      - 'write:pets'
 paths:
   /pathWithSecurityFromRoot:
     get:
@@ -61,3 +65,21 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+    oauthClientCredentials:
+      description: oauth2 implicit flow with two scopes
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://petstore.swagger.io/api/oauth/token'
+          scopes:
+            'write:pets': modify pets in your account
+            'read:pets': read your pets
+    oauthPassword:
+      description: oauth2 implicit flow with two scopes
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: 'https://petstore.swagger.io/api/oauth/token'
+          scopes:
+            'write:pets': modify pets in your account
+            'read:pets': read your pets

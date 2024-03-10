@@ -203,11 +203,16 @@ from petstore_api.components.security_schemes import security_scheme_petstore_au
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
     "petstore_auth": security_scheme_petstore_auth.PetstoreAuth(
+        flows = security_scheme_petstore_auth.OAuthFlows(
+            implicit=security_scheme_petstore_auth.ImplicitOauthFlow(
+            )
+        )
     ),
 }
 
 used_configuration = api_configuration.ApiConfiguration(
     security_scheme_info=security_scheme_info,
+    oauth_server_client_info=oauth_server_client_info,
 )
 # Enter a context with an instance of the API client
 with petstore_api.ApiClient(used_configuration) as api_client:

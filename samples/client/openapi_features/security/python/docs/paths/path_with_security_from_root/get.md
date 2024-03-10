@@ -26,7 +26,7 @@ this_package.paths.path_with_security_from_root.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1, 2, 3]
+security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1, 2, 3, 4, 5]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -67,6 +67,8 @@ See how to do this in the code sample.
 | 1       | ["http_basic_test"](../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
 | 2       | no security |
 | 3       | ["http_basic_test"](../../components/security_schemes/security_scheme_http_basic_test.md) []<br>["api_key"](../../components/security_schemes/security_scheme_api_key.md) []<br> |
+| 4       | ["oauthClientCredentials"](../../components/security_schemes/security_scheme_oauth_client_credentials.md) [read:pets]<br> |
+| 5       | ["oauthPassword"](../../components/security_schemes/security_scheme_oauth_password.md) [write:pets]<br> |
 
 ## Servers
 
@@ -94,6 +96,10 @@ from this_package.components.security_schemes import security_scheme_http_basic_
 # security_index 3
 from this_package.components.security_schemes import security_scheme_http_basic_test
 from this_package.components.security_schemes import security_scheme_api_key
+# security_index 4
+from this_package.components.security_schemes import security_scheme_oauth_client_credentials
+# security_index 5
+from this_package.components.security_schemes import security_scheme_oauth_password
 
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
@@ -128,11 +134,37 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
     ),
 }
 
+
+# security_scheme_info for security_index 4
+security_scheme_info: api_configuration.SecuritySchemeInfo = {
+    "oauthClientCredentials": security_scheme_oauth_client_credentials.OauthClientCredentials(
+        flows = security_scheme_oauth_client_credentials.OAuthFlows(
+            client_credentials=security_scheme_oauth_client_credentials.ClientCredentialsOauthFlow(
+            )                       
+        )
+    ),
+}
+
+
+# security_scheme_info for security_index 5
+security_scheme_info: api_configuration.SecuritySchemeInfo = {
+    "oauthPassword": security_scheme_oauth_password.OauthPassword(
+        flows = security_scheme_oauth_password.OAuthFlows(
+            password = security_scheme_oauth_password.PasswordOauthFlow(
+                username = 'someUsername',
+                password = 'somePassword'
+            )
+        )
+    ),
+}
+
 security_index_info: api_configuration.SecurityIndexInfo = {
     "security": 0,
     # only set one "security": 1,
     # only set one "security": 2,
     # only set one "security": 3,
+    # only set one "security": 4,
+    # only set one "security": 5,
 }
 used_configuration = api_configuration.ApiConfiguration(
     security_scheme_info=security_scheme_info,

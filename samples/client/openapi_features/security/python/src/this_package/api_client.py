@@ -1151,18 +1151,20 @@ class ApiClient:
                     'api_key',
                     'bearer_test',
                     'http_basic_test',
+                    'oauthClientCredentials',
+                    'oauthPassword',
                 ],
                 security_scheme_component_name
             )
             try:
                 security_scheme_instance = self.configuration.security_scheme_info[security_scheme_component_name]
                 security_scheme_instance.apply_auth(
-                    headers,
-                    resource_path,
-                    method,
-                    body,
-                    query_params_suffix,
-                    scope_names
+                    headers=headers,
+                    resource_path=resource_path,
+                    method=method,
+                    body=body,
+                    query_params_suffix=query_params_suffix,
+                    scope_names=scope_names,
                 )
             except KeyError as ex:
                 raise ex

@@ -22,6 +22,7 @@ requires-python = ">=3.8"
 dependencies = [
     "certifi >= 14.5.14",
     "immutabledict ~= 3.0.0",
+    "authlib ~= 1.2.0",
     "pem >= 19.3.0",
     "pycryptodome >= 3.9.0",
     "python-dateutil ~= 2.7.0",
@@ -30,6 +31,7 @@ dependencies = [
     "types-urllib3",
     "typing_extensions ~= 4.5.0",
     "urllib3 ~= 2.0.a3",
+    "requests",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",

@@ -1390,6 +1390,11 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         bundle.put("security", security);
         bundle.put("apiFolder", generator.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", generator.modelPackage());
+        if (generator.getOauthServerHostnames().isEmpty()) {
+            bundle.put("oauthServerHostnames", null);
+        } else {
+            bundle.put("oauthServerHostnames", generator.getOauthServerHostnames());
+        }
         if (securitySchemes == null) {
             bundle.put("hasHttpSignatureSecurityScheme", false);
         } else {

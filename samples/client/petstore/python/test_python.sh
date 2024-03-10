@@ -23,7 +23,7 @@ python -m pip install .
 tox || exit 1
 pip install mypy==1.8.0
 # run mypy, static type checking
-mypy src/petstore_api
+mypy src/petstore_api --ignore-missing-imports
 
 # static analysis of code
 #flake8 --show-source petstore_api/

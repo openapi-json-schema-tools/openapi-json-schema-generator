@@ -12,8 +12,11 @@ import dataclasses
 import enum
 import typing
 import typing_extensions
+from urllib import parse
 
 from urllib3 import _collections
+
+from unit_test_api import exceptions
 
 
 class SecuritySchemeType(enum.Enum):
@@ -154,50 +157,6 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
         raise NotImplementedError("MutualTLSSecurityScheme not yet implemented")
 
 
-@dataclasses.dataclass
-class ImplicitOAuthFlow:
-    authorization_url: str
-    scopes: typing.Dict[str, str]
-    refresh_url: typing.Optional[str] = None
-
-
-@dataclasses.dataclass
-class TokenUrlOauthFlow:
-    token_url: str
-    scopes: typing.Dict[str, str]
-    refresh_url: typing.Optional[str] = None
-
-
-@dataclasses.dataclass
-class AuthorizationCodeOauthFlow:
-    authorization_url: str
-    token_url: str
-    scopes: typing.Dict[str, str]
-    refresh_url: typing.Optional[str] = None
-
-
-@dataclasses.dataclass
-class OAuthFlows:
-    implicit: typing.Optional[ImplicitOAuthFlow] = None
-    password: typing.Optional[TokenUrlOauthFlow] = None
-    client_credentials: typing.Optional[TokenUrlOauthFlow] = None
-    authorization_code: typing.Optional[AuthorizationCodeOauthFlow] = None
-
-
-class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
-    flows: OAuthFlows
-    type: SecuritySchemeType = SecuritySchemeType.OAUTH_2
-
-    def apply_auth(
-        self,
-        headers: _collections.HTTPHeaderDict,
-        resource_path: str,
-        method: str,
-        body: typing.Optional[typing.Union[str, bytes]],
-        query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
-    ) -> None:
-        raise NotImplementedError("OAuth2SecurityScheme not yet implemented")
 
 
 class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
@@ -214,6 +173,7 @@ class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         raise NotImplementedError("OpenIdConnectSecurityScheme not yet implemented")
+
 
 """
 Key is the Security scheme class

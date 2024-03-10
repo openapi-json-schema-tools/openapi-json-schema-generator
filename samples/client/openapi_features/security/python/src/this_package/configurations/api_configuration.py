@@ -22,7 +22,10 @@ from this_package import security_schemes
 from this_package.components.security_schemes import security_scheme_api_key
 from this_package.components.security_schemes import security_scheme_bearer_test
 from this_package.components.security_schemes import security_scheme_http_basic_test
+from this_package.components.security_schemes import security_scheme_oauth_client_credentials
+from this_package.components.security_schemes import security_scheme_oauth_password
 from this_package.servers import server_0
+from this_package import security_schemes
 
 # security scheme key identifier to security scheme instance
 SecuritySchemeInfo = typing.TypedDict(
@@ -31,13 +34,15 @@ SecuritySchemeInfo = typing.TypedDict(
         "api_key": security_scheme_api_key.ApiKey,
         "bearer_test": security_scheme_bearer_test.BearerTest,
         "http_basic_test": security_scheme_http_basic_test.HttpBasicTest,
+        "oauthClientCredentials": security_scheme_oauth_client_credentials.OauthClientCredentials,
+        "oauthPassword": security_scheme_oauth_password.OauthPassword,
     },
     total=False
 )
 
 
 class SecurityIndexInfoRequired(typing.TypedDict):
-    security: typing.Literal[0, 1, 2, 3]
+    security: typing.Literal[0, 1, 2, 3, 4, 5]
 
 SecurityIndexInfoOptional = typing.TypedDict(
     'SecurityIndexInfoOptional',
@@ -96,6 +101,7 @@ class ApiConfiguration(object):
     :param security_index_info: path to security_index information
     :param server_info: the servers that can be used to make endpoint calls
     :param server_index_info: index to servers configuration
+    :param oauth_server_client_info: the oauth client_id and client_secret info
     """
 
     def __init__(
@@ -104,6 +110,7 @@ class ApiConfiguration(object):
         security_index_info: typing.Optional[SecurityIndexInfo] = None,
         server_info: typing.Optional[ServerInfo] = None,
         server_index_info: typing.Optional[ServerIndexInfo] = None,
+        oauth_server_client_info: typing.Optional[security_schemes.OauthServerClientInfo] = None,
     ):
         """Constructor
         """
@@ -115,6 +122,8 @@ class ApiConfiguration(object):
             'servers/0': server_0.Server0(),
         }
         self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
+        # oauth server client info
+        self.oauth_server_client_info: security_schemes.OauthServerClientInfo = oauth_server_client_info or {}
         self.logger = {}
         """Logging Settings
         """

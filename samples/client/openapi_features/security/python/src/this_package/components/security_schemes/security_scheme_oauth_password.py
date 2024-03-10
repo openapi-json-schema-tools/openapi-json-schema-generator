@@ -6,16 +6,16 @@
 
     
 from urllib import parse
-from petstore_api.shared_imports.security_scheme_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from this_package.shared_imports.security_scheme_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
-  
+
 @dataclasses.dataclass
-class ImplicitOAuthFlow(security_schemes.ImplicitOAuthFlow):
-    authorization_url: parse.ParseResult = parse.ParseResult(
-        scheme="http",
+class PasswordOauthFlow(security_schemes.PasswordOauthFlow):
+    token_url: parse.ParseResult = parse.ParseResult(
+        scheme="https",
         netloc="petstore.swagger.io",
-        path="/api/oauth/dialog",
+        path="/api/oauth/token",
         params='',
         query='',
         fragment=''
@@ -27,11 +27,11 @@ class ImplicitOAuthFlow(security_schemes.ImplicitOAuthFlow):
 
 
 class OAuthFlows(security_schemes.OAuthFlows):
-    implicit : ImplicitOAuthFlow = ImplicitOAuthFlow()
+    password : PasswordOauthFlow = PasswordOauthFlow()
                         
 
 @dataclasses.dataclass
-class PetstoreAuth(security_schemes.OAuth2SecurityScheme):
+class OauthPassword(security_schemes.OAuth2SecurityScheme):
     '''
     oauth2 implicit flow with two scopes
     '''

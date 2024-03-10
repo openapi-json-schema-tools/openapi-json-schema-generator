@@ -8,7 +8,7 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {}
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
             {{#each this}}
     "{{{@key}}}": {{refInfo.refModule}}.{{refInfo.refClass}}(
-                {{#with refInfo.ref}}
+                {{#with refInfo.ref}}  
                     {{#eq type "apiKey"}}
         api_key='sampleApiKeyValue'
                     {{else}}
@@ -42,7 +42,32 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
                                     {{/eq}}
                                 {{/eq}}
                             {{/eq}}
-                        {{/eq}}
+                        {{else}}
+                            {{#eq type "oauth2"}}
+        flows = {{../refInfo.refModule}}.OAuthFlows(
+                                {{#with flows}}
+                                    {{#with implicit}}
+            implicit={{../../../refInfo.refModule}}.ImplicitOauthFlow(
+            )
+                                    {{/with}}
+                                    {{#with password}}
+            password = {{../../../refInfo.refModule}}.PasswordOauthFlow(
+                username = 'someUsername',
+                password = 'somePassword'
+            )
+                                    {{/with}}
+                                    {{#with clientCredentials}}
+            client_credentials={{../../../refInfo.refModule}}.ClientCredentialsOauthFlow(
+            )                       
+                                    {{/with}}
+                                    {{#with authorizationCode}}
+            authorization_code={{../../../refInfo.refModule}}.AuthorizationCodeOauthFlow(
+            )
+                                    {{/with}}
+                                {{/with}}
+        )
+                            {{/eq}}
+                        {{/eq}}    
                     {{/eq}}
     ),
                 {{/with}}

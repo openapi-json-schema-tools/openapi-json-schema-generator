@@ -60,7 +60,9 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 
 import javax.validation.constraints.NotNull;
 import java.io.File;
+import java.net.MalformedURLException;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -152,6 +154,8 @@ public interface Generator {
     CodegenKey getKey(String key, String keyType);
 
     CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
+
+    LinkedHashSet<String> getOauthServerHostnames();
 
     HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
 
