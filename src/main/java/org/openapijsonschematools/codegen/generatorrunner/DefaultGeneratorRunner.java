@@ -1552,7 +1552,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         String serversJsonPath = "#/servers";
         CodegenList<CodegenServer> servers = generator.fromServers(openAPI.getServers(), serversJsonPath);
         // paths
-        TreeMap<CodegenKey, CodegenPathItem> paths = generator.fromPaths(openAPI.getPaths(), servers);
+        TreeMap<CodegenKey, CodegenPathItem> paths = generator.fromPaths(openAPI.getPaths(), servers, security);
         generatePaths(files, paths, servers, security);
         generateServers(files, servers, serversJsonPath);
         // apis

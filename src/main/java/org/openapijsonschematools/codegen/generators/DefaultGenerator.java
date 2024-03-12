@@ -2747,7 +2747,7 @@ public class DefaultGenerator implements Generator {
 
     @Deprecated
     public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters) {
-        return fromOperation(operation, jsonPath, pathItemParameters, null);
+        return fromOperation(operation, jsonPath, pathItemParameters, null, null);
     }
 
     /**
@@ -2758,7 +2758,7 @@ public class DefaultGenerator implements Generator {
      * @return Codegen Operation object
      */
     @Override
-    public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters, CodegenList<CodegenServer> rootOrPathServers) {
+    public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters, CodegenList<CodegenServer> rootOrPathServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity) {
         LOGGER.debug("fromOperation => operation: {}", operation);
         if (operation == null) {
             throw new RuntimeException("operation cannot be null in fromOperation");
@@ -2947,7 +2947,8 @@ public class DefaultGenerator implements Generator {
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
         CodegenList<CodegenServer> usedServers = (servers != null) ? servers : rootOrPathServers;
-        List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, usedServers, security);
+        CodegenList<CodegenSecurityRequirementObject> usedSecurity = (security != null) ? security : rootSecurity;
+        List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, usedServers, usedSecurity);
 
         return new CodegenOperation(
                 deprecated,
@@ -5118,11 +5119,11 @@ public class DefaultGenerator implements Generator {
 
     @Deprecated
     public TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths){
-        return fromPaths(paths, null);
+        return fromPaths(paths, null, null);
     }
 
     @Override
-    public TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths, CodegenList<CodegenServer> rootServers){
+    public TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths, CodegenList<CodegenServer> rootServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity){
         if (paths == null) {
             return null;
         }
@@ -5132,7 +5133,7 @@ public class DefaultGenerator implements Generator {
             String path = entry.getKey();
             PathItem pathItem = entry.getValue();
             String pathItemJsonPath = jsonPath + ModelUtils.encodeSlashes(path);
-            CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath, rootServers);
+            CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath, rootServers, rootSecurity);
             CodegenKey pathKey = getKey(path, "paths");
             codegenPaths.put(pathKey, codegenPathItem);
         }
@@ -5143,11 +5144,11 @@ public class DefaultGenerator implements Generator {
 
     @Deprecated
     public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath) {
-        return fromPathItem(pathItem, jsonPath, null);
+        return fromPathItem(pathItem, jsonPath, null, null);
     }
 
     @Override
-    public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath, CodegenList<CodegenServer> rootServers) {
+    public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath, CodegenList<CodegenServer> rootServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity) {
         CodegenText summary = getCodegenText(pathItem.getSummary());
         CodegenText description = getCodegenText(pathItem.getDescription());
         ArrayList<CodegenParameter> parameters = null;
@@ -5181,7 +5182,7 @@ public class DefaultGenerator implements Generator {
             if (specOperation != null) {
                 operations.put(getKey(
                     httpMethod, "verb"),
-                    fromOperation(specOperation, jsonPath + "/" + httpMethod, pairToParameter, usedServers)
+                    fromOperation(specOperation, jsonPath + "/" + httpMethod, pairToParameter, usedServers, rootSecurity)
                 );
             }
         }
