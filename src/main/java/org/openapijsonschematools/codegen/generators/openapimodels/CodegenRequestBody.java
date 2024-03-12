@@ -12,7 +12,7 @@ import java.util.TreeSet;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenRequestBody implements JsonPathPieceMethod {
+public class CodegenRequestBody implements JsonPathPieceProvider {
     public final CodegenText description;
     public final Map<String, Object> vendorExtensions;
     public final Boolean required;

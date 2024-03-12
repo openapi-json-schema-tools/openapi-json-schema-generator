@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.TreeSet;
 import java.util.function.Function;
 
-public class CodegenSchema implements JsonPathPieceMethod {
+public class CodegenSchema implements JsonPathPieceProvider {
     // 3.0.0
     public String title;
     public Number multipleOf;

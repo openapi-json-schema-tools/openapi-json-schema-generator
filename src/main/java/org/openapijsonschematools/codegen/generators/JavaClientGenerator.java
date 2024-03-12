@@ -52,7 +52,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecuri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
-import org.openapijsonschematools.codegen.generators.openapimodels.JsonPathPieceMethod;
+import org.openapijsonschematools.codegen.generators.openapimodels.JsonPathPieceProvider;
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
@@ -2422,8 +2422,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         int reqPropsSize = 0;
         boolean requestBodyExists = requestBody != null;
         boolean parametersExist = parametersInfo != null;
-        List<JsonPathPieceMethod> requiredProperties = new ArrayList<>();
-        List<JsonPathPieceMethod> optionalProperties = new ArrayList<>();
+        List<JsonPathPieceProvider> requiredProperties = new ArrayList<>();
+        List<JsonPathPieceProvider> optionalProperties = new ArrayList<>();
         if (requestBodyExists) {
             if (Boolean.TRUE.equals(requestBody.getSelfOrDeepestRef().required)) {
                 qtyBuilders += 1;
@@ -2525,7 +2525,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             builders.add(builder);
         }
         if (!optionalProperties.isEmpty()) {
-            for (JsonPathPieceMethod property: optionalProperties) {
+            for (JsonPathPieceProvider property: optionalProperties) {
                 var pair = new MapBuilder.BuilderPropertyPair<>(lastBuilder, property);
                 lastBuilder.keyToBuilder.put(property.jsonPathPiece(), pair);
             }

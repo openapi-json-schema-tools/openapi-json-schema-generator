@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * A class to store inline codegenschema definitions
  */
-public class CodegenList <T> extends AbstractList<T> implements JsonPathPieceMethod {
+public class CodegenList <T> extends AbstractList<T> implements JsonPathPieceProvider {
     public final List<T> items;
     public final CodegenKey jsonPathPiece;
     public final String subpackage;
