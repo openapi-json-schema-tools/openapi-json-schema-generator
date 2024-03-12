@@ -40,13 +40,16 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParametersInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
@@ -2408,6 +2411,73 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()), enumValue.description);
             addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
         }
+    }
+
+    protected List<MapBuilder<?>> getOperationBuilders(String jsonSchema, CodegenRequestBody requestBody, CodegenParametersInfo parametersInfo, CodegenList<CodegenServer> servers, CodegenList<CodegenSecurityRequirementObject> security) {
+        if (requestBody == null && parametersInfo == null && servers == null && security == null) {
+            return null;
+        }
+        int qtyBuilders = 1;
+        int reqPropsSize = 0;
+        boolean requestBodyExists = requestBody != null;
+        boolean parametersExist = parametersInfo != null;
+        List<Object> requiredProperties = new ArrayList<>();
+        List<Object> optionalProperties = new ArrayList<>();
+        if (requestBodyExists) {
+            if (Boolean.TRUE.equals(requestBody.getSelfOrDeepestRef().required)) {
+                qtyBuilders += 1;
+                reqPropsSize += 1;
+                requiredProperties.add(requestBody);
+            } else {
+                optionalProperties.add(requestBody);
+            }
+        }
+        if (parametersExist) {
+            if (parametersInfo.headerParametersSchema != null) {
+                if (parametersInfo.headerParametersSchema.requiredProperties != null) {
+                    qtyBuilders += 1;
+                    reqPropsSize += 1;
+                    requiredProperties.add(parametersInfo.headerParametersSchema);
+                } else {
+                    optionalProperties.add(parametersInfo.headerParametersSchema);
+                }
+            }
+            if (parametersInfo.pathParametersSchema != null) {
+                if (parametersInfo.pathParametersSchema.requiredProperties != null) {
+                    qtyBuilders += 1;
+                    reqPropsSize += 1;
+                    requiredProperties.add(parametersInfo.pathParametersSchema);
+                } else {
+                    optionalProperties.add(parametersInfo.pathParametersSchema);
+                }
+            }
+            if (parametersInfo.queryParametersSchema != null) {
+                if (parametersInfo.queryParametersSchema.requiredProperties != null) {
+                    qtyBuilders += 1;
+                    reqPropsSize += 1;
+                    requiredProperties.add(parametersInfo.queryParametersSchema);
+                } else {
+                    optionalProperties.add(parametersInfo.queryParametersSchema);
+                }
+            }
+            if (parametersInfo.cookieParametersSchema != null) {
+                if (parametersInfo.cookieParametersSchema.requiredProperties != null) {
+                    qtyBuilders += 1;
+                    reqPropsSize += 1;
+                    requiredProperties.add(parametersInfo.cookieParametersSchema);
+                } else {
+                    optionalProperties.add(parametersInfo.cookieParametersSchema);
+                }
+            }
+        }
+        if (servers != null) {
+            optionalProperties.add(servers);
+        }
+        if (security != null) {
+            optionalProperties.add(security);
+        }
+        // todo pass in and use path/root servers + security here if they are used
+        return List.of();
     }
 
     protected List<MapBuilder<CodegenSchema>> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {

@@ -2784,10 +2784,10 @@ public class DefaultGenerator implements Generator {
         CodegenKey operationId = getOperationId(operation, path, httpMethod);
 
         // servers setting
-        CodegenList<CodegenServer> codegenList = null;
+        CodegenList<CodegenServer> servers = null;
         if (operation.getServers() != null && !operation.getServers().isEmpty()) {
             // use operation-level servers first if defined
-            codegenList = fromServers(operation.getServers(), jsonPath + "/servers");
+            servers = fromServers(operation.getServers(), jsonPath + "/servers");
         }
 
         CodegenText summary = null;
@@ -2941,6 +2941,7 @@ public class DefaultGenerator implements Generator {
         CodegenList<CodegenSecurityRequirementObject> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
+        List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, servers, security);
 
         return new CodegenOperation(
                 deprecated,
@@ -2951,7 +2952,7 @@ public class DefaultGenerator implements Generator {
                 summary,
                 description,
                 produces,
-                codegenList,
+                servers,
                 requestBody,
                 parametersInfo,
                 hasRequiredParamOrBody,
@@ -2968,8 +2969,13 @@ public class DefaultGenerator implements Generator {
                 vendorExtensions,
                 operationId,
                 jsonPathPiece,
-                requestBodySchema
+                requestBodySchema,
+                builders
             );
+    }
+
+    protected List<MapBuilder<?>> getOperationBuilders(String jsonSchema, CodegenRequestBody requestBody, CodegenParametersInfo parametersInfo, CodegenList<CodegenServer> servers, CodegenList<CodegenSecurityRequirementObject> security) {
+        return null;
     }
 
     private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String sourceJsonPath, String currentJsonPath) {
