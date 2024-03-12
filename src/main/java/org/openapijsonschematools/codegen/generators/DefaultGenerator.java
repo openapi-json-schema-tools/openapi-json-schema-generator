@@ -2981,7 +2981,7 @@ public class DefaultGenerator implements Generator {
             );
     }
 
-    protected List<MapBuilder<?>> getOperationBuilders(String jsonSchema, CodegenRequestBody requestBody, CodegenParametersInfo parametersInfo, CodegenList<CodegenServer> servers, CodegenList<CodegenSecurityRequirementObject> security) {
+    protected List<MapBuilder<?>> getOperationBuilders(String jsonPath, CodegenRequestBody requestBody, CodegenParametersInfo parametersInfo, CodegenList<CodegenServer> servers, CodegenList<CodegenSecurityRequirementObject> security) {
         return null;
     }
 

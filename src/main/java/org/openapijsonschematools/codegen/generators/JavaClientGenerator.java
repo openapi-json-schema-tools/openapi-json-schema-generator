@@ -52,6 +52,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecuri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
+import org.openapijsonschematools.codegen.generators.openapimodels.JsonPathPieceMethod;
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
@@ -2413,7 +2414,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
     }
 
-    protected List<MapBuilder<?>> getOperationBuilders(String jsonSchema, CodegenRequestBody requestBody, CodegenParametersInfo parametersInfo, CodegenList<CodegenServer> servers, CodegenList<CodegenSecurityRequirementObject> security) {
+    protected List<MapBuilder<?>> getOperationBuilders(String jsonPath, CodegenRequestBody requestBody, CodegenParametersInfo parametersInfo, CodegenList<CodegenServer> servers, CodegenList<CodegenSecurityRequirementObject> security) {
         if (requestBody == null && parametersInfo == null && servers == null && security == null) {
             return null;
         }
@@ -2421,8 +2422,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         int reqPropsSize = 0;
         boolean requestBodyExists = requestBody != null;
         boolean parametersExist = parametersInfo != null;
-        List<Object> requiredProperties = new ArrayList<>();
-        List<Object> optionalProperties = new ArrayList<>();
+        List<JsonPathPieceMethod> requiredProperties = new ArrayList<>();
+        List<JsonPathPieceMethod> optionalProperties = new ArrayList<>();
         if (requestBodyExists) {
             if (Boolean.TRUE.equals(requestBody.getSelfOrDeepestRef().required)) {
                 qtyBuilders += 1;
@@ -2476,8 +2477,60 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (security != null) {
             optionalProperties.add(security);
         }
-        // todo pass in and use path/root servers + security here if they are used
-        return List.of();
+
+        Map<String, MapBuilder<Object>> bitStrToBuilder = new HashMap<>();
+        MapBuilder<Object> lastBuilder = null;
+        // builders are built last to first, last builder has build method
+        String[] pathPieces = jsonPath.split("/");
+        CodegenKey operationKey = getKey(pathPieces[pathPieces.length-1], "misc", jsonPath);
+        String builderName = operationKey.pascalCase;
+        List<MapBuilder<?>> builders = new ArrayList<>();
+        for (int i=0; i < qtyBuilders; i++) {
+            String bitStr = "";
+            if (reqPropsSize != 0) {
+                bitStr = String.format("%"+reqPropsSize+"s", Integer.toBinaryString(i)).replace(' ', '0');
+            }
+            CodegenKey builderClassName;
+            if (i == qtyBuilders - 1) {
+                // first invoked builder has the simplest name with no bitStr
+                builderClassName = getKey(builderName + "RequestBuilder", "schemas", jsonPath);
+            } else {
+                builderClassName = getKey(builderName + bitStr + "RequestBuilder", "schemas", jsonPath);
+            }
+            MapBuilder<Object> builder;
+            if (i == 0) {
+                builder = new MapBuilder<>(builderClassName, new LinkedHashMap<>());
+                lastBuilder = builder;
+            } else {
+                LinkedHashMap<CodegenKey, MapBuilder.BuilderPropertyPair<Object>> keyToBuilder = new LinkedHashMap<>();
+                for (int c=0; c < reqPropsSize; c++) {
+                    if (bitStr.charAt(c) == '1') {
+                        StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
+                        nextBuilderBitStr.setCharAt(c, '0');
+                        CodegenKey key = requiredProperties.get(c).jsonPathPiece();
+                        if (key == null) {
+                            throw new RuntimeException("key must exist at c="+c);
+                        }
+                        MapBuilder<Object> nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
+                        if (nextBuilder == null) {
+                            throw new RuntimeException("Next builder must exist for bitStr="+ nextBuilderBitStr);
+                        }
+                        var pair = new MapBuilder.BuilderPropertyPair<>(nextBuilder, requiredProperties.get(c));
+                        keyToBuilder.put(key, pair);
+                    }
+                }
+                builder = new MapBuilder<>(builderClassName, keyToBuilder);
+            }
+            bitStrToBuilder.put(bitStr, builder);
+            builders.add(builder);
+        }
+        if (!optionalProperties.isEmpty()) {
+            for (JsonPathPieceMethod property: optionalProperties) {
+                var pair = new MapBuilder.BuilderPropertyPair<>(lastBuilder, property);
+                lastBuilder.keyToBuilder.put(property.jsonPathPiece(), pair);
+            }
+        }
+        return builders;
     }
 
     protected List<MapBuilder<CodegenSchema>> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
