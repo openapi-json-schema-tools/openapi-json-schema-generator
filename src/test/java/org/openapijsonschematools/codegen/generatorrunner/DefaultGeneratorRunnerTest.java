@@ -289,7 +289,7 @@ public class DefaultGeneratorRunnerTest {
 
         DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         generator.opts(opts);
-        TreeMap<CodegenKey, CodegenPathItem> paths = config.fromPaths(openAPI.getPaths());
+        TreeMap<CodegenKey, CodegenPathItem> paths = config.fromPaths(openAPI.getPaths(), null);
         Assert.assertEquals(paths.size(), 2);
         CodegenKey firstPathKey = config.getKey("path1/", "paths");
         CodegenKey getKey = config.getKey("get", "verb");
@@ -318,7 +318,7 @@ public class DefaultGeneratorRunnerTest {
 
         DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         generator.opts(opts);
-        TreeMap<CodegenKey, CodegenPathItem> paths = config.fromPaths(openAPI.getPaths());
+        TreeMap<CodegenKey, CodegenPathItem> paths = config.fromPaths(openAPI.getPaths(), null);
 //        Assert.assertEquals(result.size(), 1);
 //        List<CodegenOperation> defaultList = result.get("Default");
 //        Assert.assertEquals(defaultList.size(), 4);
