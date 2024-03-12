@@ -147,7 +147,7 @@ public interface Generator {
 
     CodegenList<CodegenSecurityRequirementObject> fromSecurity(List<SecurityRequirement> security, String jsonPath);
 
-    CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters);
+    CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters, CodegenList<CodegenServer> rootOrPathServers);
 
     CodegenKey getKey(String key, String keyType);
 
@@ -155,9 +155,9 @@ public interface Generator {
 
     HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
 
-    TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths);
+    TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths, CodegenList<CodegenServer> rootServers);
 
-    CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath);
+    CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath, CodegenList<CodegenServer> rootServers);
 
     CodegenList<CodegenServer> fromServers(List<Server> servers, String jsonPath);
 

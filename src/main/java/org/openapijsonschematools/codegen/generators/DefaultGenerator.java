@@ -2745,6 +2745,11 @@ public class DefaultGenerator implements Generator {
         return new CodegenParametersInfo(jsonPathPiece, subpackage, operationParameters, pathParametersSchema, queryParametersSchema, headerParametersSchema, cookieParametersSchema, pathItemParams);
     }
 
+    @Deprecated
+    public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters) {
+        return fromOperation(operation, jsonPath, pathItemParameters, null);
+    }
+
     /**
      * Convert OAS Operation object to Codegen Operation object
      *
@@ -2753,7 +2758,7 @@ public class DefaultGenerator implements Generator {
      * @return Codegen Operation object
      */
     @Override
-    public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters) {
+    public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters, CodegenList<CodegenServer> rootOrPathServers) {
         LOGGER.debug("fromOperation => operation: {}", operation);
         if (operation == null) {
             throw new RuntimeException("operation cannot be null in fromOperation");
@@ -2941,7 +2946,8 @@ public class DefaultGenerator implements Generator {
         CodegenList<CodegenSecurityRequirementObject> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
-        List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, servers, security);
+        CodegenList<CodegenServer> usedServers = (servers != null) ? servers : rootOrPathServers;
+        List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, usedServers, security);
 
         return new CodegenOperation(
                 deprecated,
@@ -5110,8 +5116,13 @@ public class DefaultGenerator implements Generator {
         return StringUtils.removeEnd(value, "/");
     }
 
-    @Override
+    @Deprecated
     public TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths){
+        return fromPaths(paths, null);
+    }
+
+    @Override
+    public TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths, CodegenList<CodegenServer> rootServers){
         if (paths == null) {
             return null;
         }
@@ -5121,7 +5132,7 @@ public class DefaultGenerator implements Generator {
             String path = entry.getKey();
             PathItem pathItem = entry.getValue();
             String pathItemJsonPath = jsonPath + ModelUtils.encodeSlashes(path);
-            CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath);
+            CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath, rootServers);
             CodegenKey pathKey = getKey(path, "paths");
             codegenPaths.put(pathKey, codegenPathItem);
         }
@@ -5130,8 +5141,13 @@ public class DefaultGenerator implements Generator {
         return codegenPaths;
     }
 
-    @Override
+    @Deprecated
     public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath) {
+        return fromPathItem(pathItem, jsonPath, null);
+    }
+
+    @Override
+    public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath, CodegenList<CodegenServer> rootServers) {
         CodegenText summary = getCodegenText(pathItem.getSummary());
         CodegenText description = getCodegenText(pathItem.getDescription());
         ArrayList<CodegenParameter> parameters = null;
@@ -5156,24 +5172,28 @@ public class DefaultGenerator implements Generator {
         httpMethodOperationPairs.add(Pair.of("head", pathItem.getHead()));
         httpMethodOperationPairs.add(Pair.of("patch", pathItem.getPatch()));
         httpMethodOperationPairs.add(Pair.of("trace", pathItem.getTrace()));
+        List<Server> specServers = pathItem.getServers();
+        CodegenList<CodegenServer> pathItemServers = fromServers(specServers, jsonPath + "/servers");
+        CodegenList<CodegenServer> usedServers = (pathItemServers != null) ? pathItemServers : rootServers;
         for (Pair<String, Operation> pair: httpMethodOperationPairs) {
             Operation specOperation = pair.getRight();
             String httpMethod = pair.getLeft();
             if (specOperation != null) {
-                operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod, pairToParameter));
+                operations.put(getKey(
+                    httpMethod, "verb"),
+                    fromOperation(specOperation, jsonPath + "/" + httpMethod, pairToParameter, usedServers)
+                );
             }
         }
         if (!operations.isEmpty())
             // sort them
             operations = new TreeMap<>(operations);
-        List<Server> specServers = pathItem.getServers();
-        CodegenList servers = fromServers(specServers, jsonPath + "/servers");
 
         return new CodegenPathItem(
                 summary,
                 description,
                 operations,
-                servers,
+                pathItemServers,
                 parameters
         );
     }
