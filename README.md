@@ -272,7 +272,7 @@ To get a list of PHP specified options (which can be passed to the generator wit
 You can build a client against the [Petstore API](https://raw.githubusercontent.com/openapijsonschematools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml) as follows:
 
 ```sh
-./bin/generate-samples.sh ./bin/configs/python.yaml
+./bin/generate-samples.sh ./bin/generate_samples_configs/python.yaml
 ```
 
 (On Windows, please install [GIT Bash for Windows](https://gitforwindows.org/) to run the command above)
