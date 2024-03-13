@@ -102,7 +102,7 @@ public class DefaultGeneratorTest {
         final OpenAPI openApi = TestUtils.parseFlattenSpec("src/test/resources/3_0/additional-properties-deeply-nested.yaml");
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/ping");
-        CodegenOperation operation = codegen.fromOperation(path.getPost(), getOperationPath("/ping", "post"), null, null);
+        CodegenOperation operation = codegen.fromOperation(path.getPost(), getOperationPath("/ping", "post"), null, null, null);
         Assert.assertEquals(operation.responses.get("default").imports, null);
     }
 
@@ -1217,7 +1217,7 @@ public class DefaultGeneratorTest {
         codegen.preprocessOpenAPI(openAPI);
         codegen.setOpenAPI(openAPI);
 
-        TreeMap<CodegenKey, CodegenPathItem> paths = codegen.fromPaths(openAPI.getPaths(), null);
+        TreeMap<CodegenKey, CodegenPathItem> paths = codegen.fromPaths(openAPI.getPaths(), null, null);
         CodegenKey path1 = codegen.getKey("/here", "paths");
         Assert.assertTrue(paths.containsKey(path1));
         CodegenKey path2 = codegen.getKey("/some/path", "paths");
