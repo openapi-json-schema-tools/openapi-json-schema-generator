@@ -21,7 +21,7 @@ python -m pip install .
 
 # run tests
 tox || exit 1
-pip install mypy
+pip install mypy==1.8.0
 # run mypy, static type checking
 mypy src/petstore_api
 

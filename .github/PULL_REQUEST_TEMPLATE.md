@@ -14,5 +14,5 @@
   Commit all changed files. 
   This is important, as CI jobs will verify _all_ generator outputs of your HEAD commit as it would merge with master. 
   These must match the expectations made by your contribution. 
-  You may regenerate an individual generator by passing the relevant config(s) as an argument to the script, for example `./bin/generate-samples.sh bin/configs/python*`. 
+  You may regenerate an individual generator by passing the relevant config(s) as an argument to the script, for example `./bin/generate-samples.sh bin/generate_samples_configs/python*`
   For Windows users, please run the script in [Git BASH](https://gitforwindows.org/).
