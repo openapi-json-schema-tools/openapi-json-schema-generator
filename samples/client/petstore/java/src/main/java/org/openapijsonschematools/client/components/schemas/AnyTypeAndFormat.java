@@ -2649,55 +2649,55 @@ public class AnyTypeAndFormat {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance);
         
-        default T setUuid(Void value) {
+        default T uuid(Void value) {
             var instance = getInstance();
             instance.put("uuid", null);
             return getBuilderAfterUuidSchema(instance);
         }
         
-        default T setUuid(boolean value) {
+        default T uuid(boolean value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);
         }
         
-        default T setUuid(String value) {
+        default T uuid(String value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);
         }
         
-        default T setUuid(int value) {
+        default T uuid(int value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);
         }
         
-        default T setUuid(float value) {
+        default T uuid(float value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);
         }
         
-        default T setUuid(long value) {
+        default T uuid(long value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);
         }
         
-        default T setUuid(double value) {
+        default T uuid(double value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);
         }
         
-        default T setUuid(List<?> value) {
+        default T uuid(List<?> value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);
         }
         
-        default T setUuid(Map<String, ?> value) {
+        default T uuid(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);
@@ -2767,55 +2767,55 @@ public class AnyTypeAndFormat {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterDatetime(Map<String, @Nullable Object> instance);
         
-        default T setDateHyphenMinusTime(Void value) {
+        default T dateHyphenMinusTime(Void value) {
             var instance = getInstance();
             instance.put("date-time", null);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(boolean value) {
+        default T dateHyphenMinusTime(boolean value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(String value) {
+        default T dateHyphenMinusTime(String value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(int value) {
+        default T dateHyphenMinusTime(int value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(float value) {
+        default T dateHyphenMinusTime(float value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(long value) {
+        default T dateHyphenMinusTime(long value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(double value) {
+        default T dateHyphenMinusTime(double value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(List<?> value) {
+        default T dateHyphenMinusTime(List<?> value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(Map<String, ?> value) {
+        default T dateHyphenMinusTime(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
@@ -2826,55 +2826,55 @@ public class AnyTypeAndFormat {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance);
         
-        default T setNumber(Void value) {
+        default T number(Void value) {
             var instance = getInstance();
             instance.put("number", null);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T setNumber(boolean value) {
+        default T number(boolean value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T setNumber(String value) {
+        default T number(String value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T setNumber(int value) {
+        default T number(int value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T setNumber(float value) {
+        default T number(float value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T setNumber(long value) {
+        default T number(long value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T setNumber(double value) {
+        default T number(double value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T setNumber(List<?> value) {
+        default T number(List<?> value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T setNumber(Map<String, ?> value) {
+        default T number(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
@@ -3062,55 +3062,55 @@ public class AnyTypeAndFormat {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance);
         
-        default T setDouble(Void value) {
+        default T double(Void value) {
             var instance = getInstance();
             instance.put("double", null);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T setDouble(boolean value) {
+        default T double(boolean value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T setDouble(String value) {
+        default T double(String value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T setDouble(int value) {
+        default T double(int value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T setDouble(float value) {
+        default T double(float value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T setDouble(long value) {
+        default T double(long value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T setDouble(double value) {
+        default T double(double value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T setDouble(List<?> value) {
+        default T double(List<?> value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T setDouble(Map<String, ?> value) {
+        default T double(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
@@ -3121,55 +3121,55 @@ public class AnyTypeAndFormat {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance);
         
-        default T setFloat(Void value) {
+        default T float(Void value) {
             var instance = getInstance();
             instance.put("float", null);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T setFloat(boolean value) {
+        default T float(boolean value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T setFloat(String value) {
+        default T float(String value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T setFloat(int value) {
+        default T float(int value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T setFloat(float value) {
+        default T float(float value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T setFloat(long value) {
+        default T float(long value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T setFloat(double value) {
+        default T float(double value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T setFloat(List<?> value) {
+        default T float(List<?> value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T setFloat(Map<String, ?> value) {
+        default T float(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);

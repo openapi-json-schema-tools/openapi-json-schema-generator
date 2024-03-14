@@ -12,7 +12,7 @@ import java.util.TreeSet;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenRequestBody implements JsonPathPieceProvider {
+public class CodegenRequestBody implements VariableNameProvider {
     public final CodegenText description;
     public final Map<String, Object> vendorExtensions;
     public final Boolean required;
@@ -22,6 +22,7 @@ public class CodegenRequestBody implements JsonPathPieceProvider {
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
     public final String subpackage;
+    public final String operationInputClass;
 
     /*
     A method that returns all content schemas
@@ -66,7 +67,7 @@ public class CodegenRequestBody implements JsonPathPieceProvider {
         return schemas;
     }
 
-    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage) {
+    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage, String operationInputClass) {
         this.description = description;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
@@ -76,6 +77,7 @@ public class CodegenRequestBody implements JsonPathPieceProvider {
         this.jsonPathPiece = jsonPathPiece;
         this.refInfo = refInfo;
         this.subpackage = subpackage;
+        this.operationInputClass = operationInputClass;
     }
 
     public CodegenRequestBody getSelfOrDeepestRef() {
@@ -140,7 +142,7 @@ public class CodegenRequestBody implements JsonPathPieceProvider {
     }
 
     @Override
-    public CodegenKey jsonPathPiece() {
+    public CodegenKey variableName() {
         return jsonPathPiece;
     }
 }

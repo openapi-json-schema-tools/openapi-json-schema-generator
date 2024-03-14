@@ -196,7 +196,7 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(int value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(float value) |
-| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | setClass(String value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | class(String value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, Void value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, boolean value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, String value) |

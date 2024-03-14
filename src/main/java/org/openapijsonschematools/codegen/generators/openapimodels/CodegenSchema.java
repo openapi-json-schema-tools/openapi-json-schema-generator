@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.TreeSet;
 import java.util.function.Function;
 
-public class CodegenSchema implements JsonPathPieceProvider {
+public class CodegenSchema implements VariableNameProvider {
     // 3.0.0
     public String title;
     public Number multipleOf;
@@ -1022,7 +1022,7 @@ public class CodegenSchema implements JsonPathPieceProvider {
     }
 
     @Override
-    public CodegenKey jsonPathPiece() {
+    public CodegenKey variableName() {
         return jsonPathPiece;
     }
 }

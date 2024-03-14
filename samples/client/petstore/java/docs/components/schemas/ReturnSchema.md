@@ -191,8 +191,8 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [ReturnMapBuilder1](#returnmapbuilder1) | setReturn(int value) |
-| [ReturnMapBuilder1](#returnmapbuilder1) | setReturn(float value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | return(int value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | return(float value) |
 | [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, Void value) |
 | [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, boolean value) |
 | [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, String value) |

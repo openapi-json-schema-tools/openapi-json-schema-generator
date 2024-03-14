@@ -23,6 +23,7 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.media.StringSchema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.servers.Server;
 import org.apache.commons.io.FilenameUtils;
@@ -52,8 +53,8 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecuri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
-import org.openapijsonschematools.codegen.generators.openapimodels.JsonPathPieceProvider;
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
+import org.openapijsonschematools.codegen.generators.openapimodels.VariableNameProvider;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
@@ -1170,6 +1171,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
         return getSchemaPascalCaseName(name, sourceJsonPath, true);
+    }
+
+    protected String getCamelCaseName(String key) {
+        String usedName = toEnumVarName(key, new StringSchema());
+        usedName = camelize(usedName.toLowerCase(Locale.ROOT), true);
+        return usedName;
     }
 
     @Override
@@ -2429,8 +2436,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         int reqPropsSize = 0;
         boolean requestBodyExists = requestBody != null;
         boolean parametersExist = parametersInfo != null;
-        List<JsonPathPieceProvider> requiredProperties = new ArrayList<>();
-        List<JsonPathPieceProvider> optionalProperties = new ArrayList<>();
+        List<VariableNameProvider> requiredProperties = new ArrayList<>();
+        List<VariableNameProvider> optionalProperties = new ArrayList<>();
         if (requestBodyExists) {
             if (Boolean.TRUE.equals(requestBody.getSelfOrDeepestRef().required)) {
                 qtyBuilders += 1;
@@ -2514,7 +2521,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     if (bitStr.charAt(c) == '1') {
                         StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
                         nextBuilderBitStr.setCharAt(c, '0');
-                        CodegenKey key = requiredProperties.get(c).jsonPathPiece();
+                        CodegenKey key = requiredProperties.get(c).variableName();
                         if (key == null) {
                             throw new RuntimeException("key must exist at c="+c);
                         }
@@ -2532,9 +2539,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             builders.add(builder);
         }
         if (!optionalProperties.isEmpty()) {
-            for (JsonPathPieceProvider property: optionalProperties) {
+            for (VariableNameProvider property: optionalProperties) {
                 var pair = new MapBuilder.BuilderPropertyPair<>(lastBuilder, property);
-                lastBuilder.keyToBuilder.put(property.jsonPathPiece(), pair);
+                lastBuilder.keyToBuilder.put(property.variableName(), pair);
             }
         }
         return builders;

@@ -72,13 +72,13 @@ public class ReturnSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterReturnSchema2(Map<String, @Nullable Object> instance);
         
-        default T setReturn(int value) {
+        default T return(int value) {
             var instance = getInstance();
             instance.put("return", value);
             return getBuilderAfterReturnSchema2(instance);
         }
         
-        default T setReturn(float value) {
+        default T return(float value) {
             var instance = getInstance();
             instance.put("return", value);
             return getBuilderAfterReturnSchema2(instance);

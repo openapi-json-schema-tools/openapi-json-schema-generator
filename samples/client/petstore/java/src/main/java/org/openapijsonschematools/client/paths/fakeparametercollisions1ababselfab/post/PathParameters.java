@@ -91,7 +91,7 @@ public class PathParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSchema1(Map<String, @Nullable Object> instance);
         
-        default T setPositive1(String value) {
+        default T positive1(String value) {
             var instance = getInstance();
             instance.put("1", value);
             return getBuilderAfterSchema1(instance);
@@ -102,7 +102,7 @@ public class PathParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterAB1(Map<String, @Nullable Object> instance);
         
-        default T setAHyphenMinusB(String value) {
+        default T aHyphenMinusB(String value) {
             var instance = getInstance();
             instance.put("A-B", value);
             return getBuilderAfterAB1(instance);

@@ -67,7 +67,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ApplicationjsonSchema.ApplicationjsonSchemaMap validatedPayload =
     ApplicationjsonSchema.ApplicationjsonSchema1.validate(
     new ApplicationjsonSchema.ApplicationjsonSchemaMapBuilder()
-        .setString(
+        .string(
             MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, String>(
                     "bar",
@@ -109,7 +109,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | setString(Map<String, @Nullable Object> value) |
+| [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | string(Map<String, @Nullable Object> value) |
 | [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | additionalProperty(String key, Void value) |
 | [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | additionalProperty(String key, boolean value) |
 | [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | additionalProperty(String key, String value) |

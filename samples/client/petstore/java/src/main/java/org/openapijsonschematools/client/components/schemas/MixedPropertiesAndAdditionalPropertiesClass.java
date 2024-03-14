@@ -231,7 +231,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance);
         
-        default T setUuid(String value) {
+        default T uuid(String value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);
@@ -253,7 +253,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterMapSchema(Map<String, @Nullable Object> instance);
         
-        default T setMap(Map<String, Map<String, @Nullable Object>> value) {
+        default T map(Map<String, Map<String, @Nullable Object>> value) {
             var instance = getInstance();
             instance.put("map", value);
             return getBuilderAfterMapSchema(instance);

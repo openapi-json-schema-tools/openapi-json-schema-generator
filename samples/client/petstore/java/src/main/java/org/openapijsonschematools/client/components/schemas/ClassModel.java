@@ -72,7 +72,7 @@ public class ClassModel {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterClassSchema(Map<String, @Nullable Object> instance);
         
-        default T setLowLineClass(String value) {
+        default T lowLineClass(String value) {
             var instance = getInstance();
             instance.put("_class", value);
             return getBuilderAfterClassSchema(instance);
