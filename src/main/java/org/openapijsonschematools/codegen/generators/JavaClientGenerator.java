@@ -995,6 +995,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/main/java/packagename/components/responses/HeadersDeserializer.hbs", ".java");
                 }}
         );
+        // operation
+        jsonPathTemplateFiles.put(
+            CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
+            new HashMap<>() {{
+                put("src/main/java/packagename/paths/path/verb/Operation.hbs", ".java");
+            }}
+        );
 
         // schema
         HashMap<String, String> schemaTemplates = new HashMap<>();
@@ -2531,6 +2538,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
         }
         return builders;
+    }
+
+    @Override
+    public String toOperationFilename(String name, String jsonPath) {
+        return StringUtils.capitalize(name);
     }
 
     protected List<MapBuilder<CodegenSchema>> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {

@@ -1,0 +1,53 @@
+{{#with operation}}
+package {{packageName}}.{{subpackage}};
+
+    {{#each builders}}
+        {{#each keyToBuilder}}
+            {{#with property}}
+                {{#if containerJsonPathPiece}}
+import {{packageName}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+                {{else}}
+                    {{#if subpackage}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+                    {{else}}
+import {{packageName}}.{{jsonPathPiece.pascalCase}};
+                    {{/if}}
+                {{/if}}
+            {{/with}}
+        {{/each}}
+    {{/each}}
+    {{#with parametersInfo}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
+    {{#with responses}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
+
+public class {{jsonPathPiece.pascalCase}} {
+    public static class {{jsonPathPiece.pascalCase}}CallData {
+    {{#each builders}}
+        {{#each keyToBuilder}}
+            {{#with property}}
+                {{#if containerJsonPathPiece}}
+        public @Nullable {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} {{../className.camelCase}};
+                {{else}}
+                    {{#if subpackage}}
+                        // servers -> ServerIndex OR
+                        // security -> SecurityIndex OR
+                        // requestBody -> SealedRequestBody
+                        // TODO add String operationInputClass as a property in each of those classes
+                        // TODO add getOperationInputClass that accepts an enum input
+                        // TODO implement it in JavaClientGenerator
+                        // TODO use it in those templates
+                        // TODO use it in this template
+        public @Nullable {{jsonPathPiece.pascalCase}} {{../className.camelCase}};
+                    {{else}}
+        public @Nullable {{jsonPathPiece.pascalCase}}.ServerIndex {{../className.camelCase}};
+                    {{/if}}
+                {{/if}}
+            {{/with}}
+        {{/each}}
+    {{/each}}
+    }
+}
+{{/with}}

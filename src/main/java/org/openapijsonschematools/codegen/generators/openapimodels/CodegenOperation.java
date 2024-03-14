@@ -51,6 +51,7 @@ public class CodegenOperation {
     public final CodegenKey operationId;
     public final CodegenKey jsonPathPiece;
     public final List<MapBuilder<?>> builders;
+    public final String subpackage;
 
     public CodegenOperation(
             Boolean deprecated,
@@ -79,7 +80,8 @@ public class CodegenOperation {
             CodegenKey operationId,
             CodegenKey jsonPathPiece,
             CodegenSchema requestBodySchema,
-            List<MapBuilder<?>> builders
+            List<MapBuilder<?>> builders,
+            String subpackage
 ) {
         this.deprecated = deprecated;
         this.nonErrorStatusCodes = nonErrorStatusCodes;
@@ -108,6 +110,7 @@ public class CodegenOperation {
         this.jsonPathPiece = jsonPathPiece;
         this.requestBodySchema = requestBodySchema;
         this.builders = builders;
+        this.subpackage = subpackage;
         TreeMap<String,CodegenResponse> nonErrorResponsesMap = new TreeMap<>();
         if (statusCodeResponses != null) {
             for (Map.Entry<Integer, CodegenResponse> entry: statusCodeResponses.entrySet()) {

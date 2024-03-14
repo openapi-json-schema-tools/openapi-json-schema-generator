@@ -193,6 +193,8 @@ public interface Generator {
 
     String toParameterFilename(String baseName, String jsonPath);
 
+    String toOperationFilename(String name, String jsonPath);
+
     String toSecuritySchemeFilename(String baseName, String jsonPath);
 
     String toServerFilename(String baseName, String jsonPath);

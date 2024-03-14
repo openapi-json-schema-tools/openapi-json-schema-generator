@@ -934,6 +934,11 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
+    public String toOperationFilename(String name, String jsonPath) {
+        return name;
+    }
+
+    @Override
     public String toSecuritySchemeFilename(String basename, String jsonPath) {
         return toModuleFilename(basename, jsonPath);
     }
@@ -2949,6 +2954,7 @@ public class DefaultGenerator implements Generator {
         CodegenList<CodegenServer> usedServers = (servers != null) ? servers : rootOrPathServers;
         CodegenList<CodegenSecurityRequirementObject> usedSecurity = (security != null) ? security : rootSecurity;
         List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, usedServers, usedSecurity);
+        String subpackage = getSubpackage(jsonPath);
 
         return new CodegenOperation(
                 deprecated,
@@ -2977,7 +2983,8 @@ public class DefaultGenerator implements Generator {
                 operationId,
                 jsonPathPiece,
                 requestBodySchema,
-                builders
+                builders,
+                subpackage
             );
     }
 
@@ -3909,6 +3916,7 @@ public class DefaultGenerator implements Generator {
             }
         } else if (pathPieces.length == 4) {
             // #/paths/SomePath/get
+            pathPieces[3] = toOperationFilename(pathPieces[3], jsonPath);
             return;
         }
         if (xParameters.contains(pathPieces[4])) {
