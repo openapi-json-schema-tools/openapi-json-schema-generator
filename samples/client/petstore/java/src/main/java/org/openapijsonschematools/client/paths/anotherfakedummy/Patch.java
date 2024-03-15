@@ -7,8 +7,28 @@ import org.openapijsonschematools.client.paths.anotherfakedummy.patch.Responses;
 
 public class Patch {
     public static class PatchCallData {
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+    }
+
+    public interface SetterForServerIndex <T> {
+        PatchCallData getInstance();
+        T getBuilderAfterServerIndex(PatchCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForRequestBody <T> {
+        PatchCallData getInstance();
+        T getBuilderAfterRequestBody(PatchCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
     }
 
     public static class Patch0RequestBuilder {

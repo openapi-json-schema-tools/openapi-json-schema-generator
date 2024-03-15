@@ -10,10 +10,50 @@ import org.openapijsonschematools.client.paths.fake.delete.Responses;
 
 public class Delete {
     public static class DeleteCallData {
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable FakeDeleteSecurityInfo.SecurityIndex securityIndex;
-        public @Nullable QueryParameters.QueryParameters1 queryParameters;
-        public @Nullable HeaderParameters.HeaderParameters1 headerParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+        public HeaderParameters.@Nullable HeaderParameters1 headerParameters;
+    }
+
+    public interface SetterForServerIndex <T> {
+        DeleteCallData getInstance();
+        T getBuilderAfterServerIndex(DeleteCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForSecurityIndex <T> {
+        DeleteCallData getInstance();
+        T getBuilderAfterSecurityIndex(DeleteCallData instance);
+        default T securityIndex(SecurityIndex securityIndex) {
+            var instance = getInstance();
+            instance.securityIndex = securityIndex;
+            return getBuilderAfterSecurityIndex(instance);
+        }
+    }
+
+    public interface SetterForQueryParameters <T> {
+        DeleteCallData getInstance();
+        T getBuilderAfterQueryParameters(DeleteCallData instance);
+        default T queryParameters(QueryParameters1 queryParameters) {
+            var instance = getInstance();
+            instance.queryParameters = queryParameters;
+            return getBuilderAfterQueryParameters(instance);
+        }
+    }
+
+    public interface SetterForHeaderParameters <T> {
+        DeleteCallData getInstance();
+        T getBuilderAfterHeaderParameters(DeleteCallData instance);
+        default T headerParameters(HeaderParameters1 headerParameters) {
+            var instance = getInstance();
+            instance.headerParameters = headerParameters;
+            return getBuilderAfterHeaderParameters(instance);
+        }
     }
 
     public static class Delete00RequestBuilder {

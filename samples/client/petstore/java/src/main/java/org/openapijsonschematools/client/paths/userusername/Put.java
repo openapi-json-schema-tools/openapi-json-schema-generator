@@ -9,9 +9,39 @@ import org.openapijsonschematools.client.paths.userusername.put.Responses;
 
 public class Put {
     public static class PutCallData {
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable PathParameters.PathParameters1 pathParameters;
-        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParameters1 pathParameters;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+    }
+
+    public interface SetterForServerIndex <T> {
+        PutCallData getInstance();
+        T getBuilderAfterServerIndex(PutCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForPathParameters <T> {
+        PutCallData getInstance();
+        T getBuilderAfterPathParameters(PutCallData instance);
+        default T pathParameters(PathParameters1 pathParameters) {
+            var instance = getInstance();
+            instance.pathParameters = pathParameters;
+            return getBuilderAfterPathParameters(instance);
+        }
+    }
+
+    public interface SetterForRequestBody <T> {
+        PutCallData getInstance();
+        T getBuilderAfterRequestBody(PutCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
     }
 
     public static class Put00RequestBuilder {

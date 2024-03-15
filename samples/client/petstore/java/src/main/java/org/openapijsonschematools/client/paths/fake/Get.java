@@ -10,10 +10,50 @@ import org.openapijsonschematools.client.paths.fake.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RequestBody.SealedRequestBody requestBody;
-        public @Nullable HeaderParameters.HeaderParameters1 headerParameters;
-        public @Nullable QueryParameters.QueryParameters1 queryParameters;
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public HeaderParameters.@Nullable HeaderParameters1 headerParameters;
+        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+    }
+
+    public interface SetterForRequestBody <T> {
+        GetCallData getInstance();
+        T getBuilderAfterRequestBody(GetCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
+    }
+
+    public interface SetterForHeaderParameters <T> {
+        GetCallData getInstance();
+        T getBuilderAfterHeaderParameters(GetCallData instance);
+        default T headerParameters(HeaderParameters1 headerParameters) {
+            var instance = getInstance();
+            instance.headerParameters = headerParameters;
+            return getBuilderAfterHeaderParameters(instance);
+        }
+    }
+
+    public interface SetterForQueryParameters <T> {
+        GetCallData getInstance();
+        T getBuilderAfterQueryParameters(GetCallData instance);
+        default T queryParameters(QueryParameters1 queryParameters) {
+            var instance = getInstance();
+            instance.queryParameters = queryParameters;
+            return getBuilderAfterQueryParameters(instance);
+        }
+    }
+
+    public interface SetterForServerIndex <T> {
+        GetCallData getInstance();
+        T getBuilderAfterServerIndex(GetCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
     }
 
     public static class GetRequestBuilder {

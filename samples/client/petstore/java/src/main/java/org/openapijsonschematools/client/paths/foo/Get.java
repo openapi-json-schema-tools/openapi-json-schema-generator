@@ -6,7 +6,17 @@ import org.openapijsonschematools.client.paths.foo.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable FooGetServerInfo.ServerIndex serverIndex;
+        public FooGetServerInfo.@Nullable ServerIndex serverIndex;
+    }
+
+    public interface SetterForServerIndex <T> {
+        GetCallData getInstance();
+        T getBuilderAfterServerIndex(GetCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
     }
 
     public static class GetRequestBuilder {

@@ -8,8 +8,28 @@ import org.openapijsonschematools.client.paths.userusername.delete.Responses;
 
 public class Delete {
     public static class DeleteCallData {
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable PathParameters.PathParameters1 pathParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParameters1 pathParameters;
+    }
+
+    public interface SetterForServerIndex <T> {
+        DeleteCallData getInstance();
+        T getBuilderAfterServerIndex(DeleteCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForPathParameters <T> {
+        DeleteCallData getInstance();
+        T getBuilderAfterPathParameters(DeleteCallData instance);
+        default T pathParameters(PathParameters1 pathParameters) {
+            var instance = getInstance();
+            instance.pathParameters = pathParameters;
+            return getBuilderAfterPathParameters(instance);
+        }
     }
 
     public static class Delete0RequestBuilder {

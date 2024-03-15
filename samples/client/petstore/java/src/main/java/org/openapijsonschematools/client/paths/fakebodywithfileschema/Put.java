@@ -7,8 +7,28 @@ import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Respon
 
 public class Put {
     public static class PutCallData {
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+    }
+
+    public interface SetterForServerIndex <T> {
+        PutCallData getInstance();
+        T getBuilderAfterServerIndex(PutCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForRequestBody <T> {
+        PutCallData getInstance();
+        T getBuilderAfterRequestBody(PutCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
     }
 
     public static class Put0RequestBuilder {

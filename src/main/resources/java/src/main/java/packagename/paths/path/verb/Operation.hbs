@@ -30,18 +30,32 @@ public class {{jsonPathPiece.pascalCase}} {
         {{#each keyToBuilder}}
             {{#with property}}
                 {{#if containerJsonPathPiece}}
-        public @Nullable {{containerJsonPathPiece.pascalCase}}.{{operationInputClassName}} {{@key.camelCase}};
+        public {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
                 {{else}}
                     {{#if subpackage}}
-        public @Nullable {{jsonPathPiece.pascalCase}}.{{operationInputClassName}} {{@key.camelCase}};
+        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
                     {{else}}
-        public @Nullable {{jsonPathPiece.pascalCase}}.{{operationInputClassName}} {{@key.camelCase}};
+        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
                     {{/if}}
                 {{/if}}
             {{/with}}
         {{/each}}
     {{/each}}
     }
+    {{#each builders}}
+        {{#each keyToBuilder}}
+
+    public interface SetterFor{{@key.pascalCase}} <T> {
+        {{../../jsonPathPiece.pascalCase}}CallData getInstance();
+        T getBuilderAfter{{@key.pascalCase}}({{../../jsonPathPiece.pascalCase}}CallData instance);
+        default T {{@key.camelCase}}({{property.operationInputClassName}} {{@key.camelCase}}) {
+            var instance = getInstance();
+            instance.{{@key.camelCase}} = {{@key.camelCase}};
+            return getBuilderAfter{{@key.pascalCase}}(instance);
+        }
+    }
+        {{/each}}
+    {{/each}}
 
     {{#each builders}}
     public static class {{className.pascalCase}} {

@@ -12,12 +12,72 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RequestBody.SealedRequestBody requestBody;
-        public @Nullable HeaderParameters.HeaderParameters1 headerParameters;
-        public @Nullable QueryParameters.QueryParameters1 queryParameters;
-        public @Nullable CookieParameters.CookieParameters1 cookieParameters;
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable PathParameters.PathParameters1 pathParameters;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public HeaderParameters.@Nullable HeaderParameters1 headerParameters;
+        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+        public CookieParameters.@Nullable CookieParameters1 cookieParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParameters1 pathParameters;
+    }
+
+    public interface SetterForRequestBody <T> {
+        PostCallData getInstance();
+        T getBuilderAfterRequestBody(PostCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
+    }
+
+    public interface SetterForHeaderParameters <T> {
+        PostCallData getInstance();
+        T getBuilderAfterHeaderParameters(PostCallData instance);
+        default T headerParameters(HeaderParameters1 headerParameters) {
+            var instance = getInstance();
+            instance.headerParameters = headerParameters;
+            return getBuilderAfterHeaderParameters(instance);
+        }
+    }
+
+    public interface SetterForQueryParameters <T> {
+        PostCallData getInstance();
+        T getBuilderAfterQueryParameters(PostCallData instance);
+        default T queryParameters(QueryParameters1 queryParameters) {
+            var instance = getInstance();
+            instance.queryParameters = queryParameters;
+            return getBuilderAfterQueryParameters(instance);
+        }
+    }
+
+    public interface SetterForCookieParameters <T> {
+        PostCallData getInstance();
+        T getBuilderAfterCookieParameters(PostCallData instance);
+        default T cookieParameters(CookieParameters1 cookieParameters) {
+            var instance = getInstance();
+            instance.cookieParameters = cookieParameters;
+            return getBuilderAfterCookieParameters(instance);
+        }
+    }
+
+    public interface SetterForServerIndex <T> {
+        PostCallData getInstance();
+        T getBuilderAfterServerIndex(PostCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForPathParameters <T> {
+        PostCallData getInstance();
+        T getBuilderAfterPathParameters(PostCallData instance);
+        default T pathParameters(PathParameters1 pathParameters) {
+            var instance = getInstance();
+            instance.pathParameters = pathParameters;
+            return getBuilderAfterPathParameters(instance);
+        }
     }
 
     public static class Post0RequestBuilder {

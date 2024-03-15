@@ -9,9 +9,39 @@ import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Respon
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RequestBody.SealedRequestBody requestBody;
-        public @Nullable QueryParameters.QueryParameters1 queryParameters;
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+    }
+
+    public interface SetterForRequestBody <T> {
+        PostCallData getInstance();
+        T getBuilderAfterRequestBody(PostCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
+    }
+
+    public interface SetterForQueryParameters <T> {
+        PostCallData getInstance();
+        T getBuilderAfterQueryParameters(PostCallData instance);
+        default T queryParameters(QueryParameters1 queryParameters) {
+            var instance = getInstance();
+            instance.queryParameters = queryParameters;
+            return getBuilderAfterQueryParameters(instance);
+        }
+    }
+
+    public interface SetterForServerIndex <T> {
+        PostCallData getInstance();
+        T getBuilderAfterServerIndex(PostCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
     }
 
     public static class PostRequestBuilder {

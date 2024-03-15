@@ -8,8 +8,28 @@ import org.openapijsonschematools.client.paths.storeorderorderid.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable PathParameters.PathParameters1 pathParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParameters1 pathParameters;
+    }
+
+    public interface SetterForServerIndex <T> {
+        GetCallData getInstance();
+        T getBuilderAfterServerIndex(GetCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForPathParameters <T> {
+        GetCallData getInstance();
+        T getBuilderAfterPathParameters(GetCallData instance);
+        default T pathParameters(PathParameters1 pathParameters) {
+            var instance = getInstance();
+            instance.pathParameters = pathParameters;
+            return getBuilderAfterPathParameters(instance);
+        }
     }
 
     public static class Get0RequestBuilder {

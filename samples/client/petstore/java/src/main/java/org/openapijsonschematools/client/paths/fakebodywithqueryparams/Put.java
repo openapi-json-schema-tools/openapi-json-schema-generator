@@ -9,9 +9,39 @@ import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Respo
 
 public class Put {
     public static class PutCallData {
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable QueryParameters.QueryParameters1 queryParameters;
-        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+    }
+
+    public interface SetterForServerIndex <T> {
+        PutCallData getInstance();
+        T getBuilderAfterServerIndex(PutCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForQueryParameters <T> {
+        PutCallData getInstance();
+        T getBuilderAfterQueryParameters(PutCallData instance);
+        default T queryParameters(QueryParameters1 queryParameters) {
+            var instance = getInstance();
+            instance.queryParameters = queryParameters;
+            return getBuilderAfterQueryParameters(instance);
+        }
+    }
+
+    public interface SetterForRequestBody <T> {
+        PutCallData getInstance();
+        T getBuilderAfterRequestBody(PutCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
     }
 
     public static class Put00RequestBuilder {

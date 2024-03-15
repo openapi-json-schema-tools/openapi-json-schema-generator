@@ -8,9 +8,39 @@ import org.openapijsonschematools.client.paths.pet.put.Responses;
 
 public class Put {
     public static class PutCallData {
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable PetPutSecurityInfo.SecurityIndex securityIndex;
-        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PetPutSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+    }
+
+    public interface SetterForServerIndex <T> {
+        PutCallData getInstance();
+        T getBuilderAfterServerIndex(PutCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForSecurityIndex <T> {
+        PutCallData getInstance();
+        T getBuilderAfterSecurityIndex(PutCallData instance);
+        default T securityIndex(SecurityIndex securityIndex) {
+            var instance = getInstance();
+            instance.securityIndex = securityIndex;
+            return getBuilderAfterSecurityIndex(instance);
+        }
+    }
+
+    public interface SetterForRequestBody <T> {
+        PutCallData getInstance();
+        T getBuilderAfterRequestBody(PutCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
     }
 
     public static class Put0RequestBuilder {

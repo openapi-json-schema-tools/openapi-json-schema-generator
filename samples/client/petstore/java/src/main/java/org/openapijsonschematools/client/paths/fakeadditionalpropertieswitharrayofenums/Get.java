@@ -7,8 +7,28 @@ import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharray
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RequestBody.SealedRequestBody requestBody;
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+    }
+
+    public interface SetterForRequestBody <T> {
+        GetCallData getInstance();
+        T getBuilderAfterRequestBody(GetCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
+    }
+
+    public interface SetterForServerIndex <T> {
+        GetCallData getInstance();
+        T getBuilderAfterServerIndex(GetCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
     }
 
     public static class GetRequestBuilder {

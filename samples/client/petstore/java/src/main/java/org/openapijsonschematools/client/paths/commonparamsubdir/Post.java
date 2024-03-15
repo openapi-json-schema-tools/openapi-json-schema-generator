@@ -9,9 +9,39 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
 
 public class Post {
     public static class PostCallData {
-        public @Nullable HeaderParameters.HeaderParameters1 headerParameters;
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable PathParameters.PathParameters1 pathParameters;
+        public HeaderParameters.@Nullable HeaderParameters1 headerParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParameters1 pathParameters;
+    }
+
+    public interface SetterForHeaderParameters <T> {
+        PostCallData getInstance();
+        T getBuilderAfterHeaderParameters(PostCallData instance);
+        default T headerParameters(HeaderParameters1 headerParameters) {
+            var instance = getInstance();
+            instance.headerParameters = headerParameters;
+            return getBuilderAfterHeaderParameters(instance);
+        }
+    }
+
+    public interface SetterForServerIndex <T> {
+        PostCallData getInstance();
+        T getBuilderAfterServerIndex(PostCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForPathParameters <T> {
+        PostCallData getInstance();
+        T getBuilderAfterPathParameters(PostCallData instance);
+        default T pathParameters(PathParameters1 pathParameters) {
+            var instance = getInstance();
+            instance.pathParameters = pathParameters;
+            return getBuilderAfterPathParameters(instance);
+        }
     }
 
     public static class Post0RequestBuilder {

@@ -10,10 +10,50 @@ import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredf
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RequestBody.SealedRequestBody requestBody;
-        public @Nullable RootServerInfo.ServerIndex serverIndex;
-        public @Nullable FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex securityIndex;
-        public @Nullable PathParameters.PathParameters1 pathParameters;
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public PathParameters.@Nullable PathParameters1 pathParameters;
+    }
+
+    public interface SetterForRequestBody <T> {
+        PostCallData getInstance();
+        T getBuilderAfterRequestBody(PostCallData instance);
+        default T requestBody(SealedRequestBody requestBody) {
+            var instance = getInstance();
+            instance.requestBody = requestBody;
+            return getBuilderAfterRequestBody(instance);
+        }
+    }
+
+    public interface SetterForServerIndex <T> {
+        PostCallData getInstance();
+        T getBuilderAfterServerIndex(PostCallData instance);
+        default T serverIndex(ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForSecurityIndex <T> {
+        PostCallData getInstance();
+        T getBuilderAfterSecurityIndex(PostCallData instance);
+        default T securityIndex(SecurityIndex securityIndex) {
+            var instance = getInstance();
+            instance.securityIndex = securityIndex;
+            return getBuilderAfterSecurityIndex(instance);
+        }
+    }
+
+    public interface SetterForPathParameters <T> {
+        PostCallData getInstance();
+        T getBuilderAfterPathParameters(PostCallData instance);
+        default T pathParameters(PathParameters1 pathParameters) {
+            var instance = getInstance();
+            instance.pathParameters = pathParameters;
+            return getBuilderAfterPathParameters(instance);
+        }
     }
 
     public static class Post0RequestBuilder {
