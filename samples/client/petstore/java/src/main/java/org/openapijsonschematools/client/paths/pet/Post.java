@@ -5,8 +5,32 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.post.PetPostSecurityInfo;
 import org.openapijsonschematools.client.paths.pet.post.RequestBody;
 import org.openapijsonschematools.client.paths.pet.post.Responses;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Post {
+
+    public static class Post1 {
+        private final ApiConfiguration apiConfiguration;
+
+        public Post1(ApiConfiguration apiConfiguration) {
+            this.apiConfiguration = apiConfiguration;
+        }
+
+        public Responses.EndpointResponse post(PostRequest request) {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                request.requestBody
+            );
+            var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
+            contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            // todo serialize all parameter types
+        }
+    }
 
     public static class PostRequest {
         public RequestBody.SealedRequestBody requestBody;

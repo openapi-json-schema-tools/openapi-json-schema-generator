@@ -4,8 +4,32 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.patch.RequestBody;
 import org.openapijsonschematools.client.paths.fake.patch.Responses;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Patch {
+
+    public static class Patch1 {
+        private final ApiConfiguration apiConfiguration;
+
+        public Patch1(ApiConfiguration apiConfiguration) {
+            this.apiConfiguration = apiConfiguration;
+        }
+
+        public Responses.EndpointResponse patch(PatchRequest request) {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                request.requestBody
+            );
+            var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
+            contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            // todo serialize all parameter types
+        }
+    }
 
     public static class PatchRequest {
         public RequestBody.SealedRequestBody requestBody;

@@ -5,8 +5,26 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.QueryParameters;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Parameters;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Responses;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Put {
+
+    public static class Put1 {
+        private final ApiConfiguration apiConfiguration;
+
+        public Put1(ApiConfiguration apiConfiguration) {
+            this.apiConfiguration = apiConfiguration;
+        }
+
+        public Responses.EndpointResponse put(PutRequest request) {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            // todo serialize all parameter types
+        }
+    }
 
     public static class PutRequest {
         public QueryParameters.QueryParametersMap queryParameters;

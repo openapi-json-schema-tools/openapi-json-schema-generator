@@ -5,8 +5,26 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.QueryParameters;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.Parameters;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.Responses;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Get {
+
+    public static class Get1 {
+        private final ApiConfiguration apiConfiguration;
+
+        public Get1(ApiConfiguration apiConfiguration) {
+            this.apiConfiguration = apiConfiguration;
+        }
+
+        public Responses.EndpointResponse get(GetRequest request) {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            // todo serialize all parameter types
+        }
+    }
 
     public static class GetRequest {
         public QueryParameters.QueryParametersMap queryParameters;

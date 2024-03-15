@@ -21,7 +21,10 @@ import {{packageName}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.HashMap;
 
 public class ApiConfiguration {
     private final ServerInfo serverInfo;
@@ -102,4 +105,8 @@ public class ApiConfiguration {
     }
         {{/each}}
     {{/gt}}
+
+    public Map<String, List< String>> getDefaultHeaders() {
+        return new HashMap<>();
+    }
 }

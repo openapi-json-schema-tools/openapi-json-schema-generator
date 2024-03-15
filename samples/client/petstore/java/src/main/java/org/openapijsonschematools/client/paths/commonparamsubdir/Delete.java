@@ -6,8 +6,31 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.PathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Responses;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Delete {
+
+    public static class Delete1 {
+        private final ApiConfiguration apiConfiguration;
+
+        public Delete1(ApiConfiguration apiConfiguration) {
+            this.apiConfiguration = apiConfiguration;
+        }
+
+        public Responses.EndpointResponse delete(DeleteRequest request) {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            if (request.headerParameters != null) {
+                var headersSerializer = new Parameters.HeaderParametersSerializer();
+                Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
+                headers.putAll(serializedHeaders);
+            }
+            // todo serialize all parameter types
+        }
+    }
 
     public static class DeleteRequest {
         public PathParameters.PathParametersMap pathParameters;

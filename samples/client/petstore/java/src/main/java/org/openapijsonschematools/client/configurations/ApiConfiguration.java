@@ -22,7 +22,10 @@ import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Petpetid
 import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetSecurityInfo;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.HashMap;
 
 public class ApiConfiguration {
     private final ServerInfo serverInfo;
@@ -231,5 +234,9 @@ public class ApiConfiguration {
             throw new UnsetPropertyException("SecurityRequirementObject cannot be returned because the StoreinventoryGetSecurityInfo is unset in the SecurityInfo class. Pass it in when instantiating SecurityInfo to fix this.");
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
+    }
+
+    public Map<String, List< String>> getDefaultHeaders() {
+        return new HashMap<>();
     }
 }

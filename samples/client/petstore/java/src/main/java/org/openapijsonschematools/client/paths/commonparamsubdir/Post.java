@@ -6,8 +6,31 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.PathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Post {
+
+    public static class Post1 {
+        private final ApiConfiguration apiConfiguration;
+
+        public Post1(ApiConfiguration apiConfiguration) {
+            this.apiConfiguration = apiConfiguration;
+        }
+
+        public Responses.EndpointResponse post(PostRequest request) {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            if (request.headerParameters != null) {
+                var headersSerializer = new Parameters.HeaderParametersSerializer();
+                Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
+                headers.putAll(serializedHeaders);
+            }
+            // todo serialize all parameter types
+        }
+    }
 
     public static class PostRequest {
         public PathParameters.PathParametersMap pathParameters;

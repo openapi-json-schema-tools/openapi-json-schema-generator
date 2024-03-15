@@ -7,8 +7,40 @@ import org.openapijsonschematools.client.paths.fake.get.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.get.Parameters;
 import org.openapijsonschematools.client.paths.fake.get.Responses;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Get {
+
+    public static class Get1 {
+        private final ApiConfiguration apiConfiguration;
+
+        public Get1(ApiConfiguration apiConfiguration) {
+            this.apiConfiguration = apiConfiguration;
+        }
+
+        public Responses.EndpointResponse get(GetRequest request) {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            @Nullable SerializedRequestBody serializedRequestBody;
+            if (request.requestBody != null) {
+                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                    request.requestBody
+                );
+                var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
+                contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            }
+            if (request.headerParameters != null) {
+                var headersSerializer = new Parameters.HeaderParametersSerializer();
+                Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
+                headers.putAll(serializedHeaders);
+            }
+            // todo serialize all parameter types
+        }
+    }
 
     public static class GetRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;

@@ -8,8 +8,32 @@ import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Reque
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.QueryParameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Parameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Responses;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Put {
+
+    public static class Put1 {
+        private final ApiConfiguration apiConfiguration;
+
+        public Put1(ApiConfiguration apiConfiguration) {
+            this.apiConfiguration = apiConfiguration;
+        }
+
+        public Responses.EndpointResponse put(PutRequest request) {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                request.requestBody
+            );
+            var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
+            contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            // todo serialize all parameter types
+        }
+    }
 
     public static class PutRequest {
         public RequestBody.SealedRequestBody requestBody;

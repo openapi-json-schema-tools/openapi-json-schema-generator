@@ -23,8 +23,62 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
     {{#with responses}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
     {{/with}}
+import {{packageName}}.configurations.ApiConfiguration;
+    {{#if requestBody}}
+import {{packageName}}.requestbody.SerializedRequestBody;
+    {{/if}}
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class {{jsonPathPiece.pascalCase}} {
+
+    public static class {{jsonPathPiece.pascalCase}}1 {
+        private final ApiConfiguration apiConfiguration;
+
+        public {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration) {
+            this.apiConfiguration = apiConfiguration;
+        }
+
+        public {{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            {{#with requestBody}}
+                {{#if getSelfOrDeepestRef.required }}
+            SerializedRequestBody serializedRequestBody = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1().serialize(
+                request.requestBody
+            );
+            var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
+            contentTypeHeaderValues.add(serializedRequestBody.contentType);
+                {{else}}
+            @Nullable SerializedRequestBody serializedRequestBody;
+            if (request.requestBody != null) {
+                serializedRequestBody = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1().serialize(
+                    request.requestBody
+                );
+                var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
+                contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            }
+                {{/if}}
+            {{/with}}
+            {{#with parametersInfo}}
+                {{#if headerParametersSchema}}
+                    {{#if headerParametersSchema.requiredProperties}}
+            var headersSerializer = new {{jsonPathPiece.pascalCase}}.HeaderParametersSerializer();
+            Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
+            headers.putAll(serializedHeaders);
+                    {{else}}
+            if (request.headerParameters != null) {
+                var headersSerializer = new {{jsonPathPiece.pascalCase}}.HeaderParametersSerializer();
+                Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
+                headers.putAll(serializedHeaders);
+            }
+                    {{/if}}
+                {{/if}}
+            {{/with}}
+            // todo serialize all parameter types
+        }
+    }
     {{#eq builders.size 1}}
 
     public static class {{jsonPathPiece.pascalCase}}Request {
