@@ -11,4 +11,19 @@ public class Delete {
         public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
+
+    public static class Delete0RequestBuilder {
+        private final DeleteCallData instance;
+
+        public Delete0RequestBuilderDeleteCallData instance) {
+            this.instance = instance;
+        }
+    }
+    public static class DeleteRequestBuilder {
+        private final DeleteCallData instance;
+
+        public DeleteRequestBuilder() {
+            this.instance = new DeleteCallData();
+        }
+    }
 }

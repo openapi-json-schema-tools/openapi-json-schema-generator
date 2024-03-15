@@ -13,4 +13,12 @@ public class Post {
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
         public @Nullable RootServerInfo.ServerIndex serverIndex;
     }
+
+    public static class PostRequestBuilder {
+        private final PostCallData instance;
+
+        public PostRequestBuilder() {
+            this.instance = new PostCallData();
+        }
+    }
 }

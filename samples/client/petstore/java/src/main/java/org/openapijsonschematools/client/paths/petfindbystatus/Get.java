@@ -13,4 +13,19 @@ public class Get {
         public @Nullable PetfindbystatusGetSecurityInfo.SecurityIndex securityIndex;
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
     }
+
+    public static class Get0RequestBuilder {
+        private final GetCallData instance;
+
+        public Get0RequestBuilderGetCallData instance) {
+            this.instance = instance;
+        }
+    }
+    public static class GetRequestBuilder {
+        private final GetCallData instance;
+
+        public GetRequestBuilder() {
+            this.instance = new GetCallData();
+        }
+    }
 }

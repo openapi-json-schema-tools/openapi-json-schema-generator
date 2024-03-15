@@ -12,4 +12,19 @@ public class Patch {
         public @Nullable FakeclassnametestPatchSecurityInfo.SecurityIndex securityIndex;
         public @Nullable RequestBody.SealedRequestBody requestBody;
     }
+
+    public static class Patch0RequestBuilder {
+        private final PatchCallData instance;
+
+        public Patch0RequestBuilderPatchCallData instance) {
+            this.instance = instance;
+        }
+    }
+    public static class PatchRequestBuilder {
+        private final PatchCallData instance;
+
+        public PatchRequestBuilder() {
+            this.instance = new PatchCallData();
+        }
+    }
 }

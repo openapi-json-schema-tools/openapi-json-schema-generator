@@ -15,4 +15,26 @@ public class Delete {
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
         public @Nullable HeaderParameters.HeaderParameters1 headerParameters;
     }
+
+    public static class Delete00RequestBuilder {
+        private final DeleteCallData instance;
+
+        public Delete00RequestBuilderDeleteCallData instance) {
+            this.instance = instance;
+        }
+    }
+    public static class Delete01RequestBuilder {
+        private final DeleteCallData instance;
+
+        public Delete01RequestBuilderDeleteCallData instance) {
+            this.instance = instance;
+        }
+    }
+    public static class DeleteRequestBuilder {
+        private final DeleteCallData instance;
+
+        public DeleteRequestBuilder() {
+            this.instance = new DeleteCallData();
+        }
+    }
 }

@@ -13,4 +13,26 @@ public class Put {
         public @Nullable PathParameters.PathParameters1 pathParameters;
         public @Nullable RequestBody.SealedRequestBody requestBody;
     }
+
+    public static class Put00RequestBuilder {
+        private final PutCallData instance;
+
+        public Put00RequestBuilderPutCallData instance) {
+            this.instance = instance;
+        }
+    }
+    public static class Put01RequestBuilder {
+        private final PutCallData instance;
+
+        public Put01RequestBuilderPutCallData instance) {
+            this.instance = instance;
+        }
+    }
+    public static class PutRequestBuilder {
+        private final PutCallData instance;
+
+        public PutRequestBuilder() {
+            this.instance = new PutCallData();
+        }
+    }
 }

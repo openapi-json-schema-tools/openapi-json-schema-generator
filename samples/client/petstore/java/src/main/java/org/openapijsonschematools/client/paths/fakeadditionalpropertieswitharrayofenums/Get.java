@@ -10,4 +10,12 @@ public class Get {
         public @Nullable RequestBody.SealedRequestBody requestBody;
         public @Nullable RootServerInfo.ServerIndex serverIndex;
     }
+
+    public static class GetRequestBuilder {
+        private final GetCallData instance;
+
+        public GetRequestBuilder() {
+            this.instance = new GetCallData();
+        }
+    }
 }

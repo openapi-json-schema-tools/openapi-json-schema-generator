@@ -12,4 +12,19 @@ public class Put {
         public @Nullable PetPutSecurityInfo.SecurityIndex securityIndex;
         public @Nullable RequestBody.SealedRequestBody requestBody;
     }
+
+    public static class Put0RequestBuilder {
+        private final PutCallData instance;
+
+        public Put0RequestBuilderPutCallData instance) {
+            this.instance = instance;
+        }
+    }
+    public static class PutRequestBuilder {
+        private final PutCallData instance;
+
+        public PutRequestBuilder() {
+            this.instance = new PutCallData();
+        }
+    }
 }

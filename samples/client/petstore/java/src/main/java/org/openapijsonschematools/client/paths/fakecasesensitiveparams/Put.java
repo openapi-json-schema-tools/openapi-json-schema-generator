@@ -11,4 +11,19 @@ public class Put {
         public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
     }
+
+    public static class Put0RequestBuilder {
+        private final PutCallData instance;
+
+        public Put0RequestBuilderPutCallData instance) {
+            this.instance = instance;
+        }
+    }
+    public static class PutRequestBuilder {
+        private final PutCallData instance;
+
+        public PutRequestBuilder() {
+            this.instance = new PutCallData();
+        }
+    }
 }

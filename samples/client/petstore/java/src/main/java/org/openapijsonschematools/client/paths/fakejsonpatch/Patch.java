@@ -10,4 +10,12 @@ public class Patch {
         public @Nullable RequestBody.SealedRequestBody requestBody;
         public @Nullable RootServerInfo.ServerIndex serverIndex;
     }
+
+    public static class PatchRequestBuilder {
+        private final PatchCallData instance;
+
+        public PatchRequestBuilder() {
+            this.instance = new PatchCallData();
+        }
+    }
 }

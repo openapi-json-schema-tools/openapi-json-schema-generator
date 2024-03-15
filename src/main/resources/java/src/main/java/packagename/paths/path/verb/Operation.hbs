@@ -42,5 +42,21 @@ public class {{jsonPathPiece.pascalCase}} {
         {{/each}}
     {{/each}}
     }
+
+    {{#each builders}}
+    public static class {{className.pascalCase}} {
+        private final {{../jsonPathPiece.pascalCase}}CallData instance;
+
+        {{#if @last }}
+        public {{className.pascalCase}}() {
+            this.instance = new {{../jsonPathPiece.pascalCase}}CallData();
+        }
+        {{else}}
+        public {{className.pascalCase}}{{../jsonPathPiece.pascalCase}}CallData instance) {
+            this.instance = instance;
+        }
+        {{/if}}
+    }
+    {{/each}}
 }
 {{/with}}

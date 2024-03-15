@@ -12,4 +12,12 @@ public class Post {
         public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable FakePostSecurityInfo.SecurityIndex securityIndex;
     }
+
+    public static class PostRequestBuilder {
+        private final PostCallData instance;
+
+        public PostRequestBuilder() {
+            this.instance = new PostCallData();
+        }
+    }
 }

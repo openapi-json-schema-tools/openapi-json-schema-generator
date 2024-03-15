@@ -10,4 +10,12 @@ public class Post {
         public @Nullable RequestBody.SealedRequestBody requestBody;
         public @Nullable RootServerInfo.ServerIndex serverIndex;
     }
+
+    public static class PostRequestBuilder {
+        private final PostCallData instance;
+
+        public PostRequestBuilder() {
+            this.instance = new PostCallData();
+        }
+    }
 }

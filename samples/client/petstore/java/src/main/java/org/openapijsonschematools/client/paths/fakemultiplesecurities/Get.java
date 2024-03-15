@@ -10,4 +10,12 @@ public class Get {
         public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable FakemultiplesecuritiesGetSecurityInfo.SecurityIndex securityIndex;
     }
+
+    public static class GetRequestBuilder {
+        private final GetCallData instance;
+
+        public GetRequestBuilder() {
+            this.instance = new GetCallData();
+        }
+    }
 }
