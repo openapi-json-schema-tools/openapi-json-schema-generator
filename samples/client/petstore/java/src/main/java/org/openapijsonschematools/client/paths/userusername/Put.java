@@ -26,9 +26,9 @@ public class Put {
     }
 
     public static class PutNullableRequest {
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public PathParameters.@Nullable PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
+        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
     }
 
     public interface SetterForServerIndex <T> {
@@ -69,7 +69,19 @@ public class Put {
         }
 
         public PutRequest build() {
-            // todo casting code here
+            var requestBody = instance.requestBody;
+            if (requestBody == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            var pathParameters = instance.pathParameters;
+            if (pathParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new PutRequest(
+                requestBody,
+                pathParameters,
+                instance.serverIndex
+            );
         }
     }
     public static class Put01RequestBuilder {

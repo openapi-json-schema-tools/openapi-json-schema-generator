@@ -26,9 +26,9 @@ public class Post {
     }
 
     public static class PostNullableRequest {
+        public PathParameters.@Nullable PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForHeaderParameters <T> {
@@ -69,7 +69,15 @@ public class Post {
         }
 
         public PostRequest build() {
-            // todo casting code here
+            var pathParameters = instance.pathParameters;
+            if (pathParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new PostRequest(
+                pathParameters,
+                instance.headerParameters,
+                instance.serverIndex
+            );
         }
     }
     public static class PostRequestBuilder {

@@ -26,9 +26,9 @@ public class Get {
     }
 
     public static class GetNullableRequest {
+        public PathParameters.@Nullable PathParametersMap pathParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForQueryParameters <T> {
@@ -69,7 +69,15 @@ public class Get {
         }
 
         public GetRequest build() {
-            // todo casting code here
+            var pathParameters = instance.pathParameters;
+            if (pathParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new GetRequest(
+                pathParameters,
+                instance.queryParameters,
+                instance.serverIndex
+            );
         }
     }
     public static class GetRequestBuilder {

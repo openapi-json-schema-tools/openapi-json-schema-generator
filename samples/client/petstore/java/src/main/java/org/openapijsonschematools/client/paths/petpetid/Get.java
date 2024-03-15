@@ -26,9 +26,9 @@ public class Get {
     }
 
     public static class GetNullableRequest {
+        public PathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex;
-        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForServerIndex <T> {
@@ -69,7 +69,15 @@ public class Get {
         }
 
         public GetRequest build() {
-            // todo casting code here
+            var pathParameters = instance.pathParameters;
+            if (pathParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new GetRequest(
+                pathParameters,
+                instance.serverIndex,
+                instance.securityIndex
+            );
         }
     }
     public static class GetRequestBuilder {

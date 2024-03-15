@@ -22,8 +22,8 @@ public class Get {
     }
 
     public static class GetNullableRequest {
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
     }
 
     public interface SetterForServerIndex <T> {
@@ -54,7 +54,14 @@ public class Get {
         }
 
         public GetRequest build() {
-            // todo casting code here
+            var queryParameters = instance.queryParameters;
+            if (queryParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new GetRequest(
+                queryParameters,
+                instance.serverIndex
+            );
         }
     }
     public static class GetRequestBuilder {

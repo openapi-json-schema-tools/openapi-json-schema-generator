@@ -30,10 +30,10 @@ public class Delete {
     }
 
     public static class DeleteNullableRequest {
+        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
     }
 
     public interface SetterForServerIndex <T> {
@@ -84,7 +84,20 @@ public class Delete {
         }
 
         public DeleteRequest build() {
-            // todo casting code here
+            var headerParameters = instance.headerParameters;
+            if (headerParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            var queryParameters = instance.queryParameters;
+            if (queryParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new DeleteRequest(
+                headerParameters,
+                queryParameters,
+                instance.serverIndex,
+                instance.securityIndex
+            );
         }
     }
     public static class Delete01RequestBuilder {

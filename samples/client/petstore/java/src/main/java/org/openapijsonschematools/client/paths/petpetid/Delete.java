@@ -30,10 +30,10 @@ public class Delete {
     }
 
     public static class DeleteNullableRequest {
+        public PathParameters.@Nullable PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
-        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForHeaderParameters <T> {
@@ -84,7 +84,16 @@ public class Delete {
         }
 
         public DeleteRequest build() {
-            // todo casting code here
+            var pathParameters = instance.pathParameters;
+            if (pathParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new DeleteRequest(
+                pathParameters,
+                instance.headerParameters,
+                instance.serverIndex,
+                instance.securityIndex
+            );
         }
     }
     public static class DeleteRequestBuilder {

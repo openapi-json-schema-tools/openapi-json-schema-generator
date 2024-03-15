@@ -25,9 +25,9 @@ public class Patch {
     }
 
     public static class PatchNullableRequest {
+        public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex;
-        public RequestBody.@Nullable SealedRequestBody requestBody;
     }
 
     public interface SetterForServerIndex <T> {
@@ -68,7 +68,15 @@ public class Patch {
         }
 
         public PatchRequest build() {
-            // todo casting code here
+            var requestBody = instance.requestBody;
+            if (requestBody == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new PatchRequest(
+                requestBody,
+                instance.serverIndex,
+                instance.securityIndex
+            );
         }
     }
     public static class PatchRequestBuilder {

@@ -25,9 +25,9 @@ public class Put {
     }
 
     public static class PutNullableRequest {
+        public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetPutSecurityInfo.@Nullable SecurityIndex securityIndex;
-        public RequestBody.@Nullable SealedRequestBody requestBody;
     }
 
     public interface SetterForServerIndex <T> {
@@ -68,7 +68,15 @@ public class Put {
         }
 
         public PutRequest build() {
-            // todo casting code here
+            var requestBody = instance.requestBody;
+            if (requestBody == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new PutRequest(
+                requestBody,
+                instance.serverIndex,
+                instance.securityIndex
+            );
         }
     }
     public static class PutRequestBuilder {

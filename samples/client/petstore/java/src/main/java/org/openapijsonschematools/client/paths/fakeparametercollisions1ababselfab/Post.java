@@ -38,12 +38,12 @@ public class Post {
     }
 
     public static class PostNullableRequest {
+        public PathParameters.@Nullable PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public CookieParameters.@Nullable CookieParametersMap cookieParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForRequestBody <T> {
@@ -114,7 +114,18 @@ public class Post {
         }
 
         public PostRequest build() {
-            // todo casting code here
+            var pathParameters = instance.pathParameters;
+            if (pathParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new PostRequest(
+                pathParameters,
+                instance.requestBody,
+                instance.headerParameters,
+                instance.queryParameters,
+                instance.cookieParameters,
+                instance.serverIndex
+            );
         }
     }
     public static class PostRequestBuilder {

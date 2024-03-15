@@ -85,7 +85,7 @@ public class {{jsonPathPiece.pascalCase}} {
     }
 
     public static class {{jsonPathPiece.pascalCase}}NullableRequest {
-        {{#each builders}}
+        {{#each (reverse builders)}}
             {{#each keyToBuilder}}
                 {{#with property}}
                     {{#if containerJsonPathPiece}}
@@ -134,7 +134,23 @@ public class {{jsonPathPiece.pascalCase}} {
 
         public {{../jsonPathPiece.pascalCase}}Request build() {
         {{#gt ../builders.size 1}}
-            // todo casting code here
+            {{#each (reverse builders)}}
+                {{#unless @last}}
+                    {{#each keyToBuilder}}
+            var {{@key.camelCase}} = instance.{{@key.camelCase}};
+            if ({{@key.camelCase}} == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+                    {{/each}}
+                {{/unless}}
+            {{/each}}
+            return new {{../jsonPathPiece.pascalCase}}Request(
+            {{#each (reverse builders)}}
+                {{#each keyToBuilder}}
+                {{#if ../@last}}instance.{{/if}}{{@key.camelCase}}{{#and ../@last @last}}{{else}},{{/and}}
+                {{/each}}
+            {{/each}}
+            );
         {{else}}
             return instance;
         {{/gt}}

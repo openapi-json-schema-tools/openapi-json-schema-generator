@@ -25,9 +25,9 @@ public class Post {
     }
 
     public static class PostNullableRequest {
+        public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetPostSecurityInfo.@Nullable SecurityIndex securityIndex;
-        public RequestBody.@Nullable SealedRequestBody requestBody;
     }
 
     public interface SetterForServerIndex <T> {
@@ -68,7 +68,15 @@ public class Post {
         }
 
         public PostRequest build() {
-            // todo casting code here
+            var requestBody = instance.requestBody;
+            if (requestBody == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new PostRequest(
+                requestBody,
+                instance.serverIndex,
+                instance.securityIndex
+            );
         }
     }
     public static class PostRequestBuilder {
