@@ -46,7 +46,7 @@ public class Get {
         }
     }
 
-    public static class Get0RequestBuilder {
+    public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder> {
         private final GetNullableRequest instance;
 
         public Get0RequestBuilder(GetNullableRequest instance) {
@@ -63,12 +63,28 @@ public class Get {
                 instance.serverIndex
             );
         }
+
+        public GetNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Get0RequestBuilder getBuilderAfterServerIndex(GetNullableRequest instance) {
+            return this;
+        }
     }
-    public static class GetRequestBuilder {
+    public static class GetRequestBuilder implements SetterForQueryParameters<Get0RequestBuilder> {
         private final GetNullableRequest instance;
 
         public GetRequestBuilder() {
             this.instance = new GetNullableRequest();
+        }
+
+        public GetNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Get0RequestBuilder getBuilderAfterQueryParameters(GetNullableRequest instance) {
+            return new Get0RequestBuilder(instance);
         }
     }
 }

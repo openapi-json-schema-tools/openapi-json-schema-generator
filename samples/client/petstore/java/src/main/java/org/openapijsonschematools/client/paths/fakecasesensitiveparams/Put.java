@@ -46,7 +46,7 @@ public class Put {
         }
     }
 
-    public static class Put0RequestBuilder {
+    public static class Put0RequestBuilder implements SetterForServerIndex<Put0RequestBuilder> {
         private final PutNullableRequest instance;
 
         public Put0RequestBuilder(PutNullableRequest instance) {
@@ -63,12 +63,28 @@ public class Put {
                 instance.serverIndex
             );
         }
+
+        public PutNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Put0RequestBuilder getBuilderAfterServerIndex(PutNullableRequest instance) {
+            return this;
+        }
     }
-    public static class PutRequestBuilder {
+    public static class PutRequestBuilder implements SetterForQueryParameters<Put0RequestBuilder> {
         private final PutNullableRequest instance;
 
         public PutRequestBuilder() {
             this.instance = new PutNullableRequest();
+        }
+
+        public PutNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Put0RequestBuilder getBuilderAfterQueryParameters(PutNullableRequest instance) {
+            return new Put0RequestBuilder(instance);
         }
     }
 }

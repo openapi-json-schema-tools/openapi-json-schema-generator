@@ -32,7 +32,7 @@ public class Patch {
         }
     }
 
-    public static class PatchRequestBuilder {
+    public static class PatchRequestBuilder implements SetterForRequestBody<PatchRequestBuilder>, SetterForServerIndex<PatchRequestBuilder> {
         private final PatchRequest instance;
 
         public PatchRequestBuilder() {
@@ -41,6 +41,18 @@ public class Patch {
 
         public PatchRequest build() {
             return instance;
+        }
+
+        public PatchRequest getInstance() {
+            return instance;
+        }
+
+        public PatchRequestBuilder getBuilderAfterRequestBody(PatchRequest instance) {
+            return this;
+        }
+
+        public PatchRequestBuilder getBuilderAfterServerIndex(PatchRequest instance) {
+            return this;
         }
     }
 }

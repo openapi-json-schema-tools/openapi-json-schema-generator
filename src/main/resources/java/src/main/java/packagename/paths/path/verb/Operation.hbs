@@ -118,7 +118,7 @@ public class {{jsonPathPiece.pascalCase}} {
     {{/each}}
 
     {{#each builders}}
-    public static class {{className.pascalCase}} {
+    public static class {{className.pascalCase}}{{#if keyToBuilder}} implements {{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{builder.className.pascalCase}}>{{#unless @last}}, {{/unless}}{{/each}} {
         private final {{../jsonPathPiece.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance;
 
         {{#if @last }}
@@ -156,6 +156,23 @@ public class {{jsonPathPiece.pascalCase}} {
         {{/gt}}
         }
         {{/if}}
+        {{#if keyToBuilder}}
+
+        public {{../jsonPathPiece.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request getInstance() {
+            return instance;
+        }
+        {{/if}}
+        {{#each keyToBuilder}}
+
+        public {{builder.className.pascalCase}} getBuilderAfter{{@key.pascalCase}}({{../jsonPathPiece.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance) {
+            {{#eq builder ../this}}
+                {{! property in final builder }}
+            return this;
+            {{else}}
+            return new {{builder.className.pascalCase}}(instance);
+            {{/eq}}
+        }
+        {{/each}}
     }
     {{/each}}
 }

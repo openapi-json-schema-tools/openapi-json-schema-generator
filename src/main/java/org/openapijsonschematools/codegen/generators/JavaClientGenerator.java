@@ -2432,7 +2432,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (requestBody == null && parametersInfo == null && servers == null && security == null) {
             return null;
         }
-        int qtyBuilders = 1;
+        int qtyBuilders = 1; // last one with optional params
         int reqPropsSize = 0;
         boolean requestBodyExists = requestBody != null;
         boolean parametersExist = parametersInfo != null;
@@ -2440,7 +2440,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         List<OperationInputProvider> optionalProperties = new ArrayList<>();
         if (requestBodyExists) {
             if (Boolean.TRUE.equals(requestBody.getSelfOrDeepestRef().required)) {
-                qtyBuilders += 1;
                 reqPropsSize += 1;
                 requiredProperties.add(requestBody);
             } else {
@@ -2450,7 +2449,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (parametersExist) {
             if (parametersInfo.headerParametersSchema != null) {
                 if (parametersInfo.headerParametersSchema.requiredProperties != null) {
-                    qtyBuilders += 1;
                     reqPropsSize += 1;
                     requiredProperties.add(parametersInfo.headerParametersSchema);
                 } else {
@@ -2459,7 +2457,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
             if (parametersInfo.pathParametersSchema != null) {
                 if (parametersInfo.pathParametersSchema.requiredProperties != null) {
-                    qtyBuilders += 1;
                     reqPropsSize += 1;
                     requiredProperties.add(parametersInfo.pathParametersSchema);
                 } else {
@@ -2468,7 +2465,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
             if (parametersInfo.queryParametersSchema != null) {
                 if (parametersInfo.queryParametersSchema.requiredProperties != null) {
-                    qtyBuilders += 1;
                     reqPropsSize += 1;
                     requiredProperties.add(parametersInfo.queryParametersSchema);
                 } else {
@@ -2477,7 +2473,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
             if (parametersInfo.cookieParametersSchema != null) {
                 if (parametersInfo.cookieParametersSchema.requiredProperties != null) {
-                    qtyBuilders += 1;
                     reqPropsSize += 1;
                     requiredProperties.add(parametersInfo.cookieParametersSchema);
                 } else {
@@ -2499,6 +2494,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         CodegenKey operationKey = getKey(pathPieces[pathPieces.length-1], "misc", jsonPath);
         String builderName = operationKey.pascalCase;
         List<MapBuilder<?>> builders = new ArrayList<>();
+        if (requiredProperties.size() > 0) {
+            qtyBuilders = (int) Math.pow(2, requiredProperties.size());
+        }
         for (int i=0; i < qtyBuilders; i++) {
             String bitStr = "";
             if (reqPropsSize != 0) {
@@ -2538,6 +2536,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             bitStrToBuilder.put(bitStr, builder);
             builders.add(builder);
         }
+        // todo add builder that allows
         if (!optionalProperties.isEmpty()) {
             for (OperationInputProvider property: optionalProperties) {
                 var pair = new MapBuilder.BuilderPropertyPair<>(lastBuilder, property);

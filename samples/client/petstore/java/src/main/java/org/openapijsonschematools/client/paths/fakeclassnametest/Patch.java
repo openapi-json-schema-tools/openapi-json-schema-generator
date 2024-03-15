@@ -60,7 +60,7 @@ public class Patch {
         }
     }
 
-    public static class Patch0RequestBuilder {
+    public static class Patch0RequestBuilder implements SetterForServerIndex<Patch0RequestBuilder>, SetterForSecurityIndex<Patch0RequestBuilder> {
         private final PatchNullableRequest instance;
 
         public Patch0RequestBuilder(PatchNullableRequest instance) {
@@ -78,12 +78,32 @@ public class Patch {
                 instance.securityIndex
             );
         }
+
+        public PatchNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Patch0RequestBuilder getBuilderAfterServerIndex(PatchNullableRequest instance) {
+            return this;
+        }
+
+        public Patch0RequestBuilder getBuilderAfterSecurityIndex(PatchNullableRequest instance) {
+            return this;
+        }
     }
-    public static class PatchRequestBuilder {
+    public static class PatchRequestBuilder implements SetterForRequestBody<Patch0RequestBuilder> {
         private final PatchNullableRequest instance;
 
         public PatchRequestBuilder() {
             this.instance = new PatchNullableRequest();
+        }
+
+        public PatchNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Patch0RequestBuilder getBuilderAfterRequestBody(PatchNullableRequest instance) {
+            return new Patch0RequestBuilder(instance);
         }
     }
 }

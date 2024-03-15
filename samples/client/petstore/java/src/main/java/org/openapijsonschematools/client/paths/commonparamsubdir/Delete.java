@@ -61,7 +61,7 @@ public class Delete {
         }
     }
 
-    public static class Delete0RequestBuilder {
+    public static class Delete0RequestBuilder implements SetterForHeaderParameters<Delete0RequestBuilder>, SetterForServerIndex<Delete0RequestBuilder> {
         private final DeleteNullableRequest instance;
 
         public Delete0RequestBuilder(DeleteNullableRequest instance) {
@@ -79,12 +79,32 @@ public class Delete {
                 instance.serverIndex
             );
         }
+
+        public DeleteNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Delete0RequestBuilder getBuilderAfterHeaderParameters(DeleteNullableRequest instance) {
+            return this;
+        }
+
+        public Delete0RequestBuilder getBuilderAfterServerIndex(DeleteNullableRequest instance) {
+            return this;
+        }
     }
-    public static class DeleteRequestBuilder {
+    public static class DeleteRequestBuilder implements SetterForPathParameters<Delete0RequestBuilder> {
         private final DeleteNullableRequest instance;
 
         public DeleteRequestBuilder() {
             this.instance = new DeleteNullableRequest();
+        }
+
+        public DeleteNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Delete0RequestBuilder getBuilderAfterPathParameters(DeleteNullableRequest instance) {
+            return new Delete0RequestBuilder(instance);
         }
     }
 }

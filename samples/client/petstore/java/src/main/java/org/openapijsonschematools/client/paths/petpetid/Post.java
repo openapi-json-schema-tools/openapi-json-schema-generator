@@ -76,7 +76,7 @@ public class Post {
         }
     }
 
-    public static class Post0RequestBuilder {
+    public static class Post0RequestBuilder implements SetterForRequestBody<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder>, SetterForSecurityIndex<Post0RequestBuilder> {
         private final PostNullableRequest instance;
 
         public Post0RequestBuilder(PostNullableRequest instance) {
@@ -95,12 +95,36 @@ public class Post {
                 instance.securityIndex
             );
         }
+
+        public PostNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Post0RequestBuilder getBuilderAfterRequestBody(PostNullableRequest instance) {
+            return this;
+        }
+
+        public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
+            return this;
+        }
+
+        public Post0RequestBuilder getBuilderAfterSecurityIndex(PostNullableRequest instance) {
+            return this;
+        }
     }
-    public static class PostRequestBuilder {
+    public static class PostRequestBuilder implements SetterForPathParameters<Post0RequestBuilder> {
         private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
             this.instance = new PostNullableRequest();
+        }
+
+        public PostNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Post0RequestBuilder getBuilderAfterPathParameters(PostNullableRequest instance) {
+            return new Post0RequestBuilder(instance);
         }
     }
 }

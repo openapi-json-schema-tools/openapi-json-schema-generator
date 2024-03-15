@@ -45,7 +45,7 @@ public class Post {
         }
     }
 
-    public static class PostRequestBuilder {
+    public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForQueryParameters<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder> {
         private final PostRequest instance;
 
         public PostRequestBuilder() {
@@ -54,6 +54,22 @@ public class Post {
 
         public PostRequest build() {
             return instance;
+        }
+
+        public PostRequest getInstance() {
+            return instance;
+        }
+
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
+            return this;
+        }
+
+        public PostRequestBuilder getBuilderAfterQueryParameters(PostRequest instance) {
+            return this;
+        }
+
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
+            return this;
         }
     }
 }

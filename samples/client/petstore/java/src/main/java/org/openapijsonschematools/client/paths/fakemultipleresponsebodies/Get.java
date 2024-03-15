@@ -20,7 +20,7 @@ public class Get {
         }
     }
 
-    public static class GetRequestBuilder {
+    public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder> {
         private final GetRequest instance;
 
         public GetRequestBuilder() {
@@ -29,6 +29,14 @@ public class Get {
 
         public GetRequest build() {
             return instance;
+        }
+
+        public GetRequest getInstance() {
+            return instance;
+        }
+
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
+            return this;
         }
     }
 }
