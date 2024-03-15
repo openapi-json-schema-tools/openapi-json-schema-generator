@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.delete.PathPara
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.CommonParamsubDir;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class Delete {
 
-    public static class Delete1 {
+    public static class Delete1 extends CommonParamsubDir {
         private final ApiConfiguration apiConfiguration;
 
         public Delete1(ApiConfiguration apiConfiguration) {

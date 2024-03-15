@@ -3,13 +3,12 @@ package org.openapijsonschematools.client.paths.fake;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
-import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
-import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
 import org.openapijsonschematools.client.paths.fake.delete.Parameters;
 import org.openapijsonschematools.client.paths.fake.delete.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.Fake;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.Map;
 
 public class Delete {
 
-    public static class Delete1 {
+    public static class Delete1 extends Fake {
         private final ApiConfiguration apiConfiguration;
 
         public Delete1(ApiConfiguration apiConfiguration) {

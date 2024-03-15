@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.FakeresponseWithoutSchema;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.Map;
 
 public class Get {
 
-    public static class Get1 {
+    public static class Get1 extends FakeresponseWithoutSchema {
         private final ApiConfiguration apiConfiguration;
 
         public Get1(ApiConfiguration apiConfiguration) {

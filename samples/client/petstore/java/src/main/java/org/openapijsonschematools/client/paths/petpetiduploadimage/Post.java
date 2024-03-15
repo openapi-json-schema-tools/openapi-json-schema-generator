@@ -9,6 +9,7 @@ import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Paramete
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+import org.openapijsonschematools.client.paths.PetpetIduploadImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.Map;
 
 public class Post {
 
-    public static class Post1 {
+    public static class Post1 extends PetpetIduploadImage {
         private final ApiConfiguration apiConfiguration;
 
         public Post1(ApiConfiguration apiConfiguration) {

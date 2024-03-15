@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.PathParame
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.CommonParamsubDir;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class Post {
 
-    public static class Post1 {
+    public static class Post1 extends CommonParamsubDir {
         private final ApiConfiguration apiConfiguration;
 
         public Post1(ApiConfiguration apiConfiguration) {

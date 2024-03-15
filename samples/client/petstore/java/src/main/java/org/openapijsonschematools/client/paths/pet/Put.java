@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.paths.pet.put.RequestBody;
 import org.openapijsonschematools.client.paths.pet.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+import org.openapijsonschematools.client.paths.Pet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class Put {
 
-    public static class Put1 {
+    public static class Put1 extends Pet {
         private final ApiConfiguration apiConfiguration;
 
         public Put1(ApiConfiguration apiConfiguration) {

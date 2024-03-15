@@ -2,14 +2,13 @@ package org.openapijsonschematools.client.paths.userusername;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.put.PathParameters;
-import org.openapijsonschematools.client.paths.userusername.put.RequestBody;
 import org.openapijsonschematools.client.paths.userusername.put.RequestBody;
 import org.openapijsonschematools.client.paths.userusername.put.PathParameters;
 import org.openapijsonschematools.client.paths.userusername.put.Parameters;
 import org.openapijsonschematools.client.paths.userusername.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+import org.openapijsonschematools.client.paths.Userusername;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.Map;
 
 public class Put {
 
-    public static class Put1 {
+    public static class Put1 extends Userusername {
         private final ApiConfiguration apiConfiguration;
 
         public Put1(ApiConfiguration apiConfiguration) {

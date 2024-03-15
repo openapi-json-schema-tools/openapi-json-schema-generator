@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeuploadfile.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+import org.openapijsonschematools.client.paths.FakeuploadFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class Post {
 
-    public static class Post1 {
+    public static class Post1 extends FakeuploadFile {
         private final ApiConfiguration apiConfiguration;
 
         public Post1(ApiConfiguration apiConfiguration) {

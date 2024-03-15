@@ -2,14 +2,13 @@ package org.openapijsonschematools.client.paths.fakebodywithqueryparams;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.QueryParameters;
-import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.RequestBody;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.RequestBody;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.QueryParameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Parameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+import org.openapijsonschematools.client.paths.Fakebodywithqueryparams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.Map;
 
 public class Put {
 
-    public static class Put1 {
+    public static class Put1 extends Fakebodywithqueryparams {
         private final ApiConfiguration apiConfiguration;
 
         public Put1(ApiConfiguration apiConfiguration) {

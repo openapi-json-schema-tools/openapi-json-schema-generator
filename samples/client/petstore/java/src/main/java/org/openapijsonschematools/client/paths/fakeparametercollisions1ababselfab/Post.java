@@ -11,6 +11,7 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+import org.openapijsonschematools.client.paths.FakeparameterCollisions1aBAbselfAB;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.Map;
 
 public class Post {
 
-    public static class Post1 {
+    public static class Post1 extends FakeparameterCollisions1aBAbselfAB {
         private final ApiConfiguration apiConfiguration;
 
         public Post1(ApiConfiguration apiConfiguration) {

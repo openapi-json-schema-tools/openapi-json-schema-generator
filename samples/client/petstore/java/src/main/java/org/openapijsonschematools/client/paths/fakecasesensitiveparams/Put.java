@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Query
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Parameters;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.Fakecasesensitiveparams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class Put {
 
-    public static class Put1 {
+    public static class Put1 extends Fakecasesensitiveparams {
         private final ApiConfiguration apiConfiguration;
 
         public Put1(ApiConfiguration apiConfiguration) {

@@ -3,19 +3,21 @@ package {{packageName}}.{{subpackage}};
 
 import org.checkerframework.checker.nullness.qual.Nullable;
     {{#each builders}}
-        {{#each keyToBuilder}}
-            {{#with property}}
-                {{#if containerJsonPathPiece}}
+        {{#or @first @last}}
+            {{#each keyToBuilder}}
+                {{#with property}}
+                    {{#if containerJsonPathPiece}}
 import {{packageName}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
-                {{else}}
-                    {{#if subpackage}}
-import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
                     {{else}}
+                        {{#if subpackage}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+                        {{else}}
 import {{packageName}}.{{jsonPathPiece.pascalCase}};
+                        {{/if}}
                     {{/if}}
-                {{/if}}
-            {{/with}}
-        {{/each}}
+                {{/with}}
+            {{/each}}
+        {{/or}}
     {{/each}}
     {{#with parametersInfo}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
@@ -27,6 +29,9 @@ import {{packageName}}.configurations.ApiConfiguration;
     {{#if requestBody}}
 import {{packageName}}.requestbody.SerializedRequestBody;
     {{/if}}
+    {{#with ../pathItem}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +39,7 @@ import java.util.Map;
 
 public class {{jsonPathPiece.pascalCase}} {
 
-    public static class {{jsonPathPiece.pascalCase}}1 {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{#with ../pathItem}}{{jsonPathPiece.pascalCase}}{{/with}} {
         private final ApiConfiguration apiConfiguration;
 
         public {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration) {

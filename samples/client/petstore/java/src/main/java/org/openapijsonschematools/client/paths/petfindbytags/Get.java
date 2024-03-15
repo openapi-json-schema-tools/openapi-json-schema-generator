@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.paths.petfindbytags.get.QueryParameters
 import org.openapijsonschematools.client.paths.petfindbytags.get.Parameters;
 import org.openapijsonschematools.client.paths.petfindbytags.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.PetfindByTags;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class Get {
 
-    public static class Get1 {
+    public static class Get1 extends PetfindByTags {
         private final ApiConfiguration apiConfiguration;
 
         public Get1(ApiConfiguration apiConfiguration) {

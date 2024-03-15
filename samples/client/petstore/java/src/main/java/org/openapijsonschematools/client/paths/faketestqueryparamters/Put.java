@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.faketestqueryparamters.put.QueryP
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Parameters;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.Faketestqueryparamters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class Put {
 
-    public static class Put1 {
+    public static class Put1 extends Faketestqueryparamters {
         private final ApiConfiguration apiConfiguration;
 
         public Put1(ApiConfiguration apiConfiguration) {

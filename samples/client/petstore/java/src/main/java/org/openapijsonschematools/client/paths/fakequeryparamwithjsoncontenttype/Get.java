@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.Parameters;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.FakequeryParamWithJsonContentType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class Get {
 
-    public static class Get1 {
+    public static class Get1 extends FakequeryParamWithJsonContentType {
         private final ApiConfiguration apiConfiguration;
 
         public Get1(ApiConfiguration apiConfiguration) {

@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.userusername.get.PathParameters;
 import org.openapijsonschematools.client.paths.userusername.get.Parameters;
 import org.openapijsonschematools.client.paths.userusername.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.Userusername;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class Get {
 
-    public static class Get1 {
+    public static class Get1 extends Userusername {
         private final ApiConfiguration apiConfiguration;
 
         public Get1(ApiConfiguration apiConfiguration) {

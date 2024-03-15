@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.PathPar
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Parameters;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.FakedeleteCoffeeid;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class Delete {
 
-    public static class Delete1 {
+    public static class Delete1 extends FakedeleteCoffeeid {
         private final ApiConfiguration apiConfiguration;
 
         public Delete1(ApiConfiguration apiConfiguration) {

@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.paths.petfindbystatus.get.QueryParamete
 import org.openapijsonschematools.client.paths.petfindbystatus.get.Parameters;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.PetfindByStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class Get {
 
-    public static class Get1 {
+    public static class Get1 extends PetfindByStatus {
         private final ApiConfiguration apiConfiguration;
 
         public Get1(ApiConfiguration apiConfiguration) {

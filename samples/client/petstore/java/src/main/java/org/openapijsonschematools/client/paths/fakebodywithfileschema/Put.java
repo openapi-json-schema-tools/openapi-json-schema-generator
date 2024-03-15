@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Reques
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+import org.openapijsonschematools.client.paths.Fakebodywithfileschema;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class Put {
 
-    public static class Put1 {
+    public static class Put1 extends Fakebodywithfileschema {
         private final ApiConfiguration apiConfiguration;
 
         public Put1(ApiConfiguration apiConfiguration) {

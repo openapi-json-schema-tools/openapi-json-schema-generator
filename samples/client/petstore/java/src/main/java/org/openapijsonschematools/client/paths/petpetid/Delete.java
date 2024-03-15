@@ -8,6 +8,7 @@ import org.openapijsonschematools.client.paths.petpetid.delete.PathParameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.Parameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.PetpetId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Map;
 
 public class Delete {
 
-    public static class Delete1 {
+    public static class Delete1 extends PetpetId {
         private final ApiConfiguration apiConfiguration;
 
         public Delete1(ApiConfiguration apiConfiguration) {

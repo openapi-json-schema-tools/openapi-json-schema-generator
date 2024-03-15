@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.paths.petpetid.get.PathParameters;
 import org.openapijsonschematools.client.paths.petpetid.get.Parameters;
 import org.openapijsonschematools.client.paths.petpetid.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.PetpetId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class Get {
 
-    public static class Get1 {
+    public static class Get1 extends PetpetId {
         private final ApiConfiguration apiConfiguration;
 
         public Get1(ApiConfiguration apiConfiguration) {

@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.paths.fakeclassnametest.patch.RequestBo
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+import org.openapijsonschematools.client.paths.Fakeclassnametest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class Patch {
 
-    public static class Patch1 {
+    public static class Patch1 extends Fakeclassnametest {
         private final ApiConfiguration apiConfiguration;
 
         public Patch1(ApiConfiguration apiConfiguration) {

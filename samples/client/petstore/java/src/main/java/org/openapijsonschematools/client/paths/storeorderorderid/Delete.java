@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.storeorderorderid.delete.PathPara
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.Parameters;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.paths.Storeorderorderid;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class Delete {
 
-    public static class Delete1 {
+    public static class Delete1 extends Storeorderorderid {
         private final ApiConfiguration apiConfiguration;
 
         public Delete1(ApiConfiguration apiConfiguration) {
