@@ -15,7 +15,7 @@ public class Put {
     public interface SetterForServerIndex <T> {
         PutCallData getInstance();
         T getBuilderAfterServerIndex(PutCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -25,7 +25,7 @@ public class Put {
     public interface SetterForQueryParameters <T> {
         PutCallData getInstance();
         T getBuilderAfterQueryParameters(PutCallData instance);
-        default T queryParameters(QueryParameters1 queryParameters) {
+        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

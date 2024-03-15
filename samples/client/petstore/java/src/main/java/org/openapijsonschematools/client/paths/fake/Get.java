@@ -19,7 +19,7 @@ public class Get {
     public interface SetterForRequestBody <T> {
         GetCallData getInstance();
         T getBuilderAfterRequestBody(GetCallData instance);
-        default T requestBody(SealedRequestBody requestBody) {
+        default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -29,7 +29,7 @@ public class Get {
     public interface SetterForHeaderParameters <T> {
         GetCallData getInstance();
         T getBuilderAfterHeaderParameters(GetCallData instance);
-        default T headerParameters(HeaderParameters1 headerParameters) {
+        default T headerParameters(HeaderParameters.HeaderParameters1 headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -39,7 +39,7 @@ public class Get {
     public interface SetterForQueryParameters <T> {
         GetCallData getInstance();
         T getBuilderAfterQueryParameters(GetCallData instance);
-        default T queryParameters(QueryParameters1 queryParameters) {
+        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -49,7 +49,7 @@ public class Get {
     public interface SetterForServerIndex <T> {
         GetCallData getInstance();
         T getBuilderAfterServerIndex(GetCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

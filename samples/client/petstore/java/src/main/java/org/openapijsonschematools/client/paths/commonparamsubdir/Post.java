@@ -17,7 +17,7 @@ public class Post {
     public interface SetterForHeaderParameters <T> {
         PostCallData getInstance();
         T getBuilderAfterHeaderParameters(PostCallData instance);
-        default T headerParameters(HeaderParameters1 headerParameters) {
+        default T headerParameters(HeaderParameters.HeaderParameters1 headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -27,7 +27,7 @@ public class Post {
     public interface SetterForServerIndex <T> {
         PostCallData getInstance();
         T getBuilderAfterServerIndex(PostCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -37,7 +37,7 @@ public class Post {
     public interface SetterForPathParameters <T> {
         PostCallData getInstance();
         T getBuilderAfterPathParameters(PostCallData instance);
-        default T pathParameters(PathParameters1 pathParameters) {
+        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

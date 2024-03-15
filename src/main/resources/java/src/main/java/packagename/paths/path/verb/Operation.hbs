@@ -48,7 +48,7 @@ public class {{jsonPathPiece.pascalCase}} {
     public interface SetterFor{{@key.pascalCase}} <T> {
         {{../../jsonPathPiece.pascalCase}}CallData getInstance();
         T getBuilderAfter{{@key.pascalCase}}({{../../jsonPathPiece.pascalCase}}CallData instance);
-        default T {{@key.camelCase}}({{property.operationInputClassName}} {{@key.camelCase}}) {
+        default T {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.{{operationInputClassName}}{{/with}} {{@key.camelCase}}) {
             var instance = getInstance();
             instance.{{@key.camelCase}} = {{@key.camelCase}};
             return getBuilderAfter{{@key.pascalCase}}(instance);

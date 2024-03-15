@@ -14,7 +14,7 @@ public class Get {
     public interface SetterForServerIndex <T> {
         GetCallData getInstance();
         T getBuilderAfterServerIndex(GetCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -24,7 +24,7 @@ public class Get {
     public interface SetterForSecurityIndex <T> {
         GetCallData getInstance();
         T getBuilderAfterSecurityIndex(GetCallData instance);
-        default T securityIndex(SecurityIndex securityIndex) {
+        default T securityIndex(FakemultiplesecuritiesGetSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
             return getBuilderAfterSecurityIndex(instance);

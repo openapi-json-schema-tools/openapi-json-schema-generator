@@ -14,7 +14,7 @@ public class Patch {
     public interface SetterForServerIndex <T> {
         PatchCallData getInstance();
         T getBuilderAfterServerIndex(PatchCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -24,7 +24,7 @@ public class Patch {
     public interface SetterForRequestBody <T> {
         PatchCallData getInstance();
         T getBuilderAfterRequestBody(PatchCallData instance);
-        default T requestBody(SealedRequestBody requestBody) {
+        default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);

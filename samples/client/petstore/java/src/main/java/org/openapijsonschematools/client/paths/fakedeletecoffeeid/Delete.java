@@ -15,7 +15,7 @@ public class Delete {
     public interface SetterForServerIndex <T> {
         DeleteCallData getInstance();
         T getBuilderAfterServerIndex(DeleteCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -25,7 +25,7 @@ public class Delete {
     public interface SetterForPathParameters <T> {
         DeleteCallData getInstance();
         T getBuilderAfterPathParameters(DeleteCallData instance);
-        default T pathParameters(PathParameters1 pathParameters) {
+        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

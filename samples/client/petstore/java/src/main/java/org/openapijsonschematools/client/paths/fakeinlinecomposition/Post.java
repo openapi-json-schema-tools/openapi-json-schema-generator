@@ -17,7 +17,7 @@ public class Post {
     public interface SetterForRequestBody <T> {
         PostCallData getInstance();
         T getBuilderAfterRequestBody(PostCallData instance);
-        default T requestBody(SealedRequestBody requestBody) {
+        default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -27,7 +27,7 @@ public class Post {
     public interface SetterForQueryParameters <T> {
         PostCallData getInstance();
         T getBuilderAfterQueryParameters(PostCallData instance);
-        default T queryParameters(QueryParameters1 queryParameters) {
+        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -37,7 +37,7 @@ public class Post {
     public interface SetterForServerIndex <T> {
         PostCallData getInstance();
         T getBuilderAfterServerIndex(PostCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

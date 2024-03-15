@@ -12,7 +12,7 @@ public class Get {
     public interface SetterForServerIndex <T> {
         GetCallData getInstance();
         T getBuilderAfterServerIndex(GetCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(FooGetServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

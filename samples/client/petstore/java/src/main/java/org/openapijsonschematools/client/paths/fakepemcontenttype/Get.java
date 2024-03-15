@@ -14,7 +14,7 @@ public class Get {
     public interface SetterForRequestBody <T> {
         GetCallData getInstance();
         T getBuilderAfterRequestBody(GetCallData instance);
-        default T requestBody(SealedRequestBody requestBody) {
+        default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -24,7 +24,7 @@ public class Get {
     public interface SetterForServerIndex <T> {
         GetCallData getInstance();
         T getBuilderAfterServerIndex(GetCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

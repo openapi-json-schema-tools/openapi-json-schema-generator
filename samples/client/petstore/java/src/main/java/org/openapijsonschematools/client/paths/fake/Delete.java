@@ -19,7 +19,7 @@ public class Delete {
     public interface SetterForServerIndex <T> {
         DeleteCallData getInstance();
         T getBuilderAfterServerIndex(DeleteCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -29,7 +29,7 @@ public class Delete {
     public interface SetterForSecurityIndex <T> {
         DeleteCallData getInstance();
         T getBuilderAfterSecurityIndex(DeleteCallData instance);
-        default T securityIndex(SecurityIndex securityIndex) {
+        default T securityIndex(FakeDeleteSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
             return getBuilderAfterSecurityIndex(instance);
@@ -39,7 +39,7 @@ public class Delete {
     public interface SetterForQueryParameters <T> {
         DeleteCallData getInstance();
         T getBuilderAfterQueryParameters(DeleteCallData instance);
-        default T queryParameters(QueryParameters1 queryParameters) {
+        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -49,7 +49,7 @@ public class Delete {
     public interface SetterForHeaderParameters <T> {
         DeleteCallData getInstance();
         T getBuilderAfterHeaderParameters(DeleteCallData instance);
-        default T headerParameters(HeaderParameters1 headerParameters) {
+        default T headerParameters(HeaderParameters.HeaderParameters1 headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);

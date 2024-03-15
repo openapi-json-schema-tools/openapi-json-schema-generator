@@ -14,7 +14,7 @@ public class Put {
     public interface SetterForServerIndex <T> {
         PutCallData getInstance();
         T getBuilderAfterServerIndex(PutCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -24,7 +24,7 @@ public class Put {
     public interface SetterForRequestBody <T> {
         PutCallData getInstance();
         T getBuilderAfterRequestBody(PutCallData instance);
-        default T requestBody(SealedRequestBody requestBody) {
+        default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);

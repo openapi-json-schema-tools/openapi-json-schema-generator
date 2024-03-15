@@ -19,7 +19,7 @@ public class Post {
     public interface SetterForRequestBody <T> {
         PostCallData getInstance();
         T getBuilderAfterRequestBody(PostCallData instance);
-        default T requestBody(SealedRequestBody requestBody) {
+        default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -29,7 +29,7 @@ public class Post {
     public interface SetterForServerIndex <T> {
         PostCallData getInstance();
         T getBuilderAfterServerIndex(PostCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -39,7 +39,7 @@ public class Post {
     public interface SetterForSecurityIndex <T> {
         PostCallData getInstance();
         T getBuilderAfterSecurityIndex(PostCallData instance);
-        default T securityIndex(SecurityIndex securityIndex) {
+        default T securityIndex(FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
             return getBuilderAfterSecurityIndex(instance);
@@ -49,7 +49,7 @@ public class Post {
     public interface SetterForPathParameters <T> {
         PostCallData getInstance();
         T getBuilderAfterPathParameters(PostCallData instance);
-        default T pathParameters(PathParameters1 pathParameters) {
+        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

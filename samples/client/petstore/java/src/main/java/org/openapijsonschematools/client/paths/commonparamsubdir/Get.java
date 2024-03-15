@@ -17,7 +17,7 @@ public class Get {
     public interface SetterForQueryParameters <T> {
         GetCallData getInstance();
         T getBuilderAfterQueryParameters(GetCallData instance);
-        default T queryParameters(QueryParameters1 queryParameters) {
+        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -27,7 +27,7 @@ public class Get {
     public interface SetterForServerIndex <T> {
         GetCallData getInstance();
         T getBuilderAfterServerIndex(GetCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -37,7 +37,7 @@ public class Get {
     public interface SetterForPathParameters <T> {
         GetCallData getInstance();
         T getBuilderAfterPathParameters(GetCallData instance);
-        default T pathParameters(PathParameters1 pathParameters) {
+        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

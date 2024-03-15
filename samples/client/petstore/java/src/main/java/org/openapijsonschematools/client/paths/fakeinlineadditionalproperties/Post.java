@@ -14,7 +14,7 @@ public class Post {
     public interface SetterForServerIndex <T> {
         PostCallData getInstance();
         T getBuilderAfterServerIndex(PostCallData instance);
-        default T serverIndex(ServerIndex serverIndex) {
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
@@ -24,7 +24,7 @@ public class Post {
     public interface SetterForRequestBody <T> {
         PostCallData getInstance();
         T getBuilderAfterRequestBody(PostCallData instance);
-        default T requestBody(SealedRequestBody requestBody) {
+        default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
