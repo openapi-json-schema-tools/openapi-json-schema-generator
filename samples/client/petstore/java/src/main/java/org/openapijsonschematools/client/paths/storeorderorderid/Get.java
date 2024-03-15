@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.paths.storeorderorderid.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
 }

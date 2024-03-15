@@ -12,7 +12,7 @@ import java.util.TreeSet;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenRequestBody implements VariableNameProvider {
+public class CodegenRequestBody implements OperationInputProvider {
     public final CodegenText description;
     public final Map<String, Object> vendorExtensions;
     public final Boolean required;
@@ -22,7 +22,8 @@ public class CodegenRequestBody implements VariableNameProvider {
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
     public final String subpackage;
-    public final String operationInputClass;
+    public final String operationInputClassName;
+    public final String operationInputVariableName;
 
     /*
     A method that returns all content schemas
@@ -67,7 +68,7 @@ public class CodegenRequestBody implements VariableNameProvider {
         return schemas;
     }
 
-    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage, String operationInputClass) {
+    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage, String operationInputClassName, String operationInputVariableName) {
         this.description = description;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
@@ -77,7 +78,8 @@ public class CodegenRequestBody implements VariableNameProvider {
         this.jsonPathPiece = jsonPathPiece;
         this.refInfo = refInfo;
         this.subpackage = subpackage;
-        this.operationInputClass = operationInputClass;
+        this.operationInputClassName = operationInputClassName;
+        this.operationInputVariableName = operationInputVariableName;
     }
 
     public CodegenRequestBody getSelfOrDeepestRef() {
@@ -142,8 +144,13 @@ public class CodegenRequestBody implements VariableNameProvider {
     }
 
     @Override
-    public CodegenKey variableName() {
-        return jsonPathPiece;
+    public String operationInputClassName() {
+        return operationInputClassName;
+    }
+
+    @Override
+    public String operationInputVariableName() {
+        return operationInputVariableName;
     }
 }
 

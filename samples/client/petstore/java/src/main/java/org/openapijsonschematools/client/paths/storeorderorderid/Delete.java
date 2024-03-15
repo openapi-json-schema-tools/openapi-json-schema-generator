@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.paths.storeorderorderid.delete.Response
 
 public class Delete {
     public static class DeleteCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
 }

@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Respon
 
 public class Put {
     public static class PutCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
     }
 }

@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.Respon
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable FakemultiplesecuritiesGetSecurityInfo.SecurityIndex fakemultiplesecuritiesGetSecurityInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable FakemultiplesecuritiesGetSecurityInfo.SecurityIndex securityIndex;
     }
 }

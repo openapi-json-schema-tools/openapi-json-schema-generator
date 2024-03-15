@@ -9,8 +9,8 @@ import org.openapijsonschematools.client.paths.userusername.put.Responses;
 
 public class Put {
     public static class PutCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
     }
 }

@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.paths.fake.patch.Responses;
 
 public class Patch {
     public static class PatchCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
     }
 }

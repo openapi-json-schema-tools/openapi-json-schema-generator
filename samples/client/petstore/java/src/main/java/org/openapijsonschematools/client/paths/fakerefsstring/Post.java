@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.paths.fakerefsstring.post.Responses;
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RequestBody.SealedRequestBody ;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
     }
 }

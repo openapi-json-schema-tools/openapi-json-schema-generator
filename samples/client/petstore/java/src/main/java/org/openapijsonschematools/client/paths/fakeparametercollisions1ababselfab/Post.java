@@ -12,11 +12,11 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
         public @Nullable HeaderParameters.HeaderParameters1 headerParameters;
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
         public @Nullable CookieParameters.CookieParameters1 cookieParameters;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
 }

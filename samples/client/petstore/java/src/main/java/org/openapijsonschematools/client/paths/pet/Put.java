@@ -8,8 +8,8 @@ import org.openapijsonschematools.client.paths.pet.put.Responses;
 
 public class Put {
     public static class PutCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable PetPutSecurityInfo.SecurityIndex petPutSecurityInfo;
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable PetPutSecurityInfo.SecurityIndex securityIndex;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
     }
 }

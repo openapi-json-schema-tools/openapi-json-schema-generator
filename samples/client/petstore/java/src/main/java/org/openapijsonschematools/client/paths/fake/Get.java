@@ -10,9 +10,9 @@ import org.openapijsonschematools.client.paths.fake.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
         public @Nullable HeaderParameters.HeaderParameters1 headerParameters;
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
     }
 }

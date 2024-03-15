@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.TreeSet;
 import java.util.function.Function;
 
-public class CodegenSchema implements VariableNameProvider {
+public class CodegenSchema implements OperationInputProvider {
     // 3.0.0
     public String title;
     public Number multipleOf;
@@ -1022,7 +1022,12 @@ public class CodegenSchema implements VariableNameProvider {
     }
 
     @Override
-    public CodegenKey variableName() {
-        return jsonPathPiece;
+    public String operationInputClassName() {
+        return jsonPathPiece.pascalCase;
+    }
+
+    @Override
+    public String operationInputVariableName() {
+        return containerJsonPathPiece.camelCase;
     }
 }

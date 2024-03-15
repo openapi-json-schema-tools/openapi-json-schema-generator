@@ -9,8 +9,8 @@ import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Respon
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
     }
 }

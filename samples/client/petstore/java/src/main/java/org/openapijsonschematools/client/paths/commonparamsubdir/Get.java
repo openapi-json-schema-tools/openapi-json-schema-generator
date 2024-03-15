@@ -10,7 +10,7 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.get.Responses;
 public class Get {
     public static class GetCallData {
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
 }

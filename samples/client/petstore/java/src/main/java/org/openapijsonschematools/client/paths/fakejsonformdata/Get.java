@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.paths.fakejsonformdata.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RequestBody.SealedRequestBody ;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
     }
 }

@@ -9,8 +9,8 @@ import org.openapijsonschematools.client.paths.petpetid.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable PetpetidGetSecurityInfo.SecurityIndex petpetidGetSecurityInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable PetpetidGetSecurityInfo.SecurityIndex securityIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
 }

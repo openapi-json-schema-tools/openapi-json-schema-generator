@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.paths.storeinventory.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable StoreinventoryGetSecurityInfo.SecurityIndex storeinventoryGetSecurityInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable StoreinventoryGetSecurityInfo.SecurityIndex securityIndex;
     }
 }

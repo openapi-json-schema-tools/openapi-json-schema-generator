@@ -11,8 +11,8 @@ import org.openapijsonschematools.client.paths.petpetid.delete.Responses;
 public class Delete {
     public static class DeleteCallData {
         public @Nullable HeaderParameters.HeaderParameters1 headerParameters;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable PetpetidDeleteSecurityInfo.SecurityIndex petpetidDeleteSecurityInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable PetpetidDeleteSecurityInfo.SecurityIndex securityIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
 }

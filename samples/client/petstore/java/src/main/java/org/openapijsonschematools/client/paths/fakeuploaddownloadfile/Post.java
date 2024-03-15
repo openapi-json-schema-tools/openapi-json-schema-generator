@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.Respo
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
     }
 }

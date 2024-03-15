@@ -9,8 +9,8 @@ import org.openapijsonschematools.client.paths.petfindbytags.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable PetfindbytagsGetSecurityInfo.SecurityIndex petfindbytagsGetSecurityInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable PetfindbytagsGetSecurityInfo.SecurityIndex securityIndex;
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
     }
 }

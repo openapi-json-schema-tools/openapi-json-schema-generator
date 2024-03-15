@@ -8,8 +8,8 @@ import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses
 
 public class Patch {
     public static class PatchCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable FakeclassnametestPatchSecurityInfo.SecurityIndex fakeclassnametestPatchSecurityInfo;
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable FakeclassnametestPatchSecurityInfo.SecurityIndex securityIndex;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
     }
 }

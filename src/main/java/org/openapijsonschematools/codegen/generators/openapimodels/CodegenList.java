@@ -6,19 +6,21 @@ import java.util.List;
 /**
  * A class to store inline codegenschema definitions
  */
-public class CodegenList <T> extends AbstractList<T> implements VariableNameProvider {
+public class CodegenList <T> extends AbstractList<T> implements OperationInputProvider {
     public final List<T> items;
     public final CodegenKey jsonPathPiece;
     public final String subpackage;
     public final List<MapBuilder<T>> builders;
-    public final String operationInputClass;
+    public final String operationInputClassName;
+    public final String operationInputVariableName;
 
-    public CodegenList(List<T> items, CodegenKey jsonPathPiece, String subpackage, List<MapBuilder<T>> builders, String operationInputClass) {
+    public CodegenList(List<T> items, CodegenKey jsonPathPiece, String subpackage, List<MapBuilder<T>> builders, String operationInputClassName, String operationInputVariableName) {
         this.items = items;
         this.jsonPathPiece = jsonPathPiece;
         this.subpackage = subpackage;
         this.builders = builders;
-        this.operationInputClass = operationInputClass;
+        this.operationInputClassName = operationInputClassName;
+        this.operationInputVariableName = operationInputVariableName;
     }
 
     @Override
@@ -32,7 +34,12 @@ public class CodegenList <T> extends AbstractList<T> implements VariableNameProv
     }
 
     @Override
-    public CodegenKey variableName() {
-        return jsonPathPiece;
+    public String operationInputClassName() {
+        return operationInputClassName;
+    }
+
+    @Override
+    public String operationInputVariableName() {
+        return operationInputVariableName;
     }
 }

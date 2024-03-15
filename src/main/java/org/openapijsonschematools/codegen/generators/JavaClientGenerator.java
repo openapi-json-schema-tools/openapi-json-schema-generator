@@ -54,7 +54,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
-import org.openapijsonschematools.codegen.generators.openapimodels.VariableNameProvider;
+import org.openapijsonschematools.codegen.generators.openapimodels.OperationInputProvider;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
@@ -2436,8 +2436,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         int reqPropsSize = 0;
         boolean requestBodyExists = requestBody != null;
         boolean parametersExist = parametersInfo != null;
-        List<VariableNameProvider> requiredProperties = new ArrayList<>();
-        List<VariableNameProvider> optionalProperties = new ArrayList<>();
+        List<OperationInputProvider> requiredProperties = new ArrayList<>();
+        List<OperationInputProvider> optionalProperties = new ArrayList<>();
         if (requestBodyExists) {
             if (Boolean.TRUE.equals(requestBody.getSelfOrDeepestRef().required)) {
                 qtyBuilders += 1;
@@ -2521,7 +2521,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     if (bitStr.charAt(c) == '1') {
                         StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
                         nextBuilderBitStr.setCharAt(c, '0');
-                        CodegenKey key = requiredProperties.get(c).variableName();
+                        CodegenKey key = getKey(requiredProperties.get(c).operationInputVariableName(), "misc");
                         if (key == null) {
                             throw new RuntimeException("key must exist at c="+c);
                         }
@@ -2539,9 +2539,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             builders.add(builder);
         }
         if (!optionalProperties.isEmpty()) {
-            for (VariableNameProvider property: optionalProperties) {
+            for (OperationInputProvider property: optionalProperties) {
                 var pair = new MapBuilder.BuilderPropertyPair<>(lastBuilder, property);
-                lastBuilder.keyToBuilder.put(property.variableName(), pair);
+                CodegenKey key = getKey(property.operationInputVariableName(), "misc");
+                lastBuilder.keyToBuilder.put(key, pair);
             }
         }
         return builders;

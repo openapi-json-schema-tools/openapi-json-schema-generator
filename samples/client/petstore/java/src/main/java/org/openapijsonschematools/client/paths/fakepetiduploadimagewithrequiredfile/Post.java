@@ -10,9 +10,9 @@ import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredf
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RequestBody.SealedRequestBody ;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex fakepetiduploadimagewithrequiredfilePostSecurityInfo;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex securityIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
 }

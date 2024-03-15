@@ -10,9 +10,9 @@ import org.openapijsonschematools.client.paths.petpetid.post.Responses;
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RequestBody.SealedRequestBody ;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable PetpetidPostSecurityInfo.SecurityIndex petpetidPostSecurityInfo;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable PetpetidPostSecurityInfo.SecurityIndex securityIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
 }

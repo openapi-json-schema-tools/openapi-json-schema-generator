@@ -6,6 +6,6 @@ import org.openapijsonschematools.client.paths.userlogout.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
     }
 }

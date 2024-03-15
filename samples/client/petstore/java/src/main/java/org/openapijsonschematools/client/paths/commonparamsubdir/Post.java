@@ -10,7 +10,7 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
 public class Post {
     public static class PostCallData {
         public @Nullable HeaderParameters.HeaderParameters1 headerParameters;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable PathParameters.PathParameters1 pathParameters;
     }
 }

@@ -3035,12 +3035,14 @@ public class DefaultGenerator implements Generator {
         String subpackage = getSubpackage(jsonPath);
         List<MapBuilder<CodegenSecurityRequirementObject>> builders = getSecurityBuilders(items, jsonPath);
         String operationInputClass = "SecurityIndex";
+        String operationInputVariableName = "securityIndex";
         return new CodegenList<>(
-                items,
-                jsonPathPiece,
-                subpackage,
-                builders,
-                operationInputClass
+            items,
+            jsonPathPiece,
+            subpackage,
+            builders,
+            operationInputClass,
+            operationInputVariableName
         );
     }
 
@@ -4853,7 +4855,8 @@ public class DefaultGenerator implements Generator {
 
         String subpackage = getSubpackage(sourceJsonPath);
         String operationInputClass = "SealedRequestBody";
-        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo, subpackage, operationInputClass);
+        String operationInputVariableName = "requestBody";
+        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo, subpackage, operationInputClass, operationInputVariableName);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }
@@ -4933,6 +4936,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = camelize(usedKey, true);
                 pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":
@@ -5234,12 +5238,14 @@ public class DefaultGenerator implements Generator {
         CodegenKey jsonPathPiece = getKey("servers", "servers", jsonPath);
         String serversSubpackage = getSubpackage(jsonPath);
         String operationInputClass = "ServerIndex";
+        String operationInputVariableName = "serverIndex";
         return new CodegenList<>(
-                codegenServers,
-                jsonPathPiece,
-                serversSubpackage,
-                null,
-                operationInputClass
+            codegenServers,
+            jsonPathPiece,
+            serversSubpackage,
+            null,
+            operationInputClass,
+            operationInputVariableName
         );
     }
 

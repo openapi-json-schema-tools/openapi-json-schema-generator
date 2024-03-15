@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Respon
 
 public class Put {
     public static class PutCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
     }
 }

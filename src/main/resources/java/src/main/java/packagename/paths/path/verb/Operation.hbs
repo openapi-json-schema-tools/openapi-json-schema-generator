@@ -30,12 +30,12 @@ public class {{jsonPathPiece.pascalCase}} {
         {{#each keyToBuilder}}
             {{#with property}}
                 {{#if containerJsonPathPiece}}
-        public @Nullable {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} {{@key.camelCase}};
+        public @Nullable {{containerJsonPathPiece.pascalCase}}.{{operationInputClassName}} {{@key.camelCase}};
                 {{else}}
                     {{#if subpackage}}
-        public @Nullable {{jsonPathPiece.pascalCase}}.{{operationInputClass}} {{@key.camelCase}};
+        public @Nullable {{jsonPathPiece.pascalCase}}.{{operationInputClassName}} {{@key.camelCase}};
                     {{else}}
-        public @Nullable {{jsonPathPiece.pascalCase}}.{{operationInputClass}} {{@key.camelCase}};
+        public @Nullable {{jsonPathPiece.pascalCase}}.{{operationInputClassName}} {{@key.camelCase}};
                     {{/if}}
                 {{/if}}
             {{/with}}

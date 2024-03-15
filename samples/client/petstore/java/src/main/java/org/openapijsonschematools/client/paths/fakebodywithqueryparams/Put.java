@@ -9,8 +9,8 @@ import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Respo
 
 public class Put {
     public static class PutCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
         public @Nullable QueryParameters.QueryParameters1 queryParameters;
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
     }
 }

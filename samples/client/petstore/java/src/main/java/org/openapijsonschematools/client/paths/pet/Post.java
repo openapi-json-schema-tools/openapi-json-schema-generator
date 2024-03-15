@@ -8,8 +8,8 @@ import org.openapijsonschematools.client.paths.pet.post.Responses;
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable PetPostSecurityInfo.SecurityIndex petPostSecurityInfo;
-        public @Nullable RequestBody.SealedRequestBody ;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable PetPostSecurityInfo.SecurityIndex securityIndex;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
     }
 }

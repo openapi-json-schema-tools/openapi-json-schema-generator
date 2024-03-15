@@ -6,6 +6,6 @@ import org.openapijsonschematools.client.paths.foo.get.Responses;
 
 public class Get {
     public static class GetCallData {
-        public @Nullable FooGetServerInfo.ServerIndex fooGetServerInfo;
+        public @Nullable FooGetServerInfo.ServerIndex serverIndex;
     }
 }

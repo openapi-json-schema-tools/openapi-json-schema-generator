@@ -8,8 +8,8 @@ import org.openapijsonschematools.client.paths.fake.post.Responses;
 
 public class Post {
     public static class PostCallData {
-        public @Nullable RequestBody.SealedRequestBody ;
-        public @Nullable RootServerInfo.ServerIndex rootServerInfo;
-        public @Nullable FakePostSecurityInfo.SecurityIndex fakePostSecurityInfo;
+        public @Nullable RequestBody.SealedRequestBody requestBody;
+        public @Nullable RootServerInfo.ServerIndex serverIndex;
+        public @Nullable FakePostSecurityInfo.SecurityIndex securityIndex;
     }
 }
