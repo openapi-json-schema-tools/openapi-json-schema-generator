@@ -14,19 +14,13 @@ public class Put {
     public static class PutRequest {
         public RequestBody.SealedRequestBody requestBody;
         public PathParameters.PathParametersMap pathParameters;
-        public RequestBody.SealedRequestBody requestBody;
-        public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
 
         public PutRequest(
             RequestBody.SealedRequestBody requestBody,
             PathParameters.PathParametersMap pathParameters,
-            RequestBody.SealedRequestBody requestBody,
-            PathParameters.PathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex
         ) {
-            this.requestBody = requestBody;
-            this.pathParameters = pathParameters;
             this.requestBody = requestBody;
             this.pathParameters = pathParameters;
             this.serverIndex = serverIndex;
@@ -34,8 +28,6 @@ public class Put {
     }
 
     public static class PutNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
-        public PathParameters.@Nullable PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
@@ -48,26 +40,6 @@ public class Put {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
-        }
-    }
-
-    public interface SetterForPathParameters <T> {
-        PutNullableRequest getInstance();
-        T getBuilderAfterPathParameters(PutNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
-            var instance = getInstance();
-            instance.pathParameters = pathParameters;
-            return getBuilderAfterPathParameters(instance);
-        }
-    }
-
-    public interface SetterForRequestBody <T> {
-        PutNullableRequest getInstance();
-        T getBuilderAfterRequestBody(PutNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
-            var instance = getInstance();
-            instance.requestBody = requestBody;
-            return getBuilderAfterRequestBody(instance);
         }
     }
 

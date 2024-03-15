@@ -48,62 +48,71 @@ public class {{jsonPathPiece.pascalCase}} {
 
     public static class {{jsonPathPiece.pascalCase}}Request {
         {{#each (reverse builders)}}
-            {{#each keyToBuilder}}
-                {{#with property}}
-                    {{#if containerJsonPathPiece}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
+                    {{#with property}}
+                        {{#if containerJsonPathPiece}}
         public {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}};
-                    {{else}}
-                        {{#if subpackage}}
-        public {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}};
                         {{else}}
+                            {{#if subpackage}}
         public {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}};
+                            {{else}}
+        public {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}};
+                            {{/if}}
                         {{/if}}
-                    {{/if}}
-                {{/with}}
-            {{/each}}
+                    {{/with}}
+                {{/each}}
+            {{/or}}
         {{/each}}
 
         public {{jsonPathPiece.pascalCase}}Request(
         {{#each (reverse builders)}}
-            {{#each keyToBuilder}}
-                {{#with property}}
-                    {{#if containerJsonPathPiece}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
+                    {{#with property}}
+                        {{#if containerJsonPathPiece}}
             {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}}{{#and ../../@last ../@last}}{{else}},{{/and}}
-                    {{else}}
+                        {{else}}
             {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}}{{#and ../../@last ../@last}}{{else}},{{/and}}
-                    {{/if}}
-                {{/with}}
-            {{/each}}
+                        {{/if}}
+                    {{/with}}
+                {{/each}}
+            {{/or}}
         {{/each}}
         ) {
         {{#each (reverse builders)}}
-            {{#each keyToBuilder}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
             this.{{@key.camelCase}} = {{@key.camelCase}};
-            {{/each}}
+                {{/each}}
+            {{/or}}
         {{/each}}
         }
     }
 
     public static class {{jsonPathPiece.pascalCase}}NullableRequest {
         {{#each (reverse builders)}}
-            {{#each keyToBuilder}}
-                {{#with property}}
-                    {{#if containerJsonPathPiece}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
+                    {{#with property}}
+                        {{#if containerJsonPathPiece}}
         public {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
-                    {{else}}
-                        {{#if subpackage}}
-        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
                         {{else}}
+                            {{#if subpackage}}
         public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
+                            {{else}}
+        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
+                            {{/if}}
                         {{/if}}
-                    {{/if}}
-                {{/with}}
-            {{/each}}
+                    {{/with}}
+                {{/each}}
+            {{/or}}
         {{/each}}
     }
     {{/eq}}
     {{#each builders}}
-        {{#each keyToBuilder}}
+        {{#or @first @last}}
+            {{#each keyToBuilder}}
 
     public interface SetterFor{{@key.pascalCase}} <T> {
         {{../../jsonPathPiece.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request getInstance();
@@ -114,7 +123,8 @@ public class {{jsonPathPiece.pascalCase}} {
             return getBuilderAfter{{@key.pascalCase}}(instance);
         }
     }
-        {{/each}}
+            {{/each}}
+        {{/or}}
     {{/each}}
 
     {{#each builders}}

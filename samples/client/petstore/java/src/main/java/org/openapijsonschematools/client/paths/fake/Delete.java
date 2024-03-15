@@ -15,21 +15,15 @@ public class Delete {
     public static class DeleteRequest {
         public HeaderParameters.HeaderParametersMap headerParameters;
         public QueryParameters.QueryParametersMap queryParameters;
-        public HeaderParameters.HeaderParametersMap headerParameters;
-        public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
 
         public DeleteRequest(
             HeaderParameters.HeaderParametersMap headerParameters,
             QueryParameters.QueryParametersMap queryParameters,
-            HeaderParameters.HeaderParametersMap headerParameters,
-            QueryParameters.QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex
         ) {
-            this.headerParameters = headerParameters;
-            this.queryParameters = queryParameters;
             this.headerParameters = headerParameters;
             this.queryParameters = queryParameters;
             this.serverIndex = serverIndex;
@@ -38,8 +32,6 @@ public class Delete {
     }
 
     public static class DeleteNullableRequest {
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
@@ -63,26 +55,6 @@ public class Delete {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
             return getBuilderAfterSecurityIndex(instance);
-        }
-    }
-
-    public interface SetterForQueryParameters <T> {
-        DeleteNullableRequest getInstance();
-        T getBuilderAfterQueryParameters(DeleteNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
-            var instance = getInstance();
-            instance.queryParameters = queryParameters;
-            return getBuilderAfterQueryParameters(instance);
-        }
-    }
-
-    public interface SetterForHeaderParameters <T> {
-        DeleteNullableRequest getInstance();
-        T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
-            var instance = getInstance();
-            instance.headerParameters = headerParameters;
-            return getBuilderAfterHeaderParameters(instance);
         }
     }
 
