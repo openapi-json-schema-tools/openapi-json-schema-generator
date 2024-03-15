@@ -158,7 +158,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     return "Server"+pathPieces[2];
                 }
             } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 4 && pathPieces[3].equals("servers")) {
-                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
                 if (pathPieces.length == 4) {
                     // #/paths/somePath/servers
                     return pathKey.pascalCase + "ServerInfo";
@@ -167,7 +167,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     return pathKey.pascalCase + "Server"+ pathPieces[4];
                 }
             } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 5 && pathPieces[4].equals("servers")) {
-                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
                 if (pathPieces.length == 5) {
                     // #/paths/somePath/get/servers
                     return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "ServerInfo";
@@ -1003,6 +1003,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 put("src/main/java/packagename/paths/path/verb/Operation.hbs", ".java");
             }}
         );
+        // path
+        jsonPathTemplateFiles.put(
+            CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH,
+            new HashMap<>() {{
+                put("src/main/java/packagename/paths/path/PathItem.hbs", ".java");
+            }}
+        );
 
         // schema
         HashMap<String, String> schemaTemplates = new HashMap<>();
@@ -1362,6 +1369,24 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         return toParameterFilename(basename, jsonPath);
 
+    }
+
+    public String toPathFilename(String name, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (pathPieces.length == 3) {
+            // #/paths/somePath
+            String usedKey = escapeUnsafeCharacters(name);
+
+            usedKey = sanitizeName(usedKey, "[^a-zA-Z0-9]+");
+            // todo check if empty and if so them use enum name
+            // todo fix this, this does not handle names starting with numbers
+            if (usedKey.isEmpty()) {
+                usedKey = toEnumVarName(usedKey, null);
+            }
+            return camelize(usedKey, false);
+        }
+        // #/paths/somePath/blah
+        return toModuleFilename(name, jsonPath);
     }
 
     @Override
@@ -3147,11 +3172,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
         } else if (pathPieces.length == 5) {
             // #/paths/somePath/verb/security
-            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
             return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityInfo";
         } else if (pathPieces.length == 6) {
             // #/paths/somePath/verb/security/0
-            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
             return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
         }
         return null;

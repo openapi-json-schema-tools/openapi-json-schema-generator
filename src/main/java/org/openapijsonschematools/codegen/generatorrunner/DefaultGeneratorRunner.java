@@ -423,6 +423,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         pathTemplateInfo.put("pathModule", pathKey.snakeCase);
         pathTemplateInfo.put("apiClassName", pathKey.pascalCase);
         pathTemplateInfo.put("path", pathKey.original);
+        pathTemplateInfo.put("pathItem", pathItem);
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH, CodegenConstants.APIS, pathTemplateInfo, true);
 
         if (pathItem.servers != null) {

@@ -9,12 +9,16 @@ public class CodegenPathItem {
     public final TreeMap<CodegenKey, CodegenOperation> operations;
     public final CodegenList<CodegenServer> servers;
     public final List<CodegenParameter> parameters;
+    public final CodegenKey jsonPathPiece;
+    public final String subpackage;
 
-    public CodegenPathItem(CodegenText summary, CodegenText description, TreeMap<CodegenKey, CodegenOperation> operations, CodegenList<CodegenServer> servers, List<CodegenParameter> parameters) {
+    public CodegenPathItem(CodegenText summary, CodegenText description, TreeMap<CodegenKey, CodegenOperation> operations, CodegenList<CodegenServer> servers, List<CodegenParameter> parameters, CodegenKey jsonPathPiece, String subpackage) {
         this.summary = summary;
         this.description = description;
         this.operations = operations;
         this.servers = servers;
         this.parameters = parameters;
+        this.jsonPathPiece = jsonPathPiece;
+        this.subpackage = subpackage;
     }
 }

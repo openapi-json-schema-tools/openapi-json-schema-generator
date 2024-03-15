@@ -3876,7 +3876,7 @@ public class DefaultGenerator implements Generator {
             return;
         }
         // #/paths/somePath
-        pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), null);
+        pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), jsonPath);
         if (pathPieces.length < 4) {
             return;
         }
@@ -4929,7 +4929,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toPathFilename(usedKey, sourceJsonPath);
-                pascalCaseName = camelize(toPathFilename(usedKey, null));
+                pascalCaseName = camelize(toPathFilename(usedKey, sourceJsonPath));
                 break;
             case "misc":
             case "verb":
@@ -5147,7 +5147,7 @@ public class DefaultGenerator implements Generator {
             PathItem pathItem = entry.getValue();
             String pathItemJsonPath = jsonPath + ModelUtils.encodeSlashes(path);
             CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath, rootServers, rootSecurity);
-            CodegenKey pathKey = getKey(path, "paths");
+            CodegenKey pathKey = getKey(path, "paths", pathItemJsonPath);
             codegenPaths.put(pathKey, codegenPathItem);
         }
         // sort them
@@ -5202,13 +5202,20 @@ public class DefaultGenerator implements Generator {
         if (!operations.isEmpty())
             // sort them
             operations = new TreeMap<>(operations);
+        String[] pathPieces = jsonPath.split("/");
+        String path = pathPieces[pathPieces.length-1];
+        path = ModelUtils.decodeSlashes(path);
+        CodegenKey pathKey = getKey(path, "paths", jsonPath);
+        String subpackage = getSubpackage(jsonPath);
 
         return new CodegenPathItem(
                 summary,
                 description,
                 operations,
                 pathItemServers,
-                parameters
+                parameters,
+                pathKey,
+                subpackage
         );
     }
 
