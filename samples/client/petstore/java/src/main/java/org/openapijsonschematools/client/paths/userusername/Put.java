@@ -79,17 +79,7 @@ public class Put {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            var requestBody = instance.requestBody;
-            if (requestBody == null) {
-                throw new RuntimeException("invalid null value for required parameter");
-            }
-            var pathParameters = instance.pathParameters;
-            if (pathParameters == null) {
-                throw new RuntimeException("invalid null value for required parameter");
-            }
             return new PutRequest(
-                requestBody,
-                pathParameters,
                 requestBody,
                 pathParameters,
                 instance.serverIndex

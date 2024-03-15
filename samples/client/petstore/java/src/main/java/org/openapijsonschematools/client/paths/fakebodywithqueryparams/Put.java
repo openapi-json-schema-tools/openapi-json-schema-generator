@@ -79,17 +79,7 @@ public class Put {
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            var requestBody = instance.requestBody;
-            if (requestBody == null) {
-                throw new RuntimeException("invalid null value for required parameter");
-            }
-            var queryParameters = instance.queryParameters;
-            if (queryParameters == null) {
-                throw new RuntimeException("invalid null value for required parameter");
-            }
             return new PutRequest(
-                requestBody,
-                queryParameters,
                 requestBody,
                 queryParameters,
                 instance.serverIndex

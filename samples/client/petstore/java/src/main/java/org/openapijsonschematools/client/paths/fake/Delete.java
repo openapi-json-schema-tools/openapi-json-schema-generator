@@ -94,17 +94,7 @@ public class Delete {
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            var headerParameters = instance.headerParameters;
-            if (headerParameters == null) {
-                throw new RuntimeException("invalid null value for required parameter");
-            }
-            var queryParameters = instance.queryParameters;
-            if (queryParameters == null) {
-                throw new RuntimeException("invalid null value for required parameter");
-            }
             return new DeleteRequest(
-                headerParameters,
-                queryParameters,
                 headerParameters,
                 queryParameters,
                 instance.serverIndex,

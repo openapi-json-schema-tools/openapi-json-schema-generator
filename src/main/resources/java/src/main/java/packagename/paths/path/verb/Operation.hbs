@@ -144,21 +144,23 @@ public class {{jsonPathPiece.pascalCase}} {
 
         public {{../jsonPathPiece.pascalCase}}Request build() {
         {{#gt ../builders.size 1}}
-            {{#each (reverse builders)}}
-                {{#unless @last}}
+            {{#each builders}}
+                {{#if @last}}
                     {{#each keyToBuilder}}
             var {{@key.camelCase}} = instance.{{@key.camelCase}};
             if ({{@key.camelCase}} == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
                     {{/each}}
-                {{/unless}}
+                {{/if}}
             {{/each}}
             return new {{../jsonPathPiece.pascalCase}}Request(
             {{#each (reverse builders)}}
-                {{#each keyToBuilder}}
+                {{#or @first @last}}
+                    {{#each keyToBuilder}}
                 {{#if ../@last}}instance.{{/if}}{{@key.camelCase}}{{#and ../@last @last}}{{else}},{{/and}}
-                {{/each}}
+                    {{/each}}
+                {{/or}}
             {{/each}}
             );
         {{else}}
