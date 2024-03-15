@@ -26,6 +26,7 @@ public class Put {
 
         public Responses.EndpointResponse put(PutRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
                 request.requestBody
             );

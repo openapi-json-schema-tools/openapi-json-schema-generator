@@ -25,6 +25,7 @@ public class Post {
 
         public Responses.EndpointResponse post(PostRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+
             @Nullable SerializedRequestBody serializedRequestBody;
             if (request.requestBody != null) {
                 serializedRequestBody = new RequestBody.RequestBody1().serialize(

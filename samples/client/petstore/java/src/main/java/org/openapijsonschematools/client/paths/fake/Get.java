@@ -25,6 +25,7 @@ public class Get {
 
         public Responses.EndpointResponse get(GetRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+
             @Nullable SerializedRequestBody serializedRequestBody;
             if (request.requestBody != null) {
                 serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -33,6 +34,7 @@ public class Get {
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
                 contentTypeHeaderValues.add(serializedRequestBody.contentType);
             }
+
             if (request.headerParameters != null) {
                 var headersSerializer = new Parameters.HeaderParametersSerializer();
                 Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);

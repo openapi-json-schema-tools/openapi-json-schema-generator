@@ -44,6 +44,7 @@ public class {{jsonPathPiece.pascalCase}} {
         public {{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             {{#with requestBody}}
+
                 {{#if getSelfOrDeepestRef.required }}
             SerializedRequestBody serializedRequestBody = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1().serialize(
                 request.requestBody
@@ -63,6 +64,7 @@ public class {{jsonPathPiece.pascalCase}} {
             {{/with}}
             {{#with parametersInfo}}
                 {{#if headerParametersSchema}}
+
                     {{#if headerParametersSchema.requiredProperties}}
             var headersSerializer = new {{jsonPathPiece.pascalCase}}.HeaderParametersSerializer();
             Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
@@ -72,6 +74,22 @@ public class {{jsonPathPiece.pascalCase}} {
                 var headersSerializer = new {{jsonPathPiece.pascalCase}}.HeaderParametersSerializer();
                 Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
                 headers.putAll(serializedHeaders);
+            }
+                    {{/if}}
+                {{/if}}
+                {{#if cookieParametersSchema}}
+
+                    {{#if cookieParametersSchema.requiredProperties}}
+            var cookieSerializer = new {{jsonPathPiece.pascalCase}}.CookieParametersSerializer();
+            String serializedCookie = cookieSerializer.serialize(request.cookieParameters);
+            var cookieHeaderValues = headers.getOrDefault("Cookie", new ArrayList<>());
+            cookieHeaderValues.add(serializedCookie);
+                    {{else}}
+            if (request.cookieParameters != null) {
+                var cookieSerializer = new {{jsonPathPiece.pascalCase}}.CookieParametersSerializer();
+                String serializedCookie = cookieSerializer.serialize(request.cookieParameters);
+                var cookieHeaderValues = headers.getOrDefault("Cookie", new ArrayList<>());
+                cookieHeaderValues.add(serializedCookie);
             }
                     {{/if}}
                 {{/if}}

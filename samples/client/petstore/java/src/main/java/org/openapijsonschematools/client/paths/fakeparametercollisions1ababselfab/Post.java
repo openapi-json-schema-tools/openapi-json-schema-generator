@@ -27,6 +27,7 @@ public class Post {
 
         public Responses.EndpointResponse post(PostRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+
             @Nullable SerializedRequestBody serializedRequestBody;
             if (request.requestBody != null) {
                 serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -35,10 +36,18 @@ public class Post {
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
                 contentTypeHeaderValues.add(serializedRequestBody.contentType);
             }
+
             if (request.headerParameters != null) {
                 var headersSerializer = new Parameters.HeaderParametersSerializer();
                 Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
                 headers.putAll(serializedHeaders);
+            }
+
+            if (request.cookieParameters != null) {
+                var cookieSerializer = new Parameters.CookieParametersSerializer();
+                String serializedCookie = cookieSerializer.serialize(request.cookieParameters);
+                var cookieHeaderValues = headers.getOrDefault("Cookie", new ArrayList<>());
+                cookieHeaderValues.add(serializedCookie);
             }
             // todo serialize all parameter types
         }

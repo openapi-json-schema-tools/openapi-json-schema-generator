@@ -22,6 +22,7 @@ public class Get {
 
         public Responses.EndpointResponse get(GetRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+
             @Nullable SerializedRequestBody serializedRequestBody;
             if (request.requestBody != null) {
                 serializedRequestBody = new RequestBody.RequestBody1().serialize(

@@ -23,6 +23,7 @@ public class Post {
 
         public Responses.EndpointResponse post(PostRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+
             if (request.headerParameters != null) {
                 var headersSerializer = new Parameters.HeaderParametersSerializer();
                 Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);

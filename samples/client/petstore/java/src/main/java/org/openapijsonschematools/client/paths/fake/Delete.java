@@ -26,6 +26,7 @@ public class Delete {
 
         public Responses.EndpointResponse delete(DeleteRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+
             var headersSerializer = new Parameters.HeaderParametersSerializer();
             Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
             headers.putAll(serializedHeaders);
