@@ -6,14 +6,15 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.Responses;
 
 public class Post {
-    public static class PostCallData {
+
+    public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
     }
 
     public interface SetterForRequestBody <T> {
-        PostCallData getInstance();
-        T getBuilderAfterRequestBody(PostCallData instance);
+        PostRequest getInstance();
+        T getBuilderAfterRequestBody(PostRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -22,8 +23,8 @@ public class Post {
     }
 
     public interface SetterForServerIndex <T> {
-        PostCallData getInstance();
-        T getBuilderAfterServerIndex(PostCallData instance);
+        PostRequest getInstance();
+        T getBuilderAfterServerIndex(PostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -32,10 +33,14 @@ public class Post {
     }
 
     public static class PostRequestBuilder {
-        private final PostCallData instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new PostCallData();
+            this.instance = new PostRequest();
+        }
+
+        public PostRequest build() {
+            return instance;
         }
     }
 }

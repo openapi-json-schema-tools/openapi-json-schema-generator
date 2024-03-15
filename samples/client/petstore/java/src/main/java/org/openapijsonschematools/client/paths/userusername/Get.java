@@ -7,14 +7,28 @@ import org.openapijsonschematools.client.paths.userusername.get.Parameters;
 import org.openapijsonschematools.client.paths.userusername.get.Responses;
 
 public class Get {
-    public static class GetCallData {
+
+    public static class GetRequest {
+        public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public PathParameters.@Nullable PathParameters1 pathParameters;
+
+        public GetRequest(
+            PathParameters.PathParametersMap pathParameters,
+            RootServerInfo.@Nullable ServerIndex serverIndex
+        ) {
+            this.pathParameters = pathParameters;
+            this.serverIndex = serverIndex;
+        }
+    }
+
+    public static class GetNullableRequest {
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForServerIndex <T> {
-        GetCallData getInstance();
-        T getBuilderAfterServerIndex(GetCallData instance);
+        GetNullableRequest getInstance();
+        T getBuilderAfterServerIndex(GetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -23,9 +37,9 @@ public class Get {
     }
 
     public interface SetterForPathParameters <T> {
-        GetCallData getInstance();
-        T getBuilderAfterPathParameters(GetCallData instance);
-        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
+        GetNullableRequest getInstance();
+        T getBuilderAfterPathParameters(GetNullableRequest instance);
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
@@ -33,17 +47,21 @@ public class Get {
     }
 
     public static class Get0RequestBuilder {
-        private final GetCallData instance;
+        private final GetNullableRequest instance;
 
-        public Get0RequestBuilderGetCallData instance) {
+        public Get0RequestBuilder(GetNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public GetRequest build() {
+            // todo casting code here
         }
     }
     public static class GetRequestBuilder {
-        private final GetCallData instance;
+        private final GetNullableRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new GetCallData();
+            this.instance = new GetNullableRequest();
         }
     }
 }

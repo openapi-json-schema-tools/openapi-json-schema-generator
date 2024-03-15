@@ -8,15 +8,16 @@ import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Parame
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Responses;
 
 public class Post {
-    public static class PostCallData {
+
+    public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
-        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
     }
 
     public interface SetterForRequestBody <T> {
-        PostCallData getInstance();
-        T getBuilderAfterRequestBody(PostCallData instance);
+        PostRequest getInstance();
+        T getBuilderAfterRequestBody(PostRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -25,9 +26,9 @@ public class Post {
     }
 
     public interface SetterForQueryParameters <T> {
-        PostCallData getInstance();
-        T getBuilderAfterQueryParameters(PostCallData instance);
-        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
+        PostRequest getInstance();
+        T getBuilderAfterQueryParameters(PostRequest instance);
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -35,8 +36,8 @@ public class Post {
     }
 
     public interface SetterForServerIndex <T> {
-        PostCallData getInstance();
-        T getBuilderAfterServerIndex(PostCallData instance);
+        PostRequest getInstance();
+        T getBuilderAfterServerIndex(PostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -45,10 +46,14 @@ public class Post {
     }
 
     public static class PostRequestBuilder {
-        private final PostCallData instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new PostCallData();
+            this.instance = new PostRequest();
+        }
+
+        public PostRequest build() {
+            return instance;
         }
     }
 }

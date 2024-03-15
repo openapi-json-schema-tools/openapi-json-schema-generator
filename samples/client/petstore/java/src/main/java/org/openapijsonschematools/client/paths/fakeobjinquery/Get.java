@@ -7,15 +7,16 @@ import org.openapijsonschematools.client.paths.fakeobjinquery.get.Parameters;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.Responses;
 
 public class Get {
-    public static class GetCallData {
-        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+
+    public static class GetRequest {
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
     }
 
     public interface SetterForQueryParameters <T> {
-        GetCallData getInstance();
-        T getBuilderAfterQueryParameters(GetCallData instance);
-        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
+        GetRequest getInstance();
+        T getBuilderAfterQueryParameters(GetRequest instance);
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -23,8 +24,8 @@ public class Get {
     }
 
     public interface SetterForServerIndex <T> {
-        GetCallData getInstance();
-        T getBuilderAfterServerIndex(GetCallData instance);
+        GetRequest getInstance();
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -33,10 +34,14 @@ public class Get {
     }
 
     public static class GetRequestBuilder {
-        private final GetCallData instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new GetCallData();
+            this.instance = new GetRequest();
+        }
+
+        public GetRequest build() {
+            return instance;
         }
     }
 }

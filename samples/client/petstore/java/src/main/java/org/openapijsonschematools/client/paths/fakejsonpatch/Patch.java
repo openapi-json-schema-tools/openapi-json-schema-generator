@@ -6,14 +6,15 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.Responses;
 
 public class Patch {
-    public static class PatchCallData {
+
+    public static class PatchRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
     }
 
     public interface SetterForRequestBody <T> {
-        PatchCallData getInstance();
-        T getBuilderAfterRequestBody(PatchCallData instance);
+        PatchRequest getInstance();
+        T getBuilderAfterRequestBody(PatchRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -22,8 +23,8 @@ public class Patch {
     }
 
     public interface SetterForServerIndex <T> {
-        PatchCallData getInstance();
-        T getBuilderAfterServerIndex(PatchCallData instance);
+        PatchRequest getInstance();
+        T getBuilderAfterServerIndex(PatchRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -32,10 +33,14 @@ public class Patch {
     }
 
     public static class PatchRequestBuilder {
-        private final PatchCallData instance;
+        private final PatchRequest instance;
 
         public PatchRequestBuilder() {
-            this.instance = new PatchCallData();
+            this.instance = new PatchRequest();
+        }
+
+        public PatchRequest build() {
+            return instance;
         }
     }
 }

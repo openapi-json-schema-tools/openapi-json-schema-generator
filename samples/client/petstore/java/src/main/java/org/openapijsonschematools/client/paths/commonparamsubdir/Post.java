@@ -8,16 +8,33 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.Parameters
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
 
 public class Post {
-    public static class PostCallData {
-        public HeaderParameters.@Nullable HeaderParameters1 headerParameters;
+
+    public static class PostRequest {
+        public PathParameters.PathParametersMap pathParameters;
+        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public PathParameters.@Nullable PathParameters1 pathParameters;
+
+        public PostRequest(
+            PathParameters.PathParametersMap pathParameters,
+            HeaderParameters.@Nullable HeaderParametersMap headerParameters,
+            RootServerInfo.@Nullable ServerIndex serverIndex
+        ) {
+            this.pathParameters = pathParameters;
+            this.headerParameters = headerParameters;
+            this.serverIndex = serverIndex;
+        }
+    }
+
+    public static class PostNullableRequest {
+        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForHeaderParameters <T> {
-        PostCallData getInstance();
-        T getBuilderAfterHeaderParameters(PostCallData instance);
-        default T headerParameters(HeaderParameters.HeaderParameters1 headerParameters) {
+        PostNullableRequest getInstance();
+        T getBuilderAfterHeaderParameters(PostNullableRequest instance);
+        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -25,8 +42,8 @@ public class Post {
     }
 
     public interface SetterForServerIndex <T> {
-        PostCallData getInstance();
-        T getBuilderAfterServerIndex(PostCallData instance);
+        PostNullableRequest getInstance();
+        T getBuilderAfterServerIndex(PostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -35,9 +52,9 @@ public class Post {
     }
 
     public interface SetterForPathParameters <T> {
-        PostCallData getInstance();
-        T getBuilderAfterPathParameters(PostCallData instance);
-        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
+        PostNullableRequest getInstance();
+        T getBuilderAfterPathParameters(PostNullableRequest instance);
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
@@ -45,17 +62,21 @@ public class Post {
     }
 
     public static class Post0RequestBuilder {
-        private final PostCallData instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilderPostCallData instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public PostRequest build() {
+            // todo casting code here
         }
     }
     public static class PostRequestBuilder {
-        private final PostCallData instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new PostCallData();
+            this.instance = new PostNullableRequest();
         }
     }
 }

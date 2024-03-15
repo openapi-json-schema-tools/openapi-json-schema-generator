@@ -9,16 +9,17 @@ import org.openapijsonschematools.client.paths.fake.get.Parameters;
 import org.openapijsonschematools.client.paths.fake.get.Responses;
 
 public class Get {
-    public static class GetCallData {
+
+    public static class GetRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
-        public HeaderParameters.@Nullable HeaderParameters1 headerParameters;
-        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
     }
 
     public interface SetterForRequestBody <T> {
-        GetCallData getInstance();
-        T getBuilderAfterRequestBody(GetCallData instance);
+        GetRequest getInstance();
+        T getBuilderAfterRequestBody(GetRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -27,9 +28,9 @@ public class Get {
     }
 
     public interface SetterForHeaderParameters <T> {
-        GetCallData getInstance();
-        T getBuilderAfterHeaderParameters(GetCallData instance);
-        default T headerParameters(HeaderParameters.HeaderParameters1 headerParameters) {
+        GetRequest getInstance();
+        T getBuilderAfterHeaderParameters(GetRequest instance);
+        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -37,9 +38,9 @@ public class Get {
     }
 
     public interface SetterForQueryParameters <T> {
-        GetCallData getInstance();
-        T getBuilderAfterQueryParameters(GetCallData instance);
-        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
+        GetRequest getInstance();
+        T getBuilderAfterQueryParameters(GetRequest instance);
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -47,8 +48,8 @@ public class Get {
     }
 
     public interface SetterForServerIndex <T> {
-        GetCallData getInstance();
-        T getBuilderAfterServerIndex(GetCallData instance);
+        GetRequest getInstance();
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -57,10 +58,14 @@ public class Get {
     }
 
     public static class GetRequestBuilder {
-        private final GetCallData instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new GetCallData();
+            this.instance = new GetRequest();
+        }
+
+        public GetRequest build() {
+            return instance;
         }
     }
 }

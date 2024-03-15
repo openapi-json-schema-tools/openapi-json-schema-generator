@@ -11,18 +11,44 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Responses;
 
 public class Post {
-    public static class PostCallData {
+
+    public static class PostRequest {
+        public PathParameters.PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
-        public HeaderParameters.@Nullable HeaderParameters1 headerParameters;
-        public QueryParameters.@Nullable QueryParameters1 queryParameters;
-        public CookieParameters.@Nullable CookieParameters1 cookieParameters;
+        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public CookieParameters.@Nullable CookieParametersMap cookieParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public PathParameters.@Nullable PathParameters1 pathParameters;
+
+        public PostRequest(
+            PathParameters.PathParametersMap pathParameters,
+            RequestBody.@Nullable SealedRequestBody requestBody,
+            HeaderParameters.@Nullable HeaderParametersMap headerParameters,
+            QueryParameters.@Nullable QueryParametersMap queryParameters,
+            CookieParameters.@Nullable CookieParametersMap cookieParameters,
+            RootServerInfo.@Nullable ServerIndex serverIndex
+        ) {
+            this.pathParameters = pathParameters;
+            this.requestBody = requestBody;
+            this.headerParameters = headerParameters;
+            this.queryParameters = queryParameters;
+            this.cookieParameters = cookieParameters;
+            this.serverIndex = serverIndex;
+        }
+    }
+
+    public static class PostNullableRequest {
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public CookieParameters.@Nullable CookieParametersMap cookieParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForRequestBody <T> {
-        PostCallData getInstance();
-        T getBuilderAfterRequestBody(PostCallData instance);
+        PostNullableRequest getInstance();
+        T getBuilderAfterRequestBody(PostNullableRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -31,9 +57,9 @@ public class Post {
     }
 
     public interface SetterForHeaderParameters <T> {
-        PostCallData getInstance();
-        T getBuilderAfterHeaderParameters(PostCallData instance);
-        default T headerParameters(HeaderParameters.HeaderParameters1 headerParameters) {
+        PostNullableRequest getInstance();
+        T getBuilderAfterHeaderParameters(PostNullableRequest instance);
+        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -41,9 +67,9 @@ public class Post {
     }
 
     public interface SetterForQueryParameters <T> {
-        PostCallData getInstance();
-        T getBuilderAfterQueryParameters(PostCallData instance);
-        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
+        PostNullableRequest getInstance();
+        T getBuilderAfterQueryParameters(PostNullableRequest instance);
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -51,9 +77,9 @@ public class Post {
     }
 
     public interface SetterForCookieParameters <T> {
-        PostCallData getInstance();
-        T getBuilderAfterCookieParameters(PostCallData instance);
-        default T cookieParameters(CookieParameters.CookieParameters1 cookieParameters) {
+        PostNullableRequest getInstance();
+        T getBuilderAfterCookieParameters(PostNullableRequest instance);
+        default T cookieParameters(CookieParameters.CookieParametersMap cookieParameters) {
             var instance = getInstance();
             instance.cookieParameters = cookieParameters;
             return getBuilderAfterCookieParameters(instance);
@@ -61,8 +87,8 @@ public class Post {
     }
 
     public interface SetterForServerIndex <T> {
-        PostCallData getInstance();
-        T getBuilderAfterServerIndex(PostCallData instance);
+        PostNullableRequest getInstance();
+        T getBuilderAfterServerIndex(PostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -71,9 +97,9 @@ public class Post {
     }
 
     public interface SetterForPathParameters <T> {
-        PostCallData getInstance();
-        T getBuilderAfterPathParameters(PostCallData instance);
-        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
+        PostNullableRequest getInstance();
+        T getBuilderAfterPathParameters(PostNullableRequest instance);
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
@@ -81,17 +107,21 @@ public class Post {
     }
 
     public static class Post0RequestBuilder {
-        private final PostCallData instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilderPostCallData instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public PostRequest build() {
+            // todo casting code here
         }
     }
     public static class PostRequestBuilder {
-        private final PostCallData instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new PostCallData();
+            this.instance = new PostNullableRequest();
         }
     }
 }

@@ -7,14 +7,28 @@ import org.openapijsonschematools.client.paths.storeorderorderid.delete.Paramete
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.Responses;
 
 public class Delete {
-    public static class DeleteCallData {
+
+    public static class DeleteRequest {
+        public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public PathParameters.@Nullable PathParameters1 pathParameters;
+
+        public DeleteRequest(
+            PathParameters.PathParametersMap pathParameters,
+            RootServerInfo.@Nullable ServerIndex serverIndex
+        ) {
+            this.pathParameters = pathParameters;
+            this.serverIndex = serverIndex;
+        }
+    }
+
+    public static class DeleteNullableRequest {
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForServerIndex <T> {
-        DeleteCallData getInstance();
-        T getBuilderAfterServerIndex(DeleteCallData instance);
+        DeleteNullableRequest getInstance();
+        T getBuilderAfterServerIndex(DeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -23,9 +37,9 @@ public class Delete {
     }
 
     public interface SetterForPathParameters <T> {
-        DeleteCallData getInstance();
-        T getBuilderAfterPathParameters(DeleteCallData instance);
-        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
+        DeleteNullableRequest getInstance();
+        T getBuilderAfterPathParameters(DeleteNullableRequest instance);
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
@@ -33,17 +47,21 @@ public class Delete {
     }
 
     public static class Delete0RequestBuilder {
-        private final DeleteCallData instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete0RequestBuilderDeleteCallData instance) {
+        public Delete0RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public DeleteRequest build() {
+            // todo casting code here
         }
     }
     public static class DeleteRequestBuilder {
-        private final DeleteCallData instance;
+        private final DeleteNullableRequest instance;
 
         public DeleteRequestBuilder() {
-            this.instance = new DeleteCallData();
+            this.instance = new DeleteNullableRequest();
         }
     }
 }

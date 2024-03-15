@@ -6,14 +6,15 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.get.Responses;
 
 public class Get {
-    public static class GetCallData {
+
+    public static class GetRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
     }
 
     public interface SetterForRequestBody <T> {
-        GetCallData getInstance();
-        T getBuilderAfterRequestBody(GetCallData instance);
+        GetRequest getInstance();
+        T getBuilderAfterRequestBody(GetRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -22,8 +23,8 @@ public class Get {
     }
 
     public interface SetterForServerIndex <T> {
-        GetCallData getInstance();
-        T getBuilderAfterServerIndex(GetCallData instance);
+        GetRequest getInstance();
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -32,10 +33,14 @@ public class Get {
     }
 
     public static class GetRequestBuilder {
-        private final GetCallData instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new GetCallData();
+            this.instance = new GetRequest();
+        }
+
+        public GetRequest build() {
+            return instance;
         }
     }
 }

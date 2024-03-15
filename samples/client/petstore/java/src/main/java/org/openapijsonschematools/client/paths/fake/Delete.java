@@ -9,16 +9,36 @@ import org.openapijsonschematools.client.paths.fake.delete.Parameters;
 import org.openapijsonschematools.client.paths.fake.delete.Responses;
 
 public class Delete {
-    public static class DeleteCallData {
+
+    public static class DeleteRequest {
+        public HeaderParameters.HeaderParametersMap headerParameters;
+        public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
-        public QueryParameters.@Nullable QueryParameters1 queryParameters;
-        public HeaderParameters.@Nullable HeaderParameters1 headerParameters;
+
+        public DeleteRequest(
+            HeaderParameters.HeaderParametersMap headerParameters,
+            QueryParameters.QueryParametersMap queryParameters,
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex
+        ) {
+            this.headerParameters = headerParameters;
+            this.queryParameters = queryParameters;
+            this.serverIndex = serverIndex;
+            this.securityIndex = securityIndex;
+        }
+    }
+
+    public static class DeleteNullableRequest {
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
     }
 
     public interface SetterForServerIndex <T> {
-        DeleteCallData getInstance();
-        T getBuilderAfterServerIndex(DeleteCallData instance);
+        DeleteNullableRequest getInstance();
+        T getBuilderAfterServerIndex(DeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -27,8 +47,8 @@ public class Delete {
     }
 
     public interface SetterForSecurityIndex <T> {
-        DeleteCallData getInstance();
-        T getBuilderAfterSecurityIndex(DeleteCallData instance);
+        DeleteNullableRequest getInstance();
+        T getBuilderAfterSecurityIndex(DeleteNullableRequest instance);
         default T securityIndex(FakeDeleteSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -37,9 +57,9 @@ public class Delete {
     }
 
     public interface SetterForQueryParameters <T> {
-        DeleteCallData getInstance();
-        T getBuilderAfterQueryParameters(DeleteCallData instance);
-        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
+        DeleteNullableRequest getInstance();
+        T getBuilderAfterQueryParameters(DeleteNullableRequest instance);
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -47,9 +67,9 @@ public class Delete {
     }
 
     public interface SetterForHeaderParameters <T> {
-        DeleteCallData getInstance();
-        T getBuilderAfterHeaderParameters(DeleteCallData instance);
-        default T headerParameters(HeaderParameters.HeaderParameters1 headerParameters) {
+        DeleteNullableRequest getInstance();
+        T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
+        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -57,24 +77,28 @@ public class Delete {
     }
 
     public static class Delete00RequestBuilder {
-        private final DeleteCallData instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete00RequestBuilderDeleteCallData instance) {
+        public Delete00RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public DeleteRequest build() {
+            // todo casting code here
         }
     }
     public static class Delete01RequestBuilder {
-        private final DeleteCallData instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete01RequestBuilderDeleteCallData instance) {
+        public Delete01RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
         }
     }
     public static class DeleteRequestBuilder {
-        private final DeleteCallData instance;
+        private final DeleteNullableRequest instance;
 
         public DeleteRequestBuilder() {
-            this.instance = new DeleteCallData();
+            this.instance = new DeleteNullableRequest();
         }
     }
 }

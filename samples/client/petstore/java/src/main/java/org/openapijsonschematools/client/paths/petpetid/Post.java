@@ -9,16 +9,36 @@ import org.openapijsonschematools.client.paths.petpetid.post.Parameters;
 import org.openapijsonschematools.client.paths.petpetid.post.Responses;
 
 public class Post {
-    public static class PostCallData {
+
+    public static class PostRequest {
+        public PathParameters.PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
-        public PathParameters.@Nullable PathParameters1 pathParameters;
+
+        public PostRequest(
+            PathParameters.PathParametersMap pathParameters,
+            RequestBody.@Nullable SealedRequestBody requestBody,
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex
+        ) {
+            this.pathParameters = pathParameters;
+            this.requestBody = requestBody;
+            this.serverIndex = serverIndex;
+            this.securityIndex = securityIndex;
+        }
+    }
+
+    public static class PostNullableRequest {
+        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public PathParameters.@Nullable PathParametersMap pathParameters;
     }
 
     public interface SetterForRequestBody <T> {
-        PostCallData getInstance();
-        T getBuilderAfterRequestBody(PostCallData instance);
+        PostNullableRequest getInstance();
+        T getBuilderAfterRequestBody(PostNullableRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -27,8 +47,8 @@ public class Post {
     }
 
     public interface SetterForServerIndex <T> {
-        PostCallData getInstance();
-        T getBuilderAfterServerIndex(PostCallData instance);
+        PostNullableRequest getInstance();
+        T getBuilderAfterServerIndex(PostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -37,8 +57,8 @@ public class Post {
     }
 
     public interface SetterForSecurityIndex <T> {
-        PostCallData getInstance();
-        T getBuilderAfterSecurityIndex(PostCallData instance);
+        PostNullableRequest getInstance();
+        T getBuilderAfterSecurityIndex(PostNullableRequest instance);
         default T securityIndex(PetpetidPostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -47,9 +67,9 @@ public class Post {
     }
 
     public interface SetterForPathParameters <T> {
-        PostCallData getInstance();
-        T getBuilderAfterPathParameters(PostCallData instance);
-        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
+        PostNullableRequest getInstance();
+        T getBuilderAfterPathParameters(PostNullableRequest instance);
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
@@ -57,17 +77,21 @@ public class Post {
     }
 
     public static class Post0RequestBuilder {
-        private final PostCallData instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilderPostCallData instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public PostRequest build() {
+            // todo casting code here
         }
     }
     public static class PostRequestBuilder {
-        private final PostCallData instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new PostCallData();
+            this.instance = new PostNullableRequest();
         }
     }
 }

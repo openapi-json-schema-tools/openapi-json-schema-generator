@@ -8,15 +8,32 @@ import org.openapijsonschematools.client.paths.userusername.put.Parameters;
 import org.openapijsonschematools.client.paths.userusername.put.Responses;
 
 public class Put {
-    public static class PutCallData {
+
+    public static class PutRequest {
+        public RequestBody.SealedRequestBody requestBody;
+        public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public PathParameters.@Nullable PathParameters1 pathParameters;
+
+        public PutRequest(
+            RequestBody.SealedRequestBody requestBody,
+            PathParameters.PathParametersMap pathParameters,
+            RootServerInfo.@Nullable ServerIndex serverIndex
+        ) {
+            this.requestBody = requestBody;
+            this.pathParameters = pathParameters;
+            this.serverIndex = serverIndex;
+        }
+    }
+
+    public static class PutNullableRequest {
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PathParameters.@Nullable PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
     }
 
     public interface SetterForServerIndex <T> {
-        PutCallData getInstance();
-        T getBuilderAfterServerIndex(PutCallData instance);
+        PutNullableRequest getInstance();
+        T getBuilderAfterServerIndex(PutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -25,9 +42,9 @@ public class Put {
     }
 
     public interface SetterForPathParameters <T> {
-        PutCallData getInstance();
-        T getBuilderAfterPathParameters(PutCallData instance);
-        default T pathParameters(PathParameters.PathParameters1 pathParameters) {
+        PutNullableRequest getInstance();
+        T getBuilderAfterPathParameters(PutNullableRequest instance);
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
@@ -35,8 +52,8 @@ public class Put {
     }
 
     public interface SetterForRequestBody <T> {
-        PutCallData getInstance();
-        T getBuilderAfterRequestBody(PutCallData instance);
+        PutNullableRequest getInstance();
+        T getBuilderAfterRequestBody(PutNullableRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -45,24 +62,28 @@ public class Put {
     }
 
     public static class Put00RequestBuilder {
-        private final PutCallData instance;
+        private final PutNullableRequest instance;
 
-        public Put00RequestBuilderPutCallData instance) {
+        public Put00RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public PutRequest build() {
+            // todo casting code here
         }
     }
     public static class Put01RequestBuilder {
-        private final PutCallData instance;
+        private final PutNullableRequest instance;
 
-        public Put01RequestBuilderPutCallData instance) {
+        public Put01RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
         }
     }
     public static class PutRequestBuilder {
-        private final PutCallData instance;
+        private final PutNullableRequest instance;
 
         public PutRequestBuilder() {
-            this.instance = new PutCallData();
+            this.instance = new PutNullableRequest();
         }
     }
 }

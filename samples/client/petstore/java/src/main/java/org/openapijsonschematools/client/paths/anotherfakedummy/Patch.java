@@ -6,14 +6,28 @@ import org.openapijsonschematools.client.paths.anotherfakedummy.patch.RequestBod
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.Responses;
 
 public class Patch {
-    public static class PatchCallData {
+
+    public static class PatchRequest {
+        public RequestBody.SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+
+        public PatchRequest(
+            RequestBody.SealedRequestBody requestBody,
+            RootServerInfo.@Nullable ServerIndex serverIndex
+        ) {
+            this.requestBody = requestBody;
+            this.serverIndex = serverIndex;
+        }
+    }
+
+    public static class PatchNullableRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public RequestBody.@Nullable SealedRequestBody requestBody;
     }
 
     public interface SetterForServerIndex <T> {
-        PatchCallData getInstance();
-        T getBuilderAfterServerIndex(PatchCallData instance);
+        PatchNullableRequest getInstance();
+        T getBuilderAfterServerIndex(PatchNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -22,8 +36,8 @@ public class Patch {
     }
 
     public interface SetterForRequestBody <T> {
-        PatchCallData getInstance();
-        T getBuilderAfterRequestBody(PatchCallData instance);
+        PatchNullableRequest getInstance();
+        T getBuilderAfterRequestBody(PatchNullableRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -32,17 +46,21 @@ public class Patch {
     }
 
     public static class Patch0RequestBuilder {
-        private final PatchCallData instance;
+        private final PatchNullableRequest instance;
 
-        public Patch0RequestBuilderPatchCallData instance) {
+        public Patch0RequestBuilder(PatchNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public PatchRequest build() {
+            // todo casting code here
         }
     }
     public static class PatchRequestBuilder {
-        private final PatchCallData instance;
+        private final PatchNullableRequest instance;
 
         public PatchRequestBuilder() {
-            this.instance = new PatchCallData();
+            this.instance = new PatchNullableRequest();
         }
     }
 }

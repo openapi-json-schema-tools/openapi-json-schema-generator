@@ -8,15 +8,32 @@ import org.openapijsonschematools.client.paths.petfindbystatus.get.Parameters;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
 
 public class Get {
-    public static class GetCallData {
+
+    public static class GetRequest {
+        public QueryParameters.QueryParametersMap queryParameters;
         public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;
-        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+
+        public GetRequest(
+            QueryParameters.QueryParametersMap queryParameters,
+            PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex,
+            PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex
+        ) {
+            this.queryParameters = queryParameters;
+            this.serverIndex = serverIndex;
+            this.securityIndex = securityIndex;
+        }
+    }
+
+    public static class GetNullableRequest {
+        public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
+        public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
     }
 
     public interface SetterForServerIndex <T> {
-        GetCallData getInstance();
-        T getBuilderAfterServerIndex(GetCallData instance);
+        GetNullableRequest getInstance();
+        T getBuilderAfterServerIndex(GetNullableRequest instance);
         default T serverIndex(PetfindbystatusServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -25,8 +42,8 @@ public class Get {
     }
 
     public interface SetterForSecurityIndex <T> {
-        GetCallData getInstance();
-        T getBuilderAfterSecurityIndex(GetCallData instance);
+        GetNullableRequest getInstance();
+        T getBuilderAfterSecurityIndex(GetNullableRequest instance);
         default T securityIndex(PetfindbystatusGetSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -35,9 +52,9 @@ public class Get {
     }
 
     public interface SetterForQueryParameters <T> {
-        GetCallData getInstance();
-        T getBuilderAfterQueryParameters(GetCallData instance);
-        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
+        GetNullableRequest getInstance();
+        T getBuilderAfterQueryParameters(GetNullableRequest instance);
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -45,17 +62,21 @@ public class Get {
     }
 
     public static class Get0RequestBuilder {
-        private final GetCallData instance;
+        private final GetNullableRequest instance;
 
-        public Get0RequestBuilderGetCallData instance) {
+        public Get0RequestBuilder(GetNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public GetRequest build() {
+            // todo casting code here
         }
     }
     public static class GetRequestBuilder {
-        private final GetCallData instance;
+        private final GetNullableRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new GetCallData();
+            this.instance = new GetNullableRequest();
         }
     }
 }

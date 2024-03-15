@@ -7,14 +7,28 @@ import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Param
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Responses;
 
 public class Put {
-    public static class PutCallData {
+
+    public static class PutRequest {
+        public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
-        public QueryParameters.@Nullable QueryParameters1 queryParameters;
+
+        public PutRequest(
+            QueryParameters.QueryParametersMap queryParameters,
+            RootServerInfo.@Nullable ServerIndex serverIndex
+        ) {
+            this.queryParameters = queryParameters;
+            this.serverIndex = serverIndex;
+        }
+    }
+
+    public static class PutNullableRequest {
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
     }
 
     public interface SetterForServerIndex <T> {
-        PutCallData getInstance();
-        T getBuilderAfterServerIndex(PutCallData instance);
+        PutNullableRequest getInstance();
+        T getBuilderAfterServerIndex(PutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -23,9 +37,9 @@ public class Put {
     }
 
     public interface SetterForQueryParameters <T> {
-        PutCallData getInstance();
-        T getBuilderAfterQueryParameters(PutCallData instance);
-        default T queryParameters(QueryParameters.QueryParameters1 queryParameters) {
+        PutNullableRequest getInstance();
+        T getBuilderAfterQueryParameters(PutNullableRequest instance);
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -33,17 +47,21 @@ public class Put {
     }
 
     public static class Put0RequestBuilder {
-        private final PutCallData instance;
+        private final PutNullableRequest instance;
 
-        public Put0RequestBuilderPutCallData instance) {
+        public Put0RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public PutRequest build() {
+            // todo casting code here
         }
     }
     public static class PutRequestBuilder {
-        private final PutCallData instance;
+        private final PutNullableRequest instance;
 
         public PutRequestBuilder() {
-            this.instance = new PutCallData();
+            this.instance = new PutNullableRequest();
         }
     }
 }

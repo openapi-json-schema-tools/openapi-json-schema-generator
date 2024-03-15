@@ -5,13 +5,14 @@ import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
 import org.openapijsonschematools.client.paths.foo.get.Responses;
 
 public class Get {
-    public static class GetCallData {
+
+    public static class GetRequest {
         public FooGetServerInfo.@Nullable ServerIndex serverIndex;
     }
 
     public interface SetterForServerIndex <T> {
-        GetCallData getInstance();
-        T getBuilderAfterServerIndex(GetCallData instance);
+        GetRequest getInstance();
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(FooGetServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -20,10 +21,14 @@ public class Get {
     }
 
     public static class GetRequestBuilder {
-        private final GetCallData instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new GetCallData();
+            this.instance = new GetRequest();
+        }
+
+        public GetRequest build() {
+            return instance;
         }
     }
 }

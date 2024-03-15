@@ -6,14 +6,15 @@ import org.openapijsonschematools.client.paths.storeinventory.get.Storeinventory
 import org.openapijsonschematools.client.paths.storeinventory.get.Responses;
 
 public class Get {
-    public static class GetCallData {
+
+    public static class GetRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public StoreinventoryGetSecurityInfo.@Nullable SecurityIndex securityIndex;
     }
 
     public interface SetterForServerIndex <T> {
-        GetCallData getInstance();
-        T getBuilderAfterServerIndex(GetCallData instance);
+        GetRequest getInstance();
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -22,8 +23,8 @@ public class Get {
     }
 
     public interface SetterForSecurityIndex <T> {
-        GetCallData getInstance();
-        T getBuilderAfterSecurityIndex(GetCallData instance);
+        GetRequest getInstance();
+        T getBuilderAfterSecurityIndex(GetRequest instance);
         default T securityIndex(StoreinventoryGetSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -32,10 +33,14 @@ public class Get {
     }
 
     public static class GetRequestBuilder {
-        private final GetCallData instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new GetCallData();
+            this.instance = new GetRequest();
+        }
+
+        public GetRequest build() {
+            return instance;
         }
     }
 }

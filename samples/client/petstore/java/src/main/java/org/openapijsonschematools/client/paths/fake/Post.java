@@ -7,15 +7,16 @@ import org.openapijsonschematools.client.paths.fake.post.FakePostSecurityInfo;
 import org.openapijsonschematools.client.paths.fake.post.Responses;
 
 public class Post {
-    public static class PostCallData {
+
+    public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakePostSecurityInfo.@Nullable SecurityIndex securityIndex;
     }
 
     public interface SetterForRequestBody <T> {
-        PostCallData getInstance();
-        T getBuilderAfterRequestBody(PostCallData instance);
+        PostRequest getInstance();
+        T getBuilderAfterRequestBody(PostRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -24,8 +25,8 @@ public class Post {
     }
 
     public interface SetterForServerIndex <T> {
-        PostCallData getInstance();
-        T getBuilderAfterServerIndex(PostCallData instance);
+        PostRequest getInstance();
+        T getBuilderAfterServerIndex(PostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -34,8 +35,8 @@ public class Post {
     }
 
     public interface SetterForSecurityIndex <T> {
-        PostCallData getInstance();
-        T getBuilderAfterSecurityIndex(PostCallData instance);
+        PostRequest getInstance();
+        T getBuilderAfterSecurityIndex(PostRequest instance);
         default T securityIndex(FakePostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -44,10 +45,14 @@ public class Post {
     }
 
     public static class PostRequestBuilder {
-        private final PostCallData instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new PostCallData();
+            this.instance = new PostRequest();
+        }
+
+        public PostRequest build() {
+            return instance;
         }
     }
 }

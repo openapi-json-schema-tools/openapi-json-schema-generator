@@ -6,14 +6,28 @@ import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Reques
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Responses;
 
 public class Put {
-    public static class PutCallData {
+
+    public static class PutRequest {
+        public RequestBody.SealedRequestBody requestBody;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+
+        public PutRequest(
+            RequestBody.SealedRequestBody requestBody,
+            RootServerInfo.@Nullable ServerIndex serverIndex
+        ) {
+            this.requestBody = requestBody;
+            this.serverIndex = serverIndex;
+        }
+    }
+
+    public static class PutNullableRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public RequestBody.@Nullable SealedRequestBody requestBody;
     }
 
     public interface SetterForServerIndex <T> {
-        PutCallData getInstance();
-        T getBuilderAfterServerIndex(PutCallData instance);
+        PutNullableRequest getInstance();
+        T getBuilderAfterServerIndex(PutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -22,8 +36,8 @@ public class Put {
     }
 
     public interface SetterForRequestBody <T> {
-        PutCallData getInstance();
-        T getBuilderAfterRequestBody(PutCallData instance);
+        PutNullableRequest getInstance();
+        T getBuilderAfterRequestBody(PutNullableRequest instance);
         default T requestBody(RequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -32,17 +46,21 @@ public class Put {
     }
 
     public static class Put0RequestBuilder {
-        private final PutCallData instance;
+        private final PutNullableRequest instance;
 
-        public Put0RequestBuilderPutCallData instance) {
+        public Put0RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
+        }
+
+        public PutRequest build() {
+            // todo casting code here
         }
     }
     public static class PutRequestBuilder {
-        private final PutCallData instance;
+        private final PutNullableRequest instance;
 
         public PutRequestBuilder() {
-            this.instance = new PutCallData();
+            this.instance = new PutNullableRequest();
         }
     }
 }
