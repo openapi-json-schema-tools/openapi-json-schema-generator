@@ -13,6 +13,7 @@ import org.openapijsonschematools.client.paths.Fake;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 public class Delete {
 
@@ -29,6 +30,9 @@ public class Delete {
             var headersSerializer = new Parameters.HeaderParametersSerializer();
             Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
             headers.putAll(serializedHeaders);
+
+            var querySerializer = new Parameters.QueryParametersSerializer();
+            Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
             // todo serialize all parameter types
         }
     }

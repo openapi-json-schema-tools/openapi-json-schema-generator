@@ -13,6 +13,7 @@ import org.openapijsonschematools.client.paths.FakeinlineComposition;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 public class Post {
 
@@ -33,6 +34,12 @@ public class Post {
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
                 contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            }
+
+            var querySerializer = new Parameters.QueryParametersSerializer();
+            Map<String, String> queryMap = new HashMap<>();
+            if (request.queryParameters != null) {
+                queryMap = querySerializer.getQueryMap(request.queryParameters);
             }
             // todo serialize all parameter types
         }

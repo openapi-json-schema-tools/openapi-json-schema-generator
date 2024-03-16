@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.paths.PetfindByTags;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 public class Get {
 
@@ -24,6 +25,9 @@ public class Get {
 
         public Responses.EndpointResponse get(GetRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+
+            var querySerializer = new Parameters.QueryParametersSerializer();
+            Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
             // todo serialize all parameter types
         }
     }

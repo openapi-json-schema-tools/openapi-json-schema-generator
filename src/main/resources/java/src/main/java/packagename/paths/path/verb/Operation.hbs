@@ -36,6 +36,7 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 public class {{jsonPathPiece.pascalCase}} {
 
@@ -103,6 +104,19 @@ public class {{jsonPathPiece.pascalCase}} {
                     {{! path parameters are always required }}
             var pathSerializer = new {{jsonPathPiece.pascalCase}}.PathParametersSerializer();
             String updatedPath = pathSerializer.serialize(request.pathParameters, path);
+                {{/if}}
+                {{#if queryParametersSchema}}
+
+                    {{#if queryParametersSchema.requiredProperties}}
+            var querySerializer = new {{jsonPathPiece.pascalCase}}.QueryParametersSerializer();
+            Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
+                    {{else}}
+            var querySerializer = new {{jsonPathPiece.pascalCase}}.QueryParametersSerializer();
+            Map<String, String> queryMap = new HashMap<>();
+            if (request.queryParameters != null) {
+                queryMap = querySerializer.getQueryMap(request.queryParameters);
+            }
+                    {{/if}}
                 {{/if}}
             {{/with}}
             // todo serialize all parameter types

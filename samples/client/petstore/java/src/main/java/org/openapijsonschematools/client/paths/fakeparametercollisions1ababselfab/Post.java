@@ -16,6 +16,7 @@ import org.openapijsonschematools.client.paths.FakeparameterCollisions1aBAbselfA
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 public class Post {
 
@@ -53,6 +54,12 @@ public class Post {
 
             var pathSerializer = new Parameters.PathParametersSerializer();
             String updatedPath = pathSerializer.serialize(request.pathParameters, path);
+
+            var querySerializer = new Parameters.QueryParametersSerializer();
+            Map<String, String> queryMap = new HashMap<>();
+            if (request.queryParameters != null) {
+                queryMap = querySerializer.getQueryMap(request.queryParameters);
+            }
             // todo serialize all parameter types
         }
     }

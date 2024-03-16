@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.paths.Fake;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 public class Post {
 

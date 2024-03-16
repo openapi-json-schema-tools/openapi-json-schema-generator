@@ -13,6 +13,7 @@ import org.openapijsonschematools.client.paths.Fakebodywithqueryparams;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 public class Put {
 
@@ -31,6 +32,9 @@ public class Put {
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
             contentTypeHeaderValues.add(serializedRequestBody.contentType);
+
+            var querySerializer = new Parameters.QueryParametersSerializer();
+            Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
             // todo serialize all parameter types
         }
     }
