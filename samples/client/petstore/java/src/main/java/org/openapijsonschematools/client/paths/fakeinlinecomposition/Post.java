@@ -41,7 +41,7 @@ public class Post {
             if (request.queryParameters != null) {
                 queryMap = querySerializer.getQueryMap(request.queryParameters);
             }
-            // todo serialize all parameter types
+            String host = apiConfiguration.getServer(request.serverIndex).url();
         }
     }
 

@@ -119,7 +119,7 @@ public class {{jsonPathPiece.pascalCase}} {
                     {{/if}}
                 {{/if}}
             {{/with}}
-            // todo serialize all parameter types
+            String host = apiConfiguration.getServer(request.serverIndex).url();
         }
     }
     {{#eq builders.size 1}}

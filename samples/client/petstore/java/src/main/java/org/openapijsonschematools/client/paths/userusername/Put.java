@@ -35,7 +35,7 @@ public class Put {
 
             var pathSerializer = new Parameters.PathParametersSerializer();
             String updatedPath = pathSerializer.serialize(request.pathParameters, path);
-            // todo serialize all parameter types
+            String host = apiConfiguration.getServer(request.serverIndex).url();
         }
     }
 

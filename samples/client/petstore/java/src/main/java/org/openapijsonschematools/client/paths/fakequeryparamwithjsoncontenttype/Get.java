@@ -27,7 +27,7 @@ public class Get {
 
             var querySerializer = new Parameters.QueryParametersSerializer();
             Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
-            // todo serialize all parameter types
+            String host = apiConfiguration.getServer(request.serverIndex).url();
         }
     }
 

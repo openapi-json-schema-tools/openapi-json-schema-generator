@@ -31,7 +31,7 @@ public class Post {
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
             contentTypeHeaderValues.add(serializedRequestBody.contentType);
-            // todo serialize all parameter types
+            String host = apiConfiguration.getServer(request.serverIndex).url();
         }
     }
 

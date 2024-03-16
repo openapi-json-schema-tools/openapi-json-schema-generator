@@ -22,7 +22,7 @@ public class Get {
 
         public Responses.EndpointResponse get(GetRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
-            // todo serialize all parameter types
+            String host = apiConfiguration.getServer(request.serverIndex).url();
         }
     }
 
