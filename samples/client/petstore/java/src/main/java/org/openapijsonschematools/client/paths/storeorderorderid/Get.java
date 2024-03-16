@@ -23,6 +23,9 @@ public class Get {
 
         public Responses.EndpointResponse get(GetRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+
+            var pathSerializer = new Parameters.PathParametersSerializer();
+            String updatedPath = pathSerializer.serialize(request.pathParameters, path);
             // todo serialize all parameter types
         }
     }

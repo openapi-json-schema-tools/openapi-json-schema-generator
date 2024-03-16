@@ -35,6 +35,9 @@ public class Post {
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
                 contentTypeHeaderValues.add(serializedRequestBody.contentType);
             }
+
+            var pathSerializer = new Parameters.PathParametersSerializer();
+            String updatedPath = pathSerializer.serialize(request.pathParameters, path);
             // todo serialize all parameter types
         }
     }

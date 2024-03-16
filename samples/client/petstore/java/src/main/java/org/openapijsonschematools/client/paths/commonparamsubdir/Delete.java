@@ -30,6 +30,9 @@ public class Delete {
                 Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
                 headers.putAll(serializedHeaders);
             }
+
+            var pathSerializer = new Parameters.PathParametersSerializer();
+            String updatedPath = pathSerializer.serialize(request.pathParameters, path);
             // todo serialize all parameter types
         }
     }

@@ -98,6 +98,12 @@ public class {{jsonPathPiece.pascalCase}} {
             }
                     {{/if}}
                 {{/if}}
+                {{#if pathParametersSchema}}
+
+                    {{! path parameters are always required }}
+            var pathSerializer = new {{jsonPathPiece.pascalCase}}.PathParametersSerializer();
+            String updatedPath = pathSerializer.serialize(request.pathParameters, path);
+                {{/if}}
             {{/with}}
             // todo serialize all parameter types
         }

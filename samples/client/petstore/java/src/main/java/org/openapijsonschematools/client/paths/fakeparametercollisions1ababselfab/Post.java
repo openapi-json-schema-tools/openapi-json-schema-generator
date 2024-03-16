@@ -50,6 +50,9 @@ public class Post {
                 var cookieHeaderValues = headers.getOrDefault("Cookie", new ArrayList<>());
                 cookieHeaderValues.add(serializedCookie);
             }
+
+            var pathSerializer = new Parameters.PathParametersSerializer();
+            String updatedPath = pathSerializer.serialize(request.pathParameters, path);
             // todo serialize all parameter types
         }
     }
