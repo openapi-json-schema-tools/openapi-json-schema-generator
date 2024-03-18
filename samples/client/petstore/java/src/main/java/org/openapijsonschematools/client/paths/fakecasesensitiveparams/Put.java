@@ -6,27 +6,44 @@ import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Query
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Parameters;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.paths.Fakecasesensitiveparams;
 
+import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Put {
 
     public static class Put1 extends Fakecasesensitiveparams {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "put";
 
-        public Put1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Put1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse put(PutRequest request) {
+        public Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
             var querySerializer = new Parameters.QueryParametersSerializer();
-            Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
+            @Nullable Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
             String host = apiConfiguration.getServer(request.serverIndex).url();
+
+            String url = host + path;
+            if (queryMap != null) {
+                url = url + querySerializer.serialize(queryMap);
+            }
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

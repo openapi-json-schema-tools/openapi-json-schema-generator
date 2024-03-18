@@ -1,5 +1,13 @@
 package org.openapijsonschematools.client.paths;
 
-public class Fakebodywithfileschema {
+import org.openapijsonschematools.client.apiclient.ApiClient;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+
+public class Fakebodywithfileschema extends ApiClient {
     protected static final String path = "/fake/body-with-file-schema";
+
+    public Fakebodywithfileschema(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+        super(apiConfiguration, schemaConfiguration);
+    }
 }

@@ -7,29 +7,54 @@ import org.openapijsonschematools.client.paths.petfindbystatus.get.QueryParamete
 import org.openapijsonschematools.client.paths.petfindbystatus.get.Parameters;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.paths.PetfindByStatus;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
+import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Get {
 
     public static class Get1 extends PetfindByStatus {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "get";
 
-        public Get1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse get(GetRequest request) {
+        public Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
             var querySerializer = new Parameters.QueryParametersSerializer();
-            Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
+            @Nullable Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
             String host = apiConfiguration.getServer(request.serverIndex).url();
-            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(request.securityIndex);
+            updateParamsForAuth(
+                securityRequirementObject,
+                headers,
+                path,
+                method,
+                bodyPublisher,
+                queryMap
+            );
+
+            String url = host + path;
+            if (queryMap != null) {
+                url = url + querySerializer.serialize(queryMap);
+            }
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

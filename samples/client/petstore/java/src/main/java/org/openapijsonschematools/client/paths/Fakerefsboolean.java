@@ -1,5 +1,13 @@
 package org.openapijsonschematools.client.paths;
 
-public class Fakerefsboolean {
+import org.openapijsonschematools.client.apiclient.ApiClient;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+
+public class Fakerefsboolean extends ApiClient {
     protected static final String path = "/fake/refs/boolean";
+
+    public Fakerefsboolean(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+        super(apiConfiguration, schemaConfiguration);
+    }
 }

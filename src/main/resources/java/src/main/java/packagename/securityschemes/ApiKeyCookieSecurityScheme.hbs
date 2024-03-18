@@ -17,7 +17,13 @@ public class ApiKeyCookieSecurityScheme implements SecurityScheme {
     }
 
     @Override
-    public void applyAuth(Map<String, List<String>> headers, String resourcePath, String method, HttpRequest.BodyPublisher bodyPublisher, Map<String, String> queryMap, List<String> scopeNames) {
+    public void applyAuth(
+        Map<String, List<String>> headers,
+        String resourcePath, String method,
+        HttpRequest.BodyPublisher bodyPublisher,
+        @Nullable Map<String, String> queryMap,
+        List<String> scopeNames
+    ) {
         List<String> cookieHeaderValues = headers.getOrDefault("Cookie", new ArrayList<>());
         String cookieValue = name + "=" + apiKey;
         if (cookieHeaderValues.isEmpty()) {

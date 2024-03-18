@@ -8,33 +8,38 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.get.Parameters;
 import org.openapijsonschematools.client.paths.fake.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Fake;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Get {
 
     public static class Get1 extends Fake {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "get";
 
-        public Get1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse get(GetRequest request) {
+        public Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             @Nullable SerializedRequestBody serializedRequestBody;
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
                 serializedRequestBody = new RequestBody.RequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
                 contentTypeHeaderValues.add(serializedRequestBody.contentType);
+                bodyPublisher = serializedRequestBody.bodyPublisher;
             }
 
             if (request.headerParameters != null) {
@@ -44,11 +49,24 @@ public class Get {
             }
 
             var querySerializer = new Parameters.QueryParametersSerializer();
-            Map<String, String> queryMap = new HashMap<>();
+            @Nullable Map<String, String> queryMap = null;
             if (request.queryParameters != null) {
                 queryMap = querySerializer.getQueryMap(request.queryParameters);
             }
             String host = apiConfiguration.getServer(request.serverIndex).url();
+
+            String url = host + path;
+            if (queryMap != null) {
+                url = url + querySerializer.serialize(queryMap);
+            }
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

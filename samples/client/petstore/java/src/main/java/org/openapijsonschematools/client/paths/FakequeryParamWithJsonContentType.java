@@ -1,5 +1,13 @@
 package org.openapijsonschematools.client.paths;
 
-public class FakequeryParamWithJsonContentType {
+import org.openapijsonschematools.client.apiclient.ApiClient;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+
+public class FakequeryParamWithJsonContentType extends ApiClient {
     protected static final String path = "/fake/queryParamWithJsonContentType";
+
+    public FakequeryParamWithJsonContentType(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+        super(apiConfiguration, schemaConfiguration);
+    }
 }

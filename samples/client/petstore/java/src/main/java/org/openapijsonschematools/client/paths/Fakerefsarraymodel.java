@@ -1,5 +1,13 @@
 package org.openapijsonschematools.client.paths;
 
-public class Fakerefsarraymodel {
+import org.openapijsonschematools.client.apiclient.ApiClient;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+
+public class Fakerefsarraymodel extends ApiClient {
     protected static final String path = "/fake/refs/arraymodel";
+
+    public Fakerefsarraymodel(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+        super(apiConfiguration, schemaConfiguration);
+    }
 }

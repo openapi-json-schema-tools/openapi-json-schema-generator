@@ -6,27 +6,43 @@ import org.openapijsonschematools.client.paths.userusername.get.PathParameters;
 import org.openapijsonschematools.client.paths.userusername.get.Parameters;
 import org.openapijsonschematools.client.paths.userusername.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.paths.Userusername;
 
+import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Get {
 
     public static class Get1 extends Userusername {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "get";
 
-        public Get1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse get(GetRequest request) {
+        public Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
             var pathSerializer = new Parameters.PathParametersSerializer();
             String updatedPath = pathSerializer.serialize(request.pathParameters, path);
+            // TODO set this to a map if there is a query security scheme
+            @Nullable Map<String, String> queryMap = null;
             String host = apiConfiguration.getServer(request.serverIndex).url();
+
+            String url = host + updatedPath;
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

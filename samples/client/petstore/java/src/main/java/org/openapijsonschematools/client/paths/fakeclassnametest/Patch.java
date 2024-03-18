@@ -6,25 +6,28 @@ import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Fakeclass
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.RequestBody;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Fakeclassnametest;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Patch {
 
     public static class Patch1 extends Fakeclassnametest {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "patch";
 
-        public Patch1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Patch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse patch(PatchRequest request) {
+        public Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -32,8 +35,29 @@ public class Patch {
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
             contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            HttpRequest.BodyPublisher bodyPublisher = serializedRequestBody.bodyPublisher;
+            // TODO set this to a map if there is a query security scheme
+            @Nullable Map<String, String> queryMap = null;
             String host = apiConfiguration.getServer(request.serverIndex).url();
-            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(request.securityIndex);
+            updateParamsForAuth(
+                securityRequirementObject,
+                headers,
+                path,
+                method,
+                bodyPublisher,
+                queryMap
+            );
+
+            String url = host + path;
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

@@ -1,7 +1,15 @@
 {{#with pathItem}}
 package {{packageName}}.{{subpackage}};
 
-public class {{jsonPathPiece.pascalCase}} {
+import {{packageName}}.apiclient.ApiClient;
+import {{packageName}}.configurations.ApiConfiguration;
+import {{packageName}}.configurations.SchemaConfiguration;
+
+public class {{jsonPathPiece.pascalCase}} extends ApiClient {
     protected static final String path = "{{{jsonPathPiece.original}}}";
+
+    public {{jsonPathPiece.pascalCase}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+        super(apiConfiguration, schemaConfiguration);
+    }
 }
 {{/with}}

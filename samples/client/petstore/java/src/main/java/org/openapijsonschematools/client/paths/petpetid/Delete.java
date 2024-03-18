@@ -8,24 +8,28 @@ import org.openapijsonschematools.client.paths.petpetid.delete.PathParameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.Parameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.paths.PetpetId;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
+import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Delete {
 
     public static class Delete1 extends PetpetId {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "delete";
 
-        public Delete1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Delete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse delete(DeleteRequest request) {
+        public Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
             if (request.headerParameters != null) {
                 var headersSerializer = new Parameters.HeaderParametersSerializer();
@@ -35,8 +39,28 @@ public class Delete {
 
             var pathSerializer = new Parameters.PathParametersSerializer();
             String updatedPath = pathSerializer.serialize(request.pathParameters, path);
+            // TODO set this to a map if there is a query security scheme
+            @Nullable Map<String, String> queryMap = null;
             String host = apiConfiguration.getServer(request.serverIndex).url();
-            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(request.securityIndex);
+            updateParamsForAuth(
+                securityRequirementObject,
+                headers,
+                updatedPath,
+                method,
+                bodyPublisher,
+                queryMap
+            );
+
+            String url = host + updatedPath;
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

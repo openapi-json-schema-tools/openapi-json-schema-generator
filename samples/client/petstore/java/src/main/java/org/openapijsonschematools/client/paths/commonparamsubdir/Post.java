@@ -7,23 +7,27 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.PathParame
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.paths.CommonParamsubDir;
 
+import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Post {
 
     public static class Post1 extends CommonParamsubDir {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "post";
 
-        public Post1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Post1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse post(PostRequest request) {
+        public Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
             if (request.headerParameters != null) {
                 var headersSerializer = new Parameters.HeaderParametersSerializer();
@@ -33,7 +37,19 @@ public class Post {
 
             var pathSerializer = new Parameters.PathParametersSerializer();
             String updatedPath = pathSerializer.serialize(request.pathParameters, path);
+            // TODO set this to a map if there is a query security scheme
+            @Nullable Map<String, String> queryMap = null;
             String host = apiConfiguration.getServer(request.serverIndex).url();
+
+            String url = host + updatedPath;
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

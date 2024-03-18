@@ -898,6 +898,16 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/test/java/packagename/parameter/SchemaQueryParameterTest.hbs",
                 testPackagePath() + File.separatorChar + "parameter",
                 "SchemaQueryParameterTest.java"));
+        // apiclient
+        supportingFiles.add(new SupportingFile(
+            "src/main/java/packagename/apiclient/ApiClient.hbs",
+            packagePath() + File.separatorChar + "apiclient",
+            "ApiClient.java"));
+        // restclient
+        supportingFiles.add(new SupportingFile(
+            "src/main/java/packagename/restclient/RestClient.hbs",
+            packagePath() + File.separatorChar + "restclient",
+            "RestClient.java"));
 
         // response
         supportingFiles.add(new SupportingFile(

@@ -7,33 +7,50 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.get.PathParamet
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.paths.CommonParamsubDir;
 
+import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Get {
 
     public static class Get1 extends CommonParamsubDir {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "get";
 
-        public Get1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse get(GetRequest request) {
+        public Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
             var pathSerializer = new Parameters.PathParametersSerializer();
             String updatedPath = pathSerializer.serialize(request.pathParameters, path);
 
             var querySerializer = new Parameters.QueryParametersSerializer();
-            Map<String, String> queryMap = new HashMap<>();
+            @Nullable Map<String, String> queryMap = null;
             if (request.queryParameters != null) {
                 queryMap = querySerializer.getQueryMap(request.queryParameters);
             }
             String host = apiConfiguration.getServer(request.serverIndex).url();
+
+            String url = host + updatedPath;
+            if (queryMap != null) {
+                url = url + querySerializer.serialize(queryMap);
+            }
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

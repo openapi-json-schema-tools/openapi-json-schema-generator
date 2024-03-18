@@ -7,24 +7,27 @@ import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Query
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Parameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Fakebodywithqueryparams;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Put {
 
     public static class Put1 extends Fakebodywithqueryparams {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "put";
 
-        public Put1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Put1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse put(PutRequest request) {
+        public Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -32,10 +35,24 @@ public class Put {
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
             contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            HttpRequest.BodyPublisher bodyPublisher = serializedRequestBody.bodyPublisher;
 
             var querySerializer = new Parameters.QueryParametersSerializer();
-            Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
+            @Nullable Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
             String host = apiConfiguration.getServer(request.serverIndex).url();
+
+            String url = host + path;
+            if (queryMap != null) {
+                url = url + querySerializer.serialize(queryMap);
+            }
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

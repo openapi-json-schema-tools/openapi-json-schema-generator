@@ -6,25 +6,28 @@ import org.openapijsonschematools.client.paths.pet.put.PetPutSecurityInfo;
 import org.openapijsonschematools.client.paths.pet.put.RequestBody;
 import org.openapijsonschematools.client.paths.pet.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Pet;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class Put {
 
     public static class Put1 extends Pet {
-        private final ApiConfiguration apiConfiguration;
+        private static final String method = "put";
 
-        public Put1(ApiConfiguration apiConfiguration) {
-            this.apiConfiguration = apiConfiguration;
+        public Put1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse put(PutRequest request) {
+        public Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -32,8 +35,29 @@ public class Put {
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
             contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            HttpRequest.BodyPublisher bodyPublisher = serializedRequestBody.bodyPublisher;
+            // TODO set this to a map if there is a query security scheme
+            @Nullable Map<String, String> queryMap = null;
             String host = apiConfiguration.getServer(request.serverIndex).url();
-            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(request.securityIndex);
+            updateParamsForAuth(
+                securityRequirementObject,
+                headers,
+                path,
+                method,
+                bodyPublisher,
+                queryMap
+            );
+
+            String url = host + path;
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            return new Responses.Responses1().deserialize(response, schemaConfiguration);
         }
     }
 

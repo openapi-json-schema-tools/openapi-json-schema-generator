@@ -338,6 +338,7 @@ docs/servers/Server1.md
 docs/servers/Server2.md
 pom.xml
 src/main/java/org/openapijsonschematools/client/RootServerInfo.java
+src/main/java/org/openapijsonschematools/client/apiclient/ApiClient.java
 src/main/java/org/openapijsonschematools/client/components/headers/Int32JsonContentTypeHeader.java
 src/main/java/org/openapijsonschematools/client/components/headers/NumberHeader.java
 src/main/java/org/openapijsonschematools/client/components/headers/RefContentSchemaHeader.java
@@ -1224,6 +1225,7 @@ src/main/java/org/openapijsonschematools/client/response/DeserializedHttpRespons
 src/main/java/org/openapijsonschematools/client/response/HeadersDeserializer.java
 src/main/java/org/openapijsonschematools/client/response/ResponseDeserializer.java
 src/main/java/org/openapijsonschematools/client/response/ResponsesDeserializer.java
+src/main/java/org/openapijsonschematools/client/restclient/RestClient.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java
