@@ -21,12 +21,28 @@ public class RestClient {
                 request.GET();
                 break;
             case "put":
+                request.method("PUT", bodyPublisher);
+                break;
             case "patch":
+                request.method("PATCH", bodyPublisher);
+                break;
             case "post":
-                request.method(method, bodyPublisher);
+                request.method("POST", bodyPublisher);
                 break;
             case "delete":
                 request.DELETE();
+                break;
+            case "trace":
+                request.method("TRACE", bodyPublisher);
+                break;
+            case "options":
+                request.method("OPTIONS", bodyPublisher);
+                break;
+            case "head":
+                request.method("HEAD", bodyPublisher);
+                break;
+            case "connect":
+                request.method("CONNECT", bodyPublisher);
                 break;
             default:
                 throw new RuntimeException("Invalid http method");
