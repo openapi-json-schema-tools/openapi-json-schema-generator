@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.paths.fakewildcardresponses.get.Respons
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.FakewildCardResponses;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;

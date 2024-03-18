@@ -8,7 +8,6 @@ import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.FakequeryParamWithJsonContentType;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;

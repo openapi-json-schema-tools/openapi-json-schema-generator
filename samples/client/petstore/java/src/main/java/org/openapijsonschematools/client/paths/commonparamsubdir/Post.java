@@ -9,7 +9,6 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.CommonParamsubDir;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;

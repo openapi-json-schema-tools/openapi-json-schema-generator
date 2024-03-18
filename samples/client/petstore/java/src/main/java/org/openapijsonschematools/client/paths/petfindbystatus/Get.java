@@ -8,8 +8,8 @@ import org.openapijsonschematools.client.paths.petfindbystatus.get.Parameters;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.PetfindByStatus;
+import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -29,6 +29,7 @@ public class Get {
             var querySerializer = new Parameters.QueryParametersSerializer();
             Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
             String host = apiConfiguration.getServer(request.serverIndex).url();
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
         }
     }
 

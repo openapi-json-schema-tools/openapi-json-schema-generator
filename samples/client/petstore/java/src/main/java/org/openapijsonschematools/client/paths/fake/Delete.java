@@ -9,8 +9,8 @@ import org.openapijsonschematools.client.paths.fake.delete.Parameters;
 import org.openapijsonschematools.client.paths.fake.delete.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.Fake;
+import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -34,6 +34,7 @@ public class Delete {
             var querySerializer = new Parameters.QueryParametersSerializer();
             Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
             String host = apiConfiguration.getServer(request.serverIndex).url();
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
         }
     }
 

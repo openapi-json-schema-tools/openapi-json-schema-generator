@@ -8,8 +8,8 @@ import org.openapijsonschematools.client.paths.petpetid.get.Parameters;
 import org.openapijsonschematools.client.paths.petpetid.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.PetpetId;
+import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -29,6 +29,7 @@ public class Get {
             var pathSerializer = new Parameters.PathParametersSerializer();
             String updatedPath = pathSerializer.serialize(request.pathParameters, path);
             String host = apiConfiguration.getServer(request.serverIndex).url();
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
         }
     }
 

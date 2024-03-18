@@ -8,7 +8,6 @@ import org.openapijsonschematools.client.paths.fakeobjinquery.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.FakeobjInQuery;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;

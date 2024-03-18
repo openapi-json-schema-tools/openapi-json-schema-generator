@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.paths.solidus.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.EMPTY;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;

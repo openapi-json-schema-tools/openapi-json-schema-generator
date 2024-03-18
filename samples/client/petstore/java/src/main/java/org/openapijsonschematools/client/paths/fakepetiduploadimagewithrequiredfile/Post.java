@@ -10,6 +10,7 @@ import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredf
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.FakepetIduploadImageWithRequiredFile;
+import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,7 @@ public class Post {
             var pathSerializer = new Parameters.PathParametersSerializer();
             String updatedPath = pathSerializer.serialize(request.pathParameters, path);
             String host = apiConfiguration.getServer(request.serverIndex).url();
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
         }
     }
 

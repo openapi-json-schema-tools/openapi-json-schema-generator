@@ -32,8 +32,19 @@ import {{packageName}}.requestbody.SerializedRequestBody;
     {{#with ../pathItem}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
     {{/with}}
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "securityIndex"}}
+import {{packageName}}.securityrequirementobjects.SecurityRequirementObject;
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
 
+    {{#if requestBody}}
 import java.util.ArrayList;
+    {{/if}}
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -120,6 +131,15 @@ public class {{jsonPathPiece.pascalCase}} {
                 {{/if}}
             {{/with}}
             String host = apiConfiguration.getServer(request.serverIndex).url();
+            {{#each builders}}
+                {{#if @first}}
+                    {{#each keyToBuilder}}
+                        {{#eq @key.camelCase "securityIndex"}}
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
+                        {{/eq}}
+                    {{/each}}
+                {{/if}}
+            {{/each}}
         }
     }
     {{#eq builders.size 1}}

@@ -8,7 +8,6 @@ import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Respons
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.FakedeleteCoffeeid;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;

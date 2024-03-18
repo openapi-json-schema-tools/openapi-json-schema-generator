@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get.Res
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.FakeresponseWithoutSchema;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;

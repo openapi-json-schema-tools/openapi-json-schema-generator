@@ -8,6 +8,7 @@ import org.openapijsonschematools.client.paths.fake.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Fake;
+import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,7 @@ public class Post {
                 contentTypeHeaderValues.add(serializedRequestBody.contentType);
             }
             String host = apiConfiguration.getServer(request.serverIndex).url();
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
         }
     }
 

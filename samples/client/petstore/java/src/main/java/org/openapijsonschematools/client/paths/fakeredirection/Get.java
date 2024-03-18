@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.paths.fakeredirection.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.Fakeredirection;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;

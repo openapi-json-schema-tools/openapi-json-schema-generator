@@ -8,6 +8,7 @@ import org.openapijsonschematools.client.paths.pet.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Pet;
+import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class Post {
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
             contentTypeHeaderValues.add(serializedRequestBody.contentType);
             String host = apiConfiguration.getServer(request.serverIndex).url();
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
         }
     }
 

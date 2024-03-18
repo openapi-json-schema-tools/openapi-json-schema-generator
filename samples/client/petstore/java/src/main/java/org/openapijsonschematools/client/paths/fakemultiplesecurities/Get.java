@@ -6,8 +6,8 @@ import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.Fakemu
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.paths.FakemultipleSecurities;
+import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -24,6 +24,7 @@ public class Get {
         public Responses.EndpointResponse get(GetRequest request) {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             String host = apiConfiguration.getServer(request.serverIndex).url();
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(securityIndex);
         }
     }
 
