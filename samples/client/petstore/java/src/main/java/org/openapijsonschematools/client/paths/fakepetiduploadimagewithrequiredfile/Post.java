@@ -11,7 +11,7 @@ import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
-import org.openapijsonschematools.client.paths.FakepetIduploadImageWithRequiredFile;
+import org.openapijsonschematools.client.paths.Fakepetiduploadimagewithrequiredfile;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class Post {
 
-    public static class Post1 extends FakepetIduploadImageWithRequiredFile {
+    public static class Post1 extends Fakepetiduploadimagewithrequiredfile {
         private static final String method = "post";
 
         public Post1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
@@ -66,7 +66,8 @@ public class Post {
                 headers
             );
             var response = RestClient.getResponse(httpRequest, client);
-            return new Responses.Responses1().deserialize(response, schemaConfiguration);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
 

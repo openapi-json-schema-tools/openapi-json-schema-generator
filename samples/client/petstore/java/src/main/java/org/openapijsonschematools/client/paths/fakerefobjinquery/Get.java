@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.paths.fakerefobjinquery.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
-import org.openapijsonschematools.client.paths.FakerefObjInQuery;
+import org.openapijsonschematools.client.paths.Fakerefobjinquery;
 
 import java.io.IOException;
 import java.net.http.HttpRequest;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class Get {
 
-    public static class Get1 extends FakerefObjInQuery {
+    public static class Get1 extends Fakerefobjinquery {
         private static final String method = "get";
 
         public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
@@ -46,7 +46,8 @@ public class Get {
                 headers
             );
             var response = RestClient.getResponse(httpRequest, client);
-            return new Responses.Responses1().deserialize(response, schemaConfiguration);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
 

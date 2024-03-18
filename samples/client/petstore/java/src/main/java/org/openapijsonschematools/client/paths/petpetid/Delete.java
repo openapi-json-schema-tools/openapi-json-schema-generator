@@ -10,7 +10,7 @@ import org.openapijsonschematools.client.paths.petpetid.delete.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
-import org.openapijsonschematools.client.paths.PetpetId;
+import org.openapijsonschematools.client.paths.Petpetid;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.io.IOException;
@@ -20,14 +20,14 @@ import java.util.Map;
 
 public class Delete {
 
-    public static class Delete1 extends PetpetId {
+    public static class Delete1 extends Petpetid {
         private static final String method = "delete";
 
         public Delete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException {
+        public Void delete(DeleteRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
@@ -60,7 +60,8 @@ public class Delete {
                 headers
             );
             var response = RestClient.getResponse(httpRequest, client);
-            return new Responses.Responses1().deserialize(response, schemaConfiguration);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
 

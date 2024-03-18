@@ -27,7 +27,7 @@ public class Put {
             super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException {
+        public Void put(PutRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -57,7 +57,8 @@ public class Put {
                 headers
             );
             var response = RestClient.getResponse(httpRequest, client);
-            return new Responses.Responses1().deserialize(response, schemaConfiguration);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
 

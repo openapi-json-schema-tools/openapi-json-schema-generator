@@ -61,7 +61,7 @@ public class {{jsonPathPiece.pascalCase}} {
             super(apiConfiguration, schemaConfiguration);
         }
 
-        public {{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) throws IOException, InterruptedException {
+        public {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             {{#with requestBody}}
 
@@ -176,7 +176,8 @@ public class {{jsonPathPiece.pascalCase}} {
                 headers
             );
             var response = RestClient.getResponse(httpRequest, client);
-            return new Responses.Responses1().deserialize(response, schemaConfiguration);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
     {{#eq builders.size 1}}

@@ -4,10 +4,10 @@ import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 
-public class FakewildCardResponses extends ApiClient {
-    protected static final String path = "/fake/wildCardResponses";
+public class Fakepemcontenttype extends ApiClient {
+    protected static final String path = "/fake/pemContentType";
 
-    public FakewildCardResponses(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Fakepemcontenttype(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }

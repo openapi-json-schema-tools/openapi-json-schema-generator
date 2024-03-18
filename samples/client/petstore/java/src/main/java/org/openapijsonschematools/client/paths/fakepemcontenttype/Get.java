@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
-import org.openapijsonschematools.client.paths.FakepemContentType;
+import org.openapijsonschematools.client.paths.Fakepemcontenttype;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class Get {
 
-    public static class Get1 extends FakepemContentType {
+    public static class Get1 extends Fakepemcontenttype {
         private static final String method = "get";
 
         public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
@@ -50,7 +50,8 @@ public class Get {
                 headers
             );
             var response = RestClient.getResponse(httpRequest, client);
-            return new Responses.Responses1().deserialize(response, schemaConfiguration);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
 

@@ -4,10 +4,10 @@ import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 
-public class FakemultipleResponseBodies extends ApiClient {
-    protected static final String path = "/fake/multipleResponseBodies";
+public class Usercreatewithlist extends ApiClient {
+    protected static final String path = "/user/createWithList";
 
-    public FakemultipleResponseBodies(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Usercreatewithlist(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }

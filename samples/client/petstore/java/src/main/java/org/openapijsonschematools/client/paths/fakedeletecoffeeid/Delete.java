@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Respons
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
-import org.openapijsonschematools.client.paths.FakedeleteCoffeeid;
+import org.openapijsonschematools.client.paths.Fakedeletecoffeeid;
 
 import java.io.IOException;
 import java.net.http.HttpRequest;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class Delete {
 
-    public static class Delete1 extends FakedeleteCoffeeid {
+    public static class Delete1 extends Fakedeletecoffeeid {
         private static final String method = "delete";
 
         public Delete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
@@ -42,7 +42,8 @@ public class Delete {
                 headers
             );
             var response = RestClient.getResponse(httpRequest, client);
-            return new Responses.Responses1().deserialize(response, schemaConfiguration);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
 

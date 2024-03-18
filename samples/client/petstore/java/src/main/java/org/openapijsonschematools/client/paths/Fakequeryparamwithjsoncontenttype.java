@@ -4,10 +4,10 @@ import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 
-public class CommonParamsubDir extends ApiClient {
-    protected static final String path = "/commonParam/{subDir}/";
+public class Fakequeryparamwithjsoncontenttype extends ApiClient {
+    protected static final String path = "/fake/queryParamWithJsonContentType";
 
-    public CommonParamsubDir(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Fakequeryparamwithjsoncontenttype(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }

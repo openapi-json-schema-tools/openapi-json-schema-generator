@@ -24,7 +24,7 @@ public class Delete {
             super(apiConfiguration, schemaConfiguration);
         }
 
-        public Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException {
+        public Void delete(DeleteRequest request) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
@@ -42,7 +42,8 @@ public class Delete {
                 headers
             );
             var response = RestClient.getResponse(httpRequest, client);
-            return new Responses.Responses1().deserialize(response, schemaConfiguration);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
 

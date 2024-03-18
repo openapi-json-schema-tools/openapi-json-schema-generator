@@ -4,10 +4,10 @@ import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 
-public class PetfindByStatus extends ApiClient {
-    protected static final String path = "/pet/findByStatus";
+public class Commonparamsubdir extends ApiClient {
+    protected static final String path = "/commonParam/{subDir}/";
 
-    public PetfindByStatus(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Commonparamsubdir(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }

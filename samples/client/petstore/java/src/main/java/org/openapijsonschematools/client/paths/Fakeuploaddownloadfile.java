@@ -4,10 +4,10 @@ import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 
-public class FakeobjInQuery extends ApiClient {
-    protected static final String path = "/fake/objInQuery";
+public class Fakeuploaddownloadfile extends ApiClient {
+    protected static final String path = "/fake/uploadDownloadFile";
 
-    public FakeobjInQuery(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Fakeuploaddownloadfile(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }

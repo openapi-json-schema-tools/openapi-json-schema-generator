@@ -1387,18 +1387,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String toPathFilename(String name, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         if (pathPieces.length == 3) {
-            // #/paths/somePath
-            String usedKey = escapeUnsafeCharacters(name);
-
-            usedKey = sanitizeName(usedKey, "[^a-zA-Z0-9]+");
-            // todo check if empty and if so them use enum name
-            // todo fix this, this does not handle names starting with numbers
-            if (usedKey.isEmpty()) {
-                usedKey = toEnumVarName(usedKey, null);
-            }
-            return camelize(usedKey, false);
+            // #/paths/somePath -> Somepath
+            String moduleFilename = toModuleFilename(name, jsonPath);
+            return camelize(moduleFilename, false);
         }
-        // #/paths/somePath/blah
+        // #/paths/somePath/blah -> somepath
         return toModuleFilename(name, jsonPath);
     }
 

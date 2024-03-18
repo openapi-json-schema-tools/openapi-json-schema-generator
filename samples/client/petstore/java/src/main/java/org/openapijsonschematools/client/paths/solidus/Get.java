@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.paths.solidus.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
-import org.openapijsonschematools.client.paths.EMPTY;
+import org.openapijsonschematools.client.paths.Solidus;
 
 import java.io.IOException;
 import java.net.http.HttpRequest;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class Get {
 
-    public static class Get1 extends EMPTY {
+    public static class Get1 extends Solidus {
         private static final String method = "get";
 
         public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
@@ -37,7 +37,8 @@ public class Get {
                 headers
             );
             var response = RestClient.getResponse(httpRequest, client);
-            return new Responses.Responses1().deserialize(response, schemaConfiguration);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
 

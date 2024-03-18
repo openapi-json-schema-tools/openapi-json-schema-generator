@@ -4,10 +4,10 @@ import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 
-public class PetpetIduploadImage extends ApiClient {
-    protected static final String path = "/pet/{petId}/uploadImage";
+public class Fakeparametercollisions1ababselfab extends ApiClient {
+    protected static final String path = "/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/";
 
-    public PetpetIduploadImage(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Fakeparametercollisions1ababselfab(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }
