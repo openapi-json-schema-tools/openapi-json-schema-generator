@@ -174,15 +174,15 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(Void value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(boolean value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(String value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(int value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(float value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(long value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(double value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(List<?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(Map<String, ?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | date(Void value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | date(boolean value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | date(String value) |
@@ -201,15 +201,15 @@ A class that builds the Map input type
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(double value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(List<?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(Map<String, ?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(Void value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(boolean value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(String value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(int value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(float value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(long value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(double value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(List<?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(Map<String, ?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | binary(Void value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | binary(boolean value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | binary(String value) |
@@ -237,24 +237,24 @@ A class that builds the Map input type
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | int64(double value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | int64(List<?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | int64(Map<String, ?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(Void value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(boolean value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(String value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(int value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(float value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(long value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(double value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(List<?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(Map<String, ?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(Void value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(boolean value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(String value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(int value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(float value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(long value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(double value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(List<?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(Map<String, ?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, Void value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, boolean value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, String value) |

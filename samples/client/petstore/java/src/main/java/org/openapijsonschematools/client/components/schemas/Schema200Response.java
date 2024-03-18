@@ -112,7 +112,7 @@ public class Schema200Response {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterClassSchema(Map<String, @Nullable Object> instance);
         
-        default T class(String value) {
+        default T setClass(String value) {
             var instance = getInstance();
             instance.put("class", value);
             return getBuilderAfterClassSchema(instance);

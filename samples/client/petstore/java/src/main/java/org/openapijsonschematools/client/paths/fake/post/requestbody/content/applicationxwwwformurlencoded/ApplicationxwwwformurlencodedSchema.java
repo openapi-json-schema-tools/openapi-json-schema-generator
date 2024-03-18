@@ -920,7 +920,7 @@ public class ApplicationxwwwformurlencodedSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterApplicationxwwwformurlencodedByte(Map<String, @Nullable Object> instance);
         
-        default T byte(String value) {
+        default T setByte(String value) {
             var instance = getInstance();
             instance.put("byte", value);
             return getBuilderAfterApplicationxwwwformurlencodedByte(instance);
@@ -931,25 +931,25 @@ public class ApplicationxwwwformurlencodedSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterApplicationxwwwformurlencodedDouble(Map<String, @Nullable Object> instance);
         
-        default T double(int value) {
+        default T setDouble(int value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterApplicationxwwwformurlencodedDouble(instance);
         }
         
-        default T double(float value) {
+        default T setDouble(float value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterApplicationxwwwformurlencodedDouble(instance);
         }
         
-        default T double(long value) {
+        default T setDouble(long value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterApplicationxwwwformurlencodedDouble(instance);
         }
         
-        default T double(double value) {
+        default T setDouble(double value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterApplicationxwwwformurlencodedDouble(instance);
@@ -960,25 +960,25 @@ public class ApplicationxwwwformurlencodedSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterApplicationxwwwformurlencodedNumber(Map<String, @Nullable Object> instance);
         
-        default T number(int value) {
+        default T setNumber(int value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterApplicationxwwwformurlencodedNumber(instance);
         }
         
-        default T number(float value) {
+        default T setNumber(float value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterApplicationxwwwformurlencodedNumber(instance);
         }
         
-        default T number(long value) {
+        default T setNumber(long value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterApplicationxwwwformurlencodedNumber(instance);
         }
         
-        default T number(double value) {
+        default T setNumber(double value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterApplicationxwwwformurlencodedNumber(instance);
@@ -1000,25 +1000,25 @@ public class ApplicationxwwwformurlencodedSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterApplicationxwwwformurlencodedInteger(Map<String, @Nullable Object> instance);
         
-        default T integer(int value) {
+        default T setInteger(int value) {
             var instance = getInstance();
             instance.put("integer", value);
             return getBuilderAfterApplicationxwwwformurlencodedInteger(instance);
         }
         
-        default T integer(float value) {
+        default T setInteger(float value) {
             var instance = getInstance();
             instance.put("integer", value);
             return getBuilderAfterApplicationxwwwformurlencodedInteger(instance);
         }
         
-        default T integer(long value) {
+        default T setInteger(long value) {
             var instance = getInstance();
             instance.put("integer", value);
             return getBuilderAfterApplicationxwwwformurlencodedInteger(instance);
         }
         
-        default T integer(double value) {
+        default T setInteger(double value) {
             var instance = getInstance();
             instance.put("integer", value);
             return getBuilderAfterApplicationxwwwformurlencodedInteger(instance);
@@ -1075,25 +1075,25 @@ public class ApplicationxwwwformurlencodedSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterApplicationxwwwformurlencodedFloat(Map<String, @Nullable Object> instance);
         
-        default T float(int value) {
+        default T setFloat(int value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterApplicationxwwwformurlencodedFloat(instance);
         }
         
-        default T float(float value) {
+        default T setFloat(float value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterApplicationxwwwformurlencodedFloat(instance);
         }
         
-        default T float(long value) {
+        default T setFloat(long value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterApplicationxwwwformurlencodedFloat(instance);
         }
         
-        default T float(double value) {
+        default T setFloat(double value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterApplicationxwwwformurlencodedFloat(instance);
@@ -1104,7 +1104,7 @@ public class ApplicationxwwwformurlencodedSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterApplicationxwwwformurlencodedString(Map<String, @Nullable Object> instance);
         
-        default T string(String value) {
+        default T setString(String value) {
             var instance = getInstance();
             instance.put("string", value);
             return getBuilderAfterApplicationxwwwformurlencodedString(instance);

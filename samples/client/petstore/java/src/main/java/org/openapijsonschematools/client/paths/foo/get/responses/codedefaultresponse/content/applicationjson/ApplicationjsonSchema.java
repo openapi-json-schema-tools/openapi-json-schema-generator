@@ -52,7 +52,7 @@ public class ApplicationjsonSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterApplicationjsonString(Map<String, @Nullable Object> instance);
         
-        default T string(Map<String, @Nullable Object> value) {
+        default T setString(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("string", value);
             return getBuilderAfterApplicationjsonString(instance);

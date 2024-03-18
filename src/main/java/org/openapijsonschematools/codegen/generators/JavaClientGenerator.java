@@ -1192,6 +1192,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     protected String getCamelCaseName(String key) {
         String usedName = toEnumVarName(key, new StringSchema());
+        if (!isValid(usedName)) {
+            usedName = "set_" + usedName;
+        }
         usedName = camelize(usedName.toLowerCase(Locale.ROOT), true);
         return usedName;
     }

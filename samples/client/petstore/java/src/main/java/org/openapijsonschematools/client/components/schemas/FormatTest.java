@@ -1207,7 +1207,7 @@ public class FormatTest {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterByteSchema(Map<String, @Nullable Object> instance);
         
-        default T byte(String value) {
+        default T setByte(String value) {
             var instance = getInstance();
             instance.put("byte", value);
             return getBuilderAfterByteSchema(instance);
@@ -1229,25 +1229,25 @@ public class FormatTest {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance);
         
-        default T number(int value) {
+        default T setNumber(int value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(float value) {
+        default T setNumber(float value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(long value) {
+        default T setNumber(long value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(double value) {
+        default T setNumber(double value) {
             var instance = getInstance();
             instance.put("number", value);
             return getBuilderAfterNumberSchema(instance);
@@ -1269,25 +1269,25 @@ public class FormatTest {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterIntegerSchema(Map<String, @Nullable Object> instance);
         
-        default T integer(int value) {
+        default T setInteger(int value) {
             var instance = getInstance();
             instance.put("integer", value);
             return getBuilderAfterIntegerSchema(instance);
         }
         
-        default T integer(float value) {
+        default T setInteger(float value) {
             var instance = getInstance();
             instance.put("integer", value);
             return getBuilderAfterIntegerSchema(instance);
         }
         
-        default T integer(long value) {
+        default T setInteger(long value) {
             var instance = getInstance();
             instance.put("integer", value);
             return getBuilderAfterIntegerSchema(instance);
         }
         
-        default T integer(double value) {
+        default T setInteger(double value) {
             var instance = getInstance();
             instance.put("integer", value);
             return getBuilderAfterIntegerSchema(instance);
@@ -1361,25 +1361,25 @@ public class FormatTest {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance);
         
-        default T float(int value) {
+        default T setFloat(int value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(float value) {
+        default T setFloat(float value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(long value) {
+        default T setFloat(long value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(double value) {
+        default T setFloat(double value) {
             var instance = getInstance();
             instance.put("float", value);
             return getBuilderAfterFloatSchema(instance);
@@ -1419,25 +1419,25 @@ public class FormatTest {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance);
         
-        default T double(int value) {
+        default T setDouble(int value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(float value) {
+        default T setDouble(float value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(long value) {
+        default T setDouble(long value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(double value) {
+        default T setDouble(double value) {
             var instance = getInstance();
             instance.put("double", value);
             return getBuilderAfterDoubleSchema(instance);
@@ -1488,7 +1488,7 @@ public class FormatTest {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterStringSchema(Map<String, @Nullable Object> instance);
         
-        default T string(String value) {
+        default T setString(String value) {
             var instance = getInstance();
             instance.put("string", value);
             return getBuilderAfterStringSchema(instance);
@@ -1521,7 +1521,7 @@ public class FormatTest {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance);
         
-        default T uuid(String value) {
+        default T setUuid(String value) {
             var instance = getInstance();
             instance.put("uuid", value);
             return getBuilderAfterUuidSchema(instance);

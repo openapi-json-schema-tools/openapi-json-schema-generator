@@ -108,23 +108,23 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMap validatedPayload =
     ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1.validate(
     new ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMapBuilder()
-        .byte("a")
+        .setByte("a")
 
-        .double(3.14d)
+        .setDouble(3.14d)
 
-        .number(1)
+        .setNumber(1)
 
         .pattern_without_delimiter("AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>")
 
-        .integer(1)
+        .setInteger(1)
 
         .int32(1)
 
         .int64(1L)
 
-        .float(3.14f)
+        .setFloat(3.14f)
 
-        .string("A")
+        .setString("A")
 
         .binary("a")
 
@@ -171,21 +171,21 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | integer(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | integer(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | integer(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | integer(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setInteger(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setInteger(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setInteger(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setInteger(double value) |
 | [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | int32(int value) |
 | [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | int32(float value) |
 | [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | int64(int value) |
 | [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | int64(float value) |
 | [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | int64(long value) |
 | [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | int64(double value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | float(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | float(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | float(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | float(double value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | string(String value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setFloat(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setFloat(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setFloat(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setFloat(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setString(String value) |
 | [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | binary(String value) |
 | [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | date(String value) |
 | [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | dateTime(String value) |
@@ -231,10 +231,10 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | number(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | number(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | number(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | number(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setNumber(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setNumber(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setNumber(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setNumber(double value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap0011Builder
 public class ApplicationxwwwformurlencodedSchemaMap0011Builder<br>
@@ -250,10 +250,10 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | number(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | number(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | number(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | number(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | setNumber(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | setNumber(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | setNumber(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | setNumber(double value) |
 | [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | pattern_without_delimiter(String value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap0100Builder
@@ -270,10 +270,10 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | double(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | double(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | double(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | double(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setDouble(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setDouble(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setDouble(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setDouble(double value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap0101Builder
 public class ApplicationxwwwformurlencodedSchemaMap0101Builder<br>
@@ -289,10 +289,10 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | double(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | double(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | double(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | double(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | setDouble(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | setDouble(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | setDouble(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | setDouble(double value) |
 | [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | pattern_without_delimiter(String value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap0110Builder
@@ -309,14 +309,14 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | double(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | double(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | double(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | double(double value) |
-| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | number(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | number(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | number(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | number(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | setDouble(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | setDouble(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | setDouble(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | setDouble(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | setNumber(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | setNumber(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | setNumber(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | setNumber(double value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap0111Builder
 public class ApplicationxwwwformurlencodedSchemaMap0111Builder<br>
@@ -332,14 +332,14 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | double(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | double(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | double(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | double(double value) |
-| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | number(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | number(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | number(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | number(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | setDouble(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | setDouble(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | setDouble(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | setDouble(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | setNumber(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | setNumber(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | setNumber(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | setNumber(double value) |
 | [ApplicationxwwwformurlencodedSchemaMap0110Builder](#applicationxwwwformurlencodedschemamap0110builder) | pattern_without_delimiter(String value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap1000Builder
@@ -356,7 +356,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | byte(String value) |
+| [ApplicationxwwwformurlencodedSchemaMap0000Builder](#applicationxwwwformurlencodedschemamap0000builder) | setByte(String value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap1001Builder
 public class ApplicationxwwwformurlencodedSchemaMap1001Builder<br>
@@ -372,7 +372,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | byte(String value) |
+| [ApplicationxwwwformurlencodedSchemaMap0001Builder](#applicationxwwwformurlencodedschemamap0001builder) | setByte(String value) |
 | [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | pattern_without_delimiter(String value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap1010Builder
@@ -389,11 +389,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | byte(String value) |
-| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | number(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | number(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | number(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | number(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0010Builder](#applicationxwwwformurlencodedschemamap0010builder) | setByte(String value) |
+| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | setNumber(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | setNumber(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | setNumber(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | setNumber(double value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap1011Builder
 public class ApplicationxwwwformurlencodedSchemaMap1011Builder<br>
@@ -409,11 +409,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | byte(String value) |
-| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | number(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | number(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | number(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | number(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0011Builder](#applicationxwwwformurlencodedschemamap0011builder) | setByte(String value) |
+| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | setNumber(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | setNumber(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | setNumber(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | setNumber(double value) |
 | [ApplicationxwwwformurlencodedSchemaMap1010Builder](#applicationxwwwformurlencodedschemamap1010builder) | pattern_without_delimiter(String value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap1100Builder
@@ -430,11 +430,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | byte(String value) |
-| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | double(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | double(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | double(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | double(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0100Builder](#applicationxwwwformurlencodedschemamap0100builder) | setByte(String value) |
+| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | setDouble(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | setDouble(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | setDouble(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap1000Builder](#applicationxwwwformurlencodedschemamap1000builder) | setDouble(double value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap1101Builder
 public class ApplicationxwwwformurlencodedSchemaMap1101Builder<br>
@@ -450,11 +450,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | byte(String value) |
-| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | double(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | double(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | double(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | double(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0101Builder](#applicationxwwwformurlencodedschemamap0101builder) | setByte(String value) |
+| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | setDouble(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | setDouble(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | setDouble(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap1001Builder](#applicationxwwwformurlencodedschemamap1001builder) | setDouble(double value) |
 | [ApplicationxwwwformurlencodedSchemaMap1100Builder](#applicationxwwwformurlencodedschemamap1100builder) | pattern_without_delimiter(String value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap1110Builder
@@ -471,15 +471,15 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0110Builder](#applicationxwwwformurlencodedschemamap0110builder) | byte(String value) |
-| [ApplicationxwwwformurlencodedSchemaMap1010Builder](#applicationxwwwformurlencodedschemamap1010builder) | double(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap1010Builder](#applicationxwwwformurlencodedschemamap1010builder) | double(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap1010Builder](#applicationxwwwformurlencodedschemamap1010builder) | double(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap1010Builder](#applicationxwwwformurlencodedschemamap1010builder) | double(double value) |
-| [ApplicationxwwwformurlencodedSchemaMap1100Builder](#applicationxwwwformurlencodedschemamap1100builder) | number(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap1100Builder](#applicationxwwwformurlencodedschemamap1100builder) | number(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap1100Builder](#applicationxwwwformurlencodedschemamap1100builder) | number(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap1100Builder](#applicationxwwwformurlencodedschemamap1100builder) | number(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0110Builder](#applicationxwwwformurlencodedschemamap0110builder) | setByte(String value) |
+| [ApplicationxwwwformurlencodedSchemaMap1010Builder](#applicationxwwwformurlencodedschemamap1010builder) | setDouble(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap1010Builder](#applicationxwwwformurlencodedschemamap1010builder) | setDouble(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap1010Builder](#applicationxwwwformurlencodedschemamap1010builder) | setDouble(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap1010Builder](#applicationxwwwformurlencodedschemamap1010builder) | setDouble(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap1100Builder](#applicationxwwwformurlencodedschemamap1100builder) | setNumber(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap1100Builder](#applicationxwwwformurlencodedschemamap1100builder) | setNumber(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap1100Builder](#applicationxwwwformurlencodedschemamap1100builder) | setNumber(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap1100Builder](#applicationxwwwformurlencodedschemamap1100builder) | setNumber(double value) |
 
 ## ApplicationxwwwformurlencodedSchemaMapBuilder
 public class ApplicationxwwwformurlencodedSchemaMapBuilder<br>
@@ -495,15 +495,15 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchemaMap0111Builder](#applicationxwwwformurlencodedschemamap0111builder) | byte(String value) |
-| [ApplicationxwwwformurlencodedSchemaMap1011Builder](#applicationxwwwformurlencodedschemamap1011builder) | double(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap1011Builder](#applicationxwwwformurlencodedschemamap1011builder) | double(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap1011Builder](#applicationxwwwformurlencodedschemamap1011builder) | double(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap1011Builder](#applicationxwwwformurlencodedschemamap1011builder) | double(double value) |
-| [ApplicationxwwwformurlencodedSchemaMap1101Builder](#applicationxwwwformurlencodedschemamap1101builder) | number(int value) |
-| [ApplicationxwwwformurlencodedSchemaMap1101Builder](#applicationxwwwformurlencodedschemamap1101builder) | number(float value) |
-| [ApplicationxwwwformurlencodedSchemaMap1101Builder](#applicationxwwwformurlencodedschemamap1101builder) | number(long value) |
-| [ApplicationxwwwformurlencodedSchemaMap1101Builder](#applicationxwwwformurlencodedschemamap1101builder) | number(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap0111Builder](#applicationxwwwformurlencodedschemamap0111builder) | setByte(String value) |
+| [ApplicationxwwwformurlencodedSchemaMap1011Builder](#applicationxwwwformurlencodedschemamap1011builder) | setDouble(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap1011Builder](#applicationxwwwformurlencodedschemamap1011builder) | setDouble(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap1011Builder](#applicationxwwwformurlencodedschemamap1011builder) | setDouble(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap1011Builder](#applicationxwwwformurlencodedschemamap1011builder) | setDouble(double value) |
+| [ApplicationxwwwformurlencodedSchemaMap1101Builder](#applicationxwwwformurlencodedschemamap1101builder) | setNumber(int value) |
+| [ApplicationxwwwformurlencodedSchemaMap1101Builder](#applicationxwwwformurlencodedschemamap1101builder) | setNumber(float value) |
+| [ApplicationxwwwformurlencodedSchemaMap1101Builder](#applicationxwwwformurlencodedschemamap1101builder) | setNumber(long value) |
+| [ApplicationxwwwformurlencodedSchemaMap1101Builder](#applicationxwwwformurlencodedschemamap1101builder) | setNumber(double value) |
 | [ApplicationxwwwformurlencodedSchemaMap1110Builder](#applicationxwwwformurlencodedschemamap1110builder) | pattern_without_delimiter(String value) |
 
 ## ApplicationxwwwformurlencodedSchemaMap

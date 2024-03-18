@@ -137,15 +137,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 FormatTest.FormatTestMap validatedPayload =
     FormatTest.FormatTest1.validate(
     new FormatTest.FormatTestMapBuilder()
-        .byte("a")
+        .setByte("a")
 
         .date("2020-12-13")
 
-        .number(1)
+        .setNumber(1)
 
         .password("a")
 
-        .integer(1)
+        .setInteger(1)
 
         .int32(1)
 
@@ -153,11 +153,11 @@ FormatTest.FormatTestMap validatedPayload =
 
         .int64(1L)
 
-        .float(3.14f)
+        .setFloat(3.14f)
 
         .float32(3.14f)
 
-        .double(3.14d)
+        .setDouble(3.14d)
 
         .float64(3.14d)
 
@@ -166,13 +166,13 @@ FormatTest.FormatTestMap validatedPayload =
                 1
             )
         )
-        .string("A")
+        .setString("A")
 
         .binary("a")
 
         .dateTime("1970-01-01T00:00:00.00Z")
 
-        .uuid("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+        .setUuid("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
 
         .uuidNoExample("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
 
@@ -217,10 +217,10 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | integer(int value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | integer(float value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | integer(long value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | integer(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(double value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int32(int value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int32(float value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int32withValidations(int value) |
@@ -229,27 +229,27 @@ A class that builds the Map input type
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int64(float value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int64(long value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int64(double value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | float(int value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | float(float value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | float(long value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | float(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(double value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float32(int value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float32(float value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float32(long value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float32(double value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | double(int value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | double(float value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | double(long value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | double(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(double value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float64(int value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float64(float value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float64(long value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float64(double value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | arrayWithUniqueItems(List<Number> value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | string(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setString(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | binary(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | dateTime(String value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | uuid(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setUuid(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | uuidNoExample(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | pattern_with_digits(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | pattern_with_digits_and_delimiter(String value) |
@@ -294,10 +294,10 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | number(int value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | number(float value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | number(long value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | number(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(double value) |
 
 ## FormatTestMap0011Builder
 public class FormatTestMap0011Builder<br>
@@ -313,10 +313,10 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | number(int value) |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | number(float value) |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | number(long value) |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | number(double value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(int value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(float value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(long value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(double value) |
 | [FormatTestMap0010Builder](#formattestmap0010builder) | password(String value) |
 
 ## FormatTestMap0100Builder
@@ -367,10 +367,10 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap0010Builder](#formattestmap0010builder) | date(String value) |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | number(int value) |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | number(float value) |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | number(long value) |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | number(double value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(int value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(float value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(long value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(double value) |
 
 ## FormatTestMap0111Builder
 public class FormatTestMap0111Builder<br>
@@ -387,10 +387,10 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap0011Builder](#formattestmap0011builder) | date(String value) |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | number(int value) |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | number(float value) |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | number(long value) |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | number(double value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(int value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(float value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(long value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(double value) |
 | [FormatTestMap0110Builder](#formattestmap0110builder) | password(String value) |
 
 ## FormatTestMap1000Builder
@@ -407,7 +407,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | byte(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setByte(String value) |
 
 ## FormatTestMap1001Builder
 public class FormatTestMap1001Builder<br>
@@ -423,7 +423,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | byte(String value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setByte(String value) |
 | [FormatTestMap1000Builder](#formattestmap1000builder) | password(String value) |
 
 ## FormatTestMap1010Builder
@@ -440,11 +440,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0010Builder](#formattestmap0010builder) | byte(String value) |
-| [FormatTestMap1000Builder](#formattestmap1000builder) | number(int value) |
-| [FormatTestMap1000Builder](#formattestmap1000builder) | number(float value) |
-| [FormatTestMap1000Builder](#formattestmap1000builder) | number(long value) |
-| [FormatTestMap1000Builder](#formattestmap1000builder) | number(double value) |
+| [FormatTestMap0010Builder](#formattestmap0010builder) | setByte(String value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(int value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(float value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(long value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(double value) |
 
 ## FormatTestMap1011Builder
 public class FormatTestMap1011Builder<br>
@@ -460,11 +460,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0011Builder](#formattestmap0011builder) | byte(String value) |
-| [FormatTestMap1001Builder](#formattestmap1001builder) | number(int value) |
-| [FormatTestMap1001Builder](#formattestmap1001builder) | number(float value) |
-| [FormatTestMap1001Builder](#formattestmap1001builder) | number(long value) |
-| [FormatTestMap1001Builder](#formattestmap1001builder) | number(double value) |
+| [FormatTestMap0011Builder](#formattestmap0011builder) | setByte(String value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(int value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(float value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(long value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(double value) |
 | [FormatTestMap1010Builder](#formattestmap1010builder) | password(String value) |
 
 ## FormatTestMap1100Builder
@@ -481,7 +481,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | byte(String value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setByte(String value) |
 | [FormatTestMap1000Builder](#formattestmap1000builder) | date(String value) |
 
 ## FormatTestMap1101Builder
@@ -498,7 +498,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | byte(String value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setByte(String value) |
 | [FormatTestMap1001Builder](#formattestmap1001builder) | date(String value) |
 | [FormatTestMap1100Builder](#formattestmap1100builder) | password(String value) |
 
@@ -516,12 +516,12 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0110Builder](#formattestmap0110builder) | byte(String value) |
+| [FormatTestMap0110Builder](#formattestmap0110builder) | setByte(String value) |
 | [FormatTestMap1010Builder](#formattestmap1010builder) | date(String value) |
-| [FormatTestMap1100Builder](#formattestmap1100builder) | number(int value) |
-| [FormatTestMap1100Builder](#formattestmap1100builder) | number(float value) |
-| [FormatTestMap1100Builder](#formattestmap1100builder) | number(long value) |
-| [FormatTestMap1100Builder](#formattestmap1100builder) | number(double value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(int value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(float value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(long value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(double value) |
 
 ## FormatTestMapBuilder
 public class FormatTestMapBuilder<br>
@@ -537,12 +537,12 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0111Builder](#formattestmap0111builder) | byte(String value) |
+| [FormatTestMap0111Builder](#formattestmap0111builder) | setByte(String value) |
 | [FormatTestMap1011Builder](#formattestmap1011builder) | date(String value) |
-| [FormatTestMap1101Builder](#formattestmap1101builder) | number(int value) |
-| [FormatTestMap1101Builder](#formattestmap1101builder) | number(float value) |
-| [FormatTestMap1101Builder](#formattestmap1101builder) | number(long value) |
-| [FormatTestMap1101Builder](#formattestmap1101builder) | number(double value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(int value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(float value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(long value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(double value) |
 | [FormatTestMap1110Builder](#formattestmap1110builder) | password(String value) |
 
 ## FormatTestMap
