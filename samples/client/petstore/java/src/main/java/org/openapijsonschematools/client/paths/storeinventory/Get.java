@@ -7,24 +7,26 @@ import org.openapijsonschematools.client.paths.storeinventory.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.paths.Storeinventory;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.io.IOException;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class Get {
-
-    public static class Get1 extends Storeinventory {
+    private static class GetProvider extends ApiClient.OperationProvider {
         private static final String method = "get";
 
-        public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException {
+        public static Responses.EndpointResponse get(
+            GetRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             // TODO set this to a map if there is a query security scheme
@@ -34,13 +36,13 @@ public class Get {
             updateParamsForAuth(
                 securityRequirementObject,
                 headers,
-                path,
+                Storeinventory.path,
                 method,
                 bodyPublisher,
                 queryMap
             );
 
-            String url = host + path;
+            String url = host + Storeinventory.path;
             var httpRequest = RestClient.getRequest(
                 url,
                 method,
@@ -50,6 +52,21 @@ public class Get {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface GetOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class Get1 extends ApiClient.ApiClient1 implements GetOperation {
+        public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
 

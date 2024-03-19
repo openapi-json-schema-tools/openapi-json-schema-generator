@@ -8,26 +8,28 @@ import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Fakeclassnametest;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class Patch {
-
-    public static class Patch1 extends Fakeclassnametest {
+    private static class PatchProvider extends ApiClient.OperationProvider {
         private static final String method = "patch";
 
-        public Patch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException {
+        public static Responses.EndpointResponse patch(
+            PatchRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -43,13 +45,13 @@ public class Patch {
             updateParamsForAuth(
                 securityRequirementObject,
                 headers,
-                path,
+                Fakeclassnametest.path,
                 method,
                 bodyPublisher,
                 queryMap
             );
 
-            String url = host + path;
+            String url = host + Fakeclassnametest.path;
             var httpRequest = RestClient.getRequest(
                 url,
                 method,
@@ -59,6 +61,21 @@ public class Patch {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface PatchOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException {
+            return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class Patch1 extends ApiClient.ApiClient1 implements PatchOperation {
+        public Patch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
 

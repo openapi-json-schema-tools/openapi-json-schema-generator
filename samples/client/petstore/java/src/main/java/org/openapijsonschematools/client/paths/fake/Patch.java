@@ -7,25 +7,27 @@ import org.openapijsonschematools.client.paths.fake.patch.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Fake;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class Patch {
-
-    public static class Patch1 extends Fake {
+    private static class PatchProvider extends ApiClient.OperationProvider {
         private static final String method = "patch";
 
-        public Patch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException {
+        public static Responses.EndpointResponse patch(
+            PatchRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -38,7 +40,7 @@ public class Patch {
             @Nullable Map<String, String> queryMap = null;
             String host = apiConfiguration.getServer(request.serverIndex).url();
 
-            String url = host + path;
+            String url = host + Fake.path;
             var httpRequest = RestClient.getRequest(
                 url,
                 method,
@@ -48,6 +50,21 @@ public class Patch {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface PatchOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException {
+            return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class Patch1 extends ApiClient.ApiClient1 implements PatchOperation {
+        public Patch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
 

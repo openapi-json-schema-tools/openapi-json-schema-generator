@@ -8,28 +8,30 @@ import org.openapijsonschematools.client.paths.storeorderorderid.delete.Response
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.paths.Storeorderorderid;
 
 import java.io.IOException;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class Delete {
-
-    public static class Delete1 extends Storeorderorderid {
+    private static class DeleteProvider extends ApiClient.OperationProvider {
         private static final String method = "delete";
 
-        public Delete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public Void delete(DeleteRequest request) throws IOException, InterruptedException {
+        public static Void delete(
+            DeleteRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
             var pathSerializer = new Parameters.PathParametersSerializer();
-            String updatedPath = pathSerializer.serialize(request.pathParameters, path);
+            String updatedPath = pathSerializer.serialize(request.pathParameters, Storeorderorderid.path);
             // TODO set this to a map if there is a query security scheme
             @Nullable Map<String, String> queryMap = null;
             String host = apiConfiguration.getServer(request.serverIndex).url();
@@ -44,6 +46,21 @@ public class Delete {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface DeleteOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Void delete(DeleteRequest request) throws IOException, InterruptedException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class Delete1 extends ApiClient.ApiClient1 implements DeleteOperation {
+        public Delete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
 

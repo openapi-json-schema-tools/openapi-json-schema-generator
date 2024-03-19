@@ -10,24 +10,26 @@ import org.openapijsonschematools.client.paths.fake.delete.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.paths.Fake;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.io.IOException;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class Delete {
-
-    public static class Delete1 extends Fake {
+    private static class DeleteProvider extends ApiClient.OperationProvider {
         private static final String method = "delete";
 
-        public Delete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException {
+        public static Responses.EndpointResponse delete(
+            DeleteRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
@@ -42,13 +44,13 @@ public class Delete {
             updateParamsForAuth(
                 securityRequirementObject,
                 headers,
-                path,
+                Fake.path,
                 method,
                 bodyPublisher,
                 queryMap
             );
 
-            String url = host + path;
+            String url = host + Fake.path;
             if (queryMap != null) {
                 url = url + querySerializer.serialize(queryMap);
             }
@@ -61,6 +63,21 @@ public class Delete {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface DeleteOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class Delete1 extends ApiClient.ApiClient1 implements DeleteOperation {
+        public Delete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
 

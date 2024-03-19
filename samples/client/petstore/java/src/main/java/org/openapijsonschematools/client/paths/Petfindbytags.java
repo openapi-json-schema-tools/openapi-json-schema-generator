@@ -1,13 +1,5 @@
 package org.openapijsonschematools.client.paths;
 
-import org.openapijsonschematools.client.apiclient.ApiClient;
-import org.openapijsonschematools.client.configurations.ApiConfiguration;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-
-public class Petfindbytags extends ApiClient {
-    protected static final String path = "/pet/findByTags";
-
-    public Petfindbytags(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-        super(apiConfiguration, schemaConfiguration);
-    }
+public class Petfindbytags {
+    public static final String path = "/pet/findByTags";
 }

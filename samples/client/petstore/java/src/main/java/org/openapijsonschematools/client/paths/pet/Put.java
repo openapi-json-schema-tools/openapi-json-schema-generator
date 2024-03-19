@@ -8,26 +8,28 @@ import org.openapijsonschematools.client.paths.pet.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Pet;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class Put {
-
-    public static class Put1 extends Pet {
+    private static class PutProvider extends ApiClient.OperationProvider {
         private static final String method = "put";
 
-        public Put1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public Void put(PutRequest request) throws IOException, InterruptedException {
+        public static Void put(
+            PutRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -43,13 +45,13 @@ public class Put {
             updateParamsForAuth(
                 securityRequirementObject,
                 headers,
-                path,
+                Pet.path,
                 method,
                 bodyPublisher,
                 queryMap
             );
 
-            String url = host + path;
+            String url = host + Pet.path;
             var httpRequest = RestClient.getRequest(
                 url,
                 method,
@@ -59,6 +61,21 @@ public class Put {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface PutOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Void put(PutRequest request) throws IOException, InterruptedException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class Put1 extends ApiClient.ApiClient1 implements PutOperation {
+        public Put1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
 

@@ -9,23 +9,25 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.paths.Commonparamsubdir;
 
 import java.io.IOException;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class Post {
-
-    public static class Post1 extends Commonparamsubdir {
+    private static class PostProvider extends ApiClient.OperationProvider {
         private static final String method = "post";
 
-        public Post1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException {
+        public static Responses.EndpointResponse post(
+            PostRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
@@ -36,7 +38,7 @@ public class Post {
             }
 
             var pathSerializer = new Parameters.PathParametersSerializer();
-            String updatedPath = pathSerializer.serialize(request.pathParameters, path);
+            String updatedPath = pathSerializer.serialize(request.pathParameters, Commonparamsubdir.path);
             // TODO set this to a map if there is a query security scheme
             @Nullable Map<String, String> queryMap = null;
             String host = apiConfiguration.getServer(request.serverIndex).url();
@@ -51,6 +53,21 @@ public class Post {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface PostOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class Post1 extends ApiClient.ApiClient1 implements PostOperation {
+        public Post1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
 

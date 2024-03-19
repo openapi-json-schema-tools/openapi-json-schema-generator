@@ -1,0 +1,25 @@
+{{#with operation}}
+{{#eq identifierPieces.size 0}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{else}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces }}
+{{/eq}}
+{{#if componentModule}}
+{{jsonPathPiece.pascalCase}}.java
+{{/if}}
+
+public class {{jsonPathPiece.pascalCase}}
+
+A class that contains necessary endpoint classes
+- a class that calls the endpoint method using the http verb
+- a class that calls the endpoint method using the operationId name
+- builder(s) to set the request data
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| static class      | {{jsonPathPiece.pascalCase}}1({{jsonPathPiece.pascalCase}}Request request) <br>The class that has a {{method}} method to call the endpoint |
+    {{#each builders}}
+| static class      | {{className.pascalCase}}<br>a builder for the request |
+    {{/each}}
+{{/with}}

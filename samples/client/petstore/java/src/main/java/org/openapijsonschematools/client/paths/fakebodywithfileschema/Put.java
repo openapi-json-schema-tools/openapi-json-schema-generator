@@ -7,25 +7,27 @@ import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Respon
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Fakebodywithfileschema;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class Put {
-
-    public static class Put1 extends Fakebodywithfileschema {
+    private static class PutProvider extends ApiClient.OperationProvider {
         private static final String method = "put";
 
-        public Put1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException {
+        public static Responses.EndpointResponse put(
+            PutRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -38,7 +40,7 @@ public class Put {
             @Nullable Map<String, String> queryMap = null;
             String host = apiConfiguration.getServer(request.serverIndex).url();
 
-            String url = host + path;
+            String url = host + Fakebodywithfileschema.path;
             var httpRequest = RestClient.getRequest(
                 url,
                 method,
@@ -48,6 +50,21 @@ public class Put {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface PutOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class Put1 extends ApiClient.ApiClient1 implements PutOperation {
+        public Put1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
 

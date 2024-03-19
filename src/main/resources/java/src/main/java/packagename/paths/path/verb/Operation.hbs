@@ -28,6 +28,7 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 import {{packageName}}.configurations.ApiConfiguration;
 import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.restclient.RestClient;
+import {{packageName}}.apiclient.ApiClient;
     {{#if requestBody}}
 import {{packageName}}.requestbody.SerializedRequestBody;
     {{/if}}
@@ -48,20 +49,21 @@ import java.io.IOException;
     {{#if requestBody}}
 import java.util.ArrayList;
     {{/if}}
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class {{jsonPathPiece.pascalCase}} {
-
-    public static class {{jsonPathPiece.pascalCase}}1 extends {{#with ../pathItem}}{{jsonPathPiece.pascalCase}}{{/with}} {
+    private static class {{jsonPathPiece.pascalCase}}Provider extends ApiClient.OperationProvider {
         private static final String method = "{{jsonPathPiece.original}}";
 
-        public {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) throws IOException, InterruptedException {
+        public static {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}(
+            {{jsonPathPiece.pascalCase}}Request request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             {{#with requestBody}}
 
@@ -122,7 +124,7 @@ public class {{jsonPathPiece.pascalCase}} {
 
                     {{! path parameters are always required }}
             var pathSerializer = new {{jsonPathPiece.pascalCase}}.PathParametersSerializer();
-            String updatedPath = pathSerializer.serialize(request.pathParameters, path);
+            String updatedPath = pathSerializer.serialize(request.pathParameters, {{#with ../pathItem}}{{jsonPathPiece.pascalCase}}.{{/with}}path);
                 {{/if}}
                 {{#if queryParametersSchema}}
 
@@ -153,7 +155,7 @@ public class {{jsonPathPiece.pascalCase}} {
             updateParamsForAuth(
                 securityRequirementObject,
                 headers,
-                {{#and parametersInfo parametersInfo.pathParametersSchema}}updatedPath{{else}}path{{/and}},
+                {{#and parametersInfo parametersInfo.pathParametersSchema}}updatedPath{{else}}{{#with ../pathItem}}{{jsonPathPiece.pascalCase}}.{{/with}}path{{/and}},
                 method,
                 bodyPublisher,
                 queryMap
@@ -163,7 +165,7 @@ public class {{jsonPathPiece.pascalCase}} {
                 {{/if}}
             {{/each}}
 
-            String url = host + {{#and parametersInfo parametersInfo.pathParametersSchema}}updatedPath{{else}}path{{/and}};
+            String url = host + {{#and parametersInfo parametersInfo.pathParametersSchema}}updatedPath{{else}}{{#with ../pathItem}}{{jsonPathPiece.pascalCase}}.{{/with}}path{{/and}};
             {{#if queryParametersSchema }}
             if (queryMap != null) {
                 url = url + querySerializer.serialize(queryMap);
@@ -178,6 +180,21 @@ public class {{jsonPathPiece.pascalCase}} {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface {{jsonPathPiece.pascalCase}}Operation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) throws IOException, InterruptedException {
+            return {{jsonPathPiece.pascalCase}}Provider.{{jsonPathPiece.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class {{jsonPathPiece.pascalCase}}1 extends ApiClient.ApiClient1 implements {{jsonPathPiece.pascalCase}}Operation {
+        public {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
     {{#eq builders.size 1}}

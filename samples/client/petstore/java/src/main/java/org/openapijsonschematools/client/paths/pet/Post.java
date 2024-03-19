@@ -8,26 +8,28 @@ import org.openapijsonschematools.client.paths.pet.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Pet;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.util.List;
 import java.util.Map;
 
 public class Post {
-
-    public static class Post1 extends Pet {
+    private static class PostProvider extends ApiClient.OperationProvider {
         private static final String method = "post";
 
-        public Post1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
-            super(apiConfiguration, schemaConfiguration);
-        }
-
-        public Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException {
+        public static Responses.EndpointResponse post(
+            PostRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -43,13 +45,13 @@ public class Post {
             updateParamsForAuth(
                 securityRequirementObject,
                 headers,
-                path,
+                Pet.path,
                 method,
                 bodyPublisher,
                 queryMap
             );
 
-            String url = host + path;
+            String url = host + Pet.path;
             var httpRequest = RestClient.getRequest(
                 url,
                 method,
@@ -59,6 +61,21 @@ public class Post {
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface PostOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class Post1 extends ApiClient.ApiClient1 implements PostOperation {
+        public Post1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
         }
     }
 
