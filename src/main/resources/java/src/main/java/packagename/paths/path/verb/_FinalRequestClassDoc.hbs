@@ -11,7 +11,7 @@ a class that stores the final request inputs
         {{#each keyToBuilder}}
             {{#with property}}
                 {{#if containerJsonPathPiece}}
-| {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} | {{@key.camelCase}} |
+| [{{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}}) | {{@key.camelCase}} |
                 {{else}}
                     {{#if subpackage}}
 | {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} | {{@key.camelCase}} |

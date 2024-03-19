@@ -42,7 +42,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| QueryParameters.QueryParametersMap | queryParameters |
+| [QueryParameters.QueryParametersMap](../../paths/fakecasesensitiveparams/put/QueryParameters.md#queryparametersmap) | queryParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## PutNullableRequest
@@ -53,7 +53,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| QueryParameters.@Nullable QueryParametersMap | queryParameters |
+| [QueryParameters.@Nullable QueryParametersMap](../../paths/fakecasesensitiveparams/put/QueryParameters.md#queryparametersmap) | queryParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## Put0RequestBuilder
@@ -85,6 +85,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put0RequestBuilder](#put0requestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakecasesensitiveparams/put/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

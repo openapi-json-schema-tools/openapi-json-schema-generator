@@ -41,8 +41,8 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | RequestBody.@Nullable SealedRequestBody | requestBody |
-| HeaderParameters.@Nullable HeaderParametersMap | headerParameters |
-| QueryParameters.@Nullable QueryParametersMap | queryParameters |
+| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) | headerParameters |
+| [QueryParameters.@Nullable QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) | queryParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## GetRequestBuilder
@@ -60,8 +60,8 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [GetRequestBuilder](#getrequestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
-| [GetRequestBuilder](#getrequestbuilder) | headerParameters(HeaderParameters.HeaderParametersMap headerParameters)<br>sets the property |
-| [GetRequestBuilder](#getrequestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
+| [GetRequestBuilder](#getrequestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
+| [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

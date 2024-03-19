@@ -42,7 +42,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| QueryParameters.QueryParametersMap | queryParameters |
+| [QueryParameters.QueryParametersMap](../../paths/petfindbystatus/get/QueryParameters.md#queryparametersmap) | queryParameters |
 | PetfindbystatusServerInfo.@Nullable ServerIndex | serverIndex |
 | PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
@@ -54,7 +54,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| QueryParameters.@Nullable QueryParametersMap | queryParameters |
+| [QueryParameters.@Nullable QueryParametersMap](../../paths/petfindbystatus/get/QueryParameters.md#queryparametersmap) | queryParameters |
 | PetfindbystatusServerInfo.@Nullable ServerIndex | serverIndex |
 | PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
@@ -88,6 +88,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/petfindbystatus/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

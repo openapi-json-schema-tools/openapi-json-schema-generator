@@ -44,8 +44,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| HeaderParameters.HeaderParametersMap | headerParameters |
-| QueryParameters.QueryParametersMap | queryParameters |
+| [HeaderParameters.HeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
+| [QueryParameters.QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) | queryParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | FakeDeleteSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
@@ -57,8 +57,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| HeaderParameters.@Nullable HeaderParametersMap | headerParameters |
-| QueryParameters.@Nullable QueryParametersMap | queryParameters |
+| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
+| [QueryParameters.@Nullable QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) | queryParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | FakeDeleteSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
@@ -92,7 +92,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete00RequestBuilder](#delete00requestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 ## Delete10RequestBuilder
 public static class Delete10RequestBuilder<br>
@@ -107,7 +107,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete00RequestBuilder](#delete00requestbuilder) | headerParameters(HeaderParameters.HeaderParametersMap headerParameters)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
 
 ## DeleteRequestBuilder
 public static class DeleteRequestBuilder<br>
@@ -122,7 +122,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete01RequestBuilder](#delete01requestbuilder) | headerParameters(HeaderParameters.HeaderParametersMap headerParameters)<br>sets the property |
-| [Delete10RequestBuilder](#delete10requestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
+| [Delete01RequestBuilder](#delete01requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
+| [Delete10RequestBuilder](#delete10requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

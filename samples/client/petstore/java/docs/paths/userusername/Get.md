@@ -42,7 +42,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.PathParametersMap | pathParameters |
+| [PathParameters.PathParametersMap](../../paths/userusername/get/PathParameters.md#pathparametersmap) | pathParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## GetNullableRequest
@@ -53,7 +53,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.@Nullable PathParametersMap | pathParameters |
+| [PathParameters.@Nullable PathParametersMap](../../paths/userusername/get/PathParameters.md#pathparametersmap) | pathParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## Get0RequestBuilder
@@ -85,6 +85,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters(PathParameters.PathParametersMap pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/userusername/get/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -42,8 +42,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.PathParametersMap | pathParameters |
-| HeaderParameters.@Nullable HeaderParametersMap | headerParameters |
+| [PathParameters.PathParametersMap](../../paths/commonparamsubdir/post/PathParameters.md#pathparametersmap) | pathParameters |
+| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/post/HeaderParameters.md#headerparametersmap) | headerParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## PostNullableRequest
@@ -54,8 +54,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.@Nullable PathParametersMap | pathParameters |
-| HeaderParameters.@Nullable HeaderParametersMap | headerParameters |
+| [PathParameters.@Nullable PathParametersMap](../../paths/commonparamsubdir/post/PathParameters.md#pathparametersmap) | pathParameters |
+| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/post/HeaderParameters.md#headerparametersmap) | headerParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## Post0RequestBuilder
@@ -72,7 +72,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Post0RequestBuilder](#post0requestbuilder) | headerParameters(HeaderParameters.HeaderParametersMap headerParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/commonparamsubdir/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
 
 ## PostRequestBuilder
@@ -88,6 +88,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters(PathParameters.PathParametersMap pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/commonparamsubdir/post/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

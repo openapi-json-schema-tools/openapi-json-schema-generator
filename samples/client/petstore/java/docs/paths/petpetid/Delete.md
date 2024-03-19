@@ -42,8 +42,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.PathParametersMap | pathParameters |
-| HeaderParameters.@Nullable HeaderParametersMap | headerParameters |
+| [PathParameters.PathParametersMap](../../paths/petpetid/delete/PathParameters.md#pathparametersmap) | pathParameters |
+| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | PetpetidDeleteSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
@@ -55,8 +55,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.@Nullable PathParametersMap | pathParameters |
-| HeaderParameters.@Nullable HeaderParametersMap | headerParameters |
+| [PathParameters.@Nullable PathParametersMap](../../paths/petpetid/delete/PathParameters.md#pathparametersmap) | pathParameters |
+| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | PetpetidDeleteSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
@@ -74,7 +74,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters(HeaderParameters.HeaderParametersMap headerParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
 | [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
 | [Delete0RequestBuilder](#delete0requestbuilder) | securityIndex(PetpetidDeleteSecurityInfo.SecurityIndex securityIndex)<br>sets the property |
 
@@ -91,6 +91,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters(PathParameters.PathParametersMap pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/petpetid/delete/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

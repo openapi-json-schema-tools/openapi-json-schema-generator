@@ -65,7 +65,7 @@ a class that stores the initial request inputs
                 {{#each keyToBuilder}}
                     {{#with property}}
                         {{#if containerJsonPathPiece}}
-| {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} | {{@key.camelCase}} |
+| [{{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}}) | {{@key.camelCase}} |
                         {{else}}
                             {{#if subpackage}}
 | {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} | {{@key.camelCase}} |
@@ -101,7 +101,7 @@ a builder for request inputs
 | [{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request) | build()<br>Returns the request input used to call an endpoint method |
         {{/if}}
         {{#each keyToBuilder}}
-| [{{builder.className.pascalCase}}](#{{builder.className.kebabCase}}) | {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.{{operationInputClassName}}{{/with}} {{@key.camelCase}})<br>sets the property |
+| [{{builder.className.pascalCase}}](#{{builder.className.kebabCase}}) | {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}[{{containerJsonPathPiece.pascalCase}}.{{operationInputClassName}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}}){{else}}{{jsonPathPiece.pascalCase}}.{{operationInputClassName}}{{/if}}{{/with}} {{@key.camelCase}})<br>sets the property |
         {{/each}}
     {{/each}}
 

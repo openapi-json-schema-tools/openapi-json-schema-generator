@@ -45,7 +45,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | RequestBody.SealedRequestBody | requestBody |
-| PathParameters.PathParametersMap | pathParameters |
+| [PathParameters.PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) | pathParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## PutNullableRequest
@@ -57,7 +57,7 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | RequestBody.@Nullable SealedRequestBody | requestBody |
-| PathParameters.@Nullable PathParametersMap | pathParameters |
+| [PathParameters.@Nullable PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) | pathParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## Put00RequestBuilder
@@ -89,7 +89,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put00RequestBuilder](#put00requestbuilder) | pathParameters(PathParameters.PathParametersMap pathParameters)<br>sets the property |
+| [Put00RequestBuilder](#put00requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 ## Put10RequestBuilder
 public static class Put10RequestBuilder<br>
@@ -120,6 +120,6 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Put01RequestBuilder](#put01requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
-| [Put10RequestBuilder](#put10requestbuilder) | pathParameters(PathParameters.PathParametersMap pathParameters)<br>sets the property |
+| [Put10RequestBuilder](#put10requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

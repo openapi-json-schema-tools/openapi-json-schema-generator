@@ -41,7 +41,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | RequestBody.@Nullable SealedRequestBody | requestBody |
-| QueryParameters.@Nullable QueryParametersMap | queryParameters |
+| [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeinlinecomposition/post/QueryParameters.md#queryparametersmap) | queryParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## PostRequestBuilder
@@ -59,7 +59,7 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [PostRequestBuilder](#postrequestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
-| [PostRequestBuilder](#postrequestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
+| [PostRequestBuilder](#postrequestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakeinlinecomposition/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 | [PostRequestBuilder](#postrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

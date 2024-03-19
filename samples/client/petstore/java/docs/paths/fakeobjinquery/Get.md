@@ -40,7 +40,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| QueryParameters.@Nullable QueryParametersMap | queryParameters |
+| [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeobjinquery/get/QueryParameters.md#queryparametersmap) | queryParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
 ## GetRequestBuilder
@@ -57,7 +57,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [GetRequestBuilder](#getrequestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
+| [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakeobjinquery/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

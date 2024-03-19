@@ -42,7 +42,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.PathParametersMap | pathParameters |
+| [PathParameters.PathParametersMap](../../paths/petpetid/get/PathParameters.md#pathparametersmap) | pathParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | PetpetidGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
@@ -54,7 +54,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.@Nullable PathParametersMap | pathParameters |
+| [PathParameters.@Nullable PathParametersMap](../../paths/petpetid/get/PathParameters.md#pathparametersmap) | pathParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | PetpetidGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
@@ -88,6 +88,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters(PathParameters.PathParametersMap pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/petpetid/get/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -42,7 +42,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.PathParametersMap | pathParameters |
+| [PathParameters.PathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/PathParameters.md#pathparametersmap) | pathParameters |
 | RequestBody.@Nullable SealedRequestBody | requestBody |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex | securityIndex |
@@ -55,7 +55,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| PathParameters.@Nullable PathParametersMap | pathParameters |
+| [PathParameters.@Nullable PathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/PathParameters.md#pathparametersmap) | pathParameters |
 | RequestBody.@Nullable SealedRequestBody | requestBody |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex | securityIndex |
@@ -91,6 +91,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters(PathParameters.PathParametersMap pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)
