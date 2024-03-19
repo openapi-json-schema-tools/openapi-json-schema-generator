@@ -11,9 +11,9 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class      | Post1<br>The class that has a post method to call the endpoint |
-| static class | PostRequest<br>The request inputs class |
-| static class      | PostRequestBuilder<br>A builder for the request input class |
+| static class | [Post1](#post1)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The request inputs class |
+| static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
 ## Post1
 public static class Post1 extends ApiClient.ApiClient1 implements PostOperation<br>
@@ -30,7 +30,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Responses.EndpointResponse | post(PostRequest request) |
+| Responses.EndpointResponse | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>
@@ -44,3 +44,20 @@ a class that stores the final request inputs
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | FakePostSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
+## PostRequestBuilder
+public static class PostRequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PostRequestBuilder()<br>Creates a builder that contains null for all parameters |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequestBuilder](#postrequestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
+| [PostRequestBuilder](#postrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+| [PostRequestBuilder](#postrequestbuilder) | securityIndex(FakePostSecurityInfo.SecurityIndex securityIndex)<br>sets the property |

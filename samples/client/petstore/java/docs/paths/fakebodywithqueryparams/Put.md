@@ -11,13 +11,13 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class      | Put1<br>The class that has a put method to call the endpoint |
-| static class | PutRequest<br>The final request inputs class |
-| static class | PutNullableRequest<br>The initial request inputs class |
-| static class      | Put00RequestBuilder<br>A builder for the request input class |
-| static class      | Put01RequestBuilder<br>A builder for the request input class |
-| static class      | Put10RequestBuilder<br>A builder for the request input class |
-| static class      | PutRequestBuilder<br>A builder for the request input class |
+| static class | [Put1](#put1)<br>The class that has a put method to call the endpoint |
+| static class | [PutRequest](#putrequest)<br>The final request inputs class |
+| static class | [PutNullableRequest](#putnullablerequest)<br>The initial request inputs class |
+| static class | [Put00RequestBuilder](#put00requestbuilder)<br>A builder for the request input class |
+| static class | [Put01RequestBuilder](#put01requestbuilder)<br>A builder for the request input class |
+| static class | [Put10RequestBuilder](#put10requestbuilder)<br>A builder for the request input class |
+| static class | [PutRequestBuilder](#putrequestbuilder)<br>A builder for the request input class |
 
 ## Put1
 public static class Put1 extends ApiClient.ApiClient1 implements PutOperation<br>
@@ -34,7 +34,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Responses.EndpointResponse | put(PutRequest request) |
+| Responses.EndpointResponse | put([PutRequest](#putrequest) request) |
 
 ## PutRequest
 public static class PutRequest<br>
@@ -60,3 +60,64 @@ a class that stores the initial request inputs
 | QueryParameters.@Nullable QueryParametersMap | queryParameters |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
+## Put00RequestBuilder
+public static class Put00RequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Put00RequestBuilder(Put00RequestBuilder instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [Put00RequestBuilder](#put00requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+
+## Put01RequestBuilder
+public static class Put01RequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Put01RequestBuilder(Put01RequestBuilder instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [Put00RequestBuilder](#put00requestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
+
+## Put10RequestBuilder
+public static class Put10RequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Put10RequestBuilder(Put10RequestBuilder instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [Put00RequestBuilder](#put00requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
+
+## PutRequestBuilder
+public static class PutRequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PutRequestBuilder()<br>Creates a builder that contains null for all parameters |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [Put01RequestBuilder](#put01requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
+| [Put10RequestBuilder](#put10requestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |

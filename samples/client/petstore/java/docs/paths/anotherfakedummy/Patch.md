@@ -11,11 +11,11 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class      | Patch1<br>The class that has a patch method to call the endpoint |
-| static class | PatchRequest<br>The final request inputs class |
-| static class | PatchNullableRequest<br>The initial request inputs class |
-| static class      | Patch0RequestBuilder<br>A builder for the request input class |
-| static class      | PatchRequestBuilder<br>A builder for the request input class |
+| static class | [Patch1](#patch1)<br>The class that has a patch method to call the endpoint |
+| static class | [PatchRequest](#patchrequest)<br>The final request inputs class |
+| static class | [PatchNullableRequest](#patchnullablerequest)<br>The initial request inputs class |
+| static class | [Patch0RequestBuilder](#patch0requestbuilder)<br>A builder for the request input class |
+| static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
 
 ## Patch1
 public static class Patch1 extends ApiClient.ApiClient1 implements PatchOperation<br>
@@ -32,7 +32,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Responses.EndpointResponse | patch(PatchRequest request) |
+| Responses.EndpointResponse | patch([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>
@@ -56,3 +56,33 @@ a class that stores the initial request inputs
 | RequestBody.@Nullable SealedRequestBody | requestBody |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
+## Patch0RequestBuilder
+public static class Patch0RequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Patch0RequestBuilder(Patch0RequestBuilder instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+
+## PatchRequestBuilder
+public static class PatchRequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PatchRequestBuilder()<br>Creates a builder that contains null for all parameters |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [Patch0RequestBuilder](#patch0requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |

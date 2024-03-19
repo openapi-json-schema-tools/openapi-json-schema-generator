@@ -11,9 +11,9 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class      | Get1<br>The class that has a get method to call the endpoint |
-| static class | GetRequest<br>The request inputs class |
-| static class      | GetRequestBuilder<br>A builder for the request input class |
+| static class | [Get1](#get1)<br>The class that has a get method to call the endpoint |
+| static class | [GetRequest](#getrequest)<br>The request inputs class |
+| static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
 ## Get1
 public static class Get1 extends ApiClient.ApiClient1 implements GetOperation<br>
@@ -30,7 +30,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Responses.EndpointResponse | get(GetRequest request) |
+| Responses.EndpointResponse | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>
@@ -43,3 +43,19 @@ a class that stores the final request inputs
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 | FakemultiplesecuritiesGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
 
+## GetRequestBuilder
+public static class GetRequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| GetRequestBuilder()<br>Creates a builder that contains null for all parameters |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [GetRequestBuilder](#getrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+| [GetRequestBuilder](#getrequestbuilder) | securityIndex(FakemultiplesecuritiesGetSecurityInfo.SecurityIndex securityIndex)<br>sets the property |

@@ -19,15 +19,15 @@ A class that contains necessary endpoint classes
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class      | {{jsonPathPiece.pascalCase}}1<br>The class that has a {{jsonPathPiece.camelCase}} method to call the endpoint |
+| static class | [{{jsonPathPiece.pascalCase}}1](#{{jsonPathPiece.kebabCase}}1)<br>The class that has a {{jsonPathPiece.camelCase}} method to call the endpoint |
     {{#eq builders.size 1}}
-| static class | {{jsonPathPiece.pascalCase}}Request<br>The request inputs class |
+| static class | [{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request)<br>The request inputs class |
     {{else}}
-| static class | {{jsonPathPiece.pascalCase}}Request<br>The final request inputs class |
-| static class | {{jsonPathPiece.pascalCase}}NullableRequest<br>The initial request inputs class |
+| static class | [{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request)<br>The final request inputs class |
+| static class | [{{jsonPathPiece.pascalCase}}NullableRequest](#{{jsonPathPiece.kebabCase}}nullablerequest)<br>The initial request inputs class |
     {{/eq}}
     {{#each builders}}
-| static class      | {{className.pascalCase}}<br>A builder for the request input class |
+| static class | [{{className.pascalCase}}](#{{className.kebabCase}})<br>A builder for the request input class |
     {{/each}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
@@ -45,7 +45,7 @@ TODO code sample
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} | {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) |
+| {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} | {{jsonPathPiece.camelCase}}([{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request) request) |
 
     {{#eq builders.size 1}}
 {{> src/main/java/packagename/paths/path/verb/_FinalRequestClassDoc }}
@@ -78,5 +78,30 @@ a class that stores the initial request inputs
             {{/or}}
         {{/each}}
     {{/eq}}
+    {{#each builders}}
 
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces className.pascalCase) }}
+public static class {{className.pascalCase}}<br>
+
+a builder for request inputs
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+        {{#if @last }}
+| {{className.pascalCase}}()<br>Creates a builder that contains null for all parameters |
+        {{else}}
+| {{className.pascalCase}}({{className.pascalCase}} instance)<br>Creates a builder that contains the passed instance |
+        {{/if}}
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+        {{#if @first}}
+| [{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request) | build()<br>Returns the request input used to call an endpoint method |
+        {{/if}}
+        {{#each keyToBuilder}}
+| [{{builder.className.pascalCase}}](#{{builder.className.kebabCase}}) | {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.{{operationInputClassName}}{{/with}} {{@key.camelCase}})<br>sets the property |
+        {{/each}}
+    {{/each}}
 {{/with}}

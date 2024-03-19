@@ -11,9 +11,9 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class      | Patch1<br>The class that has a patch method to call the endpoint |
-| static class | PatchRequest<br>The request inputs class |
-| static class      | PatchRequestBuilder<br>A builder for the request input class |
+| static class | [Patch1](#patch1)<br>The class that has a patch method to call the endpoint |
+| static class | [PatchRequest](#patchrequest)<br>The request inputs class |
+| static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
 
 ## Patch1
 public static class Patch1 extends ApiClient.ApiClient1 implements PatchOperation<br>
@@ -30,7 +30,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Responses.EndpointResponse | patch(PatchRequest request) |
+| Responses.EndpointResponse | patch([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>
@@ -43,3 +43,19 @@ a class that stores the final request inputs
 | RequestBody.@Nullable SealedRequestBody | requestBody |
 | RootServerInfo.@Nullable ServerIndex | serverIndex |
 
+## PatchRequestBuilder
+public static class PatchRequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PatchRequestBuilder()<br>Creates a builder that contains null for all parameters |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PatchRequestBuilder](#patchrequestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
+| [PatchRequestBuilder](#patchrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
