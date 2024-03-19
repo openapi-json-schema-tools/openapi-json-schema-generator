@@ -305,4 +305,6 @@ public interface Generator {
 
     boolean generateSeparateServerSchemas();
     boolean shouldGenerateFile(String jsonPath);
+
+    boolean generateXParameterSchemaDocumentation();
 }

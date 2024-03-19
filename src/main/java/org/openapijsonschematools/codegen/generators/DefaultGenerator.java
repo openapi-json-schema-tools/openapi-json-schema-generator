@@ -306,10 +306,16 @@ public class DefaultGenerator implements Generator {
     protected String objectIOClassNamePiece = "Dict";
     protected String arrayIOClassNamePiece = "Tuple";
     protected String arrayObjectInputClassNameSuffix = "Input";
+    protected boolean generateXParameterSchemaDocumentation = false;
 
     @Override
     public List<CliOption> cliOptions() {
         return cliOptions;
+    }
+
+    @Override
+    public boolean generateXParameterSchemaDocumentation() {
+        return generateXParameterSchemaDocumentation;
     }
 
     @Override

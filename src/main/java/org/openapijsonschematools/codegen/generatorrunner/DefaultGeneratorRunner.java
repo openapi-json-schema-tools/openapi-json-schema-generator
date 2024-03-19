@@ -456,22 +456,36 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointMap.put("security", security);
                 endpointMap.put("path", pathKey);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
+                boolean generateXParameterSchemaDocumentation = generator.generateXParameterSchemaDocumentation();
+                String docRoot = "../../../";
                 if (operation.parametersInfo != null) {
                     if (operation.parametersInfo.pathParametersSchema != null) {
                         String objectJsonPath = operationJsonPath + "/" + "PathParameters";
                         generateSchema(files, operation.parametersInfo.pathParametersSchema, objectJsonPath);
+                        if (generateXParameterSchemaDocumentation) {
+                            generateSchemaDocumentation(files, operation.parametersInfo.pathParametersSchema, objectJsonPath, docRoot);
+                        }
                     }
                     if (operation.parametersInfo.queryParametersSchema != null) {
                         String objectJsonPath = operationJsonPath + "/" + "QueryParameters";
                         generateSchema(files, operation.parametersInfo.queryParametersSchema, objectJsonPath);
+                        if (generateXParameterSchemaDocumentation) {
+                            generateSchemaDocumentation(files, operation.parametersInfo.queryParametersSchema, objectJsonPath, docRoot);
+                        }
                     }
                     if (operation.parametersInfo.headerParametersSchema != null) {
                         String objectJsonPath = operationJsonPath + "/" + "HeaderParameters";
                         generateSchema(files, operation.parametersInfo.headerParametersSchema, objectJsonPath);
+                        if (generateXParameterSchemaDocumentation) {
+                            generateSchemaDocumentation(files, operation.parametersInfo.headerParametersSchema, objectJsonPath, docRoot);
+                        }
                     }
                     if (operation.parametersInfo.cookieParametersSchema != null) {
                         String objectJsonPath = operationJsonPath + "/" + "CookieParameters";
                         generateSchema(files, operation.parametersInfo.cookieParametersSchema, objectJsonPath);
+                        if (generateXParameterSchemaDocumentation) {
+                            generateSchemaDocumentation(files, operation.parametersInfo.cookieParametersSchema, objectJsonPath, docRoot);
+                        }
                     }
                 }
 

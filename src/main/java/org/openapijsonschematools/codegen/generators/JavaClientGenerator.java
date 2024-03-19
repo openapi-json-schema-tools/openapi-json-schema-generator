@@ -198,6 +198,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         hideGenerationTimestamp = false;
 
+        generateXParameterSchemaDocumentation = true;
+
         setReservedWordsLowerCase(
                 Arrays.asList(
                         // used as internal variables, can collide with parameter names
