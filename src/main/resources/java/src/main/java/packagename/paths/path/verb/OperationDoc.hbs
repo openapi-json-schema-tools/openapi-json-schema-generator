@@ -13,13 +13,37 @@ public class {{jsonPathPiece.pascalCase}}
 A class that contains necessary endpoint classes
 - a class that calls the endpoint method using the http verb
 - a class that calls the endpoint method using the operationId name
-- builder(s) to set the request data
+- class(es) to store the request inputs
+- builder(s) to set the request input data
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class      | {{jsonPathPiece.pascalCase}}1({{jsonPathPiece.pascalCase}}Request request) <br>The class that has a {{method}} method to call the endpoint |
+| static class      | {{jsonPathPiece.pascalCase}}1<br>The class that has a {{jsonPathPiece.camelCase}} method to call the endpoint |
+    {{#eq builders.size 1}}
+| static class | {{jsonPathPiece.pascalCase}}Request<br>The request inputs class |
+    {{else}}
+| static class | {{jsonPathPiece.pascalCase}}Request<br>The final request inputs class |
+| static class | {{jsonPathPiece.pascalCase}}NullableRequest<br>The initial request inputs class |
+    {{/eq}}
     {{#each builders}}
-| static class      | {{className.pascalCase}}<br>a builder for the request |
+| static class      | {{className.pascalCase}}<br>A builder for the request input class |
     {{/each}}
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
+public static class {{jsonPathPiece.pascalCase}}1 extends ApiClient.ApiClient1 implements {{jsonPathPiece.pascalCase}}Operation<br>
+
+a class that allows one to call the endpoint using a method named {{jsonPathPiece.camelCase}}
+
+TODO code sample
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} | {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) |
 {{/with}}
