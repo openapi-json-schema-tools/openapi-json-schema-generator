@@ -59,3 +59,5 @@ a builder for request inputs
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [GetRequestBuilder](#getrequestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+
+[[Back to top]](#top) [[Back to README]](../../../README.md)

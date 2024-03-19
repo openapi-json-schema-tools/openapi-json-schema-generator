@@ -86,3 +86,5 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Patch0RequestBuilder](#patch0requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
+
+[[Back to top]](#top) [[Back to README]](../../../README.md)

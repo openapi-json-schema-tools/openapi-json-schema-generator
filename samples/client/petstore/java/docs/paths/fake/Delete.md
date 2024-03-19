@@ -124,3 +124,5 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [Delete01RequestBuilder](#delete01requestbuilder) | headerParameters(HeaderParameters.HeaderParametersMap headerParameters)<br>sets the property |
 | [Delete10RequestBuilder](#delete10requestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
+
+[[Back to top]](#top) [[Back to README]](../../../README.md)

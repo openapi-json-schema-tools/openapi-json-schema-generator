@@ -121,3 +121,5 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [Put01RequestBuilder](#put01requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
 | [Put10RequestBuilder](#put10requestbuilder) | pathParameters(PathParameters.PathParametersMap pathParameters)<br>sets the property |
+
+[[Back to top]](#top) [[Back to README]](../../../README.md)

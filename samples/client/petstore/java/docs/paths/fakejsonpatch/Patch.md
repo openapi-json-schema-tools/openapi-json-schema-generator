@@ -59,3 +59,5 @@ a builder for request inputs
 | [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [PatchRequestBuilder](#patchrequestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
 | [PatchRequestBuilder](#patchrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+
+[[Back to top]](#top) [[Back to README]](../../../README.md)

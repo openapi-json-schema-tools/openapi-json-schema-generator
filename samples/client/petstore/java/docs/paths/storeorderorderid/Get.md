@@ -86,3 +86,5 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Get0RequestBuilder](#get0requestbuilder) | pathParameters(PathParameters.PathParametersMap pathParameters)<br>sets the property |
+
+[[Back to top]](#top) [[Back to README]](../../../README.md)

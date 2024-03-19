@@ -63,3 +63,5 @@ a builder for request inputs
 | [GetRequestBuilder](#getrequestbuilder) | headerParameters(HeaderParameters.HeaderParametersMap headerParameters)<br>sets the property |
 | [GetRequestBuilder](#getrequestbuilder) | queryParameters(QueryParameters.QueryParametersMap queryParameters)<br>sets the property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+
+[[Back to top]](#top) [[Back to README]](../../../README.md)
