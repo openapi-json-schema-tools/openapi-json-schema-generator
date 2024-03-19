@@ -46,4 +46,37 @@ TODO code sample
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} | {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) |
+
+    {{#eq builders.size 1}}
+{{> src/main/java/packagename/paths/path/verb/_FinalRequestClassDoc }}
+    {{else}}
+{{> src/main/java/packagename/paths/path/verb/_FinalRequestClassDoc }}
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "NullableRequest" "")) }}
+public static class {{jsonPathPiece.pascalCase}}NullableRequest<br>
+
+a class that stores the initial request inputs
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+        {{#each (reverse builders)}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
+                    {{#with property}}
+                        {{#if containerJsonPathPiece}}
+| {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} | {{@key.camelCase}} |
+                        {{else}}
+                            {{#if subpackage}}
+| {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} | {{@key.camelCase}} |
+                            {{else}}
+| {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} | {{@key.camelCase}} |
+                            {{/if}}
+                        {{/if}}
+                    {{/with}}
+                {{/each}}
+            {{/or}}
+        {{/each}}
+    {{/eq}}
+
 {{/with}}

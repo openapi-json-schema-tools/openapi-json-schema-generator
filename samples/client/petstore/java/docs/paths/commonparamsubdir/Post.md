@@ -22,6 +22,8 @@ public static class Post1 extends ApiClient.ApiClient1 implements PostOperation<
 
 a class that allows one to call the endpoint using a method named post
 
+TODO code sample
+
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
@@ -31,3 +33,28 @@ a class that allows one to call the endpoint using a method named post
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Responses.EndpointResponse | post(PostRequest request) |
+
+## PostRequest
+public static class PostRequest<br>
+
+a class that stores the final request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| PathParameters.PathParametersMap | pathParameters |
+| HeaderParameters.@Nullable HeaderParametersMap | headerParameters |
+| RootServerInfo.@Nullable ServerIndex | serverIndex |
+
+## PostNullableRequest
+public static class PostNullableRequest<br>
+
+a class that stores the initial request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| PathParameters.@Nullable PathParametersMap | pathParameters |
+| HeaderParameters.@Nullable HeaderParametersMap | headerParameters |
+| RootServerInfo.@Nullable ServerIndex | serverIndex |
+

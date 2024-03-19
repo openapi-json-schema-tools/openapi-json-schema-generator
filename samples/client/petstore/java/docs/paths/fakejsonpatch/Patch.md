@@ -20,6 +20,8 @@ public static class Patch1 extends ApiClient.ApiClient1 implements PatchOperatio
 
 a class that allows one to call the endpoint using a method named patch
 
+TODO code sample
+
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
@@ -29,3 +31,15 @@ a class that allows one to call the endpoint using a method named patch
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Responses.EndpointResponse | patch(PatchRequest request) |
+
+## PatchRequest
+public static class PatchRequest<br>
+
+a class that stores the final request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| RequestBody.@Nullable SealedRequestBody | requestBody |
+| RootServerInfo.@Nullable ServerIndex | serverIndex |
+

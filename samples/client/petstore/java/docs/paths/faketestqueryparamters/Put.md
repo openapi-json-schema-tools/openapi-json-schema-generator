@@ -22,6 +22,8 @@ public static class Put1 extends ApiClient.ApiClient1 implements PutOperation<br
 
 a class that allows one to call the endpoint using a method named put
 
+TODO code sample
+
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
@@ -31,3 +33,26 @@ a class that allows one to call the endpoint using a method named put
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Responses.EndpointResponse | put(PutRequest request) |
+
+## PutRequest
+public static class PutRequest<br>
+
+a class that stores the final request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| QueryParameters.QueryParametersMap | queryParameters |
+| RootServerInfo.@Nullable ServerIndex | serverIndex |
+
+## PutNullableRequest
+public static class PutNullableRequest<br>
+
+a class that stores the initial request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| QueryParameters.@Nullable QueryParametersMap | queryParameters |
+| RootServerInfo.@Nullable ServerIndex | serverIndex |
+

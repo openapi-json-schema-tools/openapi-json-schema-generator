@@ -22,6 +22,8 @@ public static class Get1 extends ApiClient.ApiClient1 implements GetOperation<br
 
 a class that allows one to call the endpoint using a method named get
 
+TODO code sample
+
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
@@ -31,3 +33,28 @@ a class that allows one to call the endpoint using a method named get
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Responses.EndpointResponse | get(GetRequest request) |
+
+## GetRequest
+public static class GetRequest<br>
+
+a class that stores the final request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| QueryParameters.QueryParametersMap | queryParameters |
+| PetfindbystatusServerInfo.@Nullable ServerIndex | serverIndex |
+| PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
+
+## GetNullableRequest
+public static class GetNullableRequest<br>
+
+a class that stores the initial request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| QueryParameters.@Nullable QueryParametersMap | queryParameters |
+| PetfindbystatusServerInfo.@Nullable ServerIndex | serverIndex |
+| PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
+

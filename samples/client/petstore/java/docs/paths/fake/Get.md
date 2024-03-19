@@ -20,6 +20,8 @@ public static class Get1 extends ApiClient.ApiClient1 implements GetOperation<br
 
 a class that allows one to call the endpoint using a method named get
 
+TODO code sample
+
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
@@ -29,3 +31,17 @@ a class that allows one to call the endpoint using a method named get
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Responses.EndpointResponse | get(GetRequest request) |
+
+## GetRequest
+public static class GetRequest<br>
+
+a class that stores the final request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| RequestBody.@Nullable SealedRequestBody | requestBody |
+| HeaderParameters.@Nullable HeaderParametersMap | headerParameters |
+| QueryParameters.@Nullable QueryParametersMap | queryParameters |
+| RootServerInfo.@Nullable ServerIndex | serverIndex |
+

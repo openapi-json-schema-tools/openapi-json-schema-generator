@@ -1,0 +1,25 @@
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "Request" "")) }}
+public static class {{jsonPathPiece.pascalCase}}Request<br>
+
+a class that stores the final request inputs
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+{{#each (reverse builders)}}
+    {{#or @first @last}}
+        {{#each keyToBuilder}}
+            {{#with property}}
+                {{#if containerJsonPathPiece}}
+| {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} | {{@key.camelCase}} |
+                {{else}}
+                    {{#if subpackage}}
+| {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} | {{@key.camelCase}} |
+                    {{else}}
+| {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} | {{@key.camelCase}} |
+                    {{/if}}
+                {{/if}}
+            {{/with}}
+        {{/each}}
+    {{/or}}
+{{/each}}

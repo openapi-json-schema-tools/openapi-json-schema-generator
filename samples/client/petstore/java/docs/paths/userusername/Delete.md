@@ -22,6 +22,8 @@ public static class Delete1 extends ApiClient.ApiClient1 implements DeleteOperat
 
 a class that allows one to call the endpoint using a method named delete
 
+TODO code sample
+
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
@@ -31,3 +33,26 @@ a class that allows one to call the endpoint using a method named delete
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Responses.EndpointResponse | delete(DeleteRequest request) |
+
+## DeleteRequest
+public static class DeleteRequest<br>
+
+a class that stores the final request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| PathParameters.PathParametersMap | pathParameters |
+| RootServerInfo.@Nullable ServerIndex | serverIndex |
+
+## DeleteNullableRequest
+public static class DeleteNullableRequest<br>
+
+a class that stores the initial request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| PathParameters.@Nullable PathParametersMap | pathParameters |
+| RootServerInfo.@Nullable ServerIndex | serverIndex |
+
