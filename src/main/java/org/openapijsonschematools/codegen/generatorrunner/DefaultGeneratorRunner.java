@@ -514,6 +514,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 if (operation.requestBody != null) {
                     String requestBodyJsonPath = operationJsonPath + "/requestBody";
                     generateRequestBody(files, operation.requestBody, requestBodyJsonPath, "../../../../");
+                    if (generateXParameterSchemaDocumentation) {
+                        generateRequestBodyDoc(files, operation.requestBody, requestBodyJsonPath, "../../../../");
+                    }
                 }
 
                 if (operation.servers != null) {
@@ -785,6 +788,18 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         return securitySchemes;
     }
 
+    private void generateRequestBodyDoc(List<File> files, CodegenRequestBody requestBody, String sourceJsonPath, String docRoot) {
+        // doc generation
+        Map<String, Object> templateData = new HashMap<>();
+        templateData.put("packageName", generator.packageName());
+        templateData.put("requestBody", requestBody);
+        templateData.put("headerSize", "#");
+        templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+        templateData.put("docRoot", docRoot);
+        // todo add flag to turn this off
+        generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, true);
+    }
+
     private TreeMap<String, CodegenRequestBody> generateRequestBodies(List<File> files) {
         String skipMsg = "Skipping generation of component requestBodies because the specification document lacks them.";
         Components components = this.openAPI.getComponents();
@@ -808,16 +823,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             requestBodies.put(componentName, requestBody);
 
             generateRequestBody(files, requestBody, sourceJsonPath, "../../");
-
-            // doc generation
-            Map<String, Object> templateData = new HashMap<>();
-            templateData.put("packageName", generator.packageName());
-            templateData.put("requestBody", requestBody);
-            templateData.put("headerSize", "#");
-            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("docRoot", "../../");
-            // todo add flag to turn this off
-            generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, true);
+            generateRequestBodyDoc(files, requestBody, sourceJsonPath, "../../");
         }
         // sort them
         requestBodies = new TreeMap<>(requestBodies);
