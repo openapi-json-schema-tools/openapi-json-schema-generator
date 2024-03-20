@@ -187,7 +187,7 @@ All URIs are relative to the selected server
 | ------------ | ------ | ----------- |
     {{#each paths}}
         {{#each operations}}
-| {{../@key.original}} **{{@key.original}}** | [{{jsonPathPiece.pascalCase}}1.{{jsonPathPiece.camelCase}}](docs/paths/{{../@key.snakeCase}}/{{@key.pascalCase}}.md#{{@key.kebabCase}}1) |{{#if summary}} {{summary.originalWithBr}}{{/if}} |
+| {{../@key.original}} **{{@key.original}}** | [{{jsonPathPiece.pascalCase}}1.{{jsonPathPiece.camelCase}}](docs/paths/{{../@key.kebabCase}}/{{@key.pascalCase}}.md#{{@key.kebabCase}}1) |{{#if summary}} {{summary.originalWithBr}}{{/if}} |
         {{/each}}
     {{/each}}
 {{/if}}
