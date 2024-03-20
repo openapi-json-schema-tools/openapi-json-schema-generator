@@ -204,12 +204,12 @@ public class {{jsonPathPiece.pascalCase}} {
             {{#each keyToBuilder}}
                 {{#with property}}
                     {{#if containerJsonPathPiece}}
-        public {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
+        public {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
                     {{else}}
                         {{#if subpackage}}
-        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
+        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
                         {{else}}
-        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
+        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
                         {{/if}}
                     {{/if}}
                 {{/with}}
@@ -224,12 +224,12 @@ public class {{jsonPathPiece.pascalCase}} {
                 {{#each keyToBuilder}}
                     {{#with property}}
                         {{#if containerJsonPathPiece}}
-        public {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}};
+        public {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}};
                         {{else}}
                             {{#if subpackage}}
-        public {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}};
+        public {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}};
                             {{else}}
-        public {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}};
+        public {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}};
                             {{/if}}
                         {{/if}}
                     {{/with}}
@@ -243,9 +243,9 @@ public class {{jsonPathPiece.pascalCase}} {
                 {{#each keyToBuilder}}
                     {{#with property}}
                         {{#if containerJsonPathPiece}}
-            {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}}{{#and ../../@last ../@last}}{{else}},{{/and}}
+            {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}}{{#and ../../@last ../@last}}{{else}},{{/and}}
                         {{else}}
-            {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName}} {{@key.camelCase}}{{#and ../../@last ../@last}}{{else}},{{/and}}
+            {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}}{{#and ../../@last ../@last}}{{else}},{{/and}}
                         {{/if}}
                     {{/with}}
                 {{/each}}
@@ -268,12 +268,12 @@ public class {{jsonPathPiece.pascalCase}} {
                 {{#each keyToBuilder}}
                     {{#with property}}
                         {{#if containerJsonPathPiece}}
-        public {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
+        public {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
                         {{else}}
                             {{#if subpackage}}
-        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
+        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
                             {{else}}
-        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName}} {{@key.camelCase}};
+        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
                             {{/if}}
                         {{/if}}
                     {{/with}}
@@ -289,7 +289,7 @@ public class {{jsonPathPiece.pascalCase}} {
     public interface SetterFor{{@key.pascalCase}} <T> {
         {{../../jsonPathPiece.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request getInstance();
         T getBuilderAfter{{@key.pascalCase}}({{../../jsonPathPiece.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request instance);
-        default T {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.{{operationInputClassName}}{{/with}} {{@key.camelCase}}) {
+        default T {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.{{operationInputClassName.pascalCase}}{{/with}} {{@key.camelCase}}) {
             var instance = getInstance();
             instance.{{@key.camelCase}} = {{@key.camelCase}};
             return getBuilderAfter{{@key.pascalCase}}(instance);

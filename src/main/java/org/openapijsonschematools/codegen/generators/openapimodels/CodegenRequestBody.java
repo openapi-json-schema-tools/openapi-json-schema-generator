@@ -22,7 +22,7 @@ public class CodegenRequestBody implements OperationInputProvider {
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
     public final String subpackage;
-    public final String operationInputClassName;
+    public final CodegenKey operationInputClassName;
     public final String operationInputVariableName;
 
     /*
@@ -68,7 +68,7 @@ public class CodegenRequestBody implements OperationInputProvider {
         return schemas;
     }
 
-    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage, String operationInputClassName, String operationInputVariableName) {
+    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage, CodegenKey operationInputClassName, String operationInputVariableName) {
         this.description = description;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
@@ -144,7 +144,7 @@ public class CodegenRequestBody implements OperationInputProvider {
     }
 
     @Override
-    public String operationInputClassName() {
+    public CodegenKey operationInputClassName() {
         return operationInputClassName;
     }
 

@@ -11,10 +11,10 @@ public class CodegenList <T> extends AbstractList<T> implements OperationInputPr
     public final CodegenKey jsonPathPiece;
     public final String subpackage;
     public final List<MapBuilder<T>> builders;
-    public final String operationInputClassName;
+    public final CodegenKey operationInputClassName;
     public final String operationInputVariableName;
 
-    public CodegenList(List<T> items, CodegenKey jsonPathPiece, String subpackage, List<MapBuilder<T>> builders, String operationInputClassName, String operationInputVariableName) {
+    public CodegenList(List<T> items, CodegenKey jsonPathPiece, String subpackage, List<MapBuilder<T>> builders, CodegenKey operationInputClassName, String operationInputVariableName) {
         this.items = items;
         this.jsonPathPiece = jsonPathPiece;
         this.subpackage = subpackage;
@@ -34,7 +34,7 @@ public class CodegenList <T> extends AbstractList<T> implements OperationInputPr
     }
 
     @Override
-    public String operationInputClassName() {
+    public CodegenKey operationInputClassName() {
         return operationInputClassName;
     }
 

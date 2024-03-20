@@ -3040,7 +3040,7 @@ public class DefaultGenerator implements Generator {
         CodegenKey jsonPathPiece = getKey("", "security", jsonPath);
         String subpackage = getSubpackage(jsonPath);
         List<MapBuilder<CodegenSecurityRequirementObject>> builders = getSecurityBuilders(items, jsonPath);
-        String operationInputClass = "SecurityIndex";
+        CodegenKey operationInputClass = getKey("SecurityIndex", "misc", jsonPath);
         String operationInputVariableName = "securityIndex";
         return new CodegenList<>(
             items,
@@ -4860,7 +4860,7 @@ public class DefaultGenerator implements Generator {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
 
         String subpackage = getSubpackage(sourceJsonPath);
-        String operationInputClass = "SealedRequestBody";
+        CodegenKey operationInputClass = getKey("SealedRequestBody", "misc", sourceJsonPath);
         String operationInputVariableName = "requestBody";
         codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo, subpackage, operationInputClass, operationInputVariableName);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
@@ -5250,7 +5250,7 @@ public class DefaultGenerator implements Generator {
         }
         CodegenKey jsonPathPiece = getKey("servers", "servers", jsonPath);
         String serversSubpackage = getSubpackage(jsonPath);
-        String operationInputClass = "ServerIndex";
+        CodegenKey operationInputClass = getKey("ServerIndex", "misc", jsonPath);
         String operationInputVariableName = "serverIndex";
         return new CodegenList<>(
             codegenServers,

@@ -1022,8 +1022,8 @@ public class CodegenSchema implements OperationInputProvider {
     }
 
     @Override
-    public String operationInputClassName() {
-        return mapOutputJsonPathPiece.pascalCase;
+    public CodegenKey operationInputClassName() {
+        return mapOutputJsonPathPiece;
     }
 
     @Override

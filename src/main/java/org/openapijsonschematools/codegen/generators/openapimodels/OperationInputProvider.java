@@ -1,6 +1,6 @@
 package org.openapijsonschematools.codegen.generators.openapimodels;
 
 public interface OperationInputProvider {
-    String operationInputClassName();
+    CodegenKey operationInputClassName();
     String operationInputVariableName();
 }
