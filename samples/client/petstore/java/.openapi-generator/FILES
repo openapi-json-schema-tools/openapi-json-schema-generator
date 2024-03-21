@@ -1,4 +1,5 @@
 README.md
+docs/RootServerInfo.md
 docs/components/headers/Int32JsonContentTypeHeader.md
 docs/components/headers/NumberHeader.md
 docs/components/headers/RefContentSchemaHeader.md
@@ -401,12 +402,14 @@ docs/paths/fakewildcardresponses/get/responses/code3xxresponse/content/applicati
 docs/paths/fakewildcardresponses/get/responses/code4xxresponse/content/applicationjson/ApplicationjsonSchema.md
 docs/paths/fakewildcardresponses/get/responses/code5xxresponse/content/applicationjson/ApplicationjsonSchema.md
 docs/paths/foo/Get.md
+docs/paths/foo/get/FooGetServerInfo.md
 docs/paths/foo/get/responses/codedefaultresponse/content/applicationjson/ApplicationjsonSchema.md
 docs/paths/pet/Post.md
 docs/paths/pet/Put.md
 docs/paths/pet/post/RequestBody.md
 docs/paths/pet/put/RequestBody.md
 docs/paths/petfindbystatus/Get.md
+docs/paths/petfindbystatus/PetfindbystatusServerInfo.md
 docs/paths/petfindbystatus/get/QueryParameters.md
 docs/paths/petfindbystatus/get/parameters/parameter0/Schema0.md
 docs/paths/petfindbytags/Get.md

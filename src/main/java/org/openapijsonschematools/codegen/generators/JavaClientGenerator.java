@@ -3079,6 +3079,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     }}
             );
             jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/servers/ServerInfoDoc.hbs", ".md");
+                }}
+            );
+            jsonPathDocTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
                     new HashMap<>() {{
                         put("src/main/java/packagename/servers/ServerDoc.hbs", ".md");

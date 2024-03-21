@@ -1443,7 +1443,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         Map<String, Object> serversTemplateData = new HashMap<>();
         serversTemplateData.put("packageName", generator.packageName());
         serversTemplateData.put("servers", servers);
+        serversTemplateData.put("headerSize", "#");
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, serversTemplateData, true);
+        generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, serversTemplateData, true);
 
         int i = 0;
         for (CodegenServer server: servers) {
