@@ -40,8 +40,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| FakemultiplesecuritiesGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [FakemultiplesecuritiesGetSecurityInfo.@Nullable SecurityIndex](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetSecurityInfo.md#securityindex) | securityIndex |
 
 ## GetRequestBuilder
 public static class GetRequestBuilder<br>
@@ -57,7 +57,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [GetRequestBuilder](#getrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
-| [GetRequestBuilder](#getrequestbuilder) | securityIndex(FakemultiplesecuritiesGetSecurityInfo.SecurityIndex securityIndex)<br>sets the property |
+| [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [GetRequestBuilder](#getrequestbuilder) | securityIndex([FakemultiplesecuritiesGetSecurityInfo.SecurityIndex](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

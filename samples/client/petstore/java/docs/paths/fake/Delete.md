@@ -46,8 +46,8 @@ a class that stores the final request inputs
 | ----------------- | --------------------- |
 | [HeaderParameters.HeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
 | [QueryParameters.QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) | queryParameters |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| FakeDeleteSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [FakeDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) | securityIndex |
 
 ## DeleteNullableRequest
 public static class DeleteNullableRequest<br>
@@ -59,8 +59,8 @@ a class that stores the initial request inputs
 | ----------------- | --------------------- |
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) | queryParameters |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| FakeDeleteSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [FakeDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) | securityIndex |
 
 ## Delete00RequestBuilder
 public static class Delete00RequestBuilder<br>
@@ -76,8 +76,8 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Delete00RequestBuilder](#delete00requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
-| [Delete00RequestBuilder](#delete00requestbuilder) | securityIndex(FakeDeleteSecurityInfo.SecurityIndex securityIndex)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | securityIndex([FakeDeleteSecurityInfo.SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
 
 ## Delete01RequestBuilder
 public static class Delete01RequestBuilder<br>

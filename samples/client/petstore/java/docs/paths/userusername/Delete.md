@@ -43,7 +43,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/userusername/delete/PathParameters.md#pathparametersmap) | pathParameters |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 
 ## DeleteNullableRequest
 public static class DeleteNullableRequest<br>
@@ -54,7 +54,7 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.@Nullable PathParametersMap](../../paths/userusername/delete/PathParameters.md#pathparametersmap) | pathParameters |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 
 ## Delete0RequestBuilder
 public static class Delete0RequestBuilder<br>
@@ -70,7 +70,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
 
 ## DeleteRequestBuilder
 public static class DeleteRequestBuilder<br>

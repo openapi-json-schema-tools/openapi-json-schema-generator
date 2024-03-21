@@ -24,6 +24,7 @@ public class CodegenRequestBody implements OperationInputProvider {
     public final String subpackage;
     public final CodegenKey operationInputClassName;
     public final String operationInputVariableName;
+    public final String pathFromDocRoot;
 
     /*
     A method that returns all content schemas
@@ -68,7 +69,7 @@ public class CodegenRequestBody implements OperationInputProvider {
         return schemas;
     }
 
-    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage, CodegenKey operationInputClassName, String operationInputVariableName) {
+    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage, CodegenKey operationInputClassName, String operationInputVariableName, String pathFromDocRoot) {
         this.description = description;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
@@ -80,6 +81,7 @@ public class CodegenRequestBody implements OperationInputProvider {
         this.subpackage = subpackage;
         this.operationInputClassName = operationInputClassName;
         this.operationInputVariableName = operationInputVariableName;
+        this.pathFromDocRoot = pathFromDocRoot;
     }
 
     public CodegenRequestBody getSelfOrDeepestRef() {
@@ -151,6 +153,11 @@ public class CodegenRequestBody implements OperationInputProvider {
     @Override
     public String operationInputVariableName() {
         return operationInputVariableName;
+    }
+
+    @Override
+    public String pathFromDocRoot() {
+        return pathFromDocRoot;
     }
 }
 

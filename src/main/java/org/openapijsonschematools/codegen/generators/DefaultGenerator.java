@@ -3042,18 +3042,25 @@ public class DefaultGenerator implements Generator {
         List<MapBuilder<CodegenSecurityRequirementObject>> builders = getSecurityBuilders(items, jsonPath);
         CodegenKey operationInputClass = getKey("SecurityIndex", "misc", jsonPath);
         String operationInputVariableName = "securityIndex";
+        String pathFromDocRoot = getPathFromDocRoot(jsonPath);
         return new CodegenList<>(
             items,
             jsonPathPiece,
             subpackage,
             builders,
             operationInputClass,
-            operationInputVariableName
+            operationInputVariableName,
+            pathFromDocRoot
         );
     }
 
     protected List<MapBuilder<CodegenSecurityRequirementObject>> getSecurityBuilders(List<CodegenSecurityRequirementObject> items, String jsonPath) {
         return null;
+    }
+
+    private String getPathFromDocRoot(String sourceJsonPath) {
+        String moduleLocation = getModuleLocation(sourceJsonPath);
+        return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
     }
 
     private String responsePathFromDocRoot(String sourceJsonPath) {
@@ -4862,7 +4869,8 @@ public class DefaultGenerator implements Generator {
         String subpackage = getSubpackage(sourceJsonPath);
         CodegenKey operationInputClass = getKey("SealedRequestBody", "misc", sourceJsonPath);
         String operationInputVariableName = "requestBody";
-        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo, subpackage, operationInputClass, operationInputVariableName);
+        String pathFromDocRoot = getPathFromDocRoot(sourceJsonPath);
+        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo, subpackage, operationInputClass, operationInputVariableName, pathFromDocRoot);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }
@@ -5252,13 +5260,15 @@ public class DefaultGenerator implements Generator {
         String serversSubpackage = getSubpackage(jsonPath);
         CodegenKey operationInputClass = getKey("ServerIndex", "misc", jsonPath);
         String operationInputVariableName = "serverIndex";
+        String pathFromDocRoot = getPathFromDocRoot(jsonPath);
         return new CodegenList<>(
             codegenServers,
             jsonPathPiece,
             serversSubpackage,
             null,
             operationInputClass,
-            operationInputVariableName
+            operationInputVariableName,
+            pathFromDocRoot
         );
     }
 

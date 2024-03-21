@@ -41,7 +41,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fakerefobjinquery/get/QueryParameters.md#queryparametersmap) | queryParameters |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 
 ## GetRequestBuilder
 public static class GetRequestBuilder<br>
@@ -58,6 +58,6 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakerefobjinquery/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
-| [GetRequestBuilder](#getrequestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+| [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

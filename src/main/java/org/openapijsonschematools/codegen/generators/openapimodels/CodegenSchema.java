@@ -1030,4 +1030,9 @@ public class CodegenSchema implements OperationInputProvider {
     public String operationInputVariableName() {
         return containerJsonPathPiece.camelCase;
     }
+
+    @Override
+    public String pathFromDocRoot() {
+        return pathFromDocRoot;
+    }
 }

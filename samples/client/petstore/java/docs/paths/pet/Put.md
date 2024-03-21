@@ -42,9 +42,9 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| RequestBody.SealedRequestBody | requestBody |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| PetPutSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RequestBody.SealedRequestBody](../../paths/pet/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [PetPutSecurityInfo.@Nullable SecurityIndex](../../paths/pet/put/PetPutSecurityInfo.md#securityindex) | securityIndex |
 
 ## PutNullableRequest
 public static class PutNullableRequest<br>
@@ -54,9 +54,9 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| RequestBody.@Nullable SealedRequestBody | requestBody |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| PetPutSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/pet/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [PetPutSecurityInfo.@Nullable SecurityIndex](../../paths/pet/put/PetPutSecurityInfo.md#securityindex) | securityIndex |
 
 ## Put0RequestBuilder
 public static class Put0RequestBuilder<br>
@@ -72,8 +72,8 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Put0RequestBuilder](#put0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
-| [Put0RequestBuilder](#put0requestbuilder) | securityIndex(PetPutSecurityInfo.SecurityIndex securityIndex)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | securityIndex([PetPutSecurityInfo.SecurityIndex](../../paths/pet/put/PetPutSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
 
 ## PutRequestBuilder
 public static class PutRequestBuilder<br>
@@ -88,6 +88,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put0RequestBuilder](#put0requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/pet/put/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

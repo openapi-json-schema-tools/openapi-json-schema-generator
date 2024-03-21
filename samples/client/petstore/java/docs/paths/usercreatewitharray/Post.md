@@ -42,8 +42,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| RequestBody.SealedRequestBody | requestBody |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
+| [RequestBody.SealedRequestBody](../../paths/usercreatewitharray/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 
 ## PostNullableRequest
 public static class PostNullableRequest<br>
@@ -53,8 +53,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| RequestBody.@Nullable SealedRequestBody | requestBody |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/usercreatewitharray/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 
 ## Post0RequestBuilder
 public static class Post0RequestBuilder<br>
@@ -70,7 +70,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Post0RequestBuilder](#post0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>
@@ -85,6 +85,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/usercreatewitharray/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

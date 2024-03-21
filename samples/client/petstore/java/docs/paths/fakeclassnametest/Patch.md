@@ -42,9 +42,9 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| RequestBody.SealedRequestBody | requestBody |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RequestBody.SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) | securityIndex |
 
 ## PatchNullableRequest
 public static class PatchNullableRequest<br>
@@ -54,9 +54,9 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| RequestBody.@Nullable SealedRequestBody | requestBody |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) | securityIndex |
 
 ## Patch0RequestBuilder
 public static class Patch0RequestBuilder<br>
@@ -72,8 +72,8 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
-| [Patch0RequestBuilder](#patch0requestbuilder) | securityIndex(FakeclassnametestPatchSecurityInfo.SecurityIndex securityIndex)<br>sets the property |
+| [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [Patch0RequestBuilder](#patch0requestbuilder) | securityIndex([FakeclassnametestPatchSecurityInfo.SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
 
 ## PatchRequestBuilder
 public static class PatchRequestBuilder<br>
@@ -88,6 +88,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Patch0RequestBuilder](#patch0requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
+| [Patch0RequestBuilder](#patch0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

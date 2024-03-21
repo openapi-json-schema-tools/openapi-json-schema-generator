@@ -43,8 +43,8 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/petpetid/get/PathParameters.md#pathparametersmap) | pathParameters |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| PetpetidGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [PetpetidGetSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/get/PetpetidGetSecurityInfo.md#securityindex) | securityIndex |
 
 ## GetNullableRequest
 public static class GetNullableRequest<br>
@@ -55,8 +55,8 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.@Nullable PathParametersMap](../../paths/petpetid/get/PathParameters.md#pathparametersmap) | pathParameters |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| PetpetidGetSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [PetpetidGetSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/get/PetpetidGetSecurityInfo.md#securityindex) | securityIndex |
 
 ## Get0RequestBuilder
 public static class Get0RequestBuilder<br>
@@ -72,8 +72,8 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Get0RequestBuilder](#get0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
-| [Get0RequestBuilder](#get0requestbuilder) | securityIndex(PetpetidGetSecurityInfo.SecurityIndex securityIndex)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | securityIndex([PetpetidGetSecurityInfo.SecurityIndex](../../paths/petpetid/get/PetpetidGetSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
 
 ## GetRequestBuilder
 public static class GetRequestBuilder<br>

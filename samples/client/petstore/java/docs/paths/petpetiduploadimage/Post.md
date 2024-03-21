@@ -43,9 +43,9 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/petpetiduploadimage/post/PathParameters.md#pathparametersmap) | pathParameters |
-| RequestBody.@Nullable SealedRequestBody | requestBody |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex |
 
 ## PostNullableRequest
 public static class PostNullableRequest<br>
@@ -56,9 +56,9 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.@Nullable PathParametersMap](../../paths/petpetiduploadimage/post/PathParameters.md#pathparametersmap) | pathParameters |
-| RequestBody.@Nullable SealedRequestBody | requestBody |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex |
 
 ## Post0RequestBuilder
 public static class Post0RequestBuilder<br>
@@ -74,9 +74,9 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Post0RequestBuilder](#post0requestbuilder) | requestBody(RequestBody.SealedRequestBody requestBody)<br>sets the property |
-| [Post0RequestBuilder](#post0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
-| [Post0RequestBuilder](#post0requestbuilder) | securityIndex(PetpetiduploadimagePostSecurityInfo.SecurityIndex securityIndex)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/petpetiduploadimage/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | securityIndex([PetpetiduploadimagePostSecurityInfo.SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>

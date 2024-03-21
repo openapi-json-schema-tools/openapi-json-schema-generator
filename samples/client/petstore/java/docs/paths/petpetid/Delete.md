@@ -44,8 +44,8 @@ a class that stores the final request inputs
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/petpetid/delete/PathParameters.md#pathparametersmap) | pathParameters |
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| PetpetidDeleteSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [PetpetidDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) | securityIndex |
 
 ## DeleteNullableRequest
 public static class DeleteNullableRequest<br>
@@ -57,8 +57,8 @@ a class that stores the initial request inputs
 | ----------------- | --------------------- |
 | [PathParameters.@Nullable PathParametersMap](../../paths/petpetid/delete/PathParameters.md#pathparametersmap) | pathParameters |
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
-| RootServerInfo.@Nullable ServerIndex | serverIndex |
-| PetpetidDeleteSecurityInfo.@Nullable SecurityIndex | securityIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [PetpetidDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) | securityIndex |
 
 ## Delete0RequestBuilder
 public static class Delete0RequestBuilder<br>
@@ -75,8 +75,8 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
-| [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex(RootServerInfo.ServerIndex serverIndex)<br>sets the property |
-| [Delete0RequestBuilder](#delete0requestbuilder) | securityIndex(PetpetidDeleteSecurityInfo.SecurityIndex securityIndex)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | securityIndex([PetpetidDeleteSecurityInfo.SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
 
 ## DeleteRequestBuilder
 public static class DeleteRequestBuilder<br>
