@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.paths.storeinventory;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetSecurityInfo;
+import org.openapijsonschematools.client.paths.storeinventory.Get;
 import org.openapijsonschematools.client.paths.storeinventory.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -14,6 +15,7 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -73,6 +75,7 @@ public class Get {
     public static class GetRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public StoreinventoryGetSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -95,7 +98,17 @@ public class Get {
         }
     }
 
-    public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForSecurityIndex<GetRequestBuilder> {
+    public interface SetterForTimeout <T> {
+        GetRequest getInstance();
+        T getBuilderAfterTimeout(GetRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
+    public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForSecurityIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
         private final GetRequest instance;
 
         public GetRequestBuilder() {
@@ -115,6 +128,10 @@ public class Get {
         }
 
         public GetRequestBuilder getBuilderAfterSecurityIndex(GetRequest instance) {
+            return this;
+        }
+
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.paths.fake.get.RequestBody;
 import org.openapijsonschematools.client.paths.fake.get.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.get.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fake.Get;
 import org.openapijsonschematools.client.paths.fake.get.Parameters;
 import org.openapijsonschematools.client.paths.fake.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -93,6 +95,7 @@ public class Get {
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
@@ -108,7 +111,7 @@ public class Get {
     public interface SetterForHeaderParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterHeaderParameters(GetRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
+        default T headerParameters(HeaderParametersHeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -118,7 +121,7 @@ public class Get {
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterQueryParameters(GetRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -135,7 +138,17 @@ public class Get {
         }
     }
 
-    public static class GetRequestBuilder implements SetterForRequestBody<GetRequestBuilder>, SetterForHeaderParameters<GetRequestBuilder>, SetterForQueryParameters<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder> {
+    public interface SetterForTimeout <T> {
+        GetRequest getInstance();
+        T getBuilderAfterTimeout(GetRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
+    public static class GetRequestBuilder implements SetterForRequestBody<GetRequestBuilder>, SetterForHeaderParameters<GetRequestBuilder>, SetterForQueryParameters<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
         private final GetRequest instance;
 
         public GetRequestBuilder() {
@@ -163,6 +176,10 @@ public class Get {
         }
 
         public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
+            return this;
+        }
+
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

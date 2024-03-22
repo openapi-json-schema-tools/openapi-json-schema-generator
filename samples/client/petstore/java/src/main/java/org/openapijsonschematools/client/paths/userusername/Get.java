@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.paths.userusername;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.userusername.Get;
 import org.openapijsonschematools.client.paths.userusername.get.PathParameters;
 import org.openapijsonschematools.client.paths.userusername.get.Parameters;
 import org.openapijsonschematools.client.paths.userusername.get.Responses;
@@ -14,6 +15,7 @@ import org.openapijsonschematools.client.paths.Userusername;
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -67,19 +69,23 @@ public class Get {
     public static class GetRequest {
         public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
 
         public GetRequest(
             PathParameters.PathParametersMap pathParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            @Nullable Duration timeout
         ) {
             this.pathParameters = pathParameters;
             this.serverIndex = serverIndex;
+            this.timeout = timeout;
         }
     }
 
     public static class GetNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -92,17 +98,27 @@ public class Get {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        GetNullableRequest getInstance();
+        T getBuilderAfterTimeout(GetNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(GetNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(PathParametersPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
         }
     }
 
-    public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder> {
+    public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
         private final GetNullableRequest instance;
 
         public Get0RequestBuilder(GetNullableRequest instance) {
@@ -116,7 +132,8 @@ public class Get {
             }
             return new GetRequest(
                 pathParameters,
-                instance.serverIndex
+                instance.serverIndex,
+                instance.timeout
             );
         }
 
@@ -125,6 +142,10 @@ public class Get {
         }
 
         public Get0RequestBuilder getBuilderAfterServerIndex(GetNullableRequest instance) {
+            return this;
+        }
+
+        public Get0RequestBuilder getBuilderAfterTimeout(GetNullableRequest instance) {
             return this;
         }
     }

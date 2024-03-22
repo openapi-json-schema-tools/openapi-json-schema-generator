@@ -44,6 +44,7 @@ a class that stores the final request inputs
 | ----------------- | --------------------- |
 | [QueryParameters.QueryParametersMap](../../paths/faketestqueryparamters/put/QueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PutNullableRequest
 public static class PutNullableRequest<br>
@@ -55,6 +56,7 @@ a class that stores the initial request inputs
 | ----------------- | --------------------- |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/faketestqueryparamters/put/QueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| @Nullable Duration | timeout |
 
 ## Put0RequestBuilder
 public static class Put0RequestBuilder<br>
@@ -71,6 +73,7 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put0RequestBuilder](#put0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Put0RequestBuilder](#put0requestbuilder) | timeout([Put.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PutRequestBuilder
 public static class PutRequestBuilder<br>

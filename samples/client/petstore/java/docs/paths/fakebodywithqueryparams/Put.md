@@ -47,6 +47,7 @@ a class that stores the final request inputs
 | [RequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/RequestBody.md#sealedrequestbody) | requestBody |
 | [QueryParameters.QueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PutNullableRequest
 public static class PutNullableRequest<br>
@@ -59,6 +60,7 @@ a class that stores the initial request inputs
 | [RequestBody.@Nullable SealedRequestBody](../../paths/fakebodywithqueryparams/put/RequestBody.md#sealedrequestbody) | requestBody |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| @Nullable Duration | timeout |
 
 ## Put00RequestBuilder
 public static class Put00RequestBuilder<br>
@@ -75,6 +77,7 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put00RequestBuilder](#put00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Put00RequestBuilder](#put00requestbuilder) | timeout([Put.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## Put01RequestBuilder
 public static class Put01RequestBuilder<br>

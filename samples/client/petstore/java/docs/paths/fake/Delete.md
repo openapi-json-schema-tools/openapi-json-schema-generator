@@ -48,6 +48,7 @@ a class that stores the final request inputs
 | [QueryParameters.QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [FakeDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## DeleteNullableRequest
 public static class DeleteNullableRequest<br>
@@ -61,6 +62,7 @@ a class that stores the initial request inputs
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [FakeDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) | securityIndex |
+| @Nullable Duration | timeout |
 
 ## Delete00RequestBuilder
 public static class Delete00RequestBuilder<br>
@@ -78,6 +80,7 @@ a builder for request inputs
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Delete00RequestBuilder](#delete00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete00RequestBuilder](#delete00requestbuilder) | securityIndex([FakeDeleteSecurityInfo.SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Delete00RequestBuilder](#delete00requestbuilder) | timeout([Delete.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## Delete01RequestBuilder
 public static class Delete01RequestBuilder<br>

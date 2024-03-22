@@ -13,10 +13,10 @@ a class that stores the final request inputs
                 {{#if containerJsonPathPiece}}
 | [{{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}} |
                 {{else}}
-                    {{#if subpackage}}
+                    {{#if this.jsonPathPiece}}
 | [{{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}}{{#or (eq @key.camelCase "securityIndex") (eq @key.camelCase "serverIndex")}}. Note: this will override the value in apiConfiguration{{/or}} |
                     {{else}}
-| [{{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}}{{#or (eq @key.camelCase "securityIndex") (eq @key.camelCase "serverIndex")}}. Note: this will override the value in apiConfiguration{{/or}} |
+| {{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}}{{#eq @key.camelCase "timeout"}}. Note: this will override the value in apiConfiguration{{/eq}} |
                     {{/if}}
                 {{/if}}
             {{/with}}

@@ -54,6 +54,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
+import org.openapijsonschematools.codegen.generators.openapimodels.OperationInput;
 import org.openapijsonschematools.codegen.generators.openapimodels.OperationInputProvider;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
@@ -2529,6 +2530,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (security != null) {
             optionalProperties.add(security);
         }
+        OperationInput timeout = new OperationInput(
+            getKey("Duration", "misc"),
+            "timeout",
+            null
+        );
+        optionalProperties.add(timeout);
 
         Map<String, MapBuilder<Object>> bitStrToBuilder = new HashMap<>();
         MapBuilder<Object> lastBuilder = null;

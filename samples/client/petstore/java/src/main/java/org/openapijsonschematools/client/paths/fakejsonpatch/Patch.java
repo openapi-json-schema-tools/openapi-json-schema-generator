@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.paths.fakejsonpatch;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fakejsonpatch.Patch;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -75,6 +77,7 @@ public class Patch {
     public static class PatchRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
@@ -97,7 +100,17 @@ public class Patch {
         }
     }
 
-    public static class PatchRequestBuilder implements SetterForRequestBody<PatchRequestBuilder>, SetterForServerIndex<PatchRequestBuilder> {
+    public interface SetterForTimeout <T> {
+        PatchRequest getInstance();
+        T getBuilderAfterTimeout(PatchRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
+    public static class PatchRequestBuilder implements SetterForRequestBody<PatchRequestBuilder>, SetterForServerIndex<PatchRequestBuilder>, SetterForTimeout<PatchRequestBuilder> {
         private final PatchRequest instance;
 
         public PatchRequestBuilder() {
@@ -117,6 +130,10 @@ public class Patch {
         }
 
         public PatchRequestBuilder getBuilderAfterServerIndex(PatchRequest instance) {
+            return this;
+        }
+
+        public PatchRequestBuilder getBuilderAfterTimeout(PatchRequest instance) {
             return this;
         }
     }

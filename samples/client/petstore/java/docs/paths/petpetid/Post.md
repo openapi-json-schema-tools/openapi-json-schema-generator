@@ -46,6 +46,7 @@ a class that stores the final request inputs
 | [RequestBody.@Nullable SealedRequestBody](../../paths/petpetid/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetidPostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/post/PetpetidPostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PostNullableRequest
 public static class PostNullableRequest<br>
@@ -59,6 +60,7 @@ a class that stores the initial request inputs
 | [RequestBody.@Nullable SealedRequestBody](../../paths/petpetid/post/RequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetpetidPostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/post/PetpetidPostSecurityInfo.md#securityindex) | securityIndex |
+| @Nullable Duration | timeout |
 
 ## Post0RequestBuilder
 public static class Post0RequestBuilder<br>
@@ -77,6 +79,7 @@ a builder for request inputs
 | [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/petpetid/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | securityIndex([PetpetidPostSecurityInfo.SecurityIndex](../../paths/petpetid/post/PetpetidPostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Post0RequestBuilder](#post0requestbuilder) | timeout([Post.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>

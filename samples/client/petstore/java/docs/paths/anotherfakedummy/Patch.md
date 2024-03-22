@@ -44,6 +44,7 @@ a class that stores the final request inputs
 | ----------------- | --------------------- |
 | [RequestBody.SealedRequestBody](../../paths/anotherfakedummy/patch/RequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PatchNullableRequest
 public static class PatchNullableRequest<br>
@@ -55,6 +56,7 @@ a class that stores the initial request inputs
 | ----------------- | --------------------- |
 | [RequestBody.@Nullable SealedRequestBody](../../paths/anotherfakedummy/patch/RequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| @Nullable Duration | timeout |
 
 ## Patch0RequestBuilder
 public static class Patch0RequestBuilder<br>
@@ -71,6 +73,7 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Patch0RequestBuilder](#patch0requestbuilder) | timeout([Patch.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PatchRequestBuilder
 public static class PatchRequestBuilder<br>

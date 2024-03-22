@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostSecurityInfo;
+import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.Post;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.PathParameters;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.Parameters;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.Responses;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -93,17 +95,20 @@ public class Post {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
 
         public PostRequest(
             PathParameters.PathParametersMap pathParameters,
             RequestBody.@Nullable SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
-            FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex
+            FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex,
+            @Nullable Duration timeout
         ) {
             this.pathParameters = pathParameters;
             this.requestBody = requestBody;
             this.serverIndex = serverIndex;
             this.securityIndex = securityIndex;
+            this.timeout = timeout;
         }
     }
 
@@ -112,6 +117,7 @@ public class Post {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
@@ -144,17 +150,27 @@ public class Post {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        PostNullableRequest getInstance();
+        T getBuilderAfterTimeout(PostNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(PathParametersPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
         }
     }
 
-    public static class Post0RequestBuilder implements SetterForRequestBody<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder>, SetterForSecurityIndex<Post0RequestBuilder> {
+    public static class Post0RequestBuilder implements SetterForRequestBody<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder>, SetterForSecurityIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
         private final PostNullableRequest instance;
 
         public Post0RequestBuilder(PostNullableRequest instance) {
@@ -170,7 +186,8 @@ public class Post {
                 pathParameters,
                 instance.requestBody,
                 instance.serverIndex,
-                instance.securityIndex
+                instance.securityIndex,
+                instance.timeout
             );
         }
 
@@ -187,6 +204,10 @@ public class Post {
         }
 
         public Post0RequestBuilder getBuilderAfterSecurityIndex(PostNullableRequest instance) {
+            return this;
+        }
+
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }

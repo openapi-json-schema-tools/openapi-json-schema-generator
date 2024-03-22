@@ -48,6 +48,7 @@ a class that stores the final request inputs
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
 | [CookieParameters.@Nullable CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) | cookieParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PostNullableRequest
 public static class PostNullableRequest<br>
@@ -63,6 +64,7 @@ a class that stores the initial request inputs
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) | queryParameters |
 | [CookieParameters.@Nullable CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) | cookieParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| @Nullable Duration | timeout |
 
 ## Post0RequestBuilder
 public static class Post0RequestBuilder<br>
@@ -83,6 +85,7 @@ a builder for request inputs
 | [Post0RequestBuilder](#post0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([CookieParameters.CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) cookieParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Post0RequestBuilder](#post0requestbuilder) | timeout([Post.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>

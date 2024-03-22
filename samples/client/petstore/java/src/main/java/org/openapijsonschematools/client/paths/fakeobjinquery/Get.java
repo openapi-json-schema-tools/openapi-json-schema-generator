@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.paths.fakeobjinquery;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fakeobjinquery.Get;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.Parameters;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -14,6 +15,7 @@ import org.openapijsonschematools.client.paths.Fakeobjinquery;
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -71,12 +73,13 @@ public class Get {
     public static class GetRequest {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterQueryParameters(GetRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -93,7 +96,17 @@ public class Get {
         }
     }
 
-    public static class GetRequestBuilder implements SetterForQueryParameters<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder> {
+    public interface SetterForTimeout <T> {
+        GetRequest getInstance();
+        T getBuilderAfterTimeout(GetRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
+    public static class GetRequestBuilder implements SetterForQueryParameters<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
         private final GetRequest instance;
 
         public GetRequestBuilder() {
@@ -113,6 +126,10 @@ public class Get {
         }
 
         public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
+            return this;
+        }
+
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.paths.userlogin;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.userlogin.Get;
 import org.openapijsonschematools.client.paths.userlogin.get.QueryParameters;
 import org.openapijsonschematools.client.paths.userlogin.get.Parameters;
 import org.openapijsonschematools.client.paths.userlogin.get.Responses;
@@ -14,6 +15,7 @@ import org.openapijsonschematools.client.paths.Userlogin;
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -68,19 +70,23 @@ public class Get {
     public static class GetRequest {
         public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
 
         public GetRequest(
             QueryParameters.QueryParametersMap queryParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            @Nullable Duration timeout
         ) {
             this.queryParameters = queryParameters;
             this.serverIndex = serverIndex;
+            this.timeout = timeout;
         }
     }
 
     public static class GetNullableRequest {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -93,17 +99,27 @@ public class Get {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        GetNullableRequest getInstance();
+        T getBuilderAfterTimeout(GetNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
         }
     }
 
-    public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder> {
+    public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
         private final GetNullableRequest instance;
 
         public Get0RequestBuilder(GetNullableRequest instance) {
@@ -117,7 +133,8 @@ public class Get {
             }
             return new GetRequest(
                 queryParameters,
-                instance.serverIndex
+                instance.serverIndex,
+                instance.timeout
             );
         }
 
@@ -126,6 +143,10 @@ public class Get {
         }
 
         public Get0RequestBuilder getBuilderAfterServerIndex(GetNullableRequest instance) {
+            return this;
+        }
+
+        public Get0RequestBuilder getBuilderAfterTimeout(GetNullableRequest instance) {
             return this;
         }
     }

@@ -45,6 +45,7 @@ a class that stores the final request inputs
 | [PathParameters.PathParametersMap](../../paths/commonparamsubdir/get/PathParameters.md#pathparametersmap) | pathParameters |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/commonparamsubdir/get/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## GetNullableRequest
 public static class GetNullableRequest<br>
@@ -57,6 +58,7 @@ a class that stores the initial request inputs
 | [PathParameters.@Nullable PathParametersMap](../../paths/commonparamsubdir/get/PathParameters.md#pathparametersmap) | pathParameters |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/commonparamsubdir/get/QueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| @Nullable Duration | timeout |
 
 ## Get0RequestBuilder
 public static class Get0RequestBuilder<br>
@@ -74,6 +76,7 @@ a builder for request inputs
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Get0RequestBuilder](#get0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/commonparamsubdir/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [Get0RequestBuilder](#get0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Get0RequestBuilder](#get0requestbuilder) | timeout([Get.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## GetRequestBuilder
 public static class GetRequestBuilder<br>

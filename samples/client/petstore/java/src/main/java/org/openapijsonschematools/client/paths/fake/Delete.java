@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.paths.fake;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
+import org.openapijsonschematools.client.paths.fake.Delete;
 import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
 import org.openapijsonschematools.client.paths.fake.delete.Parameters;
@@ -17,6 +18,7 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -86,17 +88,20 @@ public class Delete {
         public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
 
         public DeleteRequest(
             HeaderParameters.HeaderParametersMap headerParameters,
             QueryParameters.QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
-            FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex
+            FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex,
+            @Nullable Duration timeout
         ) {
             this.headerParameters = headerParameters;
             this.queryParameters = queryParameters;
             this.serverIndex = serverIndex;
             this.securityIndex = securityIndex;
+            this.timeout = timeout;
         }
     }
 
@@ -105,6 +110,7 @@ public class Delete {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -127,10 +133,20 @@ public class Delete {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        DeleteNullableRequest getInstance();
+        T getBuilderAfterTimeout(DeleteNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
+        default T headerParameters(HeaderParametersHeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -140,14 +156,14 @@ public class Delete {
     public interface SetterForQueryParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterQueryParameters(DeleteNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
         }
     }
 
-    public static class Delete00RequestBuilder implements SetterForServerIndex<Delete00RequestBuilder>, SetterForSecurityIndex<Delete00RequestBuilder> {
+    public static class Delete00RequestBuilder implements SetterForServerIndex<Delete00RequestBuilder>, SetterForSecurityIndex<Delete00RequestBuilder>, SetterForTimeout<Delete00RequestBuilder> {
         private final DeleteNullableRequest instance;
 
         public Delete00RequestBuilder(DeleteNullableRequest instance) {
@@ -167,7 +183,8 @@ public class Delete {
                 headerParameters,
                 queryParameters,
                 instance.serverIndex,
-                instance.securityIndex
+                instance.securityIndex,
+                instance.timeout
             );
         }
 
@@ -180,6 +197,10 @@ public class Delete {
         }
 
         public Delete00RequestBuilder getBuilderAfterSecurityIndex(DeleteNullableRequest instance) {
+            return this;
+        }
+
+        public Delete00RequestBuilder getBuilderAfterTimeout(DeleteNullableRequest instance) {
             return this;
         }
     }

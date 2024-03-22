@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.paths.petfindbytags;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetSecurityInfo;
+import org.openapijsonschematools.client.paths.petfindbytags.Get;
 import org.openapijsonschematools.client.paths.petfindbytags.get.QueryParameters;
 import org.openapijsonschematools.client.paths.petfindbytags.get.Parameters;
 import org.openapijsonschematools.client.paths.petfindbytags.get.Responses;
@@ -16,6 +17,7 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -80,15 +82,18 @@ public class Get {
         public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
 
         public GetRequest(
             QueryParameters.QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
-            PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex
+            PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex,
+            @Nullable Duration timeout
         ) {
             this.queryParameters = queryParameters;
             this.serverIndex = serverIndex;
             this.securityIndex = securityIndex;
+            this.timeout = timeout;
         }
     }
 
@@ -96,6 +101,7 @@ public class Get {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -118,17 +124,27 @@ public class Get {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        GetNullableRequest getInstance();
+        T getBuilderAfterTimeout(GetNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
         }
     }
 
-    public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForSecurityIndex<Get0RequestBuilder> {
+    public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForSecurityIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
         private final GetNullableRequest instance;
 
         public Get0RequestBuilder(GetNullableRequest instance) {
@@ -143,7 +159,8 @@ public class Get {
             return new GetRequest(
                 queryParameters,
                 instance.serverIndex,
-                instance.securityIndex
+                instance.securityIndex,
+                instance.timeout
             );
         }
 
@@ -156,6 +173,10 @@ public class Get {
         }
 
         public Get0RequestBuilder getBuilderAfterSecurityIndex(GetNullableRequest instance) {
+            return this;
+        }
+
+        public Get0RequestBuilder getBuilderAfterTimeout(GetNullableRequest instance) {
             return this;
         }
     }

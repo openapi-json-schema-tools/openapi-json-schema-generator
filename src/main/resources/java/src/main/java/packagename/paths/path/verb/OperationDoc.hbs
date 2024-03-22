@@ -67,10 +67,10 @@ a class that stores the initial request inputs
                         {{#if containerJsonPathPiece}}
 | [{{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}} |
                         {{else}}
-                            {{#if subpackage}}
+                            {{#if this.jsonPathPiece}}
 | [{{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}} |
                             {{else}}
-| [{{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}} |
+| @Nullable {{operationInputClassName.pascalCase}} | {{@key.camelCase}} |
                             {{/if}}
                         {{/if}}
                     {{/with}}
@@ -101,7 +101,7 @@ a builder for request inputs
 | [{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request) | build()<br>Returns the request input used to call an endpoint method |
         {{/if}}
         {{#each keyToBuilder}}
-| [{{builder.className.pascalCase}}](#{{builder.className.kebabCase}}) | {{@key.camelCase}}({{#with property}}[{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}){{/with}} {{@key.camelCase}})<br>sets the {{#if ../@first}}optional {{/if}}property{{#or (eq @key.camelCase "securityIndex") (eq @key.camelCase "serverIndex")}}. Note: this will override the value in apiConfiguration{{/or}} |
+| [{{builder.className.pascalCase}}](#{{builder.className.kebabCase}}) | {{@key.camelCase}}({{#with property}}[{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}){{/with}} {{@key.camelCase}})<br>sets the {{#if ../@first}}optional {{/if}}property{{#or (eq @key.camelCase "securityIndex") (eq @key.camelCase "serverIndex") (eq @key.camelCase "timeout")}}. Note: this will override the value in apiConfiguration{{/or}} |
         {{/each}}
     {{/each}}
 

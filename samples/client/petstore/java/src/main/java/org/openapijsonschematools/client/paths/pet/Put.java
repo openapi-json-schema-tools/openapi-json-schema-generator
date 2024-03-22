@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.paths.pet;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.put.PetPutSecurityInfo;
+import org.openapijsonschematools.client.paths.pet.Put;
 import org.openapijsonschematools.client.paths.pet.put.RequestBody;
 import org.openapijsonschematools.client.paths.pet.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -83,15 +85,18 @@ public class Put {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetPutSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
 
         public PutRequest(
             RequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
-            PetPutSecurityInfo.@Nullable SecurityIndex securityIndex
+            PetPutSecurityInfo.@Nullable SecurityIndex securityIndex,
+            @Nullable Duration timeout
         ) {
             this.requestBody = requestBody;
             this.serverIndex = serverIndex;
             this.securityIndex = securityIndex;
+            this.timeout = timeout;
         }
     }
 
@@ -99,6 +104,7 @@ public class Put {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetPutSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -121,6 +127,16 @@ public class Put {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        PutNullableRequest getInstance();
+        T getBuilderAfterTimeout(PutNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForRequestBody <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterRequestBody(PutNullableRequest instance);
@@ -131,7 +147,7 @@ public class Put {
         }
     }
 
-    public static class Put0RequestBuilder implements SetterForServerIndex<Put0RequestBuilder>, SetterForSecurityIndex<Put0RequestBuilder> {
+    public static class Put0RequestBuilder implements SetterForServerIndex<Put0RequestBuilder>, SetterForSecurityIndex<Put0RequestBuilder>, SetterForTimeout<Put0RequestBuilder> {
         private final PutNullableRequest instance;
 
         public Put0RequestBuilder(PutNullableRequest instance) {
@@ -146,7 +162,8 @@ public class Put {
             return new PutRequest(
                 requestBody,
                 instance.serverIndex,
-                instance.securityIndex
+                instance.securityIndex,
+                instance.timeout
             );
         }
 
@@ -159,6 +176,10 @@ public class Put {
         }
 
         public Put0RequestBuilder getBuilderAfterSecurityIndex(PutNullableRequest instance) {
+            return this;
+        }
+
+        public Put0RequestBuilder getBuilderAfterTimeout(PutNullableRequest instance) {
             return this;
         }
     }

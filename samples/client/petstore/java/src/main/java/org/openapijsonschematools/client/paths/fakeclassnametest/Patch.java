@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.paths.fakeclassnametest;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchSecurityInfo;
+import org.openapijsonschematools.client.paths.fakeclassnametest.Patch;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.RequestBody;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -83,15 +85,18 @@ public class Patch {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
 
         public PatchRequest(
             RequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
-            FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex
+            FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex,
+            @Nullable Duration timeout
         ) {
             this.requestBody = requestBody;
             this.serverIndex = serverIndex;
             this.securityIndex = securityIndex;
+            this.timeout = timeout;
         }
     }
 
@@ -99,6 +104,7 @@ public class Patch {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -121,6 +127,16 @@ public class Patch {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        PatchNullableRequest getInstance();
+        T getBuilderAfterTimeout(PatchNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForRequestBody <T> {
         PatchNullableRequest getInstance();
         T getBuilderAfterRequestBody(PatchNullableRequest instance);
@@ -131,7 +147,7 @@ public class Patch {
         }
     }
 
-    public static class Patch0RequestBuilder implements SetterForServerIndex<Patch0RequestBuilder>, SetterForSecurityIndex<Patch0RequestBuilder> {
+    public static class Patch0RequestBuilder implements SetterForServerIndex<Patch0RequestBuilder>, SetterForSecurityIndex<Patch0RequestBuilder>, SetterForTimeout<Patch0RequestBuilder> {
         private final PatchNullableRequest instance;
 
         public Patch0RequestBuilder(PatchNullableRequest instance) {
@@ -146,7 +162,8 @@ public class Patch {
             return new PatchRequest(
                 requestBody,
                 instance.serverIndex,
-                instance.securityIndex
+                instance.securityIndex,
+                instance.timeout
             );
         }
 
@@ -159,6 +176,10 @@ public class Patch {
         }
 
         public Patch0RequestBuilder getBuilderAfterSecurityIndex(PatchNullableRequest instance) {
+            return this;
+        }
+
+        public Patch0RequestBuilder getBuilderAfterTimeout(PatchNullableRequest instance) {
             return this;
         }
     }

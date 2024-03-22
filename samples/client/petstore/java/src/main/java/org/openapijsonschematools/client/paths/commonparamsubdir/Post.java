@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.paths.commonparamsubdir;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.HeaderParameters;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.commonparamsubdir.Post;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.PathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
@@ -15,6 +16,7 @@ import org.openapijsonschematools.client.paths.Commonparamsubdir;
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -75,15 +77,18 @@ public class Post {
         public PathParameters.PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
 
         public PostRequest(
             PathParameters.PathParametersMap pathParameters,
             HeaderParameters.@Nullable HeaderParametersMap headerParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            @Nullable Duration timeout
         ) {
             this.pathParameters = pathParameters;
             this.headerParameters = headerParameters;
             this.serverIndex = serverIndex;
+            this.timeout = timeout;
         }
     }
 
@@ -91,12 +96,13 @@ public class Post {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForHeaderParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(PostNullableRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
+        default T headerParameters(HeaderParametersHeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -113,17 +119,27 @@ public class Post {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        PostNullableRequest getInstance();
+        T getBuilderAfterTimeout(PostNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(PathParametersPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
         }
     }
 
-    public static class Post0RequestBuilder implements SetterForHeaderParameters<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder> {
+    public static class Post0RequestBuilder implements SetterForHeaderParameters<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
         private final PostNullableRequest instance;
 
         public Post0RequestBuilder(PostNullableRequest instance) {
@@ -138,7 +154,8 @@ public class Post {
             return new PostRequest(
                 pathParameters,
                 instance.headerParameters,
-                instance.serverIndex
+                instance.serverIndex,
+                instance.timeout
             );
         }
 
@@ -151,6 +168,10 @@ public class Post {
         }
 
         public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
+            return this;
+        }
+
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }

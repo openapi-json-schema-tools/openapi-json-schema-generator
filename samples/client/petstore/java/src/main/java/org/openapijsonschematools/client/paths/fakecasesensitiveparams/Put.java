@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.paths.fakecasesensitiveparams;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fakecasesensitiveparams.Put;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.QueryParameters;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Parameters;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Responses;
@@ -14,6 +15,7 @@ import org.openapijsonschematools.client.paths.Fakecasesensitiveparams;
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -68,19 +70,23 @@ public class Put {
     public static class PutRequest {
         public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
 
         public PutRequest(
             QueryParameters.QueryParametersMap queryParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            @Nullable Duration timeout
         ) {
             this.queryParameters = queryParameters;
             this.serverIndex = serverIndex;
+            this.timeout = timeout;
         }
     }
 
     public static class PutNullableRequest {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -93,17 +99,27 @@ public class Put {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        PutNullableRequest getInstance();
+        T getBuilderAfterTimeout(PutNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PutNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
         }
     }
 
-    public static class Put0RequestBuilder implements SetterForServerIndex<Put0RequestBuilder> {
+    public static class Put0RequestBuilder implements SetterForServerIndex<Put0RequestBuilder>, SetterForTimeout<Put0RequestBuilder> {
         private final PutNullableRequest instance;
 
         public Put0RequestBuilder(PutNullableRequest instance) {
@@ -117,7 +133,8 @@ public class Put {
             }
             return new PutRequest(
                 queryParameters,
-                instance.serverIndex
+                instance.serverIndex,
+                instance.timeout
             );
         }
 
@@ -126,6 +143,10 @@ public class Put {
         }
 
         public Put0RequestBuilder getBuilderAfterServerIndex(PutNullableRequest instance) {
+            return this;
+        }
+
+        public Put0RequestBuilder getBuilderAfterTimeout(PutNullableRequest instance) {
             return this;
         }
     }

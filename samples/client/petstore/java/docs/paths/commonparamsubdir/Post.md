@@ -45,6 +45,7 @@ a class that stores the final request inputs
 | [PathParameters.PathParametersMap](../../paths/commonparamsubdir/post/PathParameters.md#pathparametersmap) | pathParameters |
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/post/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PostNullableRequest
 public static class PostNullableRequest<br>
@@ -57,6 +58,7 @@ a class that stores the initial request inputs
 | [PathParameters.@Nullable PathParametersMap](../../paths/commonparamsubdir/post/PathParameters.md#pathparametersmap) | pathParameters |
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/post/HeaderParameters.md#headerparametersmap) | headerParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| @Nullable Duration | timeout |
 
 ## Post0RequestBuilder
 public static class Post0RequestBuilder<br>
@@ -74,6 +76,7 @@ a builder for request inputs
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/commonparamsubdir/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Post0RequestBuilder](#post0requestbuilder) | timeout([Post.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>

@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.QueryParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.CookieParameters;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.Post;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.PathParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Parameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Responses;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -107,6 +109,7 @@ public class Post {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public CookieParameters.@Nullable CookieParametersMap cookieParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
 
         public PostRequest(
             PathParameters.PathParametersMap pathParameters,
@@ -114,7 +117,8 @@ public class Post {
             HeaderParameters.@Nullable HeaderParametersMap headerParameters,
             QueryParameters.@Nullable QueryParametersMap queryParameters,
             CookieParameters.@Nullable CookieParametersMap cookieParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            @Nullable Duration timeout
         ) {
             this.pathParameters = pathParameters;
             this.requestBody = requestBody;
@@ -122,6 +126,7 @@ public class Post {
             this.queryParameters = queryParameters;
             this.cookieParameters = cookieParameters;
             this.serverIndex = serverIndex;
+            this.timeout = timeout;
         }
     }
 
@@ -132,6 +137,7 @@ public class Post {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public CookieParameters.@Nullable CookieParametersMap cookieParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
@@ -147,7 +153,7 @@ public class Post {
     public interface SetterForHeaderParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(PostNullableRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
+        default T headerParameters(HeaderParametersHeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -157,7 +163,7 @@ public class Post {
     public interface SetterForQueryParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PostNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -167,7 +173,7 @@ public class Post {
     public interface SetterForCookieParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterCookieParameters(PostNullableRequest instance);
-        default T cookieParameters(CookieParameters.CookieParametersMap cookieParameters) {
+        default T cookieParameters(CookieParametersCookieParametersMap cookieParameters) {
             var instance = getInstance();
             instance.cookieParameters = cookieParameters;
             return getBuilderAfterCookieParameters(instance);
@@ -184,17 +190,27 @@ public class Post {
         }
     }
 
+    public interface SetterForTimeout <T> {
+        PostNullableRequest getInstance();
+        T getBuilderAfterTimeout(PostNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(PathParametersPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
         }
     }
 
-    public static class Post0RequestBuilder implements SetterForRequestBody<Post0RequestBuilder>, SetterForHeaderParameters<Post0RequestBuilder>, SetterForQueryParameters<Post0RequestBuilder>, SetterForCookieParameters<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder> {
+    public static class Post0RequestBuilder implements SetterForRequestBody<Post0RequestBuilder>, SetterForHeaderParameters<Post0RequestBuilder>, SetterForQueryParameters<Post0RequestBuilder>, SetterForCookieParameters<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
         private final PostNullableRequest instance;
 
         public Post0RequestBuilder(PostNullableRequest instance) {
@@ -212,7 +228,8 @@ public class Post {
                 instance.headerParameters,
                 instance.queryParameters,
                 instance.cookieParameters,
-                instance.serverIndex
+                instance.serverIndex,
+                instance.timeout
             );
         }
 
@@ -237,6 +254,10 @@ public class Post {
         }
 
         public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
+            return this;
+        }
+
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }

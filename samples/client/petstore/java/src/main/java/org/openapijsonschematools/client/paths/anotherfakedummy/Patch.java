@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.paths.anotherfakedummy;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.anotherfakedummy.Patch;
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.RequestBody;
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -71,19 +73,23 @@ public class Patch {
     public static class PatchRequest {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
 
         public PatchRequest(
             RequestBody.SealedRequestBody requestBody,
-            RootServerInfo.@Nullable ServerIndex serverIndex
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            @Nullable Duration timeout
         ) {
             this.requestBody = requestBody;
             this.serverIndex = serverIndex;
+            this.timeout = timeout;
         }
     }
 
     public static class PatchNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -93,6 +99,16 @@ public class Patch {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForTimeout <T> {
+        PatchNullableRequest getInstance();
+        T getBuilderAfterTimeout(PatchNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
         }
     }
 
@@ -106,7 +122,7 @@ public class Patch {
         }
     }
 
-    public static class Patch0RequestBuilder implements SetterForServerIndex<Patch0RequestBuilder> {
+    public static class Patch0RequestBuilder implements SetterForServerIndex<Patch0RequestBuilder>, SetterForTimeout<Patch0RequestBuilder> {
         private final PatchNullableRequest instance;
 
         public Patch0RequestBuilder(PatchNullableRequest instance) {
@@ -120,7 +136,8 @@ public class Patch {
             }
             return new PatchRequest(
                 requestBody,
-                instance.serverIndex
+                instance.serverIndex,
+                instance.timeout
             );
         }
 
@@ -129,6 +146,10 @@ public class Patch {
         }
 
         public Patch0RequestBuilder getBuilderAfterServerIndex(PatchNullableRequest instance) {
+            return this;
+        }
+
+        public Patch0RequestBuilder getBuilderAfterTimeout(PatchNullableRequest instance) {
             return this;
         }
     }

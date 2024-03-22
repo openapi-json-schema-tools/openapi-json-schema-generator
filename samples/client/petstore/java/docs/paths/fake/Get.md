@@ -44,6 +44,7 @@ a class that stores the final request inputs
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## GetRequestBuilder
 public static class GetRequestBuilder<br>
@@ -63,5 +64,6 @@ a builder for request inputs
 | [GetRequestBuilder](#getrequestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [GetRequestBuilder](#getrequestbuilder) | timeout([Get.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

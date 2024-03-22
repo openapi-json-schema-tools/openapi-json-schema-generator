@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.post.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.Post;
 import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -75,6 +77,7 @@ public class Post {
     public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
@@ -97,7 +100,17 @@ public class Post {
         }
     }
 
-    public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder> {
+    public interface SetterForTimeout <T> {
+        PostRequest getInstance();
+        T getBuilderAfterTimeout(PostRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
+    public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
         private final PostRequest instance;
 
         public PostRequestBuilder() {
@@ -117,6 +130,10 @@ public class Post {
         }
 
         public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
+            return this;
+        }
+
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

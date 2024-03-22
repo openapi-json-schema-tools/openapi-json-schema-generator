@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.paths.storeorder;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.storeorder.Post;
 import org.openapijsonschematools.client.paths.storeorder.post.RequestBody;
 import org.openapijsonschematools.client.paths.storeorder.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -71,19 +73,23 @@ public class Post {
     public static class PostRequest {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
 
         public PostRequest(
             RequestBody.SealedRequestBody requestBody,
-            RootServerInfo.@Nullable ServerIndex serverIndex
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            @Nullable Duration timeout
         ) {
             this.requestBody = requestBody;
             this.serverIndex = serverIndex;
+            this.timeout = timeout;
         }
     }
 
     public static class PostNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
@@ -93,6 +99,16 @@ public class Post {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForTimeout <T> {
+        PostNullableRequest getInstance();
+        T getBuilderAfterTimeout(PostNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
         }
     }
 
@@ -106,7 +122,7 @@ public class Post {
         }
     }
 
-    public static class Post0RequestBuilder implements SetterForServerIndex<Post0RequestBuilder> {
+    public static class Post0RequestBuilder implements SetterForServerIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
         private final PostNullableRequest instance;
 
         public Post0RequestBuilder(PostNullableRequest instance) {
@@ -120,7 +136,8 @@ public class Post {
             }
             return new PostRequest(
                 requestBody,
-                instance.serverIndex
+                instance.serverIndex,
+                instance.timeout
             );
         }
 
@@ -129,6 +146,10 @@ public class Post {
         }
 
         public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
+            return this;
+        }
+
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }

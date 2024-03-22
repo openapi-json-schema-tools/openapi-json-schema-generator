@@ -42,6 +42,7 @@ a class that stores the final request inputs
 | ----------------- | --------------------- |
 | [RequestBody.@Nullable SealedRequestBody](../../paths/fakejsonpatch/patch/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PatchRequestBuilder
 public static class PatchRequestBuilder<br>
@@ -59,5 +60,6 @@ a builder for request inputs
 | [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [PatchRequestBuilder](#patchrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakejsonpatch/patch/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [PatchRequestBuilder](#patchrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [PatchRequestBuilder](#patchrequestbuilder) | timeout([Patch.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

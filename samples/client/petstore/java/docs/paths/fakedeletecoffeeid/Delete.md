@@ -44,6 +44,7 @@ a class that stores the final request inputs
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/fakedeletecoffeeid/delete/PathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## DeleteNullableRequest
 public static class DeleteNullableRequest<br>
@@ -55,6 +56,7 @@ a class that stores the initial request inputs
 | ----------------- | --------------------- |
 | [PathParameters.@Nullable PathParametersMap](../../paths/fakedeletecoffeeid/delete/PathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| @Nullable Duration | timeout |
 
 ## Delete0RequestBuilder
 public static class Delete0RequestBuilder<br>
@@ -71,6 +73,7 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Delete0RequestBuilder](#delete0requestbuilder) | timeout([Delete.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## DeleteRequestBuilder
 public static class DeleteRequestBuilder<br>

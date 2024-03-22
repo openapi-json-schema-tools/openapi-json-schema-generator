@@ -46,6 +46,7 @@ a class that stores the final request inputs
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetidDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## DeleteNullableRequest
 public static class DeleteNullableRequest<br>
@@ -59,6 +60,7 @@ a class that stores the initial request inputs
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetpetidDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) | securityIndex |
+| @Nullable Duration | timeout |
 
 ## Delete0RequestBuilder
 public static class Delete0RequestBuilder<br>
@@ -77,6 +79,7 @@ a builder for request inputs
 | [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete0RequestBuilder](#delete0requestbuilder) | securityIndex([PetpetidDeleteSecurityInfo.SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Delete0RequestBuilder](#delete0requestbuilder) | timeout([Delete.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## DeleteRequestBuilder
 public static class DeleteRequestBuilder<br>

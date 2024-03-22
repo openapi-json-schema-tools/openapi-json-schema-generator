@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fake.post.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.post.FakePostSecurityInfo;
+import org.openapijsonschematools.client.paths.fake.Post;
 import org.openapijsonschematools.client.paths.fake.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -87,6 +89,7 @@ public class Post {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakePostSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
@@ -119,7 +122,17 @@ public class Post {
         }
     }
 
-    public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForSecurityIndex<PostRequestBuilder> {
+    public interface SetterForTimeout <T> {
+        PostRequest getInstance();
+        T getBuilderAfterTimeout(PostRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
+    public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForSecurityIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
         private final PostRequest instance;
 
         public PostRequestBuilder() {
@@ -143,6 +156,10 @@ public class Post {
         }
 
         public PostRequestBuilder getBuilderAfterSecurityIndex(PostRequest instance) {
+            return this;
+        }
+
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }
