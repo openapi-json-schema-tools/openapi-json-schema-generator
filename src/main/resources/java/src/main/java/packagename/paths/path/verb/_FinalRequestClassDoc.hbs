@@ -14,9 +14,9 @@ a class that stores the final request inputs
 | [{{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}} |
                 {{else}}
                     {{#if subpackage}}
-| [{{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}} |
+| [{{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}}{{#or (eq @key.camelCase "securityIndex") (eq @key.camelCase "serverIndex")}}. Note: this will override the value in apiConfiguration{{/or}} |
                     {{else}}
-| [{{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}} |
+| [{{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}}{{#or (eq @key.camelCase "securityIndex") (eq @key.camelCase "serverIndex")}}. Note: this will override the value in apiConfiguration{{/or}} |
                     {{/if}}
                 {{/if}}
             {{/with}}

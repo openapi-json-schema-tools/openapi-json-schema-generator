@@ -47,7 +47,7 @@ a class that stores the final request inputs
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
 | [CookieParameters.@Nullable CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) | cookieParameters<br>optional |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PostNullableRequest
 public static class PostNullableRequest<br>
@@ -82,7 +82,7 @@ a builder for request inputs
 | [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([CookieParameters.CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) cookieParameters)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>

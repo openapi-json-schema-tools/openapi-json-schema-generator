@@ -41,8 +41,8 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [RequestBody.@Nullable SealedRequestBody](../../paths/fake/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
-| [FakePostSecurityInfo.@Nullable SecurityIndex](../../paths/fake/post/FakePostSecurityInfo.md#securityindex) | securityIndex<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| [FakePostSecurityInfo.@Nullable SecurityIndex](../../paths/fake/post/FakePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>
@@ -59,7 +59,7 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fake/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
-| [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
-| [PostRequestBuilder](#postrequestbuilder) | securityIndex([FakePostSecurityInfo.SecurityIndex](../../paths/fake/post/FakePostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property |
+| [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [PostRequestBuilder](#postrequestbuilder) | securityIndex([FakePostSecurityInfo.SecurityIndex](../../paths/fake/post/FakePostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

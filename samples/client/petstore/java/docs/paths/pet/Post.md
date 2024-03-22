@@ -43,8 +43,8 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [RequestBody.SealedRequestBody](../../paths/pet/post/RequestBody.md#sealedrequestbody) | requestBody |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
-| [PetPostSecurityInfo.@Nullable SecurityIndex](../../paths/pet/post/PetPostSecurityInfo.md#securityindex) | securityIndex<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| [PetPostSecurityInfo.@Nullable SecurityIndex](../../paths/pet/post/PetPostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PostNullableRequest
 public static class PostNullableRequest<br>
@@ -72,8 +72,8 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | securityIndex([PetPostSecurityInfo.SecurityIndex](../../paths/pet/post/PetPostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Post0RequestBuilder](#post0requestbuilder) | securityIndex([PetPostSecurityInfo.SecurityIndex](../../paths/pet/post/PetPostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>

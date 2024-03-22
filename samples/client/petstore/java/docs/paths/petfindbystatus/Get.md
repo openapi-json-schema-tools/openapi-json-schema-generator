@@ -43,8 +43,8 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [QueryParameters.QueryParametersMap](../../paths/petfindbystatus/get/QueryParameters.md#queryparametersmap) | queryParameters |
-| [PetfindbystatusServerInfo.@Nullable ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) | serverIndex<br>optional |
-| [PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) | securityIndex<br>optional |
+| [PetfindbystatusServerInfo.@Nullable ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| [PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 
 ## GetNullableRequest
 public static class GetNullableRequest<br>
@@ -72,8 +72,8 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Get0RequestBuilder](#get0requestbuilder) | serverIndex([PetfindbystatusServerInfo.ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
-| [Get0RequestBuilder](#get0requestbuilder) | securityIndex([PetfindbystatusGetSecurityInfo.SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property |
+| [Get0RequestBuilder](#get0requestbuilder) | serverIndex([PetfindbystatusServerInfo.ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Get0RequestBuilder](#get0requestbuilder) | securityIndex([PetfindbystatusGetSecurityInfo.SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## GetRequestBuilder
 public static class GetRequestBuilder<br>

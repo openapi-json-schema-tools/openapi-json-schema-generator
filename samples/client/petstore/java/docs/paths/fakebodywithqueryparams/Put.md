@@ -46,7 +46,7 @@ a class that stores the final request inputs
 | ----------------- | --------------------- |
 | [RequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/RequestBody.md#sealedrequestbody) | requestBody |
 | [QueryParameters.QueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) | queryParameters |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PutNullableRequest
 public static class PutNullableRequest<br>
@@ -74,7 +74,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Put00RequestBuilder](#put00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
+| [Put00RequestBuilder](#put00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## Put01RequestBuilder
 public static class Put01RequestBuilder<br>

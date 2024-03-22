@@ -44,8 +44,8 @@ a class that stores the final request inputs
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/PathParameters.md#pathparametersmap) | pathParameters |
 | [RequestBody.@Nullable SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
-| [FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) | securityIndex<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| [FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PostNullableRequest
 public static class PostNullableRequest<br>
@@ -75,8 +75,8 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | securityIndex([FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Post0RequestBuilder](#post0requestbuilder) | securityIndex([FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>
