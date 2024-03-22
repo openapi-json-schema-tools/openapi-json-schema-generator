@@ -549,6 +549,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     responsesInfo.put("nonErrorStatusCodes", operation.nonErrorStatusCodes);
                     responsesInfo.put("nonErrorWildcardStatusCodes", operation.nonErrorWildcardStatusCodes);
                     responsesInfo.put("defaultResponse", operation.defaultResponse);
+                    responsesInfo.put("docRoot", "../../../");
                     generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, generator.shouldGenerateFile(responsesJsonPath));
                     generateXDocs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, true);
                     for (Map.Entry<String, CodegenResponse> responseEntry: operation.responses.entrySet()) {

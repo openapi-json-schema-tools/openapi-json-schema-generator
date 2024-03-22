@@ -22,7 +22,7 @@ a sealed interface that stores endpoint responses
 public record EndpointCode200Response(
     HttpResponse<byte[]> response,
     Code200Response.SealedResponseBody body,
-    Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap headers
+    [Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap](../../../paths/userlogin/get/responses/code200response/Code200ResponseHeadersSchema.md#code200responseheadersschemamap) headers
 ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap><br>
 
 a class that stores an endpoint response

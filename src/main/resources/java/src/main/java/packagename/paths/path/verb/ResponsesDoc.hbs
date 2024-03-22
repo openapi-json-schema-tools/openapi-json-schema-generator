@@ -33,7 +33,7 @@ a sealed interface that stores endpoint responses
 public record Endpoint{{jsonPathPiece.pascalCase}}(
     HttpResponse<byte[]> response,
     {{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}} body,
-    {{#with getSelfOrDeepestRef}}{{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}}{{/with}} headers
+    {{#with getSelfOrDeepestRef}}{{#with headersObjectSchema}}[{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}}){{else}}Void{{/with}}{{/with}} headers
 ) implements EndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Void{{/if}}, {{#with getSelfOrDeepestRef}}{{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}}{{/with}}><br>
 
 a class that stores an endpoint response
