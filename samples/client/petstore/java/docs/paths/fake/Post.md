@@ -40,9 +40,9 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fake/post/RequestBody.md#sealedrequestbody) | requestBody |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
-| [FakePostSecurityInfo.@Nullable SecurityIndex](../../paths/fake/post/FakePostSecurityInfo.md#securityindex) | securityIndex |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/fake/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
+| [FakePostSecurityInfo.@Nullable SecurityIndex](../../paths/fake/post/FakePostSecurityInfo.md#securityindex) | securityIndex<br>optional |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>
@@ -58,8 +58,8 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fake/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
-| [PostRequestBuilder](#postrequestbuilder) | securityIndex([FakePostSecurityInfo.SecurityIndex](../../paths/fake/post/FakePostSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
+| [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fake/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
+| [PostRequestBuilder](#postrequestbuilder) | securityIndex([FakePostSecurityInfo.SecurityIndex](../../paths/fake/post/FakePostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

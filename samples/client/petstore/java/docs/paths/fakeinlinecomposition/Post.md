@@ -40,9 +40,9 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeinlinecomposition/post/RequestBody.md#sealedrequestbody) | requestBody |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeinlinecomposition/post/QueryParameters.md#queryparametersmap) | queryParameters |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeinlinecomposition/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeinlinecomposition/post/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>
@@ -58,8 +58,8 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeinlinecomposition/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [PostRequestBuilder](#postrequestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakeinlinecomposition/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
-| [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeinlinecomposition/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [PostRequestBuilder](#postrequestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakeinlinecomposition/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
+| [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

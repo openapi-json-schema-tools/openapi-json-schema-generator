@@ -43,11 +43,11 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/fakeparametercollisions1ababselfab/post/PathParameters.md#pathparametersmap) | pathParameters |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/RequestBody.md#sealedrequestbody) | requestBody |
-| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) | headerParameters |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) | queryParameters |
-| [CookieParameters.@Nullable CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) | cookieParameters |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
+| [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
+| [CookieParameters.@Nullable CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) | cookieParameters<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
 
 ## PostNullableRequest
 public static class PostNullableRequest<br>
@@ -78,11 +78,11 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
-| [Post0RequestBuilder](#post0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
-| [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([CookieParameters.CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) cookieParameters)<br>sets the property |
-| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([CookieParameters.CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) cookieParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>

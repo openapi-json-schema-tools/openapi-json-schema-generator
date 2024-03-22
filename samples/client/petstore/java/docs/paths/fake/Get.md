@@ -40,10 +40,10 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fake/get/RequestBody.md#sealedrequestbody) | requestBody |
-| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) | headerParameters |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) | queryParameters |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/fake/get/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
+| [QueryParameters.@Nullable QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
 
 ## GetRequestBuilder
 public static class GetRequestBuilder<br>
@@ -59,9 +59,9 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [GetRequestBuilder](#getrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fake/get/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [GetRequestBuilder](#getrequestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
-| [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
-| [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [GetRequestBuilder](#getrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fake/get/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -101,7 +101,7 @@ a builder for request inputs
 | [{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request) | build()<br>Returns the request input used to call an endpoint method |
         {{/if}}
         {{#each keyToBuilder}}
-| [{{builder.className.pascalCase}}](#{{builder.className.kebabCase}}) | {{@key.camelCase}}({{#with property}}[{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}){{/with}} {{@key.camelCase}})<br>sets the property |
+| [{{builder.className.pascalCase}}](#{{builder.className.kebabCase}}) | {{@key.camelCase}}({{#with property}}[{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}){{/with}} {{@key.camelCase}})<br>sets the {{#if ../@first}}optional {{/if}}property |
         {{/each}}
     {{/each}}
 
