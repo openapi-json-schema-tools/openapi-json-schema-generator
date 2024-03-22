@@ -30,7 +30,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Responses.EndpointResponse | patch([PatchRequest](#patchrequest) request) |
+| [Responses.EndpointResponse](Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>

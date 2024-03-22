@@ -997,6 +997,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 }}
         );
         jsonPathDocTemplateFiles.put(
+            CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
+            new HashMap<>() {{
+                put("src/main/java/packagename/paths/path/verb/ResponsesDoc.hbs", ".md");
+            }}
+        );
+        jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
                 new HashMap<>() {{
                     put("src/main/java/packagename/components/responses/ResponseDoc.hbs", ".md");

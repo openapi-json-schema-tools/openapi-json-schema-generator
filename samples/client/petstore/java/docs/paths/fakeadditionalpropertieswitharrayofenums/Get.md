@@ -30,7 +30,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Responses.EndpointResponse | get([GetRequest](#getrequest) request) |
+| [Responses.EndpointResponse](Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

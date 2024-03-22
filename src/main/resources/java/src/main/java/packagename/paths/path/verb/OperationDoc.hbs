@@ -45,7 +45,7 @@ TODO code sample
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} | {{jsonPathPiece.camelCase}}([{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request) request) |
+| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{jsonPathPiece.pascalCase}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} | {{jsonPathPiece.camelCase}}([{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request) request) |
 
     {{#eq builders.size 1}}
 {{> src/main/java/packagename/paths/path/verb/_FinalRequestClassDoc }}

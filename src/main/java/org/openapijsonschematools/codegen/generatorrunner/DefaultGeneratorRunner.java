@@ -550,6 +550,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     responsesInfo.put("nonErrorWildcardStatusCodes", operation.nonErrorWildcardStatusCodes);
                     responsesInfo.put("defaultResponse", operation.defaultResponse);
                     generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, generator.shouldGenerateFile(responsesJsonPath));
+                    generateXDocs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, true);
                     for (Map.Entry<String, CodegenResponse> responseEntry: operation.responses.entrySet()) {
                         // paths.some_path.post.responses.response_200.__init__.py (file per response)
                         // response is a package because responses have Headers which can be refed
