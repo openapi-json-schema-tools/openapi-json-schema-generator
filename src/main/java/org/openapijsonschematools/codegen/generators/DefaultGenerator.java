@@ -306,16 +306,10 @@ public class DefaultGenerator implements Generator {
     protected String objectIOClassNamePiece = "Dict";
     protected String arrayIOClassNamePiece = "Tuple";
     protected String arrayObjectInputClassNameSuffix = "Input";
-    protected boolean generateXParameterSchemaDocumentation = false;
 
     @Override
     public List<CliOption> cliOptions() {
         return cliOptions;
-    }
-
-    @Override
-    public boolean generateXParameterSchemaDocumentation() {
-        return generateXParameterSchemaDocumentation;
     }
 
     @Override
@@ -3355,10 +3349,16 @@ public class DefaultGenerator implements Generator {
         return false;
     }
 
-    @Override
+    @Deprecated
     public boolean shouldGenerateFile(String jsonPath) {
         return true;
     }
+
+    @Override
+    public boolean shouldGenerateFile(String jsonPath, boolean isDoc) {
+        return true;
+    }
+
 
     @Override
     @SuppressWarnings("static-method")

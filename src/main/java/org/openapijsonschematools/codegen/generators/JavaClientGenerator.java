@@ -198,8 +198,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         hideGenerationTimestamp = false;
 
-        generateXParameterSchemaDocumentation = true;
-
         setReservedWordsLowerCase(
                 Arrays.asList(
                         // used as internal variables, can collide with parameter names
@@ -3500,7 +3498,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
-    public boolean shouldGenerateFile(String jsonPath) {
+    public boolean shouldGenerateFile(String jsonPath, boolean isDoc) {
+        // exclude certain collection jsonPaths
         if (jsonPath.equals("#/components/responses")) {
             return false;
         } else if (jsonPath.equals("#/components/headers")) {
