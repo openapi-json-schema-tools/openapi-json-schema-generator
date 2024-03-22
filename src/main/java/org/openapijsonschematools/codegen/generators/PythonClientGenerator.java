@@ -2285,6 +2285,9 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             if (jsonPath.endsWith("/responses")) {
                 return false;
             }
+            if (jsonPath.contains("/responses/")) {
+                return false;
+            }
             if (jsonPath.endsWith("/requestBody")) {
                 return false;
             }

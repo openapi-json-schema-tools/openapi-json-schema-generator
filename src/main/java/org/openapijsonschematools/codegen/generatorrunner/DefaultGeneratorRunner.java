@@ -456,7 +456,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointMap.put("security", security);
                 endpointMap.put("path", pathKey);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
-                boolean generateXParameterSchemaDocumentation = generator.generateXParameterSchemaDocumentation();
                 String docRoot = "../../../";
                 if (operation.parametersInfo != null) {
                     if (operation.parametersInfo.pathParametersSchema != null) {
@@ -506,9 +505,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 if (operation.requestBody != null) {
                     String requestBodyJsonPath = operationJsonPath + "/requestBody";
                     generateRequestBody(files, operation.requestBody, requestBodyJsonPath, "../../../../");
-                    if (generateXParameterSchemaDocumentation) {
-                        generateRequestBodyDoc(files, operation.requestBody, requestBodyJsonPath, "../../../../");
-                    }
+                    generateRequestBodyDoc(files, operation.requestBody, requestBodyJsonPath, "../../../../", generator.shouldGenerateFile(requestBodyJsonPath, true));
                 }
 
                 if (operation.servers != null) {
@@ -544,7 +541,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     responsesInfo.put("docRoot", "../../../");
                     responsesInfo.put("headerSize", "#");
                     generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, generator.shouldGenerateFile(responsesJsonPath, false));
-                    generateXDocs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, true);
+                    generateXDocs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, generator.shouldGenerateFile(responsesJsonPath, true));
                     for (Map.Entry<String, CodegenResponse> responseEntry: operation.responses.entrySet()) {
                         // paths.some_path.post.responses.response_200.__init__.py (file per response)
                         // response is a package because responses have Headers which can be refed
@@ -665,10 +662,10 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         Map<String, Object> templateData = new HashMap<>();
         templateData.put("packageName", generator.packageName());
         templateData.put("response", response);
-        templateData.put("response", response);
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSES, templateData, true);
         templateData.put("headerSize", "#");
         templateData.put("docRoot", docRoot);
+        templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
         generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSES, templateData, generator.shouldGenerateFile(jsonPath, true));
 
         // headers
@@ -716,15 +713,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             CodegenResponse response = generator.fromResponse(apiResponse, sourceJsonPath);
             responses.put(componentName, response);
             generateResponse(files, response, sourceJsonPath, "../../");
-
-            Map<String, Object> templateData = new HashMap<>();
-            templateData.put("packageName", generator.packageName());
-            templateData.put("docRoot", "../../");
-            templateData.put("headerSize", "#");
-            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("response", response);
-            // TODO make this a property that can be turned off and on
-            generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSE_DOCS, templateData, true);
         }
         return responses;
     }
@@ -787,7 +775,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         return securitySchemes;
     }
 
-    private void generateRequestBodyDoc(List<File> files, CodegenRequestBody requestBody, String sourceJsonPath, String docRoot) {
+    private void generateRequestBodyDoc(List<File> files, CodegenRequestBody requestBody, String sourceJsonPath, String docRoot, boolean shouldGenerate) {
         // doc generation
         Map<String, Object> templateData = new HashMap<>();
         templateData.put("packageName", generator.packageName());
@@ -795,8 +783,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         templateData.put("headerSize", "#");
         templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
         templateData.put("docRoot", docRoot);
-        // todo add flag to turn this off
-        generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, true);
+        generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, shouldGenerate);
     }
 
     private TreeMap<String, CodegenRequestBody> generateRequestBodies(List<File> files) {
@@ -822,7 +809,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             requestBodies.put(componentName, requestBody);
 
             generateRequestBody(files, requestBody, sourceJsonPath, "../../");
-            generateRequestBodyDoc(files, requestBody, sourceJsonPath, "../../");
+            generateRequestBodyDoc(files, requestBody, sourceJsonPath, "../../", true);
         }
         // sort them
         requestBodies = new TreeMap<>(requestBodies);
