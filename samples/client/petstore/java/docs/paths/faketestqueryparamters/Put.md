@@ -43,7 +43,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [QueryParameters.QueryParametersMap](../../paths/faketestqueryparamters/put/QueryParameters.md#queryparametersmap) | queryParameters |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
 
 ## PutNullableRequest
 public static class PutNullableRequest<br>
@@ -70,7 +70,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Put0RequestBuilder](#put0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
 
 ## PutRequestBuilder
 public static class PutRequestBuilder<br>

@@ -43,8 +43,8 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [RequestBody.SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) | requestBody |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
-| [FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) | securityIndex |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
+| [FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) | securityIndex<br>optional |
 
 ## PatchNullableRequest
 public static class PatchNullableRequest<br>
@@ -72,8 +72,8 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
-| [Patch0RequestBuilder](#patch0requestbuilder) | securityIndex([FakeclassnametestPatchSecurityInfo.SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
+| [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
+| [Patch0RequestBuilder](#patch0requestbuilder) | securityIndex([FakeclassnametestPatchSecurityInfo.SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property |
 
 ## PatchRequestBuilder
 public static class PatchRequestBuilder<br>

@@ -43,9 +43,9 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/petpetid/delete/PathParameters.md#pathparametersmap) | pathParameters |
-| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) | headerParameters |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
-| [PetpetidDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) | securityIndex |
+| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional |
+| [PetpetidDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) | securityIndex<br>optional |
 
 ## DeleteNullableRequest
 public static class DeleteNullableRequest<br>
@@ -74,9 +74,9 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
-| [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the property |
-| [Delete0RequestBuilder](#delete0requestbuilder) | securityIndex([PetpetidDeleteSecurityInfo.SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) securityIndex)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | securityIndex([PetpetidDeleteSecurityInfo.SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property |
 
 ## DeleteRequestBuilder
 public static class DeleteRequestBuilder<br>
