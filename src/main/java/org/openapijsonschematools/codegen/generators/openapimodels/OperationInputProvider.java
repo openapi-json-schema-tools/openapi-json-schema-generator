@@ -1,7 +1,6 @@
 package org.openapijsonschematools.codegen.generators.openapimodels;
 
-public interface OperationInputProvider {
+public interface OperationInputProvider extends PathFromDocRootProvider {
     CodegenKey operationInputClassName();
     String operationInputVariableName();
-    String pathFromDocRoot();
 }

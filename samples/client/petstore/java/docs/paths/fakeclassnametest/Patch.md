@@ -32,7 +32,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakeclassnametest/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>

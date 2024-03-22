@@ -32,7 +32,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
+| [Responses.EndpointResponse](../../paths/userusername/delete/Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
 
 ## DeleteRequest
 public static class DeleteRequest<br>

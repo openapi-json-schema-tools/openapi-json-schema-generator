@@ -12,11 +12,13 @@ public class CodegenMap<T> extends AbstractMap<String, T> {
     public final Map<String, T> map;
     public final CodegenKey jsonPathPiece;
     public final String subpackage;
+    public final String pathFromDocRoot;
 
-    public CodegenMap(Map<String, T> map, CodegenKey jsonPathPiece, String subpackage) {
+    public CodegenMap(Map<String, T> map, CodegenKey jsonPathPiece, String subpackage, String pathFromDocRoot) {
         this.map = map;
         this.jsonPathPiece = jsonPathPiece;
         this.subpackage = subpackage;
+        this.pathFromDocRoot = pathFromDocRoot;
     }
 
     @Override

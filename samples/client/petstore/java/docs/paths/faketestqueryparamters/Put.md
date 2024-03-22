@@ -32,7 +32,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
+| [Responses.EndpointResponse](../../paths/faketestqueryparamters/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
 ## PutRequest
 public static class PutRequest<br>

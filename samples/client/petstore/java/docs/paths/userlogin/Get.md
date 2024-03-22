@@ -32,7 +32,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [Responses.EndpointResponse](../../paths/userlogin/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

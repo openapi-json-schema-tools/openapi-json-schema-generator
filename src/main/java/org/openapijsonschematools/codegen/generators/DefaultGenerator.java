@@ -2900,7 +2900,7 @@ public class DefaultGenerator implements Generator {
                 wildcardCodeResponses = new TreeMap<>(wildcardCodeResponses);
             }
             CodegenKey responsesJsonPathPiece = getKey("responses", "misc", responsesJsonPath);
-            responses = new CodegenMap<>(responsesMap, responsesJsonPathPiece, getSubpackage(responsesJsonPath));
+            responses = new CodegenMap<>(responsesMap, responsesJsonPathPiece, getSubpackage(responsesJsonPath), getPathFromDocRoot(responsesJsonPath));
         }
 
         List<CodegenCallback> callbacks = null;
@@ -3132,7 +3132,8 @@ public class DefaultGenerator implements Generator {
             String headersJsonPath = sourceJsonPath + "/headers";
             CodegenKey headersJsonPathPiece = getKey("headers", "headers", headersJsonPath);
             String subpackage = getSubpackage(headersJsonPath);
-            headers = new CodegenMap<>(headersMap, headersJsonPathPiece, subpackage);
+            String pathFromDocRoot = getPathFromDocRoot(headersJsonPath);
+            headers = new CodegenMap<>(headersMap, headersJsonPathPiece, subpackage, pathFromDocRoot);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = getContent(response.getContent(), sourceJsonPath + "/content");
         String expectedComponentType = "responses";

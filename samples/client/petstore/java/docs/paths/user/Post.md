@@ -32,7 +32,7 @@ TODO code sample
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [Responses.EndpointResponse](../../paths/user/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>
