@@ -19,7 +19,7 @@ package org.openapijsonschematools.codegen.generators.openapimodels;
 
 import java.util.*;
 
-public class CodegenResponse {
+public class CodegenResponse implements PathFromDocRootProvider {
     public final CodegenText description;
     public final CodegenMap<CodegenHeader> headers;
     public final CodegenSchema headersObjectSchema;
@@ -142,5 +142,10 @@ public class CodegenResponse {
             refObject = refObject.refInfo.ref;
         }
         return refObject;
+    }
+
+    @Override
+    public String pathFromDocRoot() {
+        return pathFromDocRoot;
     }
 }

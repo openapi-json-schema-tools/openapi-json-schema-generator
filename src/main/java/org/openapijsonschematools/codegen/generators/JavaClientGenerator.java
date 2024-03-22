@@ -3515,4 +3515,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
         return true;
     }
+
+    protected String responsePathFromDocRoot(String sourceJsonPath) {
+        return getPathFromDocRoot(sourceJsonPath);
+    }
 }

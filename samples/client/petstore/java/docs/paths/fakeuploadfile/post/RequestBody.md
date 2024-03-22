@@ -56,7 +56,7 @@ a class that serializes SealedRequestBody request bodies
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| boolean | required = <br>whether the request body is required |
+| boolean | required = false<br>whether the request body is required |
 | Map<String, [SealedMediaType](#sealedmediatype)> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("multipart/form-data", new [MultipartformdataMediaType](#multipartformdatamediatype)())<br>)<br>the contentType to schema info |
 
 ### Method Summary

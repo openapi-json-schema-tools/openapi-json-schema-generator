@@ -3058,12 +3058,12 @@ public class DefaultGenerator implements Generator {
         return null;
     }
 
-    private String getPathFromDocRoot(String sourceJsonPath) {
+    protected String getPathFromDocRoot(String sourceJsonPath) {
         String moduleLocation = getModuleLocation(sourceJsonPath);
         return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
     }
 
-    private String responsePathFromDocRoot(String sourceJsonPath) {
+    protected String responsePathFromDocRoot(String sourceJsonPath) {
         if (sourceJsonPath.startsWith("#/components/responses")) {
             String moduleLocation = getModuleLocation(sourceJsonPath);
             return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);

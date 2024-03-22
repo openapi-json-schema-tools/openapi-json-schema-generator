@@ -12,7 +12,7 @@ public class Parameters {
         public PathParametersSerializer() {
             super(
                 Map.ofEntries(
-                    new AbstractMap.SimpleEntry<>("", new Parameter0.Parameter01())
+                    new AbstractMap.SimpleEntry<>("username", new Parameter0.Parameter01())
                 )
             );
         }
