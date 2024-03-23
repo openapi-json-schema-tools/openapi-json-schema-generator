@@ -4938,7 +4938,10 @@ public class DefaultGenerator implements Generator {
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 pascalCaseName = getSchemaPascalCaseName(key, sourceJsonPath);
-                camelCaseName = getCamelCaseName(usedKey);
+                if (!isValid) {
+                    // todo change this to be generated even if valid
+                    camelCaseName = getCamelCaseName(usedKey);
+                }
                 break;
             case "paths":
                 usedKey = escapeUnsafeCharacters(key);

@@ -1988,20 +1988,42 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("map_with_additional_properties_unset", "misc");
+        CodegenKey ck = codegen.getKey(
+            "map_with_additional_properties_unset",
+            "schemas",
+            "#/components/schemas/" + modelName + "/properties/map_with_additional_properties_unset"
+        );
         mapWithAddPropsUnset = cm.properties.get(ck);
         assertEquals(mapWithAddPropsUnset.additionalProperties, null);
         assertEquals(mapWithAddPropsUnset.refInfo.refClass, "AdditionalPropertiesUnset");
 
-        mapWithAddPropsTrue = cm.properties.get(codegen.getKey("map_with_additional_properties_true", "misc"));
+        mapWithAddPropsTrue = cm.properties.get(
+            codegen.getKey(
+                "map_with_additional_properties_true",
+                "schemas",
+                "#/components/schemas/" + modelName + "/properties/map_with_additional_properties_true"
+            )
+        );
         assertEquals(mapWithAddPropsTrue.additionalProperties, null);
         assertEquals(mapWithAddPropsTrue.refInfo.refClass, "AdditionalPropertiesTrue");
 
-        mapWithAddPropsFalse = cm.properties.get(codegen.getKey("map_with_additional_properties_false", "misc"));
+        mapWithAddPropsFalse = cm.properties.get(
+            codegen.getKey(
+                "map_with_additional_properties_false",
+                "schemas",
+                "#/components/schemas/" + modelName + "/properties/map_with_additional_properties_false"
+            )
+        );
         assertEquals(mapWithAddPropsFalse.additionalProperties, null);
         assertEquals(mapWithAddPropsFalse.refInfo.refClass, "AdditionalPropertiesFalse");
 
-        mapWithAddPropsSchema = cm.properties.get(codegen.getKey("map_with_additional_properties_schema", "misc"));
+        mapWithAddPropsSchema = cm.properties.get(
+            codegen.getKey(
+                "map_with_additional_properties_schema",
+                "schemas",
+                "#/components/schemas/" + modelName + "/properties/map_with_additional_properties_schema"
+            )
+        );
         assertEquals(mapWithAddPropsSchema.additionalProperties, null);
         assertEquals(mapWithAddPropsSchema.refInfo.refClass, "AdditionalPropertiesSchema");
 
@@ -2013,18 +2035,42 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName
         );
 
-        mapWithAddPropsUnset = cm.properties.get(codegen.getKey("map_with_additional_properties_unset", "misc"));
+        mapWithAddPropsUnset = cm.properties.get(
+            codegen.getKey(
+                "map_with_additional_properties_unset",
+                "schemas",
+                "#/components/schemas/" + modelName + "/properties/map_with_additional_properties_unset"
+            )
+        );
         assertEquals(mapWithAddPropsUnset.additionalProperties, null);
 
-        mapWithAddPropsTrue = cm.properties.get(codegen.getKey("map_with_additional_properties_true", "misc"));
+        mapWithAddPropsTrue = cm.properties.get(
+            codegen.getKey(
+                "map_with_additional_properties_true",
+                "schemas",
+                "#/components/schemas/" + modelName + "/properties/map_with_additional_properties_true"
+            )
+        );
         assertNotNull(mapWithAddPropsTrue.additionalProperties);
         assertTrue(mapWithAddPropsTrue.additionalProperties.isBooleanSchemaTrue);
 
-        mapWithAddPropsFalse = cm.properties.get(codegen.getKey("map_with_additional_properties_false", "misc"));
+        mapWithAddPropsFalse = cm.properties.get(
+            codegen.getKey(
+                "map_with_additional_properties_false",
+                "schemas",
+                "#/components/schemas/" + modelName + "/properties/map_with_additional_properties_false"
+            )
+        );
         assertNotNull(mapWithAddPropsFalse.additionalProperties);
         assertTrue(mapWithAddPropsFalse.additionalProperties.isBooleanSchemaFalse);
 
-        mapWithAddPropsSchema = cm.properties.get(codegen.getKey("map_with_additional_properties_schema", "misc"));
+        mapWithAddPropsSchema = cm.properties.get(
+            codegen.getKey(
+                "map_with_additional_properties_schema",
+                "schemas",
+                "#/components/schemas/" + modelName + "/properties/map_with_additional_properties_schema"
+            )
+        );
         assertEquals(mapWithAddPropsSchema.additionalProperties, stringCp);
     }
 
@@ -2229,9 +2275,9 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("nullProp", "misc");
+        CodegenKey ck = codegen.getKey("nullProp", "schemas");
         assertTrue(cm.properties.get(ck).types.contains("null"));
-        assertTrue(cm.properties.get(codegen.getKey("listOfNulls", "misc")).items.types.contains("null"));
+        assertTrue(cm.properties.get(codegen.getKey("listOfNulls", "schemas")).items.types.contains("null"));
         assertTrue(cm.additionalProperties.types.contains("null"));
 
         modelName = "ArrayOfNulls";
@@ -2250,7 +2296,7 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        ck = codegen.getKey("dateWithValidation", "misc");
+        ck = codegen.getKey("dateWithValidation", "schemas");
         assertTrue(cm.properties.get(ck).types.contains("string"));
         assertEquals(cm.properties.get(ck).format, "date");
 
@@ -2296,7 +2342,7 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        ck = codegen.getKey("dateWithValidation", "misc");
+        ck = codegen.getKey("dateWithValidation", "schemas", "#/components/schemas/" + modelName + "properties/dateWithValidation");
         assertTrue(cm.properties.get(ck).types.contains("string"));
         assertEquals(cm.properties.get(ck).format, "date-time");
 

@@ -2555,9 +2555,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             CodegenKey builderClassName;
             if (i == qtyBuilders - 1) {
                 // first invoked builder has the simplest name with no bitStr
-                builderClassName = getKey(builderName + "RequestBuilder", "schemas", jsonPath);
+                builderClassName = getKey(builderName + "RequestBuilder", "misc", jsonPath);
             } else {
-                builderClassName = getKey(builderName + bitStr + "RequestBuilder", "schemas", jsonPath);
+                builderClassName = getKey(builderName + bitStr + "RequestBuilder", "misc", jsonPath);
             }
             MapBuilder<Object> builder;
             if (i == 0) {
@@ -2633,10 +2633,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 if (schema.mapInputJsonPathPiece != null) {
                     builderClassName = schema.mapInputJsonPathPiece;
                 } else {
-                    builderClassName = getKey(schemaName + objectIOClassNamePiece + "Builder", "schemas", sourceJsonPath);
+                    builderClassName = getKey(schemaName + objectIOClassNamePiece + "Builder", "misc", sourceJsonPath);
                 }
             } else {
-                builderClassName = getKey(schemaName + objectIOClassNamePiece + bitStr + "Builder", "schemas", sourceJsonPath);
+                builderClassName = getKey(schemaName + objectIOClassNamePiece + bitStr + "Builder", "misc", sourceJsonPath);
             }
             MapBuilder<CodegenSchema> builder;
             if (i == 0) {
@@ -3152,9 +3152,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             CodegenKey builderClassName;
             if (i == qtyBuilders - 1) {
                 // first invoked builder has the simplest name with no bitStr
-                builderClassName = getKey(schemaName + "Builder", "schemas", jsonPath);
+                builderClassName = getKey(schemaName + "Builder", "misc", jsonPath);
             } else {
-                builderClassName = getKey(schemaName + bitStr + "Builder", "schemas", jsonPath);
+                builderClassName = getKey(schemaName + bitStr + "Builder", "misc", jsonPath);
             }
             MapBuilder<CodegenSecurityRequirementObject> builder;
             if (i != qtyBuilders-1) {
