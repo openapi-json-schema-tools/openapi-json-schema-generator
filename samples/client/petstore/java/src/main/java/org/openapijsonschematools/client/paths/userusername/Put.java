@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.userusername;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.Put;
 import org.openapijsonschematools.client.paths.userusername.put.RequestBody;
 import org.openapijsonschematools.client.paths.userusername.put.PathParameters;
 import org.openapijsonschematools.client.paths.userusername.put.Parameters;

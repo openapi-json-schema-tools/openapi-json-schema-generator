@@ -4,7 +4,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.petpetid.delete.HeaderParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteSecurityInfo;
-import org.openapijsonschematools.client.paths.petpetid.Delete;
 import org.openapijsonschematools.client.paths.petpetid.delete.PathParameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.Parameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.Responses;

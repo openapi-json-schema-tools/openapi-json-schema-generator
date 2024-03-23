@@ -9,10 +9,10 @@ import org.checkerframework.checker.nullness.qual.Nullable;
                     {{#if containerJsonPathPiece}}
 import {{packageName}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
                     {{else}}
-                        {{#if subpackage}}
+                        {{#if this.jsonPathPiece}}
+                            {{#if subpackage}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
-                        {{else}}
-                            {{#if this.jsonPathPiece}}
+                            {{else}}
 import {{packageName}}.{{jsonPathPiece.pascalCase}};
                             {{/if}}
                         {{/if}}

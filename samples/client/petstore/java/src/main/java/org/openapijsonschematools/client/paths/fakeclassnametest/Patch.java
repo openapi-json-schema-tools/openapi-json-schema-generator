@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.fakeclassnametest;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchSecurityInfo;
-import org.openapijsonschematools.client.paths.fakeclassnametest.Patch;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.RequestBody;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;

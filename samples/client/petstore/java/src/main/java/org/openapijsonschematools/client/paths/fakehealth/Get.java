@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.fakehealth;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakehealth.Get;
 import org.openapijsonschematools.client.paths.fakehealth.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;

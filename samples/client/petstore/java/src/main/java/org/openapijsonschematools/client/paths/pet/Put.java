@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.pet;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.put.PetPutSecurityInfo;
-import org.openapijsonschematools.client.paths.pet.Put;
 import org.openapijsonschematools.client.paths.pet.put.RequestBody;
 import org.openapijsonschematools.client.paths.pet.put.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;

@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.fakemultipleresponsebodies;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.Get;
 import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;

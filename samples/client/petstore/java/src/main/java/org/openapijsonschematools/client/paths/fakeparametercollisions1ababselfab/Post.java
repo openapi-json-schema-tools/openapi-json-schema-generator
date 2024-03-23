@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.QueryParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.CookieParameters;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.Post;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.PathParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Parameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Responses;

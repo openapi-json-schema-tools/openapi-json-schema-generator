@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.fakebodywithqueryparams;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakebodywithqueryparams.Put;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.RequestBody;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.QueryParameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Parameters;

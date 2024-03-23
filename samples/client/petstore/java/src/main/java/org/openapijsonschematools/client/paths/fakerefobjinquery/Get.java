@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.fakerefobjinquery;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.get.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefobjinquery.Get;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.get.Parameters;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;

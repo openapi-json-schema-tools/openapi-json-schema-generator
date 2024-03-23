@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.fakerefsnumber;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakerefsnumber.post.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefsnumber.Post;
 import org.openapijsonschematools.client.paths.fakerefsnumber.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;

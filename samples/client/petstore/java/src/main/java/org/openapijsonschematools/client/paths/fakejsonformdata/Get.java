@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.fakejsonformdata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakejsonformdata.get.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakejsonformdata.Get;
 import org.openapijsonschematools.client.paths.fakejsonformdata.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;

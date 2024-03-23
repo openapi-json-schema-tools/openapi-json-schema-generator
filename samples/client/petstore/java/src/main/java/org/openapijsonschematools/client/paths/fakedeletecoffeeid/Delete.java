@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.fakedeletecoffeeid;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakedeletecoffeeid.Delete;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.PathParameters;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Parameters;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Responses;

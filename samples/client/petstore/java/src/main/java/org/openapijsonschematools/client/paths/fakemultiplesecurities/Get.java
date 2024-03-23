@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.fakemultiplesecurities;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.FakemultiplesecuritiesGetSecurityInfo;
-import org.openapijsonschematools.client.paths.fakemultiplesecurities.Get;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;

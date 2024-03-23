@@ -4,7 +4,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostSecurityInfo;
-import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.Post;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.PathParameters;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.Parameters;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.Responses;

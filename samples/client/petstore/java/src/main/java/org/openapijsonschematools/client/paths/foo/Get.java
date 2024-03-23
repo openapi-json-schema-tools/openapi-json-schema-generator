@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.foo;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
-import org.openapijsonschematools.client.paths.foo.Get;
 import org.openapijsonschematools.client.paths.foo.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;

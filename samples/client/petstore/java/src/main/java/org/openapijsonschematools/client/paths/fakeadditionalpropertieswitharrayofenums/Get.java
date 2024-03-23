@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharra
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.Get;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;

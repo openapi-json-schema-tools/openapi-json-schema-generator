@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.fakemultiplerequestbodycontentty
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.Post;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;

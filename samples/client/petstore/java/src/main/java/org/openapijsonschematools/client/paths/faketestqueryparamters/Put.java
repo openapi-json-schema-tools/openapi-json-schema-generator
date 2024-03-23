@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.faketestqueryparamters;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.faketestqueryparamters.Put;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.QueryParameters;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Parameters;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Responses;

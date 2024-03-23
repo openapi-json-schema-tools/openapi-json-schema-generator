@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.fakeuploadfile;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakeuploadfile.post.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeuploadfile.Post;
 import org.openapijsonschematools.client.paths.fakeuploadfile.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;

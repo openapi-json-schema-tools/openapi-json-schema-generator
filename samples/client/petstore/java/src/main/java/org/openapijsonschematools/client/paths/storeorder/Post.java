@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.storeorder;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeorder.Post;
 import org.openapijsonschematools.client.paths.storeorder.post.RequestBody;
 import org.openapijsonschematools.client.paths.storeorder.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;

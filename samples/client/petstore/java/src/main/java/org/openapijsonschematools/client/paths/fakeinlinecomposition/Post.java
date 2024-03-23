@@ -4,7 +4,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.RequestBody;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeinlinecomposition.Post;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Parameters;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Responses;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;

@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.fake;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
-import org.openapijsonschematools.client.paths.fake.Delete;
 import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
 import org.openapijsonschematools.client.paths.fake.delete.Parameters;
