@@ -2228,7 +2228,11 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/AdditionalPropertiesTrue",
                 "#/components/schemas/AdditionalPropertiesTrue"
         );
-        CodegenKey ck = codegen.getKey("child", "misc");
+        CodegenKey ck = codegen.getKey(
+            "child",
+            "schemas",
+            "#/components/schemas/AdditionalPropertiesTrue/properties/child"
+        );
         CodegenSchema trueSchema = cm.properties.get(ck).additionalProperties;
 
         sc = openAPI.getComponents().getSchemas().get("AdditionalPropertiesAnyType");
@@ -3044,17 +3048,17 @@ public class DefaultGeneratorTest {
         assertTrue(cm.types.contains("object"));
 
         CodegenSchema cp;
-        CodegenKey ck = codegen.getKey("UnboundedInteger", "misc");
+        CodegenKey ck = codegen.getKey("UnboundedInteger", "schemas");
         cp = cm.properties.get(ck);
         assertTrue(cp.types.contains("integer"));
         assertNull(cp.format);
 
-        ck = codegen.getKey("Int32", "misc");
+        ck = codegen.getKey("Int32", "schemas");
         cp = cm.properties.get(ck);
         assertTrue(cp.types.contains("integer"));
         assertEquals(cp.format, "int32");
 
-        ck = codegen.getKey("Int64", "misc");
+        ck = codegen.getKey("Int64", "schemas");
         cp = cm.properties.get(ck);
         assertTrue(cp.types.contains("integer"));
         assertEquals(cp.format, "int64");
