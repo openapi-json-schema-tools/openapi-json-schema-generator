@@ -2633,10 +2633,18 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 if (schema.mapInputJsonPathPiece != null) {
                     builderClassName = schema.mapInputJsonPathPiece;
                 } else {
-                    builderClassName = getKey(schemaName + objectIOClassNamePiece + "Builder", "misc", sourceJsonPath);
+                    builderClassName = getKey(
+                        schemaName + objectIOClassNamePiece + "Builder",
+                        "schemas",
+                        sourceJsonPath
+                    );
                 }
             } else {
-                builderClassName = getKey(schemaName + objectIOClassNamePiece + bitStr + "Builder", "misc", sourceJsonPath);
+                builderClassName = getKey(
+                    schemaName + objectIOClassNamePiece + bitStr + "Builder",
+                    "schemas",
+                    sourceJsonPath
+                );
             }
             MapBuilder<CodegenSchema> builder;
             if (i == 0) {
