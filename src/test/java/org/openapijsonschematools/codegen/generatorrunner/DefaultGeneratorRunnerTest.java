@@ -72,7 +72,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 433);
+            Assert.assertEquals(files.size(), 478);
 
             // Check expected generated files
             // api sanity check
@@ -139,7 +139,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 391);
+            Assert.assertEquals(files.size(), 436);
 
             // Check API is written and Test is not
             String apiFile = "src/openapi_client/paths/pet_find_by_status/get/operation.py";
@@ -189,7 +189,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 26);
+            Assert.assertEquals(files.size(), 28);
             TestUtils.ensureContainsFile(files, output, "src/openapi_client/paths/ping/post/operation.py");
         } finally {
             output.delete();
@@ -418,7 +418,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 57);
+            Assert.assertEquals(files.size(), 60);
 
             // GeneratorRunner should report a library templated file as a generated file
             TestUtils.ensureContainsFile(files, output, "src/openapi_client/exceptions.py");
@@ -460,7 +460,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 57);
+            Assert.assertEquals(files.size(), 60);
 
             // GeneratorRunner should report README.md as a generated file
             TestUtils.ensureContainsFile(files, output, "README.md");
@@ -524,7 +524,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 57);
+            Assert.assertEquals(files.size(), 60);
 
             // GeneratorRunner should report a library templated file as a generated file
             TestUtils.ensureContainsFile(files, output, "src/openapi_client/exceptions.py");
@@ -578,7 +578,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 57);
+            Assert.assertEquals(files.size(), 60);
 
             // GeneratorRunner should report README.md as a generated file
             TestUtils.ensureContainsFile(files, output, "README.md");
