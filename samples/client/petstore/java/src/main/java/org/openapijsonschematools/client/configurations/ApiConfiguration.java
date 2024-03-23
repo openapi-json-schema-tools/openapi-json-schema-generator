@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.configurations;
 
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.servers.Server;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
@@ -54,10 +55,14 @@ public class ApiConfiguration {
         timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, SecurityInfo securityInfo, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo, SecurityInfo securityInfo, Duration timeout, List<SecurityScheme> securitySchemes) {
         this.serverInfo = serverInfo;
         this.securityInfo = securityInfo;
         this.timeout = timeout;
+        Map<Class<? extends SecurityScheme>, SecurityScheme> securitySchemeInfo = new HashMap<>();
+        for (SecurityScheme securityScheme: securitySchemes) {
+            securitySchemeInfo.put(securityScheme.getClass(), securityScheme);
+        }
     }
 
     public static class ServerInfo {

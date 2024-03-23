@@ -13,75 +13,21 @@ import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectPro
 import {{{packageName}}}.schemas.GenericBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.HashMap;
+import java.util.AbstractMap;
 import java.util.Map;
 import java.util.EnumMap;
 
 public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequirementObjectProvider<{{security.jsonPathPiece.pascalCase}}.SecurityIndex> {
-    final private Securities securities;
+    final private EnumMap<SecurityIndex, SecurityRequirementObject> securities;
     final private SecurityIndex securityIndex;
 
-    public {{security.jsonPathPiece.pascalCase}}(Securities securities, SecurityIndex securityIndex) {
-        this.securities = securities;
-        this.securityIndex = securityIndex;
-    }
+    public {{security.jsonPathPiece.pascalCase}}(SecurityIndex securityIndex) {
+        this.securities = new EnumMap<>(new Map.ofEntries(
 {{#each security}}
-
-    public interface SetterFor{{jsonPathPiece.pascalCase}} <T> {
-        Map<SecurityIndex, SecurityRequirementObject> getInstance();
-        T getBuilderAfter{{jsonPathPiece.pascalCase}}(Map<SecurityIndex, SecurityRequirementObject> instance);
-        {{> src/main/java/packagename/securityrequirementobjects/_SecurityRequirementObjectSetter methodName=jsonPathPiece.camelCase getBuilderMethod=(join "getBuilderAfter" jsonPathPiece.pascalCase "") }}
-    }
+            new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_{{@index}}, new {{jsonPathPiece.pascalCase}}()){{#unless @last}},{{/unless}}
 {{/each}}
-{{#each security.builders}}
-
-    public static class {{className.pascalCase}} implements {{#unless @last}}GenericBuilder<Securities>{{#gt keyToBuilder.size 0}}, {{/gt}}{{/unless}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{builder.className.pascalCase}}>{{#unless @last}}, {{/unless}}{{/each}} {
-        private final Map<SecurityIndex, SecurityRequirementObject> instance;
-        {{#if @last }}
-        public {{className.pascalCase}}() {
-            this.instance = new HashMap<>();
-        }
-        {{else}}
-        public {{className.pascalCase}}(Map<SecurityIndex, SecurityRequirementObject> instance) {
-            this.instance = instance;
-        }
-        {{/if}}
-        {{#unless @last}}
-        public Securities build() {
-            return new Securities(instance);
-        }
-        {{/unless}}
-        {{#gt keyToBuilder.size 0}}
-        public Map<SecurityIndex, SecurityRequirementObject> getInstance() {
-            return instance;
-        }
-        {{/gt}}
-        {{#each keyToBuilder}}
-        public {{builder.className.pascalCase}} getBuilderAfter{{@key.pascalCase}}(Map<SecurityIndex, SecurityRequirementObject> instance) {
-            {{#eq builder ../this}}
-                {{! property in final builder }}
-            return this;
-            {{else}}
-            return new {{builder.className.pascalCase}}(instance);
-            {{/eq}}
-        }
-        {{/each}}
-    }
-{{/each}}
-
-    public static class Securities {
-        private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
-
-        Securities(Map<SecurityIndex, SecurityRequirementObject> securityMap) {
-            securities = new EnumMap<>(securityMap);
-        }
-
-        public SecurityRequirementObject get(SecurityIndex securityIndex) {
-            if (securities.containsKey(securityIndex)) {
-                return get(securityIndex);
-            }
-            throw new UnsetPropertyException(securityIndex+" is unset");
-        }
+        ));
+        this.securityIndex = securityIndex;
     }
 
     public enum SecurityIndex {

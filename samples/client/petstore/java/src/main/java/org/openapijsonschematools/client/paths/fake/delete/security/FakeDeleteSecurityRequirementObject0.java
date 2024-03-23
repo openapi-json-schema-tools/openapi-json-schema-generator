@@ -16,8 +16,8 @@ public class FakeDeleteSecurityRequirementObject0 extends SecurityRequirementObj
     ) {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    BearerTest.class,
                     List.of()
                 )
             )

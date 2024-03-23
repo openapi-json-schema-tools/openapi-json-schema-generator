@@ -19,6 +19,9 @@ import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 import {{packageName}}.{{jsonPathPiece.pascalCase}};
     {{/if}}
 {{/each}}
+{{#if securitySchemes}}
+import {{packageName}}.securityschemes.SecurityScheme;
+{{/if}}
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.Duration;
@@ -33,6 +36,9 @@ public class ApiConfiguration {
     private final SecurityInfo securityInfo;
     {{/gt}}
     private final @Nullable Duration timeout;
+    {{#if securitySchemes}}
+    private final Map<Class<? extends SecurityScheme>, SecurityScheme> securitySchemeInfo;
+    {{/if}}
 
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
@@ -43,14 +49,23 @@ public class ApiConfiguration {
         {{/each}}
         );
     {{/gt}}
+    {{#if securitySchemes}}
+        securitySchemeInfo = new HashMap<>();
+    {{/if}}
         timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo{{#gt allSecurity.size 0}}, SecurityInfo securityInfo{{/gt}}, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo{{#gt allSecurity.size 0}}, SecurityInfo securityInfo{{/gt}}{{#if securitySchemes}}, List<SecurityScheme> securitySchemes{{/if}}, Duration timeout) {
         this.serverInfo = serverInfo;
     {{#gt allSecurity.size 0}}
         this.securityInfo = securityInfo;
     {{/gt}}
+    {{#if securitySchemes}}
+        securitySchemeInfo = new HashMap<>();
+        for (SecurityScheme securityScheme: securitySchemes) {
+            securitySchemeInfo.put(securityScheme.getClass(), securityScheme);
+        }
+    {{/if}}
         this.timeout = timeout;
     }
 
@@ -109,6 +124,16 @@ public class ApiConfiguration {
     }
         {{/each}}
     {{/gt}}
+    {{#if securitySchemes}}
+
+    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) {
+        @Nullable SecurityScheme securityScheme = securitySchemeInfo.get(securitySchemeClass);
+        if (securityScheme == null) {
+            throw new RuntimeException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.")
+        }
+        return securityScheme;
+    }
+    {{/if}}
 
     public Map<String, List< String>> getDefaultHeaders() {
         return new HashMap<>();
