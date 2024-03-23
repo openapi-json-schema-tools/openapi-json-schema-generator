@@ -278,7 +278,7 @@ public class DefaultGeneratorTest {
         CodegenKey ck = codegen.getKey("application/x-www-form-urlencoded", "misc");
         Assert.assertNull(codegenParameter.content.get(ck).schema.refInfo);
 
-        CodegenKey propertyKey = codegen.getKey("visitDate", "misc");
+        CodegenKey propertyKey = codegen.getKey("visitDate", "schemas");
         assertEquals(codegenParameter.content.get(ck).schema.properties.get(propertyKey).defaultValue.value.toString(), "1971-12-19T03:39:57-08:00");
     }
 
@@ -1274,7 +1274,7 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/User",
                 "#/components/schemas/User"
         );
-        CodegenKey key = codegen.getKey("address", "misc");
+        CodegenKey key = codegen.getKey("address", "schemas");
         Assert.assertTrue(userModel.properties.get(key).nullable);
     }
 
@@ -3451,7 +3451,7 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        ck = codegen.getKey("byteArray", "misc");
+        ck = codegen.getKey("byteArray", "schemas");
         CodegenSchema pr = m.properties.get(ck);
         assertTrue(pr.types.contains("string"));
         assertEquals(pr.format, "byte");
@@ -3734,7 +3734,7 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("foo", "misc");
+        CodegenKey ck = codegen.getKey("foo", "schemas");
         Assert.assertEquals(fooRequired.properties.get(ck).jsonPathPiece.original, "foo");
 
         assertEquals(fooRequired.requiredProperties.size(), 1);
