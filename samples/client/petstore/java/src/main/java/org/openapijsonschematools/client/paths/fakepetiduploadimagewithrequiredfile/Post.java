@@ -163,7 +163,7 @@ public class Post {
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PathParametersPathParametersMap pathParameters) {
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

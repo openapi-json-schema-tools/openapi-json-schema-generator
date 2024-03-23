@@ -135,7 +135,7 @@ public class Put {
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PutNullableRequest instance);
-        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

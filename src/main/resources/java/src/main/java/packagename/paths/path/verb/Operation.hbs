@@ -297,7 +297,7 @@ public class {{jsonPathPiece.pascalCase}} {
     public interface SetterFor{{@key.pascalCase}} <T> {
         {{../../jsonPathPiece.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request getInstance();
         T getBuilderAfter{{@key.pascalCase}}({{../../jsonPathPiece.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request instance);
-        default T {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}{{else}}{{#if this.jsonPathPiece}}{{jsonPathPiece.pascalCase}}.{{/if}}{{/if}}{{operationInputClassName.pascalCase}}{{/with}} {{@key.camelCase}}) {
+        default T {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}.{{else}}{{#if this.jsonPathPiece}}{{jsonPathPiece.pascalCase}}.{{/if}}{{/if}}{{operationInputClassName.pascalCase}}{{/with}} {{@key.camelCase}}) {
             var instance = getInstance();
             instance.{{@key.camelCase}} = {{@key.camelCase}};
             return getBuilderAfter{{@key.pascalCase}}(instance);

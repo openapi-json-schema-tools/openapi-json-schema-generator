@@ -103,7 +103,7 @@ public class Post {
     public interface SetterForQueryParameters <T> {
         PostRequest getInstance();
         T getBuilderAfterQueryParameters(PostRequest instance);
-        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

@@ -79,7 +79,7 @@ public class Get {
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterQueryParameters(GetRequest instance);
-        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

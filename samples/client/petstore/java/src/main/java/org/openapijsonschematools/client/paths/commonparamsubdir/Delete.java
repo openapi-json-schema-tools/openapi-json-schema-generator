@@ -102,7 +102,7 @@ public class Delete {
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(HeaderParametersHeaderParametersMap headerParameters) {
+        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -132,7 +132,7 @@ public class Delete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(PathParametersPathParametersMap pathParameters) {
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

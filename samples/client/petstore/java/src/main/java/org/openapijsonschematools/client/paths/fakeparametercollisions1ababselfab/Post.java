@@ -153,7 +153,7 @@ public class Post {
     public interface SetterForHeaderParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(PostNullableRequest instance);
-        default T headerParameters(HeaderParametersHeaderParametersMap headerParameters) {
+        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -163,7 +163,7 @@ public class Post {
     public interface SetterForQueryParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PostNullableRequest instance);
-        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -173,7 +173,7 @@ public class Post {
     public interface SetterForCookieParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterCookieParameters(PostNullableRequest instance);
-        default T cookieParameters(CookieParametersCookieParametersMap cookieParameters) {
+        default T cookieParameters(CookieParameters.CookieParametersMap cookieParameters) {
             var instance = getInstance();
             instance.cookieParameters = cookieParameters;
             return getBuilderAfterCookieParameters(instance);
@@ -203,7 +203,7 @@ public class Post {
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PathParametersPathParametersMap pathParameters) {
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

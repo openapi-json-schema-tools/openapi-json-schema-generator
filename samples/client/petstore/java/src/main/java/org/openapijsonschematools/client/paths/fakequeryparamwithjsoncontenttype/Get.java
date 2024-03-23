@@ -112,7 +112,7 @@ public class Get {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

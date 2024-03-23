@@ -51,6 +51,7 @@ public class ApiConfiguration {
             null,
             null
         );
+        timeout = null;
     }
 
     public ApiConfiguration(ServerInfo serverInfo, SecurityInfo securityInfo, Duration timeout) {

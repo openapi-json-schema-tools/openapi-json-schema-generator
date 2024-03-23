@@ -111,7 +111,7 @@ public class Get {
     public interface SetterForHeaderParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterHeaderParameters(GetRequest instance);
-        default T headerParameters(HeaderParametersHeaderParametersMap headerParameters) {
+        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -121,7 +121,7 @@ public class Get {
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterQueryParameters(GetRequest instance);
-        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

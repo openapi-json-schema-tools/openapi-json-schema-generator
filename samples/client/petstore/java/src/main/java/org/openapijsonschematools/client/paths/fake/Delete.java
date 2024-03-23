@@ -146,7 +146,7 @@ public class Delete {
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(HeaderParametersHeaderParametersMap headerParameters) {
+        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -156,7 +156,7 @@ public class Delete {
     public interface SetterForQueryParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterQueryParameters(DeleteNullableRequest instance);
-        default T queryParameters(QueryParametersQueryParametersMap queryParameters) {
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
