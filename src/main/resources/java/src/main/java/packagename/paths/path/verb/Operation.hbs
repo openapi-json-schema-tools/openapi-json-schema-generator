@@ -12,7 +12,7 @@ import {{packageName}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
                         {{#if subpackage}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
                         {{else}}
-                            {{#if jsonPathPiece}}
+                            {{#if this.jsonPathPiece}}
 import {{packageName}}.{{jsonPathPiece.pascalCase}};
                             {{/if}}
                         {{/if}}
