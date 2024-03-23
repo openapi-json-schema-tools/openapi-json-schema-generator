@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Get {
-    private static class GetProvider extends AuthApplier {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(

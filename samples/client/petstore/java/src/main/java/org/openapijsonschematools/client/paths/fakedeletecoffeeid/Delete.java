@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Delete {
-    private static class DeleteProvider extends AuthApplier {
+    private static class DeleteProvider {
         private static final String method = "delete";
 
         public static Responses.EndpointResponse delete(

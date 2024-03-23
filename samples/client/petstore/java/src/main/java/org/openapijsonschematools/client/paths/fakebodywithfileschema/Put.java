@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Put {
-    private static class PutProvider extends AuthApplier {
+    private static class PutProvider {
         private static final String method = "put";
 
         public static Responses.EndpointResponse put(

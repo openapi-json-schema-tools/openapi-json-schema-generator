@@ -59,7 +59,7 @@ import java.util.List;
 import java.util.Map;
 
 public class {{jsonPathPiece.pascalCase}} {
-    private static class {{jsonPathPiece.pascalCase}}Provider extends AuthApplier {
+    private static class {{jsonPathPiece.pascalCase}}Provider{{#each builders}}{{#if @first}}{{#each keyToBuilder}}{{#eq @key.camelCase "securityIndex"}} extends AuthApplier{{/eq}}{{/each}}{{/if}}{{/each}} {
         private static final String method = "{{jsonPathPiece.original}}";
 
         public static {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}(
