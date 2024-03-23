@@ -2988,6 +2988,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     packagePath() + File.separatorChar + "securityrequirementobjects",
                     "SecurityRequirementObject.java"));
             supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/securityrequirementobjects/AuthApplier.hbs",
+                packagePath() + File.separatorChar + "securityrequirementobjects",
+                "AuthApplier.java"));
+            supportingFiles.add(new SupportingFile(
                     "src/main/java/packagename/securityrequirementobjects/EmptySecurityRequirementObject.hbs",
                     packagePath() + File.separatorChar + "securityrequirementobjects",
                     "EmptySecurityRequirementObject.java"));

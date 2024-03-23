@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Fakeclassnametest;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
+import org.openapijsonschematools.client.securityrequirementobjects.AuthApplier;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Patch {
-    private static class PatchProvider extends ApiClient.OperationProvider {
+    private static class PatchProvider extends AuthApplier {
         private static final String method = "patch";
 
         public static Responses.EndpointResponse patch(

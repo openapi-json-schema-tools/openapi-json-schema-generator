@@ -42,6 +42,7 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
             {{#each keyToBuilder}}
                 {{#eq @key.camelCase "securityIndex"}}
 import {{packageName}}.securityrequirementobjects.SecurityRequirementObject;
+import {{packageName}}.securityrequirementobjects.AuthApplier;
                 {{/eq}}
             {{/each}}
         {{/if}}
@@ -58,7 +59,7 @@ import java.util.List;
 import java.util.Map;
 
 public class {{jsonPathPiece.pascalCase}} {
-    private static class {{jsonPathPiece.pascalCase}}Provider extends ApiClient.OperationProvider {
+    private static class {{jsonPathPiece.pascalCase}}Provider extends AuthApplier {
         private static final String method = "{{jsonPathPiece.original}}";
 
         public static {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}(

@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Petpetiduploadimage;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
+import org.openapijsonschematools.client.securityrequirementobjects.AuthApplier;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Post {
-    private static class PostProvider extends ApiClient.OperationProvider {
+    private static class PostProvider extends AuthApplier {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(

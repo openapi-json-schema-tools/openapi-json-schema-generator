@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.paths.Petfindbystatus;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
+import org.openapijsonschematools.client.securityrequirementobjects.AuthApplier;
 
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -21,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Get {
-    private static class GetProvider extends ApiClient.OperationProvider {
+    private static class GetProvider extends AuthApplier {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(

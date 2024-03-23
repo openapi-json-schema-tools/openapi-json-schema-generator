@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Post {
-    private static class PostProvider extends ApiClient.OperationProvider {
+    private static class PostProvider extends AuthApplier {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(

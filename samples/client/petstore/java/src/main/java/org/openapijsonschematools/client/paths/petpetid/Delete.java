@@ -13,6 +13,7 @@ import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.paths.Petpetid;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
+import org.openapijsonschematools.client.securityrequirementobjects.AuthApplier;
 
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Delete {
-    private static class DeleteProvider extends ApiClient.OperationProvider {
+    private static class DeleteProvider extends AuthApplier {
         private static final String method = "delete";
 
         public static Void delete(

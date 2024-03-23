@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Patch {
-    private static class PatchProvider extends ApiClient.OperationProvider {
+    private static class PatchProvider extends AuthApplier {
         private static final String method = "patch";
 
         public static Responses.EndpointResponse patch(
