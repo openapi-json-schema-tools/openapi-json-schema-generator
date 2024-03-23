@@ -73,7 +73,7 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put0RequestBuilder](#put0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
-| [Put0RequestBuilder](#put0requestbuilder) | timeout([Put.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Put0RequestBuilder](#put0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PutRequestBuilder
 public static class PutRequestBuilder<br>
@@ -88,6 +88,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put0RequestBuilder](#put0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakecasesensitiveparams/put/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakecasesensitiveparams/put/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

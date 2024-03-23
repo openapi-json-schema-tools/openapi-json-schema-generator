@@ -81,11 +81,11 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([CookieParameters.CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) cookieParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([CookieParametersCookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) cookieParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
-| [Post0RequestBuilder](#post0requestbuilder) | timeout([Post.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PostRequestBuilder
 public static class PostRequestBuilder<br>
@@ -100,6 +100,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/fakeparametercollisions1ababselfab/post/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/fakeparametercollisions1ababselfab/post/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

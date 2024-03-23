@@ -80,7 +80,7 @@ a builder for request inputs
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Delete00RequestBuilder](#delete00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete00RequestBuilder](#delete00requestbuilder) | securityIndex([FakeDeleteSecurityInfo.SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
-| [Delete00RequestBuilder](#delete00requestbuilder) | timeout([Delete.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Delete00RequestBuilder](#delete00requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## Delete01RequestBuilder
 public static class Delete01RequestBuilder<br>
@@ -95,7 +95,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete00RequestBuilder](#delete00requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 ## Delete10RequestBuilder
 public static class Delete10RequestBuilder<br>
@@ -110,7 +110,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete00RequestBuilder](#delete00requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
 
 ## DeleteRequestBuilder
 public static class DeleteRequestBuilder<br>
@@ -125,7 +125,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete01RequestBuilder](#delete01requestbuilder) | headerParameters([HeaderParameters.HeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
-| [Delete10RequestBuilder](#delete10requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
+| [Delete01RequestBuilder](#delete01requestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/fake/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
+| [Delete10RequestBuilder](#delete10requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fake/delete/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

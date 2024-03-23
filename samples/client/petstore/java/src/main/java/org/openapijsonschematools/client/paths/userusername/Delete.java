@@ -43,7 +43,8 @@ public class Delete {
                 url,
                 method,
                 bodyPublisher,
-                headers
+                headers,
+                request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
             var responsesDeserializer = new Responses.Responses1();

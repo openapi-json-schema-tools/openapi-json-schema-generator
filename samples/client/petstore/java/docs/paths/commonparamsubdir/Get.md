@@ -74,9 +74,9 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([QueryParameters.QueryParametersMap](../../paths/commonparamsubdir/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/commonparamsubdir/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [Get0RequestBuilder](#get0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
-| [Get0RequestBuilder](#get0requestbuilder) | timeout([Get.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Get0RequestBuilder](#get0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## GetRequestBuilder
 public static class GetRequestBuilder<br>
@@ -91,6 +91,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/commonparamsubdir/get/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/commonparamsubdir/get/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -76,7 +76,7 @@ a builder for request inputs
 | [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put0RequestBuilder](#put0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Put0RequestBuilder](#put0requestbuilder) | securityIndex([PetPutSecurityInfo.SecurityIndex](../../paths/pet/put/PetPutSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
-| [Put0RequestBuilder](#put0requestbuilder) | timeout([Put.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Put0RequestBuilder](#put0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PutRequestBuilder
 public static class PutRequestBuilder<br>

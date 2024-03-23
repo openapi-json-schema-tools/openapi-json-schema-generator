@@ -1,10 +1,12 @@
 package org.openapijsonschematools.client.restclient;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +15,8 @@ public class RestClient {
         String serviceUrl,
         String method,
         HttpRequest.BodyPublisher bodyPublisher,
-        Map<String, List<String>> headers
+        Map<String, List<String>> headers,
+        @Nullable Duration timeout
     ) {
         HttpRequest.Builder request = HttpRequest.newBuilder(URI.create(serviceUrl));
         switch (method) {
@@ -51,6 +54,9 @@ public class RestClient {
             String headerName = entry.getKey();
             String headerValue = String.join(", ", entry.getValue());
             request.header(headerName, headerValue);
+        }
+        if (timeout != null) {
+            request.timeout(timeout);
         }
         return request.build();
     }

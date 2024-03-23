@@ -77,7 +77,7 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put00RequestBuilder](#put00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
-| [Put00RequestBuilder](#put00requestbuilder) | timeout([Put.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Put00RequestBuilder](#put00requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## Put01RequestBuilder
 public static class Put01RequestBuilder<br>
@@ -92,7 +92,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put00RequestBuilder](#put00requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Put00RequestBuilder](#put00requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 ## Put10RequestBuilder
 public static class Put10RequestBuilder<br>
@@ -123,6 +123,6 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Put01RequestBuilder](#put01requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/userusername/put/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [Put10RequestBuilder](#put10requestbuilder) | pathParameters([PathParameters.PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Put10RequestBuilder](#put10requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

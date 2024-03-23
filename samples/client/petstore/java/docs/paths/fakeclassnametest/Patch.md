@@ -76,7 +76,7 @@ a builder for request inputs
 | [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Patch0RequestBuilder](#patch0requestbuilder) | securityIndex([FakeclassnametestPatchSecurityInfo.SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
-| [Patch0RequestBuilder](#patch0requestbuilder) | timeout([Patch.Duration](../../.md#duration) timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Patch0RequestBuilder](#patch0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PatchRequestBuilder
 public static class PatchRequestBuilder<br>

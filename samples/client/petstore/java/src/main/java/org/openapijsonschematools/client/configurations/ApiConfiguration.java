@@ -22,6 +22,7 @@ import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Petpetid
 import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetSecurityInfo;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -30,6 +31,7 @@ import java.util.HashMap;
 public class ApiConfiguration {
     private final ServerInfo serverInfo;
     private final SecurityInfo securityInfo;
+    private final @Nullable Duration timeout;
 
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
@@ -51,9 +53,10 @@ public class ApiConfiguration {
         );
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, SecurityInfo securityInfo) {
+    public ApiConfiguration(ServerInfo serverInfo, SecurityInfo securityInfo, Duration timeout) {
         this.serverInfo = serverInfo;
         this.securityInfo = securityInfo;
+        this.timeout = timeout;
     }
 
     public static class ServerInfo {
@@ -238,5 +241,9 @@ public class ApiConfiguration {
 
     public Map<String, List< String>> getDefaultHeaders() {
         return new HashMap<>();
+    }
+
+    public@Nullable Duration getTimeout() {
+        return timeout;
     }
 }
