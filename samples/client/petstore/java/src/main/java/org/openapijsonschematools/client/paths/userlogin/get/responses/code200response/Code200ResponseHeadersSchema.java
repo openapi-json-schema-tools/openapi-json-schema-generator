@@ -86,13 +86,13 @@ public class Code200ResponseHeadersSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterCode200ResponseXRateLimit(Map<String, @Nullable Object> instance);
         
-        default T setXHyphenMinusRateHyphenMinusLimit(int value) {
+        default T xHyphenMinusRateHyphenMinusLimit(int value) {
             var instance = getInstance();
             instance.put("X-Rate-Limit", value);
             return getBuilderAfterCode200ResponseXRateLimit(instance);
         }
         
-        default T setXHyphenMinusRateHyphenMinusLimit(float value) {
+        default T xHyphenMinusRateHyphenMinusLimit(float value) {
             var instance = getInstance();
             instance.put("X-Rate-Limit", value);
             return getBuilderAfterCode200ResponseXRateLimit(instance);
@@ -120,7 +120,7 @@ public class Code200ResponseHeadersSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterCode200ResponseRefcontentschemaheader(Map<String, @Nullable Object> instance);
         
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) {
+        default T refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) {
             var instance = getInstance();
             instance.put("ref-content-schema-header", value);
             return getBuilderAfterCode200ResponseRefcontentschemaheader(instance);
@@ -131,7 +131,7 @@ public class Code200ResponseHeadersSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterCode200ResponseXExpiresAfter(Map<String, @Nullable Object> instance);
         
-        default T setXHyphenMinusExpiresHyphenMinusAfter(String value) {
+        default T xHyphenMinusExpiresHyphenMinusAfter(String value) {
             var instance = getInstance();
             instance.put("X-Expires-After", value);
             return getBuilderAfterCode200ResponseXExpiresAfter(instance);

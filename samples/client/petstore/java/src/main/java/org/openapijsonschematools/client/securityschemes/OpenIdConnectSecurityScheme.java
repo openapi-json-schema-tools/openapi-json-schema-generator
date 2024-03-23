@@ -8,7 +8,14 @@ import java.util.Map;
 
 public class OpenIdConnectSecurityScheme implements SecurityScheme {
     @Override
-    public void applyAuth(Map<String, List<String>> headers, String resourcePath, String method, HttpRequest.BodyPublisher bodyPublisher, Map<String, String> queryMap, List<String> scopeNames) {
+    public void applyAuth(
+        Map<String, List<String>> headers,
+        String resourcePath,
+        String method,
+        HttpRequest.BodyPublisher bodyPublisher,
+        @Nullable Map<String, String> queryMap,
+        List<String> scopeNames
+    ) {
          throw new UnsupportedOperationException("If you need this, submit a PR adding this feature");
     }
 }

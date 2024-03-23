@@ -60,7 +60,7 @@ public class ObjectWithInvalidNamedRefedProperties {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterReference(Map<String, @Nullable Object> instance);
         
-        default T setExclamationMarkReference(List<Number> value) {
+        default T exclamationMarkReference(List<Number> value) {
             var instance = getInstance();
             instance.put("!reference", value);
             return getBuilderAfterReference(instance);

@@ -299,46 +299,124 @@ allowed input and output types.
 | [Whale.Whale1](docs/components/schemas/Whale.md#whale1) | |
 | [Zebra.Zebra1](docs/components/schemas/Zebra.md#zebra1) | |
 
+## Endpoints
+
+All URIs are relative to the selected server
+- The server is selected by passing in serverInfo into configurations.ApiConfiguration
+- The security info is selected by passing in securityInfo into configurations.ApiConfiguration
+- TODO Code samples in endpoints documents show how to do this
+- serverIndex + securityIndex can also be passed in to endpoint calls, see endpoint documentation
+
+| HTTP request | Method | Description |
+| ------------ | ------ | ----------- |
+| / **get** | [Get1.get](docs/paths/solidus/Get.md#get1) | slash route |
+| /another-fake/dummy **patch** | [Patch1.patch](docs/paths/anotherfakedummy/Patch.md#patch1) | To test special tags |
+| /commonParam/{subDir}/ **delete** | [Delete1.delete](docs/paths/commonparamsubdir/Delete.md#delete1) | |
+| /commonParam/{subDir}/ **get** | [Get1.get](docs/paths/commonparamsubdir/Get.md#get1) | |
+| /commonParam/{subDir}/ **post** | [Post1.post](docs/paths/commonparamsubdir/Post.md#post1) | |
+| /fake **delete** | [Delete1.delete](docs/paths/fake/Delete.md#delete1) | Fake endpoint to test group parameters (optional) |
+| /fake **get** | [Get1.get](docs/paths/fake/Get.md#get1) | To test enum parameters |
+| /fake **patch** | [Patch1.patch](docs/paths/fake/Patch.md#patch1) | To test &quot;client&quot; model |
+| /fake **post** | [Post1.post](docs/paths/fake/Post.md#post1) | Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br> |
+| /fake/additional-properties-with-array-of-enums **get** | [Get1.get](docs/paths/fakeadditionalpropertieswitharrayofenums/Get.md#get1) | Additional Properties with Array of Enums |
+| /fake/body-with-file-schema **put** | [Put1.put](docs/paths/fakebodywithfileschema/Put.md#put1) | |
+| /fake/body-with-query-params **put** | [Put1.put](docs/paths/fakebodywithqueryparams/Put.md#put1) | |
+| /fake/case-sensitive-params **put** | [Put1.put](docs/paths/fakecasesensitiveparams/Put.md#put1) | |
+| /fake/deleteCoffee/{id} **delete** | [Delete1.delete](docs/paths/fakedeletecoffeeid/Delete.md#delete1) | Delete coffee |
+| /fake/health **get** | [Get1.get](docs/paths/fakehealth/Get.md#get1) | Health check endpoint |
+| /fake/inline-additionalProperties **post** | [Post1.post](docs/paths/fakeinlineadditionalproperties/Post.md#post1) | test inline additionalProperties |
+| /fake/inlineComposition/ **post** | [Post1.post](docs/paths/fakeinlinecomposition/Post.md#post1) | testing composed schemas at inline locations |
+| /fake/jsonFormData **get** | [Get1.get](docs/paths/fakejsonformdata/Get.md#get1) | test json serialization of form data |
+| /fake/jsonPatch **patch** | [Patch1.patch](docs/paths/fakejsonpatch/Patch.md#patch1) | json patch |
+| /fake/jsonWithCharset **post** | [Post1.post](docs/paths/fakejsonwithcharset/Post.md#post1) | json with charset tx and rx |
+| /fake/multipleRequestBodyContentTypes/ **post** | [Post1.post](docs/paths/fakemultiplerequestbodycontenttypes/Post.md#post1) | testing composed schemas at inline locations |
+| /fake/multipleResponseBodies **get** | [Get1.get](docs/paths/fakemultipleresponsebodies/Get.md#get1) | multiple responses have response bodies |
+| /fake/multipleSecurities **get** | [Get1.get](docs/paths/fakemultiplesecurities/Get.md#get1) | multiple security requirements |
+| /fake/objInQuery **get** | [Get1.get](docs/paths/fakeobjinquery/Get.md#get1) | user list |
+| /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ **post** | [Post1.post](docs/paths/fakeparametercollisions1ababselfab/Post.md#post1) | parameter collision case |
+| /fake/pemContentType **get** | [Get1.get](docs/paths/fakepemcontenttype/Get.md#get1) | route with tx and rx pem content type |
+| /fake/queryParamWithJsonContentType **get** | [Get1.get](docs/paths/fakequeryparamwithjsoncontenttype/Get.md#get1) | query param with json content-type |
+| /fake/redirection **get** | [Get1.get](docs/paths/fakeredirection/Get.md#get1) | operation with redirection responses |
+| /fake/refObjInQuery **get** | [Get1.get](docs/paths/fakerefobjinquery/Get.md#get1) | user list |
+| /fake/refs/array-of-enums **post** | [Post1.post](docs/paths/fakerefsarrayofenums/Post.md#post1) | Array of Enums |
+| /fake/refs/arraymodel **post** | [Post1.post](docs/paths/fakerefsarraymodel/Post.md#post1) | |
+| /fake/refs/boolean **post** | [Post1.post](docs/paths/fakerefsboolean/Post.md#post1) | |
+| /fake/refs/composed_one_of_number_with_validations **post** | [Post1.post](docs/paths/fakerefscomposedoneofnumberwithvalidations/Post.md#post1) | |
+| /fake/refs/enum **post** | [Post1.post](docs/paths/fakerefsenum/Post.md#post1) | |
+| /fake/refs/mammal **post** | [Post1.post](docs/paths/fakerefsmammal/Post.md#post1) | |
+| /fake/refs/number **post** | [Post1.post](docs/paths/fakerefsnumber/Post.md#post1) | |
+| /fake/refs/object_model_with_ref_props **post** | [Post1.post](docs/paths/fakerefsobjectmodelwithrefprops/Post.md#post1) | |
+| /fake/refs/string **post** | [Post1.post](docs/paths/fakerefsstring/Post.md#post1) | |
+| /fake/responseWithoutSchema **get** | [Get1.get](docs/paths/fakeresponsewithoutschema/Get.md#get1) | receives a response without schema |
+| /fake/test-query-paramters **put** | [Put1.put](docs/paths/faketestqueryparamters/Put.md#put1) | |
+| /fake/uploadDownloadFile **post** | [Post1.post](docs/paths/fakeuploaddownloadfile/Post.md#post1) | uploads a file and downloads a file using application/octet-stream |
+| /fake/uploadFile **post** | [Post1.post](docs/paths/fakeuploadfile/Post.md#post1) | uploads a file using multipart/form-data |
+| /fake/uploadFiles **post** | [Post1.post](docs/paths/fakeuploadfiles/Post.md#post1) | uploads files using multipart/form-data |
+| /fake/wildCardResponses **get** | [Get1.get](docs/paths/fakewildcardresponses/Get.md#get1) | operation with wildcard responses |
+| /fake/{petId}/uploadImageWithRequiredFile **post** | [Post1.post](docs/paths/fakepetiduploadimagewithrequiredfile/Post.md#post1) | uploads an image (required) |
+| /fake_classname_test **patch** | [Patch1.patch](docs/paths/fakeclassnametest/Patch.md#patch1) | To test class name in snake case |
+| /foo **get** | [Get1.get](docs/paths/foo/Get.md#get1) | |
+| /pet **post** | [Post1.post](docs/paths/pet/Post.md#post1) | Add a new pet to the store |
+| /pet **put** | [Put1.put](docs/paths/pet/Put.md#put1) | Update an existing pet |
+| /pet/findByStatus **get** | [Get1.get](docs/paths/petfindbystatus/Get.md#get1) | Finds Pets by status |
+| /pet/findByTags **get** | [Get1.get](docs/paths/petfindbytags/Get.md#get1) | Finds Pets by tags |
+| /pet/{petId} **delete** | [Delete1.delete](docs/paths/petpetid/Delete.md#delete1) | Deletes a pet |
+| /pet/{petId} **get** | [Get1.get](docs/paths/petpetid/Get.md#get1) | Find pet by ID |
+| /pet/{petId} **post** | [Post1.post](docs/paths/petpetid/Post.md#post1) | Updates a pet in the store with form data |
+| /pet/{petId}/uploadImage **post** | [Post1.post](docs/paths/petpetiduploadimage/Post.md#post1) | uploads an image |
+| /store/inventory **get** | [Get1.get](docs/paths/storeinventory/Get.md#get1) | Returns pet inventories by status |
+| /store/order **post** | [Post1.post](docs/paths/storeorder/Post.md#post1) | Place an order for a pet |
+| /store/order/{order_id} **delete** | [Delete1.delete](docs/paths/storeorderorderid/Delete.md#delete1) | Delete purchase order by ID |
+| /store/order/{order_id} **get** | [Get1.get](docs/paths/storeorderorderid/Get.md#get1) | Find purchase order by ID |
+| /user **post** | [Post1.post](docs/paths/user/Post.md#post1) | Create user |
+| /user/createWithArray **post** | [Post1.post](docs/paths/usercreatewitharray/Post.md#post1) | Creates list of users with given input array |
+| /user/createWithList **post** | [Post1.post](docs/paths/usercreatewithlist/Post.md#post1) | Creates list of users with given input array |
+| /user/login **get** | [Get1.get](docs/paths/userlogin/Get.md#get1) | Logs user into the system |
+| /user/logout **get** | [Get1.get](docs/paths/userlogout/Get.md#get1) | Logs out current logged in user session |
+| /user/{username} **delete** | [Delete1.delete](docs/paths/userusername/Delete.md#delete1) | Delete user |
+| /user/{username} **get** | [Get1.get](docs/paths/userusername/Get.md#get1) | Get user by user name |
+| /user/{username} **put** | [Put1.put](docs/paths/userusername/Put.md#put1) | Updated user |
+
 ## Component RequestBodies
 
-Class | Description
------ | ------------
-[Client.Client1](docs/components/requestbodies/Client.md#client1) | client model
-[Pet.Pet1](docs/components/requestbodies/Pet.md#pet1) | Pet object that needs to be added to the store, multiple content types
-[RefUserArray.RefUserArray1](docs/components/requestbodies/RefUserArray.md#refuserarray1) |
-[UserArray.UserArray1](docs/components/requestbodies/UserArray.md#userarray1) | List of user object
+| Class | Description |
+| ----- | ----------- |
+| [Client.Client1](docs/components/requestbodies/Client.md#client1) | client model |
+| [Pet.Pet1](docs/components/requestbodies/Pet.md#pet1) | Pet object that needs to be added to the store, multiple content types |
+| [RefUserArray.RefUserArray1](docs/components/requestbodies/RefUserArray.md#refuserarray1) | |
+| [UserArray.UserArray1](docs/components/requestbodies/UserArray.md#userarray1) | List of user object |
 
 ## Component Responses
 
-Class | Description
------ | ------------
-[HeadersWithNoBody.HeadersWithNoBody1](docs/components/responses/HeadersWithNoBody.md#headerswithnobody1) | A response that contains headers but no body<br>
-[RefSuccessDescriptionOnly.RefSuccessDescriptionOnly1](docs/components/responses/RefSuccessDescriptionOnly.md#refsuccessdescriptiononly1) |
-[RefSuccessfulXmlAndJsonArrayOfPet.RefSuccessfulXmlAndJsonArrayOfPet1](docs/components/responses/RefSuccessfulXmlAndJsonArrayOfPet.md#refsuccessfulxmlandjsonarrayofpet1) |
-[SuccessDescriptionOnly.SuccessDescriptionOnly1](docs/components/responses/SuccessDescriptionOnly.md#successdescriptiononly1) | Success
-[SuccessInlineContentAndHeader.SuccessInlineContentAndHeader1](docs/components/responses/SuccessInlineContentAndHeader.md#successinlinecontentandheader1) | successful operation
-[SuccessWithJsonApiResponse.SuccessWithJsonApiResponse1](docs/components/responses/SuccessWithJsonApiResponse.md#successwithjsonapiresponse1) | successful operation
-[SuccessfulXmlAndJsonArrayOfPet.SuccessfulXmlAndJsonArrayOfPet1](docs/components/responses/SuccessfulXmlAndJsonArrayOfPet.md#successfulxmlandjsonarrayofpet1) | successful operation, multiple content types
+| Class | Description |
+| ----- | ----------- |
+| [HeadersWithNoBody.HeadersWithNoBody1](docs/components/responses/HeadersWithNoBody.md#headerswithnobody1) | A response that contains headers but no body<br>|
+| [RefSuccessDescriptionOnly.RefSuccessDescriptionOnly1](docs/components/responses/RefSuccessDescriptionOnly.md#refsuccessdescriptiononly1) ||
+| [RefSuccessfulXmlAndJsonArrayOfPet.RefSuccessfulXmlAndJsonArrayOfPet1](docs/components/responses/RefSuccessfulXmlAndJsonArrayOfPet.md#refsuccessfulxmlandjsonarrayofpet1) ||
+| [SuccessDescriptionOnly.SuccessDescriptionOnly1](docs/components/responses/SuccessDescriptionOnly.md#successdescriptiononly1) | Success|
+| [SuccessInlineContentAndHeader.SuccessInlineContentAndHeader1](docs/components/responses/SuccessInlineContentAndHeader.md#successinlinecontentandheader1) | successful operation|
+| [SuccessWithJsonApiResponse.SuccessWithJsonApiResponse1](docs/components/responses/SuccessWithJsonApiResponse.md#successwithjsonapiresponse1) | successful operation|
+| [SuccessfulXmlAndJsonArrayOfPet.SuccessfulXmlAndJsonArrayOfPet1](docs/components/responses/SuccessfulXmlAndJsonArrayOfPet.md#successfulxmlandjsonarrayofpet1) | successful operation, multiple content types|
 
 ## Component Headers
 
-Class | Description
------ | ------------
-[Int32JsonContentTypeHeader.Int32JsonContentTypeHeader1](docs/components/headers/Int32JsonContentTypeHeader.md#int32jsoncontenttypeheader1) | int32 JSON content-type header
-[NumberHeader.NumberHeader1](docs/components/headers/NumberHeader.md#numberheader1) | number header description
-[RefContentSchemaHeader.RefContentSchemaHeader1](docs/components/headers/RefContentSchemaHeader.md#refcontentschemaheader1) | int32 JSON content-type header
-[RefSchemaHeader.RefSchemaHeader1](docs/components/headers/RefSchemaHeader.md#refschemaheader1) | header that has a ref in the schema
-[RefStringHeader.RefStringHeader1](docs/components/headers/RefStringHeader.md#refstringheader1) |
-[StringHeader.StringHeader1](docs/components/headers/StringHeader.md#stringheader1) | string header description
+| Class | Description |
+| ----- | ----------- |
+| [Int32JsonContentTypeHeader.Int32JsonContentTypeHeader1](docs/components/headers/Int32JsonContentTypeHeader.md#int32jsoncontenttypeheader1) | int32 JSON content-type header |
+| [NumberHeader.NumberHeader1](docs/components/headers/NumberHeader.md#numberheader1) | number header description |
+| [RefContentSchemaHeader.RefContentSchemaHeader1](docs/components/headers/RefContentSchemaHeader.md#refcontentschemaheader1) | int32 JSON content-type header |
+| [RefSchemaHeader.RefSchemaHeader1](docs/components/headers/RefSchemaHeader.md#refschemaheader1) | header that has a ref in the schema |
+| [RefStringHeader.RefStringHeader1](docs/components/headers/RefStringHeader.md#refstringheader1) | |
+| [StringHeader.StringHeader1](docs/components/headers/StringHeader.md#stringheader1) | string header description |
 
 ## Component Parameters
 
-Class | Description
------ | ------------
-[ComponentRefSchemaStringWithValidation.ComponentRefSchemaStringWithValidation1](docs/components/parameters/ComponentRefSchemaStringWithValidation.md#componentrefschemastringwithvalidation1) | a path string with validation
-[PathUserName.PathUserName1](docs/components/parameters/PathUserName.md#pathusername1) | the use name to use
-[RefPathUserName.RefPathUserName1](docs/components/parameters/RefPathUserName.md#refpathusername1) |
-[RefSchemaStringWithValidation.RefSchemaStringWithValidation1](docs/components/parameters/RefSchemaStringWithValidation.md#refschemastringwithvalidation1) | a path string with validation
+| Class | Description |
+| ----- | ----------- |
+| [ComponentRefSchemaStringWithValidation.ComponentRefSchemaStringWithValidation1](docs/components/parameters/ComponentRefSchemaStringWithValidation.md#componentrefschemastringwithvalidation1) | a path string with validation |
+| [PathUserName.PathUserName1](docs/components/parameters/PathUserName.md#pathusername1) | the use name to use |
+| [RefPathUserName.RefPathUserName1](docs/components/parameters/RefPathUserName.md#refpathusername1) | |
+| [RefSchemaStringWithValidation.RefSchemaStringWithValidation1](docs/components/parameters/RefSchemaStringWithValidation.md#refschemastringwithvalidation1) | a path string with validation |
 
 ## Component SecuritySchemes
 

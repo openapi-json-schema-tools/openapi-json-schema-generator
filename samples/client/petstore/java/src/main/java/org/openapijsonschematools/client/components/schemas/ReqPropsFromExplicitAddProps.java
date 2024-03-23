@@ -66,7 +66,7 @@ public class ReqPropsFromExplicitAddProps {
         Map<String, String> getInstance();
         T getBuilderAfterInvalidname(Map<String, String> instance);
         
-        default T setInvalidHyphenMinusName(String value) {
+        default T invalidHyphenMinusName(String value) {
             var instance = getInstance();
             instance.put("invalid-name", value);
             return getBuilderAfterInvalidname(instance);

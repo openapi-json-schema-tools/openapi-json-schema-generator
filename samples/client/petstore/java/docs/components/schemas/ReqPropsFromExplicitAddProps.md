@@ -71,7 +71,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
     ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1.validate(
     new ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMapBuilder()
-        .setInvalidHyphenMinusName("a")
+        .invalidHyphenMinusName("a")
 
     .build(),
     configuration
@@ -140,7 +140,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromExplicitAddPropsMap00Builder](#reqpropsfromexplicitaddpropsmap00builder) | setInvalidHyphenMinusName(String value) |
+| [ReqPropsFromExplicitAddPropsMap00Builder](#reqpropsfromexplicitaddpropsmap00builder) | invalidHyphenMinusName(String value) |
 
 ## ReqPropsFromExplicitAddPropsMapBuilder
 public class ReqPropsFromExplicitAddPropsMapBuilder<br>
@@ -156,7 +156,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromExplicitAddPropsMap01Builder](#reqpropsfromexplicitaddpropsmap01builder) | setInvalidHyphenMinusName(String value) |
+| [ReqPropsFromExplicitAddPropsMap01Builder](#reqpropsfromexplicitaddpropsmap01builder) | invalidHyphenMinusName(String value) |
 | [ReqPropsFromExplicitAddPropsMap10Builder](#reqpropsfromexplicitaddpropsmap10builder) | validName(String value) |
 
 ## ReqPropsFromExplicitAddPropsMap

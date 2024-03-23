@@ -68,7 +68,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap validatedPayload =
     ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1.validate(
     new ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMapBuilder()
-        .setExclamationMarkReference(
+        .exclamationMarkReference(
             Arrays.asList(
                 1L
             )
@@ -160,7 +160,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(List<Number> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | exclamationMarkReference(List<Number> value) |
 
 ## ObjectWithInvalidNamedRefedPropertiesMapBuilder
 public class ObjectWithInvalidNamedRefedPropertiesMapBuilder<br>
@@ -176,7 +176,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(List<Number> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | exclamationMarkReference(List<Number> value) |
 | [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(Map<String, @Nullable Object> value) |
 
 ## ObjectWithInvalidNamedRefedPropertiesMap

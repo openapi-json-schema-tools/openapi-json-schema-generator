@@ -2767,55 +2767,55 @@ public class AnyTypeAndFormat {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterDatetime(Map<String, @Nullable Object> instance);
         
-        default T setDateHyphenMinusTime(Void value) {
+        default T dateHyphenMinusTime(Void value) {
             var instance = getInstance();
             instance.put("date-time", null);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(boolean value) {
+        default T dateHyphenMinusTime(boolean value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(String value) {
+        default T dateHyphenMinusTime(String value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(int value) {
+        default T dateHyphenMinusTime(int value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(float value) {
+        default T dateHyphenMinusTime(float value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(long value) {
+        default T dateHyphenMinusTime(long value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(double value) {
+        default T dateHyphenMinusTime(double value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(List<?> value) {
+        default T dateHyphenMinusTime(List<?> value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);
         }
         
-        default T setDateHyphenMinusTime(Map<String, ?> value) {
+        default T dateHyphenMinusTime(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("date-time", value);
             return getBuilderAfterDatetime(instance);

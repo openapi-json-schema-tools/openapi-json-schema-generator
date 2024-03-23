@@ -17,7 +17,17 @@ public class ApiKeyQuerySecurityScheme implements SecurityScheme {
     }
 
     @Override
-    public void applyAuth(Map<String, List<String>> headers, String resourcePath, String method, HttpRequest.BodyPublisher bodyPublisher, Map<String, String> queryMap, List<String> scopeNames) {
+    public void applyAuth(
+        Map<String, List<String>> headers,
+        String resourcePath,
+        String method,
+        HttpRequest.BodyPublisher bodyPublisher,
+        @Nullable Map<String, String> queryMap,
+        List<String> scopeNames
+    ) {
+        if (queryMap == null) {
+            throw new RuntimeException("Invalid null value for queryMap");
+        }
         queryMap.put(name, apiKey);
     }
 }

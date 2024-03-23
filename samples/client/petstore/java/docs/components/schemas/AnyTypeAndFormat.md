@@ -192,15 +192,15 @@ A class that builds the Map input type
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | date(double value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | date(List<?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | date(Map<String, ?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDateHyphenMinusTime(Void value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDateHyphenMinusTime(boolean value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDateHyphenMinusTime(String value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDateHyphenMinusTime(int value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDateHyphenMinusTime(float value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDateHyphenMinusTime(long value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDateHyphenMinusTime(double value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDateHyphenMinusTime(List<?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDateHyphenMinusTime(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(Map<String, ?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(Void value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(boolean value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(String value) |

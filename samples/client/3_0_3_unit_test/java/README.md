@@ -244,3 +244,14 @@ allowed input and output types.
 | [UriFormat.UriFormat1](docs/components/schemas/UriFormat.md#uriformat1) | |
 | [UriReferenceFormat.UriReferenceFormat1](docs/components/schemas/UriReferenceFormat.md#urireferenceformat1) | |
 | [UriTemplateFormat.UriTemplateFormat1](docs/components/schemas/UriTemplateFormat.md#uritemplateformat1) | |
+
+## Endpoints
+
+All URIs are relative to the selected server
+- The server is selected by passing in serverInfo into configurations.ApiConfiguration
+- The security info is selected by passing in securityInfo into configurations.ApiConfiguration
+- TODO Code samples in endpoints documents show how to do this
+- serverIndex + securityIndex can also be passed in to endpoint calls, see endpoint documentation
+
+| HTTP request | Method | Description |
+| ------------ | ------ | ----------- |

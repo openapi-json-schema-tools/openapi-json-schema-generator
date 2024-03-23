@@ -150,15 +150,15 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(Void value) |
-| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(boolean value) |
-| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(String value) |
-| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(int value) |
-| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(float value) |
-| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(long value) |
-| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(double value) |
-| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(List<?> value) |
-| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(Map<String, ?> value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | invalidHyphenMinusName(Void value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | invalidHyphenMinusName(boolean value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | invalidHyphenMinusName(String value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | invalidHyphenMinusName(int value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | invalidHyphenMinusName(float value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | invalidHyphenMinusName(long value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | invalidHyphenMinusName(double value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | invalidHyphenMinusName(List<?> value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | invalidHyphenMinusName(Map<String, ?> value) |
 
 ## ReqPropsFromUnsetAddPropsMapBuilder
 public class ReqPropsFromUnsetAddPropsMapBuilder<br>
@@ -174,15 +174,15 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(Void value) |
-| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(boolean value) |
-| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(String value) |
-| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(int value) |
-| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(float value) |
-| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(long value) |
-| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(double value) |
-| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(List<?> value) |
-| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(Map<String, ?> value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | invalidHyphenMinusName(Void value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | invalidHyphenMinusName(boolean value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | invalidHyphenMinusName(String value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | invalidHyphenMinusName(int value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | invalidHyphenMinusName(float value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | invalidHyphenMinusName(long value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | invalidHyphenMinusName(double value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | invalidHyphenMinusName(List<?> value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | invalidHyphenMinusName(Map<String, ?> value) |
 | [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(Void value) |
 | [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(boolean value) |
 | [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(String value) |

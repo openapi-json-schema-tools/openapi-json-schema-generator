@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.TreeSet;
 import java.util.function.Function;
 
-public class CodegenSchema {
+public class CodegenSchema implements OperationInputProvider {
     // 3.0.0
     public String title;
     public Number multipleOf;
@@ -1019,5 +1019,20 @@ public class CodegenSchema {
                 format, dependentRequired, contains, allOf, anyOf, oneOf, not,
                 properties, optionalProperties, requiredProperties, externalDocumentation,
                 discriminator, imports, componentModule, testCases, refInfo);
+    }
+
+    @Override
+    public CodegenKey operationInputClassName() {
+        return mapOutputJsonPathPiece;
+    }
+
+    @Override
+    public String operationInputVariableName() {
+        return containerJsonPathPiece.camelCase;
+    }
+
+    @Override
+    public String pathFromDocRoot() {
+        return pathFromDocRoot;
     }
 }

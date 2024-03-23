@@ -147,7 +147,7 @@ public interface Generator {
 
     CodegenList<CodegenSecurityRequirementObject> fromSecurity(List<SecurityRequirement> security, String jsonPath);
 
-    CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters);
+    CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters, CodegenList<CodegenServer> rootOrPathServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity);
 
     CodegenKey getKey(String key, String keyType);
 
@@ -155,9 +155,9 @@ public interface Generator {
 
     HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
 
-    TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths);
+    TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths, CodegenList<CodegenServer> rootServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity);
 
-    CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath);
+    CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath, CodegenList<CodegenServer> rootServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity);
 
     CodegenList<CodegenServer> fromServers(List<Server> servers, String jsonPath);
 
@@ -192,6 +192,8 @@ public interface Generator {
     String toPathFilename(String path, String jsonPath);
 
     String toParameterFilename(String baseName, String jsonPath);
+
+    String toOperationFilename(String name, String jsonPath);
 
     String toSecuritySchemeFilename(String baseName, String jsonPath);
 
@@ -302,5 +304,5 @@ public interface Generator {
     Function<CodegenSchema, List<CodegenSchema>> getSchemasFn();
 
     boolean generateSeparateServerSchemas();
-    boolean shouldGenerateFile(String jsonPath);
+    boolean shouldGenerateFile(String jsonPath, boolean isDoc);
 }

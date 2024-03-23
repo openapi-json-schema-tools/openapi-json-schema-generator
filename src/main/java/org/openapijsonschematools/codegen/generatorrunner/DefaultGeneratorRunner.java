@@ -348,7 +348,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
     }
 
-    private void generateSchemaDocumentation(List<File> files, CodegenSchema schema, String jsonPath, String docRoot) {
+    private void generateSchemaDocumentation(List<File> files, CodegenSchema schema, String jsonPath, String docRoot, boolean shouldGenerate) {
         Map<String, Object> schemaData = new HashMap<>();
         schemaData.put("packageName", generator.packageName());
         schemaData.put("schema", schema);
@@ -356,7 +356,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         schemaData.put("docRoot", docRoot);
         schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
         schemaData.put("headerSize", "#");
-        generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODEL_DOCS, schemaData, generateModelDocumentation);
+        generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODEL_DOCS, schemaData, shouldGenerate);
     }
 
     private void generateSchema(List<File> files, CodegenSchema schema, String jsonPath) {
@@ -423,6 +423,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         pathTemplateInfo.put("pathModule", pathKey.snakeCase);
         pathTemplateInfo.put("apiClassName", pathKey.pascalCase);
         pathTemplateInfo.put("path", pathKey.original);
+        pathTemplateInfo.put("pathItem", pathItem);
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH, CodegenConstants.APIS, pathTemplateInfo, true);
 
         if (pathItem.servers != null) {
@@ -431,7 +432,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         if (pathItem.parameters != null) {
             String parametersJsonPath = jsonPath + "/parameters";
-            generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, generator.shouldGenerateFile(parametersJsonPath));
+            generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, generator.shouldGenerateFile(parametersJsonPath, false));
             int i = 0;
             for (CodegenParameter param: pathItem.parameters) {
                 generateParameter(files, param, parametersJsonPath + "/" + i);
@@ -455,22 +456,27 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointMap.put("security", security);
                 endpointMap.put("path", pathKey);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
+                String docRoot = "../../../";
                 if (operation.parametersInfo != null) {
                     if (operation.parametersInfo.pathParametersSchema != null) {
                         String objectJsonPath = operationJsonPath + "/" + "PathParameters";
                         generateSchema(files, operation.parametersInfo.pathParametersSchema, objectJsonPath);
+                        generateSchemaDocumentation(files, operation.parametersInfo.pathParametersSchema, objectJsonPath, docRoot, generator.shouldGenerateFile(objectJsonPath, true));
                     }
                     if (operation.parametersInfo.queryParametersSchema != null) {
                         String objectJsonPath = operationJsonPath + "/" + "QueryParameters";
                         generateSchema(files, operation.parametersInfo.queryParametersSchema, objectJsonPath);
+                        generateSchemaDocumentation(files, operation.parametersInfo.queryParametersSchema, objectJsonPath, docRoot, generator.shouldGenerateFile(objectJsonPath, true));
                     }
                     if (operation.parametersInfo.headerParametersSchema != null) {
                         String objectJsonPath = operationJsonPath + "/" + "HeaderParameters";
                         generateSchema(files, operation.parametersInfo.headerParametersSchema, objectJsonPath);
+                        generateSchemaDocumentation(files, operation.parametersInfo.headerParametersSchema, objectJsonPath, docRoot, generator.shouldGenerateFile(objectJsonPath, true));
                     }
                     if (operation.parametersInfo.cookieParametersSchema != null) {
                         String objectJsonPath = operationJsonPath + "/" + "CookieParameters";
                         generateSchema(files, operation.parametersInfo.cookieParametersSchema, objectJsonPath);
+                        generateSchemaDocumentation(files, operation.parametersInfo.cookieParametersSchema, objectJsonPath, docRoot, generator.shouldGenerateFile(objectJsonPath, true));
                     }
                 }
 
@@ -499,6 +505,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 if (operation.requestBody != null) {
                     String requestBodyJsonPath = operationJsonPath + "/requestBody";
                     generateRequestBody(files, operation.requestBody, requestBodyJsonPath, "../../../../");
+                    generateRequestBodyDoc(files, operation.requestBody, requestBodyJsonPath, "../../../../", generator.shouldGenerateFile(requestBodyJsonPath, true));
                 }
 
                 if (operation.servers != null) {
@@ -531,7 +538,10 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     responsesInfo.put("nonErrorStatusCodes", operation.nonErrorStatusCodes);
                     responsesInfo.put("nonErrorWildcardStatusCodes", operation.nonErrorWildcardStatusCodes);
                     responsesInfo.put("defaultResponse", operation.defaultResponse);
-                    generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, generator.shouldGenerateFile(responsesJsonPath));
+                    responsesInfo.put("docRoot", "../../../");
+                    responsesInfo.put("headerSize", "#");
+                    generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, generator.shouldGenerateFile(responsesJsonPath, false));
+                    generateXDocs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, responsesInfo, generator.shouldGenerateFile(responsesJsonPath, true));
                     for (Map.Entry<String, CodegenResponse> responseEntry: operation.responses.entrySet()) {
                         // paths.some_path.post.responses.response_200.__init__.py (file per response)
                         // response is a package because responses have Headers which can be refed
@@ -597,7 +607,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 // schema
                 String schemaJsonPath = contentTypeJsonPath + "/schema";
                 generateSchema(files, schema, schemaJsonPath);
-                generateSchemaDocumentation(files, schema, schemaJsonPath, docRoot + "../../../");
+                generateSchemaDocumentation(files, schema, schemaJsonPath, docRoot + "../../../", true);
 
                 Map<String, String> contentTypeTemplateInfo = generator.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE);
                 if (contentTypeTemplateInfo == null || contentTypeTemplateInfo.isEmpty()) {
@@ -653,6 +663,10 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         templateData.put("packageName", generator.packageName());
         templateData.put("response", response);
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSES, templateData, true);
+        templateData.put("headerSize", "#");
+        templateData.put("docRoot", docRoot);
+        templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+        generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSES, templateData, generator.shouldGenerateFile(jsonPath, true));
 
         // headers
         if (response.headers != null && !response.headers.isEmpty()) {
@@ -660,7 +674,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             Map<String, Object> headersInfo = new HashMap<>();
             headersInfo.put("headers", response.headers);
             headersInfo.put("headersObjectSchema", response.headersObjectSchema);
-            generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, headersInfo, generator.shouldGenerateFile(headersJsonPath));
+            generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, headersInfo, generator.shouldGenerateFile(headersJsonPath, false));
             for (Map.Entry<String, CodegenHeader> headerInfo: response.headers.entrySet()) {
                 String headerName = headerInfo.getKey();
                 CodegenHeader header = headerInfo.getValue();
@@ -669,7 +683,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             }
             // synthetic json path
             generateSchema(files, response.headersObjectSchema, response.headersObjectSchema.jsonPath);
-            generateSchemaDocumentation(files, response.headersObjectSchema, response.headersObjectSchema.jsonPath, docRoot + "../");
+            generateSchemaDocumentation(files, response.headersObjectSchema, response.headersObjectSchema.jsonPath, docRoot + "../", generator.shouldGenerateFile(response.headersObjectSchema.jsonPath, true));
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content;
         if (content != null && !content.isEmpty()) {
@@ -691,7 +705,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         TreeMap<String, CodegenResponse> responses = new TreeMap<>();
         String responsesJsonPath = "#/components/responses";
-        generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, null, generator.shouldGenerateFile(responsesJsonPath));
+        generateXs(files, responsesJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES, CodegenConstants.RESPONSES, null, generator.shouldGenerateFile(responsesJsonPath, false));
         for (Map.Entry<String, ApiResponse> responseEntry: specResponses.entrySet()) {
             String componentName = responseEntry.getKey();
             ApiResponse apiResponse = responseEntry.getValue();
@@ -699,15 +713,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             CodegenResponse response = generator.fromResponse(apiResponse, sourceJsonPath);
             responses.put(componentName, response);
             generateResponse(files, response, sourceJsonPath, "../../");
-
-            Map<String, Object> templateData = new HashMap<>();
-            templateData.put("packageName", generator.packageName());
-            templateData.put("docRoot", "../../");
-            templateData.put("headerSize", "#");
-            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("response", response);
-            // TODO make this a property that can be turned off and on
-            generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE, CodegenConstants.RESPONSE_DOCS, templateData, true);
         }
         return responses;
     }
@@ -770,6 +775,17 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         return securitySchemes;
     }
 
+    private void generateRequestBodyDoc(List<File> files, CodegenRequestBody requestBody, String sourceJsonPath, String docRoot, boolean shouldGenerate) {
+        // doc generation
+        Map<String, Object> templateData = new HashMap<>();
+        templateData.put("packageName", generator.packageName());
+        templateData.put("requestBody", requestBody);
+        templateData.put("headerSize", "#");
+        templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+        templateData.put("docRoot", docRoot);
+        generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, shouldGenerate);
+    }
+
     private TreeMap<String, CodegenRequestBody> generateRequestBodies(List<File> files) {
         String skipMsg = "Skipping generation of component requestBodies because the specification document lacks them.";
         Components components = this.openAPI.getComponents();
@@ -793,16 +809,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             requestBodies.put(componentName, requestBody);
 
             generateRequestBody(files, requestBody, sourceJsonPath, "../../");
-
-            // doc generation
-            Map<String, Object> templateData = new HashMap<>();
-            templateData.put("packageName", generator.packageName());
-            templateData.put("requestBody", requestBody);
-            templateData.put("headerSize", "#");
-            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("docRoot", "../../");
-            // todo add flag to turn this off
-            generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, true);
+            generateRequestBodyDoc(files, requestBody, sourceJsonPath, "../../", true);
         }
         // sort them
         requestBodies = new TreeMap<>(requestBodies);
@@ -820,7 +827,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         if (schema != null) {
             String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
-            generateSchemaDocumentation(files, schema, schemaJsonPath, "../../../");
+            generateSchemaDocumentation(files, schema, schemaJsonPath, "../../../", true);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = parameter.content;
         if (schema == null && content != null && !content.isEmpty()) {
@@ -842,7 +849,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         TreeMap<String, CodegenParameter> parameters = new TreeMap<>();
         String parametersJsonPath = "#/components/parameters";
-        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, generator.shouldGenerateFile(parametersJsonPath));
+        generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, generator.shouldGenerateFile(parametersJsonPath, false));
         for (Map.Entry<String, Parameter> entry: specParameters.entrySet()) {
             String componentName = entry.getKey();
             Parameter specParameter = entry.getValue();
@@ -876,7 +883,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         if (schema != null) {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
-            generateSchemaDocumentation(files, schema, schemaJsonPath, docRoot + "../");
+            generateSchemaDocumentation(files, schema, schemaJsonPath, docRoot + "../", true);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = header.content;
         if (schema == null && content != null && !content.isEmpty()) {
@@ -993,7 +1000,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         TreeMap<String, CodegenHeader> headers = new TreeMap<>();
         String headersJsonPath = "#/components/headers";
-        generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, null, generator.shouldGenerateFile(headersJsonPath));
+        generateXs(files, headersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS, CodegenConstants.HEADERS, null, generator.shouldGenerateFile(headersJsonPath, false));
         for (Map.Entry<String, Header> entry: specHeaders.entrySet()) {
             String componentName = entry.getKey();
             Header specHeader = entry.getValue();
@@ -1087,7 +1094,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
                 // to generate model documentation files
                 if (generateModelDocumentation) {
-                    generateSchemaDocumentation(files, schema, jsonPath, "../../");
+                    generateSchemaDocumentation(files, schema, jsonPath, "../../", true);
                 }
 
             } catch (Exception e) {
@@ -1422,7 +1429,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         Map<String, Object> serversTemplateData = new HashMap<>();
         serversTemplateData.put("packageName", generator.packageName());
         serversTemplateData.put("servers", servers);
+        serversTemplateData.put("headerSize", "#");
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, serversTemplateData, true);
+        generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, serversTemplateData, true);
 
         int i = 0;
         for (CodegenServer server: servers) {
@@ -1473,7 +1482,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         Map<String, Object> securityTemplateData = new HashMap<>();
         securityTemplateData.put("packageName", generator.packageName());
         securityTemplateData.put("security", security);
+        securityTemplateData.put("headerSize", "#");
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, securityTemplateData, true);
+        generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, securityTemplateData, true);
 
         int i = 0;
         for (CodegenSecurityRequirementObject securityRequirementObject: security) {
@@ -1552,7 +1563,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         String serversJsonPath = "#/servers";
         CodegenList<CodegenServer> servers = generator.fromServers(openAPI.getServers(), serversJsonPath);
         // paths
-        TreeMap<CodegenKey, CodegenPathItem> paths = generator.fromPaths(openAPI.getPaths());
+        TreeMap<CodegenKey, CodegenPathItem> paths = generator.fromPaths(openAPI.getPaths(), servers, security);
         generatePaths(files, paths, servers, security);
         generateServers(files, servers, serversJsonPath);
         // apis

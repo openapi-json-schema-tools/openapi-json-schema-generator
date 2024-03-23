@@ -110,7 +110,7 @@ public class SuccessWithJsonApiResponseHeadersSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSuccessWithJsonApiResponseRefcontentschemaheader(Map<String, @Nullable Object> instance);
         
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) {
+        default T refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) {
             var instance = getInstance();
             instance.put("ref-content-schema-header", value);
             return getBuilderAfterSuccessWithJsonApiResponseRefcontentschemaheader(instance);
@@ -121,7 +121,7 @@ public class SuccessWithJsonApiResponseHeadersSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSuccessWithJsonApiResponseRefschemaheader(Map<String, @Nullable Object> instance);
         
-        default T setRefHyphenMinusSchemaHyphenMinusHeader(String value) {
+        default T refHyphenMinusSchemaHyphenMinusHeader(String value) {
             var instance = getInstance();
             instance.put("ref-schema-header", value);
             return getBuilderAfterSuccessWithJsonApiResponseRefschemaheader(instance);

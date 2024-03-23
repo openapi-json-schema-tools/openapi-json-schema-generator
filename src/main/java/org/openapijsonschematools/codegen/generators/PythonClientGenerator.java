@@ -2277,4 +2277,33 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             }
         }
     }
+
+    @Override
+    public boolean shouldGenerateFile(String jsonPath, boolean isDoc) {
+        if (isDoc && jsonPath.startsWith("#/paths")) {
+            // all of these docs are inline in the operation docs
+            if (jsonPath.endsWith("/responses")) {
+                return false;
+            }
+            if (jsonPath.contains("/responses/")) {
+                return false;
+            }
+            if (jsonPath.endsWith("/requestBody")) {
+                return false;
+            }
+            if (jsonPath.endsWith("/PathParameters")) {
+                return false;
+            }
+            if (jsonPath.endsWith("/QueryParameters")) {
+                return false;
+            }
+            if (jsonPath.endsWith("/HeaderParameters")) {
+                return false;
+            }
+            if (jsonPath.endsWith("/CookieParameters")) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

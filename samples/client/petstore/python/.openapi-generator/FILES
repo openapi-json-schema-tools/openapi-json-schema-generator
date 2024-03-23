@@ -400,7 +400,6 @@ docs/paths/user_login/get/parameters/parameter_0/schema.md
 docs/paths/user_login/get/parameters/parameter_1/schema.md
 docs/paths/user_login/get/responses/response_200/content/application_json/schema.md
 docs/paths/user_login/get/responses/response_200/content/application_xml/schema.md
-docs/paths/user_login/get/responses/response_200/header_parameters.md
 docs/paths/user_login/get/responses/response_200/headers/header_x_expires_after/schema.md
 docs/paths/user_login/get/responses/response_200/headers/header_x_rate_limit/content/application_json/schema.md
 docs/paths/user_logout/get.md

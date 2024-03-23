@@ -77,7 +77,7 @@ SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaM
     new SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMapBuilder()
         .int32(1)
 
-        .setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader("a")
+        .refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader("a")
 
         .stringHeader("a")
 
@@ -151,7 +151,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SuccessWithJsonApiResponseHeadersSchemaMap0000Builder](#successwithjsonapiresponseheadersschemamap0000builder) | setRefHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap0000Builder](#successwithjsonapiresponseheadersschemamap0000builder) | refHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap0011Builder
 public class SuccessWithJsonApiResponseHeadersSchemaMap0011Builder<br>
@@ -167,7 +167,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SuccessWithJsonApiResponseHeadersSchemaMap0001Builder](#successwithjsonapiresponseheadersschemamap0001builder) | setRefHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap0001Builder](#successwithjsonapiresponseheadersschemamap0001builder) | refHyphenMinusSchemaHyphenMinusHeader(String value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0010Builder](#successwithjsonapiresponseheadersschemamap0010builder) | stringHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap0100Builder
@@ -184,7 +184,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SuccessWithJsonApiResponseHeadersSchemaMap0000Builder](#successwithjsonapiresponseheadersschemamap0000builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap0000Builder](#successwithjsonapiresponseheadersschemamap0000builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap0101Builder
 public class SuccessWithJsonApiResponseHeadersSchemaMap0101Builder<br>
@@ -200,7 +200,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SuccessWithJsonApiResponseHeadersSchemaMap0001Builder](#successwithjsonapiresponseheadersschemamap0001builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap0001Builder](#successwithjsonapiresponseheadersschemamap0001builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0100Builder](#successwithjsonapiresponseheadersschemamap0100builder) | stringHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap0110Builder
@@ -217,8 +217,8 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SuccessWithJsonApiResponseHeadersSchemaMap0010Builder](#successwithjsonapiresponseheadersschemamap0010builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap0100Builder](#successwithjsonapiresponseheadersschemamap0100builder) | setRefHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap0010Builder](#successwithjsonapiresponseheadersschemamap0010builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap0100Builder](#successwithjsonapiresponseheadersschemamap0100builder) | refHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap0111Builder
 public class SuccessWithJsonApiResponseHeadersSchemaMap0111Builder<br>
@@ -234,8 +234,8 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SuccessWithJsonApiResponseHeadersSchemaMap0011Builder](#successwithjsonapiresponseheadersschemamap0011builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap0101Builder](#successwithjsonapiresponseheadersschemamap0101builder) | setRefHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap0011Builder](#successwithjsonapiresponseheadersschemamap0011builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap0101Builder](#successwithjsonapiresponseheadersschemamap0101builder) | refHyphenMinusSchemaHyphenMinusHeader(String value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0110Builder](#successwithjsonapiresponseheadersschemamap0110builder) | stringHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap1000Builder
@@ -289,7 +289,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0010Builder](#successwithjsonapiresponseheadersschemamap0010builder) | int32(int value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0010Builder](#successwithjsonapiresponseheadersschemamap0010builder) | int32(float value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap1000Builder](#successwithjsonapiresponseheadersschemamap1000builder) | setRefHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap1000Builder](#successwithjsonapiresponseheadersschemamap1000builder) | refHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap1011Builder
 public class SuccessWithJsonApiResponseHeadersSchemaMap1011Builder<br>
@@ -307,7 +307,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0011Builder](#successwithjsonapiresponseheadersschemamap0011builder) | int32(int value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0011Builder](#successwithjsonapiresponseheadersschemamap0011builder) | int32(float value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap1001Builder](#successwithjsonapiresponseheadersschemamap1001builder) | setRefHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap1001Builder](#successwithjsonapiresponseheadersschemamap1001builder) | refHyphenMinusSchemaHyphenMinusHeader(String value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap1010Builder](#successwithjsonapiresponseheadersschemamap1010builder) | stringHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap1100Builder
@@ -326,7 +326,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0100Builder](#successwithjsonapiresponseheadersschemamap0100builder) | int32(int value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0100Builder](#successwithjsonapiresponseheadersschemamap0100builder) | int32(float value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap1000Builder](#successwithjsonapiresponseheadersschemamap1000builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap1000Builder](#successwithjsonapiresponseheadersschemamap1000builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap1101Builder
 public class SuccessWithJsonApiResponseHeadersSchemaMap1101Builder<br>
@@ -344,7 +344,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0101Builder](#successwithjsonapiresponseheadersschemamap0101builder) | int32(int value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0101Builder](#successwithjsonapiresponseheadersschemamap0101builder) | int32(float value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap1001Builder](#successwithjsonapiresponseheadersschemamap1001builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap1001Builder](#successwithjsonapiresponseheadersschemamap1001builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap1100Builder](#successwithjsonapiresponseheadersschemamap1100builder) | stringHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap1110Builder
@@ -363,8 +363,8 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0110Builder](#successwithjsonapiresponseheadersschemamap0110builder) | int32(int value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0110Builder](#successwithjsonapiresponseheadersschemamap0110builder) | int32(float value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap1010Builder](#successwithjsonapiresponseheadersschemamap1010builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap1100Builder](#successwithjsonapiresponseheadersschemamap1100builder) | setRefHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap1010Builder](#successwithjsonapiresponseheadersschemamap1010builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap1100Builder](#successwithjsonapiresponseheadersschemamap1100builder) | refHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMapBuilder
 public class SuccessWithJsonApiResponseHeadersSchemaMapBuilder<br>
@@ -382,8 +382,8 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0111Builder](#successwithjsonapiresponseheadersschemamap0111builder) | int32(int value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap0111Builder](#successwithjsonapiresponseheadersschemamap0111builder) | int32(float value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap1011Builder](#successwithjsonapiresponseheadersschemamap1011builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
-| [SuccessWithJsonApiResponseHeadersSchemaMap1101Builder](#successwithjsonapiresponseheadersschemamap1101builder) | setRefHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap1011Builder](#successwithjsonapiresponseheadersschemamap1011builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [SuccessWithJsonApiResponseHeadersSchemaMap1101Builder](#successwithjsonapiresponseheadersschemamap1101builder) | refHyphenMinusSchemaHyphenMinusHeader(String value) |
 | [SuccessWithJsonApiResponseHeadersSchemaMap1110Builder](#successwithjsonapiresponseheadersschemamap1110builder) | stringHeader(String value) |
 
 ## SuccessWithJsonApiResponseHeadersSchemaMap

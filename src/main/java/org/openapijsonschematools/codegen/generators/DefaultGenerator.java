@@ -934,6 +934,11 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
+    public String toOperationFilename(String name, String jsonPath) {
+        return name;
+    }
+
+    @Override
     public String toSecuritySchemeFilename(String basename, String jsonPath) {
         return toModuleFilename(basename, jsonPath);
     }
@@ -2745,6 +2750,11 @@ public class DefaultGenerator implements Generator {
         return new CodegenParametersInfo(jsonPathPiece, subpackage, operationParameters, pathParametersSchema, queryParametersSchema, headerParametersSchema, cookieParametersSchema, pathItemParams);
     }
 
+    @Deprecated
+    public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters) {
+        return fromOperation(operation, jsonPath, pathItemParameters, null, null);
+    }
+
     /**
      * Convert OAS Operation object to Codegen Operation object
      *
@@ -2753,7 +2763,7 @@ public class DefaultGenerator implements Generator {
      * @return Codegen Operation object
      */
     @Override
-    public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters) {
+    public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters, CodegenList<CodegenServer> rootOrPathServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity) {
         LOGGER.debug("fromOperation => operation: {}", operation);
         if (operation == null) {
             throw new RuntimeException("operation cannot be null in fromOperation");
@@ -2784,10 +2794,10 @@ public class DefaultGenerator implements Generator {
         CodegenKey operationId = getOperationId(operation, path, httpMethod);
 
         // servers setting
-        CodegenList<CodegenServer> codegenList = null;
+        CodegenList<CodegenServer> servers = null;
         if (operation.getServers() != null && !operation.getServers().isEmpty()) {
             // use operation-level servers first if defined
-            codegenList = fromServers(operation.getServers(), jsonPath + "/servers");
+            servers = fromServers(operation.getServers(), jsonPath + "/servers");
         }
 
         CodegenText summary = null;
@@ -2884,7 +2894,7 @@ public class DefaultGenerator implements Generator {
                 wildcardCodeResponses = new TreeMap<>(wildcardCodeResponses);
             }
             CodegenKey responsesJsonPathPiece = getKey("responses", "misc", responsesJsonPath);
-            responses = new CodegenMap<>(responsesMap, responsesJsonPathPiece, getSubpackage(responsesJsonPath));
+            responses = new CodegenMap<>(responsesMap, responsesJsonPathPiece, getSubpackage(responsesJsonPath), getPathFromDocRoot(responsesJsonPath));
         }
 
         List<CodegenCallback> callbacks = null;
@@ -2941,6 +2951,10 @@ public class DefaultGenerator implements Generator {
         CodegenList<CodegenSecurityRequirementObject> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
+        CodegenList<CodegenServer> usedServers = (servers != null) ? servers : rootOrPathServers;
+        CodegenList<CodegenSecurityRequirementObject> usedSecurity = (security != null) ? security : rootSecurity;
+        List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, usedServers, usedSecurity);
+        String subpackage = getSubpackage(jsonPath);
 
         return new CodegenOperation(
                 deprecated,
@@ -2951,7 +2965,7 @@ public class DefaultGenerator implements Generator {
                 summary,
                 description,
                 produces,
-                codegenList,
+                servers,
                 requestBody,
                 parametersInfo,
                 hasRequiredParamOrBody,
@@ -2968,8 +2982,14 @@ public class DefaultGenerator implements Generator {
                 vendorExtensions,
                 operationId,
                 jsonPathPiece,
-                requestBodySchema
+                requestBodySchema,
+                builders,
+                subpackage
             );
+    }
+
+    protected List<MapBuilder<?>> getOperationBuilders(String jsonPath, CodegenRequestBody requestBody, CodegenParametersInfo parametersInfo, CodegenList<CodegenServer> servers, CodegenList<CodegenSecurityRequirementObject> security) {
+        return null;
     }
 
     private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String sourceJsonPath, String currentJsonPath) {
@@ -3014,11 +3034,17 @@ public class DefaultGenerator implements Generator {
         CodegenKey jsonPathPiece = getKey("", "security", jsonPath);
         String subpackage = getSubpackage(jsonPath);
         List<MapBuilder<CodegenSecurityRequirementObject>> builders = getSecurityBuilders(items, jsonPath);
+        CodegenKey operationInputClass = getKey("SecurityIndex", "misc", jsonPath);
+        String operationInputVariableName = "securityIndex";
+        String pathFromDocRoot = getPathFromDocRoot(jsonPath);
         return new CodegenList<>(
-                items,
-                jsonPathPiece,
-                subpackage,
-                builders
+            items,
+            jsonPathPiece,
+            subpackage,
+            builders,
+            operationInputClass,
+            operationInputVariableName,
+            pathFromDocRoot
         );
     }
 
@@ -3026,7 +3052,12 @@ public class DefaultGenerator implements Generator {
         return null;
     }
 
-    private String responsePathFromDocRoot(String sourceJsonPath) {
+    protected String getPathFromDocRoot(String sourceJsonPath) {
+        String moduleLocation = getModuleLocation(sourceJsonPath);
+        return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+    }
+
+    protected String responsePathFromDocRoot(String sourceJsonPath) {
         if (sourceJsonPath.startsWith("#/components/responses")) {
             String moduleLocation = getModuleLocation(sourceJsonPath);
             return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
@@ -3095,7 +3126,8 @@ public class DefaultGenerator implements Generator {
             String headersJsonPath = sourceJsonPath + "/headers";
             CodegenKey headersJsonPathPiece = getKey("headers", "headers", headersJsonPath);
             String subpackage = getSubpackage(headersJsonPath);
-            headers = new CodegenMap<>(headersMap, headersJsonPathPiece, subpackage);
+            String pathFromDocRoot = getPathFromDocRoot(headersJsonPath);
+            headers = new CodegenMap<>(headersMap, headersJsonPathPiece, subpackage, pathFromDocRoot);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = getContent(response.getContent(), sourceJsonPath + "/content");
         String expectedComponentType = "responses";
@@ -3317,10 +3349,16 @@ public class DefaultGenerator implements Generator {
         return false;
     }
 
-    @Override
+    @Deprecated
     public boolean shouldGenerateFile(String jsonPath) {
         return true;
     }
+
+    @Override
+    public boolean shouldGenerateFile(String jsonPath, boolean isDoc) {
+        return true;
+    }
+
 
     @Override
     @SuppressWarnings("static-method")
@@ -3852,7 +3890,7 @@ public class DefaultGenerator implements Generator {
             return;
         }
         // #/paths/somePath
-        pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), null);
+        pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), jsonPath);
         if (pathPieces.length < 4) {
             return;
         }
@@ -3896,6 +3934,7 @@ public class DefaultGenerator implements Generator {
             }
         } else if (pathPieces.length == 4) {
             // #/paths/SomePath/get
+            pathPieces[3] = toOperationFilename(pathPieces[3], jsonPath);
             return;
         }
         if (xParameters.contains(pathPieces[4])) {
@@ -4829,7 +4868,10 @@ public class DefaultGenerator implements Generator {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
 
         String subpackage = getSubpackage(sourceJsonPath);
-        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo, subpackage);
+        CodegenKey operationInputClass = getKey("SealedRequestBody", "misc", sourceJsonPath);
+        String operationInputVariableName = "requestBody";
+        String pathFromDocRoot = getPathFromDocRoot(sourceJsonPath);
+        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo, subpackage, operationInputClass, operationInputVariableName, pathFromDocRoot);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }
@@ -4896,21 +4938,20 @@ public class DefaultGenerator implements Generator {
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 pascalCaseName = getSchemaPascalCaseName(key, sourceJsonPath);
-                if (!isValid) {
-                    camelCaseName = getCamelCaseName(usedKey);
-                }
+                camelCaseName = getCamelCaseName(usedKey);
                 break;
             case "paths":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toPathFilename(usedKey, sourceJsonPath);
-                pascalCaseName = camelize(toPathFilename(usedKey, null));
+                pascalCaseName = camelize(toPathFilename(usedKey, sourceJsonPath));
                 break;
             case "misc":
             case "verb":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = camelize(usedKey, true);
                 pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":
@@ -5104,8 +5145,13 @@ public class DefaultGenerator implements Generator {
         return StringUtils.removeEnd(value, "/");
     }
 
-    @Override
+    @Deprecated
     public TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths){
+        return fromPaths(paths, null, null);
+    }
+
+    @Override
+    public TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths, CodegenList<CodegenServer> rootServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity){
         if (paths == null) {
             return null;
         }
@@ -5115,8 +5161,8 @@ public class DefaultGenerator implements Generator {
             String path = entry.getKey();
             PathItem pathItem = entry.getValue();
             String pathItemJsonPath = jsonPath + ModelUtils.encodeSlashes(path);
-            CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath);
-            CodegenKey pathKey = getKey(path, "paths");
+            CodegenPathItem codegenPathItem = fromPathItem(pathItem, pathItemJsonPath, rootServers, rootSecurity);
+            CodegenKey pathKey = getKey(path, "paths", pathItemJsonPath);
             codegenPaths.put(pathKey, codegenPathItem);
         }
         // sort them
@@ -5124,8 +5170,13 @@ public class DefaultGenerator implements Generator {
         return codegenPaths;
     }
 
-    @Override
+    @Deprecated
     public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath) {
+        return fromPathItem(pathItem, jsonPath, null, null);
+    }
+
+    @Override
+    public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath, CodegenList<CodegenServer> rootServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity) {
         CodegenText summary = getCodegenText(pathItem.getSummary());
         CodegenText description = getCodegenText(pathItem.getDescription());
         ArrayList<CodegenParameter> parameters = null;
@@ -5150,25 +5201,36 @@ public class DefaultGenerator implements Generator {
         httpMethodOperationPairs.add(Pair.of("head", pathItem.getHead()));
         httpMethodOperationPairs.add(Pair.of("patch", pathItem.getPatch()));
         httpMethodOperationPairs.add(Pair.of("trace", pathItem.getTrace()));
+        List<Server> specServers = pathItem.getServers();
+        CodegenList<CodegenServer> pathItemServers = fromServers(specServers, jsonPath + "/servers");
+        CodegenList<CodegenServer> usedServers = (pathItemServers != null) ? pathItemServers : rootServers;
         for (Pair<String, Operation> pair: httpMethodOperationPairs) {
             Operation specOperation = pair.getRight();
             String httpMethod = pair.getLeft();
             if (specOperation != null) {
-                operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod, pairToParameter));
+                operations.put(getKey(
+                    httpMethod, "verb"),
+                    fromOperation(specOperation, jsonPath + "/" + httpMethod, pairToParameter, usedServers, rootSecurity)
+                );
             }
         }
         if (!operations.isEmpty())
             // sort them
             operations = new TreeMap<>(operations);
-        List<Server> specServers = pathItem.getServers();
-        CodegenList servers = fromServers(specServers, jsonPath + "/servers");
+        String[] pathPieces = jsonPath.split("/");
+        String path = pathPieces[pathPieces.length-1];
+        path = ModelUtils.decodeSlashes(path);
+        CodegenKey pathKey = getKey(path, "paths", jsonPath);
+        String subpackage = getSubpackage(jsonPath);
 
         return new CodegenPathItem(
                 summary,
                 description,
                 operations,
-                servers,
-                parameters
+                pathItemServers,
+                parameters,
+                pathKey,
+                subpackage
         );
     }
 
@@ -5197,11 +5259,17 @@ public class DefaultGenerator implements Generator {
         }
         CodegenKey jsonPathPiece = getKey("servers", "servers", jsonPath);
         String serversSubpackage = getSubpackage(jsonPath);
+        CodegenKey operationInputClass = getKey("ServerIndex", "misc", jsonPath);
+        String operationInputVariableName = "serverIndex";
+        String pathFromDocRoot = getPathFromDocRoot(jsonPath);
         return new CodegenList<>(
-                codegenServers,
-                jsonPathPiece,
-                serversSubpackage,
-                null
+            codegenServers,
+            jsonPathPiece,
+            serversSubpackage,
+            null,
+            operationInputClass,
+            operationInputVariableName,
+            pathFromDocRoot
         );
     }
 

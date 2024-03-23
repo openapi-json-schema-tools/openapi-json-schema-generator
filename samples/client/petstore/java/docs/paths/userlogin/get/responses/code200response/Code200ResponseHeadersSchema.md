@@ -75,13 +75,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap validatedPayload =
     Code200ResponseHeadersSchema.Code200ResponseHeadersSchema1.validate(
     new Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMapBuilder()
-        .setXHyphenMinusRateHyphenMinusLimit(1)
+        .xHyphenMinusRateHyphenMinusLimit(1)
 
         .int32(1)
 
-        .setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader("a")
+        .refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader("a")
 
-        .setXHyphenMinusExpiresHyphenMinusAfter("1970-01-01T00:00:00.00Z")
+        .xHyphenMinusExpiresHyphenMinusAfter("1970-01-01T00:00:00.00Z")
 
         .numberHeader("3.14")
 
@@ -121,7 +121,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [Code200ResponseHeadersSchemaMap000Builder](#code200responseheadersschemamap000builder) | setXHyphenMinusExpiresHyphenMinusAfter(String value) |
+| [Code200ResponseHeadersSchemaMap000Builder](#code200responseheadersschemamap000builder) | xHyphenMinusExpiresHyphenMinusAfter(String value) |
 | [Code200ResponseHeadersSchemaMap000Builder](#code200responseheadersschemamap000builder) | numberHeader(String value) |
 
 ## Code200ResponseHeadersSchemaMap001Builder
@@ -138,7 +138,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Code200ResponseHeadersSchemaMap000Builder](#code200responseheadersschemamap000builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [Code200ResponseHeadersSchemaMap000Builder](#code200responseheadersschemamap000builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## Code200ResponseHeadersSchemaMap010Builder
 public class Code200ResponseHeadersSchemaMap010Builder<br>
@@ -173,7 +173,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [Code200ResponseHeadersSchemaMap001Builder](#code200responseheadersschemamap001builder) | int32(int value) |
 | [Code200ResponseHeadersSchemaMap001Builder](#code200responseheadersschemamap001builder) | int32(float value) |
-| [Code200ResponseHeadersSchemaMap010Builder](#code200responseheadersschemamap010builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [Code200ResponseHeadersSchemaMap010Builder](#code200responseheadersschemamap010builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## Code200ResponseHeadersSchemaMap100Builder
 public class Code200ResponseHeadersSchemaMap100Builder<br>
@@ -189,8 +189,8 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Code200ResponseHeadersSchemaMap000Builder](#code200responseheadersschemamap000builder) | setXHyphenMinusRateHyphenMinusLimit(int value) |
-| [Code200ResponseHeadersSchemaMap000Builder](#code200responseheadersschemamap000builder) | setXHyphenMinusRateHyphenMinusLimit(float value) |
+| [Code200ResponseHeadersSchemaMap000Builder](#code200responseheadersschemamap000builder) | xHyphenMinusRateHyphenMinusLimit(int value) |
+| [Code200ResponseHeadersSchemaMap000Builder](#code200responseheadersschemamap000builder) | xHyphenMinusRateHyphenMinusLimit(float value) |
 
 ## Code200ResponseHeadersSchemaMap101Builder
 public class Code200ResponseHeadersSchemaMap101Builder<br>
@@ -206,9 +206,9 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Code200ResponseHeadersSchemaMap001Builder](#code200responseheadersschemamap001builder) | setXHyphenMinusRateHyphenMinusLimit(int value) |
-| [Code200ResponseHeadersSchemaMap001Builder](#code200responseheadersschemamap001builder) | setXHyphenMinusRateHyphenMinusLimit(float value) |
-| [Code200ResponseHeadersSchemaMap100Builder](#code200responseheadersschemamap100builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [Code200ResponseHeadersSchemaMap001Builder](#code200responseheadersschemamap001builder) | xHyphenMinusRateHyphenMinusLimit(int value) |
+| [Code200ResponseHeadersSchemaMap001Builder](#code200responseheadersschemamap001builder) | xHyphenMinusRateHyphenMinusLimit(float value) |
+| [Code200ResponseHeadersSchemaMap100Builder](#code200responseheadersschemamap100builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## Code200ResponseHeadersSchemaMap110Builder
 public class Code200ResponseHeadersSchemaMap110Builder<br>
@@ -224,8 +224,8 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Code200ResponseHeadersSchemaMap010Builder](#code200responseheadersschemamap010builder) | setXHyphenMinusRateHyphenMinusLimit(int value) |
-| [Code200ResponseHeadersSchemaMap010Builder](#code200responseheadersschemamap010builder) | setXHyphenMinusRateHyphenMinusLimit(float value) |
+| [Code200ResponseHeadersSchemaMap010Builder](#code200responseheadersschemamap010builder) | xHyphenMinusRateHyphenMinusLimit(int value) |
+| [Code200ResponseHeadersSchemaMap010Builder](#code200responseheadersschemamap010builder) | xHyphenMinusRateHyphenMinusLimit(float value) |
 | [Code200ResponseHeadersSchemaMap100Builder](#code200responseheadersschemamap100builder) | int32(int value) |
 | [Code200ResponseHeadersSchemaMap100Builder](#code200responseheadersschemamap100builder) | int32(float value) |
 
@@ -243,11 +243,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Code200ResponseHeadersSchemaMap011Builder](#code200responseheadersschemamap011builder) | setXHyphenMinusRateHyphenMinusLimit(int value) |
-| [Code200ResponseHeadersSchemaMap011Builder](#code200responseheadersschemamap011builder) | setXHyphenMinusRateHyphenMinusLimit(float value) |
+| [Code200ResponseHeadersSchemaMap011Builder](#code200responseheadersschemamap011builder) | xHyphenMinusRateHyphenMinusLimit(int value) |
+| [Code200ResponseHeadersSchemaMap011Builder](#code200responseheadersschemamap011builder) | xHyphenMinusRateHyphenMinusLimit(float value) |
 | [Code200ResponseHeadersSchemaMap101Builder](#code200responseheadersschemamap101builder) | int32(int value) |
 | [Code200ResponseHeadersSchemaMap101Builder](#code200responseheadersschemamap101builder) | int32(float value) |
-| [Code200ResponseHeadersSchemaMap110Builder](#code200responseheadersschemamap110builder) | setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
+| [Code200ResponseHeadersSchemaMap110Builder](#code200responseheadersschemamap110builder) | refHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) |
 
 ## Code200ResponseHeadersSchemaMap
 public static class Code200ResponseHeadersSchemaMap<br>

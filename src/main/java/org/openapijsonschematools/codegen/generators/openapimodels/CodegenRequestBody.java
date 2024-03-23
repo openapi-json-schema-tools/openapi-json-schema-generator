@@ -12,7 +12,7 @@ import java.util.TreeSet;
  * A unique parameter is defined by a combination of a name and location.
  * Parameters may be located in a path, query, header or cookie.
  */
-public class CodegenRequestBody {
+public class CodegenRequestBody implements OperationInputProvider {
     public final CodegenText description;
     public final Map<String, Object> vendorExtensions;
     public final Boolean required;
@@ -22,6 +22,9 @@ public class CodegenRequestBody {
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
     public final String subpackage;
+    public final CodegenKey operationInputClassName;
+    public final String operationInputVariableName;
+    public final String pathFromDocRoot;
 
     /*
     A method that returns all content schemas
@@ -66,7 +69,7 @@ public class CodegenRequestBody {
         return schemas;
     }
 
-    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage) {
+    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, String subpackage, CodegenKey operationInputClassName, String operationInputVariableName, String pathFromDocRoot) {
         this.description = description;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
@@ -76,6 +79,9 @@ public class CodegenRequestBody {
         this.jsonPathPiece = jsonPathPiece;
         this.refInfo = refInfo;
         this.subpackage = subpackage;
+        this.operationInputClassName = operationInputClassName;
+        this.operationInputVariableName = operationInputVariableName;
+        this.pathFromDocRoot = pathFromDocRoot;
     }
 
     public CodegenRequestBody getSelfOrDeepestRef() {
@@ -137,6 +143,21 @@ public class CodegenRequestBody {
             refObject = refObject.refInfo.ref;
         }
         return refObject;
+    }
+
+    @Override
+    public CodegenKey operationInputClassName() {
+        return operationInputClassName;
+    }
+
+    @Override
+    public String operationInputVariableName() {
+        return operationInputVariableName;
+    }
+
+    @Override
+    public String pathFromDocRoot() {
+        return pathFromDocRoot;
     }
 }
 

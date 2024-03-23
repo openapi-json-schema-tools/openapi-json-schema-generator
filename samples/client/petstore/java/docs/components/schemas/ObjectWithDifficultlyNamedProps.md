@@ -80,11 +80,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayload =
     ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1.validate(
     new ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMapBuilder()
-        .setDigitOne23HyphenMinusList("a")
+        .digitOne23HyphenMinusList("a")
 
-        .setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(1L)
+        .dollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(1L)
 
-        .setDigitOne23number(1)
+        .digitOne23number(1)
 
     .build(),
     configuration
@@ -121,14 +121,14 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(int value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(float value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(long value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(double value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23number(int value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23number(float value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23number(long value) |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23number(double value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | dollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(int value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | dollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(float value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | dollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(long value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | dollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(double value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | digitOne23number(int value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | digitOne23number(float value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | digitOne23number(long value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | digitOne23number(double value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, Void value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, boolean value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, String value) |
@@ -153,7 +153,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDigitOne23HyphenMinusList(String value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | digitOne23HyphenMinusList(String value) |
 
 ## ObjectWithDifficultlyNamedPropsMap
 public static class ObjectWithDifficultlyNamedPropsMap<br>

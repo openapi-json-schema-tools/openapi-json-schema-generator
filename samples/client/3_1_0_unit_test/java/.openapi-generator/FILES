@@ -1,4 +1,5 @@
 README.md
+docs/RootServerInfo.md
 docs/components/schemas/ASchemaGivenForPrefixitems.md
 docs/components/schemas/AdditionalItemsAreAllowedByDefault.md
 docs/components/schemas/AdditionalpropertiesAreAllowedByDefault.md
@@ -145,6 +146,7 @@ docs/components/schemas/ValidateAgainstCorrectBranchThenVsElse.md
 docs/servers/Server0.md
 pom.xml
 src/main/java/org/openapijsonschematools/client/RootServerInfo.java
+src/main/java/org/openapijsonschematools/client/apiclient/ApiClient.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ASchemaGivenForPrefixitems.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AdditionalItemsAreAllowedByDefault.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AdditionalpropertiesAreAllowedByDefault.java
@@ -327,6 +329,7 @@ src/main/java/org/openapijsonschematools/client/response/DeserializedHttpRespons
 src/main/java/org/openapijsonschematools/client/response/HeadersDeserializer.java
 src/main/java/org/openapijsonschematools/client/response/ResponseDeserializer.java
 src/main/java/org/openapijsonschematools/client/response/ResponsesDeserializer.java
+src/main/java/org/openapijsonschematools/client/restclient/RestClient.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java

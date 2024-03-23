@@ -203,30 +203,30 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusNbar(int value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusNbar(float value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusNbar(long value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusNbar(double value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusQuotationMarkBar(int value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusQuotationMarkBar(float value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusQuotationMarkBar(long value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusQuotationMarkBar(double value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusReverseSolidusBar(int value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusReverseSolidusBar(float value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusReverseSolidusBar(long value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusReverseSolidusBar(double value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusRbar(int value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusRbar(float value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusRbar(long value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusRbar(double value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusTbar(int value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusTbar(float value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusTbar(long value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusTbar(double value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(int value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(float value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(long value) |
-| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusNbar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusNbar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusNbar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusNbar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusQuotationMarkBar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusQuotationMarkBar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusQuotationMarkBar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusQuotationMarkBar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusReverseSolidusBar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusReverseSolidusBar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusReverseSolidusBar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusReverseSolidusBar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusRbar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusRbar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusRbar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusRbar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusTbar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusTbar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusTbar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusTbar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusFbar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusFbar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusFbar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | fooReverseSolidusFbar(double value) |
 | [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, Void value) |
 | [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, boolean value) |
 | [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, String value) |

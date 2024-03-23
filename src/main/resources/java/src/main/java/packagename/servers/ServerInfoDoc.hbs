@@ -1,0 +1,22 @@
+{{headerSize}} {{servers.jsonPathPiece.pascalCase}}
+{{servers.jsonPathPiece.pascalCase}}.java
+
+public class {{servers.jsonPathPiece.pascalCase}}
+
+A class that provides a server, and any needed server info classes
+- an enum class that stores server index values
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| enum | [{{servers.jsonPathPiece.pascalCase}}.ServerIndex](#serverindex)<br>class that stores a server index |
+
+{{headerSize}}# ServerIndex
+enum ServerIndex<br>
+
+{{headerSize}}## Enum Constant Summary
+| Enum Constant And Description |
+| ----------------------------- |
+{{#each servers}}
+| SERVER_{{@index}}<br>server {{@index}} |
+{{/each}}

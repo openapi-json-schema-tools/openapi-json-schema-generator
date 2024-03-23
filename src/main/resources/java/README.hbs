@@ -167,21 +167,39 @@ allowed input and output types.
 
 | Class | Description |
 | ----- | ----------- |
-{{#each schemas}}
-    {{#with this}}
+    {{#each schemas}}
+        {{#with this}}
 | [{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}](docs/components/schemas/{{containerJsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}) |{{#if description}} {{description.originalWithBr}}{{/if}} |
-    {{/with}}
-{{/each}}
+        {{/with}}
+    {{/each}}
+{{/if}}
+{{#if paths}}
+
+## Endpoints
+
+All URIs are relative to the selected server
+- The server is selected by passing in serverInfo into configurations.ApiConfiguration
+- The security info is selected by passing in securityInfo into configurations.ApiConfiguration
+- TODO Code samples in endpoints documents show how to do this
+- serverIndex + securityIndex can also be passed in to endpoint calls, see endpoint documentation
+
+| HTTP request | Method | Description |
+| ------------ | ------ | ----------- |
+    {{#each paths}}
+        {{#each operations}}
+| {{../@key.original}} **{{@key.original}}** | [{{jsonPathPiece.pascalCase}}1.{{jsonPathPiece.camelCase}}](docs/paths/{{../@key.kebabCase}}/{{@key.pascalCase}}.md#{{@key.kebabCase}}1) |{{#if summary}} {{summary.originalWithBr}}{{/if}} |
+        {{/each}}
+    {{/each}}
 {{/if}}
 {{#if requestBodies}}
 
 ## Component RequestBodies
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
 {{#each requestBodies}}
     {{#with this}}
-[{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/requestbodies/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}
+| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/requestbodies/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}
@@ -189,11 +207,11 @@ Class | Description
 
 ## Component Responses
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
 {{#each responses}}
     {{#with this}}
-[{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/responses/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}
+| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/responses/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}|
     {{/with}}
 {{/each}}
 {{/if}}
@@ -201,11 +219,11 @@ Class | Description
 
 ## Component Headers
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
 {{#each headers}}
     {{#with this}}
-[{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/headers/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}
+| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/headers/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}
@@ -213,11 +231,11 @@ Class | Description
 
 ## Component Parameters
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
 {{#each parameters}}
     {{#with this}}
-[{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/parameters/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}
+| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/parameters/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}

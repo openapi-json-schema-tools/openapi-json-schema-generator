@@ -35,7 +35,7 @@ This script generates all configs in bin/generate_samples_configs by default.
 You may generate a targeted script or set of scripts using glob patterns.
 
 For example:
-    $0 bin/generate_samples_configs/java-*
+    $0 bin/generate_samples_configs/java*
 
 You may generate a single config with additional options if you use -- to
 separate the single config file from the generator arguments.

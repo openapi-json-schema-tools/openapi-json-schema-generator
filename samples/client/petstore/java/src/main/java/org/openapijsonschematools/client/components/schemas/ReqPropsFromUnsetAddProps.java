@@ -55,55 +55,55 @@ public class ReqPropsFromUnsetAddProps {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterInvalidname(Map<String, @Nullable Object> instance);
         
-        default T setInvalidHyphenMinusName(Void value) {
+        default T invalidHyphenMinusName(Void value) {
             var instance = getInstance();
             instance.put("invalid-name", null);
             return getBuilderAfterInvalidname(instance);
         }
         
-        default T setInvalidHyphenMinusName(boolean value) {
+        default T invalidHyphenMinusName(boolean value) {
             var instance = getInstance();
             instance.put("invalid-name", value);
             return getBuilderAfterInvalidname(instance);
         }
         
-        default T setInvalidHyphenMinusName(String value) {
+        default T invalidHyphenMinusName(String value) {
             var instance = getInstance();
             instance.put("invalid-name", value);
             return getBuilderAfterInvalidname(instance);
         }
         
-        default T setInvalidHyphenMinusName(int value) {
+        default T invalidHyphenMinusName(int value) {
             var instance = getInstance();
             instance.put("invalid-name", value);
             return getBuilderAfterInvalidname(instance);
         }
         
-        default T setInvalidHyphenMinusName(float value) {
+        default T invalidHyphenMinusName(float value) {
             var instance = getInstance();
             instance.put("invalid-name", value);
             return getBuilderAfterInvalidname(instance);
         }
         
-        default T setInvalidHyphenMinusName(long value) {
+        default T invalidHyphenMinusName(long value) {
             var instance = getInstance();
             instance.put("invalid-name", value);
             return getBuilderAfterInvalidname(instance);
         }
         
-        default T setInvalidHyphenMinusName(double value) {
+        default T invalidHyphenMinusName(double value) {
             var instance = getInstance();
             instance.put("invalid-name", value);
             return getBuilderAfterInvalidname(instance);
         }
         
-        default T setInvalidHyphenMinusName(List<?> value) {
+        default T invalidHyphenMinusName(List<?> value) {
             var instance = getInstance();
             instance.put("invalid-name", value);
             return getBuilderAfterInvalidname(instance);
         }
         
-        default T setInvalidHyphenMinusName(Map<String, ?> value) {
+        default T invalidHyphenMinusName(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("invalid-name", value);
             return getBuilderAfterInvalidname(instance);

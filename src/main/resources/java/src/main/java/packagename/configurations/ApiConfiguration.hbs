@@ -21,13 +21,18 @@ import {{packageName}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.HashMap;
 
 public class ApiConfiguration {
     private final ServerInfo serverInfo;
     {{#gt allSecurity.size 0}}
     private final SecurityInfo securityInfo;
     {{/gt}}
+    private final @Nullable Duration timeout;
 
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
@@ -38,13 +43,15 @@ public class ApiConfiguration {
         {{/each}}
         );
     {{/gt}}
+        timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo{{#gt allSecurity.size 0}}, SecurityInfo securityInfo{{/gt}}) {
+    public ApiConfiguration(ServerInfo serverInfo{{#gt allSecurity.size 0}}, SecurityInfo securityInfo{{/gt}}, Duration timeout) {
         this.serverInfo = serverInfo;
     {{#gt allSecurity.size 0}}
         this.securityInfo = securityInfo;
     {{/gt}}
+        this.timeout = timeout;
     }
 
     public static class ServerInfo {
@@ -102,4 +109,12 @@ public class ApiConfiguration {
     }
         {{/each}}
     {{/gt}}
+
+    public Map<String, List< String>> getDefaultHeaders() {
+        return new HashMap<>();
+    }
+
+    public@Nullable Duration getTimeout() {
+        return timeout;
+    }
 }
