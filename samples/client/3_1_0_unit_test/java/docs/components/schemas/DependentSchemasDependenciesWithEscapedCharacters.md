@@ -372,15 +372,15 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FoobarMap0Builder](#foobarmap0builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
-| [FoobarMap0Builder](#foobarmap0builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| [FoobarMap0Builder](#foobarmap0builder) | setFooReverseSolidusQuotationMarkBar(String value) |
-| [FoobarMap0Builder](#foobarmap0builder) | setFooReverseSolidusQuotationMarkBar(int value) |
-| [FoobarMap0Builder](#foobarmap0builder) | setFooReverseSolidusQuotationMarkBar(float value) |
-| [FoobarMap0Builder](#foobarmap0builder) | setFooReverseSolidusQuotationMarkBar(long value) |
-| [FoobarMap0Builder](#foobarmap0builder) | setFooReverseSolidusQuotationMarkBar(double value) |
-| [FoobarMap0Builder](#foobarmap0builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| [FoobarMap0Builder](#foobarmap0builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [FoobarMap0Builder](#foobarmap0builder) | fooReverseSolidusQuotationMarkBar(Void value) |
+| [FoobarMap0Builder](#foobarmap0builder) | fooReverseSolidusQuotationMarkBar(boolean value) |
+| [FoobarMap0Builder](#foobarmap0builder) | fooReverseSolidusQuotationMarkBar(String value) |
+| [FoobarMap0Builder](#foobarmap0builder) | fooReverseSolidusQuotationMarkBar(int value) |
+| [FoobarMap0Builder](#foobarmap0builder) | fooReverseSolidusQuotationMarkBar(float value) |
+| [FoobarMap0Builder](#foobarmap0builder) | fooReverseSolidusQuotationMarkBar(long value) |
+| [FoobarMap0Builder](#foobarmap0builder) | fooReverseSolidusQuotationMarkBar(double value) |
+| [FoobarMap0Builder](#foobarmap0builder) | fooReverseSolidusQuotationMarkBar(List<?> value) |
+| [FoobarMap0Builder](#foobarmap0builder) | fooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
 
 ## FoobarMap
 public static class FoobarMap<br>

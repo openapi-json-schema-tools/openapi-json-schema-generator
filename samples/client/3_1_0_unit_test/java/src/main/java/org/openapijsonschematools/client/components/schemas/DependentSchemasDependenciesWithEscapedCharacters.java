@@ -345,55 +345,55 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoobar1(Map<String, @Nullable Object> instance);
         
-        default T setFooReverseSolidusQuotationMarkBar(Void value) {
+        default T fooReverseSolidusQuotationMarkBar(Void value) {
             var instance = getInstance();
             instance.put("foo\"bar", null);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T setFooReverseSolidusQuotationMarkBar(boolean value) {
+        default T fooReverseSolidusQuotationMarkBar(boolean value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T setFooReverseSolidusQuotationMarkBar(String value) {
+        default T fooReverseSolidusQuotationMarkBar(String value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T setFooReverseSolidusQuotationMarkBar(int value) {
+        default T fooReverseSolidusQuotationMarkBar(int value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T setFooReverseSolidusQuotationMarkBar(float value) {
+        default T fooReverseSolidusQuotationMarkBar(float value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T setFooReverseSolidusQuotationMarkBar(long value) {
+        default T fooReverseSolidusQuotationMarkBar(long value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T setFooReverseSolidusQuotationMarkBar(double value) {
+        default T fooReverseSolidusQuotationMarkBar(double value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T setFooReverseSolidusQuotationMarkBar(List<?> value) {
+        default T fooReverseSolidusQuotationMarkBar(List<?> value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) {
+        default T fooReverseSolidusQuotationMarkBar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar1(instance);

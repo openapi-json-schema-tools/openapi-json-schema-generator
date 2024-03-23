@@ -460,25 +460,25 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterProto(Map<String, @Nullable Object> instance);
         
-        default T setLowLineProto(int value) {
+        default T lowLineProto(int value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setLowLineProto(float value) {
+        default T lowLineProto(float value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setLowLineProto(long value) {
+        default T lowLineProto(long value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
         }
         
-        default T setLowLineProto(double value) {
+        default T lowLineProto(double value) {
             var instance = getInstance();
             instance.put("__proto__", value);
             return getBuilderAfterProto(instance);
@@ -489,55 +489,55 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterToStringSchema(Map<String, @Nullable Object> instance);
         
-        default T setToString(Void value) {
+        default T toString(Void value) {
             var instance = getInstance();
             instance.put("toString", null);
             return getBuilderAfterToStringSchema(instance);
         }
         
-        default T setToString(boolean value) {
+        default T toString(boolean value) {
             var instance = getInstance();
             instance.put("toString", value);
             return getBuilderAfterToStringSchema(instance);
         }
         
-        default T setToString(String value) {
+        default T toString(String value) {
             var instance = getInstance();
             instance.put("toString", value);
             return getBuilderAfterToStringSchema(instance);
         }
         
-        default T setToString(int value) {
+        default T toString(int value) {
             var instance = getInstance();
             instance.put("toString", value);
             return getBuilderAfterToStringSchema(instance);
         }
         
-        default T setToString(float value) {
+        default T toString(float value) {
             var instance = getInstance();
             instance.put("toString", value);
             return getBuilderAfterToStringSchema(instance);
         }
         
-        default T setToString(long value) {
+        default T toString(long value) {
             var instance = getInstance();
             instance.put("toString", value);
             return getBuilderAfterToStringSchema(instance);
         }
         
-        default T setToString(double value) {
+        default T toString(double value) {
             var instance = getInstance();
             instance.put("toString", value);
             return getBuilderAfterToStringSchema(instance);
         }
         
-        default T setToString(List<?> value) {
+        default T toString(List<?> value) {
             var instance = getInstance();
             instance.put("toString", value);
             return getBuilderAfterToStringSchema(instance);
         }
         
-        default T setToString(Map<String, ?> value) {
+        default T toString(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("toString", value);
             return getBuilderAfterToStringSchema(instance);

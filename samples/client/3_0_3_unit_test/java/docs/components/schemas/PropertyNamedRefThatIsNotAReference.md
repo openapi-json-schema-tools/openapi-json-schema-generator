@@ -188,7 +188,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | setDollarSignRef(String value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | dollarSignRef(String value) |
 | [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, Void value) |
 | [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, boolean value) |
 | [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, String value) |
