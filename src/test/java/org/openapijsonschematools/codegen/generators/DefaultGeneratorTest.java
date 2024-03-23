@@ -1881,7 +1881,11 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("arrayProp", "misc");
+        CodegenKey ck = codegen.getKey(
+            "arrayProp",
+            "schemas",
+            "#/components/schemas/" + modelName + "/properties/arrayProp"
+        );
         assertEquals(cm.properties.get(ck).items.maximum, new BigDecimal(7));
 
         String path;
@@ -2655,7 +2659,11 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        CodegenKey ck = codegen.getKey("a", "misc");
+        CodegenKey ck = codegen.getKey(
+            "a",
+            "schemas",
+            "#/components/schemas/" + modelName + "/properties/a"
+        );
         CodegenSchema cp = cm.properties.get(ck);
         assertEquals(cp.properties.size(), 3);
         assertEquals(cp.requiredProperties.size(), 2);
@@ -2734,7 +2742,12 @@ public class DefaultGeneratorTest {
                     "#/components/schemas/" + modelName,
                     "#/components/schemas/" + modelName
             );
-            CodegenKey ck = codegen.getKey(hm.get(modelName), "misc");
+            String propName = hm.get(modelName);
+            CodegenKey ck = codegen.getKey(
+                propName,
+                "schemas",
+                "#/components/schemas/" + modelName + "/properties/" + propName
+            );
             assertTrue(cm.properties.get(ck).properties == null);
         }
 
