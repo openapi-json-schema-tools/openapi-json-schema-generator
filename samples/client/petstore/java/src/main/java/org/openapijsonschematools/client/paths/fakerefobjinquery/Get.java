@@ -64,7 +64,7 @@ public class Get {
         }
     }
 
-    public static class Get1 extends ApiClient.ApiClient1 implements GetOperation {
+    public static class Get1 extends ApiClient implements GetOperation {
         public Get1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }

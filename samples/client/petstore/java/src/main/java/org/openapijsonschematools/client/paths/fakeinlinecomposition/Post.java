@@ -77,7 +77,7 @@ public class Post {
         }
     }
 
-    public static class Post1 extends ApiClient.ApiClient1 implements PostOperation {
+    public static class Post1 extends ApiClient implements PostOperation {
         public Post1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }

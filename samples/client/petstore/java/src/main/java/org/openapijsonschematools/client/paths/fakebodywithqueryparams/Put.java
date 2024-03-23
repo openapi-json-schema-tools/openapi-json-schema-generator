@@ -70,7 +70,7 @@ public class Put {
         }
     }
 
-    public static class Put1 extends ApiClient.ApiClient1 implements PutOperation {
+    public static class Put1 extends ApiClient implements PutOperation {
         public Put1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }

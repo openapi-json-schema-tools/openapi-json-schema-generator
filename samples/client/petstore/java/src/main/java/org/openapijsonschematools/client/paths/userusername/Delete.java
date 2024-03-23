@@ -60,7 +60,7 @@ public class Delete {
         }
     }
 
-    public static class Delete1 extends ApiClient.ApiClient1 implements DeleteOperation {
+    public static class Delete1 extends ApiClient implements DeleteOperation {
         public Delete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }

@@ -64,7 +64,7 @@ public class Patch {
         }
     }
 
-    public static class Patch1 extends ApiClient.ApiClient1 implements PatchOperation {
+    public static class Patch1 extends ApiClient implements PatchOperation {
         public Patch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
