@@ -49,11 +49,11 @@ components:
       type: oauth2
       flows:
         password:
-          tokenUrl: "../auth/realms/master/protocol/openid-connect/token"
+          tokenUrl: "http://localhost:8080/auth/realms/master/protocol/openid-connect/token"
           scopes:
             something:create: create from password flow
         clientCredentials:
-          tokenUrl: "../auth/realms/master/protocol/openid-connect/token"
+          tokenUrl: "http://localhost:8080/auth/realms/master/protocol/openid-connect/token"
           scopes:
             something:create: create from client credentials flow
             something:process: process from client credentials flow
