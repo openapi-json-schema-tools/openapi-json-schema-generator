@@ -11,13 +11,11 @@ import java.util.AbstractMap;
 
 public class PetfindbystatusGetSecurityRequirementObject1 extends SecurityRequirementObject {
 
-    public PetfindbystatusGetSecurityRequirementObject1(
-        HttpSignatureTest securityScheme0
-    ) {
+    public PetfindbystatusGetSecurityRequirementObject1() {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    HttpSignatureTest.class,
                     List.of()
                 )
             )

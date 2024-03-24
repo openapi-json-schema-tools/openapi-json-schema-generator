@@ -54,7 +54,8 @@ public class Post {
                 Fake.path,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + Fake.path;

@@ -11,13 +11,11 @@ import java.util.AbstractMap;
 
 public class FakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0 extends SecurityRequirementObject {
 
-    public FakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0(
-        PetstoreAuth securityScheme0
-    ) {
+    public FakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0() {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    PetstoreAuth.class,
                     List.of("write:pets", "read:pets")
                 )
             )

@@ -129,7 +129,7 @@ public class ApiConfiguration {
     public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) {
         @Nullable SecurityScheme securityScheme = securitySchemeInfo.get(securitySchemeClass);
         if (securityScheme == null) {
-            throw new RuntimeException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.")
+            throw new RuntimeException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");
         }
         return securityScheme;
     }

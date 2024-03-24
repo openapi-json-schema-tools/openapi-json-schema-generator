@@ -4,13 +4,11 @@ package {{{packageName}}}.{{security.subpackage}};
 package {{{packageName}}};
 {{/if}}
 
-import {{{packageName}}}.exceptions.UnsetPropertyException;
 {{#each security}}
 import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectProvider;
-import {{{packageName}}}.schemas.GenericBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.AbstractMap;
@@ -22,7 +20,7 @@ public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequiremen
     final private SecurityIndex securityIndex;
 
     public {{security.jsonPathPiece.pascalCase}}(SecurityIndex securityIndex) {
-        this.securities = new EnumMap<>(new Map.ofEntries(
+        this.securities = new EnumMap<>(Map.ofEntries(
 {{#each security}}
             new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_{{@index}}, new {{jsonPathPiece.pascalCase}}()){{#unless @last}},{{/unless}}
 {{/each}}

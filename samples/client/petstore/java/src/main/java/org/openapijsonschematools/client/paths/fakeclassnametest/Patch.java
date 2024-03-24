@@ -50,7 +50,8 @@ public class Patch {
                 Fakeclassnametest.path,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + Fakeclassnametest.path;

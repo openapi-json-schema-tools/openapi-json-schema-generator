@@ -11,13 +11,11 @@ import java.util.AbstractMap;
 
 public class StoreinventoryGetSecurityRequirementObject0 extends SecurityRequirementObject {
 
-    public StoreinventoryGetSecurityRequirementObject0(
-        ApiKey securityScheme0
-    ) {
+    public StoreinventoryGetSecurityRequirementObject0() {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    ApiKey.class,
                     List.of()
                 )
             )

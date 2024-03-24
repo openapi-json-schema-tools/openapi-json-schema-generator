@@ -12,18 +12,15 @@ import java.util.AbstractMap;
 
 public class FakemultiplesecuritiesGetSecurityRequirementObject1 extends SecurityRequirementObject {
 
-    public FakemultiplesecuritiesGetSecurityRequirementObject1(
-        HttpBasicTest securityScheme0,
-        ApiKey securityScheme1
-    ) {
+    public FakemultiplesecuritiesGetSecurityRequirementObject1() {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    HttpBasicTest.class,
                     List.of()
                 ),
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme1,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    ApiKey.class,
                     List.of()
                 )
             )

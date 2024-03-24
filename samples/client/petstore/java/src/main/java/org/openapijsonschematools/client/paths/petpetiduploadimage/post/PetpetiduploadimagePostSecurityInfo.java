@@ -1,71 +1,23 @@
 package org.openapijsonschematools.client.paths.petpetiduploadimage.post;
 
-import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.security.PetpetiduploadimagePostSecurityRequirementObject0;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
-import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.HashMap;
+import java.util.AbstractMap;
 import java.util.Map;
 import java.util.EnumMap;
 
 public class PetpetiduploadimagePostSecurityInfo implements SecurityRequirementObjectProvider<PetpetiduploadimagePostSecurityInfo.SecurityIndex> {
-    final private Securities securities;
+    final private EnumMap<SecurityIndex, SecurityRequirementObject> securities;
     final private SecurityIndex securityIndex;
 
-    public PetpetiduploadimagePostSecurityInfo(Securities securities, SecurityIndex securityIndex) {
-        this.securities = securities;
+    public PetpetiduploadimagePostSecurityInfo(SecurityIndex securityIndex) {
+        this.securities = new EnumMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new PetpetiduploadimagePostSecurityRequirementObject0())
+        ));
         this.securityIndex = securityIndex;
-    }
-
-    public interface SetterForPetpetiduploadimagePostSecurityRequirementObject0 <T> {
-        Map<SecurityIndex, SecurityRequirementObject> getInstance();
-        T getBuilderAfterPetpetiduploadimagePostSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
-        default T petpetiduploadimagePostSecurityRequirementObject0(PetpetiduploadimagePostSecurityRequirementObject0 security0) {
-            var instance = getInstance();
-            instance.put(SecurityIndex.SECURITY_0, security0);
-            return getBuilderAfterPetpetiduploadimagePostSecurityRequirementObject0(instance);
-        }
-    }
-
-    public static class Securities0Builder implements GenericBuilder<Securities> {
-        private final Map<SecurityIndex, SecurityRequirementObject> instance;
-        public Securities0Builder(Map<SecurityIndex, SecurityRequirementObject> instance) {
-            this.instance = instance;
-        }
-        public Securities build() {
-            return new Securities(instance);
-        }
-    }
-
-    public static class SecuritiesBuilder implements SetterForPetpetiduploadimagePostSecurityRequirementObject0<Securities0Builder> {
-        private final Map<SecurityIndex, SecurityRequirementObject> instance;
-        public SecuritiesBuilder() {
-            this.instance = new HashMap<>();
-        }
-        public Map<SecurityIndex, SecurityRequirementObject> getInstance() {
-            return instance;
-        }
-        public Securities0Builder getBuilderAfterPetpetiduploadimagePostSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance) {
-            return new Securities0Builder(instance);
-        }
-    }
-
-    public static class Securities {
-        private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
-
-        Securities(Map<SecurityIndex, SecurityRequirementObject> securityMap) {
-            securities = new EnumMap<>(securityMap);
-        }
-
-        public SecurityRequirementObject get(SecurityIndex securityIndex) {
-            if (securities.containsKey(securityIndex)) {
-                return get(securityIndex);
-            }
-            throw new UnsetPropertyException(securityIndex+" is unset");
-        }
     }
 
     public enum SecurityIndex {

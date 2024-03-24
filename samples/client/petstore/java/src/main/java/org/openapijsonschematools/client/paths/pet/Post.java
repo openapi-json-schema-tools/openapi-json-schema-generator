@@ -50,7 +50,8 @@ public class Post {
                 Pet.path,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + Pet.path;

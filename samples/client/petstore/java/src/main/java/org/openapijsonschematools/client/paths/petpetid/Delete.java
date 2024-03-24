@@ -53,7 +53,8 @@ public class Delete {
                 updatedPath,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + updatedPath;

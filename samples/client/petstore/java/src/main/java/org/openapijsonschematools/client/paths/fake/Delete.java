@@ -49,7 +49,8 @@ public class Delete {
                 Fake.path,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + Fake.path;

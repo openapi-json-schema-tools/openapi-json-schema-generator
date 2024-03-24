@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.configurations;
 
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
-import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.servers.Server;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
@@ -21,6 +20,7 @@ import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetSecurityI
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
 import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetSecurityInfo;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.Duration;
@@ -33,6 +33,7 @@ public class ApiConfiguration {
     private final ServerInfo serverInfo;
     private final SecurityInfo securityInfo;
     private final @Nullable Duration timeout;
+    private final Map<Class<? extends SecurityScheme>, SecurityScheme> securitySchemeInfo;
 
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
@@ -52,17 +53,18 @@ public class ApiConfiguration {
             null,
             null
         );
+        securitySchemeInfo = new HashMap<>();
         timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, SecurityInfo securityInfo, Duration timeout, List<SecurityScheme> securitySchemes) {
+    public ApiConfiguration(ServerInfo serverInfo, SecurityInfo securityInfo, List<SecurityScheme> securitySchemes, Duration timeout) {
         this.serverInfo = serverInfo;
         this.securityInfo = securityInfo;
-        this.timeout = timeout;
-        Map<Class<? extends SecurityScheme>, SecurityScheme> securitySchemeInfo = new HashMap<>();
+        securitySchemeInfo = new HashMap<>();
         for (SecurityScheme securityScheme: securitySchemes) {
             securitySchemeInfo.put(securityScheme.getClass(), securityScheme);
         }
+        this.timeout = timeout;
     }
 
     public static class ServerInfo {
@@ -243,6 +245,14 @@ public class ApiConfiguration {
             throw new UnsetPropertyException("SecurityRequirementObject cannot be returned because the StoreinventoryGetSecurityInfo is unset in the SecurityInfo class. Pass it in when instantiating SecurityInfo to fix this.");
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
+    }
+
+    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) {
+        @Nullable SecurityScheme securityScheme = securitySchemeInfo.get(securitySchemeClass);
+        if (securityScheme == null) {
+            throw new RuntimeException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");
+        }
+        return securityScheme;
     }
 
     public Map<String, List< String>> getDefaultHeaders() {

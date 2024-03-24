@@ -44,7 +44,8 @@ public class Get {
                 Petfindbystatus.path,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + Petfindbystatus.path;

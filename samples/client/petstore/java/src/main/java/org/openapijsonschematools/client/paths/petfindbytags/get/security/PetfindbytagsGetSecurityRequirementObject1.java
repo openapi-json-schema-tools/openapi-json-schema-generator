@@ -11,13 +11,11 @@ import java.util.AbstractMap;
 
 public class PetfindbytagsGetSecurityRequirementObject1 extends SecurityRequirementObject {
 
-    public PetfindbytagsGetSecurityRequirementObject1(
-        PetstoreAuth securityScheme0
-    ) {
+    public PetfindbytagsGetSecurityRequirementObject1() {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    PetstoreAuth.class,
                     List.of("write:pets", "read:pets")
                 )
             )
