@@ -405,7 +405,7 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
                 f"oauth_server_client_info is missing info for oauth server "
                 "hostname={chosen_flow.auth_or_token_url.netloc}. Add it to you api_configuration"
             )
-        client_info = oath_server_client_info[chosen_flow.auth_or_token_url.netloc]
+        client_info = oath_server_client_info[chosen_flow.auth_or_token_url.netloc] # type: ignore[literal-required]
         # note: scope input must be sorted tuple
         chosen_flow.apply_auth(
             headers=headers,
