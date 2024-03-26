@@ -100,36 +100,36 @@ public class ApiConfiguration {
     }
 
     public static class SecurityInfo {
-        protected final @Nullable FakeDeleteSecurityInfo fakeDeleteSecurityInfo;
-        protected final @Nullable FakePostSecurityInfo fakePostSecurityInfo;
-        protected final @Nullable FakemultiplesecuritiesGetSecurityInfo fakemultiplesecuritiesGetSecurityInfo;
-        protected final @Nullable FakepetiduploadimagewithrequiredfilePostSecurityInfo fakepetiduploadimagewithrequiredfilePostSecurityInfo;
-        protected final @Nullable FakeclassnametestPatchSecurityInfo fakeclassnametestPatchSecurityInfo;
-        protected final @Nullable PetPostSecurityInfo petPostSecurityInfo;
-        protected final @Nullable PetPutSecurityInfo petPutSecurityInfo;
-        protected final @Nullable PetfindbystatusGetSecurityInfo petfindbystatusGetSecurityInfo;
-        protected final @Nullable PetfindbytagsGetSecurityInfo petfindbytagsGetSecurityInfo;
-        protected final @Nullable PetpetidDeleteSecurityInfo petpetidDeleteSecurityInfo;
-        protected final @Nullable PetpetidGetSecurityInfo petpetidGetSecurityInfo;
-        protected final @Nullable PetpetidPostSecurityInfo petpetidPostSecurityInfo;
-        protected final @Nullable PetpetiduploadimagePostSecurityInfo petpetiduploadimagePostSecurityInfo;
-        protected final @Nullable StoreinventoryGetSecurityInfo storeinventoryGetSecurityInfo;
+        protected final @Nullable FakeDeleteSecurityInfo.FakeDeleteSecurityInfo1 fakeDeleteSecurityInfo;
+        protected final @Nullable FakePostSecurityInfo.FakePostSecurityInfo1 fakePostSecurityInfo;
+        protected final @Nullable FakemultiplesecuritiesGetSecurityInfo.FakemultiplesecuritiesGetSecurityInfo1 fakemultiplesecuritiesGetSecurityInfo;
+        protected final @Nullable FakepetiduploadimagewithrequiredfilePostSecurityInfo.FakepetiduploadimagewithrequiredfilePostSecurityInfo1 fakepetiduploadimagewithrequiredfilePostSecurityInfo;
+        protected final @Nullable FakeclassnametestPatchSecurityInfo.FakeclassnametestPatchSecurityInfo1 fakeclassnametestPatchSecurityInfo;
+        protected final @Nullable PetPostSecurityInfo.PetPostSecurityInfo1 petPostSecurityInfo;
+        protected final @Nullable PetPutSecurityInfo.PetPutSecurityInfo1 petPutSecurityInfo;
+        protected final @Nullable PetfindbystatusGetSecurityInfo.PetfindbystatusGetSecurityInfo1 petfindbystatusGetSecurityInfo;
+        protected final @Nullable PetfindbytagsGetSecurityInfo.PetfindbytagsGetSecurityInfo1 petfindbytagsGetSecurityInfo;
+        protected final @Nullable PetpetidDeleteSecurityInfo.PetpetidDeleteSecurityInfo1 petpetidDeleteSecurityInfo;
+        protected final @Nullable PetpetidGetSecurityInfo.PetpetidGetSecurityInfo1 petpetidGetSecurityInfo;
+        protected final @Nullable PetpetidPostSecurityInfo.PetpetidPostSecurityInfo1 petpetidPostSecurityInfo;
+        protected final @Nullable PetpetiduploadimagePostSecurityInfo.PetpetiduploadimagePostSecurityInfo1 petpetiduploadimagePostSecurityInfo;
+        protected final @Nullable StoreinventoryGetSecurityInfo.StoreinventoryGetSecurityInfo1 storeinventoryGetSecurityInfo;
 
         public SecurityInfo(
-            @Nullable FakeDeleteSecurityInfo fakeDeleteSecurityInfo,
-            @Nullable FakePostSecurityInfo fakePostSecurityInfo,
-            @Nullable FakemultiplesecuritiesGetSecurityInfo fakemultiplesecuritiesGetSecurityInfo,
-            @Nullable FakepetiduploadimagewithrequiredfilePostSecurityInfo fakepetiduploadimagewithrequiredfilePostSecurityInfo,
-            @Nullable FakeclassnametestPatchSecurityInfo fakeclassnametestPatchSecurityInfo,
-            @Nullable PetPostSecurityInfo petPostSecurityInfo,
-            @Nullable PetPutSecurityInfo petPutSecurityInfo,
-            @Nullable PetfindbystatusGetSecurityInfo petfindbystatusGetSecurityInfo,
-            @Nullable PetfindbytagsGetSecurityInfo petfindbytagsGetSecurityInfo,
-            @Nullable PetpetidDeleteSecurityInfo petpetidDeleteSecurityInfo,
-            @Nullable PetpetidGetSecurityInfo petpetidGetSecurityInfo,
-            @Nullable PetpetidPostSecurityInfo petpetidPostSecurityInfo,
-            @Nullable PetpetiduploadimagePostSecurityInfo petpetiduploadimagePostSecurityInfo,
-            @Nullable StoreinventoryGetSecurityInfo storeinventoryGetSecurityInfo
+            @Nullable FakeDeleteSecurityInfo.FakeDeleteSecurityInfo1 fakeDeleteSecurityInfo,
+            @Nullable FakePostSecurityInfo.FakePostSecurityInfo1 fakePostSecurityInfo,
+            @Nullable FakemultiplesecuritiesGetSecurityInfo.FakemultiplesecuritiesGetSecurityInfo1 fakemultiplesecuritiesGetSecurityInfo,
+            @Nullable FakepetiduploadimagewithrequiredfilePostSecurityInfo.FakepetiduploadimagewithrequiredfilePostSecurityInfo1 fakepetiduploadimagewithrequiredfilePostSecurityInfo,
+            @Nullable FakeclassnametestPatchSecurityInfo.FakeclassnametestPatchSecurityInfo1 fakeclassnametestPatchSecurityInfo,
+            @Nullable PetPostSecurityInfo.PetPostSecurityInfo1 petPostSecurityInfo,
+            @Nullable PetPutSecurityInfo.PetPutSecurityInfo1 petPutSecurityInfo,
+            @Nullable PetfindbystatusGetSecurityInfo.PetfindbystatusGetSecurityInfo1 petfindbystatusGetSecurityInfo,
+            @Nullable PetfindbytagsGetSecurityInfo.PetfindbytagsGetSecurityInfo1 petfindbytagsGetSecurityInfo,
+            @Nullable PetpetidDeleteSecurityInfo.PetpetidDeleteSecurityInfo1 petpetidDeleteSecurityInfo,
+            @Nullable PetpetidGetSecurityInfo.PetpetidGetSecurityInfo1 petpetidGetSecurityInfo,
+            @Nullable PetpetidPostSecurityInfo.PetpetidPostSecurityInfo1 petpetidPostSecurityInfo,
+            @Nullable PetpetiduploadimagePostSecurityInfo.PetpetiduploadimagePostSecurityInfo1 petpetiduploadimagePostSecurityInfo,
+            @Nullable StoreinventoryGetSecurityInfo.StoreinventoryGetSecurityInfo1 storeinventoryGetSecurityInfo
         ) {
             this.fakeDeleteSecurityInfo = fakeDeleteSecurityInfo;
             this.fakePostSecurityInfo = fakePostSecurityInfo;

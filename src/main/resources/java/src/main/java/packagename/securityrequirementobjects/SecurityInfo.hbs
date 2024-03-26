@@ -15,29 +15,31 @@ import java.util.AbstractMap;
 import java.util.Map;
 import java.util.EnumMap;
 
-public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequirementObjectProvider<{{security.jsonPathPiece.pascalCase}}.SecurityIndex> {
-    final private EnumMap<SecurityIndex, SecurityRequirementObject> securities;
-    final private SecurityIndex securityIndex;
+public class {{security.jsonPathPiece.pascalCase}} {
+    public static class {{security.jsonPathPiece.pascalCase}}1 implements SecurityRequirementObjectProvider<SecurityIndex> {
+        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
+        final private SecurityIndex securityIndex;
 
-    public {{security.jsonPathPiece.pascalCase}}(SecurityIndex securityIndex) {
-        this.securities = new EnumMap<>(Map.ofEntries(
+        public {{security.jsonPathPiece.pascalCase}}1(SecurityIndex securityIndex) {
+            this.securities = new EnumMap<>(Map.ofEntries(
 {{#each security}}
-            new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_{{@index}}, new {{jsonPathPiece.pascalCase}}()){{#unless @last}},{{/unless}}
+                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_{{@index}}, new {{jsonPathPiece.pascalCase}}()){{#unless @last}},{{/unless}}
 {{/each}}
-        ));
-        this.securityIndex = securityIndex;
+            ));
+            this.securityIndex = securityIndex;
+        }
+
+        public SecurityRequirementObject getSecurityRequirementObject(@Nullable SecurityIndex securityIndex) {
+            if (securityIndex == null) {
+                return securities.get(this.securityIndex);
+            }
+            return securities.get(securityIndex);
+        }
     }
 
     public enum SecurityIndex {
         {{#each security}}
         SECURITY_{{@index}}{{#unless @last}},{{/unless}}
         {{/each}}
-    }
-
-    public SecurityRequirementObject getSecurityRequirementObject(@Nullable SecurityIndex securityIndex) {
-        if (securityIndex == null) {
-            return securities.get(this.securityIndex);
-        }
-        return securities.get(securityIndex);
     }
 }

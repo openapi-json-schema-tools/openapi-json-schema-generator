@@ -9,25 +9,27 @@ import java.util.AbstractMap;
 import java.util.Map;
 import java.util.EnumMap;
 
-public class FakeclassnametestPatchSecurityInfo implements SecurityRequirementObjectProvider<FakeclassnametestPatchSecurityInfo.SecurityIndex> {
-    final private EnumMap<SecurityIndex, SecurityRequirementObject> securities;
-    final private SecurityIndex securityIndex;
+public class FakeclassnametestPatchSecurityInfo {
+    public static class FakeclassnametestPatchSecurityInfo1 implements SecurityRequirementObjectProvider<SecurityIndex> {
+        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
+        final private SecurityIndex securityIndex;
 
-    public FakeclassnametestPatchSecurityInfo(SecurityIndex securityIndex) {
-        this.securities = new EnumMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new FakeclassnametestPatchSecurityRequirementObject0())
-        ));
-        this.securityIndex = securityIndex;
+        public FakeclassnametestPatchSecurityInfo1(SecurityIndex securityIndex) {
+            this.securities = new EnumMap<>(Map.ofEntries(
+                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new FakeclassnametestPatchSecurityRequirementObject0())
+            ));
+            this.securityIndex = securityIndex;
+        }
+
+        public SecurityRequirementObject getSecurityRequirementObject(@Nullable SecurityIndex securityIndex) {
+            if (securityIndex == null) {
+                return securities.get(this.securityIndex);
+            }
+            return securities.get(securityIndex);
+        }
     }
 
     public enum SecurityIndex {
         SECURITY_0
-    }
-
-    public SecurityRequirementObject getSecurityRequirementObject(@Nullable SecurityIndex securityIndex) {
-        if (securityIndex == null) {
-            return securities.get(this.securityIndex);
-        }
-        return securities.get(securityIndex);
     }
 }

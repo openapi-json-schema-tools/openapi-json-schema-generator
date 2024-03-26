@@ -100,12 +100,12 @@ public class ApiConfiguration {
 
     public static class SecurityInfo {
         {{#each allSecurity}}
-        protected final @Nullable {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}};
+        protected final @Nullable {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}};
         {{/each}}
 
         public SecurityInfo(
         {{#each allSecurity}}
-            @Nullable {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
+            @Nullable {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
         {{/each}}
         ) {
         {{#each allSecurity}}
