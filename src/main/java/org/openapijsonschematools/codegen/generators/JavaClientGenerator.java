@@ -3050,6 +3050,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         put("src/main/java/packagename/securityrequirementobjects/SecurityRequirementObjectN.hbs", ".java");
                     }}
             );
+            jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/securityrequirementobjects/SecurityRequirementObjectNDoc.hbs", ".md");
+                }}
+            );
             jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES,
                     new HashMap<>() {{
