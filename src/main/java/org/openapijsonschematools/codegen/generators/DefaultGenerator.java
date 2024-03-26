@@ -3035,7 +3035,6 @@ public class DefaultGenerator implements Generator {
         }
         CodegenKey jsonPathPiece = getKey("", "security", jsonPath);
         String subpackage = getSubpackage(jsonPath);
-        List<MapBuilder<CodegenSecurityRequirementObject>> builders = getSecurityBuilders(items, jsonPath);
         CodegenKey operationInputClass = getKey("SecurityIndex", "misc", jsonPath);
         String operationInputVariableName = "securityIndex";
         String pathFromDocRoot = getPathFromDocRoot(jsonPath);
@@ -3043,15 +3042,11 @@ public class DefaultGenerator implements Generator {
             items,
             jsonPathPiece,
             subpackage,
-            builders,
+            null,
             operationInputClass,
             operationInputVariableName,
             pathFromDocRoot
         );
-    }
-
-    protected List<MapBuilder<CodegenSecurityRequirementObject>> getSecurityBuilders(List<CodegenSecurityRequirementObject> items, String jsonPath) {
-        return null;
     }
 
     protected String getPathFromDocRoot(String sourceJsonPath) {
