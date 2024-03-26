@@ -10,7 +10,7 @@ A class that provides a security requirement object, and any needed security inf
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [PetPostSecurityInfo1](#petpostsecurityinfo1)<br>SecurityRequirementObjectProvider
+| static class | [PetPostSecurityInfo.PetPostSecurityInfo1](#petpostsecurityinfo1)<br>SecurityRequirementObjectProvider
 | enum | [PetPostSecurityInfo.SecurityIndex](#securityindex)<br>class that stores a security index |
 
 ## PetPostSecurityInfo1

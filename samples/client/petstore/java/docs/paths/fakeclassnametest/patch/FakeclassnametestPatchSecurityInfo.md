@@ -10,7 +10,7 @@ A class that provides a security requirement object, and any needed security inf
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakeclassnametestPatchSecurityInfo1](#fakeclassnametestpatchsecurityinfo1)<br>SecurityRequirementObjectProvider
+| static class | [FakeclassnametestPatchSecurityInfo.FakeclassnametestPatchSecurityInfo1](#fakeclassnametestpatchsecurityinfo1)<br>SecurityRequirementObjectProvider
 | enum | [FakeclassnametestPatchSecurityInfo.SecurityIndex](#securityindex)<br>class that stores a security index |
 
 ## FakeclassnametestPatchSecurityInfo1

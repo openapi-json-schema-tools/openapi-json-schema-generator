@@ -10,7 +10,7 @@ A class that provides a security requirement object, and any needed security inf
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [StoreinventoryGetSecurityInfo1](#storeinventorygetsecurityinfo1)<br>SecurityRequirementObjectProvider
+| static class | [StoreinventoryGetSecurityInfo.StoreinventoryGetSecurityInfo1](#storeinventorygetsecurityinfo1)<br>SecurityRequirementObjectProvider
 | enum | [StoreinventoryGetSecurityInfo.SecurityIndex](#securityindex)<br>class that stores a security index |
 
 ## StoreinventoryGetSecurityInfo1
