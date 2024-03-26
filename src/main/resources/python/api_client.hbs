@@ -1161,7 +1161,8 @@ class ApiClient:
                     method=method,
                     body=body,
                     query_params_suffix=query_params_suffix,
-                    scope_names=scope_names,
+                    oauth_server_client_info=self.configuration.oauth_server_client_info,
+                    scope_names=scope_names
                 )
             except KeyError as ex:
                 raise ex

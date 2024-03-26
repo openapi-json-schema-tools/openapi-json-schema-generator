@@ -75,8 +75,8 @@ class __SecuritySchemeBase(metaclass=abc.ABCMeta):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
-        oauth_server_client_info: OauthServerClientInfo = {}
+        oauth_server_client_info: OauthServerClientInfo,
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         pass
 
@@ -95,8 +95,8 @@ class ApiKeySecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
-        oauth_server_client_info: OauthServerClientInfo = {}
+        oauth_server_client_info: OauthServerClientInfo,
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         if self.in_location is ApiKeyInLocation.COOKIE:
             headers.add('Cookie', self.api_key)
@@ -133,8 +133,8 @@ class HTTPBasicSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
-        oauth_server_client_info: OauthServerClientInfo = {}
+        oauth_server_client_info: OauthServerClientInfo,
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         user_pass = f"{self.user_id}:{self.password}"
         b64_user_pass = base64.b64encode(user_pass.encode(encoding=self.encoding))
@@ -155,8 +155,8 @@ class HTTPBearerSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
-        oauth_server_client_info: OauthServerClientInfo = {}
+        oauth_server_client_info: OauthServerClientInfo,
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         headers.add('Authorization', f"Bearer {self.access_token}")
 
@@ -173,8 +173,8 @@ class HTTPDigestSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
-        oauth_server_client_info: OauthServerClientInfo = {}
+        oauth_server_client_info: OauthServerClientInfo,
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         raise NotImplementedError("HTTPDigestSecurityScheme not yet implemented")
 
@@ -190,8 +190,8 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
-        oauth_server_client_info: OauthServerClientInfo = {}
+        oauth_server_client_info: OauthServerClientInfo,
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         raise NotImplementedError("MutualTLSSecurityScheme not yet implemented")
 
@@ -239,9 +239,9 @@ class ImplicitOAuthFlow(OAuthFlowBase):
 class PasswordOauthFlow(OAuthFlowBase):
     token_url: parse.ParseResult
     scopes: typing.Dict[str, str]
+    username: str
+    password: str
     refresh_url: typing.Optional[str] = None
-    username: str = ''
-    password: str = ''
     _scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
     _scope_names_to_token: typing.Dict[typing.Tuple[str, ...], OauthToken] = dataclasses.field(default_factory=dict)
 
@@ -277,7 +277,6 @@ class PasswordOauthFlow(OAuthFlowBase):
             password=self.password
         )
         self._scope_names_to_token[scope_names] = token
-        print(token)
         super().set_token(headers, token)
 
 
@@ -303,25 +302,7 @@ class ClientCredentialsOauthFlow(OAuthFlowBase):
         client_info: OauthClientInfo,
         scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
-        token = self._scope_names_to_token.get(scope_names)
-        if token:
-            super().set_token(headers, token)
-            return
-        client = self._scope_names_to_client.get(scope_names)
-        if client is None:
-            client = requests_client.OAuth2Session(
-                client_info.client_id,
-                client_info.client_secret,
-                scope=scope_names
-            )
-            self._scope_names_to_token[scope_names] = client
-        token = client.fetch_token(
-            url=parse.urlunparse(self.token_url),
-            grant_type='client_credentials'
-        )
-        self._scope_names_to_token[scope_names] = token
-        print(token)
-        super().set_token(headers, token)
+        raise NotImplementedError("ClientCredentialsOauthFlow not yet implemented")
 
 
 @dataclasses.dataclass
@@ -371,15 +352,15 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
-        oath_server_client_info: OauthServerClientInfo = {}
+        oauth_server_client_info: OauthServerClientInfo,
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         if not self.flows:
             raise exceptions.ApiValueError('flows are not defined and are required, define them')
         if not scope_names:
             raise exceptions.ApiValueError('scope_names are not defined and are required, define them')
-        if not oath_server_client_info:
-            raise exceptions.ApiValueError('oath_server_client_info is not defined and is required, define it')
+        if not oauth_server_client_info:
+            raise exceptions.ApiValueError('oauth_server_client_info is not defined and is required, define it')
         chosen_flows = []
         for flow in [self.flows.implicit, self.flows.password, self.flows.client_credentials, self.flows.authorization_code]:
             if flow is None:
@@ -400,12 +381,12 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
                 "flow may contain the scopes"
             )
         chosen_flow = chosen_flows[0]
-        if chosen_flow.auth_or_token_url.netloc not in oath_server_client_info:
+        if chosen_flow.auth_or_token_url.netloc not in oauth_server_client_info:
             raise exceptions.ApiValueError(
                 f"oauth_server_client_info is missing info for oauth server "
                 "hostname={chosen_flow.auth_or_token_url.netloc}. Add it to you api_configuration"
             )
-        client_info = oath_server_client_info[chosen_flow.auth_or_token_url.netloc] # type: ignore[literal-required]
+        client_info = oauth_server_client_info[chosen_flow.auth_or_token_url.netloc] # type: ignore[literal-required]
         # note: scope input must be sorted tuple
         chosen_flow.apply_auth(
             headers=headers,
@@ -429,8 +410,8 @@ class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
+        oauth_server_client_info: OauthServerClientInfo,
         scope_names: typing.Tuple[str, ...] = (),
-        oauth_server_client_info: OauthServerClientInfo = {}
     ) -> None:
         raise NotImplementedError("OpenIdConnectSecurityScheme not yet implemented")
 
