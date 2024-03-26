@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeSet;
 
-public class CodegenSecurityScheme {
+public class CodegenSecurityScheme implements PathFromDocRootProvider {
     public final String type;
     public final CodegenText description;
     public final String name;
@@ -35,8 +35,9 @@ public class CodegenSecurityScheme {
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenSecurityScheme> refInfo;
     public final Map<String, Object> vendorExtensions;
+    public final String pathFromDocRoot;
 
-    public CodegenSecurityScheme(String type, CodegenText description, String name, String in, String scheme, String bearerFormat, CodegenOauthFlows flows, String openIdConnectUrl, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenSecurityScheme> refInfo, Map<String, Object> vendorExtensions) {
+    public CodegenSecurityScheme(String type, CodegenText description, String name, String in, String scheme, String bearerFormat, CodegenOauthFlows flows, String openIdConnectUrl, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenSecurityScheme> refInfo, Map<String, Object> vendorExtensions, String pathFromDocRoot) {
         this.type = type;
         this.description = description;
         this.name = name;
@@ -50,6 +51,7 @@ public class CodegenSecurityScheme {
         this.jsonPathPiece = jsonPathPiece;
         this.refInfo = refInfo;
         this.vendorExtensions = vendorExtensions;
+        this.pathFromDocRoot = pathFromDocRoot;
     }
 
     public CodegenSecurityScheme getDeepestRef() {
@@ -95,5 +97,10 @@ public class CodegenSecurityScheme {
                 ", flows='" + flows + '\'' +
                 ", vendorExtensions=" + vendorExtensions +
                 '}';
+    }
+
+    @Override
+    public String pathFromDocRoot() {
+        return pathFromDocRoot;
     }
 }

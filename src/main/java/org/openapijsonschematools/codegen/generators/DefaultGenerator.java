@@ -3507,6 +3507,7 @@ public class DefaultGenerator implements Generator {
         if (securityScheme.getExtensions() != null) {
             vendorExtensions = securityScheme.getExtensions();
         }
+        String pathFromDocROot = getPathFromDocRoot(jsonPath);
         final CodegenSecurityScheme cs = new CodegenSecurityScheme(
                 type,
                 description,
@@ -3520,7 +3521,8 @@ public class DefaultGenerator implements Generator {
                 componentModule,
                 jsonPathPiece,
                 refInfo,
-                vendorExtensions
+                vendorExtensions,
+                pathFromDocROot
         );
         codegenSecuritySchemeCache.put(jsonPath, cs);
         return cs;
