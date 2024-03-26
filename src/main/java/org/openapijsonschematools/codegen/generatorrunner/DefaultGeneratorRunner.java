@@ -1482,8 +1482,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         Map<String, Object> securityTemplateData = new HashMap<>();
         securityTemplateData.put("packageName", generator.packageName());
         securityTemplateData.put("security", security);
-        securityTemplateData.put("headerSize", "#");
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, securityTemplateData, true);
+        securityTemplateData.put("headerSize", "#");
+        securityTemplateData.put("docRoot", docRoot);
         generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, securityTemplateData, true);
 
         int i = 0;

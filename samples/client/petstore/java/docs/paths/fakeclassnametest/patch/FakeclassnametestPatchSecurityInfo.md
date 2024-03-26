@@ -24,7 +24,7 @@ implements SecurityRequirementObjectProvider<[SecurityIndex](#securityindex)>
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new FakeclassnametestPatchSecurityRequirementObject0())<br>)); |
+| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new [FakeclassnametestPatchSecurityRequirementObject0()](../../../paths/fakeclassnametest/patch/security/FakeclassnametestPatchSecurityRequirementObject0.md)<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

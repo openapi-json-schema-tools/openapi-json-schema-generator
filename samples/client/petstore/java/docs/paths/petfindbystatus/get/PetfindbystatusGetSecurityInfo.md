@@ -24,7 +24,7 @@ implements SecurityRequirementObjectProvider<[SecurityIndex](#securityindex)>
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new PetfindbystatusGetSecurityRequirementObject0()),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new PetfindbystatusGetSecurityRequirementObject1()),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, new PetfindbystatusGetSecurityRequirementObject2())<br>)); |
+| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new [PetfindbystatusGetSecurityRequirementObject0()](../../../paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject0.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new [PetfindbystatusGetSecurityRequirementObject1()](../../../paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject1.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, new [PetfindbystatusGetSecurityRequirementObject2()](../../../paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject2.md)<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

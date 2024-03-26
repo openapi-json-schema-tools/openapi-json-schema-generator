@@ -3022,11 +3022,13 @@ public class DefaultGenerator implements Generator {
             String securityJsonPathPiece = jsonPath + "/" + i;
             String subpackage = getSubpackage(securityJsonPathPiece);
             CodegenKey key = getKey(String.valueOf(i), "security", securityJsonPathPiece);
+            String pathFromDocRoot = getPathFromDocRoot(securityJsonPathPiece);
             var securityRequirementObject = new CodegenSecurityRequirementObject(
                     imports,
                     map,
                     subpackage,
-                    key
+                    key,
+                    pathFromDocRoot
             );
             items.add(securityRequirementObject);
             i++;
@@ -3507,7 +3509,7 @@ public class DefaultGenerator implements Generator {
         if (securityScheme.getExtensions() != null) {
             vendorExtensions = securityScheme.getExtensions();
         }
-        String pathFromDocROot = getPathFromDocRoot(jsonPath);
+        String pathFromDocRoot = getPathFromDocRoot(jsonPath);
         final CodegenSecurityScheme cs = new CodegenSecurityScheme(
                 type,
                 description,
@@ -3522,7 +3524,7 @@ public class DefaultGenerator implements Generator {
                 jsonPathPiece,
                 refInfo,
                 vendorExtensions,
-                pathFromDocROot
+                pathFromDocRoot
         );
         codegenSecuritySchemeCache.put(jsonPath, cs);
         return cs;

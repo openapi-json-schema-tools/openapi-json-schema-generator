@@ -24,7 +24,7 @@ implements SecurityRequirementObjectProvider<[SecurityIndex](#securityindex)>
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new FakemultiplesecuritiesGetSecurityRequirementObject0()),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new FakemultiplesecuritiesGetSecurityRequirementObject1()),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, new FakemultiplesecuritiesGetSecurityRequirementObject2())<br>)); |
+| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new [FakemultiplesecuritiesGetSecurityRequirementObject0()](../../../paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject0.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new [FakemultiplesecuritiesGetSecurityRequirementObject1()](../../../paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject1.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, new [FakemultiplesecuritiesGetSecurityRequirementObject2()](../../../paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject2.md)<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
