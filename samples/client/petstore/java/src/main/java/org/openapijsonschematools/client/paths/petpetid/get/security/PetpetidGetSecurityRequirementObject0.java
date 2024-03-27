@@ -11,13 +11,11 @@ import java.util.AbstractMap;
 
 public class PetpetidGetSecurityRequirementObject0 extends SecurityRequirementObject {
 
-    public PetpetidGetSecurityRequirementObject0(
-        ApiKey securityScheme0
-    ) {
+    public PetpetidGetSecurityRequirementObject0() {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    ApiKey.class,
                     List.of()
                 )
             )

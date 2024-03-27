@@ -498,7 +498,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 // paths.some_path.security.security_requirement_0.py
                 if (operation.security != null) {
                     String securityJsonPath = operationJsonPath + "/security";
-                    generateSecurity(files, operation.security, securityJsonPath);
+                    generateSecurity(files, operation.security, securityJsonPath, "../../../");
                 }
 
                 // paths.some_path.post.request_body.py, only written if there is no refModule
@@ -1471,7 +1471,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         return tags;
     }
 
-    private void generateSecurity(List<File> files, CodegenList<CodegenSecurityRequirementObject> security, String jsonPath) {
+    private void generateSecurity(List<File> files, CodegenList<CodegenSecurityRequirementObject> security, String jsonPath, String docRoot) {
         if (security == null || security.isEmpty()) {
             return;
         }
@@ -1482,8 +1482,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         Map<String, Object> securityTemplateData = new HashMap<>();
         securityTemplateData.put("packageName", generator.packageName());
         securityTemplateData.put("security", security);
-        securityTemplateData.put("headerSize", "#");
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, securityTemplateData, true);
+        securityTemplateData.put("headerSize", "#");
+        securityTemplateData.put("docRoot", docRoot);
         generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, securityTemplateData, true);
 
         int i = 0;
@@ -1493,6 +1494,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             templateData.put("securityRequirementObject", securityRequirementObject);
             String securityJsonPath = jsonPath + "/" + i;
             generateXs(files, securityJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY, CodegenConstants.SECURITY, templateData, true);
+            templateData.put("headerSize", "#");
+            templateData.put("docRoot", docRoot + "../");
+            generateXDocs(files, securityJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY, CodegenConstants.SECURITY, templateData, true);
             i++;
         }
     }
@@ -1548,7 +1552,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         TreeMap<String, CodegenSecurityScheme> securitySchemes = generateSecuritySchemes(files);
         // security
         CodegenList<CodegenSecurityRequirementObject> security = generator.fromSecurity(openAPI.getSecurity(), "#/security");
-        generateSecurity(files, security, "#/security");
+        generateSecurity(files, security, "#/security", "../");
 
         boolean schemasExist = (schemas != null && !schemas.isEmpty());
         boolean requestBodiesExist = (requestBodies != null && !requestBodies.isEmpty());

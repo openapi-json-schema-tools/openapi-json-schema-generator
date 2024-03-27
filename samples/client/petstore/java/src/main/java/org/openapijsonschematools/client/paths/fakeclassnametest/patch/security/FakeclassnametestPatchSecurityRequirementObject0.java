@@ -11,13 +11,11 @@ import java.util.AbstractMap;
 
 public class FakeclassnametestPatchSecurityRequirementObject0 extends SecurityRequirementObject {
 
-    public FakeclassnametestPatchSecurityRequirementObject0(
-        ApiKeyQuery securityScheme0
-    ) {
+    public FakeclassnametestPatchSecurityRequirementObject0() {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    ApiKeyQuery.class,
                     List.of()
                 )
             )

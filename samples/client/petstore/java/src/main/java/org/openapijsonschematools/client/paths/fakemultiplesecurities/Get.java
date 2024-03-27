@@ -41,7 +41,8 @@ public class Get {
                 Fakemultiplesecurities.path,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + Fakemultiplesecurities.path;

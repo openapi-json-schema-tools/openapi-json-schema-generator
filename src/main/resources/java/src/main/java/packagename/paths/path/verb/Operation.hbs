@@ -162,7 +162,8 @@ public class {{jsonPathPiece.pascalCase}} {
                 {{#and parametersInfo parametersInfo.pathParametersSchema}}updatedPath{{else}}{{#with ../pathItem}}{{jsonPathPiece.pascalCase}}.{{/with}}path{{/and}},
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
                         {{/eq}}
                     {{/each}}

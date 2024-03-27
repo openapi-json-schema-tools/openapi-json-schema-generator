@@ -3022,18 +3022,19 @@ public class DefaultGenerator implements Generator {
             String securityJsonPathPiece = jsonPath + "/" + i;
             String subpackage = getSubpackage(securityJsonPathPiece);
             CodegenKey key = getKey(String.valueOf(i), "security", securityJsonPathPiece);
+            String pathFromDocRoot = getPathFromDocRoot(securityJsonPathPiece);
             var securityRequirementObject = new CodegenSecurityRequirementObject(
                     imports,
                     map,
                     subpackage,
-                    key
+                    key,
+                    pathFromDocRoot
             );
             items.add(securityRequirementObject);
             i++;
         }
         CodegenKey jsonPathPiece = getKey("", "security", jsonPath);
         String subpackage = getSubpackage(jsonPath);
-        List<MapBuilder<CodegenSecurityRequirementObject>> builders = getSecurityBuilders(items, jsonPath);
         CodegenKey operationInputClass = getKey("SecurityIndex", "misc", jsonPath);
         String operationInputVariableName = "securityIndex";
         String pathFromDocRoot = getPathFromDocRoot(jsonPath);
@@ -3041,15 +3042,11 @@ public class DefaultGenerator implements Generator {
             items,
             jsonPathPiece,
             subpackage,
-            builders,
+            null,
             operationInputClass,
             operationInputVariableName,
             pathFromDocRoot
         );
-    }
-
-    protected List<MapBuilder<CodegenSecurityRequirementObject>> getSecurityBuilders(List<CodegenSecurityRequirementObject> items, String jsonPath) {
-        return null;
     }
 
     protected String getPathFromDocRoot(String sourceJsonPath) {
@@ -3507,6 +3504,7 @@ public class DefaultGenerator implements Generator {
         if (securityScheme.getExtensions() != null) {
             vendorExtensions = securityScheme.getExtensions();
         }
+        String pathFromDocRoot = getPathFromDocRoot(jsonPath);
         final CodegenSecurityScheme cs = new CodegenSecurityScheme(
                 type,
                 description,
@@ -3520,7 +3518,8 @@ public class DefaultGenerator implements Generator {
                 componentModule,
                 jsonPathPiece,
                 refInfo,
-                vendorExtensions
+                vendorExtensions,
+                pathFromDocRoot
         );
         codegenSecuritySchemeCache.put(jsonPath, cs);
         return cs;

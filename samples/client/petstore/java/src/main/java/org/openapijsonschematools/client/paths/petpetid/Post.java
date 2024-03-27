@@ -59,7 +59,8 @@ public class Post {
                 updatedPath,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + updatedPath;

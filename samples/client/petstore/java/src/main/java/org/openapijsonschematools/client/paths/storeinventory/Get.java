@@ -41,7 +41,8 @@ public class Get {
                 Storeinventory.path,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + Storeinventory.path;

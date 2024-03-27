@@ -11,13 +11,11 @@ import java.util.AbstractMap;
 
 public class FakeDeleteSecurityRequirementObject0 extends SecurityRequirementObject {
 
-    public FakeDeleteSecurityRequirementObject0(
-        BearerTest securityScheme0
-    ) {
+    public FakeDeleteSecurityRequirementObject0() {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    BearerTest.class,
                     List.of()
                 )
             )

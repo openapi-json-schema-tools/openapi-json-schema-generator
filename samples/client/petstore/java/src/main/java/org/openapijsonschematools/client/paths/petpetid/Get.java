@@ -46,7 +46,8 @@ public class Get {
                 updatedPath,
                 method,
                 bodyPublisher,
-                queryMap
+                queryMap,
+                apiConfiguration
             );
 
             String url = host + updatedPath;

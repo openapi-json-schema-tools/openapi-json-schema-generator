@@ -11,13 +11,11 @@ import java.util.AbstractMap;
 
 public class FakePostSecurityRequirementObject0 extends SecurityRequirementObject {
 
-    public FakePostSecurityRequirementObject0(
-        HttpBasicTest securityScheme0
-    ) {
+    public FakePostSecurityRequirementObject0() {
         super(
             Map.ofEntries(
-                new AbstractMap.SimpleEntry<SecurityScheme, List<String>>(
-                    securityScheme0,
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    HttpBasicTest.class,
                     List.of()
                 )
             )

@@ -228,6 +228,7 @@ docs/paths/fake/delete/parameters/parameter3/Schema3.md
 docs/paths/fake/delete/parameters/parameter4/Schema4.md
 docs/paths/fake/delete/parameters/parameter5/Schema5.md
 docs/paths/fake/delete/responses/Code200Response.md
+docs/paths/fake/delete/security/FakeDeleteSecurityRequirementObject0.md
 docs/paths/fake/get/HeaderParameters.md
 docs/paths/fake/get/QueryParameters.md
 docs/paths/fake/get/RequestBody.md
@@ -252,6 +253,7 @@ docs/paths/fake/post/Responses.md
 docs/paths/fake/post/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md
 docs/paths/fake/post/responses/Code200Response.md
 docs/paths/fake/post/responses/Code404Response.md
+docs/paths/fake/post/security/FakePostSecurityRequirementObject0.md
 docs/paths/fakeadditionalpropertieswitharrayofenums/Get.md
 docs/paths/fakeadditionalpropertieswitharrayofenums/get/RequestBody.md
 docs/paths/fakeadditionalpropertieswitharrayofenums/get/Responses.md
@@ -283,6 +285,7 @@ docs/paths/fakeclassnametest/patch/RequestBody.md
 docs/paths/fakeclassnametest/patch/Responses.md
 docs/paths/fakeclassnametest/patch/responses/Code200Response.md
 docs/paths/fakeclassnametest/patch/responses/code200response/content/applicationjson/ApplicationjsonSchema.md
+docs/paths/fakeclassnametest/patch/security/FakeclassnametestPatchSecurityRequirementObject0.md
 docs/paths/fakedeletecoffeeid/Delete.md
 docs/paths/fakedeletecoffeeid/delete/PathParameters.md
 docs/paths/fakedeletecoffeeid/delete/Responses.md
@@ -343,6 +346,9 @@ docs/paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetSecurityInfo.md
 docs/paths/fakemultiplesecurities/get/Responses.md
 docs/paths/fakemultiplesecurities/get/responses/Code200Response.md
 docs/paths/fakemultiplesecurities/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md
+docs/paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject0.md
+docs/paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject1.md
+docs/paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject2.md
 docs/paths/fakeobjinquery/Get.md
 docs/paths/fakeobjinquery/get/QueryParameters.md
 docs/paths/fakeobjinquery/get/Responses.md
@@ -392,6 +398,7 @@ docs/paths/fakepetiduploadimagewithrequiredfile/post/parameters/parameter0/Schem
 docs/paths/fakepetiduploadimagewithrequiredfile/post/requestbody/content/multipartformdata/MultipartformdataSchema.md
 docs/paths/fakepetiduploadimagewithrequiredfile/post/responses/Code200Response.md
 docs/paths/fakepetiduploadimagewithrequiredfile/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md
+docs/paths/fakepetiduploadimagewithrequiredfile/post/security/FakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0.md
 docs/paths/fakequeryparamwithjsoncontenttype/Get.md
 docs/paths/fakequeryparamwithjsoncontenttype/get/QueryParameters.md
 docs/paths/fakequeryparamwithjsoncontenttype/get/Responses.md
@@ -518,12 +525,17 @@ docs/paths/pet/post/RequestBody.md
 docs/paths/pet/post/Responses.md
 docs/paths/pet/post/responses/Code200Response.md
 docs/paths/pet/post/responses/Code405Response.md
+docs/paths/pet/post/security/PetPostSecurityRequirementObject0.md
+docs/paths/pet/post/security/PetPostSecurityRequirementObject1.md
+docs/paths/pet/post/security/PetPostSecurityRequirementObject2.md
 docs/paths/pet/put/PetPutSecurityInfo.md
 docs/paths/pet/put/RequestBody.md
 docs/paths/pet/put/Responses.md
 docs/paths/pet/put/responses/Code400Response.md
 docs/paths/pet/put/responses/Code404Response.md
 docs/paths/pet/put/responses/Code405Response.md
+docs/paths/pet/put/security/PetPutSecurityRequirementObject0.md
+docs/paths/pet/put/security/PetPutSecurityRequirementObject1.md
 docs/paths/petfindbystatus/Get.md
 docs/paths/petfindbystatus/PetfindbystatusServerInfo.md
 docs/paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md
@@ -532,6 +544,9 @@ docs/paths/petfindbystatus/get/Responses.md
 docs/paths/petfindbystatus/get/parameters/parameter0/Schema0.md
 docs/paths/petfindbystatus/get/responses/Code200Response.md
 docs/paths/petfindbystatus/get/responses/Code400Response.md
+docs/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject0.md
+docs/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject1.md
+docs/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject2.md
 docs/paths/petfindbytags/Get.md
 docs/paths/petfindbytags/get/PetfindbytagsGetSecurityInfo.md
 docs/paths/petfindbytags/get/QueryParameters.md
@@ -539,6 +554,8 @@ docs/paths/petfindbytags/get/Responses.md
 docs/paths/petfindbytags/get/parameters/parameter0/Schema0.md
 docs/paths/petfindbytags/get/responses/Code200Response.md
 docs/paths/petfindbytags/get/responses/Code400Response.md
+docs/paths/petfindbytags/get/security/PetfindbytagsGetSecurityRequirementObject0.md
+docs/paths/petfindbytags/get/security/PetfindbytagsGetSecurityRequirementObject1.md
 docs/paths/petpetid/Delete.md
 docs/paths/petpetid/Get.md
 docs/paths/petpetid/Post.md
@@ -549,6 +566,8 @@ docs/paths/petpetid/delete/Responses.md
 docs/paths/petpetid/delete/parameters/parameter0/Schema0.md
 docs/paths/petpetid/delete/parameters/parameter1/Schema1.md
 docs/paths/petpetid/delete/responses/Code400Response.md
+docs/paths/petpetid/delete/security/PetpetidDeleteSecurityRequirementObject0.md
+docs/paths/petpetid/delete/security/PetpetidDeleteSecurityRequirementObject1.md
 docs/paths/petpetid/get/PathParameters.md
 docs/paths/petpetid/get/PetpetidGetSecurityInfo.md
 docs/paths/petpetid/get/Responses.md
@@ -558,6 +577,7 @@ docs/paths/petpetid/get/responses/Code400Response.md
 docs/paths/petpetid/get/responses/Code404Response.md
 docs/paths/petpetid/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md
 docs/paths/petpetid/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md
+docs/paths/petpetid/get/security/PetpetidGetSecurityRequirementObject0.md
 docs/paths/petpetid/post/PathParameters.md
 docs/paths/petpetid/post/PetpetidPostSecurityInfo.md
 docs/paths/petpetid/post/RequestBody.md
@@ -565,6 +585,8 @@ docs/paths/petpetid/post/Responses.md
 docs/paths/petpetid/post/parameters/parameter0/Schema0.md
 docs/paths/petpetid/post/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md
 docs/paths/petpetid/post/responses/Code405Response.md
+docs/paths/petpetid/post/security/PetpetidPostSecurityRequirementObject0.md
+docs/paths/petpetid/post/security/PetpetidPostSecurityRequirementObject1.md
 docs/paths/petpetiduploadimage/Post.md
 docs/paths/petpetiduploadimage/post/PathParameters.md
 docs/paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md
@@ -573,6 +595,7 @@ docs/paths/petpetiduploadimage/post/Responses.md
 docs/paths/petpetiduploadimage/post/parameters/parameter0/Schema0.md
 docs/paths/petpetiduploadimage/post/requestbody/content/multipartformdata/MultipartformdataSchema.md
 docs/paths/petpetiduploadimage/post/responses/Code200Response.md
+docs/paths/petpetiduploadimage/post/security/PetpetiduploadimagePostSecurityRequirementObject0.md
 docs/paths/solidus/Get.md
 docs/paths/solidus/get/Responses.md
 docs/paths/solidus/get/responses/Code200Response.md
@@ -580,6 +603,7 @@ docs/paths/storeinventory/Get.md
 docs/paths/storeinventory/get/Responses.md
 docs/paths/storeinventory/get/StoreinventoryGetSecurityInfo.md
 docs/paths/storeinventory/get/responses/Code200Response.md
+docs/paths/storeinventory/get/security/StoreinventoryGetSecurityRequirementObject0.md
 docs/paths/storeorder/Post.md
 docs/paths/storeorder/post/RequestBody.md
 docs/paths/storeorder/post/Responses.md
