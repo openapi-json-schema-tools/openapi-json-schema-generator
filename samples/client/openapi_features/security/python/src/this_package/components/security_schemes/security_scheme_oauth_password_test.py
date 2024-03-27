@@ -11,7 +11,9 @@ from this_package.shared_imports.security_scheme_imports import *  # pyright: ig
 
 
 @dataclasses.dataclass
-class ClientCredentialsOauthFlow(security_schemes.ClientCredentialsOauthFlow):
+class PasswordOauthFlow(security_schemes.PasswordOauthFlow):
+    username: str
+    password: str
     token_url: parse.ParseResult = parse.ParseResult(
         scheme="http",
         netloc="localhost:3000",
@@ -21,19 +23,17 @@ class ClientCredentialsOauthFlow(security_schemes.ClientCredentialsOauthFlow):
         fragment=''
     )
     scopes: typing.Dict[str, str] = dataclasses.field(default_factory=lambda: {
-        "write:pets": "modify pets in your account",
-        "read:pets": "read your pets",
+        "write_test_scope": "write test scope",
     })
-
 
 
 @dataclasses.dataclass
 class OAuthFlows(security_schemes.OAuthFlows):
-    client_credentials: ClientCredentialsOauthFlow
+    password : PasswordOauthFlow
                         
 
 @dataclasses.dataclass
-class OauthClientCredentials(security_schemes.OAuth2SecurityScheme):
+class OauthPasswordTest(security_schemes.OAuth2SecurityScheme):
     '''
     oauth2 implicit flow with two scopes
     '''

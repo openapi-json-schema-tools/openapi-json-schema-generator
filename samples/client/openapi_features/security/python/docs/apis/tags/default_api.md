@@ -13,6 +13,7 @@ All URIs are relative to the selected server
 Method | Description
 ------ | -------------
 [**path_with_no_explicit_security**](../../paths/path_with_no_explicit_security/get.md) | path with no explicit security
+[**path_with_o_auth_password_security**](../../paths/path_with_o_auth_password_security/get.md) | path with oauth password security
 [**path_with_one_explicit_security**](../../paths/path_with_one_explicit_security/get.md) | path with one explicit security
 [**path_with_security_from_root**](../../paths/path_with_security_from_root/get.md) | path with security from root
 [**path_with_two_explicit_security**](../../paths/path_with_two_explicit_security/get.md) | path with two explicit security

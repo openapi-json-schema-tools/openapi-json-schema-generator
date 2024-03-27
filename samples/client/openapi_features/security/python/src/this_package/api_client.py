@@ -1151,8 +1151,7 @@ class ApiClient:
                     'api_key',
                     'bearer_test',
                     'http_basic_test',
-                    'oauthClientCredentials',
-                    'oauthPassword',
+                    'oauth_password_test',
                 ],
                 security_scheme_component_name
             )

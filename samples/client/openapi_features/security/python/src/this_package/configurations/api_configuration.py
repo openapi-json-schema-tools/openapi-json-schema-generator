@@ -22,8 +22,7 @@ from this_package import security_schemes
 from this_package.components.security_schemes import security_scheme_api_key
 from this_package.components.security_schemes import security_scheme_bearer_test
 from this_package.components.security_schemes import security_scheme_http_basic_test
-from this_package.components.security_schemes import security_scheme_oauth_client_credentials
-from this_package.components.security_schemes import security_scheme_oauth_password
+from this_package.components.security_schemes import security_scheme_oauth_password_test
 from this_package.servers import server_0
 from this_package import security_schemes
 
@@ -34,19 +33,19 @@ SecuritySchemeInfo = typing.TypedDict(
         "api_key": security_scheme_api_key.ApiKey,
         "bearer_test": security_scheme_bearer_test.BearerTest,
         "http_basic_test": security_scheme_http_basic_test.HttpBasicTest,
-        "oauthClientCredentials": security_scheme_oauth_client_credentials.OauthClientCredentials,
-        "oauthPassword": security_scheme_oauth_password.OauthPassword,
+        "oauth_password_test": security_scheme_oauth_password_test.OauthPasswordTest,
     },
     total=False
 )
 
 
 class SecurityIndexInfoRequired(typing.TypedDict):
-    security: typing.Literal[0, 1, 2, 3, 4, 5]
+    security: typing.Literal[0, 1, 2, 3, 4]
 
 SecurityIndexInfoOptional = typing.TypedDict(
     'SecurityIndexInfoOptional',
     {
+        "paths//pathWithOAuthPasswordSecurity/get/security": typing.Literal[0],
         "paths//pathWithOneExplicitSecurity/get/security": typing.Literal[0],
         "paths//pathWithTwoExplicitSecurity/get/security": typing.Literal[0, 1],
     },
@@ -335,6 +334,7 @@ class ApiConfiguration(object):
         self,
         key_prefix: typing.Literal[
             "security",
+            "paths//pathWithOAuthPasswordSecurity/get/security",
             "paths//pathWithOneExplicitSecurity/get/security",
             "paths//pathWithTwoExplicitSecurity/get/security",
         ],

@@ -15,8 +15,8 @@ class PasswordOauthFlow(security_schemes.PasswordOauthFlow):
     username: str
     password: str
     token_url: parse.ParseResult = parse.ParseResult(
-        scheme="https",
-        netloc="petstore.swagger.io",
+        scheme="http",
+        netloc="localhost:3000",
         path="/api/oauth/token",
         params='',
         query='',

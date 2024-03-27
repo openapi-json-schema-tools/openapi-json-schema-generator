@@ -5,24 +5,14 @@
 """
 
 from this_package import api_client, security_schemes
-from this_package.security import (
-    security_requirement_object_0,
-    security_requirement_object_1,
-    security_requirement_object_2,
-    security_requirement_object_3,
-    security_requirement_object_4,
-)
 from this_package.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .. import path
 from .responses import response_200
+from .security import security_requirement_object_0
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
     security_requirement_object_0.security_requirement_object,
-    security_requirement_object_1.security_requirement_object,
-    security_requirement_object_2.security_requirement_object,
-    security_requirement_object_3.security_requirement_object,
-    security_requirement_object_4.security_requirement_object,
 ]
 
 
@@ -42,7 +32,7 @@ _non_error_status_codes = frozenset({
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _path_with_security_from_root(
+    def _path_with_o_auth_password_security(
         self,
         *,
         skip_deserialization: typing.Literal[False] = False,
@@ -53,7 +43,7 @@ class BaseApi(api_client.Api):
     ) -> response_200.ApiResponse: ...
 
     @typing.overload
-    def _path_with_security_from_root(
+    def _path_with_o_auth_password_security(
         self,
         *,
         skip_deserialization: typing.Literal[True],
@@ -63,7 +53,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
-    def _path_with_security_from_root(
+    def _path_with_o_auth_password_security(
         self,
         *,
         skip_deserialization: bool = False,
@@ -73,7 +63,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
     ):
         """
-        path with security from root
+        path with oauth password security
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
@@ -84,7 +74,7 @@ class BaseApi(api_client.Api):
             "servers", server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
-            "security",
+            "paths//pathWithOAuthPasswordSecurity/get/security",
             _security,
             security_index
         )
@@ -119,11 +109,11 @@ class BaseApi(api_client.Api):
         return response
 
 
-class PathWithSecurityFromRoot(BaseApi):
+class PathWithOAuthPasswordSecurity(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
-    path_with_security_from_root = BaseApi._path_with_security_from_root
+    path_with_o_auth_password_security = BaseApi._path_with_o_auth_password_security
 
 
 class ApiForGet(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
-    get = BaseApi._path_with_security_from_root
+    get = BaseApi._path_with_o_auth_password_security

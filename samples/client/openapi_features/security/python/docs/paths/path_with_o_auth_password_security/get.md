@@ -1,11 +1,11 @@
-this_package.paths.path_with_security_from_root.operation
+this_package.paths.path_with_o_auth_password_security.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
-| path_with_security_from_root | [DefaultApi](../../apis/tags/default_api.md) | This api is only for tag=default |
+| path_with_o_auth_password_security | [DefaultApi](../../apis/tags/default_api.md) | This api is only for tag=default |
 | get | ApiForGet | This api is only for this endpoint |
-| get | PathWithSecurityFromRoot | This api is only for path=/pathWithSecurityFromRoot |
+| get | PathWithOAuthPasswordSecurity | This api is only for path=/pathWithOAuthPasswordSecurity |
 
 ## Table of Contents
 - [General Info](#general-info)
@@ -18,15 +18,15 @@ this_package.paths.path_with_security_from_root.operation
 ## General Info
 | Field | Value |
 | ----- | ----- |
-| Summary | path with security from root |
-| Path | "/pathWithSecurityFromRoot" |
+| Summary | path with oauth password security |
+| Path | "/pathWithOAuthPasswordSecurity" |
 | HTTP Method | get |
 
 ## Arguments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1, 2, 3, 4]
+security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -59,15 +59,11 @@ component security scheme class.
 Select the security index by setting ApiConfiguration.security_index_info or by
 passing in security_index into the endpoint method.
 See how to do this in the code sample.
-- these securities are the general api securities
+- these securities are specific to this to this endpoint
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
-| 0       | ["api_key"](../../components/security_schemes/security_scheme_api_key.md) []<br> |
-| 1       | ["http_basic_test"](../../components/security_schemes/security_scheme_http_basic_test.md) []<br> |
-| 2       | no security |
-| 3       | ["http_basic_test"](../../components/security_schemes/security_scheme_http_basic_test.md) []<br>["api_key"](../../components/security_schemes/security_scheme_api_key.md) []<br> |
-| 4       | ["oauth_password_test"](../../components/security_schemes/security_scheme_oauth_password_test.md) [write_test_scope]<br> |
+| 0       | ["oauth_password_test"](../../components/security_schemes/security_scheme_oauth_password_test.md) [write_test_scope]<br> |
 
 ## Servers
 
@@ -89,50 +85,9 @@ from this_package.configurations import api_configuration
 from this_package.apis.tags import default_api
 from pprint import pprint
 # security_index 0
-from this_package.components.security_schemes import security_scheme_api_key
-# security_index 1
-from this_package.components.security_schemes import security_scheme_http_basic_test
-# security_index 3
-from this_package.components.security_schemes import security_scheme_http_basic_test
-from this_package.components.security_schemes import security_scheme_api_key
-# security_index 4
 from this_package.components.security_schemes import security_scheme_oauth_password_test
 
 # security_scheme_info for security_index 0
-security_scheme_info: api_configuration.SecuritySchemeInfo = {
-    "api_key": security_scheme_api_key.ApiKey(
-        api_key='sampleApiKeyValue'
-    ),
-}
-
-
-# security_scheme_info for security_index 1
-security_scheme_info: api_configuration.SecuritySchemeInfo = {
-    "http_basic_test": security_scheme_http_basic_test.HttpBasicTest(
-        user_id='someUserIdOrName',
-        password='somePassword',
-    ),
-}
-
-
-# security_scheme_info for security_index 2
-# no auth required for this security_index
-security_scheme_info: api_configuration.SecuritySchemeInfo = {}
-
-
-# security_scheme_info for security_index 3
-security_scheme_info: api_configuration.SecuritySchemeInfo = {
-    "http_basic_test": security_scheme_http_basic_test.HttpBasicTest(
-        user_id='someUserIdOrName',
-        password='somePassword',
-    ),
-    "api_key": security_scheme_api_key.ApiKey(
-        api_key='sampleApiKeyValue'
-    ),
-}
-
-
-# security_scheme_info for security_index 4
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
     "oauth_password_test": security_scheme_oauth_password_test.OauthPasswordTest(
         flows = security_scheme_oauth_password_test.OAuthFlows(
@@ -144,16 +99,16 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
     ),
 }
 
-security_index_info: api_configuration.SecurityIndexInfo = {
-    "security": 0,
-    # only set one "security": 1,
-    # only set one "security": 2,
-    # only set one "security": 3,
-    # only set one "security": 4,
+# oauth_server_client_info for oauth security schema
+oauth_server_client_info = security_schemes.OauthServerClientInfo = {
+    "localhost:3000": security_schemes.OauthClientInfo(
+        client_id="client_id",
+        client_secret="client",
+    ),
 }
 used_configuration = api_configuration.ApiConfiguration(
     security_scheme_info=security_scheme_info,
-    security_index_info=security_index_info
+    oauth_server_client_info=oauth_server_client_info,
 )
 # Enter a context with an instance of the API client
 with this_package.ApiClient(used_configuration) as api_client:
@@ -162,11 +117,11 @@ with this_package.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # path with security from root
-        api_response = api_instance.path_with_security_from_root()
+        # path with oauth password security
+        api_response = api_instance.path_with_o_auth_password_security()
         pprint(api_response)
     except this_package.ApiException as e:
-        print("Exception when calling DefaultApi->path_with_security_from_root: %s\n" % e)
+        print("Exception when calling DefaultApi->path_with_o_auth_password_security: %s\n" % e)
 ```
 
 [[Back to top]](#top)

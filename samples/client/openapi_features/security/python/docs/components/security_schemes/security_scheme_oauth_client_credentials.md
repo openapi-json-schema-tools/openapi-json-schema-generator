@@ -15,6 +15,6 @@ Scope Name | Scope Description
 "write:pets" | modify pets in your account
 "read:pets" | read your pets
 ### Token Url
-"https://petstore.swagger.io/api/oauth/token"
+"http://localhost:3000/api/oauth/token"
 
 [[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-SecuritySchemes) [[Back to README]](../../../README.md)

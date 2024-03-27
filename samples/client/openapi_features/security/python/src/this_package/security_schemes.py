@@ -30,7 +30,7 @@ class OauthClientInfo:
 OauthServerClientInfo = typing_extensions.TypedDict(
     'OauthServerClientInfo',
     {
-        "petstore.swagger.io": OauthClientInfo,
+        "localhost": OauthClientInfo,
     },
     total=False
 )
@@ -426,8 +426,7 @@ SecurityRequirementObject = typing.TypedDict(
         'api_key': typing.Tuple[str, ...],
         'bearer_test': typing.Tuple[str, ...],
         'http_basic_test': typing.Tuple[str, ...],
-        'oauthClientCredentials': typing.Tuple[str, ...],
-        'oauthPassword': typing.Tuple[str, ...],
+        'oauth_password_test': typing.Tuple[str, ...],
     },
     total=False
 )

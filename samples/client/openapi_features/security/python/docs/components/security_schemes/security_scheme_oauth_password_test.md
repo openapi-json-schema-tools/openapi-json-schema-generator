@@ -1,5 +1,5 @@
-this_package.components.security_schemes.security_scheme_oauth_password
-# SecurityScheme OauthPassword
+this_package.components.security_schemes.security_scheme_oauth_password_test
+# SecurityScheme OauthPasswordTest
 
 ## Description
 oauth2 implicit flow with two scopes
@@ -12,8 +12,7 @@ security_schemes.SecuritySchemeType.OAUTH_2
 ### Scopes
 Scope Name | Scope Description
 | -------- | ---------------- |
-"write:pets" | modify pets in your account
-"read:pets" | read your pets
+"write_test_scope" | write test scope
 ### Token Url
 "http://localhost:3000/api/oauth/token"
 
