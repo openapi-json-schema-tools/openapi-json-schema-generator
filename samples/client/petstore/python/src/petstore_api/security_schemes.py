@@ -260,10 +260,10 @@ class ImplicitOAuthFlow(OAuthFlowBase):
 
 @dataclasses.dataclass
 class PasswordOauthFlow(OAuthFlowBase):
-    token_url: parse.ParseResult
-    scopes: typing.Dict[str, str]
     username: str
     password: str
+    token_url: parse.ParseResult
+    scopes: typing.Dict[str, str]
     refresh_url: typing.Optional[str] = None
     _scope_names_to_client: typing.Dict[typing.Tuple[str, ...], requests_client.OAuth2Session] = dataclasses.field(default_factory=dict)
     _scope_names_to_token: typing.Dict[typing.Tuple[str, ...], OauthToken] = dataclasses.field(default_factory=dict)

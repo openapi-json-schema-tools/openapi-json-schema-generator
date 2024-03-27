@@ -12,6 +12,8 @@ from this_package.shared_imports.security_scheme_imports import *  # pyright: ig
 
 @dataclasses.dataclass
 class PasswordOauthFlow(security_schemes.PasswordOauthFlow):
+    username: str
+    password: str
     token_url: parse.ParseResult = parse.ParseResult(
         scheme="https",
         netloc="petstore.swagger.io",
@@ -26,8 +28,9 @@ class PasswordOauthFlow(security_schemes.PasswordOauthFlow):
     })
 
 
+@dataclasses.dataclass
 class OAuthFlows(security_schemes.OAuthFlows):
-    password : PasswordOauthFlow = PasswordOauthFlow()
+    password : PasswordOauthFlow
                         
 
 @dataclasses.dataclass

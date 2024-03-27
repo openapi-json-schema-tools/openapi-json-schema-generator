@@ -26,8 +26,9 @@ class ImplicitOAuthFlow(security_schemes.ImplicitOAuthFlow):
     })
 
 
+@dataclasses.dataclass
 class OAuthFlows(security_schemes.OAuthFlows):
-    implicit : ImplicitOAuthFlow = ImplicitOAuthFlow()
+    implicit : ImplicitOAuthFlow
                         
 
 @dataclasses.dataclass

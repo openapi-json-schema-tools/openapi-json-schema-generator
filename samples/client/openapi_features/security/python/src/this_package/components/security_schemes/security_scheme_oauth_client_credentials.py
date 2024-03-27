@@ -27,8 +27,9 @@ class ClientCredentialsOauthFlow(security_schemes.ClientCredentialsOauthFlow):
 
 
 
+@dataclasses.dataclass
 class OAuthFlows(security_schemes.OAuthFlows):
-    client_credentials: ClientCredentialsOauthFlow = ClientCredentialsOauthFlow()
+    client_credentials: ClientCredentialsOauthFlow
                         
 
 @dataclasses.dataclass

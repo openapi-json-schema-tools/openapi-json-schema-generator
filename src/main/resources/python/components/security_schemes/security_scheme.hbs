@@ -97,6 +97,8 @@ class ImplicitOAuthFlow(security_schemes.ImplicitOAuthFlow):
 
 @dataclasses.dataclass
 class PasswordOauthFlow(security_schemes.PasswordOauthFlow):
+    username: str
+    password: str
     token_url: parse.ParseResult = parse.ParseResult(
                                 {{#with tokenUrl}}
         scheme="{{getProtocol}}",
@@ -178,19 +180,20 @@ class AuthorizationCodeOauthFlow(security_schemes.AuthorizationCodeOauthFlow):
                         {{/with}}
 
 
+@dataclasses.dataclass
 class OAuthFlows(security_schemes.OAuthFlows):
                         {{#with flows}}
                             {{#if password}}
-    password : PasswordOauthFlow = PasswordOauthFlow()
+    password : PasswordOauthFlow
                             {{/if}}
                             {{#if implicit}}
-    implicit : ImplicitOAuthFlow = ImplicitOAuthFlow()
+    implicit : ImplicitOAuthFlow
                             {{/if}}
                             {{#if clientCredentials}}
-    client_credentials: ClientCredentialsOauthFlow = ClientCredentialsOauthFlow()
+    client_credentials: ClientCredentialsOauthFlow
                             {{/if}}
                             {{#if authorizationCode}}
-    authorization_code: AuthorizationCodeOauthFlow = AuthorizationCodeOauthFlow()
+    authorization_code: AuthorizationCodeOauthFlow
                             {{/if}}
                         {{/with}}
                         
