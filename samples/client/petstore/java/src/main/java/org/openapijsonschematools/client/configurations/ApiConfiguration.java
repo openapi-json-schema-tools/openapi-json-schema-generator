@@ -31,6 +31,7 @@ import java.util.HashMap;
 
 public class ApiConfiguration {
     private final ServerInfo serverInfo;
+    private final ServerIndexInfo serverIndexInfo;
     private final SecurityInfo securityInfo;
     private final SecurityIndexInfo securityIndexInfo;
     private final @Nullable Duration timeout;
@@ -38,14 +39,16 @@ public class ApiConfiguration {
 
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
+        serverIndexInfo = new ServerIndexInfo();
         securityInfo = new SecurityInfo();
         securityIndexInfo = new SecurityIndexInfo();
         securitySchemeInfo = new HashMap<>();
         timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, SecurityIndexInfo securityIndexInfo, List<SecurityScheme> securitySchemes, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, SecurityIndexInfo securityIndexInfo, List<SecurityScheme> securitySchemes, Duration timeout) {
         this.serverInfo = serverInfo;
+        this.serverIndexInfo = serverIndexInfo;
         this.securityInfo = new SecurityInfo();
         this.securityIndexInfo = securityIndexInfo;
         securitySchemeInfo = new HashMap<>();
@@ -77,14 +80,62 @@ public class ApiConfiguration {
         }
     }
 
+    public static class ServerIndexInfo {
+        protected final RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        protected final FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex;
+        protected final PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex;
+        public ServerIndexInfo() {}
+
+        public ServerIndexInfo rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfo fooGetServerInfoServerIndex(FooGetServerInfo.ServerIndex serverIndex) {
+            this.fooGetServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfo petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex serverIndex) {
+            this.petfindbystatusServerInfoServerIndex = serverIndex;
+            return this;
+        }
+    }
+
     public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
-        return serverInfo.rootServerInfo.getServer(serverIndex);
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            if (configServerIndex == null) {
+                throw new UnsetPropertyException("rootServerInfoServerIndex is unset");
+            }
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
     }
+
     public Server getServer(FooGetServerInfo. @Nullable ServerIndex serverIndex) {
-        return serverInfo.fooGetServerInfo.getServer(serverIndex);
+        var serverProvider = serverInfo.fooGetServerInfo;
+        if (serverIndex == null) {
+            FooGetServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.fooGetServerInfoServerIndex;
+            if (configServerIndex == null) {
+                throw new UnsetPropertyException("fooGetServerInfoServerIndex is unset");
+            }
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
     }
+
     public Server getServer(PetfindbystatusServerInfo. @Nullable ServerIndex serverIndex) {
-        return serverInfo.petfindbystatusServerInfo.getServer(serverIndex);
+        var serverProvider = serverInfo.petfindbystatusServerInfo;
+        if (serverIndex == null) {
+            PetfindbystatusServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.petfindbystatusServerInfoServerIndex;
+            if (configServerIndex == null) {
+                throw new UnsetPropertyException("petfindbystatusServerInfoServerIndex is unset");
+            }
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
     }
 
     public static class SecurityInfo {

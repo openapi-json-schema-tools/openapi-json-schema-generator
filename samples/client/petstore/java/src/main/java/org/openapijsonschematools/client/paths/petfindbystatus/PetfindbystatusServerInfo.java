@@ -14,16 +14,13 @@ import java.util.EnumMap;
 
 public class PetfindbystatusServerInfo implements ServerProvider<PetfindbystatusServerInfo.ServerIndex> {
     final private Servers servers;
-    final private ServerIndex serverIndex;
 
     public PetfindbystatusServerInfo() {
         this.servers = new Servers();
-        this.serverIndex = ServerIndex.SERVER_0;
     }
 
-    public PetfindbystatusServerInfo(Servers servers, ServerIndex serverIndex) {
+    public PetfindbystatusServerInfo(Servers servers) {
         this.servers = servers;
-        this.serverIndex = serverIndex;
     }
 
     public static class Servers {

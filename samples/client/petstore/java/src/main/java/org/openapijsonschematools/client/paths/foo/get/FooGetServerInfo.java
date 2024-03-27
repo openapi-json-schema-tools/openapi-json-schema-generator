@@ -14,16 +14,13 @@ import java.util.EnumMap;
 
 public class FooGetServerInfo implements ServerProvider<FooGetServerInfo.ServerIndex> {
     final private Servers servers;
-    final private ServerIndex serverIndex;
 
     public FooGetServerInfo() {
         this.servers = new Servers();
-        this.serverIndex = ServerIndex.SERVER_0;
     }
 
-    public FooGetServerInfo(Servers servers, ServerIndex serverIndex) {
+    public FooGetServerInfo(Servers servers) {
         this.servers = servers;
-        this.serverIndex = serverIndex;
     }
 
     public static class Servers {

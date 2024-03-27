@@ -19,16 +19,13 @@ import java.util.EnumMap;
 
 public class {{servers.jsonPathPiece.pascalCase}} implements ServerProvider<{{servers.jsonPathPiece.pascalCase}}.ServerIndex> {
     final private Servers servers;
-    final private ServerIndex serverIndex;
 
     public {{servers.jsonPathPiece.pascalCase}}() {
         this.servers = new Servers();
-        this.serverIndex = ServerIndex.SERVER_0;
     }
 
-    public {{servers.jsonPathPiece.pascalCase}}(Servers servers, ServerIndex serverIndex) {
+    public {{servers.jsonPathPiece.pascalCase}}(Servers servers) {
         this.servers = servers;
-        this.serverIndex = serverIndex;
     }
 
     public static class Servers {
