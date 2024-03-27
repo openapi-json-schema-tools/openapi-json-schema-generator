@@ -9,7 +9,6 @@ import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectProvider;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.AbstractMap;
 import java.util.Map;
@@ -18,21 +17,16 @@ import java.util.EnumMap;
 public class {{security.jsonPathPiece.pascalCase}} {
     public static class {{security.jsonPathPiece.pascalCase}}1 implements SecurityRequirementObjectProvider<SecurityIndex> {
         final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
-        final private SecurityIndex securityIndex;
 
-        public {{security.jsonPathPiece.pascalCase}}1(SecurityIndex securityIndex) {
+        public {{security.jsonPathPiece.pascalCase}}1() {
             this.securities = new EnumMap<>(Map.ofEntries(
 {{#each security}}
                 new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_{{@index}}, new {{jsonPathPiece.pascalCase}}()){{#unless @last}},{{/unless}}
 {{/each}}
             ));
-            this.securityIndex = securityIndex;
         }
 
-        public SecurityRequirementObject getSecurityRequirementObject(@Nullable SecurityIndex securityIndex) {
-            if (securityIndex == null) {
-                return securities.get(this.securityIndex);
-            }
+        public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             return securities.get(securityIndex);
         }
     }

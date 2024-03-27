@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.paths.petpetiduploadimage.post;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.security.PetpetiduploadimagePostSecurityRequirementObject0;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.AbstractMap;
 import java.util.Map;
@@ -12,19 +11,14 @@ import java.util.EnumMap;
 public class PetpetiduploadimagePostSecurityInfo {
     public static class PetpetiduploadimagePostSecurityInfo1 implements SecurityRequirementObjectProvider<SecurityIndex> {
         final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
-        final private SecurityIndex securityIndex;
 
-        public PetpetiduploadimagePostSecurityInfo1(SecurityIndex securityIndex) {
+        public PetpetiduploadimagePostSecurityInfo1() {
             this.securities = new EnumMap<>(Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new PetpetiduploadimagePostSecurityRequirementObject0())
             ));
-            this.securityIndex = securityIndex;
         }
 
-        public SecurityRequirementObject getSecurityRequirementObject(@Nullable SecurityIndex securityIndex) {
-            if (securityIndex == null) {
-                return securities.get(this.securityIndex);
-            }
+        public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             return securities.get(securityIndex);
         }
     }

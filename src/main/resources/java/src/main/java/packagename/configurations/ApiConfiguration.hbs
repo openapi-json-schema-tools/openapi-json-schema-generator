@@ -34,6 +34,7 @@ public class ApiConfiguration {
     private final ServerInfo serverInfo;
     {{#gt allSecurity.size 0}}
     private final SecurityInfo securityInfo;
+    private final SecurityIndexInfo securityIndexInfo;
     {{/gt}}
     private final @Nullable Duration timeout;
     {{#if securitySchemes}}
@@ -43,11 +44,8 @@ public class ApiConfiguration {
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
     {{#gt allSecurity.size 0}}
-        securityInfo = new SecurityInfo(
-        {{#each allSecurity}}
-            null{{#unless @last}},{{/unless}}
-        {{/each}}
-        );
+        securityInfo = new SecurityInfo();
+        securityIndexInfo = new SecurityIndexInfo();
     {{/gt}}
     {{#if securitySchemes}}
         securitySchemeInfo = new HashMap<>();
@@ -55,10 +53,11 @@ public class ApiConfiguration {
         timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo{{#gt allSecurity.size 0}}, SecurityInfo securityInfo{{/gt}}{{#if securitySchemes}}, List<SecurityScheme> securitySchemes{{/if}}, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo{{#gt allSecurity.size 0}}, SecurityIndexInfo securityIndexInfo{{/gt}}{{#if securitySchemes}}, List<SecurityScheme> securitySchemes{{/if}}, Duration timeout) {
         this.serverInfo = serverInfo;
     {{#gt allSecurity.size 0}}
-        this.securityInfo = securityInfo;
+        this.securityInfo = new SecurityInfo();
+        this.securityIndexInfo = securityIndexInfo;
     {{/gt}}
     {{#if securitySchemes}}
         securitySchemeInfo = new HashMap<>();
@@ -100,25 +99,40 @@ public class ApiConfiguration {
 
     public static class SecurityInfo {
         {{#each allSecurity}}
-        protected final @Nullable {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}};
+        protected final {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}};
         {{/each}}
 
-        public SecurityInfo(
+        public SecurityInfo() {
         {{#each allSecurity}}
-            @Nullable {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
-        {{/each}}
-        ) {
-        {{#each allSecurity}}
-            this.{{jsonPathPiece.camelCase}} = {{jsonPathPiece.camelCase}};
+            this.{{jsonPathPiece.camelCase}} = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1();
         {{/each}}
         }
+    }
+
+    public static class SecurityIndexInfo {
+        {{#each allSecurity}}
+        protected {{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex {{jsonPathPiece.camelCase}}SecurityIndex;
+        {{/each}}
+
+        public SecurityIndexInfo() {}
+        {{#each allSecurity}}
+
+        public SecurityIndexInfo {{jsonPathPiece.camelCase}}SecurityIndex({{jsonPathPiece.pascalCase}}.SecurityIndex securityIndex) {
+            this.{{jsonPathPiece.camelCase}}SecurityIndex = securityIndex;
+            return this;
+        }
+        {{/each}}
     }
 
         {{#each allSecurity}}
     public SecurityRequirementObject getSecurityRequirementObject({{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
         var securityInfoInstance = securityInfo.{{jsonPathPiece.camelCase}};
-        if (securityInfoInstance == null) {
-            throw new UnsetPropertyException("SecurityRequirementObject cannot be returned because the {{jsonPathPiece.pascalCase}} is unset in the SecurityInfo class. Pass it in when instantiating SecurityInfo to fix this.");
+        if (securityIndex == null) {
+            {{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.{{jsonPathPiece.camelCase}}SecurityIndex;
+            if (configSecurityIndex == null) {
+                throw new UnsetPropertyException("{{jsonPathPiece.camelCase}}SecurityIndex is unset");
+            }
+            return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }

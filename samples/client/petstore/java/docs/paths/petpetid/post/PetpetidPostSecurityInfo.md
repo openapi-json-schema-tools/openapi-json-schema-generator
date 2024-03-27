@@ -19,7 +19,7 @@ implements SecurityRequirementObjectProvider<[SecurityIndex](#securityindex)>
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostSecurityInfo1([SecurityIndex](#securityindex) securityIndex)<br>Creates an instance |
+| PetpetidPostSecurityInfo1()<br>Creates an instance |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
