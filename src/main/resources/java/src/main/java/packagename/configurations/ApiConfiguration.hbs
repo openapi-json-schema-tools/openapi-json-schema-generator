@@ -73,29 +73,29 @@ public class ApiConfiguration {
 
     public static class ServerInfo {
     {{#each allServers}}
-        protected final {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}};
+        protected final {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}};
     {{/each}}
 
         public ServerInfo() {
     {{#each allServers}}
-            {{jsonPathPiece.camelCase}} = new {{jsonPathPiece.pascalCase}}();
+            {{jsonPathPiece.camelCase}} = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1();
     {{/each}}
         }
 
         public ServerInfo(
     {{#each allServers}}
-            @Nullable {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
+            {{jsonPathPiece.pascalCase}}. @Nullable {{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
     {{/each}}
         ) {
     {{#each allServers}}
-            this.{{jsonPathPiece.camelCase}} = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}, {{jsonPathPiece.pascalCase}}::new);
+            this.{{jsonPathPiece.camelCase}} = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}, {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1::new);
     {{/each}}
         }
     }
 
     public static class ServerIndexInfo {
     {{#each allServers}}
-        protected final {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex {{jsonPathPiece.camelCase}}ServerIndex;
+        protected {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex {{jsonPathPiece.camelCase}}ServerIndex;
     {{/each}}
         public ServerIndexInfo() {}
     {{#each allServers}}

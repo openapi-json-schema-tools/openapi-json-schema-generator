@@ -4,12 +4,37 @@
 public class {{servers.jsonPathPiece.pascalCase}}
 
 A class that provides a server, and any needed server info classes
+- a class that is a ServerProvider
 - an enum class that stores server index values
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
+| static class | [{{servers.jsonPathPiece.pascalCase}}.{{servers.jsonPathPiece.pascalCase}}1](#{{servers.jsonPathPiece.kebabCase}}1)<br>class that stores a server index |
 | enum | [{{servers.jsonPathPiece.pascalCase}}.ServerIndex](#serverindex)<br>class that stores a server index |
+
+{{headerSize}}# {{servers.jsonPathPiece.pascalCase}}1
+implements ServerProvider<[ServerIndex](#serverindex)><br>
+
+A class that stores servers and allows one to be returned with a ServerIndex instance
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{servers.jsonPathPiece.pascalCase}}1()<br>Creates an instance using default server variable values |
+| {{servers.jsonPathPiece.pascalCase}}1({{#each servers}}@Nullable [{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md) server{{@index}}{{#unless @last}},{{/unless}}{{/each}})<br>Creates an instance using passed in servers |
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+{{#each servers}}
+| [{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md) | server{{@index}} |
+{{/each}}
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Server | getServer([ServerIndex](#serverindex) serverIndex) |
 
 {{headerSize}}# ServerIndex
 enum ServerIndex<br>

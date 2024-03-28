@@ -5246,13 +5246,15 @@ public class DefaultGenerator implements Generator {
             CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers", serverJsonPath);
             CodegenText description = getCodegenText(server.getDescription());
             String subpackage = getSubpackage(serverJsonPath);
+            String pathFromDocRoot = getPathFromDocRoot(serverJsonPath);
             CodegenServer cs = new CodegenServer(
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
                 description,
                 fromServerVariables(server.getVariables(), serverJsonPath + "/variables"),
                 jsonPathPiece,
                 rootServer,
-                subpackage
+                subpackage,
+                pathFromDocRoot
             );
             codegenServers.add(cs);
         }

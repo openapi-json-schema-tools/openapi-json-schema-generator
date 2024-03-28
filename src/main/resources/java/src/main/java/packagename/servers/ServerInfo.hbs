@@ -12,60 +12,46 @@ import {{{packageName}}}.servers.Server;
 import {{{packageName}}}.servers.ServerProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.AbstractMap;
-import java.util.Map;
 import java.util.Objects;
-import java.util.EnumMap;
 
-public class {{servers.jsonPathPiece.pascalCase}} implements ServerProvider<{{servers.jsonPathPiece.pascalCase}}.ServerIndex> {
-    final private Servers servers;
-
-    public {{servers.jsonPathPiece.pascalCase}}() {
-        this.servers = new Servers();
-    }
-
-    public {{servers.jsonPathPiece.pascalCase}}(Servers servers) {
-        this.servers = servers;
-    }
-
-    public static class Servers {
-        private final EnumMap<ServerIndex, Server> servers;
-
-        public Servers() {
-            servers = new EnumMap<>(
-                Map.ofEntries(
+public class {{servers.jsonPathPiece.pascalCase}} {
+    public static class {{servers.jsonPathPiece.pascalCase}}1 implements ServerProvider<ServerIndex> {
     {{#each servers}}
-                    new AbstractMap.SimpleEntry<>(
-                        ServerIndex.SERVER_{{@index}},
-                        new {{jsonPathPiece.pascalCase}}()
-                    ){{#unless @last}},{{/unless}}
+        public final {{jsonPathPiece.pascalCase}} server{{@index}};
     {{/each}}
-                )
-            );
+
+        public {{servers.jsonPathPiece.pascalCase}}1() {
+    {{#each servers}}
+            server{{@index}} = new {{jsonPathPiece.pascalCase}}();
+    {{/each}}
         }
 
-        public Servers(
+        public {{servers.jsonPathPiece.pascalCase}}1(
         {{#each servers}}
             @Nullable {{jsonPathPiece.pascalCase}} server{{@index}}{{#unless @last}},{{/unless}}
         {{/each}}
         ) {
-            servers = new EnumMap<>(
-                Map.ofEntries(
     {{#each servers}}
-                    new AbstractMap.SimpleEntry<>(
-                        ServerIndex.SERVER_{{@index}},
-                        Objects.requireNonNullElseGet(server{{@index}}, {{jsonPathPiece.pascalCase}}::new)
-                    ){{#unless @last}},{{/unless}}
+            this.server{{@index}} = Objects.requireNonNullElseGet(server{{@index}}, {{jsonPathPiece.pascalCase}}::new);
     {{/each}}
-                )
-            );
         }
 
-        public Server get(ServerIndex serverIndex) {
-            if (servers.containsKey(serverIndex)) {
-                return get(serverIndex);
+        public Server getServer(ServerIndex serverIndex) {
+    {{#eq servers.size 1}}
+            return server0;
+    {{else}}
+            switch (serverIndex) {
+        {{#each servers}}
+            {{#if @last}}
+                default:
+                    return server{{@index}};
+            {{else}}
+                case SERVER_{{@index}}:
+                    return server{{@index}};
+            {{/if}}
+        {{/each}}
             }
-            throw new UnsetPropertyException(serverIndex+" is unset");
+    {{/eq}}
         }
     }
 
@@ -73,12 +59,5 @@ public class {{servers.jsonPathPiece.pascalCase}} implements ServerProvider<{{se
         {{#each servers}}
         SERVER_{{@index}}{{#unless @last}},{{/unless}}
         {{/each}}
-    }
-
-    public Server getServer(@Nullable ServerIndex serverIndex) {
-        if (serverIndex == null) {
-            return servers.get(this.serverIndex);
-        }
-        return servers.get(serverIndex);
     }
 }

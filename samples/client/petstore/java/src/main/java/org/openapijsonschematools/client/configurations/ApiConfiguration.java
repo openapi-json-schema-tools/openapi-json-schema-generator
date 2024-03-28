@@ -59,31 +59,31 @@ public class ApiConfiguration {
     }
 
     public static class ServerInfo {
-        protected final RootServerInfo rootServerInfo;
-        protected final FooGetServerInfo fooGetServerInfo;
-        protected final PetfindbystatusServerInfo petfindbystatusServerInfo;
+        protected final RootServerInfo.RootServerInfo1 rootServerInfo;
+        protected final FooGetServerInfo.FooGetServerInfo1 fooGetServerInfo;
+        protected final PetfindbystatusServerInfo.PetfindbystatusServerInfo1 petfindbystatusServerInfo;
 
         public ServerInfo() {
-            rootServerInfo = new RootServerInfo();
-            fooGetServerInfo = new FooGetServerInfo();
-            petfindbystatusServerInfo = new PetfindbystatusServerInfo();
+            rootServerInfo = new RootServerInfo.RootServerInfo1();
+            fooGetServerInfo = new FooGetServerInfo.FooGetServerInfo1();
+            petfindbystatusServerInfo = new PetfindbystatusServerInfo.PetfindbystatusServerInfo1();
         }
 
         public ServerInfo(
-            @Nullable RootServerInfo rootServerInfo,
-            @Nullable FooGetServerInfo fooGetServerInfo,
-            @Nullable PetfindbystatusServerInfo petfindbystatusServerInfo
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            FooGetServerInfo. @Nullable FooGetServerInfo1 fooGetServerInfo,
+            PetfindbystatusServerInfo. @Nullable PetfindbystatusServerInfo1 petfindbystatusServerInfo
         ) {
-            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, RootServerInfo::new);
-            this.fooGetServerInfo = Objects.requireNonNullElseGet(fooGetServerInfo, FooGetServerInfo::new);
-            this.petfindbystatusServerInfo = Objects.requireNonNullElseGet(petfindbystatusServerInfo, PetfindbystatusServerInfo::new);
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, RootServerInfo.RootServerInfo1::new);
+            this.fooGetServerInfo = Objects.requireNonNullElseGet(fooGetServerInfo, FooGetServerInfo.FooGetServerInfo1::new);
+            this.petfindbystatusServerInfo = Objects.requireNonNullElseGet(petfindbystatusServerInfo, PetfindbystatusServerInfo.PetfindbystatusServerInfo1::new);
         }
     }
 
     public static class ServerIndexInfo {
-        protected final RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
-        protected final FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex;
-        protected final PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex;
+        protected RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        protected FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex;
+        protected PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex;
         public ServerIndexInfo() {}
 
         public ServerIndexInfo rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
