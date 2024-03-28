@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client;
 
-import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;

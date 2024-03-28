@@ -4,7 +4,6 @@ package {{{packageName}}}.{{servers.subpackage}};
 package {{{packageName}}};
 {{/if}}
 
-import {{{packageName}}}.exceptions.UnsetPropertyException;
 {{#each servers}}
 import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
