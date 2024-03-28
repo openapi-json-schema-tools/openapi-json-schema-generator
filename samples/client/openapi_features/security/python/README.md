@@ -171,6 +171,7 @@ component security scheme class. See how to do this in the endpoint code sample.
 | 1       | ["http_basic_test"](docs/components/security_schemes/security_scheme_http_basic_test.md) []<br> |
 | 2       | no security |
 | 3       | ["http_basic_test"](docs/components/security_schemes/security_scheme_http_basic_test.md) []<br>["api_key"](docs/components/security_schemes/security_scheme_api_key.md) []<br> |
+| 4       | ["oauth_password_test"](docs/components/security_schemes/security_scheme_oauth_password_test.md) [write_test_scope]<br> |
 
 ## Endpoints
 
@@ -182,6 +183,7 @@ All URIs are relative to the selected server
 HTTP request | Method | Description
 ------------ | ------ | -------------
 /pathWithNoExplicitSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_no_explicit_security](docs/paths/path_with_no_explicit_security/get.md)  | path with no explicit security
+/pathWithOAuthPasswordSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_o_auth_password_security](docs/paths/path_with_o_auth_password_security/get.md)  | path with oauth password security
 /pathWithOneExplicitSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_one_explicit_security](docs/paths/path_with_one_explicit_security/get.md)  | path with one explicit security
 /pathWithSecurityFromRoot **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_security_from_root](docs/paths/path_with_security_from_root/get.md)  | path with security from root
 /pathWithTwoExplicitSecurity **get** | [DefaultApi](docs/apis/tags/default_api.md).[path_with_two_explicit_security](docs/paths/path_with_two_explicit_security/get.md)  | path with two explicit security
@@ -193,6 +195,7 @@ Class | Description
 [ApiKey](docs/components/security_schemes/security_scheme_api_key.md) | apiKey in header
 [BearerTest](docs/components/security_schemes/security_scheme_bearer_test.md) | http bearer with JWT bearer format
 [HttpBasicTest](docs/components/security_schemes/security_scheme_http_basic_test.md) | http basic
+[OauthPasswordTest](docs/components/security_schemes/security_scheme_oauth_password_test.md) | oauth2 implicit flow with two scopes
 
 
 ## Notes for Large OpenAPI documents

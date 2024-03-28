@@ -10,6 +10,8 @@ security:
   - {}
   - api_key: []
     http_basic_test: []
+  - oauth_password_test:
+      - 'write_test_scope'
 paths:
   /pathWithSecurityFromRoot:
     get:
@@ -45,6 +47,17 @@ paths:
       responses:
         '200':
           description: OK
+  /pathWithOAuthPasswordSecurity:
+    get:
+      summary: path with oauth password security
+      operationId: pathWithOAuthPasswordSecurity
+      security:
+        - oauth_password_test: [
+            'write_test_scope'
+          ]
+      responses:
+        '200':
+          description: OK
 components:
   securitySchemes:
     api_key:
@@ -61,3 +74,11 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+    oauth_password_test:
+      description: oauth2 implicit flow with two scopes
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: 'http://localhost:3000/api/oauth/token'
+          scopes:
+            'write_test_scope': write test scope

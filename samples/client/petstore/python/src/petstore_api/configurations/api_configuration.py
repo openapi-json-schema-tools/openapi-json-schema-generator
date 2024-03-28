@@ -33,6 +33,7 @@ from petstore_api.paths.foo.get.servers import server_0 as foo_get_server_0
 from petstore_api.paths.foo.get.servers import server_1 as foo_get_server_1
 from petstore_api.paths.pet_find_by_status.servers import server_0 as pet_find_by_status_server_0
 from petstore_api.paths.pet_find_by_status.servers import server_1 as pet_find_by_status_server_1
+from petstore_api import security_schemes
 
 # security scheme key identifier to security scheme instance
 SecuritySchemeInfo = typing.TypedDict(
@@ -130,6 +131,7 @@ class ApiConfiguration(object):
     :param security_index_info: path to security_index information
     :param server_info: the servers that can be used to make endpoint calls
     :param server_index_info: index to servers configuration
+    :param oauth_server_client_info: the oauth client_id and client_secret info
     """
 
     def __init__(
@@ -138,6 +140,7 @@ class ApiConfiguration(object):
         security_index_info: typing.Optional[SecurityIndexInfo] = None,
         server_info: typing.Optional[ServerInfo] = None,
         server_index_info: typing.Optional[ServerIndexInfo] = None,
+        oauth_server_client_info: typing.Optional[security_schemes.OauthServerClientInfo] = None,
     ):
         """Constructor
         """
@@ -155,6 +158,8 @@ class ApiConfiguration(object):
             "paths//pet/findByStatus/servers/1": pet_find_by_status_server_1.Server1(),
         }
         self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
+        # oauth server client info
+        self.oauth_server_client_info: security_schemes.OauthServerClientInfo = oauth_server_client_info or {}
         self.logger = {}
         """Logging Settings
         """

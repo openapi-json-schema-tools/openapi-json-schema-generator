@@ -12,8 +12,11 @@ import dataclasses
 import enum
 import typing
 import typing_extensions
+from urllib import parse
 
 from urllib3 import _collections
+
+from unit_test_api import exceptions
 
 
 class SecuritySchemeType(enum.Enum):
@@ -39,7 +42,7 @@ class __SecuritySchemeBase(metaclass=abc.ABCMeta):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         pass
 
@@ -58,7 +61,7 @@ class ApiKeySecurityScheme(__SecuritySchemeBase, abc.ABC):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         if self.in_location is ApiKeyInLocation.COOKIE:
             headers.add('Cookie', self.api_key)
@@ -95,7 +98,7 @@ class HTTPBasicSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         user_pass = f"{self.user_id}:{self.password}"
         b64_user_pass = base64.b64encode(user_pass.encode(encoding=self.encoding))
@@ -116,7 +119,7 @@ class HTTPBearerSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         headers.add('Authorization', f"Bearer {self.access_token}")
 
@@ -133,7 +136,7 @@ class HTTPDigestSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         raise NotImplementedError("HTTPDigestSecurityScheme not yet implemented")
 
@@ -149,55 +152,11 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
         query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
+        scope_names: typing.Tuple[str, ...] = ()
     ) -> None:
         raise NotImplementedError("MutualTLSSecurityScheme not yet implemented")
 
 
-@dataclasses.dataclass
-class ImplicitOAuthFlow:
-    authorization_url: str
-    scopes: typing.Dict[str, str]
-    refresh_url: typing.Optional[str] = None
-
-
-@dataclasses.dataclass
-class TokenUrlOauthFlow:
-    token_url: str
-    scopes: typing.Dict[str, str]
-    refresh_url: typing.Optional[str] = None
-
-
-@dataclasses.dataclass
-class AuthorizationCodeOauthFlow:
-    authorization_url: str
-    token_url: str
-    scopes: typing.Dict[str, str]
-    refresh_url: typing.Optional[str] = None
-
-
-@dataclasses.dataclass
-class OAuthFlows:
-    implicit: typing.Optional[ImplicitOAuthFlow] = None
-    password: typing.Optional[TokenUrlOauthFlow] = None
-    client_credentials: typing.Optional[TokenUrlOauthFlow] = None
-    authorization_code: typing.Optional[AuthorizationCodeOauthFlow] = None
-
-
-class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
-    flows: OAuthFlows
-    type: SecuritySchemeType = SecuritySchemeType.OAUTH_2
-
-    def apply_auth(
-        self,
-        headers: _collections.HTTPHeaderDict,
-        resource_path: str,
-        method: str,
-        body: typing.Optional[typing.Union[str, bytes]],
-        query_params_suffix: typing.Optional[str],
-        scope_names: typing.Tuple[str, ...] = (),
-    ) -> None:
-        raise NotImplementedError("OAuth2SecurityScheme not yet implemented")
 
 
 class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
@@ -214,6 +173,7 @@ class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         raise NotImplementedError("OpenIdConnectSecurityScheme not yet implemented")
+
 
 """
 Key is the Security scheme class

@@ -250,7 +250,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                 .includeSecurityFeatures(
                         SecurityFeature.ApiKey,
                         SecurityFeature.HTTP_Basic,
-                        SecurityFeature.HTTP_Bearer
+                        SecurityFeature.HTTP_Bearer,
+                        SecurityFeature.OAuth2_Password
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Info,

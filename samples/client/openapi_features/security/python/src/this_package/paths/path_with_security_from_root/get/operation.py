@@ -10,6 +10,7 @@ from this_package.security import (
     security_requirement_object_1,
     security_requirement_object_2,
     security_requirement_object_3,
+    security_requirement_object_4,
 )
 from this_package.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
@@ -21,6 +22,7 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
     security_requirement_object_1.security_requirement_object,
     security_requirement_object_2.security_requirement_object,
     security_requirement_object_3.security_requirement_object,
+    security_requirement_object_4.security_requirement_object,
 ]
 
 

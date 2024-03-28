@@ -44,6 +44,9 @@ from {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers
         {{/if}}
     {{/each}}
 {{/if}}
+{{#if oauthServerHostnames}}
+from {{packageName}} import security_schemes
+{{/if}}
 {{#if securitySchemes}}
 
 # security scheme key identifier to security scheme instance
@@ -170,6 +173,9 @@ class ApiConfiguration(object):
     :param server_info: the servers that can be used to make endpoint calls
     :param server_index_info: index to servers configuration
 {{/if}}
+{{#if oauthServerHostnames}}
+    :param oauth_server_client_info: the oauth client_id and client_secret info
+{{/if}}
     """
 
     def __init__(
@@ -181,6 +187,9 @@ class ApiConfiguration(object):
 {{#if hasServers}}
         server_info: typing.Optional[ServerInfo] = None,
         server_index_info: typing.Optional[ServerIndexInfo] = None,
+{{/if}}
+{{#if oauthServerHostnames}}
+        oauth_server_client_info: typing.Optional[security_schemes.OauthServerClientInfo] = None,
 {{/if}}
     ):
         """Constructor
@@ -220,6 +229,10 @@ class ApiConfiguration(object):
 {{else}}
         self.server_info = {}
         self.server_index_info = {'servers': 0}
+{{/if}}
+{{#if oauthServerHostnames}}
+        # oauth server client info
+        self.oauth_server_client_info: security_schemes.OauthServerClientInfo = oauth_server_client_info or {}
 {{/if}}
         self.logger = {}
         """Logging Settings
