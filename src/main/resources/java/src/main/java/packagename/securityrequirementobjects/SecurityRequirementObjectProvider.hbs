@@ -1,9 +1,6 @@
 package {{{packageName}}}.securityrequirementobjects;
 
-import {{{packageName}}}.exceptions.UnsetPropertyException;
-import org.checkerframework.checker.nullness.qual.Nullable;
-
 public interface SecurityRequirementObjectProvider<T> {
-    SecurityRequirementObject getSecurityRequirementObject(@Nullable T securityIndex) throws UnsetPropertyException;
+    SecurityRequirementObject getSecurityRequirementObject(T securityIndex);
 }
 

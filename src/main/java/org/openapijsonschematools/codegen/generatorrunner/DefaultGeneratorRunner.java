@@ -427,7 +427,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH, CodegenConstants.APIS, pathTemplateInfo, true);
 
         if (pathItem.servers != null) {
-            generateServers(files, pathItem.servers, jsonPath + "/servers");
+            generateServers(files, pathItem.servers, jsonPath + "/servers", "../../");
         }
 
         if (pathItem.parameters != null) {
@@ -509,7 +509,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 }
 
                 if (operation.servers != null) {
-                    generateServers(files, operation.servers, operationJsonPath + "/servers");
+                    generateServers(files, operation.servers, operationJsonPath + "/servers", "../../../");
                 }
 
                 // paths.some_path.post.parameters.parameter_0.py
@@ -1422,15 +1422,16 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         return bundle;
     }
 
-    private void generateServers(List<File> files, CodegenList<CodegenServer> servers, String jsonPath) {
+    private void generateServers(List<File> files, CodegenList<CodegenServer> servers, String jsonPath, String docRoot) {
         if (servers == null && servers.isEmpty()) {
             return;
         }
         Map<String, Object> serversTemplateData = new HashMap<>();
         serversTemplateData.put("packageName", generator.packageName());
         serversTemplateData.put("servers", servers);
-        serversTemplateData.put("headerSize", "#");
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, serversTemplateData, true);
+        serversTemplateData.put("headerSize", "#");
+        serversTemplateData.put("docRoot", docRoot);
         generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, serversTemplateData, true);
 
         int i = 0;
@@ -1444,14 +1445,14 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             if (generator.generateSeparateServerSchemas() && server.variables != null) {
                 String variablesJsonPath = serverJsonPath + "/variables";
                 generateSchema(files, server.variables, variablesJsonPath);
+                generateSchemaDocumentation(files, server.variables, variablesJsonPath, docRoot + "../../", true);
             }
 
             // doc generation
-            if (server.rootServer) {
-                templateData.put("headerSize", "#");
-                templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-                generateXDocs(files, serverJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER, CodegenConstants.SERVERS, templateData, true);
-            }
+            templateData.put("headerSize", "#");
+            templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+            templateData.put("docRoot", docRoot + "../");
+            generateXDocs(files, serverJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER, CodegenConstants.SERVERS, templateData, true);
             i++;
         }
     }
@@ -1569,7 +1570,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         // paths
         TreeMap<CodegenKey, CodegenPathItem> paths = generator.fromPaths(openAPI.getPaths(), servers, security);
         generatePaths(files, paths, servers, security);
-        generateServers(files, servers, serversJsonPath);
+        generateServers(files, servers, serversJsonPath, "");
         // apis
         generateApis(files, paths);
 

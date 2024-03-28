@@ -10,24 +10,35 @@ import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectProvider;
 
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.EnumMap;
-
 public class {{security.jsonPathPiece.pascalCase}} {
     public static class {{security.jsonPathPiece.pascalCase}}1 implements SecurityRequirementObjectProvider<SecurityIndex> {
-        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
+{{#each security}}
+        public final {{jsonPathPiece.pascalCase}} security{{@index}};
+{{/each}}
 
         public {{security.jsonPathPiece.pascalCase}}1() {
-            this.securities = new EnumMap<>(Map.ofEntries(
 {{#each security}}
-                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_{{@index}}, new {{jsonPathPiece.pascalCase}}()){{#unless @last}},{{/unless}}
+            security{{@index}} = new {{jsonPathPiece.pascalCase}}();
 {{/each}}
-            ));
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
-            return securities.get(securityIndex);
+    {{#eq security.size 1}}
+            return security0;
+    {{else}}
+            switch (securityIndex) {
+        {{#each security}}
+            {{#if @last}}
+                default:
+                    return security{{@index}};
+            {{else}}
+                case SECURITY_{{@index}}:
+                    return security{{@index}};
+            {{/if}}
+        {{/each}}
+            }
+    {{/eq}}
         }
     }
 

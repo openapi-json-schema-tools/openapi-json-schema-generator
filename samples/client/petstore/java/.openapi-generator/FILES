@@ -518,6 +518,9 @@ docs/paths/foo/get/FooGetServerInfo.md
 docs/paths/foo/get/Responses.md
 docs/paths/foo/get/responses/CodedefaultResponse.md
 docs/paths/foo/get/responses/codedefaultresponse/content/applicationjson/ApplicationjsonSchema.md
+docs/paths/foo/get/servers/FooGetServer0.md
+docs/paths/foo/get/servers/FooGetServer1.md
+docs/paths/foo/get/servers/server1/Variables.md
 docs/paths/pet/Post.md
 docs/paths/pet/Put.md
 docs/paths/pet/post/PetPostSecurityInfo.md
@@ -547,6 +550,9 @@ docs/paths/petfindbystatus/get/responses/Code400Response.md
 docs/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject0.md
 docs/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject1.md
 docs/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject2.md
+docs/paths/petfindbystatus/servers/PetfindbystatusServer0.md
+docs/paths/petfindbystatus/servers/PetfindbystatusServer1.md
+docs/paths/petfindbystatus/servers/server1/Variables.md
 docs/paths/petfindbytags/Get.md
 docs/paths/petfindbytags/get/PetfindbytagsGetSecurityInfo.md
 docs/paths/petfindbytags/get/QueryParameters.md
@@ -678,6 +684,8 @@ docs/paths/userusername/put/responses/Code404Response.md
 docs/servers/Server0.md
 docs/servers/Server1.md
 docs/servers/Server2.md
+docs/servers/server0/Variables.md
+docs/servers/server1/Variables.md
 pom.xml
 src/main/java/org/openapijsonschematools/client/RootServerInfo.java
 src/main/java/org/openapijsonschematools/client/apiclient/ApiClient.java

@@ -2,7 +2,7 @@ package org.openapijsonschematools.codegen.generators.openapimodels;
 
 import java.util.Objects;
 
-public class CodegenServer {
+public class CodegenServer implements PathFromDocRootProvider {
     public final String url;
     public final String defaultUrl;
     public final CodegenText description;
@@ -10,8 +10,9 @@ public class CodegenServer {
     public final CodegenKey jsonPathPiece;
     public final boolean rootServer;
     public final String subpackage; // needed to define java package
+    public final String pathFromDocRoot;
 
-    public CodegenServer(String url, CodegenText description, CodegenSchema variables, CodegenKey jsonPathPiece, boolean rootServer, String subpackage) {
+    public CodegenServer(String url, CodegenText description, CodegenSchema variables, CodegenKey jsonPathPiece, boolean rootServer, String subpackage, String pathFromDocRoot) {
         this.url = url;
         this.description = description;
         this.variables = variables;
@@ -27,6 +28,7 @@ public class CodegenServer {
             this.defaultUrl = defaultUrl;
         }
         this.subpackage = subpackage;
+        this.pathFromDocRoot = pathFromDocRoot;
     }
 
     @Override
@@ -59,5 +61,10 @@ public class CodegenServer {
         sb.append(", defaultUrl=").append(defaultUrl);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public String pathFromDocRoot() {
+        return pathFromDocRoot;
     }
 }

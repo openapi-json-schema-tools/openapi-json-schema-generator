@@ -27,7 +27,7 @@ A class that stores a server url
 | --------------------------- |
 | {{jsonPathPiece.pascalCase}}()<br>Creates a server{{#if variables}} using default values for variables{{/if}} |
 {{#if variables}}
-| {{jsonPathPiece.pascalCase}}({{#with variables}}[{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}](#{{mapOutputJsonPathPiece.kebabCase}}) variables{{/with}})<br>Creates a server using input values for variables |
+| {{jsonPathPiece.pascalCase}}({{#with variables}}[{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}}) variables{{/with}})<br>Creates a server using input values for variables |
 {{/if}}
 
 {{headerSize}}## Field Summary
@@ -35,12 +35,8 @@ A class that stores a server url
 | ----------------- | --------------------- |
 | String            | url = "{{{url}}}"     |
 {{#with variables}}
-| [{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}](#{{mapOutputJsonPathPiece.kebabCase}}) | variables |
+| [{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}}) | variables |
 {{/with}}
-        {{#with variables}}
-
-{{> src/main/java/packagename/components/schemas/Schema_doc schema=this headerSize=(join headerSize "#" "") }}
-        {{/with}}
     {{/if}}
     {{#if rootServer}}
 

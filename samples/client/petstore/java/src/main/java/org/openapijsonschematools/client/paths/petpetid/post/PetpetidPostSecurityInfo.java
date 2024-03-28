@@ -5,23 +5,24 @@ import org.openapijsonschematools.client.paths.petpetid.post.security.PetpetidPo
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.EnumMap;
-
 public class PetpetidPostSecurityInfo {
     public static class PetpetidPostSecurityInfo1 implements SecurityRequirementObjectProvider<SecurityIndex> {
-        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
+        public final PetpetidPostSecurityRequirementObject0 security0;
+        public final PetpetidPostSecurityRequirementObject1 security1;
 
         public PetpetidPostSecurityInfo1() {
-            this.securities = new EnumMap<>(Map.ofEntries(
-                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new PetpetidPostSecurityRequirementObject0()),
-                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new PetpetidPostSecurityRequirementObject1())
-            ));
+            security0 = new PetpetidPostSecurityRequirementObject0();
+            security1 = new PetpetidPostSecurityRequirementObject1();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
-            return securities.get(securityIndex);
+            switch (securityIndex) {
+                case SECURITY_0:
+                    return security0;
+                default:
+                    return security1;
+            }
         }
     }
 
