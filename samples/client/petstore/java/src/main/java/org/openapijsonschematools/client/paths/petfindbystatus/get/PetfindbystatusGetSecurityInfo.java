@@ -18,6 +18,7 @@ public class PetfindbystatusGetSecurityInfo {
             security2 = new PetfindbystatusGetSecurityRequirementObject2();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             switch (securityIndex) {
                 case SECURITY_0:

@@ -15,6 +15,7 @@ public class PetpetidDeleteSecurityInfo {
             security1 = new PetpetidDeleteSecurityRequirementObject1();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             switch (securityIndex) {
                 case SECURITY_0:

@@ -12,6 +12,7 @@ public class FakePostSecurityInfo {
             security0 = new FakePostSecurityRequirementObject0();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             return security0;
         }

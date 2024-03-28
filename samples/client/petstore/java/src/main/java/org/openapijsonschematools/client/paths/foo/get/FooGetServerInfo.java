@@ -26,6 +26,7 @@ public class FooGetServerInfo {
             this.server1 = Objects.requireNonNullElseGet(server1, FooGetServer1::new);
         }
 
+        @Override
         public Server getServer(ServerIndex serverIndex) {
             switch (serverIndex) {
                 case SERVER_0:

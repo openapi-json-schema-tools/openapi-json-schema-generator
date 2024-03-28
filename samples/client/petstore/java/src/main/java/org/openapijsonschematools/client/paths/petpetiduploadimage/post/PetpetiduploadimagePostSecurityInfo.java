@@ -12,6 +12,7 @@ public class PetpetiduploadimagePostSecurityInfo {
             security0 = new PetpetiduploadimagePostSecurityRequirementObject0();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             return security0;
         }

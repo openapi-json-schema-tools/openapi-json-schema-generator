@@ -22,6 +22,7 @@ public class {{security.jsonPathPiece.pascalCase}} {
 {{/each}}
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
     {{#eq security.size 1}}
             return security0;

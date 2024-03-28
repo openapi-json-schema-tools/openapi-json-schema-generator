@@ -12,6 +12,7 @@ public class FakeclassnametestPatchSecurityInfo {
             security0 = new FakeclassnametestPatchSecurityRequirementObject0();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             return security0;
         }

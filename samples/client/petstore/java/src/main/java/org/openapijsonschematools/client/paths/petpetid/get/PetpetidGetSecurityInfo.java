@@ -12,6 +12,7 @@ public class PetpetidGetSecurityInfo {
             security0 = new PetpetidGetSecurityRequirementObject0();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             return security0;
         }

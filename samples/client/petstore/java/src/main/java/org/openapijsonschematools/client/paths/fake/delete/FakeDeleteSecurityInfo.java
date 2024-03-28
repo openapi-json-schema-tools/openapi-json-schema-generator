@@ -12,6 +12,7 @@ public class FakeDeleteSecurityInfo {
             security0 = new FakeDeleteSecurityRequirementObject0();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             return security0;
         }

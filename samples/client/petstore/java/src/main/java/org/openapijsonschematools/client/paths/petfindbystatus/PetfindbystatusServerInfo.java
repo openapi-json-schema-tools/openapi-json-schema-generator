@@ -26,6 +26,7 @@ public class PetfindbystatusServerInfo {
             this.server1 = Objects.requireNonNullElseGet(server1, PetfindbystatusServer1::new);
         }
 
+        @Override
         public Server getServer(ServerIndex serverIndex) {
             switch (serverIndex) {
                 case SERVER_0:

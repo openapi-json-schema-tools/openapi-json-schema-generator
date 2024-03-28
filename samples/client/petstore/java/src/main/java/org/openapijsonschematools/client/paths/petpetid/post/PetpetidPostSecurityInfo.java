@@ -15,6 +15,7 @@ public class PetpetidPostSecurityInfo {
             security1 = new PetpetidPostSecurityRequirementObject1();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             switch (securityIndex) {
                 case SECURITY_0:

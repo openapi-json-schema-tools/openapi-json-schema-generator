@@ -31,6 +31,7 @@ public class RootServerInfo {
             this.server2 = Objects.requireNonNullElseGet(server2, Server2::new);
         }
 
+        @Override
         public Server getServer(ServerIndex serverIndex) {
             switch (serverIndex) {
                 case SERVER_0:

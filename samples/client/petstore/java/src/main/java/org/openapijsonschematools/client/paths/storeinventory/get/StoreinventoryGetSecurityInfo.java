@@ -12,6 +12,7 @@ public class StoreinventoryGetSecurityInfo {
             security0 = new StoreinventoryGetSecurityRequirementObject0();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             return security0;
         }

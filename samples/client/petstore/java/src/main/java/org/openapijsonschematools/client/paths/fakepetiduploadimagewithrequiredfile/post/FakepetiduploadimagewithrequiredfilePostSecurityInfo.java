@@ -12,6 +12,7 @@ public class FakepetiduploadimagewithrequiredfilePostSecurityInfo {
             security0 = new FakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             return security0;
         }

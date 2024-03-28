@@ -35,6 +35,7 @@ public class {{servers.jsonPathPiece.pascalCase}} {
     {{/each}}
         }
 
+        @Override
         public Server getServer(ServerIndex serverIndex) {
     {{#eq servers.size 1}}
             return server0;

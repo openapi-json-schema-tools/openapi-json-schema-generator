@@ -15,6 +15,7 @@ public class PetPutSecurityInfo {
             security1 = new PetPutSecurityRequirementObject1();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
             switch (securityIndex) {
                 case SECURITY_0:
