@@ -136,7 +136,7 @@ public class ApiConfiguration {
 
     public static class SecurityIndexInfo {
         {{#each allSecurity}}
-        protected {{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex {{jsonPathPiece.camelCase}}SecurityIndex;
+        public {{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex {{jsonPathPiece.camelCase}}SecurityIndex;
         {{/each}}
 
         public SecurityIndexInfo() {}

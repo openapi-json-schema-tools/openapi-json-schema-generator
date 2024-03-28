@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.paths.foo.get;
 
-import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
 import org.openapijsonschematools.client.servers.Server;

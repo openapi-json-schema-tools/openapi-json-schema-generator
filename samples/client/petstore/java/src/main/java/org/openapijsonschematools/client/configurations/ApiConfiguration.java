@@ -173,20 +173,20 @@ public class ApiConfiguration {
     }
 
     public static class SecurityIndexInfo {
-        protected FakeDeleteSecurityInfo. @Nullable SecurityIndex fakeDeleteSecurityInfoSecurityIndex;
-        protected FakePostSecurityInfo. @Nullable SecurityIndex fakePostSecurityInfoSecurityIndex;
-        protected FakemultiplesecuritiesGetSecurityInfo. @Nullable SecurityIndex fakemultiplesecuritiesGetSecurityInfoSecurityIndex;
-        protected FakepetiduploadimagewithrequiredfilePostSecurityInfo. @Nullable SecurityIndex fakepetiduploadimagewithrequiredfilePostSecurityInfoSecurityIndex;
-        protected FakeclassnametestPatchSecurityInfo. @Nullable SecurityIndex fakeclassnametestPatchSecurityInfoSecurityIndex;
-        protected PetPostSecurityInfo. @Nullable SecurityIndex petPostSecurityInfoSecurityIndex;
-        protected PetPutSecurityInfo. @Nullable SecurityIndex petPutSecurityInfoSecurityIndex;
-        protected PetfindbystatusGetSecurityInfo. @Nullable SecurityIndex petfindbystatusGetSecurityInfoSecurityIndex;
-        protected PetfindbytagsGetSecurityInfo. @Nullable SecurityIndex petfindbytagsGetSecurityInfoSecurityIndex;
-        protected PetpetidDeleteSecurityInfo. @Nullable SecurityIndex petpetidDeleteSecurityInfoSecurityIndex;
-        protected PetpetidGetSecurityInfo. @Nullable SecurityIndex petpetidGetSecurityInfoSecurityIndex;
-        protected PetpetidPostSecurityInfo. @Nullable SecurityIndex petpetidPostSecurityInfoSecurityIndex;
-        protected PetpetiduploadimagePostSecurityInfo. @Nullable SecurityIndex petpetiduploadimagePostSecurityInfoSecurityIndex;
-        protected StoreinventoryGetSecurityInfo. @Nullable SecurityIndex storeinventoryGetSecurityInfoSecurityIndex;
+        public FakeDeleteSecurityInfo. @Nullable SecurityIndex fakeDeleteSecurityInfoSecurityIndex;
+        public FakePostSecurityInfo. @Nullable SecurityIndex fakePostSecurityInfoSecurityIndex;
+        public FakemultiplesecuritiesGetSecurityInfo. @Nullable SecurityIndex fakemultiplesecuritiesGetSecurityInfoSecurityIndex;
+        public FakepetiduploadimagewithrequiredfilePostSecurityInfo. @Nullable SecurityIndex fakepetiduploadimagewithrequiredfilePostSecurityInfoSecurityIndex;
+        public FakeclassnametestPatchSecurityInfo. @Nullable SecurityIndex fakeclassnametestPatchSecurityInfoSecurityIndex;
+        public PetPostSecurityInfo. @Nullable SecurityIndex petPostSecurityInfoSecurityIndex;
+        public PetPutSecurityInfo. @Nullable SecurityIndex petPutSecurityInfoSecurityIndex;
+        public PetfindbystatusGetSecurityInfo. @Nullable SecurityIndex petfindbystatusGetSecurityInfoSecurityIndex;
+        public PetfindbytagsGetSecurityInfo. @Nullable SecurityIndex petfindbytagsGetSecurityInfoSecurityIndex;
+        public PetpetidDeleteSecurityInfo. @Nullable SecurityIndex petpetidDeleteSecurityInfoSecurityIndex;
+        public PetpetidGetSecurityInfo. @Nullable SecurityIndex petpetidGetSecurityInfoSecurityIndex;
+        public PetpetidPostSecurityInfo. @Nullable SecurityIndex petpetidPostSecurityInfoSecurityIndex;
+        public PetpetiduploadimagePostSecurityInfo. @Nullable SecurityIndex petpetiduploadimagePostSecurityInfoSecurityIndex;
+        public StoreinventoryGetSecurityInfo. @Nullable SecurityIndex storeinventoryGetSecurityInfoSecurityIndex;
 
         public SecurityIndexInfo() {}
 

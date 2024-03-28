@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.paths.petfindbystatus;
 
-import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer0;
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer1;
 import org.openapijsonschematools.client.servers.Server;

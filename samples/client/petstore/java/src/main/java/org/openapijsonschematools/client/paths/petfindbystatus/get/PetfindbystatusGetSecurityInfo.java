@@ -6,24 +6,27 @@ import org.openapijsonschematools.client.paths.petfindbystatus.get.security.Petf
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.EnumMap;
-
 public class PetfindbystatusGetSecurityInfo {
     public static class PetfindbystatusGetSecurityInfo1 implements SecurityRequirementObjectProvider<SecurityIndex> {
-        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
+        public final PetfindbystatusGetSecurityRequirementObject0 security0;
+        public final PetfindbystatusGetSecurityRequirementObject1 security1;
+        public final PetfindbystatusGetSecurityRequirementObject2 security2;
 
         public PetfindbystatusGetSecurityInfo1() {
-            this.securities = new EnumMap<>(Map.ofEntries(
-                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new PetfindbystatusGetSecurityRequirementObject0()),
-                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new PetfindbystatusGetSecurityRequirementObject1()),
-                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, new PetfindbystatusGetSecurityRequirementObject2())
-            ));
+            security0 = new PetfindbystatusGetSecurityRequirementObject0();
+            security1 = new PetfindbystatusGetSecurityRequirementObject1();
+            security2 = new PetfindbystatusGetSecurityRequirementObject2();
         }
 
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
-            return securities.get(securityIndex);
+            switch (securityIndex) {
+                case SECURITY_0:
+                    return security0;
+                case SECURITY_1:
+                    return security1;
+                default:
+                    return security2;
+            }
         }
     }
 
