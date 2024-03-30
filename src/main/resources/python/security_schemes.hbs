@@ -402,8 +402,8 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
     ) -> None:
         if not self.flows:
             raise exceptions.ApiValueError('flows are not defined and are required, define them')
-        if not scope_names:
-            raise exceptions.ApiValueError('scope_names are not defined and are required, define them')
+        {{!-- if not scope_names:
+            raise exceptions.ApiValueError('scope_names are not defined and are required, define them') --}}
         if not oauth_server_client_info:
             raise exceptions.ApiValueError('oauth_server_client_info is not defined and is required, define it')
         chosen_flows = []
