@@ -31,6 +31,7 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
                     {{/with}}
                 {{/eq}}
                 {{#eq @key.camelCase "securityIndex"}}
+import {{packageName}}.securityschemes.SecurityScheme;
                     {{#with property}}
                         {{! CodegenList of SecurityRequirementObject }}
                         {{#each this}}
@@ -89,13 +90,12 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
             {{#each keyToBuilder}}
                 {{#eq @key.camelCase "securityIndex"}}
                     {{#with property}}
-// todo define all securities that are possible and pass them in
 List<SecurityScheme> securitySchemes = new ArrayList();
                         {{! CodegenList of SecurityRequirementObject }}
                         {{#each this}}
                             {{#each map}}
                                 {{#with refInfo.ref}}
-                                    {{! SecurityScheme }}
+{{> src/main/java/packagename/paths/path/verb/_OperationDocSSCodeSample }}
                                 {{/with}}
                             {{/each}}
                         {{/each}}

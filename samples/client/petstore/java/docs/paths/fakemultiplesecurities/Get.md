@@ -27,6 +27,7 @@ import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.Fakemu
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.HttpBasicTest;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
@@ -42,8 +43,13 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
 );
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
-// todo define all securities that are possible and pass them in
 List<SecurityScheme> securitySchemes = new ArrayList();
+securitySchemes.add(
+    new HttpBasicTest("someUserId", "somePassword");
+);
+securitySchemes.add(
+    new ApiKey("someApiKey");
+);
 ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
     .fakemultiplesecuritiesGetSecurityInfoSecurityIndex(FakemultiplesecuritiesGetSecurityInfo.SecurityIndex.SECURITY_0);
 Duration timeout = Duration.ofSeconds(1L);

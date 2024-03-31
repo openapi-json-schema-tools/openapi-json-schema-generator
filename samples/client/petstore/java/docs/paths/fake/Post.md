@@ -28,6 +28,7 @@ import org.openapijsonschematools.client.paths.fake.post.FakePostSecurityInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.HttpBasicTest;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -41,8 +42,10 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
 );
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
-// todo define all securities that are possible and pass them in
 List<SecurityScheme> securitySchemes = new ArrayList();
+securitySchemes.add(
+    new HttpBasicTest("someUserId", "somePassword");
+);
 ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
     .fakePostSecurityInfoSecurityIndex(FakePostSecurityInfo.SecurityIndex.SECURITY_0);
 Duration timeout = Duration.ofSeconds(1L);

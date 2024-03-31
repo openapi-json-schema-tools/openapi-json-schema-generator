@@ -31,6 +31,7 @@ import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredf
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -44,7 +45,6 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
 );
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
-// todo define all securities that are possible and pass them in
 List<SecurityScheme> securitySchemes = new ArrayList();
 ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
     .fakepetiduploadimagewithrequiredfilePostSecurityInfoSecurityIndex(FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex.SECURITY_0);

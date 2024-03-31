@@ -29,6 +29,7 @@ import org.openapijsonschematools.client.paths.petfindbystatus.get.Petfindbystat
 import org.openapijsonschematools.client.paths.petfindbystatus.get.QueryParameters;
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer0;
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer1;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.HttpSignatureTest;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
@@ -43,8 +44,10 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
 );
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
     .petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex.SERVER_0);
-// todo define all securities that are possible and pass them in
 List<SecurityScheme> securitySchemes = new ArrayList();
+securitySchemes.add(
+    new ApiKey("someApiKey");
+);
 ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
     .petfindbystatusGetSecurityInfoSecurityIndex(PetfindbystatusGetSecurityInfo.SecurityIndex.SECURITY_0);
 Duration timeout = Duration.ofSeconds(1L);
