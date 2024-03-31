@@ -61,6 +61,9 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration);
+
+// todo set sample for requestBody
+// RequestBody
 ```
 ### Constructor Summary
 | Constructor and Description |

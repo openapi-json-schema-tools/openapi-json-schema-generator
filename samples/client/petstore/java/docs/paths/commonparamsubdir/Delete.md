@@ -51,6 +51,9 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Delete.Delete1 apiClient = new Delete.Delete1(apiConfiguration, schemaConfiguration);
+
+// todo set sample for pathParameters
+// PathParameters
 ```
 ### Constructor Summary
 | Constructor and Description |

@@ -64,6 +64,11 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Delete.Delete1 apiClient = new Delete.Delete1(apiConfiguration, schemaConfiguration);
+
+// todo set sample for headerParameters
+// HeaderParameters
+// todo set sample for queryParameters
+// QueryParameters
 ```
 ### Constructor Summary
 | Constructor and Description |

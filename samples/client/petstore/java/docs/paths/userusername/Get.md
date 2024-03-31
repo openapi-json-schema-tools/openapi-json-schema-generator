@@ -50,6 +50,9 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
+
+// todo set sample for pathParameters
+// PathParameters
 ```
 ### Constructor Summary
 | Constructor and Description |

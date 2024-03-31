@@ -125,5 +125,20 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 apiClient = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1(apiConfiguration, schemaConfiguration);
+
+    {{#each builders}}
+        {{#if @last}}
+            {{#each keyToBuilder}}
+// todo set sample for {{@key.camelCase}}
+                {{#with property}}
+                    {{#if containerJsonPathPiece}}
+// {{containerJsonPathPiece.pascalCase}}
+                    {{else}}
+// {{jsonPathPiece.pascalCase}}
+                    {{/if}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
 {{/with}}
 ```

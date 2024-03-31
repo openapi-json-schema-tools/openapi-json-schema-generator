@@ -63,6 +63,9 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
+
+// todo set sample for requestBody
+// RequestBody
 ```
 ### Constructor Summary
 | Constructor and Description |

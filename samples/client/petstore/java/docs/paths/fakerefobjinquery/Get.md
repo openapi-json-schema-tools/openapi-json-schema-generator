@@ -48,6 +48,13 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
+
+// todo set sample for queryParameters
+// QueryParameters
+// todo set sample for serverIndex
+// RootServerInfo
+// todo set sample for timeout
+// Get
 ```
 ### Constructor Summary
 | Constructor and Description |
