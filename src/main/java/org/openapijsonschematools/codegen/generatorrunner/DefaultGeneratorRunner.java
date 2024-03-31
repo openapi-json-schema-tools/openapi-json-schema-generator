@@ -504,8 +504,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 // paths.some_path.post.request_body.py, only written if there is no refModule
                 if (operation.requestBody != null) {
                     String requestBodyJsonPath = operationJsonPath + "/requestBody";
-                    generateRequestBody(files, operation.requestBody, requestBodyJsonPath, "../../../../");
-                    generateRequestBodyDoc(files, operation.requestBody, requestBodyJsonPath, "../../../../", generator.shouldGenerateFile(requestBodyJsonPath, true));
+                    generateRequestBody(files, operation.requestBody, requestBodyJsonPath, "../../../");
+                    generateRequestBodyDoc(files, operation.requestBody, requestBodyJsonPath, "../../../", generator.shouldGenerateFile(requestBodyJsonPath, true));
                 }
 
                 if (operation.servers != null) {
