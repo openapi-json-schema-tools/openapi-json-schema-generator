@@ -30,7 +30,14 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.paths.fakerefobjinquery.Get
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.paths.fakerefobjinquery.Get;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
 
 // if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
@@ -49,8 +56,22 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for queryParameters
-// QueryParameters
+
+// Map validation
+QueryParameters.QueryParametersMap  =
+    QueryParameters.QueryParameters1.validate(
+    new QueryParameters.QueryParametersMapBuilder()
+        .mapBean(
+            MapUtils.makeMap(
+                new AbstractMap.SimpleEntry<String, String>(
+                    "bar",
+                    "a"
+                )
+            )
+        )
+    .build(),
+    schemaConfiguration
+);
 // todo set sample for serverIndex
 // RootServerInfo
 // todo set sample for timeout

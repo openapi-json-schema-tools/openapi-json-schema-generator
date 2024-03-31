@@ -50,7 +50,14 @@ import {{packageName}}.components.securityschemes.{{jsonPathPiece.pascalCase}};
 import {{packageName}}.configurations.ApiConfiguration;
 import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.configurations.JsonSchemaKeywordFlags;
-import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}}
+import {{{packageName}}}.schemas.validation.MapUtils;
+import {{{packageName}}}.schemas.validation.FrozenList;
+import {{{packageName}}}.schemas.validation.FrozenMap;
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
 
 // if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
@@ -129,11 +136,15 @@ SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeyw
     {{#each builders}}
         {{#if @last}}
             {{#each keyToBuilder}}
-// todo set sample for {{@key.camelCase}}
                 {{#with property}}
                     {{#if containerJsonPathPiece}}
-// {{containerJsonPathPiece.pascalCase}}
+                        {{#each (reverse getSchemas)}}
+                            {{#eq instanceType "schema"}}
+{{> src/main/java/packagename/components/schemas/docschema_codeSample payloadVarName=@key.camelCase configVarName="schemaConfiguration" }}
+                            {{/eq}}
+                        {{/each}}
                     {{else}}
+// todo set sample for {{@key.camelCase}}
 // {{jsonPathPiece.pascalCase}}
                     {{/if}}
                 {{/with}}

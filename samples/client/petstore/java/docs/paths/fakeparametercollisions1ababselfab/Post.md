@@ -36,7 +36,14 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.Post
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.Post;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
 
 // if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
@@ -55,8 +62,24 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for pathParameters
-// PathParameters
+
+// Map validation
+PathParameters.PathParametersMap  =
+    PathParameters.PathParameters1.validate(
+    new PathParameters.PathParametersMapBuilder()
+        .positive1("a")
+
+        .aHyphenMinusB("a")
+
+        .Ab("a")
+
+        .aB("a")
+
+        .self("a")
+
+    .build(),
+    schemaConfiguration
+);
 ```
 ### Constructor Summary
 | Constructor and Description |

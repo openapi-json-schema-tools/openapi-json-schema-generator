@@ -38,7 +38,14 @@ import org.openapijsonschematools.client.components.securityschemes.BearerTest;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.paths.fake.Delete
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.paths.fake.Delete;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
 
 // if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
@@ -65,10 +72,34 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Delete.Delete1 apiClient = new Delete.Delete1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for headerParameters
-// HeaderParameters
-// todo set sample for queryParameters
-// QueryParameters
+
+// Map validation
+HeaderParameters.HeaderParametersMap  =
+    HeaderParameters.HeaderParameters1.validate(
+    new HeaderParameters.HeaderParametersMapBuilder()
+        .required_boolean_group("true")
+
+        .boolean_group("true")
+
+    .build(),
+    schemaConfiguration
+);
+
+// Map validation
+QueryParameters.QueryParametersMap  =
+    QueryParameters.QueryParameters1.validate(
+    new QueryParameters.QueryParametersMapBuilder()
+        .required_int64_group(1L)
+
+        .required_string_group("a")
+
+        .int64_group(1L)
+
+        .string_group("a")
+
+    .build(),
+    schemaConfiguration
+);
 ```
 ### Constructor Summary
 | Constructor and Description |
