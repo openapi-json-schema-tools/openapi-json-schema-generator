@@ -49,6 +49,7 @@ import {{packageName}}.components.securityschemes.{{jsonPathPiece.pascalCase}};
     {{/each}}
 import {{packageName}}.configurations.ApiConfiguration;
 import {{packageName}}.configurations.SchemaConfiguration;
+import {{packageName}}.configurations.JsonSchemaKeywordFlags;
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}}
 
 // if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
@@ -122,5 +123,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     {{/each}}
     timeout
 );
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 apiClient = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1(apiConfiguration, schemaConfiguration);
 {{/with}}
 ```

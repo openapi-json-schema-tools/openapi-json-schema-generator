@@ -35,6 +35,7 @@ import org.openapijsonschematools.client.components.securityschemes.HttpSignatur
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.paths.pet.Put
 
 // if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
@@ -56,6 +57,8 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     securityIndexInfo,
     timeout
 );
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+Put.Put1 apiClient = new Put.Put1(apiConfiguration, schemaConfiguration);
 ```
 ### Constructor Summary
 | Constructor and Description |

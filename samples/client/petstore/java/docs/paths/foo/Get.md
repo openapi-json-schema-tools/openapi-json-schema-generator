@@ -27,6 +27,7 @@ import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.paths.foo.Get
 
 // if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
@@ -42,6 +43,8 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverIndexInfo,
     timeout
 );
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 ```
 ### Constructor Summary
 | Constructor and Description |

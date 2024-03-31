@@ -34,6 +34,7 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKeyQuery;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.paths.fakeclassnametest.Patch
 
 // if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
@@ -58,6 +59,8 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     securityIndexInfo,
     timeout
 );
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration);
 ```
 ### Constructor Summary
 | Constructor and Description |

@@ -36,6 +36,7 @@ import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.paths.petpetid.Delete
 
 // if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
@@ -60,6 +61,8 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     securityIndexInfo,
     timeout
 );
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+Delete.Delete1 apiClient = new Delete.Delete1(apiConfiguration, schemaConfiguration);
 ```
 ### Constructor Summary
 | Constructor and Description |
