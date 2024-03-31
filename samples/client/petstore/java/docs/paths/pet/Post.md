@@ -27,23 +27,36 @@ a class that allows one to call the endpoint using a method named post
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.post.PetPostSecurityInfo;
 import org.openapijsonschematools.client.paths.pet.post.RequestBody;
-// ServerIndex.SERVER_0 Server
 import org.openapijsonschematools.client.servers.Server0;
-// ServerIndex.SERVER_1 Server
 import org.openapijsonschematools.client.servers.Server1;
-// ServerIndex.SERVER_2 Server
 import org.openapijsonschematools.client.servers.Server2;
-// SecurityIndex.SECURITY_INDEX_0 SecurityScheme
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
-// SecurityIndex.SECURITY_INDEX_1 SecurityScheme
 import org.openapijsonschematools.client.components.securityschemes.HttpSignatureTest;
-// SecurityIndex.SECURITY_INDEX_2 SecurityScheme
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.paths.pet.Post;
+import org.openapijsonschematools.client.paths.pet.Post
 
-
+// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
+    new Server0(),
+    null,
+    null
+);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+// todo define all securities that are possible and pass them in
+List<SecurityScheme> securitySchemes = new ArrayList();
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
+    .petPostSecurityInfoSecurityIndex(PetPostSecurityInfo.SecurityIndex.SECURITY_0);
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    securitySchemes,
+    securityIndexInfo,
+    timeout
+);
 ```
 ### Constructor Summary
 | Constructor and Description |

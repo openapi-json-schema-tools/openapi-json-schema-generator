@@ -24,17 +24,27 @@ a class that allows one to call the endpoint using a method named patch
 ```
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.RequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
-// ServerIndex.SERVER_0 Server
 import org.openapijsonschematools.client.servers.Server0;
-// ServerIndex.SERVER_1 Server
 import org.openapijsonschematools.client.servers.Server1;
-// ServerIndex.SERVER_2 Server
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.paths.fakejsonpatch.Patch;
+import org.openapijsonschematools.client.paths.fakejsonpatch.Patch
 
-
+// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
+    new Server0(),
+    null,
+    null
+);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    timeout
+);
 ```
 ### Constructor Summary
 | Constructor and Description |

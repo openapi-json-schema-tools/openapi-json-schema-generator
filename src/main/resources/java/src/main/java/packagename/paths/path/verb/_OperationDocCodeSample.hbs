@@ -26,7 +26,6 @@ import {{packageName}}.{{jsonPathPiece.pascalCase}};
                     {{#with property}}
                         {{! CodegenList of CodegenServer }}
                         {{#each this}}
-// ServerIndex.SERVER_{{@index}} Server
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
                         {{/each}}
                     {{/with}}
@@ -35,7 +34,6 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
                     {{#with property}}
                         {{! CodegenList of SecurityRequirementObject }}
                         {{#each this}}
-// SecurityIndex.SECURITY_INDEX_{{@index}} SecurityScheme
                             {{#each map}}
                                 {{#with refInfo.ref}}
                                     {{! SecurityScheme }}
@@ -50,8 +48,79 @@ import {{packageName}}.components.securityschemes.{{jsonPathPiece.pascalCase}};
     {{/each}}
 import {{packageName}}.configurations.ApiConfiguration;
 import {{packageName}}.configurations.SchemaConfiguration;
-import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}}
 
-
+// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "serverIndex"}}
+                    {{#with property}}
+                        {{! CodegenList of CodegenServer }}
+                        {{#each this}}
+                            {{#if @first}}
+    new {{jsonPathPiece.pascalCase}}(){{#unless @last}},{{/unless}}
+                            {{else}}
+    null{{#unless @last}},{{/unless}}
+                            {{/if}}
+                        {{/each}}
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "serverIndex"}}
+                    {{#with property}}
+                        {{! CodegenList of CodegenServer }}
+    .{{jsonPathPiece.camelCase}}ServerIndex({{jsonPathPiece.pascalCase}}.ServerIndex.SERVER_0);
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "securityIndex"}}
+                    {{#with property}}
+// todo define all securities that are possible and pass them in
+List<SecurityScheme> securitySchemes = new ArrayList();
+                        {{! CodegenList of SecurityRequirementObject }}
+                        {{#each this}}
+                            {{#each map}}
+                                {{#with refInfo.ref}}
+                                    {{! SecurityScheme }}
+                                {{/with}}
+                            {{/each}}
+                        {{/each}}
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
+    .{{jsonPathPiece.camelCase}}SecurityIndex({{jsonPathPiece.pascalCase}}.SecurityIndex.SECURITY_0);
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "securityIndex"}}
+    securitySchemes,
+    securityIndexInfo,
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+    timeout
+);
 {{/with}}
 ```

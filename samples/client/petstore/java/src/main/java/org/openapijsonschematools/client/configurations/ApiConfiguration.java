@@ -46,7 +46,7 @@ public class ApiConfiguration {
         timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, SecurityIndexInfo securityIndexInfo, List<SecurityScheme> securitySchemes, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, List<SecurityScheme> securitySchemes, SecurityIndexInfo securityIndexInfo, Duration timeout) {
         this.serverInfo = serverInfo;
         this.serverIndexInfo = serverIndexInfo;
         this.securityInfo = new SecurityInfo();

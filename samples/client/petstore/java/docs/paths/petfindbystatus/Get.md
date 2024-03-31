@@ -27,21 +27,34 @@ a class that allows one to call the endpoint using a method named get
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetSecurityInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.QueryParameters;
-// ServerIndex.SERVER_0 Server
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer0;
-// ServerIndex.SERVER_1 Server
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer1;
-// SecurityIndex.SECURITY_INDEX_0 SecurityScheme
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
-// SecurityIndex.SECURITY_INDEX_1 SecurityScheme
 import org.openapijsonschematools.client.components.securityschemes.HttpSignatureTest;
-// SecurityIndex.SECURITY_INDEX_2 SecurityScheme
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.paths.petfindbystatus.Get;
+import org.openapijsonschematools.client.paths.petfindbystatus.Get
 
-
+// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
+    new PetfindbystatusServer0(),
+    null
+);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
+    .petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex.SERVER_0);
+// todo define all securities that are possible and pass them in
+List<SecurityScheme> securitySchemes = new ArrayList();
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
+    .petfindbystatusGetSecurityInfoSecurityIndex(PetfindbystatusGetSecurityInfo.SecurityIndex.SECURITY_0);
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    securitySchemes,
+    securityIndexInfo,
+    timeout
+);
 ```
 ### Constructor Summary
 | Constructor and Description |

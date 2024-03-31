@@ -23,15 +23,25 @@ a class that allows one to call the endpoint using a method named get
 ### Code Sample
 ```
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
-// ServerIndex.SERVER_0 Server
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
-// ServerIndex.SERVER_1 Server
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.paths.foo.Get;
+import org.openapijsonschematools.client.paths.foo.Get
 
-
+// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
+    new FooGetServer0(),
+    null
+);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
+    .fooGetServerInfoServerIndex(FooGetServerInfo.ServerIndex.SERVER_0);
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    timeout
+);
 ```
 ### Constructor Summary
 | Constructor and Description |

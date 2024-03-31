@@ -55,7 +55,7 @@ public class ApiConfiguration {
         timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo{{#gt allSecurity.size 0}}, SecurityIndexInfo securityIndexInfo{{/gt}}{{#if securitySchemes}}, List<SecurityScheme> securitySchemes{{/if}}, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo{{#if securitySchemes}}, List<SecurityScheme> securitySchemes{{/if}}{{#gt allSecurity.size 0}}, SecurityIndexInfo securityIndexInfo{{/gt}}, Duration timeout) {
         this.serverInfo = serverInfo;
         this.serverIndexInfo = serverIndexInfo;
     {{#gt allSecurity.size 0}}
