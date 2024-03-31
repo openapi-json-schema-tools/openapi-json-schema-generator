@@ -62,7 +62,7 @@ Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 // RequestBody
 
 // Map validation
-HeaderParameters.HeaderParametersMap  =
+HeaderParameters.HeaderParametersMap headerParameters =
     HeaderParameters.HeaderParameters1.validate(
     new HeaderParameters.HeaderParametersMapBuilder()
         .enum_header_string("_abc")
@@ -77,7 +77,7 @@ HeaderParameters.HeaderParametersMap  =
 );
 
 // Map validation
-QueryParameters.QueryParametersMap  =
+QueryParameters.QueryParametersMap queryParameters =
     QueryParameters.QueryParameters1.validate(
     new QueryParameters.QueryParametersMapBuilder()
         .enum_query_double(3.14d)

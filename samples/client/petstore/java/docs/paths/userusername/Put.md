@@ -65,7 +65,7 @@ Put.Put1 apiClient = new Put.Put1(apiConfiguration, schemaConfiguration);
 // RequestBody
 
 // Map validation
-PathParameters.PathParametersMap  =
+PathParameters.PathParametersMap pathParameters =
     PathParameters.PathParameters1.validate(
     new PathParameters.PathParametersMapBuilder()
         .username("a")

@@ -74,7 +74,7 @@ Delete.Delete1 apiClient = new Delete.Delete1(apiConfiguration, schemaConfigurat
 
 
 // Map validation
-HeaderParameters.HeaderParametersMap  =
+HeaderParameters.HeaderParametersMap headerParameters =
     HeaderParameters.HeaderParameters1.validate(
     new HeaderParameters.HeaderParametersMapBuilder()
         .required_boolean_group("true")
@@ -86,7 +86,7 @@ HeaderParameters.HeaderParametersMap  =
 );
 
 // Map validation
-QueryParameters.QueryParametersMap  =
+QueryParameters.QueryParametersMap queryParameters =
     QueryParameters.QueryParameters1.validate(
     new QueryParameters.QueryParametersMapBuilder()
         .required_int64_group(1L)

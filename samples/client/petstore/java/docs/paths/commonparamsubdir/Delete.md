@@ -61,7 +61,7 @@ Delete.Delete1 apiClient = new Delete.Delete1(apiConfiguration, schemaConfigurat
 
 
 // Map validation
-PathParameters.PathParametersMap  =
+PathParameters.PathParametersMap pathParameters =
     PathParameters.PathParameters1.validate(
     new PathParameters.PathParametersMapBuilder()
         .subDir("c")

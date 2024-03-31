@@ -140,7 +140,7 @@ SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeyw
                     {{#if containerJsonPathPiece}}
                         {{#each (reverse getSchemas)}}
                             {{#eq instanceType "schema"}}
-{{> src/main/java/packagename/components/schemas/docschema_codeSample payloadVarName=@key.camelCase configVarName="schemaConfiguration" }}
+{{> src/main/java/packagename/components/schemas/docschema_codeSample payloadVarName=../@key.camelCase configVarName="schemaConfiguration" }}
                             {{/eq}}
                         {{/each}}
                     {{else}}

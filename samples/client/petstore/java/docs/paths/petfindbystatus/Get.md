@@ -71,7 +71,7 @@ Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-QueryParameters.QueryParametersMap  =
+QueryParameters.QueryParametersMap queryParameters =
     QueryParameters.QueryParameters1.validate(
     new QueryParameters.QueryParametersMapBuilder()
         .status(

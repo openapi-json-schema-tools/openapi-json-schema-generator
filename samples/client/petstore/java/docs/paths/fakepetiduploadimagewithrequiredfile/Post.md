@@ -69,7 +69,7 @@ Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PathParameters.PathParametersMap  =
+PathParameters.PathParametersMap pathParameters =
     PathParameters.PathParameters1.validate(
     new PathParameters.PathParametersMapBuilder()
         .petId(1L)

@@ -61,7 +61,7 @@ Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 // RequestBody
 
 // Map validation
-QueryParameters.QueryParametersMap  =
+QueryParameters.QueryParametersMap queryParameters =
     QueryParameters.QueryParameters1.validate(
     new QueryParameters.QueryParametersMapBuilder()
         .compositionInProperty(

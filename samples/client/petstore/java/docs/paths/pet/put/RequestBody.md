@@ -11,7 +11,7 @@ A class (extended from the $ref class) that contains necessary nested request bo
 | static class | [RequestBody.RequestBody1](#requestbody1)<br> class that serializes request bodies |
 
 ## RequestBody1
-public static class RequestBody1 extends [Pet](../../../components/requestbodies/Pet.md)<br>
+public static class RequestBody1 extends [Pet1](../../../components/requestbodies/Pet.md#pet1)<br>
 
 a class that serializes SealedRequestBody request bodies, extended from the $ref class
 

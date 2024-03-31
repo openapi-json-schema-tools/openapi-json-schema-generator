@@ -71,7 +71,7 @@ Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PathParameters.PathParametersMap  =
+PathParameters.PathParametersMap pathParameters =
     PathParameters.PathParameters1.validate(
     new PathParameters.PathParametersMapBuilder()
         .petId(1L)

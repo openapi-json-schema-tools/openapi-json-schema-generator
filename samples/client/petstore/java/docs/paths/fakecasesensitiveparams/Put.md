@@ -60,7 +60,7 @@ Put.Put1 apiClient = new Put.Put1(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-QueryParameters.QueryParametersMap  =
+QueryParameters.QueryParametersMap queryParameters =
     QueryParameters.QueryParameters1.validate(
     new QueryParameters.QueryParametersMapBuilder()
         .SomeVar("a")
