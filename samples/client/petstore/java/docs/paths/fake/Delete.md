@@ -24,8 +24,26 @@ public static class Delete1 extends ApiClient.ApiClient1 implements DeleteOperat
 
 a class that allows one to call the endpoint using a method named delete
 
-TODO code sample
+### Code Sample
+```
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
+import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
+import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
+// ServerIndex.SERVER_0 Server
+import org.openapijsonschematools.client.servers.Server0;
+// ServerIndex.SERVER_1 Server
+import org.openapijsonschematools.client.servers.Server1;
+// ServerIndex.SERVER_2 Server
+import org.openapijsonschematools.client.servers.Server2;
+// SecurityIndex.SECURITY_INDEX_0 SecurityScheme
+import org.openapijsonschematools.client.components.securityschemes.BearerTest;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.paths.fake.Delete;
 
+
+```
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |

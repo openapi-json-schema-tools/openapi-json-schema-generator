@@ -24,8 +24,23 @@ public static class Put1 extends ApiClient.ApiClient1 implements PutOperation<br
 
 a class that allows one to call the endpoint using a method named put
 
-TODO code sample
+### Code Sample
+```
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.RequestBody;
+import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.QueryParameters;
+// ServerIndex.SERVER_0 Server
+import org.openapijsonschematools.client.servers.Server0;
+// ServerIndex.SERVER_1 Server
+import org.openapijsonschematools.client.servers.Server1;
+// ServerIndex.SERVER_2 Server
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.paths.fakebodywithqueryparams.Put;
 
+
+```
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |

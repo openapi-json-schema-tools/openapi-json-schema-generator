@@ -22,8 +22,25 @@ public static class Get1 extends ApiClient.ApiClient1 implements GetOperation<br
 
 a class that allows one to call the endpoint using a method named get
 
-TODO code sample
+### Code Sample
+```
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetSecurityInfo;
+import org.openapijsonschematools.client.paths.petpetid.get.PathParameters;
+// ServerIndex.SERVER_0 Server
+import org.openapijsonschematools.client.servers.Server0;
+// ServerIndex.SERVER_1 Server
+import org.openapijsonschematools.client.servers.Server1;
+// ServerIndex.SERVER_2 Server
+import org.openapijsonschematools.client.servers.Server2;
+// SecurityIndex.SECURITY_INDEX_0 SecurityScheme
+import org.openapijsonschematools.client.components.securityschemes.ApiKey;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.paths.petpetid.Get;
 
+
+```
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |

@@ -20,8 +20,25 @@ public static class Post1 extends ApiClient.ApiClient1 implements PostOperation<
 
 a class that allows one to call the endpoint using a method named post
 
-TODO code sample
+### Code Sample
+```
+import org.openapijsonschematools.client.paths.fake.post.RequestBody;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fake.post.FakePostSecurityInfo;
+// ServerIndex.SERVER_0 Server
+import org.openapijsonschematools.client.servers.Server0;
+// ServerIndex.SERVER_1 Server
+import org.openapijsonschematools.client.servers.Server1;
+// ServerIndex.SERVER_2 Server
+import org.openapijsonschematools.client.servers.Server2;
+// SecurityIndex.SECURITY_INDEX_0 SecurityScheme
+import org.openapijsonschematools.client.components.securityschemes.HttpBasicTest;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.paths.fake.Post;
 
+
+```
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |

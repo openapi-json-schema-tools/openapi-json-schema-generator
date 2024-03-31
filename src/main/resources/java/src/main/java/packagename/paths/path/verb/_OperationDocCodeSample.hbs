@@ -1,0 +1,57 @@
+```
+{{#with operation}}
+    {{#each builders}}
+        {{#or @first @last}}
+            {{#each keyToBuilder}}
+                {{#with property}}
+                    {{#if containerJsonPathPiece}}
+import {{packageName}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+                    {{else}}
+                        {{#if this.jsonPathPiece}}
+                            {{#if subpackage}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+                            {{else}}
+import {{packageName}}.{{jsonPathPiece.pascalCase}};
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/with}}
+            {{/each}}
+        {{/or}}
+    {{/each}}
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "serverIndex"}}
+                    {{#with property}}
+                        {{! CodegenList of CodegenServer }}
+                        {{#each this}}
+// ServerIndex.SERVER_{{@index}} Server
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+                        {{/each}}
+                    {{/with}}
+                {{/eq}}
+                {{#eq @key.camelCase "securityIndex"}}
+                    {{#with property}}
+                        {{! CodegenList of SecurityRequirementObject }}
+                        {{#each this}}
+// SecurityIndex.SECURITY_INDEX_{{@index}} SecurityScheme
+                            {{#each map}}
+                                {{#with refInfo.ref}}
+                                    {{! SecurityScheme }}
+import {{packageName}}.components.securityschemes.{{jsonPathPiece.pascalCase}};
+                                {{/with}}
+                            {{/each}}
+                        {{/each}}
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+import {{packageName}}.configurations.ApiConfiguration;
+import {{packageName}}.configurations.SchemaConfiguration;
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+
+
+{{/with}}
+```
