@@ -56,16 +56,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration);
 
-// todo add this import
 
-// List validation
-JSONPatchRequest1BoxedList requestBodyPayload =
-    JSONPatchRequest.JSONPatchRequest1.validateAndBox(
-    new JSONPatchRequest.JSONPatchRequestListBuilder()
-    .build(),
-    schemaConfiguration
-);
-Patch.SealedRequestBody requestBody = new Patch.ApplicationjsonpatchjsonRequestBody(requestBodyPayload);
+var request = new PatchRequestBuilder().build();
+
+Responses.EndpointResponse response = apiClient.patch(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

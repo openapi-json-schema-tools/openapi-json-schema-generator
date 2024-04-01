@@ -56,14 +56,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo add this import
 
-// boolean validation
-BooleanSchema1BoxedBoolean requestBodyPayload = BooleanSchema.BooleanSchema1.validateAndBox(
-    true,
-    schemaConfiguration
-);
-Post.SealedRequestBody requestBody = new Post.ApplicationjsonRequestBody(requestBodyPayload);
+var request = new PostRequestBuilder().build();
+
+Responses.EndpointResponse response = apiClient.post(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

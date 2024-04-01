@@ -60,7 +60,6 @@ Put.Put1 apiClient = new Put.Put1(apiConfiguration, schemaConfiguration);
 
 // todo add this import
 
-// Map validation
 FileSchemaTestClass1BoxedMap requestBodyPayload =
     FileSchemaTestClass.FileSchemaTestClass1.validateAndBox(
     new FileSchemaTestClass.FileSchemaTestClassMapBuilder()
@@ -72,6 +71,12 @@ FileSchemaTestClass1BoxedMap requestBodyPayload =
     schemaConfiguration
 );
 Put.SealedRequestBody requestBody = new Put.ApplicationjsonRequestBody(requestBodyPayload);
+
+var request = new PutRequestBuilder()
+    .requestBody(requestBody)
+    .build();
+
+Responses.EndpointResponse response = apiClient.put(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

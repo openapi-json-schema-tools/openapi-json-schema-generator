@@ -56,18 +56,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo add this import
 
-// Map validation
-ApplicationjsonSchema1BoxedMap requestBodyPayload =
-    ApplicationjsonSchema.ApplicationjsonSchema1.validateAndBox(
-    new ApplicationjsonSchema.ApplicationjsonSchemaMapBuilder()
-        .a("a")
+var request = new PostRequestBuilder().build();
 
-    .build(),
-    schemaConfiguration
-);
-Post.SealedRequestBody requestBody = new Post.ApplicationjsonRequestBody(requestBodyPayload);
+Responses.EndpointResponse response = apiClient.post(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

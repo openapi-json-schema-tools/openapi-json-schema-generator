@@ -73,7 +73,6 @@ Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
 // todo add this import
 
-// Map validation
 Pet1BoxedMap requestBodyPayload =
     Pet.Pet1.validateAndBox(
     new Pet.PetMapBuilder()
@@ -114,6 +113,12 @@ Pet1BoxedMap requestBodyPayload =
     schemaConfiguration
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
+
+var request = new PostRequestBuilder()
+    .requestBody(requestBody)
+    .build();
+
+Responses.EndpointResponse response = apiClient.post(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

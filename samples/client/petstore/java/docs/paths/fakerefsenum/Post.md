@@ -56,20 +56,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo add this import
 
-// null validation
-StringEnum1BoxedVoid requestBodyPayload = StringEnum.StringEnum1.validateAndBox(
-    (Void) null,
-    schemaConfiguration
-);
+var request = new PostRequestBuilder().build();
 
-// String validation
-StringEnum1BoxedString requestBodyPayload = StringEnum.StringEnum1.validateAndBox(
-    "placed",
-    schemaConfiguration
-);
-Post.SealedRequestBody requestBody = new Post.ApplicationjsonRequestBody(requestBodyPayload);
+Responses.EndpointResponse response = apiClient.post(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

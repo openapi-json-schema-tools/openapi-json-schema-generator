@@ -68,6 +68,12 @@ PathParameters.PathParametersMap pathParameters =
     .build(),
     schemaConfiguration
 );
+
+var request = new GetRequestBuilder()
+    .pathParameters(pathParameters)
+    .build();
+
+Responses.EndpointResponse response = apiClient.get(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

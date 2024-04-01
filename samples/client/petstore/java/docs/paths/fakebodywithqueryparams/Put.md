@@ -63,7 +63,6 @@ Put.Put1 apiClient = new Put.Put1(apiConfiguration, schemaConfiguration);
 
 // todo add this import
 
-// Map validation
 User1BoxedMap requestBodyPayload =
     User.User1.validateAndBox(
     new User.UserMapBuilder()
@@ -99,6 +98,13 @@ QueryParameters.QueryParametersMap queryParameters =
     .build(),
     schemaConfiguration
 );
+
+var request = new PutRequestBuilder()
+    .requestBody(requestBody)
+    .queryParameters(queryParameters)
+    .build();
+
+Responses.EndpointResponse response = apiClient.put(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

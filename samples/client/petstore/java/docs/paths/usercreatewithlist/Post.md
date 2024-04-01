@@ -60,7 +60,6 @@ Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
 // todo add this import
 
-// List validation
 ApplicationjsonSchema1BoxedList requestBodyPayload =
     ApplicationjsonSchema.ApplicationjsonSchema1.validateAndBox(
     new ApplicationjsonSchema.ApplicationjsonSchemaListBuilder()
@@ -108,6 +107,12 @@ ApplicationjsonSchema1BoxedList requestBodyPayload =
     schemaConfiguration
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
+
+var request = new PostRequestBuilder()
+    .requestBody(requestBody)
+    .build();
+
+Responses.EndpointResponse response = apiClient.post(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

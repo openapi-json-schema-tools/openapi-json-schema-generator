@@ -55,6 +55,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
+
+var request = new GetRequestBuilder().build();
+
+Responses.EndpointResponse response = apiClient.get(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

@@ -93,6 +93,12 @@ QueryParameters.QueryParametersMap queryParameters =
     .build(),
     schemaConfiguration
 );
+
+var request = new PutRequestBuilder()
+    .queryParameters(queryParameters)
+    .build();
+
+Responses.EndpointResponse response = apiClient.put(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

@@ -71,7 +71,6 @@ Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration)
 
 // todo add this import
 
-// Map validation
 Client1BoxedMap requestBodyPayload =
     Client.Client1.validateAndBox(
     new Client.ClientMapBuilder1()
@@ -81,6 +80,12 @@ Client1BoxedMap requestBodyPayload =
     schemaConfiguration
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
+
+var request = new PatchRequestBuilder()
+    .requestBody(requestBody)
+    .build();
+
+Responses.EndpointResponse response = apiClient.patch(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

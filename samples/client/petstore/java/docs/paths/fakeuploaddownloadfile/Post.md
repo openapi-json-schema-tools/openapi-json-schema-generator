@@ -60,12 +60,17 @@ Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
 // todo add this import
 
-// String validation
 ApplicationoctetstreamSchema1BoxedString requestBodyPayload = ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1.validateAndBox(
     "a",
     schemaConfiguration
 );
 Post.SealedRequestBody requestBody = new Post.ApplicationoctetstreamRequestBody(requestBodyPayload);
+
+var request = new PostRequestBuilder()
+    .requestBody(requestBody)
+    .build();
+
+Responses.EndpointResponse response = apiClient.post(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

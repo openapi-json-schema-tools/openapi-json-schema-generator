@@ -133,6 +133,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 apiClient = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1(apiConfiguration, schemaConfiguration);
 
+    {{#gt builders.size 1}}
     {{#each builders}}
         {{#if @last}}
             {{#each keyToBuilder}}
@@ -163,5 +164,27 @@ SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeyw
             {{/each}}
         {{/if}}
     {{/each}}
+    {{/gt}}
+
+    {{#eq builders.size 1}}
+        {{! only option props}}
+        {{#each builders}}
+var request = new {{className.pascalCase}}().build();
+        {{/each}}
+    {{else}}
+        {{#each builders}}
+            {{#if @last}}
+var request = new {{className.pascalCase}}()
+                {{#each keyToBuilder}}
+    .{{@key.camelCase}}({{@key.camelCase}})
+                    {{#if @last}}
+    .build();
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/eq}}
+
+{{#if nonErrorResponses }}{{responses.jsonPathPiece.pascalCase}}.EndpointResponse{{else}}Void{{/if}} response = apiClient.{{jsonPathPiece.camelCase}}(request);
 {{/with}}
 ```

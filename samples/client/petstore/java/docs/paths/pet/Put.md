@@ -69,7 +69,6 @@ Put.Put1 apiClient = new Put.Put1(apiConfiguration, schemaConfiguration);
 
 // todo add this import
 
-// Map validation
 Pet1BoxedMap requestBodyPayload =
     Pet.Pet1.validateAndBox(
     new Pet.PetMapBuilder()
@@ -110,6 +109,12 @@ Pet1BoxedMap requestBodyPayload =
     schemaConfiguration
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
+
+var request = new PutRequestBuilder()
+    .requestBody(requestBody)
+    .build();
+
+Void response = apiClient.put(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

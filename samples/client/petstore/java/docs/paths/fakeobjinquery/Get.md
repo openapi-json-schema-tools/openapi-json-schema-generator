@@ -57,21 +57,9 @@ SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeyw
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
 
-// Map validation
-QueryParameters.QueryParametersMap queryParameters =
-    QueryParameters.QueryParameters1.validate(
-    new QueryParameters.QueryParametersMapBuilder()
-        .mapBean(
-            MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<String, String>(
-                    "keyword",
-                    "a"
-                )
-            )
-        )
-    .build(),
-    schemaConfiguration
-);
+var request = new GetRequestBuilder().build();
+
+Responses.EndpointResponse response = apiClient.get(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

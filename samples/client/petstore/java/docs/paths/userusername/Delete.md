@@ -68,6 +68,12 @@ PathParameters.PathParametersMap pathParameters =
     .build(),
     schemaConfiguration
 );
+
+var request = new DeleteRequestBuilder()
+    .pathParameters(pathParameters)
+    .build();
+
+Responses.EndpointResponse response = apiClient.delete(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

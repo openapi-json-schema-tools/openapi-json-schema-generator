@@ -58,57 +58,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
-// todo add this import
 
-// Map validation
-ApplicationxwwwformurlencodedSchema1BoxedMap requestBodyPayload =
-    ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1.validateAndBox(
-    new ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMapBuilder()
-        .enum_form_string_array(
-            Arrays.asList(
-                ">"
-            )
-        )
-        .enum_form_string("_abc")
+var request = new GetRequestBuilder().build();
 
-    .build(),
-    schemaConfiguration
-);
-Get.SealedRequestBody requestBody = new Get.ApplicationxwwwformurlencodedRequestBody(requestBodyPayload);
-
-// Map validation
-HeaderParameters.HeaderParametersMap headerParameters =
-    HeaderParameters.HeaderParameters1.validate(
-    new HeaderParameters.HeaderParametersMapBuilder()
-        .enum_header_string("_abc")
-
-        .enum_header_string_array(
-            Arrays.asList(
-                ">"
-            )
-        )
-    .build(),
-    schemaConfiguration
-);
-
-// Map validation
-QueryParameters.QueryParametersMap queryParameters =
-    QueryParameters.QueryParameters1.validate(
-    new QueryParameters.QueryParametersMapBuilder()
-        .enum_query_double(3.14d)
-
-        .enum_query_string("_abc")
-
-        .enum_query_integer(1)
-
-        .enum_query_string_array(
-            Arrays.asList(
-                ">"
-            )
-        )
-    .build(),
-    schemaConfiguration
-);
+Responses.EndpointResponse response = apiClient.get(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

@@ -56,21 +56,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo add this import
 
-// Map validation
-MultipartformdataSchema1BoxedMap requestBodyPayload =
-    MultipartformdataSchema.MultipartformdataSchema1.validateAndBox(
-    new MultipartformdataSchema.MultipartformdataSchemaMapBuilder()
-        .files(
-            Arrays.asList(
-                "a"
-            )
-        )
-    .build(),
-    schemaConfiguration
-);
-Post.SealedRequestBody requestBody = new Post.MultipartformdataRequestBody(requestBodyPayload);
+var request = new PostRequestBuilder().build();
+
+Responses.EndpointResponse response = apiClient.post(request);
 ```
 ### Constructor Summary
 | Constructor and Description |

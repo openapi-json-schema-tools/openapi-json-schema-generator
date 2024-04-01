@@ -81,6 +81,12 @@ PathParameters.PathParametersMap pathParameters =
     .build(),
     schemaConfiguration
 );
+
+var request = new PostRequestBuilder()
+    .pathParameters(pathParameters)
+    .build();
+
+Void response = apiClient.post(request);
 ```
 ### Constructor Summary
 | Constructor and Description |
