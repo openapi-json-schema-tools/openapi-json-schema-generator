@@ -61,8 +61,34 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Put.Put1 apiClient = new Put.Put1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
+// todo add this import
+
+// Map validation
+User1BoxedMap requestBodyPayload =
+    User.User1.validateAndBox(
+    new User.UserMapBuilder()
+        .id(1L)
+
+        .username("a")
+
+        .firstName("a")
+
+        .lastName("a")
+
+        .email("a")
+
+        .password("a")
+
+        .phone("a")
+
+        .userStatus(1)
+
+        .objectWithNoDeclaredPropsNullable(null)
+
+    .build(),
+    schemaConfiguration
+);
+Put.SealedRequestBody requestBody = new Put.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
 QueryParameters.QueryParametersMap queryParameters =

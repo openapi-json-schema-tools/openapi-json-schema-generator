@@ -72,10 +72,6 @@ QueryParameters.QueryParametersMap queryParameters =
     .build(),
     schemaConfiguration
 );
-// todo set sample for serverIndex
-// RootServerInfo
-// todo set sample for timeout
-// Get
 ```
 ### Constructor Summary
 | Constructor and Description |

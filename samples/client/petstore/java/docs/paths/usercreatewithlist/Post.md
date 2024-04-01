@@ -58,8 +58,56 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
+// todo add this import
+
+// List validation
+ApplicationjsonSchema1BoxedList requestBodyPayload =
+    ApplicationjsonSchema.ApplicationjsonSchema1.validateAndBox(
+    new ApplicationjsonSchema.ApplicationjsonSchemaListBuilder()
+        .add(
+            MapUtils.makeMap(
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "id",
+                    1L
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "username",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "firstName",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "lastName",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "email",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "password",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "phone",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "userStatus",
+                    1
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "objectWithNoDeclaredPropsNullable",
+                    null
+                )
+            )
+        )
+    .build(),
+    schemaConfiguration
+);
+RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |

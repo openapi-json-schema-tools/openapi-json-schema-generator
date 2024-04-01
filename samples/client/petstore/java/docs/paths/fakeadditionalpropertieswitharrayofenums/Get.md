@@ -56,12 +56,22 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
-// todo set sample for serverIndex
-// RootServerInfo
-// todo set sample for timeout
-// Get
+// todo add this import
+
+// Map validation
+AdditionalPropertiesWithArrayOfEnums1BoxedMap requestBodyPayload =
+    AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1.validateAndBox(
+    new AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMapBuilder()
+        .additionalProperty(
+            "someAdditionalProperty",
+            Arrays.asList(
+                "_abc"
+            )
+        )
+    .build(),
+    schemaConfiguration
+);
+Get.SealedRequestBody requestBody = new Get.ApplicationjsonRequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |

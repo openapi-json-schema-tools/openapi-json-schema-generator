@@ -56,12 +56,16 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
-// todo set sample for serverIndex
-// RootServerInfo
-// todo set sample for timeout
-// Patch
+// todo add this import
+
+// List validation
+JSONPatchRequest1BoxedList requestBodyPayload =
+    JSONPatchRequest.JSONPatchRequest1.validateAndBox(
+    new JSONPatchRequest.JSONPatchRequestListBuilder()
+    .build(),
+    schemaConfiguration
+);
+Patch.SealedRequestBody requestBody = new Patch.ApplicationjsonpatchjsonRequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |

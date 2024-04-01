@@ -58,8 +58,23 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
+// todo add this import
+
+// Map validation
+ApplicationxwwwformurlencodedSchema1BoxedMap requestBodyPayload =
+    ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1.validateAndBox(
+    new ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMapBuilder()
+        .enum_form_string_array(
+            Arrays.asList(
+                ">"
+            )
+        )
+        .enum_form_string("_abc")
+
+    .build(),
+    schemaConfiguration
+);
+Get.SealedRequestBody requestBody = new Get.ApplicationxwwwformurlencodedRequestBody(requestBodyPayload);
 
 // Map validation
 HeaderParameters.HeaderParametersMap headerParameters =
@@ -94,10 +109,6 @@ QueryParameters.QueryParametersMap queryParameters =
     .build(),
     schemaConfiguration
 );
-// todo set sample for serverIndex
-// RootServerInfo
-// todo set sample for timeout
-// Get
 ```
 ### Constructor Summary
 | Constructor and Description |

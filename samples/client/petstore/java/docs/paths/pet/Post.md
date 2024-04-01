@@ -71,8 +71,49 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
+// todo add this import
+
+// Map validation
+Pet1BoxedMap requestBodyPayload =
+    Pet.Pet1.validateAndBox(
+    new Pet.PetMapBuilder()
+        .name("a")
+
+        .photoUrls(
+            Arrays.asList(
+                "a"
+            )
+        )
+        .id(1L)
+
+        .category(
+            MapUtils.makeMap(
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "name",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "id",
+                    1L
+                )
+            )
+        )
+        .tags(
+            Arrays.asList(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, String>(
+                        "name",
+                        "a"
+                    )
+                )
+            )
+        )
+        .status("available")
+
+    .build(),
+    schemaConfiguration
+);
+RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |

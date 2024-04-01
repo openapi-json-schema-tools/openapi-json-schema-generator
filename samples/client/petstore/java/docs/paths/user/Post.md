@@ -58,8 +58,34 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
+// todo add this import
+
+// Map validation
+User1BoxedMap requestBodyPayload =
+    User.User1.validateAndBox(
+    new User.UserMapBuilder()
+        .id(1L)
+
+        .username("a")
+
+        .firstName("a")
+
+        .lastName("a")
+
+        .email("a")
+
+        .password("a")
+
+        .phone("a")
+
+        .userStatus(1)
+
+        .objectWithNoDeclaredPropsNullable(null)
+
+    .build(),
+    schemaConfiguration
+);
+Post.SealedRequestBody requestBody = new Post.ApplicationjsonRequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |

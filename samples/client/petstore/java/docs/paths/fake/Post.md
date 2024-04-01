@@ -67,14 +67,44 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
-// todo set sample for serverIndex
-// RootServerInfo
-// todo set sample for securityIndex
-// FakePostSecurityInfo
-// todo set sample for timeout
-// Post
+// todo add this import
+
+// Map validation
+ApplicationxwwwformurlencodedSchema1BoxedMap requestBodyPayload =
+    ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1.validateAndBox(
+    new ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchemaMapBuilder()
+        .setByte("a")
+
+        .setDouble(3.14d)
+
+        .setNumber(1)
+
+        .pattern_without_delimiter("AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>")
+
+        .setInteger(1)
+
+        .int32(1)
+
+        .int64(1L)
+
+        .setFloat(3.14f)
+
+        .setString("A")
+
+        .binary("a")
+
+        .date("2020-12-13")
+
+        .dateTime("1970-01-01T00:00:00.00Z")
+
+        .password("a")
+
+        .callback("a")
+
+    .build(),
+    schemaConfiguration
+);
+Post.SealedRequestBody requestBody = new Post.ApplicationxwwwformurlencodedRequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |

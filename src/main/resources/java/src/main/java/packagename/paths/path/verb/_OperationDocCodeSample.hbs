@@ -140,12 +140,24 @@ SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeyw
                     {{#if containerJsonPathPiece}}
                         {{#each (reverse getSchemas)}}
                             {{#eq instanceType "schema"}}
-{{> src/main/java/packagename/components/schemas/docschema_codeSample payloadVarName=../@key.camelCase configVarName="schemaConfiguration" }}
+{{> src/main/java/packagename/components/schemas/validateSchemaCodeSample payloadVarName=../@key.camelCase configVarName="schemaConfiguration" }}
                             {{/eq}}
                         {{/each}}
                     {{else}}
-// todo set sample for {{@key.camelCase}}
-// {{jsonPathPiece.pascalCase}}
+                        {{! CodegenRequestBody }}
+                        {{#with getSelfOrDeepestRef}}
+                            {{#each content}}
+                                {{#if @first}}
+                                    {{#with schema}}
+// todo add this import
+                                        {{#with getSelfOrDeepestRef}}
+{{> src/main/java/packagename/components/schemas/validateAndBoxSchemaCodeSample payloadVarName="requestBodyPayload" configVarName="schemaConfiguration" }}
+                                        {{/with}}
+                                    {{/with}}
+{{../../jsonPathPiece.pascalCase}}.{{../operationInputClassName.pascalCase}} {{../@key.camelCase}} = new {{../../jsonPathPiece.pascalCase}}.{{@key.pascalCase}}RequestBody(requestBodyPayload);
+                                {{/if}}
+                            {{/each}}
+                        {{/with}}
                     {{/if}}
                 {{/with}}
             {{/each}}

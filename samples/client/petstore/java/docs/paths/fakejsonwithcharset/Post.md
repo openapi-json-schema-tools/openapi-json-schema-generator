@@ -56,12 +56,8 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
-// todo set sample for serverIndex
-// RootServerInfo
-// todo set sample for timeout
-// Post
+// todo add this import
+Post.SealedRequestBody requestBody = new Post.Applicationjsoncharsetutf8RequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |

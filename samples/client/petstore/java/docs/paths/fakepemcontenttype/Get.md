@@ -56,12 +56,14 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
-// todo set sample for serverIndex
-// RootServerInfo
-// todo set sample for timeout
-// Get
+// todo add this import
+
+// String validation
+ApplicationxpemfileSchema1BoxedString requestBodyPayload = ApplicationxpemfileSchema.ApplicationxpemfileSchema1.validateAndBox(
+    "a",
+    schemaConfiguration
+);
+Get.SealedRequestBody requestBody = new Get.ApplicationxpemfileRequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |

@@ -58,8 +58,18 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
+// todo add this import
+
+// Map validation
+Client1BoxedMap requestBodyPayload =
+    Client.Client1.validateAndBox(
+    new Client.ClientMapBuilder1()
+        .client("a")
+
+    .build(),
+    schemaConfiguration
+);
+RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |

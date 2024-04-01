@@ -58,8 +58,28 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo set sample for requestBody
-// RequestBody
+// todo add this import
+
+// Map validation
+Order1BoxedMap requestBodyPayload =
+    Order.Order1.validateAndBox(
+    new Order.OrderMapBuilder()
+        .id(1L)
+
+        .petId(1L)
+
+        .quantity(1)
+
+        .shipDate("1970-01-01T00:00:00.00Z")
+
+        .status("placed")
+
+        .complete(true)
+
+    .build(),
+    schemaConfiguration
+);
+Post.SealedRequestBody requestBody = new Post.ApplicationjsonRequestBody(requestBodyPayload);
 ```
 ### Constructor Summary
 | Constructor and Description |
