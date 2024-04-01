@@ -403,7 +403,7 @@ public abstract class JsonSchema<T> {
         return argFixed;
     }
 
-    protected Map<?, ?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws throws InvalidTypeException {
+    protected Map<?, ?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws InvalidTypeException {
         pathSet.add(pathToItem);
         LinkedHashMap<String, @Nullable Object> argFixed = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
@@ -420,7 +420,7 @@ public abstract class JsonSchema<T> {
         return argFixed;
     }
 
-    private @Nullable Object castToAllowedObjectTypes(@Nullable Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws throws InvalidTypeException {
+    private @Nullable Object castToAllowedObjectTypes(@Nullable Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws InvalidTypeException {
         if (arg == null) {
             return castToAllowedTypes((Void) null, pathToItem, pathSet);
         } else if (arg instanceof String) {

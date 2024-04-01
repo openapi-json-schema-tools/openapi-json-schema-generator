@@ -9,7 +9,7 @@ public class MinItemsValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var minItems = data.schema().minItems;
         if (minItems == null) {
             return null;

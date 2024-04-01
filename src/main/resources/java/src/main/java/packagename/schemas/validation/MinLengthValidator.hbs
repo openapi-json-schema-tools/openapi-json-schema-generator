@@ -7,7 +7,7 @@ public class MinLengthValidator extends LengthValidator implements KeywordValida
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var minLength = data.schema().minLength;
         if (minLength == null) {
             return null;

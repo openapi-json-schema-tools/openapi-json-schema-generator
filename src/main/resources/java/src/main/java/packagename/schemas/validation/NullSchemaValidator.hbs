@@ -4,9 +4,6 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 
-import java.util.List;
-import java.util.Set;
-
 public interface NullSchemaValidator<T> {
     Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
     T validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;

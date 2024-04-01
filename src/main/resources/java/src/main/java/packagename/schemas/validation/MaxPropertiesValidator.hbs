@@ -9,7 +9,7 @@ public class MaxPropertiesValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var maxProperties = data.schema().maxProperties;
         if (maxProperties == null) {
             return null;

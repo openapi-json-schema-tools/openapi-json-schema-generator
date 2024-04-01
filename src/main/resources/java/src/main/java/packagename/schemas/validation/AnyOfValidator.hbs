@@ -10,7 +10,7 @@ public class AnyOfValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var anyOf = data.schema().anyOf;
         if (anyOf == null) {
             return null;

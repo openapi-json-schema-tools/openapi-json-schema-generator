@@ -8,7 +8,7 @@ public class ElseValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var elseSchema = data.schema().elseSchema;
         if (elseSchema == null) {
             return null;
