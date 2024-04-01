@@ -109,7 +109,7 @@ public class ApiConfiguration {
     }
     {{#each allServers}}
 
-    public Server getServer({{jsonPathPiece.pascalCase}}. @Nullable ServerIndex serverIndex) {
+    public Server getServer({{jsonPathPiece.pascalCase}}. @Nullable ServerIndex serverIndex) throws UnsetPropertyException {
         var serverProvider = serverInfo.{{jsonPathPiece.camelCase}};
         if (serverIndex == null) {
             {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex configServerIndex = serverIndexInfo.{{jsonPathPiece.camelCase}}ServerIndex;
@@ -166,7 +166,7 @@ public class ApiConfiguration {
     {{/gt}}
     {{#if securitySchemes}}
 
-    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) {
+    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) throws UnsetPropertyException {
         @Nullable SecurityScheme securityScheme = securitySchemeInfo.get(securitySchemeClass);
         if (securityScheme == null) {
             throw new UnsetPropertyException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");

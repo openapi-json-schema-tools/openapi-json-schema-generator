@@ -103,7 +103,7 @@ public class ApiConfiguration {
         }
     }
 
-    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) throws UnsetPropertyException {
         var serverProvider = serverInfo.rootServerInfo;
         if (serverIndex == null) {
             RootServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
@@ -115,7 +115,7 @@ public class ApiConfiguration {
         return serverProvider.getServer(serverIndex);
     }
 
-    public Server getServer(FooGetServerInfo. @Nullable ServerIndex serverIndex) {
+    public Server getServer(FooGetServerInfo. @Nullable ServerIndex serverIndex) throws UnsetPropertyException {
         var serverProvider = serverInfo.fooGetServerInfo;
         if (serverIndex == null) {
             FooGetServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.fooGetServerInfoServerIndex;
@@ -127,7 +127,7 @@ public class ApiConfiguration {
         return serverProvider.getServer(serverIndex);
     }
 
-    public Server getServer(PetfindbystatusServerInfo. @Nullable ServerIndex serverIndex) {
+    public Server getServer(PetfindbystatusServerInfo. @Nullable ServerIndex serverIndex) throws UnsetPropertyException {
         var serverProvider = serverInfo.petfindbystatusServerInfo;
         if (serverIndex == null) {
             PetfindbystatusServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.petfindbystatusServerInfoServerIndex;
@@ -417,7 +417,7 @@ public class ApiConfiguration {
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
 
-    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) {
+    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) throws UnsetPropertyException {
         @Nullable SecurityScheme securityScheme = securitySchemeInfo.get(securitySchemeClass);
         if (securityScheme == null) {
             throw new UnsetPropertyException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");
