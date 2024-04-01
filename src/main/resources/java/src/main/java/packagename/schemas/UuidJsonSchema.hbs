@@ -57,12 +57,12 @@ public class UuidJsonSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
 
-        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return validate(arg.toString(), configuration);
         }
 
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
