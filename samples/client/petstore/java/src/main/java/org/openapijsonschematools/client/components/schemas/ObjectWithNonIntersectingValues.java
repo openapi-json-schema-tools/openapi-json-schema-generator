@@ -60,7 +60,7 @@ public class ObjectWithNonIntersectingValues {
         public static final Set<String> optionalKeys = Set.of(
             "a"
         );
-        public static ObjectWithNonIntersectingValuesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ObjectWithNonIntersectingValuesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ObjectWithNonIntersectingValues1.getInstance().validate(arg, configuration);
         }
         
@@ -190,7 +190,7 @@ public class ObjectWithNonIntersectingValues {
             return instance;
         }
         
-        public ObjectWithNonIntersectingValuesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ObjectWithNonIntersectingValuesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

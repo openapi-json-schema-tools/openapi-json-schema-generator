@@ -38,7 +38,7 @@ public class ObjectModelWithRefProps {
             "myString",
             "myBoolean"
         );
-        public static ObjectModelWithRefPropsMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ObjectModelWithRefPropsMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ObjectModelWithRefProps1.getInstance().validate(arg, configuration);
         }
         
@@ -205,7 +205,7 @@ public class ObjectModelWithRefProps {
             return instance;
         }
         
-        public ObjectModelWithRefPropsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ObjectModelWithRefPropsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

@@ -74,12 +74,16 @@ public class NoAdditionalProperties {
         public static final Set<String> optionalKeys = Set.of(
             "petId"
         );
-        public static NoAdditionalPropertiesMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static NoAdditionalPropertiesMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return NoAdditionalProperties1.getInstance().validate(arg, configuration);
         }
         
         public Number id() {
-            return getOrThrow("id");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
         
         public Number petId() throws UnsetPropertyException {
@@ -224,7 +228,7 @@ public class NoAdditionalProperties {
             return instance;
         }
         
-        public NoAdditionalPropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public NoAdditionalPropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

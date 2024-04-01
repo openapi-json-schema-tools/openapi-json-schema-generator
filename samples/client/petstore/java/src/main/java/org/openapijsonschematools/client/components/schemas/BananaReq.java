@@ -75,7 +75,7 @@ public class BananaReq {
         public static final Set<String> optionalKeys = Set.of(
             "sweet"
         );
-        public static BananaReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static BananaReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return BananaReq1.getInstance().validate(arg, configuration);
         }
         
@@ -217,7 +217,7 @@ public class BananaReq {
             return instance;
         }
         
-        public BananaReqMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public BananaReqMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

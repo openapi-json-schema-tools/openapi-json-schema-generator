@@ -97,7 +97,7 @@ public class Schema4 {
         }
         
         @Override
-        public SchemaList4 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public SchemaList4 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<String> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -119,7 +119,7 @@ public class Schema4 {
             return new SchemaList4(newInstanceItems);
         }
         
-        public SchemaList4 validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public SchemaList4 validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

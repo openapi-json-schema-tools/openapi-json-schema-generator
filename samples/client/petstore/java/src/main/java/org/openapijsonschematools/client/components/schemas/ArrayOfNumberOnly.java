@@ -120,7 +120,7 @@ public class ArrayOfNumberOnly {
         }
         
         @Override
-        public ArrayNumberList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayNumberList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<Number> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -142,7 +142,7 @@ public class ArrayOfNumberOnly {
             return new ArrayNumberList(newInstanceItems);
         }
         
-        public ArrayNumberList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayNumberList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -187,7 +187,7 @@ public class ArrayOfNumberOnly {
         public static final Set<String> optionalKeys = Set.of(
             "ArrayNumber"
         );
-        public static ArrayOfNumberOnlyMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayOfNumberOnlyMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayOfNumberOnly1.getInstance().validate(arg, configuration);
         }
         
@@ -282,7 +282,7 @@ public class ArrayOfNumberOnly {
             return instance;
         }
         
-        public ArrayOfNumberOnlyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayOfNumberOnlyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

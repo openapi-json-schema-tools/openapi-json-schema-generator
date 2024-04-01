@@ -85,7 +85,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -96,7 +96,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(StringApplicationxwwwformurlencodedItemsEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringApplicationxwwwformurlencodedItemsEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -114,7 +114,7 @@ public class ApplicationxwwwformurlencodedSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() {
+        public String defaultValue() throws InvalidTypeException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }
@@ -201,7 +201,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public ApplicationxwwwformurlencodedEnumFormStringArrayList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ApplicationxwwwformurlencodedEnumFormStringArrayList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<String> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -223,7 +223,7 @@ public class ApplicationxwwwformurlencodedSchema {
             return new ApplicationxwwwformurlencodedEnumFormStringArrayList(newInstanceItems);
         }
         
-        public ApplicationxwwwformurlencodedEnumFormStringArrayList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ApplicationxwwwformurlencodedEnumFormStringArrayList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -312,7 +312,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -323,7 +323,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(StringApplicationxwwwformurlencodedEnumFormStringEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringApplicationxwwwformurlencodedEnumFormStringEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -341,7 +341,7 @@ public class ApplicationxwwwformurlencodedSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() {
+        public String defaultValue() throws InvalidTypeException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }
@@ -369,7 +369,7 @@ public class ApplicationxwwwformurlencodedSchema {
             "enum_form_string_array",
             "enum_form_string"
         );
-        public static ApplicationxwwwformurlencodedSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ApplicationxwwwformurlencodedSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ApplicationxwwwformurlencodedSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -490,7 +490,7 @@ public class ApplicationxwwwformurlencodedSchema {
             return instance;
         }
         
-        public ApplicationxwwwformurlencodedSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ApplicationxwwwformurlencodedSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

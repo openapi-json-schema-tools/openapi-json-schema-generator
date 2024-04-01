@@ -119,7 +119,7 @@ public class JSONPatchRequestAddReplaceTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -130,7 +130,7 @@ public class JSONPatchRequestAddReplaceTest {
         }
         
         @Override
-        public String validate(StringOpEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringOpEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -171,7 +171,7 @@ public class JSONPatchRequestAddReplaceTest {
             "value"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static JSONPatchRequestAddReplaceTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static JSONPatchRequestAddReplaceTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return JSONPatchRequestAddReplaceTest1.getInstance().validate(arg, configuration);
         }
         
@@ -192,7 +192,11 @@ public class JSONPatchRequestAddReplaceTest {
         }
         
         public @Nullable Object value() {
-            return getOrThrow("value");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
     
@@ -453,7 +457,7 @@ public class JSONPatchRequestAddReplaceTest {
             return instance;
         }
         
-        public JSONPatchRequestAddReplaceTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public JSONPatchRequestAddReplaceTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

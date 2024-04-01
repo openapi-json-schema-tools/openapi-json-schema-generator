@@ -74,7 +74,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -84,19 +84,19 @@ public class ApplicationxwwwformurlencodedSchema {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -165,7 +165,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -175,11 +175,11 @@ public class ApplicationxwwwformurlencodedSchema {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
@@ -258,7 +258,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -268,19 +268,19 @@ public class ApplicationxwwwformurlencodedSchema {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -348,7 +348,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -357,7 +357,7 @@ public class ApplicationxwwwformurlencodedSchema {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
         }
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
@@ -426,7 +426,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -435,7 +435,7 @@ public class ApplicationxwwwformurlencodedSchema {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
         }
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -502,7 +502,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -574,7 +574,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -679,7 +679,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -703,7 +703,7 @@ public class ApplicationxwwwformurlencodedSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() {
+        public String defaultValue() throws InvalidTypeException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }
@@ -757,7 +757,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -827,7 +827,7 @@ public class ApplicationxwwwformurlencodedSchema {
             "password",
             "callback"
         );
-        public static ApplicationxwwwformurlencodedSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ApplicationxwwwformurlencodedSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ApplicationxwwwformurlencodedSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -1528,7 +1528,7 @@ public class ApplicationxwwwformurlencodedSchema {
             return instance;
         }
         
-        public ApplicationxwwwformurlencodedSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ApplicationxwwwformurlencodedSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

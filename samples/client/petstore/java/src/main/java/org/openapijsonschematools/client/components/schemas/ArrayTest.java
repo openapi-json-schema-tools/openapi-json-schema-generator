@@ -106,7 +106,7 @@ public class ArrayTest {
         }
         
         @Override
-        public ArrayOfStringList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayOfStringList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<String> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -128,7 +128,7 @@ public class ArrayTest {
             return new ArrayOfStringList(newInstanceItems);
         }
         
-        public ArrayOfStringList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayOfStringList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -254,7 +254,7 @@ public class ArrayTest {
         }
         
         @Override
-        public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<Number> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -276,7 +276,7 @@ public class ArrayTest {
             return new ItemsList(newInstanceItems);
         }
         
-        public ItemsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ItemsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -376,7 +376,7 @@ public class ArrayTest {
         }
         
         @Override
-        public ArrayArrayOfIntegerList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayArrayOfIntegerList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<ItemsList> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -398,7 +398,7 @@ public class ArrayTest {
             return new ArrayArrayOfIntegerList(newInstanceItems);
         }
         
-        public ArrayArrayOfIntegerList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayArrayOfIntegerList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -498,7 +498,7 @@ public class ArrayTest {
         }
         
         @Override
-        public ItemsList1 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ItemsList1 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<ReadOnlyFirst.ReadOnlyFirstMap> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -520,7 +520,7 @@ public class ArrayTest {
             return new ItemsList1(newInstanceItems);
         }
         
-        public ItemsList1 validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ItemsList1 validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -620,7 +620,7 @@ public class ArrayTest {
         }
         
         @Override
-        public ArrayArrayOfModelList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayArrayOfModelList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<ItemsList1> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -642,7 +642,7 @@ public class ArrayTest {
             return new ArrayArrayOfModelList(newInstanceItems);
         }
         
-        public ArrayArrayOfModelList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayArrayOfModelList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -689,7 +689,7 @@ public class ArrayTest {
             "array_array_of_integer",
             "array_array_of_model"
         );
-        public static ArrayTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayTest1.getInstance().validate(arg, configuration);
         }
         
@@ -836,7 +836,7 @@ public class ArrayTest {
             return instance;
         }
         
-        public ArrayTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

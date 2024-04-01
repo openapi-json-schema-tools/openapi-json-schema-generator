@@ -67,7 +67,7 @@ public class NullableString {
         }
         
         @Override
-        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -78,7 +78,7 @@ public class NullableString {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);

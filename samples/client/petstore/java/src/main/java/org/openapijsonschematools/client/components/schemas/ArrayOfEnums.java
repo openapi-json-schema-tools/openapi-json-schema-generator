@@ -106,7 +106,7 @@ public class ArrayOfEnums {
         }
         
         @Override
-        public ArrayOfEnumsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayOfEnumsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<@Nullable String> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -128,7 +128,7 @@ public class ArrayOfEnums {
             return new ArrayOfEnumsList(newInstanceItems);
         }
         
-        public ArrayOfEnumsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayOfEnumsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

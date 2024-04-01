@@ -88,7 +88,7 @@ public class ApplicationxmlSchema {
         }
         
         @Override
-        public ApplicationxmlSchemaList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ApplicationxmlSchemaList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<Pet.PetMap> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -110,7 +110,7 @@ public class ApplicationxmlSchema {
             return new ApplicationxmlSchemaList(newInstanceItems);
         }
         
-        public ApplicationxmlSchemaList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ApplicationxmlSchemaList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

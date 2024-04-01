@@ -88,7 +88,7 @@ public class ApplicationjsonSchema {
         }
         
         @Override
-        public ApplicationjsonSchemaList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ApplicationjsonSchemaList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<User.UserMap> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -110,7 +110,7 @@ public class ApplicationjsonSchema {
             return new ApplicationjsonSchemaList(newInstanceItems);
         }
         
-        public ApplicationjsonSchemaList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ApplicationjsonSchemaList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

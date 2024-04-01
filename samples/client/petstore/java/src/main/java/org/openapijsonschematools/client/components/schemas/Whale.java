@@ -102,7 +102,7 @@ public class Whale {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -113,7 +113,7 @@ public class Whale {
         }
         
         @Override
-        public String validate(StringClassNameEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringClassNameEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -155,7 +155,7 @@ public class Whale {
             "hasBaleen",
             "hasTeeth"
         );
-        public static WhaleMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static WhaleMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Whale1.getInstance().validate(arg, configuration);
         }
         
@@ -319,7 +319,7 @@ public class Whale {
             return instance;
         }
         
-        public WhaleMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public WhaleMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

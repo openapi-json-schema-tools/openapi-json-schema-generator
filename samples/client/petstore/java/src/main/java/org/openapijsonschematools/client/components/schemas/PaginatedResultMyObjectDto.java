@@ -118,7 +118,7 @@ public class PaginatedResultMyObjectDto {
         }
         
         @Override
-        public ResultsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ResultsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<MyObjectDto.MyObjectDtoMap> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -140,7 +140,7 @@ public class PaginatedResultMyObjectDto {
             return new ResultsList(newInstanceItems);
         }
         
-        public ResultsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ResultsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -186,7 +186,7 @@ public class PaginatedResultMyObjectDto {
             "results"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PaginatedResultMyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PaginatedResultMyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return PaginatedResultMyObjectDto1.getInstance().validate(arg, configuration);
         }
         
@@ -350,7 +350,7 @@ public class PaginatedResultMyObjectDto {
             return instance;
         }
         
-        public PaginatedResultMyObjectDtoMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PaginatedResultMyObjectDtoMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

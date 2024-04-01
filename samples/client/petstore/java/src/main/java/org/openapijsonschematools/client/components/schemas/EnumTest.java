@@ -93,7 +93,7 @@ public class EnumTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -104,7 +104,7 @@ public class EnumTest {
         }
         
         @Override
-        public String validate(StringEnumStringEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringEnumStringEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -186,7 +186,7 @@ public class EnumTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -197,7 +197,7 @@ public class EnumTest {
         }
         
         @Override
-        public String validate(StringEnumStringRequiredEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringEnumStringRequiredEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -320,7 +320,7 @@ public class EnumTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -330,31 +330,31 @@ public class EnumTest {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
         @Override
-        public int validate(IntegerEnumIntegerEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public int validate(IntegerEnumIntegerEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return (int) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public long validate(LongEnumIntegerEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public long validate(LongEnumIntegerEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return (long) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public float validate(FloatEnumIntegerEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public float validate(FloatEnumIntegerEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return (float) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public double validate(DoubleEnumIntegerEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public double validate(DoubleEnumIntegerEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return (double) validate((Number) arg.value(), configuration);
         }
         
@@ -451,7 +451,7 @@ public class EnumTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -460,17 +460,17 @@ public class EnumTest {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
         }
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
         @Override
-        public float validate(FloatEnumNumberEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public float validate(FloatEnumNumberEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return (float) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public double validate(DoubleEnumNumberEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public double validate(DoubleEnumNumberEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return (double) validate((Number) arg.value(), configuration);
         }
         
@@ -518,7 +518,7 @@ public class EnumTest {
             "IntegerEnumWithDefaultValue",
             "IntegerEnumOneValue"
         );
-        public static EnumTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static EnumTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return EnumTest1.getInstance().validate(arg, configuration);
         }
         
@@ -1054,7 +1054,7 @@ public class EnumTest {
             return instance;
         }
         
-        public EnumTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public EnumTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

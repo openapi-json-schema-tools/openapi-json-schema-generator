@@ -59,7 +59,7 @@ public class Bar {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -83,7 +83,7 @@ public class Bar {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() {
+        public String defaultValue() throws InvalidTypeException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }

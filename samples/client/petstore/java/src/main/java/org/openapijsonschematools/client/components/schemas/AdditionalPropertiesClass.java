@@ -50,7 +50,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapPropertyMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static MapPropertyMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return MapProperty.getInstance().validate(arg, configuration);
         }
         
@@ -122,7 +122,7 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        public MapPropertyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapPropertyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -204,7 +204,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return AdditionalProperties1.getInstance().validate(arg, configuration);
         }
         
@@ -276,7 +276,7 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        public AdditionalPropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AdditionalPropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -347,7 +347,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapOfMapPropertyMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static MapOfMapPropertyMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return MapOfMapProperty.getInstance().validate(arg, configuration);
         }
         
@@ -419,7 +419,7 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        public MapOfMapPropertyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapOfMapPropertyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, AdditionalPropertiesMap> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -534,7 +534,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapWithUndeclaredPropertiesAnytype3Map of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static MapWithUndeclaredPropertiesAnytype3Map of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return MapWithUndeclaredPropertiesAnytype3.getInstance().validate(arg, configuration);
         }
         
@@ -662,7 +662,7 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        public MapWithUndeclaredPropertiesAnytype3Map getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapWithUndeclaredPropertiesAnytype3Map getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -743,7 +743,7 @@ public class AdditionalPropertiesClass {
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         // map with no key value pairs
-        public static EmptyMapMap of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static EmptyMapMap of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return EmptyMap.getInstance().validate(arg, configuration);
         }
     }
@@ -792,7 +792,7 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        public EmptyMapMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public EmptyMapMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -871,7 +871,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapWithUndeclaredPropertiesStringMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static MapWithUndeclaredPropertiesStringMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return MapWithUndeclaredPropertiesString.getInstance().validate(arg, configuration);
         }
         
@@ -943,7 +943,7 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        public MapWithUndeclaredPropertiesStringMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapWithUndeclaredPropertiesStringMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -1023,7 +1023,7 @@ public class AdditionalPropertiesClass {
             "empty_map",
             "map_with_undeclared_properties_string"
         );
-        public static AdditionalPropertiesClassMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AdditionalPropertiesClassMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return AdditionalPropertiesClass1.getInstance().validate(arg, configuration);
         }
         
@@ -1342,7 +1342,7 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        public AdditionalPropertiesClassMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AdditionalPropertiesClassMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

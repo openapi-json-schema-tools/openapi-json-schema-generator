@@ -98,7 +98,7 @@ public class Variables {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -109,7 +109,7 @@ public class Variables {
         }
         
         @Override
-        public String validate(StringServerEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringServerEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -127,7 +127,7 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() {
+        public String defaultValue() throws InvalidTypeException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }
@@ -196,7 +196,7 @@ public class Variables {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -207,7 +207,7 @@ public class Variables {
         }
         
         @Override
-        public String validate(StringPortEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringPortEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -225,7 +225,7 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() {
+        public String defaultValue() throws InvalidTypeException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }
@@ -253,7 +253,7 @@ public class Variables {
             "server"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static VariablesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static VariablesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Variables1.getInstance().validate(arg, configuration);
         }
         
@@ -405,7 +405,7 @@ public class Variables {
             return instance;
         }
         
-        public VariablesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public VariablesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

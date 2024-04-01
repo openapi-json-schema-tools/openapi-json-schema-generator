@@ -97,7 +97,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
         
         @Override
-        public AdditionalPropertiesList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AdditionalPropertiesList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<String> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -119,7 +119,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return new AdditionalPropertiesList(newInstanceItems);
         }
         
-        public AdditionalPropertiesList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public AdditionalPropertiesList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -162,7 +162,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return AdditionalPropertiesWithArrayOfEnums1.getInstance().validate(arg, configuration);
         }
         
@@ -244,7 +244,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return instance;
         }
         
-        public AdditionalPropertiesWithArrayOfEnumsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AdditionalPropertiesWithArrayOfEnumsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, AdditionalPropertiesList> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

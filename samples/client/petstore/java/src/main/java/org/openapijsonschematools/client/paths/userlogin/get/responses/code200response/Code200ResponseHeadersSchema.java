@@ -59,7 +59,7 @@ public class Code200ResponseHeadersSchema {
             "X-Expires-After",
             "numberHeader"
         );
-        public static Code200ResponseHeadersSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Code200ResponseHeadersSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Code200ResponseHeadersSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -326,7 +326,7 @@ public class Code200ResponseHeadersSchema {
             return instance;
         }
         
-        public Code200ResponseHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public Code200ResponseHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

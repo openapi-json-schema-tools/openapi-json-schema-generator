@@ -57,7 +57,7 @@ public class ReturnSchema {
         public static final Set<String> optionalKeys = Set.of(
             "return"
         );
-        public static ReturnMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ReturnMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ReturnSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -220,19 +220,19 @@ public class ReturnSchema {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -248,20 +248,20 @@ public class ReturnSchema {
             return castArg;
         }
         
-        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return validate(arg.toString(), configuration);
         }
         
-        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return validate(arg.toString(), configuration);
         }
         
-        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return validate(arg.toString(), configuration);
         }
         
         @Override
-        public FrozenList<@Nullable Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public FrozenList<@Nullable Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<@Nullable Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -280,7 +280,7 @@ public class ReturnSchema {
             return newInstanceItems;
         }
         
-        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -291,7 +291,7 @@ public class ReturnSchema {
         }
         
         @Override
-        public ReturnMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ReturnMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

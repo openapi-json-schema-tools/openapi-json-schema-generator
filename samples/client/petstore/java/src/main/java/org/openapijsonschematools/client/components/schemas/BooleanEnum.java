@@ -73,7 +73,7 @@ public class BooleanEnum {
         }
         
         @Override
-        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -84,7 +84,7 @@ public class BooleanEnum {
         }
         
         @Override
-        public boolean validate(BooleanBooleanEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public boolean validate(BooleanBooleanEnumEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         

@@ -75,7 +75,7 @@ public class AppleReq {
         public static final Set<String> optionalKeys = Set.of(
             "mealy"
         );
-        public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return AppleReq1.getInstance().validate(arg, configuration);
         }
         
@@ -199,7 +199,7 @@ public class AppleReq {
             return instance;
         }
         
-        public AppleReqMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AppleReqMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

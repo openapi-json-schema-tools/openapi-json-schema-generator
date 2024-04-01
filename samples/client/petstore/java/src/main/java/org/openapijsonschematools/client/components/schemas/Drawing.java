@@ -133,7 +133,7 @@ public class Drawing {
         }
         
         @Override
-        public ShapesList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ShapesList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<@Nullable Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -155,7 +155,7 @@ public class Drawing {
             return new ShapesList(newInstanceItems);
         }
         
-        public ShapesList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ShapesList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -203,7 +203,7 @@ public class Drawing {
             "nullableShape",
             "shapes"
         );
-        public static DrawingMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static DrawingMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Drawing1.getInstance().validate(arg, configuration);
         }
         
@@ -593,7 +593,7 @@ public class Drawing {
             return instance;
         }
         
-        public DrawingMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public DrawingMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

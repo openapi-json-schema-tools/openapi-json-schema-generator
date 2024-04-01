@@ -48,7 +48,7 @@ public class PublicKey {
         public static final Set<String> optionalKeys = Set.of(
             "key"
         );
-        public static PublicKeyMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PublicKeyMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return PublicKey1.getInstance().validate(arg, configuration);
         }
         
@@ -145,7 +145,7 @@ public class PublicKey {
             return instance;
         }
         
-        public PublicKeyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PublicKeyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

@@ -50,7 +50,7 @@ public class HeaderParameters {
         public static final Set<String> optionalKeys = Set.of(
             "someHeader"
         );
-        public static HeaderParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static HeaderParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return HeaderParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -125,7 +125,7 @@ public class HeaderParameters {
             return instance;
         }
         
-        public HeaderParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public HeaderParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

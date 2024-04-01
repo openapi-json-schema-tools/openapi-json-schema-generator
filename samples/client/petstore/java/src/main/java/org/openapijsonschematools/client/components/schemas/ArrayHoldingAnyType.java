@@ -144,7 +144,7 @@ public class ArrayHoldingAnyType {
         }
         
         @Override
-        public ArrayHoldingAnyTypeList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayHoldingAnyTypeList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<@Nullable Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -163,7 +163,7 @@ public class ArrayHoldingAnyType {
             return new ArrayHoldingAnyTypeList(newInstanceItems);
         }
         
-        public ArrayHoldingAnyTypeList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayHoldingAnyTypeList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

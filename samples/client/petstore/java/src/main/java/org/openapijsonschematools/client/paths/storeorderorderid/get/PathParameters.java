@@ -50,12 +50,16 @@ public class PathParameters {
             "order_id"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PathParametersMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PathParametersMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return PathParameters1.getInstance().validate(arg, configuration);
         }
         
         public Number order_id() {
-            return getOrThrow("order_id");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
     
@@ -153,7 +157,7 @@ public class PathParameters {
             return instance;
         }
         
-        public PathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

@@ -88,7 +88,7 @@ public class QuadrilateralInterface {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -99,7 +99,7 @@ public class QuadrilateralInterface {
         }
         
         @Override
-        public String validate(StringShapeTypeEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringShapeTypeEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -150,7 +150,7 @@ public class QuadrilateralInterface {
             "shapeType"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static QuadrilateralInterfaceMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QuadrilateralInterfaceMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return QuadrilateralInterface1.getInstance().validate(arg, configuration);
         }
         
@@ -383,19 +383,19 @@ public class QuadrilateralInterface {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -411,20 +411,20 @@ public class QuadrilateralInterface {
             return castArg;
         }
         
-        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return validate(arg.toString(), configuration);
         }
         
-        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return validate(arg.toString(), configuration);
         }
         
-        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return validate(arg.toString(), configuration);
         }
         
         @Override
-        public FrozenList<@Nullable Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public FrozenList<@Nullable Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<@Nullable Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -443,7 +443,7 @@ public class QuadrilateralInterface {
             return newInstanceItems;
         }
         
-        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -454,7 +454,7 @@ public class QuadrilateralInterface {
         }
         
         @Override
-        public QuadrilateralInterfaceMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QuadrilateralInterfaceMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

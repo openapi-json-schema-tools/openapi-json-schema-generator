@@ -48,12 +48,16 @@ public class ReqPropsFromExplicitAddProps {
             "validName"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static ReqPropsFromExplicitAddPropsMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ReqPropsFromExplicitAddPropsMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ReqPropsFromExplicitAddProps1.getInstance().validate(arg, configuration);
         }
         
         public String validName() {
-            return getOrThrow("validName");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
         
         public String getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -202,7 +206,7 @@ public class ReqPropsFromExplicitAddProps {
             return instance;
         }
         
-        public ReqPropsFromExplicitAddPropsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ReqPropsFromExplicitAddPropsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

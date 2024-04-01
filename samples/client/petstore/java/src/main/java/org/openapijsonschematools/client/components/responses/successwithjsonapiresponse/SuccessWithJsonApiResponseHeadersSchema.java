@@ -58,7 +58,7 @@ public class SuccessWithJsonApiResponseHeadersSchema {
         public static final Set<String> optionalKeys = Set.of(
             "numberHeader"
         );
-        public static SuccessWithJsonApiResponseHeadersSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SuccessWithJsonApiResponseHeadersSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return SuccessWithJsonApiResponseHeadersSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -465,7 +465,7 @@ public class SuccessWithJsonApiResponseHeadersSchema {
             return instance;
         }
         
-        public SuccessWithJsonApiResponseHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public SuccessWithJsonApiResponseHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

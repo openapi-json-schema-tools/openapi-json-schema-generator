@@ -70,7 +70,7 @@ public class ComposedNone {
         }
         
         @Override
-        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);

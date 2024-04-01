@@ -62,7 +62,7 @@ public class NumberWithExclusiveMinMax {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -72,19 +72,19 @@ public class NumberWithExclusiveMinMax {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         

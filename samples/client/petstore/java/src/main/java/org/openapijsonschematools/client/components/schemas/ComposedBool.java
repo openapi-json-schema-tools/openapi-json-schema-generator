@@ -70,7 +70,7 @@ public class ComposedBool {
         }
         
         @Override
-        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);

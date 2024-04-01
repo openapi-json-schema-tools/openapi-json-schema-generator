@@ -45,7 +45,7 @@ public class ApplicationjsonSchema {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static ApplicationjsonSchemaMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ApplicationjsonSchemaMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ApplicationjsonSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -124,7 +124,7 @@ public class ApplicationjsonSchema {
             return instance;
         }
         
-        public ApplicationjsonSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ApplicationjsonSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

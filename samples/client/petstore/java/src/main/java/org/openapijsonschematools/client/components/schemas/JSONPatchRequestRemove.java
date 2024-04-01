@@ -104,7 +104,7 @@ public class JSONPatchRequestRemove {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -115,7 +115,7 @@ public class JSONPatchRequestRemove {
         }
         
         @Override
-        public String validate(StringOpEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringOpEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -155,7 +155,7 @@ public class JSONPatchRequestRemove {
             "path"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static JSONPatchRequestRemoveMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static JSONPatchRequestRemoveMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return JSONPatchRequestRemove1.getInstance().validate(arg, configuration);
         }
         
@@ -168,7 +168,11 @@ public class JSONPatchRequestRemove {
         }
         
         public String path() {
-            return getOrThrow("path");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
     
@@ -303,7 +307,7 @@ public class JSONPatchRequestRemove {
             return instance;
         }
         
-        public JSONPatchRequestRemoveMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public JSONPatchRequestRemoveMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

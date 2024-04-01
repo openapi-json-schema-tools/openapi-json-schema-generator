@@ -120,7 +120,7 @@ public class ArrayOfArrayOfNumberOnly {
         }
         
         @Override
-        public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<Number> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -142,7 +142,7 @@ public class ArrayOfArrayOfNumberOnly {
             return new ItemsList(newInstanceItems);
         }
         
-        public ItemsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ItemsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -242,7 +242,7 @@ public class ArrayOfArrayOfNumberOnly {
         }
         
         @Override
-        public ArrayArrayNumberList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayArrayNumberList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<ItemsList> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -264,7 +264,7 @@ public class ArrayOfArrayOfNumberOnly {
             return new ArrayArrayNumberList(newInstanceItems);
         }
         
-        public ArrayArrayNumberList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayArrayNumberList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -309,7 +309,7 @@ public class ArrayOfArrayOfNumberOnly {
         public static final Set<String> optionalKeys = Set.of(
             "ArrayArrayNumber"
         );
-        public static ArrayOfArrayOfNumberOnlyMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayOfArrayOfNumberOnlyMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayOfArrayOfNumberOnly1.getInstance().validate(arg, configuration);
         }
         
@@ -404,7 +404,7 @@ public class ArrayOfArrayOfNumberOnly {
             return instance;
         }
         
-        public ArrayOfArrayOfNumberOnlyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayOfArrayOfNumberOnlyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

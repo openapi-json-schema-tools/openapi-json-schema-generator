@@ -50,7 +50,7 @@ public class ObjectWithDecimalProperties {
             "width",
             "cost"
         );
-        public static ObjectWithDecimalPropertiesMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ObjectWithDecimalPropertiesMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ObjectWithDecimalProperties1.getInstance().validate(arg, configuration);
         }
         
@@ -197,7 +197,7 @@ public class ObjectWithDecimalProperties {
             return instance;
         }
         
-        public ObjectWithDecimalPropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ObjectWithDecimalPropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

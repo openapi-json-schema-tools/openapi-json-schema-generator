@@ -83,7 +83,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -93,19 +93,19 @@ public class FormatTest {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -185,7 +185,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -195,11 +195,11 @@ public class FormatTest {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
@@ -279,7 +279,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -289,19 +289,19 @@ public class FormatTest {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -370,7 +370,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -379,7 +379,7 @@ public class FormatTest {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
         }
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (float) validate((Number) arg, configuration);
         }
         
@@ -459,7 +459,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -468,7 +468,7 @@ public class FormatTest {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
         }
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -600,7 +600,7 @@ public class FormatTest {
         }
         
         @Override
-        public ArrayWithUniqueItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayWithUniqueItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<Number> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -622,7 +622,7 @@ public class FormatTest {
             return new ArrayWithUniqueItemsList(newInstanceItems);
         }
         
-        public ArrayWithUniqueItemsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayWithUniqueItemsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -695,7 +695,7 @@ public class FormatTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -834,7 +834,7 @@ public class FormatTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -906,7 +906,7 @@ public class FormatTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -979,7 +979,7 @@ public class FormatTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -1056,7 +1056,7 @@ public class FormatTest {
             "pattern_with_digits_and_delimiter",
             "noneProp"
         );
-        public static FormatTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FormatTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return FormatTest1.getInstance().validate(arg, configuration);
         }
         
@@ -1975,7 +1975,7 @@ public class FormatTest {
             return instance;
         }
         
-        public FormatTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public FormatTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

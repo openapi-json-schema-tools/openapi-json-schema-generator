@@ -91,7 +91,7 @@ public class Schema5 {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -100,17 +100,17 @@ public class Schema5 {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
         }
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return (double) validate((Number) arg, configuration);
         }
         
         @Override
-        public float validate(FloatSchemaEnums5 arg,SchemaConfiguration configuration) throws ValidationException {
+        public float validate(FloatSchemaEnums5 arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return (float) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public double validate(DoubleSchemaEnums5 arg,SchemaConfiguration configuration) throws ValidationException {
+        public double validate(DoubleSchemaEnums5 arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return (double) validate((Number) arg.value(), configuration);
         }
         

@@ -50,12 +50,16 @@ public class AbstractStepMessage {
             "sequenceNumber"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static AbstractStepMessageMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AbstractStepMessageMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return AbstractStepMessage1.getInstance().validate(arg, configuration);
         }
         
         public @Nullable Object description() {
-            return getOrThrow("description");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
         
         public String discriminator() {
@@ -67,7 +71,11 @@ public class AbstractStepMessage {
         }
         
         public @Nullable Object sequenceNumber() {
-            return getOrThrow("sequenceNumber");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -384,7 +392,7 @@ public class AbstractStepMessage {
             return instance;
         }
         
-        public AbstractStepMessageMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AbstractStepMessageMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

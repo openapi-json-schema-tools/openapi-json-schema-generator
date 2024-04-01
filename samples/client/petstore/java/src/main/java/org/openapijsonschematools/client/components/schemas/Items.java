@@ -107,7 +107,7 @@ public class Items {
         }
         
         @Override
-        public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<FrozenMap<?>> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -129,7 +129,7 @@ public class Items {
             return new ItemsList(newInstanceItems);
         }
         
-        public ItemsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ItemsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

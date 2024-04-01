@@ -48,12 +48,16 @@ public class ReqPropsFromTrueAddProps {
             "validName"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static ReqPropsFromTrueAddPropsMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ReqPropsFromTrueAddPropsMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ReqPropsFromTrueAddProps1.getInstance().validate(arg, configuration);
         }
         
         public @Nullable Object validName() {
-            return getOrThrow("validName");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -354,7 +358,7 @@ public class ReqPropsFromTrueAddProps {
             return instance;
         }
         
-        public ReqPropsFromTrueAddPropsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ReqPropsFromTrueAddPropsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

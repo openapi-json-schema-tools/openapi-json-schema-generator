@@ -108,7 +108,7 @@ public class Capitalization {
             "SCA_ETH_Flow_Points",
             "ATT_NAME"
         );
-        public static CapitalizationMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static CapitalizationMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Capitalization1.getInstance().validate(arg, configuration);
         }
         
@@ -333,7 +333,7 @@ public class Capitalization {
             return instance;
         }
         
-        public CapitalizationMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public CapitalizationMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

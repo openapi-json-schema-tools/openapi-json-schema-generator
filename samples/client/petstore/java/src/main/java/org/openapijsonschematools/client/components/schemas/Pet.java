@@ -132,7 +132,7 @@ public class Pet {
         }
         
         @Override
-        public PhotoUrlsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PhotoUrlsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<String> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -154,7 +154,7 @@ public class Pet {
             return new PhotoUrlsList(newInstanceItems);
         }
         
-        public PhotoUrlsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public PhotoUrlsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -242,7 +242,7 @@ public class Pet {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -253,7 +253,7 @@ public class Pet {
         }
         
         @Override
-        public String validate(StringStatusEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringStatusEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -347,7 +347,7 @@ public class Pet {
         }
         
         @Override
-        public TagsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public TagsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<Tag.TagMap> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -369,7 +369,7 @@ public class Pet {
             return new TagsList(newInstanceItems);
         }
         
-        public TagsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public TagsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -420,7 +420,7 @@ public class Pet {
             "tags",
             "status"
         );
-        public static PetMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PetMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Pet1.getInstance().validate(arg, configuration);
         }
         
@@ -707,7 +707,7 @@ public class Pet {
             return instance;
         }
         
-        public PetMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PetMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

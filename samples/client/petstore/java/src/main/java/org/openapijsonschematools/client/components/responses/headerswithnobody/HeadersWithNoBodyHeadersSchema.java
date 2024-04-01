@@ -50,7 +50,7 @@ public class HeadersWithNoBodyHeadersSchema {
         public static final Set<String> optionalKeys = Set.of(
             "location"
         );
-        public static HeadersWithNoBodyHeadersSchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static HeadersWithNoBodyHeadersSchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return HeadersWithNoBodyHeadersSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -125,7 +125,7 @@ public class HeadersWithNoBodyHeadersSchema {
             return instance;
         }
         
-        public HeadersWithNoBodyHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public HeadersWithNoBodyHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

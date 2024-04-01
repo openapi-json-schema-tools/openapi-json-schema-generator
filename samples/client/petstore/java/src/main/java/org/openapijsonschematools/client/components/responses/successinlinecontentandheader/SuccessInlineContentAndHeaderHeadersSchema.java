@@ -50,7 +50,7 @@ public class SuccessInlineContentAndHeaderHeadersSchema {
         public static final Set<String> optionalKeys = Set.of(
             "someHeader"
         );
-        public static SuccessInlineContentAndHeaderHeadersSchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SuccessInlineContentAndHeaderHeadersSchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return SuccessInlineContentAndHeaderHeadersSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -125,7 +125,7 @@ public class SuccessInlineContentAndHeaderHeadersSchema {
             return instance;
         }
         
-        public SuccessInlineContentAndHeaderHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public SuccessInlineContentAndHeaderHeadersSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

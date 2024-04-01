@@ -75,7 +75,7 @@ public class Category {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -99,7 +99,7 @@ public class Category {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() {
+        public String defaultValue() throws InvalidTypeException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }
@@ -128,7 +128,7 @@ public class Category {
         public static final Set<String> optionalKeys = Set.of(
             "id"
         );
-        public static CategoryMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static CategoryMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Category1.getInstance().validate(arg, configuration);
         }
         
@@ -278,7 +278,7 @@ public class Category {
             return instance;
         }
         
-        public CategoryMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public CategoryMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

@@ -61,7 +61,7 @@ public class MyObjectDto {
         public static final Set<String> optionalKeys = Set.of(
             "id"
         );
-        public static MyObjectDtoMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static MyObjectDtoMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return MyObjectDto1.getInstance().validate(arg, configuration);
         }
         
@@ -142,7 +142,7 @@ public class MyObjectDto {
             return instance;
         }
         
-        public MyObjectDtoMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MyObjectDtoMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

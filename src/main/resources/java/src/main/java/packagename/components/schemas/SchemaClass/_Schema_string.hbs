@@ -77,7 +77,7 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema<{{jsonPathPi
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_getNewInstanceObject_implementor }}
 {{#if defaultValue}}
-    public String defaultValue() {
+    public String defaultValue() throws InvalidTypeException {
         if (defaultValue instanceof String) {
             return (String) defaultValue;
         }

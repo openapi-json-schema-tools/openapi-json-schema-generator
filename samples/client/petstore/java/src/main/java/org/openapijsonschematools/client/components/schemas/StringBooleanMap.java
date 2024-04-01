@@ -45,7 +45,7 @@ public class StringBooleanMap {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static StringBooleanMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static StringBooleanMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return StringBooleanMap1.getInstance().validate(arg, configuration);
         }
         
@@ -128,7 +128,7 @@ public class StringBooleanMap {
             return instance;
         }
         
-        public StringBooleanMapMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public StringBooleanMapMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Boolean> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

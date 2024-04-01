@@ -3,7 +3,11 @@
         {{#contains ../../mapValueSchema "null"}}
 return get("{{{@key.original}}}");
         {{else}}
-return getOrThrow("{{{@key.original}}}");
+try {
+    return getOrThrow("version");
+} catch (UnsetPropertyException e) {
+    throw new RuntimeException(e);
+}
         {{/contains}}
     {{else}}
 {{#with ../../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}{{/with}} value = get("{{{@key.original}}}");

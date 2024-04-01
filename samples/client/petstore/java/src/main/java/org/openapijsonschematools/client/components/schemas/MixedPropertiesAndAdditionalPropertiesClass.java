@@ -59,7 +59,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapMap of(Map<String, Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static MapMap of(Map<String, Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return MapSchema.getInstance().validate(arg, configuration);
         }
         
@@ -131,7 +131,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return instance;
         }
         
-        public MapMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Animal.AnimalMap> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -206,7 +206,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             "dateTime",
             "map"
         );
-        public static MixedPropertiesAndAdditionalPropertiesClassMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static MixedPropertiesAndAdditionalPropertiesClassMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return MixedPropertiesAndAdditionalPropertiesClass1.getInstance().validate(arg, configuration);
         }
         
@@ -333,7 +333,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return instance;
         }
         
-        public MixedPropertiesAndAdditionalPropertiesClassMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MixedPropertiesAndAdditionalPropertiesClassMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

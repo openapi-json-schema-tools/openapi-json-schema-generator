@@ -71,7 +71,7 @@ public class RouteParamSchema0 {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -82,7 +82,7 @@ public class RouteParamSchema0 {
         }
         
         @Override
-        public String validate(StringRouteParamSchemaEnums0 arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringRouteParamSchemaEnums0 arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         

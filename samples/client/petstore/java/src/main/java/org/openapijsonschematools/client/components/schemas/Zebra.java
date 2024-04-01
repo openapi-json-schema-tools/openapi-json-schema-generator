@@ -95,7 +95,7 @@ public class Zebra {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -106,7 +106,7 @@ public class Zebra {
         }
         
         @Override
-        public String validate(StringTypeEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringTypeEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -184,7 +184,7 @@ public class Zebra {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -195,7 +195,7 @@ public class Zebra {
         }
         
         @Override
-        public String validate(StringClassNameEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringClassNameEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -236,7 +236,7 @@ public class Zebra {
         public static final Set<String> optionalKeys = Set.of(
             "type"
         );
-        public static ZebraMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ZebraMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Zebra1.getInstance().validate(arg, configuration);
         }
         
@@ -449,7 +449,7 @@ public class Zebra {
             return instance;
         }
         
-        public ZebraMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ZebraMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

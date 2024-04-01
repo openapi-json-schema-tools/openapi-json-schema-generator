@@ -48,7 +48,7 @@ public class SpecialModelname {
         public static final Set<String> optionalKeys = Set.of(
             "a"
         );
-        public static SpecialModelnameMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SpecialModelnameMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return SpecialModelname1.getInstance().validate(arg, configuration);
         }
         
@@ -145,7 +145,7 @@ public class SpecialModelname {
             return instance;
         }
         
-        public SpecialModelnameMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public SpecialModelnameMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

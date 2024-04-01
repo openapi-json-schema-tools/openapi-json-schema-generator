@@ -77,7 +77,7 @@ public class Schema0 {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -88,7 +88,7 @@ public class Schema0 {
         }
         
         @Override
-        public String validate(StringItemsEnums0 arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringItemsEnums0 arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -106,7 +106,7 @@ public class Schema0 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() {
+        public String defaultValue() throws InvalidTypeException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }
@@ -193,7 +193,7 @@ public class Schema0 {
         }
         
         @Override
-        public SchemaList0 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public SchemaList0 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<String> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -215,7 +215,7 @@ public class Schema0 {
             return new SchemaList0(newInstanceItems);
         }
         
-        public SchemaList0 validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public SchemaList0 validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

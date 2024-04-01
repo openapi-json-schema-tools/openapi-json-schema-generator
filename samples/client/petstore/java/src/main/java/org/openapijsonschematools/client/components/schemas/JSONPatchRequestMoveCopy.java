@@ -117,7 +117,7 @@ public class JSONPatchRequestMoveCopy {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -128,7 +128,7 @@ public class JSONPatchRequestMoveCopy {
         }
         
         @Override
-        public String validate(StringOpEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringOpEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -169,12 +169,16 @@ public class JSONPatchRequestMoveCopy {
             "path"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static JSONPatchRequestMoveCopyMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static JSONPatchRequestMoveCopyMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return JSONPatchRequestMoveCopy1.getInstance().validate(arg, configuration);
         }
         
         public String from() {
-            return getOrThrow("from");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
         
         public String op() {
@@ -186,7 +190,11 @@ public class JSONPatchRequestMoveCopy {
         }
         
         public String path() {
-            return getOrThrow("path");
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
     
@@ -399,7 +407,7 @@ public class JSONPatchRequestMoveCopy {
             return instance;
         }
         
-        public JSONPatchRequestMoveCopyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public JSONPatchRequestMoveCopyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

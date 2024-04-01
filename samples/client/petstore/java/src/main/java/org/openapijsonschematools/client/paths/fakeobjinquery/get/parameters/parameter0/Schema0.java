@@ -48,7 +48,7 @@ public class Schema0 {
         public static final Set<String> optionalKeys = Set.of(
             "keyword"
         );
-        public static SchemaMap0 of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaMap0 of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Schema01.getInstance().validate(arg, configuration);
         }
         
@@ -137,7 +137,7 @@ public class Schema0 {
             return instance;
         }
         
-        public SchemaMap0 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public SchemaMap0 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

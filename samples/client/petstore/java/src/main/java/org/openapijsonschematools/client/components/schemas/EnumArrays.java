@@ -83,7 +83,7 @@ public class EnumArrays {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -94,7 +94,7 @@ public class EnumArrays {
         }
         
         @Override
-        public String validate(StringJustSymbolEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringJustSymbolEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -174,7 +174,7 @@ public class EnumArrays {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -185,7 +185,7 @@ public class EnumArrays {
         }
         
         @Override
-        public String validate(StringItemsEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringItemsEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -284,7 +284,7 @@ public class EnumArrays {
         }
         
         @Override
-        public ArrayEnumList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayEnumList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<String> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -306,7 +306,7 @@ public class EnumArrays {
             return new ArrayEnumList(newInstanceItems);
         }
         
-        public ArrayEnumList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayEnumList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -352,7 +352,7 @@ public class EnumArrays {
             "just_symbol",
             "array_enum"
         );
-        public static EnumArraysMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static EnumArraysMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return EnumArrays1.getInstance().validate(arg, configuration);
         }
         
@@ -479,7 +479,7 @@ public class EnumArrays {
             return instance;
         }
         
-        public EnumArraysMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public EnumArraysMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

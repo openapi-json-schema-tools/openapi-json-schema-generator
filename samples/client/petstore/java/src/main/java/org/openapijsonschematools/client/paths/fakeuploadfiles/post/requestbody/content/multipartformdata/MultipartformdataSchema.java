@@ -106,7 +106,7 @@ public class MultipartformdataSchema {
         }
         
         @Override
-        public MultipartformdataFilesList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MultipartformdataFilesList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             List<String> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -128,7 +128,7 @@ public class MultipartformdataSchema {
             return new MultipartformdataFilesList(newInstanceItems);
         }
         
-        public MultipartformdataFilesList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public MultipartformdataFilesList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -173,7 +173,7 @@ public class MultipartformdataSchema {
         public static final Set<String> optionalKeys = Set.of(
             "files"
         );
-        public static MultipartformdataSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static MultipartformdataSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return MultipartformdataSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -262,7 +262,7 @@ public class MultipartformdataSchema {
             return instance;
         }
         
-        public MultipartformdataSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MultipartformdataSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();

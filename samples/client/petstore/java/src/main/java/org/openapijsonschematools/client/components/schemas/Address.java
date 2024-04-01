@@ -45,7 +45,7 @@ public class Address {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AddressMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AddressMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Address1.getInstance().validate(arg, configuration);
         }
         
@@ -144,7 +144,7 @@ public class Address {
             return instance;
         }
         
-        public AddressMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AddressMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
