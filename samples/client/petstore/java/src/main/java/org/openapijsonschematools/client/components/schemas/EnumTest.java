@@ -525,7 +525,7 @@ public class EnumTest {
         public String enum_string_required() {
                         @Nullable Object value = get("enum_string_required");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for enum_string_required");
+                throw new RuntimeException("Invalid value stored for enum_string_required");
             }
             return (String) value;
         }
@@ -535,7 +535,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for enum_string");
+                throw new RuntimeException("Invalid value stored for enum_string");
             }
             return (String) value;
         }
@@ -545,7 +545,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for enum_integer");
+                throw new RuntimeException("Invalid value stored for enum_integer");
             }
             return (Number) value;
         }
@@ -555,7 +555,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for enum_number");
+                throw new RuntimeException("Invalid value stored for enum_number");
             }
             return (Number) value;
         }
@@ -565,7 +565,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for stringEnum");
+                throw new RuntimeException("Invalid value stored for stringEnum");
             }
             return (@Nullable String) value;
         }
@@ -575,7 +575,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for IntegerEnum");
+                throw new RuntimeException("Invalid value stored for IntegerEnum");
             }
             return (Number) value;
         }
@@ -585,7 +585,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for StringEnumWithDefaultValue");
+                throw new RuntimeException("Invalid value stored for StringEnumWithDefaultValue");
             }
             return (String) value;
         }
@@ -595,7 +595,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for IntegerEnumWithDefaultValue");
+                throw new RuntimeException("Invalid value stored for IntegerEnumWithDefaultValue");
             }
             return (Number) value;
         }
@@ -605,7 +605,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for IntegerEnumOneValue");
+                throw new RuntimeException("Invalid value stored for IntegerEnumOneValue");
             }
             return (Number) value;
         }

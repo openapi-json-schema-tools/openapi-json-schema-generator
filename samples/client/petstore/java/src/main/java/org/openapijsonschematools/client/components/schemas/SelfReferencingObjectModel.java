@@ -45,7 +45,7 @@ public class SelfReferencingObjectModel {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof SelfReferencingObjectModelMap)) {
-                throw new InvalidTypeException("Invalid value stored for selfRef");
+                throw new RuntimeException("Invalid value stored for selfRef");
             }
             return (SelfReferencingObjectModelMap) value;
         }

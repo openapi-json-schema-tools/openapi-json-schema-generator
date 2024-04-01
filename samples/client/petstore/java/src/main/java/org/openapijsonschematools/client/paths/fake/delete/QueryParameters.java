@@ -64,7 +64,7 @@ public class QueryParameters {
         public Number required_int64_group() {
                         @Nullable Object value = get("required_int64_group");
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for required_int64_group");
+                throw new RuntimeException("Invalid value stored for required_int64_group");
             }
             return (Number) value;
         }
@@ -72,7 +72,7 @@ public class QueryParameters {
         public String required_string_group() {
                         @Nullable Object value = get("required_string_group");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for required_string_group");
+                throw new RuntimeException("Invalid value stored for required_string_group");
             }
             return (String) value;
         }
@@ -82,7 +82,7 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for int64_group");
+                throw new RuntimeException("Invalid value stored for int64_group");
             }
             return (Number) value;
         }
@@ -92,7 +92,7 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for string_group");
+                throw new RuntimeException("Invalid value stored for string_group");
             }
             return (String) value;
         }

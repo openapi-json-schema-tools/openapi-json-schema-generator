@@ -698,7 +698,7 @@ public class ArrayTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ArrayOfStringList)) {
-                throw new InvalidTypeException("Invalid value stored for array_of_string");
+                throw new RuntimeException("Invalid value stored for array_of_string");
             }
             return (ArrayOfStringList) value;
         }
@@ -708,7 +708,7 @@ public class ArrayTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ArrayArrayOfIntegerList)) {
-                throw new InvalidTypeException("Invalid value stored for array_array_of_integer");
+                throw new RuntimeException("Invalid value stored for array_array_of_integer");
             }
             return (ArrayArrayOfIntegerList) value;
         }
@@ -718,7 +718,7 @@ public class ArrayTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ArrayArrayOfModelList)) {
-                throw new InvalidTypeException("Invalid value stored for array_array_of_model");
+                throw new RuntimeException("Invalid value stored for array_array_of_model");
             }
             return (ArrayArrayOfModelList) value;
         }

@@ -318,7 +318,7 @@ public class ArrayOfArrayOfNumberOnly {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ArrayArrayNumberList)) {
-                throw new InvalidTypeException("Invalid value stored for ArrayArrayNumber");
+                throw new RuntimeException("Invalid value stored for ArrayArrayNumber");
             }
             return (ArrayArrayNumberList) value;
         }

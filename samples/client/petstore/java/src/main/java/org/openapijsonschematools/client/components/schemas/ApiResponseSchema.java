@@ -82,7 +82,7 @@ public class ApiResponseSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for code");
+                throw new RuntimeException("Invalid value stored for code");
             }
             return (Number) value;
         }
@@ -92,7 +92,7 @@ public class ApiResponseSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for type");
+                throw new RuntimeException("Invalid value stored for type");
             }
             return (String) value;
         }
@@ -102,7 +102,7 @@ public class ApiResponseSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for message");
+                throw new RuntimeException("Invalid value stored for message");
             }
             return (String) value;
         }

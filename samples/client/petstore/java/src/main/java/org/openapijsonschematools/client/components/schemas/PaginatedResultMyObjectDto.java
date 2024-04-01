@@ -193,7 +193,7 @@ public class PaginatedResultMyObjectDto {
         public Number count() {
                         Object value = get("count");
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for count");
+                throw new RuntimeException("Invalid value stored for count");
             }
             return (Number) value;
         }
@@ -201,7 +201,7 @@ public class PaginatedResultMyObjectDto {
         public ResultsList results() {
                         Object value = get("results");
             if (!(value instanceof ResultsList)) {
-                throw new InvalidTypeException("Invalid value stored for results");
+                throw new RuntimeException("Invalid value stored for results");
             }
             return (ResultsList) value;
         }

@@ -2276,7 +2276,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for integer_prop");
+                throw new RuntimeException("Invalid value stored for integer_prop");
             }
             return (@Nullable Number) value;
         }
@@ -2286,7 +2286,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for number_prop");
+                throw new RuntimeException("Invalid value stored for number_prop");
             }
             return (@Nullable Number) value;
         }
@@ -2296,7 +2296,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof Boolean)) {
-                throw new InvalidTypeException("Invalid value stored for boolean_prop");
+                throw new RuntimeException("Invalid value stored for boolean_prop");
             }
             return (@Nullable Boolean) value;
         }
@@ -2306,7 +2306,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for string_prop");
+                throw new RuntimeException("Invalid value stored for string_prop");
             }
             return (@Nullable String) value;
         }
@@ -2316,7 +2316,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for date_prop");
+                throw new RuntimeException("Invalid value stored for date_prop");
             }
             return (@Nullable String) value;
         }
@@ -2326,7 +2326,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for datetime_prop");
+                throw new RuntimeException("Invalid value stored for datetime_prop");
             }
             return (@Nullable String) value;
         }
@@ -2336,7 +2336,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof ArrayNullablePropList)) {
-                throw new InvalidTypeException("Invalid value stored for array_nullable_prop");
+                throw new RuntimeException("Invalid value stored for array_nullable_prop");
             }
             return (@Nullable ArrayNullablePropList) value;
         }
@@ -2346,7 +2346,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof ArrayAndItemsNullablePropList)) {
-                throw new InvalidTypeException("Invalid value stored for array_and_items_nullable_prop");
+                throw new RuntimeException("Invalid value stored for array_and_items_nullable_prop");
             }
             return (@Nullable ArrayAndItemsNullablePropList) value;
         }
@@ -2356,7 +2356,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ArrayItemsNullableList)) {
-                throw new InvalidTypeException("Invalid value stored for array_items_nullable");
+                throw new RuntimeException("Invalid value stored for array_items_nullable");
             }
             return (ArrayItemsNullableList) value;
         }
@@ -2366,7 +2366,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof ObjectNullablePropMap)) {
-                throw new InvalidTypeException("Invalid value stored for object_nullable_prop");
+                throw new RuntimeException("Invalid value stored for object_nullable_prop");
             }
             return (@Nullable ObjectNullablePropMap) value;
         }
@@ -2376,7 +2376,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof ObjectAndItemsNullablePropMap)) {
-                throw new InvalidTypeException("Invalid value stored for object_and_items_nullable_prop");
+                throw new RuntimeException("Invalid value stored for object_and_items_nullable_prop");
             }
             return (@Nullable ObjectAndItemsNullablePropMap) value;
         }
@@ -2386,7 +2386,7 @@ public class NullableClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ObjectItemsNullableMap)) {
-                throw new InvalidTypeException("Invalid value stored for object_items_nullable");
+                throw new RuntimeException("Invalid value stored for object_items_nullable");
             }
             return (ObjectItemsNullableMap) value;
         }

@@ -55,7 +55,7 @@ public class ObjWithRequiredPropsBase {
         public String b() {
                         @Nullable Object value = get("b");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for b");
+                throw new RuntimeException("Invalid value stored for b");
             }
             return (String) value;
         }

@@ -1063,7 +1063,7 @@ public class FormatTest {
         public String date() {
                         @Nullable Object value = get("date");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for date");
+                throw new RuntimeException("Invalid value stored for date");
             }
             return (String) value;
         }
@@ -1071,7 +1071,7 @@ public class FormatTest {
         public String password() {
                         @Nullable Object value = get("password");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for password");
+                throw new RuntimeException("Invalid value stored for password");
             }
             return (String) value;
         }
@@ -1081,7 +1081,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for int32");
+                throw new RuntimeException("Invalid value stored for int32");
             }
             return (Number) value;
         }
@@ -1091,7 +1091,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for int32withValidations");
+                throw new RuntimeException("Invalid value stored for int32withValidations");
             }
             return (Number) value;
         }
@@ -1101,7 +1101,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for int64");
+                throw new RuntimeException("Invalid value stored for int64");
             }
             return (Number) value;
         }
@@ -1111,7 +1111,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for float32");
+                throw new RuntimeException("Invalid value stored for float32");
             }
             return (Number) value;
         }
@@ -1121,7 +1121,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for float64");
+                throw new RuntimeException("Invalid value stored for float64");
             }
             return (Number) value;
         }
@@ -1131,7 +1131,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ArrayWithUniqueItemsList)) {
-                throw new InvalidTypeException("Invalid value stored for arrayWithUniqueItems");
+                throw new RuntimeException("Invalid value stored for arrayWithUniqueItems");
             }
             return (ArrayWithUniqueItemsList) value;
         }
@@ -1141,7 +1141,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for binary");
+                throw new RuntimeException("Invalid value stored for binary");
             }
             return (String) value;
         }
@@ -1151,7 +1151,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for dateTime");
+                throw new RuntimeException("Invalid value stored for dateTime");
             }
             return (String) value;
         }
@@ -1161,7 +1161,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for uuidNoExample");
+                throw new RuntimeException("Invalid value stored for uuidNoExample");
             }
             return (String) value;
         }
@@ -1171,7 +1171,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for pattern_with_digits");
+                throw new RuntimeException("Invalid value stored for pattern_with_digits");
             }
             return (String) value;
         }
@@ -1181,7 +1181,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for pattern_with_digits_and_delimiter");
+                throw new RuntimeException("Invalid value stored for pattern_with_digits_and_delimiter");
             }
             return (String) value;
         }
@@ -1191,7 +1191,7 @@ public class FormatTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof Void)) {
-                throw new InvalidTypeException("Invalid value stored for noneProp");
+                throw new RuntimeException("Invalid value stored for noneProp");
             }
             return (Void) value;
         }

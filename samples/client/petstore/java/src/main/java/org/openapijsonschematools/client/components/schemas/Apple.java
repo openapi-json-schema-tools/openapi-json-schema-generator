@@ -193,7 +193,7 @@ public class Apple {
         public String cultivar() {
                         @Nullable Object value = get("cultivar");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for cultivar");
+                throw new RuntimeException("Invalid value stored for cultivar");
             }
             return (String) value;
         }
@@ -203,7 +203,7 @@ public class Apple {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for origin");
+                throw new RuntimeException("Invalid value stored for origin");
             }
             return (String) value;
         }

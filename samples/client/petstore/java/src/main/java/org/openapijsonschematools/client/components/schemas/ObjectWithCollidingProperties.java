@@ -69,7 +69,7 @@ public class ObjectWithCollidingProperties {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof FrozenMap<?>)) {
-                throw new InvalidTypeException("Invalid value stored for someProp");
+                throw new RuntimeException("Invalid value stored for someProp");
             }
             return (FrozenMap<?>) value;
         }
@@ -79,7 +79,7 @@ public class ObjectWithCollidingProperties {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof FrozenMap<?>)) {
-                throw new InvalidTypeException("Invalid value stored for someprop");
+                throw new RuntimeException("Invalid value stored for someprop");
             }
             return (FrozenMap<?>) value;
         }

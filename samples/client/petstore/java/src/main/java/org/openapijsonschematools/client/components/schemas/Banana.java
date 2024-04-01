@@ -55,7 +55,7 @@ public class Banana {
         public Number lengthCm() {
                         @Nullable Object value = get("lengthCm");
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for lengthCm");
+                throw new RuntimeException("Invalid value stored for lengthCm");
             }
             return (Number) value;
         }

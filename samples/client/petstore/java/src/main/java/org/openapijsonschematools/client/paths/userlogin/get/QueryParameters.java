@@ -59,7 +59,7 @@ public class QueryParameters {
         public String password() {
                         @Nullable Object value = get("password");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for password");
+                throw new RuntimeException("Invalid value stored for password");
             }
             return (String) value;
         }
@@ -67,7 +67,7 @@ public class QueryParameters {
         public String username() {
                         @Nullable Object value = get("username");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for username");
+                throw new RuntimeException("Invalid value stored for username");
             }
             return (String) value;
         }

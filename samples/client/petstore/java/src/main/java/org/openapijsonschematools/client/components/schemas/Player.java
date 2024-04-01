@@ -58,7 +58,7 @@ public class Player {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for name");
+                throw new RuntimeException("Invalid value stored for name");
             }
             return (String) value;
         }
@@ -68,7 +68,7 @@ public class Player {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof PlayerMap)) {
-                throw new InvalidTypeException("Invalid value stored for enemyPlayer");
+                throw new RuntimeException("Invalid value stored for enemyPlayer");
             }
             return (PlayerMap) value;
         }

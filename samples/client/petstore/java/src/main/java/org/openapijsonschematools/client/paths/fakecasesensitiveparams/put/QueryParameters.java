@@ -61,7 +61,7 @@ public class QueryParameters {
         public String SomeVar() {
                         @Nullable Object value = get("SomeVar");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for SomeVar");
+                throw new RuntimeException("Invalid value stored for SomeVar");
             }
             return (String) value;
         }
@@ -69,7 +69,7 @@ public class QueryParameters {
         public String someVar() {
                         @Nullable Object value = get("someVar");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for someVar");
+                throw new RuntimeException("Invalid value stored for someVar");
             }
             return (String) value;
         }
@@ -77,7 +77,7 @@ public class QueryParameters {
         public String some_var() {
                         @Nullable Object value = get("some_var");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for some_var");
+                throw new RuntimeException("Invalid value stored for some_var");
             }
             return (String) value;
         }

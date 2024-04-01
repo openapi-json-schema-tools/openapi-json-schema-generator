@@ -82,7 +82,7 @@ public class AppleReq {
         public String cultivar() {
                         Object value = get("cultivar");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for cultivar");
+                throw new RuntimeException("Invalid value stored for cultivar");
             }
             return (String) value;
         }
@@ -92,7 +92,7 @@ public class AppleReq {
             throwIfKeyNotPresent(key);
             Object value = get(key);
             if (!(value instanceof Boolean)) {
-                throw new InvalidTypeException("Invalid value stored for mealy");
+                throw new RuntimeException("Invalid value stored for mealy");
             }
             return (boolean) value;
         }

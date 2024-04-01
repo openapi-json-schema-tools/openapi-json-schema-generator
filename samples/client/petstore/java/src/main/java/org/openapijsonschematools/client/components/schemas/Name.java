@@ -90,7 +90,7 @@ public class Name {
         public Number name() {
                         @Nullable Object value = get("name");
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for name");
+                throw new RuntimeException("Invalid value stored for name");
             }
             return (Number) value;
         }
@@ -100,7 +100,7 @@ public class Name {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for snake_case");
+                throw new RuntimeException("Invalid value stored for snake_case");
             }
             return (Number) value;
         }
@@ -110,7 +110,7 @@ public class Name {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for property");
+                throw new RuntimeException("Invalid value stored for property");
             }
             return (String) value;
         }

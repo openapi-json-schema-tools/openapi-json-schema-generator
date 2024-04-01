@@ -170,7 +170,7 @@ public class FileSchemaTestClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof File.FileMap)) {
-                throw new InvalidTypeException("Invalid value stored for file");
+                throw new RuntimeException("Invalid value stored for file");
             }
             return (File.FileMap) value;
         }
@@ -180,7 +180,7 @@ public class FileSchemaTestClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof FilesList)) {
-                throw new InvalidTypeException("Invalid value stored for files");
+                throw new RuntimeException("Invalid value stored for files");
             }
             return (FilesList) value;
         }

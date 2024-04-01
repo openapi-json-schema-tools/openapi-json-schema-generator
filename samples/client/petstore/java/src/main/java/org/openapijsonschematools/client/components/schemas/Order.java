@@ -206,7 +206,7 @@ public class Order {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for id");
+                throw new RuntimeException("Invalid value stored for id");
             }
             return (Number) value;
         }
@@ -216,7 +216,7 @@ public class Order {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for petId");
+                throw new RuntimeException("Invalid value stored for petId");
             }
             return (Number) value;
         }
@@ -226,7 +226,7 @@ public class Order {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for quantity");
+                throw new RuntimeException("Invalid value stored for quantity");
             }
             return (Number) value;
         }
@@ -236,7 +236,7 @@ public class Order {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for shipDate");
+                throw new RuntimeException("Invalid value stored for shipDate");
             }
             return (String) value;
         }
@@ -246,7 +246,7 @@ public class Order {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for status");
+                throw new RuntimeException("Invalid value stored for status");
             }
             return (String) value;
         }
@@ -256,7 +256,7 @@ public class Order {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
-                throw new InvalidTypeException("Invalid value stored for complete");
+                throw new RuntimeException("Invalid value stored for complete");
             }
             return (boolean) value;
         }

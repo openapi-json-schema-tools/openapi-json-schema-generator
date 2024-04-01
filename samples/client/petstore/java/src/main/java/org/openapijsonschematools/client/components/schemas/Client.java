@@ -57,7 +57,7 @@ public class Client {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for client");
+                throw new RuntimeException("Invalid value stored for client");
             }
             return (String) value;
         }

@@ -57,7 +57,7 @@ public class Schema0 {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for keyword");
+                throw new RuntimeException("Invalid value stored for keyword");
             }
             return (String) value;
         }

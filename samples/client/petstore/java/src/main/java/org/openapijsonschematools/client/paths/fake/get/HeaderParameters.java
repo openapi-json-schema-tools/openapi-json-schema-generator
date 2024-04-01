@@ -61,7 +61,7 @@ public class HeaderParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for enum_header_string");
+                throw new RuntimeException("Invalid value stored for enum_header_string");
             }
             return (String) value;
         }
@@ -71,7 +71,7 @@ public class HeaderParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Schema0.SchemaList0)) {
-                throw new InvalidTypeException("Invalid value stored for enum_header_string_array");
+                throw new RuntimeException("Invalid value stored for enum_header_string_array");
             }
             return (Schema0.SchemaList0) value;
         }

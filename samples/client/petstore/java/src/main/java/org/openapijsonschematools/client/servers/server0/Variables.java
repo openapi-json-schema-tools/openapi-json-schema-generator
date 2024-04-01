@@ -260,7 +260,7 @@ public class Variables {
         public String port() {
                         String value = get("port");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for port");
+                throw new RuntimeException("Invalid value stored for port");
             }
             return (String) value;
         }
@@ -268,7 +268,7 @@ public class Variables {
         public String server() {
                         String value = get("server");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for server");
+                throw new RuntimeException("Invalid value stored for server");
             }
             return (String) value;
         }

@@ -67,7 +67,7 @@ public class ApplicationxwwwformurlencodedSchema {
         public String param() {
                         @Nullable Object value = get("param");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for param");
+                throw new RuntimeException("Invalid value stored for param");
             }
             return (String) value;
         }
@@ -75,7 +75,7 @@ public class ApplicationxwwwformurlencodedSchema {
         public String param2() {
                         @Nullable Object value = get("param2");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for param2");
+                throw new RuntimeException("Invalid value stored for param2");
             }
             return (String) value;
         }

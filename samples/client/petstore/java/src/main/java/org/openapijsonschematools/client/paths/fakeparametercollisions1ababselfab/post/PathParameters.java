@@ -65,7 +65,7 @@ public class PathParameters {
         public String Ab() {
                         @Nullable Object value = get("Ab");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for Ab");
+                throw new RuntimeException("Invalid value stored for Ab");
             }
             return (String) value;
         }
@@ -73,7 +73,7 @@ public class PathParameters {
         public String aB() {
                         @Nullable Object value = get("aB");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for aB");
+                throw new RuntimeException("Invalid value stored for aB");
             }
             return (String) value;
         }
@@ -81,7 +81,7 @@ public class PathParameters {
         public String self() {
                         @Nullable Object value = get("self");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for self");
+                throw new RuntimeException("Invalid value stored for self");
             }
             return (String) value;
         }

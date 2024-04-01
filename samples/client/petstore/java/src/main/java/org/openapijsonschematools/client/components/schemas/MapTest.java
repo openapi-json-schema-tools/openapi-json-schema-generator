@@ -752,7 +752,7 @@ public class MapTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof MapMapOfStringMap)) {
-                throw new InvalidTypeException("Invalid value stored for map_map_of_string");
+                throw new RuntimeException("Invalid value stored for map_map_of_string");
             }
             return (MapMapOfStringMap) value;
         }
@@ -762,7 +762,7 @@ public class MapTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof MapOfEnumStringMap)) {
-                throw new InvalidTypeException("Invalid value stored for map_of_enum_string");
+                throw new RuntimeException("Invalid value stored for map_of_enum_string");
             }
             return (MapOfEnumStringMap) value;
         }
@@ -772,7 +772,7 @@ public class MapTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof DirectMapMap)) {
-                throw new InvalidTypeException("Invalid value stored for direct_map");
+                throw new RuntimeException("Invalid value stored for direct_map");
             }
             return (DirectMapMap) value;
         }
@@ -782,7 +782,7 @@ public class MapTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof StringBooleanMap.StringBooleanMapMap)) {
-                throw new InvalidTypeException("Invalid value stored for indirect_map");
+                throw new RuntimeException("Invalid value stored for indirect_map");
             }
             return (StringBooleanMap.StringBooleanMapMap) value;
         }

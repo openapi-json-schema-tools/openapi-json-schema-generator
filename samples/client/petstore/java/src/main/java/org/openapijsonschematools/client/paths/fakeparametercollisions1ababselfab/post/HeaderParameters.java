@@ -65,7 +65,7 @@ public class HeaderParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for aB");
+                throw new RuntimeException("Invalid value stored for aB");
             }
             return (String) value;
         }
@@ -75,7 +75,7 @@ public class HeaderParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for self");
+                throw new RuntimeException("Invalid value stored for self");
             }
             return (String) value;
         }

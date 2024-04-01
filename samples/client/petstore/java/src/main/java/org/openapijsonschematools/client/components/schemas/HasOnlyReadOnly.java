@@ -69,7 +69,7 @@ public class HasOnlyReadOnly {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for bar");
+                throw new RuntimeException("Invalid value stored for bar");
             }
             return (String) value;
         }
@@ -79,7 +79,7 @@ public class HasOnlyReadOnly {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for foo");
+                throw new RuntimeException("Invalid value stored for foo");
             }
             return (String) value;
         }

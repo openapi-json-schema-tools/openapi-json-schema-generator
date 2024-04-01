@@ -834,7 +834,7 @@ public class ApplicationxwwwformurlencodedSchema {
         public String pattern_without_delimiter() {
                         @Nullable Object value = get("pattern_without_delimiter");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for pattern_without_delimiter");
+                throw new RuntimeException("Invalid value stored for pattern_without_delimiter");
             }
             return (String) value;
         }
@@ -844,7 +844,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for int32");
+                throw new RuntimeException("Invalid value stored for int32");
             }
             return (Number) value;
         }
@@ -854,7 +854,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for int64");
+                throw new RuntimeException("Invalid value stored for int64");
             }
             return (Number) value;
         }
@@ -864,7 +864,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for binary");
+                throw new RuntimeException("Invalid value stored for binary");
             }
             return (String) value;
         }
@@ -874,7 +874,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for date");
+                throw new RuntimeException("Invalid value stored for date");
             }
             return (String) value;
         }
@@ -884,7 +884,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for dateTime");
+                throw new RuntimeException("Invalid value stored for dateTime");
             }
             return (String) value;
         }
@@ -894,7 +894,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for password");
+                throw new RuntimeException("Invalid value stored for password");
             }
             return (String) value;
         }
@@ -904,7 +904,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for callback");
+                throw new RuntimeException("Invalid value stored for callback");
             }
             return (String) value;
         }

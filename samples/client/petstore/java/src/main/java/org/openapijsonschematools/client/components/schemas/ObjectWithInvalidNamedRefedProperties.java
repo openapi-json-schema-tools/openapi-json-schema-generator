@@ -44,7 +44,7 @@ public class ObjectWithInvalidNamedRefedProperties {
         public FromSchema.FromSchemaMap from() {
                         @Nullable Object value = get("from");
             if (!(value instanceof FromSchema.FromSchemaMap)) {
-                throw new InvalidTypeException("Invalid value stored for from");
+                throw new RuntimeException("Invalid value stored for from");
             }
             return (FromSchema.FromSchemaMap) value;
         }

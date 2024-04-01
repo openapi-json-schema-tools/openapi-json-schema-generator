@@ -69,7 +69,7 @@ public class ObjectWithNonIntersectingValues {
             throwIfKeyNotPresent(key);
             Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for a");
+                throw new RuntimeException("Invalid value stored for a");
             }
             return (Number) value;
         }

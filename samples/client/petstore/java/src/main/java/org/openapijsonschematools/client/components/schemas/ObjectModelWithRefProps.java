@@ -47,7 +47,7 @@ public class ObjectModelWithRefProps {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for myNumber");
+                throw new RuntimeException("Invalid value stored for myNumber");
             }
             return (Number) value;
         }
@@ -57,7 +57,7 @@ public class ObjectModelWithRefProps {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for myString");
+                throw new RuntimeException("Invalid value stored for myString");
             }
             return (String) value;
         }
@@ -67,7 +67,7 @@ public class ObjectModelWithRefProps {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
-                throw new InvalidTypeException("Invalid value stored for myBoolean");
+                throw new RuntimeException("Invalid value stored for myBoolean");
             }
             return (boolean) value;
         }

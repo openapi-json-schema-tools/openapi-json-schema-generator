@@ -610,7 +610,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for id");
+                throw new RuntimeException("Invalid value stored for id");
             }
             return (Number) value;
         }
@@ -620,7 +620,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for username");
+                throw new RuntimeException("Invalid value stored for username");
             }
             return (String) value;
         }
@@ -630,7 +630,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for firstName");
+                throw new RuntimeException("Invalid value stored for firstName");
             }
             return (String) value;
         }
@@ -640,7 +640,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for lastName");
+                throw new RuntimeException("Invalid value stored for lastName");
             }
             return (String) value;
         }
@@ -650,7 +650,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for email");
+                throw new RuntimeException("Invalid value stored for email");
             }
             return (String) value;
         }
@@ -660,7 +660,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for password");
+                throw new RuntimeException("Invalid value stored for password");
             }
             return (String) value;
         }
@@ -670,7 +670,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for phone");
+                throw new RuntimeException("Invalid value stored for phone");
             }
             return (String) value;
         }
@@ -680,7 +680,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for userStatus");
+                throw new RuntimeException("Invalid value stored for userStatus");
             }
             return (Number) value;
         }
@@ -690,7 +690,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof FrozenMap<?>)) {
-                throw new InvalidTypeException("Invalid value stored for objectWithNoDeclaredProps");
+                throw new RuntimeException("Invalid value stored for objectWithNoDeclaredProps");
             }
             return (FrozenMap<?>) value;
         }
@@ -700,7 +700,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof FrozenMap<?>)) {
-                throw new InvalidTypeException("Invalid value stored for objectWithNoDeclaredPropsNullable");
+                throw new RuntimeException("Invalid value stored for objectWithNoDeclaredPropsNullable");
             }
             return (@Nullable FrozenMap<?>) value;
         }

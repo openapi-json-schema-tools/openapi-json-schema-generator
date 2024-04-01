@@ -66,7 +66,7 @@ public class Code200ResponseHeadersSchema {
         public Number int32() {
                         @Nullable Object value = get("int32");
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for int32");
+                throw new RuntimeException("Invalid value stored for int32");
             }
             return (Number) value;
         }
@@ -76,7 +76,7 @@ public class Code200ResponseHeadersSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for numberHeader");
+                throw new RuntimeException("Invalid value stored for numberHeader");
             }
             return (String) value;
         }

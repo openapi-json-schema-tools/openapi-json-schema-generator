@@ -65,7 +65,7 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for enum_query_double");
+                throw new RuntimeException("Invalid value stored for enum_query_double");
             }
             return (Number) value;
         }
@@ -75,7 +75,7 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for enum_query_string");
+                throw new RuntimeException("Invalid value stored for enum_query_string");
             }
             return (String) value;
         }
@@ -85,7 +85,7 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for enum_query_integer");
+                throw new RuntimeException("Invalid value stored for enum_query_integer");
             }
             return (Number) value;
         }
@@ -95,7 +95,7 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Schema2.SchemaList2)) {
-                throw new InvalidTypeException("Invalid value stored for enum_query_string_array");
+                throw new RuntimeException("Invalid value stored for enum_query_string_array");
             }
             return (Schema2.SchemaList2) value;
         }

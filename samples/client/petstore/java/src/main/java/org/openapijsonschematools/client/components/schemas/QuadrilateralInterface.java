@@ -157,7 +157,7 @@ public class QuadrilateralInterface {
         public String quadrilateralType() {
                         @Nullable Object value = get("quadrilateralType");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for quadrilateralType");
+                throw new RuntimeException("Invalid value stored for quadrilateralType");
             }
             return (String) value;
         }
@@ -165,7 +165,7 @@ public class QuadrilateralInterface {
         public String shapeType() {
                         @Nullable Object value = get("shapeType");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for shapeType");
+                throw new RuntimeException("Invalid value stored for shapeType");
             }
             return (String) value;
         }

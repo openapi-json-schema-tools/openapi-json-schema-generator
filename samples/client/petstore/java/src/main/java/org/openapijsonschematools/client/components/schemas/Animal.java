@@ -135,7 +135,7 @@ public class Animal {
         public String className() {
                         @Nullable Object value = get("className");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for className");
+                throw new RuntimeException("Invalid value stored for className");
             }
             return (String) value;
         }
@@ -145,7 +145,7 @@ public class Animal {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for color");
+                throw new RuntimeException("Invalid value stored for color");
             }
             return (String) value;
         }

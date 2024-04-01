@@ -70,7 +70,7 @@ public class MultipartformdataSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for additionalMetadata");
+                throw new RuntimeException("Invalid value stored for additionalMetadata");
             }
             return (String) value;
         }
@@ -80,7 +80,7 @@ public class MultipartformdataSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for file");
+                throw new RuntimeException("Invalid value stored for file");
             }
             return (String) value;
         }

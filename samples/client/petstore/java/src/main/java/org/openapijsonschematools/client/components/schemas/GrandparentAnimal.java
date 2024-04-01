@@ -55,7 +55,7 @@ public class GrandparentAnimal {
         public String pet_type() {
                         @Nullable Object value = get("pet_type");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for pet_type");
+                throw new RuntimeException("Invalid value stored for pet_type");
             }
             return (String) value;
         }

@@ -65,7 +65,7 @@ public class AbstractStepMessage {
         public String discriminator() {
                         @Nullable Object value = get("discriminator");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for discriminator");
+                throw new RuntimeException("Invalid value stored for discriminator");
             }
             return (String) value;
         }

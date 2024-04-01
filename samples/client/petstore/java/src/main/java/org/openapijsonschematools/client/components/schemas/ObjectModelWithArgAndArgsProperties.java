@@ -67,7 +67,7 @@ public class ObjectModelWithArgAndArgsProperties {
         public String arg() {
                         @Nullable Object value = get("arg");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for arg");
+                throw new RuntimeException("Invalid value stored for arg");
             }
             return (String) value;
         }
@@ -75,7 +75,7 @@ public class ObjectModelWithArgAndArgsProperties {
         public String args() {
                         @Nullable Object value = get("args");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for args");
+                throw new RuntimeException("Invalid value stored for args");
             }
             return (String) value;
         }

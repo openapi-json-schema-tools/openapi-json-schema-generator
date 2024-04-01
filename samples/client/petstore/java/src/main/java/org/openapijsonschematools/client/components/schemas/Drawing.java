@@ -212,7 +212,7 @@ public class Drawing {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Object)) {
-                throw new InvalidTypeException("Invalid value stored for mainShape");
+                throw new RuntimeException("Invalid value stored for mainShape");
             }
             return (@Nullable Object) value;
         }
@@ -222,7 +222,7 @@ public class Drawing {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Object)) {
-                throw new InvalidTypeException("Invalid value stored for shapeOrNull");
+                throw new RuntimeException("Invalid value stored for shapeOrNull");
             }
             return (@Nullable Object) value;
         }
@@ -232,7 +232,7 @@ public class Drawing {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Object)) {
-                throw new InvalidTypeException("Invalid value stored for nullableShape");
+                throw new RuntimeException("Invalid value stored for nullableShape");
             }
             return (@Nullable Object) value;
         }
@@ -242,7 +242,7 @@ public class Drawing {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ShapesList)) {
-                throw new InvalidTypeException("Invalid value stored for shapes");
+                throw new RuntimeException("Invalid value stored for shapes");
             }
             return (ShapesList) value;
         }

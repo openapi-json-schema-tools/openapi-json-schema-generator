@@ -60,7 +60,7 @@ public class HeaderParameters {
         public String required_boolean_group() {
                         @Nullable Object value = get("required_boolean_group");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for required_boolean_group");
+                throw new RuntimeException("Invalid value stored for required_boolean_group");
             }
             return (String) value;
         }
@@ -70,7 +70,7 @@ public class HeaderParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for boolean_group");
+                throw new RuntimeException("Invalid value stored for boolean_group");
             }
             return (String) value;
         }

@@ -1032,7 +1032,7 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof MapPropertyMap)) {
-                throw new InvalidTypeException("Invalid value stored for map_property");
+                throw new RuntimeException("Invalid value stored for map_property");
             }
             return (MapPropertyMap) value;
         }
@@ -1042,7 +1042,7 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof MapOfMapPropertyMap)) {
-                throw new InvalidTypeException("Invalid value stored for map_of_map_property");
+                throw new RuntimeException("Invalid value stored for map_of_map_property");
             }
             return (MapOfMapPropertyMap) value;
         }
@@ -1056,7 +1056,7 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof FrozenMap<?>)) {
-                throw new InvalidTypeException("Invalid value stored for map_with_undeclared_properties_anytype_1");
+                throw new RuntimeException("Invalid value stored for map_with_undeclared_properties_anytype_1");
             }
             return (FrozenMap<?>) value;
         }
@@ -1066,7 +1066,7 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof FrozenMap<?>)) {
-                throw new InvalidTypeException("Invalid value stored for map_with_undeclared_properties_anytype_2");
+                throw new RuntimeException("Invalid value stored for map_with_undeclared_properties_anytype_2");
             }
             return (FrozenMap<?>) value;
         }
@@ -1076,7 +1076,7 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof MapWithUndeclaredPropertiesAnytype3Map)) {
-                throw new InvalidTypeException("Invalid value stored for map_with_undeclared_properties_anytype_3");
+                throw new RuntimeException("Invalid value stored for map_with_undeclared_properties_anytype_3");
             }
             return (MapWithUndeclaredPropertiesAnytype3Map) value;
         }
@@ -1086,7 +1086,7 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof EmptyMapMap)) {
-                throw new InvalidTypeException("Invalid value stored for empty_map");
+                throw new RuntimeException("Invalid value stored for empty_map");
             }
             return (EmptyMapMap) value;
         }
@@ -1096,7 +1096,7 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof MapWithUndeclaredPropertiesStringMap)) {
-                throw new InvalidTypeException("Invalid value stored for map_with_undeclared_properties_string");
+                throw new RuntimeException("Invalid value stored for map_with_undeclared_properties_string");
             }
             return (MapWithUndeclaredPropertiesStringMap) value;
         }

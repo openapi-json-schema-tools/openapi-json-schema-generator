@@ -184,7 +184,7 @@ public class JSONPatchRequestMoveCopy {
         public String op() {
                         String value = get("op");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for op");
+                throw new RuntimeException("Invalid value stored for op");
             }
             return (String) value;
         }

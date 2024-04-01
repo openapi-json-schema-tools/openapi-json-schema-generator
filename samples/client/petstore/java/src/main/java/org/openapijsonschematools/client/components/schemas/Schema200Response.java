@@ -79,7 +79,7 @@ public class Schema200Response {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for name");
+                throw new RuntimeException("Invalid value stored for name");
             }
             return (Number) value;
         }

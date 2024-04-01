@@ -215,7 +215,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for dateTime");
+                throw new RuntimeException("Invalid value stored for dateTime");
             }
             return (String) value;
         }

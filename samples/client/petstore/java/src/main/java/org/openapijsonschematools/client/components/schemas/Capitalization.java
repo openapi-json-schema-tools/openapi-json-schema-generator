@@ -117,7 +117,7 @@ public class Capitalization {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for smallCamel");
+                throw new RuntimeException("Invalid value stored for smallCamel");
             }
             return (String) value;
         }
@@ -127,7 +127,7 @@ public class Capitalization {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for CapitalCamel");
+                throw new RuntimeException("Invalid value stored for CapitalCamel");
             }
             return (String) value;
         }
@@ -137,7 +137,7 @@ public class Capitalization {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for small_Snake");
+                throw new RuntimeException("Invalid value stored for small_Snake");
             }
             return (String) value;
         }
@@ -147,7 +147,7 @@ public class Capitalization {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for Capital_Snake");
+                throw new RuntimeException("Invalid value stored for Capital_Snake");
             }
             return (String) value;
         }
@@ -157,7 +157,7 @@ public class Capitalization {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for SCA_ETH_Flow_Points");
+                throw new RuntimeException("Invalid value stored for SCA_ETH_Flow_Points");
             }
             return (String) value;
         }
@@ -167,7 +167,7 @@ public class Capitalization {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for ATT_NAME");
+                throw new RuntimeException("Invalid value stored for ATT_NAME");
             }
             return (String) value;
         }

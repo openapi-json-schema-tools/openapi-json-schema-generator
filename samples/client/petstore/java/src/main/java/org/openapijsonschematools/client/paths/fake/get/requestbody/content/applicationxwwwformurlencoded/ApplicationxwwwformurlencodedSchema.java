@@ -378,7 +378,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ApplicationxwwwformurlencodedEnumFormStringArrayList)) {
-                throw new InvalidTypeException("Invalid value stored for enum_form_string_array");
+                throw new RuntimeException("Invalid value stored for enum_form_string_array");
             }
             return (ApplicationxwwwformurlencodedEnumFormStringArrayList) value;
         }
@@ -388,7 +388,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for enum_form_string");
+                throw new RuntimeException("Invalid value stored for enum_form_string");
             }
             return (String) value;
         }

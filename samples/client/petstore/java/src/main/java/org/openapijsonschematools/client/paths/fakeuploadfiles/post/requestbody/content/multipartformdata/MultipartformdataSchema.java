@@ -182,7 +182,7 @@ public class MultipartformdataSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof MultipartformdataFilesList)) {
-                throw new InvalidTypeException("Invalid value stored for files");
+                throw new RuntimeException("Invalid value stored for files");
             }
             return (MultipartformdataFilesList) value;
         }

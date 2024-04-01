@@ -69,7 +69,7 @@ public class Money {
         public String amount() {
                         @Nullable Object value = get("amount");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for amount");
+                throw new RuntimeException("Invalid value stored for amount");
             }
             return (String) value;
         }
@@ -77,7 +77,7 @@ public class Money {
         public String currency() {
                         @Nullable Object value = get("currency");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for currency");
+                throw new RuntimeException("Invalid value stored for currency");
             }
             return (String) value;
         }

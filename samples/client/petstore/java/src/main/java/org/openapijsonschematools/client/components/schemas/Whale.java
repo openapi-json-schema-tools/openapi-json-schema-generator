@@ -162,7 +162,7 @@ public class Whale {
         public String className() {
                         @Nullable Object value = get("className");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for className");
+                throw new RuntimeException("Invalid value stored for className");
             }
             return (String) value;
         }
@@ -172,7 +172,7 @@ public class Whale {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
-                throw new InvalidTypeException("Invalid value stored for hasBaleen");
+                throw new RuntimeException("Invalid value stored for hasBaleen");
             }
             return (boolean) value;
         }
@@ -182,7 +182,7 @@ public class Whale {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
-                throw new InvalidTypeException("Invalid value stored for hasTeeth");
+                throw new RuntimeException("Invalid value stored for hasTeeth");
             }
             return (boolean) value;
         }

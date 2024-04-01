@@ -157,7 +157,7 @@ public class TriangleInterface {
         public String shapeType() {
                         @Nullable Object value = get("shapeType");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for shapeType");
+                throw new RuntimeException("Invalid value stored for shapeType");
             }
             return (String) value;
         }
@@ -165,7 +165,7 @@ public class TriangleInterface {
         public String triangleType() {
                         @Nullable Object value = get("triangleType");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for triangleType");
+                throw new RuntimeException("Invalid value stored for triangleType");
             }
             return (String) value;
         }

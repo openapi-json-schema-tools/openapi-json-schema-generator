@@ -70,7 +70,7 @@ public class Tag {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for id");
+                throw new RuntimeException("Invalid value stored for id");
             }
             return (Number) value;
         }
@@ -80,7 +80,7 @@ public class Tag {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for name");
+                throw new RuntimeException("Invalid value stored for name");
             }
             return (String) value;
         }

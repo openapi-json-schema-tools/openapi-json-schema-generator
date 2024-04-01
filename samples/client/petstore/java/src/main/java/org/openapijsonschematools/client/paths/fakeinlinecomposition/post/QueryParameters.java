@@ -61,7 +61,7 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Object)) {
-                throw new InvalidTypeException("Invalid value stored for compositionAtRoot");
+                throw new RuntimeException("Invalid value stored for compositionAtRoot");
             }
             return (@Nullable Object) value;
         }
@@ -71,7 +71,7 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Schema1.SchemaMap1)) {
-                throw new InvalidTypeException("Invalid value stored for compositionInProperty");
+                throw new RuntimeException("Invalid value stored for compositionInProperty");
             }
             return (Schema1.SchemaMap1) value;
         }

@@ -69,7 +69,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for name");
+                throw new RuntimeException("Invalid value stored for name");
             }
             return (String) value;
         }
@@ -79,7 +79,7 @@ public class ApplicationxwwwformurlencodedSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for status");
+                throw new RuntimeException("Invalid value stored for status");
             }
             return (String) value;
         }

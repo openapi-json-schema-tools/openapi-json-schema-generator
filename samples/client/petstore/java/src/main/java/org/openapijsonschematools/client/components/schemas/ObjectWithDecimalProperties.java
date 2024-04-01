@@ -59,7 +59,7 @@ public class ObjectWithDecimalProperties {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for length");
+                throw new RuntimeException("Invalid value stored for length");
             }
             return (String) value;
         }
@@ -69,7 +69,7 @@ public class ObjectWithDecimalProperties {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for width");
+                throw new RuntimeException("Invalid value stored for width");
             }
             return (String) value;
         }
@@ -79,7 +79,7 @@ public class ObjectWithDecimalProperties {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Money.MoneyMap)) {
-                throw new InvalidTypeException("Invalid value stored for cost");
+                throw new RuntimeException("Invalid value stored for cost");
             }
             return (Money.MoneyMap) value;
         }

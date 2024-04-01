@@ -57,7 +57,7 @@ public class NumberOnly {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for JustNumber");
+                throw new RuntimeException("Invalid value stored for JustNumber");
             }
             return (Number) value;
         }

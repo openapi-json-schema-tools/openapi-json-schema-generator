@@ -69,7 +69,7 @@ public class MultipartformdataSchema {
         public String requiredFile() {
                         @Nullable Object value = get("requiredFile");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for requiredFile");
+                throw new RuntimeException("Invalid value stored for requiredFile");
             }
             return (String) value;
         }
@@ -79,7 +79,7 @@ public class MultipartformdataSchema {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for additionalMetadata");
+                throw new RuntimeException("Invalid value stored for additionalMetadata");
             }
             return (String) value;
         }

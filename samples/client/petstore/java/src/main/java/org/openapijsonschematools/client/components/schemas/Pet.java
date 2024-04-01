@@ -427,7 +427,7 @@ public class Pet {
         public String name() {
                         @Nullable Object value = get("name");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for name");
+                throw new RuntimeException("Invalid value stored for name");
             }
             return (String) value;
         }
@@ -435,7 +435,7 @@ public class Pet {
         public PhotoUrlsList photoUrls() {
                         @Nullable Object value = get("photoUrls");
             if (!(value instanceof PhotoUrlsList)) {
-                throw new InvalidTypeException("Invalid value stored for photoUrls");
+                throw new RuntimeException("Invalid value stored for photoUrls");
             }
             return (PhotoUrlsList) value;
         }
@@ -445,7 +445,7 @@ public class Pet {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for id");
+                throw new RuntimeException("Invalid value stored for id");
             }
             return (Number) value;
         }
@@ -455,7 +455,7 @@ public class Pet {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Category.CategoryMap)) {
-                throw new InvalidTypeException("Invalid value stored for category");
+                throw new RuntimeException("Invalid value stored for category");
             }
             return (Category.CategoryMap) value;
         }
@@ -465,7 +465,7 @@ public class Pet {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof TagsList)) {
-                throw new InvalidTypeException("Invalid value stored for tags");
+                throw new RuntimeException("Invalid value stored for tags");
             }
             return (TagsList) value;
         }
@@ -475,7 +475,7 @@ public class Pet {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for status");
+                throw new RuntimeException("Invalid value stored for status");
             }
             return (String) value;
         }

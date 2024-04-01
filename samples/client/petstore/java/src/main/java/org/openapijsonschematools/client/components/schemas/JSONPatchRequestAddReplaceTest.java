@@ -178,7 +178,7 @@ public class JSONPatchRequestAddReplaceTest {
         public String op() {
                         @Nullable Object value = get("op");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for op");
+                throw new RuntimeException("Invalid value stored for op");
             }
             return (String) value;
         }
@@ -186,7 +186,7 @@ public class JSONPatchRequestAddReplaceTest {
         public String path() {
                         @Nullable Object value = get("path");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for path");
+                throw new RuntimeException("Invalid value stored for path");
             }
             return (String) value;
         }

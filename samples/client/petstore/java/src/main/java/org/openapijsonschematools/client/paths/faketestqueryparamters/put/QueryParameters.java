@@ -67,7 +67,7 @@ public class QueryParameters {
         public Schema4.SchemaList4 context() {
                         @Nullable Object value = get("context");
             if (!(value instanceof Schema4.SchemaList4)) {
-                throw new InvalidTypeException("Invalid value stored for context");
+                throw new RuntimeException("Invalid value stored for context");
             }
             return (Schema4.SchemaList4) value;
         }
@@ -75,7 +75,7 @@ public class QueryParameters {
         public Schema2.SchemaList2 http() {
                         @Nullable Object value = get("http");
             if (!(value instanceof Schema2.SchemaList2)) {
-                throw new InvalidTypeException("Invalid value stored for http");
+                throw new RuntimeException("Invalid value stored for http");
             }
             return (Schema2.SchemaList2) value;
         }
@@ -83,7 +83,7 @@ public class QueryParameters {
         public Schema1.SchemaList1 ioutil() {
                         @Nullable Object value = get("ioutil");
             if (!(value instanceof Schema1.SchemaList1)) {
-                throw new InvalidTypeException("Invalid value stored for ioutil");
+                throw new RuntimeException("Invalid value stored for ioutil");
             }
             return (Schema1.SchemaList1) value;
         }
@@ -91,7 +91,7 @@ public class QueryParameters {
         public Schema0.SchemaList0 pipe() {
                         @Nullable Object value = get("pipe");
             if (!(value instanceof Schema0.SchemaList0)) {
-                throw new InvalidTypeException("Invalid value stored for pipe");
+                throw new RuntimeException("Invalid value stored for pipe");
             }
             return (Schema0.SchemaList0) value;
         }
@@ -99,7 +99,7 @@ public class QueryParameters {
         public String refParam() {
                         @Nullable Object value = get("refParam");
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for refParam");
+                throw new RuntimeException("Invalid value stored for refParam");
             }
             return (String) value;
         }
@@ -107,7 +107,7 @@ public class QueryParameters {
         public Schema3.SchemaList3 url() {
                         @Nullable Object value = get("url");
             if (!(value instanceof Schema3.SchemaList3)) {
-                throw new InvalidTypeException("Invalid value stored for url");
+                throw new RuntimeException("Invalid value stored for url");
             }
             return (Schema3.SchemaList3) value;
         }

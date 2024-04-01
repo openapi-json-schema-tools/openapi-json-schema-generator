@@ -82,7 +82,7 @@ public class BananaReq {
         public Number lengthCm() {
                         Object value = get("lengthCm");
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for lengthCm");
+                throw new RuntimeException("Invalid value stored for lengthCm");
             }
             return (Number) value;
         }
@@ -92,7 +92,7 @@ public class BananaReq {
             throwIfKeyNotPresent(key);
             Object value = get(key);
             if (!(value instanceof Boolean)) {
-                throw new InvalidTypeException("Invalid value stored for sweet");
+                throw new RuntimeException("Invalid value stored for sweet");
             }
             return (boolean) value;
         }

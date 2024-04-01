@@ -361,7 +361,7 @@ public class EnumArrays {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for just_symbol");
+                throw new RuntimeException("Invalid value stored for just_symbol");
             }
             return (String) value;
         }
@@ -371,7 +371,7 @@ public class EnumArrays {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof ArrayEnumList)) {
-                throw new InvalidTypeException("Invalid value stored for array_enum");
+                throw new RuntimeException("Invalid value stored for array_enum");
             }
             return (ArrayEnumList) value;
         }

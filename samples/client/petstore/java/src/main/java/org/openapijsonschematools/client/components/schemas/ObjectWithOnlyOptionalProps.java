@@ -83,7 +83,7 @@ public class ObjectWithOnlyOptionalProps {
             throwIfKeyNotPresent(key);
             Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for a");
+                throw new RuntimeException("Invalid value stored for a");
             }
             return (String) value;
         }
@@ -93,7 +93,7 @@ public class ObjectWithOnlyOptionalProps {
             throwIfKeyNotPresent(key);
             Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new InvalidTypeException("Invalid value stored for b");
+                throw new RuntimeException("Invalid value stored for b");
             }
             return (Number) value;
         }

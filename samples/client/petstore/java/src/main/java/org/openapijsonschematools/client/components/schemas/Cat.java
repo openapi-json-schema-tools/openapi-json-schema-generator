@@ -66,7 +66,7 @@ public class Cat {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
-                throw new InvalidTypeException("Invalid value stored for declawed");
+                throw new RuntimeException("Invalid value stored for declawed");
             }
             return (boolean) value;
         }

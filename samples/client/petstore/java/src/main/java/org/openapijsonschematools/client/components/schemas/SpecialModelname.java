@@ -57,7 +57,7 @@ public class SpecialModelname {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for a");
+                throw new RuntimeException("Invalid value stored for a");
             }
             return (String) value;
         }
