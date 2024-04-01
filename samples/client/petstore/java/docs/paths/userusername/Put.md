@@ -104,7 +104,15 @@ var request = new PutRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Void response = apiClient.put(request);
+try {
+    Void response = apiClient.put(request);
+} catch (ApiException e) {
+    // server returned a response not defined in the openapi document
+    throw e;
+} catch (RuntimeException e) {
+    //
+    throw e;
+}
 ```
 ### Constructor Summary
 | Constructor and Description |

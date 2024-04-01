@@ -82,7 +82,15 @@ var request = new PostRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Responses.EndpointResponse response = apiClient.post(request);
+try {
+    Responses.EndpointResponse response = apiClient.post(request);
+} catch (ApiException e) {
+    // server returned a response not defined in the openapi document
+    throw e;
+} catch (RuntimeException e) {
+    //
+    throw e;
+}
 ```
 ### Constructor Summary
 | Constructor and Description |

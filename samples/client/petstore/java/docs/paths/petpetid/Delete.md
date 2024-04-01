@@ -86,7 +86,15 @@ var request = new DeleteRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Void response = apiClient.delete(request);
+try {
+    Void response = apiClient.delete(request);
+} catch (ApiException e) {
+    // server returned a response not defined in the openapi document
+    throw e;
+} catch (RuntimeException e) {
+    //
+    throw e;
+}
 ```
 ### Constructor Summary
 | Constructor and Description |

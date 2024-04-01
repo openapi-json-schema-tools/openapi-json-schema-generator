@@ -69,7 +69,15 @@ Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
 var request = new GetRequestBuilder().build();
 
-Responses.EndpointResponse response = apiClient.get(request);
+try {
+    Responses.EndpointResponse response = apiClient.get(request);
+} catch (ApiException e) {
+    // server returned a response not defined in the openapi document
+    throw e;
+} catch (RuntimeException e) {
+    //
+    throw e;
+}
 ```
 ### Constructor Summary
 | Constructor and Description |

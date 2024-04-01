@@ -59,7 +59,15 @@ Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration)
 
 var request = new PatchRequestBuilder().build();
 
-Responses.EndpointResponse response = apiClient.patch(request);
+try {
+    Responses.EndpointResponse response = apiClient.patch(request);
+} catch (ApiException e) {
+    // server returned a response not defined in the openapi document
+    throw e;
+} catch (RuntimeException e) {
+    //
+    throw e;
+}
 ```
 ### Constructor Summary
 | Constructor and Description |

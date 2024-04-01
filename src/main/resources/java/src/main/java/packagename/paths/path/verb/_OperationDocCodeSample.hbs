@@ -185,6 +185,14 @@ var request = new {{className.pascalCase}}()
         {{/each}}
     {{/eq}}
 
-{{#if nonErrorResponses }}{{responses.jsonPathPiece.pascalCase}}.EndpointResponse{{else}}Void{{/if}} response = apiClient.{{jsonPathPiece.camelCase}}(request);
+try {
+    {{#if nonErrorResponses }}{{responses.jsonPathPiece.pascalCase}}.EndpointResponse{{else}}Void{{/if}} response = apiClient.{{jsonPathPiece.camelCase}}(request);
+} catch (ApiException e) {
+    // server returned a response not defined in the openapi document
+    throw e;
+} catch (RuntimeException e) {
+    //
+    throw e;
+}
 {{/with}}
 ```

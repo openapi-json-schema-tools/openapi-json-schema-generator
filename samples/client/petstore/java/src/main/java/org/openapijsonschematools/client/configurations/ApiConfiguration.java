@@ -21,6 +21,7 @@ import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostSecurit
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
 import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetSecurityInfo;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.Duration;
@@ -419,7 +420,7 @@ public class ApiConfiguration {
     public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) {
         @Nullable SecurityScheme securityScheme = securitySchemeInfo.get(securitySchemeClass);
         if (securityScheme == null) {
-            throw new RuntimeException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");
+            throw new UnsetPropertyException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");
         }
         return securityScheme;
     }

@@ -106,7 +106,15 @@ var request = new DeleteRequestBuilder()
     .queryParameters(queryParameters)
     .build();
 
-Responses.EndpointResponse response = apiClient.delete(request);
+try {
+    Responses.EndpointResponse response = apiClient.delete(request);
+} catch (ApiException e) {
+    // server returned a response not defined in the openapi document
+    throw e;
+} catch (RuntimeException e) {
+    //
+    throw e;
+}
 ```
 ### Constructor Summary
 | Constructor and Description |

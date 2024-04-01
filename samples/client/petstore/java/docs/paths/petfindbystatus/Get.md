@@ -87,7 +87,15 @@ var request = new GetRequestBuilder()
     .queryParameters(queryParameters)
     .build();
 
-Responses.EndpointResponse response = apiClient.get(request);
+try {
+    Responses.EndpointResponse response = apiClient.get(request);
+} catch (ApiException e) {
+    // server returned a response not defined in the openapi document
+    throw e;
+} catch (RuntimeException e) {
+    //
+    throw e;
+}
 ```
 ### Constructor Summary
 | Constructor and Description |

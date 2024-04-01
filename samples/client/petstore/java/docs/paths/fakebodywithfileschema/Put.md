@@ -76,7 +76,15 @@ var request = new PutRequestBuilder()
     .requestBody(requestBody)
     .build();
 
-Responses.EndpointResponse response = apiClient.put(request);
+try {
+    Responses.EndpointResponse response = apiClient.put(request);
+} catch (ApiException e) {
+    // server returned a response not defined in the openapi document
+    throw e;
+} catch (RuntimeException e) {
+    //
+    throw e;
+}
 ```
 ### Constructor Summary
 | Constructor and Description |
