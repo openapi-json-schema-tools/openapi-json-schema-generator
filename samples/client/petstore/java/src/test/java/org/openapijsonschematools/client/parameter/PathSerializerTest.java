@@ -2,6 +2,8 @@ package org.openapijsonschematools.client.parameter;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
 import java.util.AbstractMap;
@@ -32,7 +34,7 @@ public class PathSerializerTest {
     }
 
     @Test
-    public void testSerialization() {
+    public void testSerialization() throws OpenapiDocumentException, NotImplementedException {
         Map<String, ?> inData = Map.ofEntries(
                 new AbstractMap.SimpleEntry<>("param1", "a"),
                 new AbstractMap.SimpleEntry<>("param2", 3.14d)
