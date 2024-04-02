@@ -5,6 +5,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.exceptions.NotImplementedException;
 import {{{packageName}}}.mediatype.MediaType;
 import {{{packageName}}}.schemas.AnyTypeJsonSchema;
 
@@ -22,7 +25,7 @@ public class ContentHeaderTest {
     }
 
     @Test
-    public void testSerialization() {
+    public void testSerialization() throws ValidationException, NotImplementedException, InvalidTypeException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
