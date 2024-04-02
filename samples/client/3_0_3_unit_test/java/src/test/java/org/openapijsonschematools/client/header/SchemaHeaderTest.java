@@ -107,7 +107,7 @@ public class SchemaHeaderTest {
         );
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    InvalidTypeException.class,
+                    NotImplementedException.class,
                     () -> boolHeader.serialize(value, "color", false, configuration)
             );
         }

@@ -92,7 +92,7 @@ public class SchemaNonQueryParameterTest {
         var boolHeader = new HeaderParameter(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    InvalidTypeException.class,
+                    NotImplementedException.class,
                     () -> boolHeader.serialize(value)
             );
         }
@@ -170,7 +170,7 @@ public class SchemaNonQueryParameterTest {
         var pathParameter = new PathParameter(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    InvalidTypeException.class,
+                    NotImplementedException.class,
                     () -> pathParameter.serialize(value)
             );
         }
@@ -248,7 +248,7 @@ public class SchemaNonQueryParameterTest {
         var cookieParameter = new CookieParameter(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    InvalidTypeException.class,
+                    NotImplementedException.class,
                     () -> cookieParameter.serialize(value)
             );
         }

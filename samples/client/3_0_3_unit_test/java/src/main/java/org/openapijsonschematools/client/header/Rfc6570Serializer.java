@@ -7,9 +7,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class Rfc6570Serializer {
@@ -117,7 +119,7 @@ public class Rfc6570Serializer {
         String varNamePiece,
         boolean namedParameterExpansion
     ) throws NotImplementedException {
-        Map<String, String> inDataMap = new HashMap<>();
+        Map<String, String> inDataMap = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry: inData.entrySet()) {
             @Nullable String value = rfc6570ItemValue(entry.getValue(), percentEncode);
             if (value == null) {
