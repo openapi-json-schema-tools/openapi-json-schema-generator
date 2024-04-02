@@ -33,11 +33,17 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.usercreatewitharray.Post;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
@@ -114,11 +120,18 @@ var request = new PostRequestBuilder()
 
 try {
     Responses.EndpointResponse response = apiClient.post(request);
-} catch (ApiException e) {
-    // server returned a response not defined in the openapi document
+} catch (ApiException | OpenapiDocumentException e) {
+    // server returned a response/contentType not defined in the openapi document
     throw e;
-} catch (RuntimeException e) {
-    //
+} catch (ValidationException | InvalidTypeException e) {
+    // the returned response body or header values do not conform the the schema validation requirements
+    throw e;
+} catch (IOException | InterruptedException e) {
+    // an exception happened when making the request
+    throw e;
+} catch (NotImplementedException e) {
+    // the request body serialization or deserialization has not yet been implemented
+    // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
 ```
