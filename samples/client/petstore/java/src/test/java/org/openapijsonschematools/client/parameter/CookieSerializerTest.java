@@ -34,7 +34,7 @@ public class CookieSerializerTest {
     }
 
     @Test
-    public void testSerialization()   {
+    public void testSerialization() throws OpenapiDocumentException, NotImplementedException {
         Map<String, ?> inData = Map.ofEntries(
                 new AbstractMap.SimpleEntry<>("param1", "a"),
                 new AbstractMap.SimpleEntry<>("param2", 3.14d)
