@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -26,13 +28,13 @@ public class AnyTypeSchemaTest {
     }
 
     @Test
-    public void testValidateNull() {
+    public void testValidateNull() throws ValidationException, InvalidTypeException {
         Void validatedValue = schema.validate((Void) null, configuration);
         assertNull(validatedValue);
     }
 
     @Test
-    public void testValidateBoolean() {
+    public void testValidateBoolean() throws ValidationException, InvalidTypeException {
         boolean trueValue = schema.validate(true, configuration);
         Assert.assertTrue(trueValue);
 
@@ -41,49 +43,49 @@ public class AnyTypeSchemaTest {
     }
 
     @Test
-    public void testValidateInteger() {
+    public void testValidateInteger() throws ValidationException, InvalidTypeException {
         int validatedValue = schema.validate(1, configuration);
         Assert.assertEquals(validatedValue, 1);
     }
 
     @Test
-    public void testValidateLong() {
+    public void testValidateLong() throws ValidationException, InvalidTypeException {
         long validatedValue = schema.validate(1L, configuration);
         Assert.assertEquals(validatedValue, 1L);
     }
 
     @Test
-    public void testValidateFloat() {
+    public void testValidateFloat() throws ValidationException, InvalidTypeException {
         float validatedValue = schema.validate(3.14f, configuration);
         Assert.assertEquals(Float.compare(validatedValue, 3.14f), 0);
     }
 
     @Test
-    public void testValidateDouble() {
+    public void testValidateDouble() throws ValidationException, InvalidTypeException {
         double validatedValue = schema.validate(70.6458763d, configuration);
         Assert.assertEquals(Double.compare(validatedValue, 70.6458763d), 0);
     }
 
     @Test
-    public void testValidateString() {
+    public void testValidateString() throws ValidationException, InvalidTypeException {
         String validatedValue = schema.validate("a", configuration);
         Assert.assertEquals(validatedValue, "a");
     }
 
     @Test
-    public void testValidateZonedDateTime() {
+    public void testValidateZonedDateTime() throws ValidationException, InvalidTypeException {
         String validatedValue = schema.validate(ZonedDateTime.of(2017, 7, 21, 17, 32, 28, 0, ZoneId.of("Z")), configuration);
         Assert.assertEquals(validatedValue, "2017-07-21T17:32:28Z");
     }
 
     @Test
-    public void testValidateLocalDate() {
+    public void testValidateLocalDate() throws ValidationException, InvalidTypeException {
         String validatedValue = schema.validate(LocalDate.of(2017, 7, 21), configuration);
         Assert.assertEquals(validatedValue, "2017-07-21");
     }
 
     @Test
-    public void testValidateMap() {
+    public void testValidateMap() throws ValidationException, InvalidTypeException {
         LinkedHashMap<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("today", LocalDate.of(2017, 7, 21));
         FrozenMap<?> validatedValue = schema.validate(inMap, configuration);
@@ -93,7 +95,7 @@ public class AnyTypeSchemaTest {
     }
 
     @Test
-    public void testValidateList() {
+    public void testValidateList() throws ValidationException, InvalidTypeException {
         ArrayList<Object> inList = new ArrayList<>();
         inList.add(LocalDate.of(2017, 7, 21));
         FrozenList<?> validatedValue = schema.validate(inList, configuration);
