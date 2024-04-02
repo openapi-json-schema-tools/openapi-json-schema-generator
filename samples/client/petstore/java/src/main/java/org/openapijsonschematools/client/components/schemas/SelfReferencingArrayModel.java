@@ -92,7 +92,7 @@ public class SelfReferencingArrayModel {
         }
         
         @Override
-        public SelfReferencingArrayModelList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public SelfReferencingArrayModelList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             List<SelfReferencingArrayModelList> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
@@ -100,12 +100,12 @@ public class SelfReferencingArrayModel {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof SelfReferencingArrayModelList)) {
-                    throw new InvalidTypeException("Invalid instantiated value");
+                    throw new RuntimeException("Invalid instantiated value");
                 }
                 items.add((SelfReferencingArrayModelList) itemInstance);
                 i += 1;
