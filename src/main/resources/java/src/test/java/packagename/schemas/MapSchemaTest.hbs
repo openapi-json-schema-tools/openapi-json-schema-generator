@@ -5,9 +5,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
@@ -37,7 +38,7 @@ public class MapSchemaTest {
     }
 
     @Test
-    public void testValidateMap() {
+    public void testValidateMap() throws ValidationException, InvalidTypeException {
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("today", LocalDate.of(2017, 7, 21));
         FrozenMap<@Nullable Object> validatedValue = mapJsonSchema.validate(inMap, configuration);

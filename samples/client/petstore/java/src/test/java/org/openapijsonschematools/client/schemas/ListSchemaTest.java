@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -35,7 +36,7 @@ public class ListSchemaTest {
     }
 
     @Test
-    public void testValidateList() {
+    public void testValidateList() throws ValidationException, InvalidTypeException {
         List<Object> inList = new ArrayList<>();
         inList.add("today");
         FrozenList<@Nullable Object> validatedValue = listJsonSchema.validate(inList, configuration);
