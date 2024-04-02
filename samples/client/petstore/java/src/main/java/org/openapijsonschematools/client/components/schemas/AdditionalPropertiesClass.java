@@ -167,11 +167,11 @@ public class AdditionalPropertiesClass {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public MapPropertyBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -321,11 +321,11 @@ public class AdditionalPropertiesClass {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public AdditionalProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -464,11 +464,11 @@ public class AdditionalPropertiesClass {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public MapOfMapPropertyBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -704,11 +704,11 @@ public class AdditionalPropertiesClass {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public MapWithUndeclaredPropertiesAnytype3BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -834,11 +834,11 @@ public class AdditionalPropertiesClass {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public EmptyMapBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -988,11 +988,11 @@ public class AdditionalPropertiesClass {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public MapWithUndeclaredPropertiesStringBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -1384,11 +1384,11 @@ public class AdditionalPropertiesClass {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public AdditionalPropertiesClass1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

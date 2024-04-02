@@ -108,11 +108,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ApplicationxwwwformurlencodedIntegerBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -191,11 +191,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ApplicationxwwwformurlencodedInt32BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -292,11 +292,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ApplicationxwwwformurlencodedNumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -369,11 +369,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ApplicationxwwwformurlencodedFloatBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -447,11 +447,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ApplicationxwwwformurlencodedDoubleBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -520,11 +520,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ApplicationxwwwformurlencodedStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -592,11 +592,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ApplicationxwwwformurlencodedPatternWithoutDelimiterBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -697,11 +697,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         public String defaultValue() throws InvalidTypeException {
             if (defaultValue instanceof String) {
@@ -775,11 +775,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ApplicationxwwwformurlencodedPasswordBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -1570,11 +1570,11 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ApplicationxwwwformurlencodedSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

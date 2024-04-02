@@ -3,6 +3,9 @@ package {{{packageName}}}.requestbody;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.contenttype.ContentTypeDetector;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.exceptions.NotImplementedException;
+import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.AnyTypeJsonSchema;
 import {{{packageName}}}.schemas.StringJsonSchema;
 
@@ -47,7 +50,7 @@ public final class RequestBodySerializerTest {
                     true);
         }
 
-        public SerializedRequestBody serialize(SealedRequestBody requestBody) {
+        public SerializedRequestBody serialize(SealedRequestBody requestBody) throws NotImplementedException {
             if (requestBody instanceof ApplicationjsonRequestBody requestBody0) {
                 return serialize(requestBody0.contentType(), requestBody0.body().getData());
             } else {
@@ -93,7 +96,7 @@ public final class RequestBodySerializerTest {
     }
 
     @Test
-    public void testSerializeApplicationJson() {
+    public void testSerializeApplicationJson() throws ValidationException, InvalidTypeException, NotImplementedException {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         var serializer = new MyRequestBodySerializer();
         String jsonBody;
@@ -164,7 +167,7 @@ public final class RequestBodySerializerTest {
     }
 
     @Test
-    public void testSerializeTextPlain() {
+    public void testSerializeTextPlain() throws ValidationException, InvalidTypeException, NotImplementedException {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         var serializer = new MyRequestBodySerializer();
         SerializedRequestBody requestBody = serializer.serialize(

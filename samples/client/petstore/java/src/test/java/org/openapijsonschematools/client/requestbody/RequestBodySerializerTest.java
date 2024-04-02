@@ -3,6 +3,9 @@ package org.openapijsonschematools.client.requestbody;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
@@ -47,7 +50,7 @@ public final class RequestBodySerializerTest {
                     true);
         }
 
-        public SerializedRequestBody serialize(SealedRequestBody requestBody) {
+        public SerializedRequestBody serialize(SealedRequestBody requestBody) throws NotImplementedException {
             if (requestBody instanceof ApplicationjsonRequestBody requestBody0) {
                 return serialize(requestBody0.contentType(), requestBody0.body().getData());
             } else {
@@ -93,7 +96,7 @@ public final class RequestBodySerializerTest {
     }
 
     @Test
-    public void testSerializeApplicationJson() {
+    public void testSerializeApplicationJson() throws ValidationException, InvalidTypeException, NotImplementedException {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         var serializer = new MyRequestBodySerializer();
         String jsonBody;
@@ -164,7 +167,7 @@ public final class RequestBodySerializerTest {
     }
 
     @Test
-    public void testSerializeTextPlain() {
+    public void testSerializeTextPlain() throws ValidationException, InvalidTypeException, NotImplementedException {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         var serializer = new MyRequestBodySerializer();
         SerializedRequestBody requestBody = serializer.serialize(
