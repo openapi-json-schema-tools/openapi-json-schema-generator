@@ -26,6 +26,7 @@ a class that allows one to call the endpoint using a method named put
 ```
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.RequestBody;
+import org.openapijsonschematools.client.components.schemas.FileSchemaTestClass;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -58,7 +59,6 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Put.Put1 apiClient = new Put.Put1(apiConfiguration, schemaConfiguration);
 
-// todo add this import
 
 FileSchemaTestClass1BoxedMap requestBodyPayload =
     FileSchemaTestClass.FileSchemaTestClass1.validateAndBox(

@@ -15,6 +15,21 @@ import {{packageName}}.{{jsonPathPiece.pascalCase}};
                             {{/if}}
                         {{/if}}
                     {{/if}}
+                    {{#if ../../@last}}
+                        {{#eq @key.camelCase "requestBody"}}
+                            {{#with getSelfOrDeepestRef}}
+                                {{#each content}}
+                                    {{#if @first}}
+                                        {{#with schema}}
+                                            {{#with getSelfOrDeepestRef}}
+import {{packageName}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+                                            {{/with}}
+                                        {{/with}}
+                                    {{/if}}
+                                {{/each}}
+                            {{/with}}
+                        {{/eq}}
+                    {{/if}}
                 {{/with}}
             {{/each}}
         {{/or}}
@@ -150,7 +165,6 @@ SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeyw
                             {{#each content}}
                                 {{#if @first}}
                                     {{#with schema}}
-// todo add this import
                                         {{#with getSelfOrDeepestRef}}
 {{> src/main/java/packagename/components/schemas/validateAndBoxSchemaCodeSample payloadVarName="requestBodyPayload" configVarName="schemaConfiguration" }}
                                         {{/with}}

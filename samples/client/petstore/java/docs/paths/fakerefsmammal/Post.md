@@ -26,6 +26,7 @@ a class that allows one to call the endpoint using a method named post
 ```
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefsmammal.post.RequestBody;
+import org.openapijsonschematools.client.components.schemas.Mammal;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -58,7 +59,6 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
-// todo add this import
 Post.SealedRequestBody requestBody = new Post.ApplicationjsonRequestBody(requestBodyPayload);
 
 var request = new PostRequestBuilder()

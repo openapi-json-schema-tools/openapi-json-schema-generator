@@ -23,6 +23,7 @@ a class that allows one to call the endpoint using a method named post
 ### Code Sample
 ```
 import org.openapijsonschematools.client.paths.fakerefsnumber.post.RequestBody;
+import org.openapijsonschematools.client.components.schemas.NumberWithValidations;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;

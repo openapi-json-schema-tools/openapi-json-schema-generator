@@ -23,6 +23,7 @@ a class that allows one to call the endpoint using a method named post
 ### Code Sample
 ```
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.requestbody.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;

@@ -26,6 +26,7 @@ a class that allows one to call the endpoint using a method named patch
 ```
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.RequestBody;
+import org.openapijsonschematools.client.components.schemas.Client;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -58,7 +59,6 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration);
 
-// todo add this import
 
 Client1BoxedMap requestBodyPayload =
     Client.Client1.validateAndBox(

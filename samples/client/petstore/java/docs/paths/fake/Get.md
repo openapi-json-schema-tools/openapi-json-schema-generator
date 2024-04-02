@@ -23,6 +23,7 @@ a class that allows one to call the endpoint using a method named get
 ### Code Sample
 ```
 import org.openapijsonschematools.client.paths.fake.get.RequestBody;
+import org.openapijsonschematools.client.paths.fake.get.requestbody.content.applicationxwwwformurlencoded.ApplicationxwwwformurlencodedSchema;
 import org.openapijsonschematools.client.paths.fake.get.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.get.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
