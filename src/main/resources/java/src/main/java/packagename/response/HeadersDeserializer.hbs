@@ -2,6 +2,8 @@ package {{{packageName}}}.response;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.header.Header;
 import {{{packageName}}}.schemas.validation.MapSchemaValidator;
 
@@ -18,7 +20,7 @@ public abstract class HeadersDeserializer<OutType> {
         this.headersSchema = headersSchema;
     }
 
-    public OutType deserialize(HttpHeaders responseHeaders, SchemaConfiguration configuration) {
+    public OutType deserialize(HttpHeaders responseHeaders, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Map<String, @Nullable Object> headersToValidate = new HashMap<>();
         for (Map.Entry<String, List<String>> entry: responseHeaders.map().entrySet()) {
             String headerName = entry.getKey();
