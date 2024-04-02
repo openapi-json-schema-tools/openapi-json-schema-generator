@@ -33,7 +33,7 @@ public class SchemaHeader extends HeaderBase implements Header {
     }
 
     @Override
-    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) throws NotImplementedException, ValidationException, InvalidTypeException {
         var castInData = validate ? schema.validate(inData, configuration) : inData;
         boolean usedExplode = explode != null && explode;
         var value = StyleSerializer.serializeSimple(castInData, name, usedExplode, false);
