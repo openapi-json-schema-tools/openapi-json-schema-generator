@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.ListJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
@@ -107,7 +107,7 @@ public class SchemaHeaderTest {
         );
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    InvalidTypeException.class,
+                    NotImplementedException.class,
                     () -> boolHeader.serialize(value, "color", false, configuration)
             );
         }

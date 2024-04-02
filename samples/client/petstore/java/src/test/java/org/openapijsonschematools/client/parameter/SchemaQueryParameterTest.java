@@ -92,7 +92,7 @@ public class SchemaQueryParameterTest {
         var parameter = new QueryParameterNoStyle(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    InvalidTypeException.class,
+                    NotImplementedException.class,
                     () -> parameter.serialize(value)
             );
         }
