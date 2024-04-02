@@ -18,7 +18,7 @@ public class MinpropertiesValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testExactLengthIsValidPasses() {
+    public void testExactLengthIsValidPasses() throws ValidationException, InvalidTypeException {
         // exact length is valid
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
@@ -33,7 +33,7 @@ public class MinpropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() {
+    public void testIgnoresOtherNonObjectsPasses() throws ValidationException, InvalidTypeException {
         // ignores other non-objects
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class MinpropertiesValidationTest {
     }
 
     @Test
-    public void testLongerIsValidPasses() {
+    public void testLongerIsValidPasses() throws ValidationException, InvalidTypeException {
         // longer is valid
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
@@ -62,7 +62,7 @@ public class MinpropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() {
+    public void testIgnoresArraysPasses() throws ValidationException, InvalidTypeException {
         // ignores arrays
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
@@ -89,7 +89,7 @@ public class MinpropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresStringsPasses() {
+    public void testIgnoresStringsPasses() throws ValidationException, InvalidTypeException {
         // ignores strings
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(

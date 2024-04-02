@@ -18,7 +18,7 @@ public class StringTypeMatchesStringsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAStringIsStillAStringEvenIfItLooksLikeANumberPasses() {
+    public void testAStringIsStillAStringEvenIfItLooksLikeANumberPasses() throws ValidationException, InvalidTypeException {
         // a string is still a string, even if it looks like a number
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         schema.validate(
@@ -58,7 +58,7 @@ public class StringTypeMatchesStringsTest {
     }
 
     @Test
-    public void testAnEmptyStringIsStillAStringPasses() {
+    public void testAnEmptyStringIsStillAStringPasses() throws ValidationException, InvalidTypeException {
         // an empty string is still a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         schema.validate(
@@ -115,7 +115,7 @@ public class StringTypeMatchesStringsTest {
     }
 
     @Test
-    public void testAStringIsAStringPasses() {
+    public void testAStringIsAStringPasses() throws ValidationException, InvalidTypeException {
         // a string is a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         schema.validate(

@@ -18,7 +18,7 @@ public class EnumWith0DoesNotMatchFalseTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testFloatZeroIsValidPasses() {
+    public void testFloatZeroIsValidPasses() throws ValidationException, InvalidTypeException {
         // float zero is valid
         final var schema = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class EnumWith0DoesNotMatchFalseTest {
     }
 
     @Test
-    public void testIntegerZeroIsValidPasses() {
+    public void testIntegerZeroIsValidPasses() throws ValidationException, InvalidTypeException {
         // integer zero is valid
         final var schema = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.getInstance();
         schema.validate(

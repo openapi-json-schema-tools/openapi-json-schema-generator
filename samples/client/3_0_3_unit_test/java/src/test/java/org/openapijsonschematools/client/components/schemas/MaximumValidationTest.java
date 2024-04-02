@@ -33,7 +33,7 @@ public class MaximumValidationTest {
     }
 
     @Test
-    public void testBoundaryPointIsValidPasses() {
+    public void testBoundaryPointIsValidPasses() throws ValidationException, InvalidTypeException {
         // boundary point is valid
         final var schema = MaximumValidation.MaximumValidation1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class MaximumValidationTest {
     }
 
     @Test
-    public void testBelowTheMaximumIsValidPasses() {
+    public void testBelowTheMaximumIsValidPasses() throws ValidationException, InvalidTypeException {
         // below the maximum is valid
         final var schema = MaximumValidation.MaximumValidation1.getInstance();
         schema.validate(
@@ -53,7 +53,7 @@ public class MaximumValidationTest {
     }
 
     @Test
-    public void testIgnoresNonNumbersPasses() {
+    public void testIgnoresNonNumbersPasses() throws ValidationException, InvalidTypeException {
         // ignores non-numbers
         final var schema = MaximumValidation.MaximumValidation1.getInstance();
         schema.validate(

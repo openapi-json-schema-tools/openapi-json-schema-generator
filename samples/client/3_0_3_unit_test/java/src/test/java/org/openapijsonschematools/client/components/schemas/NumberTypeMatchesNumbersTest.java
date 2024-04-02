@@ -18,7 +18,7 @@ public class NumberTypeMatchesNumbersTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAFloatIsANumberPasses() {
+    public void testAFloatIsANumberPasses() throws ValidationException, InvalidTypeException {
         // a float is a number
         final var schema = NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.getInstance();
         schema.validate(
@@ -28,7 +28,7 @@ public class NumberTypeMatchesNumbersTest {
     }
 
     @Test
-    public void testAnIntegerIsANumberPasses() {
+    public void testAnIntegerIsANumberPasses() throws ValidationException, InvalidTypeException {
         // an integer is a number
         final var schema = NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.getInstance();
         schema.validate(
@@ -68,7 +68,7 @@ public class NumberTypeMatchesNumbersTest {
     }
 
     @Test
-    public void testAFloatWithZeroFractionalPartIsANumberAndAnIntegerPasses() {
+    public void testAFloatWithZeroFractionalPartIsANumberAndAnIntegerPasses() throws ValidationException, InvalidTypeException {
         // a float with zero fractional part is a number (and an integer)
         final var schema = NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.getInstance();
         schema.validate(

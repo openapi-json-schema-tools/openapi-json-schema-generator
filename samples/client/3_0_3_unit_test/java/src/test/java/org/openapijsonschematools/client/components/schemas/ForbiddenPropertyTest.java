@@ -42,7 +42,7 @@ public class ForbiddenPropertyTest {
     }
 
     @Test
-    public void testPropertyAbsentPasses() {
+    public void testPropertyAbsentPasses() throws ValidationException, InvalidTypeException {
         // property absent
         final var schema = ForbiddenProperty.ForbiddenProperty1.getInstance();
         schema.validate(

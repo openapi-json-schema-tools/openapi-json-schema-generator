@@ -57,7 +57,7 @@ public class DateTimeJsonSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
 
-        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return validate(arg.toString(), configuration);
         }
 
@@ -66,7 +66,7 @@ public class DateTimeJsonSchema {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override

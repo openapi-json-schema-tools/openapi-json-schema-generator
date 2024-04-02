@@ -33,7 +33,7 @@ public class BySmallNumberTest {
     }
 
     @Test
-    public void test00075IsMultipleOf00001Passes() {
+    public void test00075IsMultipleOf00001Passes() throws ValidationException, InvalidTypeException {
         // 0.0075 is multiple of 0.0001
         final var schema = BySmallNumber.BySmallNumber1.getInstance();
         schema.validate(

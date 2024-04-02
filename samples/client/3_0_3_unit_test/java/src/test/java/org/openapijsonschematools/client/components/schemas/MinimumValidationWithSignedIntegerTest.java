@@ -18,7 +18,7 @@ public class MinimumValidationWithSignedIntegerTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testBoundaryPointWithFloatIsValidPasses() {
+    public void testBoundaryPointWithFloatIsValidPasses() throws ValidationException, InvalidTypeException {
         // boundary point with float is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
@@ -28,7 +28,7 @@ public class MinimumValidationWithSignedIntegerTest {
     }
 
     @Test
-    public void testBoundaryPointIsValidPasses() {
+    public void testBoundaryPointIsValidPasses() throws ValidationException, InvalidTypeException {
         // boundary point is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
@@ -53,7 +53,7 @@ public class MinimumValidationWithSignedIntegerTest {
     }
 
     @Test
-    public void testPositiveAboveTheMinimumIsValidPasses() {
+    public void testPositiveAboveTheMinimumIsValidPasses() throws ValidationException, InvalidTypeException {
         // positive above the minimum is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
@@ -63,7 +63,7 @@ public class MinimumValidationWithSignedIntegerTest {
     }
 
     @Test
-    public void testNegativeAboveTheMinimumIsValidPasses() {
+    public void testNegativeAboveTheMinimumIsValidPasses() throws ValidationException, InvalidTypeException {
         // negative above the minimum is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
@@ -73,7 +73,7 @@ public class MinimumValidationWithSignedIntegerTest {
     }
 
     @Test
-    public void testIgnoresNonNumbersPasses() {
+    public void testIgnoresNonNumbersPasses() throws ValidationException, InvalidTypeException {
         // ignores non-numbers
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(

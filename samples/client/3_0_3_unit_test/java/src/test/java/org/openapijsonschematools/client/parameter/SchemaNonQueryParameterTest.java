@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
 import java.util.LinkedHashMap;
@@ -26,7 +27,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testHeaderSerialization() {
+    public void testHeaderSerialization() throws NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -104,7 +105,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testPathSerialization() {
+    public void testPathSerialization() throws NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -182,7 +183,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testCookieSerialization() {
+    public void testCookieSerialization() throws NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -260,7 +261,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testPathMatrixSerialization() {
+    public void testPathMatrixSerialization() throws NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -331,7 +332,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testPathLabelSerialization() {
+    public void testPathLabelSerialization() throws NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);

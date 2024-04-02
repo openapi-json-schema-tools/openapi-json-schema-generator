@@ -18,7 +18,7 @@ public class AnyofComplexTypesTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testSecondAnyofValidComplexPasses() {
+    public void testSecondAnyofValidComplexPasses() throws ValidationException, InvalidTypeException {
         // second anyOf valid (complex)
         final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         schema.validate(
@@ -33,7 +33,7 @@ public class AnyofComplexTypesTest {
     }
 
     @Test
-    public void testBothAnyofValidComplexPasses() {
+    public void testBothAnyofValidComplexPasses() throws ValidationException, InvalidTypeException {
         // both anyOf valid (complex)
         final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         schema.validate(
@@ -52,7 +52,7 @@ public class AnyofComplexTypesTest {
     }
 
     @Test
-    public void testFirstAnyofValidComplexPasses() {
+    public void testFirstAnyofValidComplexPasses() throws ValidationException, InvalidTypeException {
         // first anyOf valid (complex)
         final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         schema.validate(

@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
 import java.util.LinkedHashMap;
@@ -26,7 +27,7 @@ public class SchemaQueryParameterTest {
     }
 
     @Test
-    public void testQueryParameterNoStyleSerialization() {
+    public void testQueryParameterNoStyleSerialization() throws NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -104,7 +105,7 @@ public class SchemaQueryParameterTest {
     }
 
     @Test
-    public void testQueryParameterSpaceDelimitedSerialization() {
+    public void testQueryParameterSpaceDelimitedSerialization() throws NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -151,7 +152,7 @@ public class SchemaQueryParameterTest {
     }
 
     @Test
-    public void testQueryParameterPipeDelimitedSerialization() {
+    public void testQueryParameterPipeDelimitedSerialization() throws NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);

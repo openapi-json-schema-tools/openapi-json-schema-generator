@@ -18,7 +18,7 @@ public class JsonPointerFormatTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAllStringFormatsIgnoreIntegersPasses() {
+    public void testAllStringFormatsIgnoreIntegersPasses() throws ValidationException, InvalidTypeException {
         // all string formats ignore integers
         final var schema = JsonPointerFormat.JsonPointerFormat1.getInstance();
         schema.validate(
@@ -28,7 +28,7 @@ public class JsonPointerFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreNullsPasses() {
+    public void testAllStringFormatsIgnoreNullsPasses() throws ValidationException, InvalidTypeException {
         // all string formats ignore nulls
         final var schema = JsonPointerFormat.JsonPointerFormat1.getInstance();
         schema.validate(
@@ -38,7 +38,7 @@ public class JsonPointerFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreObjectsPasses() {
+    public void testAllStringFormatsIgnoreObjectsPasses() throws ValidationException, InvalidTypeException {
         // all string formats ignore objects
         final var schema = JsonPointerFormat.JsonPointerFormat1.getInstance();
         schema.validate(
@@ -49,7 +49,7 @@ public class JsonPointerFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreFloatsPasses() {
+    public void testAllStringFormatsIgnoreFloatsPasses() throws ValidationException, InvalidTypeException {
         // all string formats ignore floats
         final var schema = JsonPointerFormat.JsonPointerFormat1.getInstance();
         schema.validate(
@@ -59,7 +59,7 @@ public class JsonPointerFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreArraysPasses() {
+    public void testAllStringFormatsIgnoreArraysPasses() throws ValidationException, InvalidTypeException {
         // all string formats ignore arrays
         final var schema = JsonPointerFormat.JsonPointerFormat1.getInstance();
         schema.validate(
@@ -70,7 +70,7 @@ public class JsonPointerFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreBooleansPasses() {
+    public void testAllStringFormatsIgnoreBooleansPasses() throws ValidationException, InvalidTypeException {
         // all string formats ignore booleans
         final var schema = JsonPointerFormat.JsonPointerFormat1.getInstance();
         schema.validate(

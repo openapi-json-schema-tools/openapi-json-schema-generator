@@ -18,7 +18,7 @@ public class OneofWithEmptySchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testOneValidValidPasses() {
+    public void testOneValidValidPasses() throws ValidationException, InvalidTypeException {
         // one valid - valid
         final var schema = OneofWithEmptySchema.OneofWithEmptySchema1.getInstance();
         schema.validate(

@@ -18,7 +18,7 @@ public class OneofWithRequiredTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testFirstValidValidPasses() {
+    public void testFirstValidValidPasses() throws ValidationException, InvalidTypeException {
         // first valid - valid
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
@@ -65,7 +65,7 @@ public class OneofWithRequiredTest {
     }
 
     @Test
-    public void testSecondValidValidPasses() {
+    public void testSecondValidValidPasses() throws ValidationException, InvalidTypeException {
         // second valid - valid
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(

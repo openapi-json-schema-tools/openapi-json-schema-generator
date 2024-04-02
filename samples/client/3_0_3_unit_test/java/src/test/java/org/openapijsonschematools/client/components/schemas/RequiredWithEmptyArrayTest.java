@@ -18,7 +18,7 @@ public class RequiredWithEmptyArrayTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testPropertyNotRequiredPasses() {
+    public void testPropertyNotRequiredPasses() throws ValidationException, InvalidTypeException {
         // property not required
         final var schema = RequiredWithEmptyArray.RequiredWithEmptyArray1.getInstance();
         schema.validate(

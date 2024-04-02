@@ -1,6 +1,8 @@
 package org.openapijsonschematools.client.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 
 import java.util.AbstractMap;
 import java.util.Map;
@@ -13,7 +15,7 @@ public abstract class CookieSerializer {
         this.parameters = parameters;
     }
 
-    public String serialize(Map<String, ?> inData) {
+    public String serialize(Map<String, ?> inData) throws NotImplementedException, OpenapiDocumentException {
         String result = "";
         Map<String, ?> sortedData = new TreeMap<>(inData);
         for (Map.Entry<String, ?> entry: sortedData.entrySet()) {

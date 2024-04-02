@@ -33,7 +33,7 @@ public class ByNumberTest {
     }
 
     @Test
-    public void test45IsMultipleOf15Passes() {
+    public void test45IsMultipleOf15Passes() throws ValidationException, InvalidTypeException {
         // 4.5 is multiple of 1.5
         final var schema = ByNumber.ByNumber1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class ByNumberTest {
     }
 
     @Test
-    public void testZeroIsMultipleOfAnythingPasses() {
+    public void testZeroIsMultipleOfAnythingPasses() throws ValidationException, InvalidTypeException {
         // zero is multiple of anything
         final var schema = ByNumber.ByNumber1.getInstance();
         schema.validate(

@@ -33,7 +33,7 @@ public class SimpleEnumValidationTest {
     }
 
     @Test
-    public void testOneOfTheEnumIsValidPasses() {
+    public void testOneOfTheEnumIsValidPasses() throws ValidationException, InvalidTypeException {
         // one of the enum is valid
         final var schema = SimpleEnumValidation.SimpleEnumValidation1.getInstance();
         schema.validate(

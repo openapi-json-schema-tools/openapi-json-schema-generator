@@ -18,7 +18,7 @@ public class MaxlengthValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testShorterIsValidPasses() {
+    public void testShorterIsValidPasses() throws ValidationException, InvalidTypeException {
         // shorter is valid
         final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         schema.validate(
@@ -28,7 +28,7 @@ public class MaxlengthValidationTest {
     }
 
     @Test
-    public void testExactLengthIsValidPasses() {
+    public void testExactLengthIsValidPasses() throws ValidationException, InvalidTypeException {
         // exact length is valid
         final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         schema.validate(
@@ -53,7 +53,7 @@ public class MaxlengthValidationTest {
     }
 
     @Test
-    public void testIgnoresNonStringsPasses() {
+    public void testIgnoresNonStringsPasses() throws ValidationException, InvalidTypeException {
         // ignores non-strings
         final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         schema.validate(
@@ -63,7 +63,7 @@ public class MaxlengthValidationTest {
     }
 
     @Test
-    public void testTwoSupplementaryUnicodeCodePointsIsLongEnoughPasses() {
+    public void testTwoSupplementaryUnicodeCodePointsIsLongEnoughPasses() throws ValidationException, InvalidTypeException {
         // two supplementary Unicode code points is long enough
         final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         schema.validate(

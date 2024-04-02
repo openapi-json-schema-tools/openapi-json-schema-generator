@@ -33,7 +33,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
     }
 
     @Test
-    public void testValidIntegerWithMultipleofFloatPasses() {
+    public void testValidIntegerWithMultipleofFloatPasses() throws ValidationException, InvalidTypeException {
         // valid integer with multipleOf float
         final var schema = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.getInstance();
         schema.validate(

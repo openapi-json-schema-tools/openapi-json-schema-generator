@@ -18,7 +18,7 @@ public class RequiredDefaultValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testNotRequiredByDefaultPasses() {
+    public void testNotRequiredByDefaultPasses() throws ValidationException, InvalidTypeException {
         // not required by default
         final var schema = RequiredDefaultValidation.RequiredDefaultValidation1.getInstance();
         schema.validate(

@@ -18,7 +18,7 @@ public class AllofWithOneEmptySchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAnyDataIsValidPasses() {
+    public void testAnyDataIsValidPasses() throws ValidationException, InvalidTypeException {
         // any data is valid
         final var schema = AllofWithOneEmptySchema.AllofWithOneEmptySchema1.getInstance();
         schema.validate(

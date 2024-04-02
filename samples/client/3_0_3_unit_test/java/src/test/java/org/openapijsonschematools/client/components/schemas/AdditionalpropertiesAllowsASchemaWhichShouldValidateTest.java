@@ -18,7 +18,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testNoAdditionalPropertiesIsValidPasses() {
+    public void testNoAdditionalPropertiesIsValidPasses() throws ValidationException, InvalidTypeException {
         // no additional properties is valid
         final var schema = AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.getInstance();
         schema.validate(
@@ -33,7 +33,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
     }
 
     @Test
-    public void testAnAdditionalValidPropertyIsValidPasses() {
+    public void testAnAdditionalValidPropertyIsValidPasses() throws ValidationException, InvalidTypeException {
         // an additional valid property is valid
         final var schema = AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.getInstance();
         schema.validate(

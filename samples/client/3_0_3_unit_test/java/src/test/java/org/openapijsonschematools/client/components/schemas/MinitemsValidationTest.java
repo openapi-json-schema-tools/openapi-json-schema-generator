@@ -18,7 +18,7 @@ public class MinitemsValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testExactLengthIsValidPasses() {
+    public void testExactLengthIsValidPasses() throws ValidationException, InvalidTypeException {
         // exact length is valid
         final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
@@ -30,7 +30,7 @@ public class MinitemsValidationTest {
     }
 
     @Test
-    public void testIgnoresNonArraysPasses() {
+    public void testIgnoresNonArraysPasses() throws ValidationException, InvalidTypeException {
         // ignores non-arrays
         final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
@@ -40,7 +40,7 @@ public class MinitemsValidationTest {
     }
 
     @Test
-    public void testLongerIsValidPasses() {
+    public void testLongerIsValidPasses() throws ValidationException, InvalidTypeException {
         // longer is valid
         final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(

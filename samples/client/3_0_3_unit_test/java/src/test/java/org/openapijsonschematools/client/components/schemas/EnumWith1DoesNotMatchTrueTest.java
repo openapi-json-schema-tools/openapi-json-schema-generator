@@ -33,7 +33,7 @@ public class EnumWith1DoesNotMatchTrueTest {
     }
 
     @Test
-    public void testFloatOneIsValidPasses() {
+    public void testFloatOneIsValidPasses() throws ValidationException, InvalidTypeException {
         // float one is valid
         final var schema = EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class EnumWith1DoesNotMatchTrueTest {
     }
 
     @Test
-    public void testIntegerOneIsValidPasses() {
+    public void testIntegerOneIsValidPasses() throws ValidationException, InvalidTypeException {
         // integer one is valid
         final var schema = EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.getInstance();
         schema.validate(

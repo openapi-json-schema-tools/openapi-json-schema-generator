@@ -18,7 +18,7 @@ public class RefInAdditionalpropertiesTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testPropertyNamedRefValidPasses() {
+    public void testPropertyNamedRefValidPasses() throws ValidationException, InvalidTypeException {
         // property named $ref valid
         final var schema = RefInAdditionalproperties.RefInAdditionalproperties1.getInstance();
         schema.validate(

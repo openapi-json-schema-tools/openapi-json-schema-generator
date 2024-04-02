@@ -1,8 +1,8 @@
 package org.openapijsonschematools.client.exceptions;
 
 @SuppressWarnings("serial")
-public class BaseException extends Exception {
-    public BaseException(String s) {
+public class NotImplementedException extends BaseException {
+    public NotImplementedException(String s) {
         super(s);
     }
 }

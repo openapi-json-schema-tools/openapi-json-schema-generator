@@ -60,7 +60,7 @@ public class NullJsonSchema {
             if (arg == null) {
                 return getNewInstance((Void) null, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override

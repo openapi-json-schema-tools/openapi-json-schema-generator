@@ -18,7 +18,7 @@ public class MinlengthValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testExactLengthIsValidPasses() {
+    public void testExactLengthIsValidPasses() throws ValidationException, InvalidTypeException {
         // exact length is valid
         final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(
@@ -28,7 +28,7 @@ public class MinlengthValidationTest {
     }
 
     @Test
-    public void testLongerIsValidPasses() {
+    public void testLongerIsValidPasses() throws ValidationException, InvalidTypeException {
         // longer is valid
         final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(
@@ -38,7 +38,7 @@ public class MinlengthValidationTest {
     }
 
     @Test
-    public void testIgnoresNonStringsPasses() {
+    public void testIgnoresNonStringsPasses() throws ValidationException, InvalidTypeException {
         // ignores non-strings
         final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(

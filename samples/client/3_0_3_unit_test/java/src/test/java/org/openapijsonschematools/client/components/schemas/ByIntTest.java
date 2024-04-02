@@ -33,7 +33,7 @@ public class ByIntTest {
     }
 
     @Test
-    public void testIntByIntPasses() {
+    public void testIntByIntPasses() throws ValidationException, InvalidTypeException {
         // int by int
         final var schema = ByInt.ByInt1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class ByIntTest {
     }
 
     @Test
-    public void testIgnoresNonNumbersPasses() {
+    public void testIgnoresNonNumbersPasses() throws ValidationException, InvalidTypeException {
         // ignores non-numbers
         final var schema = ByInt.ByInt1.getInstance();
         schema.validate(

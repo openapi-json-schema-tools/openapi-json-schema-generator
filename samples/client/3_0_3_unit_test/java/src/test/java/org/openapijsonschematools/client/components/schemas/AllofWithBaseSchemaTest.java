@@ -66,7 +66,7 @@ public class AllofWithBaseSchemaTest {
     }
 
     @Test
-    public void testValidPasses() {
+    public void testValidPasses() throws ValidationException, InvalidTypeException {
         // valid
         final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         schema.validate(

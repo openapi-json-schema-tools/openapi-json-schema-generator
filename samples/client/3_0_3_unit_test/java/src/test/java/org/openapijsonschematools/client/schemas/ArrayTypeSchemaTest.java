@@ -53,12 +53,12 @@ public class ArrayTypeSchemaTest {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(castItem instanceof String)) {
-                    throw new InvalidTypeException("Instantiated type of item is invalid");
+                    throw new RuntimeException("Instantiated type of item is invalid");
                 }
                 items.add((String) castItem);
                 i += 1;
@@ -86,7 +86,7 @@ public class ArrayTypeSchemaTest {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override
@@ -111,7 +111,7 @@ public class ArrayTypeSchemaTest {
             super(m);
         }
 
-        public static ArrayWithOutputClsSchemaList of(List<String> arg, SchemaConfiguration configuration) {
+        public static ArrayWithOutputClsSchemaList of(List<String> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return new ArrayWithOutputClsSchema().validate(arg, configuration);
         }
     }
@@ -138,12 +138,12 @@ public class ArrayTypeSchemaTest {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(castItem instanceof String)) {
-                    throw new InvalidTypeException("Instantiated type of item is invalid");
+                    throw new RuntimeException("Instantiated type of item is invalid");
                 }
                 items.add((String) castItem);
                 i += 1;
@@ -172,7 +172,7 @@ public class ArrayTypeSchemaTest {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override
@@ -202,7 +202,7 @@ public class ArrayTypeSchemaTest {
     }
 
     @Test
-    public void testValidateArrayWithItemsSchema() {
+    public void testValidateArrayWithItemsSchema() throws ValidationException, InvalidTypeException {
         // list with only item works
         List<String> inList = new ArrayList<>();
         inList.add("abc");
@@ -227,7 +227,7 @@ public class ArrayTypeSchemaTest {
     }
 
     @Test
-    public void testValidateArrayWithOutputClsSchema() {
+    public void testValidateArrayWithOutputClsSchema() throws ValidationException, InvalidTypeException {
         // list with only item works
         List<String> inList = new ArrayList<>();
         inList.add("abc");

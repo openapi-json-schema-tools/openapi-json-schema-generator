@@ -33,7 +33,7 @@ public class AllofSimpleTypesTest {
     }
 
     @Test
-    public void testValidPasses() {
+    public void testValidPasses() throws ValidationException, InvalidTypeException {
         // valid
         final var schema = AllofSimpleTypes.AllofSimpleTypes1.getInstance();
         schema.validate(

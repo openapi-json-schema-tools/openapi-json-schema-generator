@@ -33,7 +33,7 @@ public class OneofWithBaseSchemaTest {
     }
 
     @Test
-    public void testOneOneofValidPasses() {
+    public void testOneOneofValidPasses() throws ValidationException, InvalidTypeException {
         // one oneOf valid
         final var schema = OneofWithBaseSchema.OneofWithBaseSchema1.getInstance();
         schema.validate(

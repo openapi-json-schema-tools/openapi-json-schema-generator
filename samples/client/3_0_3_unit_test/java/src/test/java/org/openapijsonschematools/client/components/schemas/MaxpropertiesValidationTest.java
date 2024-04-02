@@ -18,7 +18,7 @@ public class MaxpropertiesValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testShorterIsValidPasses() {
+    public void testShorterIsValidPasses() throws ValidationException, InvalidTypeException {
         // shorter is valid
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         schema.validate(
@@ -33,7 +33,7 @@ public class MaxpropertiesValidationTest {
     }
 
     @Test
-    public void testExactLengthIsValidPasses() {
+    public void testExactLengthIsValidPasses() throws ValidationException, InvalidTypeException {
         // exact length is valid
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         schema.validate(
@@ -80,7 +80,7 @@ public class MaxpropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() {
+    public void testIgnoresOtherNonObjectsPasses() throws ValidationException, InvalidTypeException {
         // ignores other non-objects
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         schema.validate(
@@ -90,7 +90,7 @@ public class MaxpropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() {
+    public void testIgnoresArraysPasses() throws ValidationException, InvalidTypeException {
         // ignores arrays
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         schema.validate(
@@ -104,7 +104,7 @@ public class MaxpropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresStringsPasses() {
+    public void testIgnoresStringsPasses() throws ValidationException, InvalidTypeException {
         // ignores strings
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         schema.validate(

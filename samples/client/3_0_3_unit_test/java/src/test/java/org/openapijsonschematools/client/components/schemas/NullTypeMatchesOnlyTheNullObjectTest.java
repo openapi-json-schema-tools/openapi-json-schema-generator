@@ -95,7 +95,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     }
 
     @Test
-    public void testNullIsNullPasses() {
+    public void testNullIsNullPasses() throws ValidationException, InvalidTypeException {
         // null is null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         schema.validate(

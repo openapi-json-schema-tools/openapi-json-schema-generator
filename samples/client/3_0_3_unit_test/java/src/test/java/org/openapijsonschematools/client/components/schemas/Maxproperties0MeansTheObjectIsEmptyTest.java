@@ -38,7 +38,7 @@ public class Maxproperties0MeansTheObjectIsEmptyTest {
     }
 
     @Test
-    public void testNoPropertiesIsValidPasses() {
+    public void testNoPropertiesIsValidPasses() throws ValidationException, InvalidTypeException {
         // no properties is valid
         final var schema = Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1.getInstance();
         schema.validate(

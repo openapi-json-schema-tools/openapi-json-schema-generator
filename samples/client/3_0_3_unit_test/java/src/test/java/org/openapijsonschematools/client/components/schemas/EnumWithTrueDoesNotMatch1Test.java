@@ -48,7 +48,7 @@ public class EnumWithTrueDoesNotMatch1Test {
     }
 
     @Test
-    public void testTrueIsValidPasses() {
+    public void testTrueIsValidPasses() throws ValidationException, InvalidTypeException {
         // true is valid
         final var schema = EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.getInstance();
         schema.validate(

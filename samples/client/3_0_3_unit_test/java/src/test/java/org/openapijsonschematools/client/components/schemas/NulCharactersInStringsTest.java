@@ -18,7 +18,7 @@ public class NulCharactersInStringsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testMatchStringWithNulPasses() {
+    public void testMatchStringWithNulPasses() throws ValidationException, InvalidTypeException {
         // match string with nul
         final var schema = NulCharactersInStrings.NulCharactersInStrings1.getInstance();
         schema.validate(

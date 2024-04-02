@@ -82,7 +82,7 @@ public class EnumsInPropertiesTest {
     }
 
     @Test
-    public void testBothPropertiesAreValidPasses() {
+    public void testBothPropertiesAreValidPasses() throws ValidationException, InvalidTypeException {
         // both properties are valid
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         schema.validate(
@@ -101,7 +101,7 @@ public class EnumsInPropertiesTest {
     }
 
     @Test
-    public void testMissingOptionalPropertyIsValidPasses() {
+    public void testMissingOptionalPropertyIsValidPasses() throws ValidationException, InvalidTypeException {
         // missing optional property is valid
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         schema.validate(

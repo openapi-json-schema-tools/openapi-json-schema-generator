@@ -72,7 +72,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             "foo",
             "bar"
         );
-        public static AdditionalpropertiesAllowsASchemaWhichShouldValidateMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AdditionalpropertiesAllowsASchemaWhichShouldValidateMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return AdditionalpropertiesAllowsASchemaWhichShouldValidate1.getInstance().validate(arg, configuration);
         }
         
@@ -88,7 +88,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             var value = getOrThrow(name);
             if (!(value instanceof Boolean)) {
-                throw new InvalidTypeException("Invalid value stored for " + name);
+                throw new RuntimeException("Invalid value stored for " + name);
             }
             return (boolean) value;
         }
@@ -299,7 +299,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new InvalidTypeException("Invalid non-string key value");
+                    throw new RuntimeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -307,7 +307,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -336,11 +336,11 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public AdditionalpropertiesAllowsASchemaWhichShouldValidate1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

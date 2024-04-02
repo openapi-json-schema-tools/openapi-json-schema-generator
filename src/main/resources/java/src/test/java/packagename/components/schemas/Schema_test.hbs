@@ -21,7 +21,7 @@ public class {{containerJsonPathPiece.pascalCase}}Test {
     {{#with this }}
 
     @Test
-    public void test{{@key}}{{#if valid}}Passes{{else}}Fails{{/if}}() {
+    public void test{{@key}}{{#if valid}}Passes() throws ValidationException, InvalidTypeException{{else}}Fails(){{/if}} {
         // {{description.codeEscaped}}
         final var schema = {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance();
         {{#if valid}}

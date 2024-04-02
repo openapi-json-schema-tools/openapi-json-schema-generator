@@ -221,7 +221,7 @@ public abstract class JsonSchema<T> {
         this.keywordToValidator = keywordToValidator;
     }
 
-    public abstract @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException;
+    public abstract @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
     public abstract @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException;
     public abstract T validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException;
 
@@ -262,7 +262,7 @@ public abstract class JsonSchema<T> {
     private PathToSchemasMap getPatternPropertiesPathToSchemas(
             @Nullable Object arg,
             ValidationMetadata validationMetadata
-    ) {
+    ) throws ValidationException {
         if (!(arg instanceof Map<?, ?> mapArg) || patternProperties == null) {
             return new PathToSchemasMap();
         }
@@ -270,7 +270,7 @@ public abstract class JsonSchema<T> {
         for (Map.Entry<?, ?> entry: mapArg.entrySet()) {
             Object entryKey = entry.getKey();
             if (!(entryKey instanceof String key)) {
-                throw new InvalidTypeException("Invalid non-string type for map key");
+                throw new ValidationException("Invalid non-string type for map key");
             }
             List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             propPathToItem.add(key);
@@ -306,7 +306,7 @@ public abstract class JsonSchema<T> {
         try {
             var otherPathToSchemas = JsonSchema.validate(ifSchemaInstance, arg, validationMetadata);
             pathToSchemas.update(otherPathToSchemas);
-        } catch (ValidationException | InvalidTypeException ignored) {}
+        } catch (ValidationException ignored) {}
         return pathToSchemas;
     }
 
@@ -389,7 +389,7 @@ public abstract class JsonSchema<T> {
         return arg;
     }
 
-    protected List<?> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected List<?> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws InvalidTypeException {
         pathSet.add(pathToItem);
         List<@Nullable Object> argFixed = new ArrayList<>();
         int i =0;
@@ -403,7 +403,7 @@ public abstract class JsonSchema<T> {
         return argFixed;
     }
 
-    protected Map<?, ?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected Map<?, ?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws InvalidTypeException {
         pathSet.add(pathToItem);
         LinkedHashMap<String, @Nullable Object> argFixed = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
@@ -420,7 +420,7 @@ public abstract class JsonSchema<T> {
         return argFixed;
     }
 
-    private @Nullable Object castToAllowedObjectTypes(@Nullable Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    private @Nullable Object castToAllowedObjectTypes(@Nullable Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws InvalidTypeException {
         if (arg == null) {
             return castToAllowedTypes((Void) null, pathToItem, pathSet);
         } else if (arg instanceof String) {
@@ -468,7 +468,7 @@ public abstract class JsonSchema<T> {
         return arg;
     }
 
-    protected static PathToSchemasMap getPathToSchemas(JsonSchema<?> jsonSchema, @Nullable Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
+    protected static PathToSchemasMap getPathToSchemas(JsonSchema<?> jsonSchema, @Nullable Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) throws ValidationException {
         PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
         // todo add check of validationMetadata.validationRanEarlier(this)
         PathToSchemasMap otherPathToSchemas = validate(jsonSchema, arg, validationMetadata);

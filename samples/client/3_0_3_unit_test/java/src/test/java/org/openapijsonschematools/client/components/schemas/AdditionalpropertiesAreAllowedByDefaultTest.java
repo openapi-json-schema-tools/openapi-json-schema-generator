@@ -18,7 +18,7 @@ public class AdditionalpropertiesAreAllowedByDefaultTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAdditionalPropertiesAreAllowedPasses() {
+    public void testAdditionalPropertiesAreAllowedPasses() throws ValidationException, InvalidTypeException {
         // additional properties are allowed
         final var schema = AdditionalpropertiesAreAllowedByDefault.AdditionalpropertiesAreAllowedByDefault1.getInstance();
         schema.validate(
