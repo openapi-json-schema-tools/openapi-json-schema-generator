@@ -34,7 +34,7 @@ public class FileSchemaTestClass {
         protected FilesList(FrozenList<File.FileMap> m) {
             super(m);
         }
-        public static FilesList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FilesList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Files.getInstance().validate(arg, configuration);
         }
     }

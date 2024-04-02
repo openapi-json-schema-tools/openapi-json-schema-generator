@@ -14,6 +14,9 @@ import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.response.ResponseDeserializer;
 import {{packageName}}.response.DeserializedHttpResponse;
 import {{packageName}}.exceptions.ApiException;
+import {{packageName}}.exceptions.InvalidTypeException;
+import {{packageName}}.exceptions.ValidationException;
+import {{packageName}}.exceptions.NotImplementedException;
 import {{packageName}}.exceptions.OpenapiDocumentException;
     {{#if hasContentSchema}}
 import {{packageName}}.mediatype.MediaType;
@@ -81,7 +84,7 @@ public class {{jsonPathPiece.pascalCase}} {
 
         {{#if hasContentSchema}}
         @Override
-        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) throws OpenapiDocumentException, InvalidTypeException, ValidationException, NotImplementedException {
             SealedMediaType mediaType = content.get(contentType);
             if (mediaType == null) {
                 throw new OpenapiDocumentException("Invalid contentType was received back from the server that does not exist in the openapi document");
@@ -106,7 +109,7 @@ public class {{jsonPathPiece.pascalCase}} {
         {{/if}}
 
         @Override
-        protected {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}} getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
+        protected {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}} getHeaders(HttpHeaders headers, SchemaConfiguration configuration){{#if headers}} throws ValidationException, InvalidTypeException, NotImplementedException{{/if}} {
         {{#if headers}}
             return new {{headers.jsonPathPiece.pascalCase}}().deserialize(headers, configuration);
         {{else}}

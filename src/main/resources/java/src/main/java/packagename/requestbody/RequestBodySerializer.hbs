@@ -43,5 +43,5 @@ public abstract class RequestBodySerializer<T, U> {
         throw new NotImplementedException("Serialization has not yet been implemented for contentType="+contentType+". If you need it please file a PR");
     }
 
-    public abstract SerializedRequestBody serialize(T requestBody);
+    public abstract SerializedRequestBody serialize(T requestBody) throws NotImplementedException;
 }

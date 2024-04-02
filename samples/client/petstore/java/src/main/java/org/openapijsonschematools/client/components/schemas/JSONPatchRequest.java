@@ -328,7 +328,7 @@ public class JSONPatchRequest {
         protected JSONPatchRequestList(FrozenList<@Nullable Object> m) {
             super(m);
         }
-        public static JSONPatchRequestList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static JSONPatchRequestList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return JSONPatchRequest1.getInstance().validate(arg, configuration);
         }
     }

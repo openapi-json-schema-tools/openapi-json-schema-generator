@@ -220,7 +220,7 @@ public class EnumArrays {
         protected ArrayEnumList(FrozenList<String> m) {
             super(m);
         }
-        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayEnum.getInstance().validate(arg, configuration);
         }
     }

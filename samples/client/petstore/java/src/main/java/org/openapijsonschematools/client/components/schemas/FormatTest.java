@@ -525,7 +525,7 @@ public class FormatTest {
         protected ArrayWithUniqueItemsList(FrozenList<Number> m) {
             super(m);
         }
-        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayWithUniqueItems.getInstance().validate(arg, configuration);
         }
     }

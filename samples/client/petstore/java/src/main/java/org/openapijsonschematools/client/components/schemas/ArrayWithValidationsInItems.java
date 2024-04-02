@@ -117,7 +117,7 @@ public class ArrayWithValidationsInItems {
         protected ArrayWithValidationsInItemsList(FrozenList<Number> m) {
             super(m);
         }
-        public static ArrayWithValidationsInItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayWithValidationsInItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayWithValidationsInItems1.getInstance().validate(arg, configuration);
         }
     }

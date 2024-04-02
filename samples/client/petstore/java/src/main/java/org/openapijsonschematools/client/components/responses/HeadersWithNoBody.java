@@ -4,6 +4,9 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
 import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.components.responses.headerswithnobody.HeadersWithNoBodyHeadersSchema;
@@ -29,7 +32,7 @@ public class HeadersWithNoBody {
         }
 
         @Override
-        protected HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
+        protected HeadersWithNoBodyHeadersSchema.HeadersWithNoBodyHeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException, NotImplementedException {
             return new Headers().deserialize(headers, configuration);
         }
     }

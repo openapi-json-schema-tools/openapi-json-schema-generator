@@ -4,6 +4,7 @@
 
 package org.openapijsonschematools.client.paths.fakebodywithfileschema.put;
 
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.GenericRequestBody;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
@@ -36,7 +37,7 @@ public class RequestBody {
             );
         }
 
-        public SerializedRequestBody serialize(SealedRequestBody requestBody) {
+        public SerializedRequestBody serialize(SealedRequestBody requestBody) throws NotImplementedException  {
             ApplicationjsonRequestBody requestBody0 = (ApplicationjsonRequestBody) requestBody;
             return serialize(requestBody0.contentType(), requestBody0.body().getData());
         }

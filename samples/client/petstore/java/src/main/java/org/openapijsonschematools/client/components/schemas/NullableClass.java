@@ -812,7 +812,7 @@ public class NullableClass {
         protected ArrayNullablePropList(FrozenList<FrozenMap<?>> m) {
             super(m);
         }
-        public static ArrayNullablePropList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayNullablePropList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayNullableProp.getInstance().validate(arg, configuration);
         }
     }
@@ -1087,7 +1087,7 @@ public class NullableClass {
         protected ArrayAndItemsNullablePropList(FrozenList<@Nullable FrozenMap<?>> m) {
             super(m);
         }
-        public static ArrayAndItemsNullablePropList of(List<? extends @Nullable Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayAndItemsNullablePropList of(List<? extends @Nullable Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayAndItemsNullableProp.getInstance().validate(arg, configuration);
         }
     }
@@ -1367,7 +1367,7 @@ public class NullableClass {
         protected ArrayItemsNullableList(FrozenList<@Nullable FrozenMap<?>> m) {
             super(m);
         }
-        public static ArrayItemsNullableList of(List<? extends @Nullable Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayItemsNullableList of(List<? extends @Nullable Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayItemsNullable.getInstance().validate(arg, configuration);
         }
     }
@@ -2395,7 +2395,7 @@ public class NullableClass {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             var value = getOrThrow(name);
             if (!(value == null || value instanceof FrozenMap<?>)) {
-                throw new InvalidTypeException("Invalid value stored for " + name);
+                throw new RuntimeException("Invalid value stored for " + name);
             }
             return (@Nullable FrozenMap<?>) value;
         }

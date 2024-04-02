@@ -3,6 +3,10 @@ package org.openapijsonschematools.client.paths.fake.get;
 import org.openapijsonschematools.client.paths.fake.get.responses.Code200Response;
 import org.openapijsonschematools.client.paths.fake.get.responses.Code404Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -38,7 +42,7 @@ public class Responses {
             );
         }
 
-        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws OpenapiDocumentException, InvalidTypeException, ValidationException, NotImplementedException, ApiException {
             String statusCode = String.valueOf(response.statusCode());
             @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (statusCodeDeserializer == null) {

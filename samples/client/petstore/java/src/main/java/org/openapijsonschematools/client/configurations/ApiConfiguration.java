@@ -103,36 +103,36 @@ public class ApiConfiguration {
         }
     }
 
-    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) throws UnsetPropertyException {
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.rootServerInfo;
         if (serverIndex == null) {
             RootServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
             if (configServerIndex == null) {
-                throw new UnsetPropertyException("rootServerInfoServerIndex is unset");
+                throw new RuntimeException("rootServerInfoServerIndex is unset");
             }
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);
     }
 
-    public Server getServer(FooGetServerInfo. @Nullable ServerIndex serverIndex) throws UnsetPropertyException {
+    public Server getServer(FooGetServerInfo. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.fooGetServerInfo;
         if (serverIndex == null) {
             FooGetServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.fooGetServerInfoServerIndex;
             if (configServerIndex == null) {
-                throw new UnsetPropertyException("fooGetServerInfoServerIndex is unset");
+                throw new RuntimeException("fooGetServerInfoServerIndex is unset");
             }
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);
     }
 
-    public Server getServer(PetfindbystatusServerInfo. @Nullable ServerIndex serverIndex) throws UnsetPropertyException {
+    public Server getServer(PetfindbystatusServerInfo. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.petfindbystatusServerInfo;
         if (serverIndex == null) {
             PetfindbystatusServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.petfindbystatusServerInfoServerIndex;
             if (configServerIndex == null) {
-                throw new UnsetPropertyException("petfindbystatusServerInfoServerIndex is unset");
+                throw new RuntimeException("petfindbystatusServerInfoServerIndex is unset");
             }
             return serverProvider.getServer(configServerIndex);
         }
@@ -262,165 +262,165 @@ public class ApiConfiguration {
         }
     }
 
-    public SecurityRequirementObject getSecurityRequirementObject(FakeDeleteSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(FakeDeleteSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.fakeDeleteSecurityInfo;
         if (securityIndex == null) {
             FakeDeleteSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.fakeDeleteSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("fakeDeleteSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("fakeDeleteSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(FakePostSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(FakePostSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.fakePostSecurityInfo;
         if (securityIndex == null) {
             FakePostSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.fakePostSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("fakePostSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("fakePostSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(FakemultiplesecuritiesGetSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(FakemultiplesecuritiesGetSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.fakemultiplesecuritiesGetSecurityInfo;
         if (securityIndex == null) {
             FakemultiplesecuritiesGetSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.fakemultiplesecuritiesGetSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("fakemultiplesecuritiesGetSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("fakemultiplesecuritiesGetSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(FakepetiduploadimagewithrequiredfilePostSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(FakepetiduploadimagewithrequiredfilePostSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.fakepetiduploadimagewithrequiredfilePostSecurityInfo;
         if (securityIndex == null) {
             FakepetiduploadimagewithrequiredfilePostSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.fakepetiduploadimagewithrequiredfilePostSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("fakepetiduploadimagewithrequiredfilePostSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("fakepetiduploadimagewithrequiredfilePostSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(FakeclassnametestPatchSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(FakeclassnametestPatchSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.fakeclassnametestPatchSecurityInfo;
         if (securityIndex == null) {
             FakeclassnametestPatchSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.fakeclassnametestPatchSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("fakeclassnametestPatchSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("fakeclassnametestPatchSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(PetPostSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(PetPostSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.petPostSecurityInfo;
         if (securityIndex == null) {
             PetPostSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.petPostSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("petPostSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("petPostSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(PetPutSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(PetPutSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.petPutSecurityInfo;
         if (securityIndex == null) {
             PetPutSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.petPutSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("petPutSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("petPutSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(PetfindbystatusGetSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(PetfindbystatusGetSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.petfindbystatusGetSecurityInfo;
         if (securityIndex == null) {
             PetfindbystatusGetSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.petfindbystatusGetSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("petfindbystatusGetSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("petfindbystatusGetSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(PetfindbytagsGetSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(PetfindbytagsGetSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.petfindbytagsGetSecurityInfo;
         if (securityIndex == null) {
             PetfindbytagsGetSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.petfindbytagsGetSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("petfindbytagsGetSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("petfindbytagsGetSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(PetpetidDeleteSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(PetpetidDeleteSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.petpetidDeleteSecurityInfo;
         if (securityIndex == null) {
             PetpetidDeleteSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.petpetidDeleteSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("petpetidDeleteSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("petpetidDeleteSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(PetpetidGetSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(PetpetidGetSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.petpetidGetSecurityInfo;
         if (securityIndex == null) {
             PetpetidGetSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.petpetidGetSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("petpetidGetSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("petpetidGetSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(PetpetidPostSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(PetpetidPostSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.petpetidPostSecurityInfo;
         if (securityIndex == null) {
             PetpetidPostSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.petpetidPostSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("petpetidPostSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("petpetidPostSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(PetpetiduploadimagePostSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(PetpetiduploadimagePostSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.petpetiduploadimagePostSecurityInfo;
         if (securityIndex == null) {
             PetpetiduploadimagePostSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.petpetiduploadimagePostSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("petpetiduploadimagePostSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("petpetiduploadimagePostSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
-    public SecurityRequirementObject getSecurityRequirementObject(StoreinventoryGetSecurityInfo. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject(StoreinventoryGetSecurityInfo. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.storeinventoryGetSecurityInfo;
         if (securityIndex == null) {
             StoreinventoryGetSecurityInfo. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.storeinventoryGetSecurityInfoSecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("storeinventoryGetSecurityInfoSecurityIndex is unset");
+                throw new RuntimeException("storeinventoryGetSecurityInfoSecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
         return securityInfoInstance.getSecurityRequirementObject(securityIndex);
     }
 
-    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) throws UnsetPropertyException {
+    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) {
         @Nullable SecurityScheme securityScheme = securitySchemeInfo.get(securitySchemeClass);
         if (securityScheme == null) {
-            throw new UnsetPropertyException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");
+            throw new RuntimeException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");
         }
         return securityScheme;
     }
@@ -429,7 +429,7 @@ public class ApiConfiguration {
         return new HashMap<>();
     }
 
-    public@Nullable Duration getTimeout() {
+    public @Nullable Duration getTimeout() {
         return timeout;
     }
 }

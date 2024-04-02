@@ -54,7 +54,7 @@ public class SelfReferencingObjectModel {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             var value = getOrThrow(name);
             if (!(value instanceof SelfReferencingObjectModelMap)) {
-                throw new InvalidTypeException("Invalid value stored for " + name);
+                throw new RuntimeException("Invalid value stored for " + name);
             }
             return (SelfReferencingObjectModelMap) value;
         }

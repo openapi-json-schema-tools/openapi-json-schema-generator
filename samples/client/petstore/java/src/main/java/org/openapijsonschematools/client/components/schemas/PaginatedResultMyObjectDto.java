@@ -59,7 +59,7 @@ public class PaginatedResultMyObjectDto {
         protected ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap> m) {
             super(m);
         }
-        public static ResultsList of(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ResultsList of(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Results.getInstance().validate(arg, configuration);
         }
     }

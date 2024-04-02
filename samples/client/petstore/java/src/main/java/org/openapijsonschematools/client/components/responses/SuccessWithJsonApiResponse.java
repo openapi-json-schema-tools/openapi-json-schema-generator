@@ -4,6 +4,9 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
 import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.responses.successwithjsonapiresponse.content.applicationjson.ApplicationjsonSchema;
@@ -40,7 +43,7 @@ public class SuccessWithJsonApiResponse {
         }
 
         @Override
-        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) throws OpenapiDocumentException, InvalidTypeException, ValidationException, NotImplementedException {
             SealedMediaType mediaType = content.get(contentType);
             if (mediaType == null) {
                 throw new OpenapiDocumentException("Invalid contentType was received back from the server that does not exist in the openapi document");
@@ -53,7 +56,7 @@ public class SuccessWithJsonApiResponse {
         }
 
         @Override
-        protected SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
+        protected SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException, NotImplementedException {
             return new Headers().deserialize(headers, configuration);
         }
     }

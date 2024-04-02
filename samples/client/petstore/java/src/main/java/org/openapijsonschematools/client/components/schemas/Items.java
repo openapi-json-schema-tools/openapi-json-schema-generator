@@ -40,7 +40,7 @@ public class Items {
         protected ItemsList(FrozenList<FrozenMap<?>> m) {
             super(m);
         }
-        public static ItemsList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Items1.getInstance().validate(arg, configuration);
         }
     }

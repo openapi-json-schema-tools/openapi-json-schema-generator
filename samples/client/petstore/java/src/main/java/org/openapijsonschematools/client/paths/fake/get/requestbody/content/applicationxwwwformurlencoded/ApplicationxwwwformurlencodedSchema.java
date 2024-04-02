@@ -137,7 +137,7 @@ public class ApplicationxwwwformurlencodedSchema {
         protected ApplicationxwwwformurlencodedEnumFormStringArrayList(FrozenList<String> m) {
             super(m);
         }
-        public static ApplicationxwwwformurlencodedEnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ApplicationxwwwformurlencodedEnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ApplicationxwwwformurlencodedEnumFormStringArray.getInstance().validate(arg, configuration);
         }
     }

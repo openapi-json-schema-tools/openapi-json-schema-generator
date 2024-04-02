@@ -34,7 +34,7 @@ public class Drawing {
         protected ShapesList(FrozenList<@Nullable Object> m) {
             super(m);
         }
-        public static ShapesList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ShapesList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Shapes.getInstance().validate(arg, configuration);
         }
     }
@@ -251,7 +251,7 @@ public class Drawing {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             var value = getOrThrow(name);
             if (!(value instanceof Object)) {
-                throw new InvalidTypeException("Invalid value stored for " + name);
+                throw new RuntimeException("Invalid value stored for " + name);
             }
             return (@Nullable Object) value;
         }

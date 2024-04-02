@@ -26,7 +26,7 @@ public class ArrayOfEnums {
         protected ArrayOfEnumsList(FrozenList<@Nullable String> m) {
             super(m);
         }
-        public static ArrayOfEnumsList of(List<? extends @Nullable String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayOfEnumsList of(List<? extends @Nullable String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayOfEnums1.getInstance().validate(arg, configuration);
         }
     }

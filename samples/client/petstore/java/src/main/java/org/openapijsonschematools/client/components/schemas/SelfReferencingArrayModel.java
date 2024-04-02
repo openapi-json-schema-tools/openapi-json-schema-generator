@@ -27,7 +27,7 @@ public class SelfReferencingArrayModel {
         protected SelfReferencingArrayModelList(FrozenList<SelfReferencingArrayModelList> m) {
             super(m);
         }
-        public static SelfReferencingArrayModelList of(List<List<?>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SelfReferencingArrayModelList of(List<List<?>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return SelfReferencingArrayModel1.getInstance().validate(arg, configuration);
         }
     }

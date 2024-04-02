@@ -168,7 +168,7 @@ public class ComposedOneOfDifferentTypes {
         protected Schema5List(FrozenList<@Nullable Object> m) {
             super(m);
         }
-        public static Schema5List of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Schema5List of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Schema5.getInstance().validate(arg, configuration);
         }
     }

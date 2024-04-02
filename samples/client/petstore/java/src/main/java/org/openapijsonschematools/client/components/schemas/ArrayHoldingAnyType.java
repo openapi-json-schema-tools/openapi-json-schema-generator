@@ -39,7 +39,7 @@ public class ArrayHoldingAnyType {
         protected ArrayHoldingAnyTypeList(FrozenList<@Nullable Object> m) {
             super(m);
         }
-        public static ArrayHoldingAnyTypeList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayHoldingAnyTypeList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayHoldingAnyType1.getInstance().validate(arg, configuration);
         }
     }

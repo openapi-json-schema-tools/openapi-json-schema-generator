@@ -109,12 +109,12 @@ public class ApiConfiguration {
     }
     {{#each allServers}}
 
-    public Server getServer({{jsonPathPiece.pascalCase}}. @Nullable ServerIndex serverIndex) throws UnsetPropertyException {
+    public Server getServer({{jsonPathPiece.pascalCase}}. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.{{jsonPathPiece.camelCase}};
         if (serverIndex == null) {
             {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex configServerIndex = serverIndexInfo.{{jsonPathPiece.camelCase}}ServerIndex;
             if (configServerIndex == null) {
-                throw new UnsetPropertyException("{{jsonPathPiece.camelCase}}ServerIndex is unset");
+                throw new RuntimeException("{{jsonPathPiece.camelCase}}ServerIndex is unset");
             }
             return serverProvider.getServer(configServerIndex);
         }
@@ -151,12 +151,12 @@ public class ApiConfiguration {
     }
 
         {{#each allSecurity}}
-    public SecurityRequirementObject getSecurityRequirementObject({{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject({{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.{{jsonPathPiece.camelCase}};
         if (securityIndex == null) {
             {{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.{{jsonPathPiece.camelCase}}SecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("{{jsonPathPiece.camelCase}}SecurityIndex is unset");
+                throw new RuntimeException("{{jsonPathPiece.camelCase}}SecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
@@ -166,10 +166,10 @@ public class ApiConfiguration {
     {{/gt}}
     {{#if securitySchemes}}
 
-    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) throws UnsetPropertyException {
+    public SecurityScheme getSecurityScheme(Class<? extends SecurityScheme> securitySchemeClass) {
         @Nullable SecurityScheme securityScheme = securitySchemeInfo.get(securitySchemeClass);
         if (securityScheme == null) {
-            throw new UnsetPropertyException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");
+            throw new RuntimeException("SecurityScheme of class " + securitySchemeClass + "cannot be returned because it is unset. Pass in an instance of it in securitySchemes when instantiating ApiConfiguration.");
         }
         return securityScheme;
     }
@@ -179,7 +179,7 @@ public class ApiConfiguration {
         return new HashMap<>();
     }
 
-    public@Nullable Duration getTimeout() {
+    public @Nullable Duration getTimeout() {
         return timeout;
     }
 }

@@ -4,6 +4,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.contenttype.ContentTypeDeserializer;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.parameter.ParameterStyle;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
@@ -31,7 +33,7 @@ public class SchemaHeader extends HeaderBase implements Header {
     }
 
     @Override
-    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) {
+    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         var castInData = validate ? schema.validate(inData, configuration) : inData;
         boolean usedExplode = explode != null && explode;
         var value = StyleSerializer.serializeSimple(castInData, name, usedExplode, false);
@@ -86,7 +88,7 @@ public class SchemaHeader extends HeaderBase implements Header {
     }
 
     @Override
-    public @Nullable Object deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration) throws NotImplementedException {
+    public @Nullable Object deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration) throws NotImplementedException, ValidationException, InvalidTypeException {
         @Nullable Object castInData = getCastInData(schema, inData);
         if (validate) {
             return schema.validate(castInData, configuration);

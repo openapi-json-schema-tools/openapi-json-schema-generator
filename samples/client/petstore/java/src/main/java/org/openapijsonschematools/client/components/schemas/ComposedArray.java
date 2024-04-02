@@ -39,7 +39,7 @@ public class ComposedArray {
         protected ComposedArrayList(FrozenList<@Nullable Object> m) {
             super(m);
         }
-        public static ComposedArrayList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ComposedArrayList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ComposedArray1.getInstance().validate(arg, configuration);
         }
     }

@@ -163,7 +163,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         protected Schema9List(FrozenList<@Nullable Object> m) {
             super(m);
         }
-        public static Schema9List of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Schema9List of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Schema9.getInstance().validate(arg, configuration);
         }
     }

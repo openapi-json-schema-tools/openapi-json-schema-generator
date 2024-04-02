@@ -38,7 +38,7 @@ public class Schema2 {
         protected SchemaList2(FrozenList<String> m) {
             super(m);
         }
-        public static SchemaList2 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList2 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Schema21.getInstance().validate(arg, configuration);
         }
     }

@@ -29,7 +29,7 @@ public class ApplicationxmlSchema {
         protected ApplicationxmlSchemaList(FrozenList<Pet.PetMap> m) {
             super(m);
         }
-        public static ApplicationxmlSchemaList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ApplicationxmlSchemaList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ApplicationxmlSchema1.getInstance().validate(arg, configuration);
         }
     }

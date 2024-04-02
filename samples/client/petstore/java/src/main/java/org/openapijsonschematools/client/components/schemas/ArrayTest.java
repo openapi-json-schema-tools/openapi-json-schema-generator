@@ -47,7 +47,7 @@ public class ArrayTest {
         protected ArrayOfStringList(FrozenList<String> m) {
             super(m);
         }
-        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayOfString.getInstance().validate(arg, configuration);
         }
     }
@@ -180,7 +180,7 @@ public class ArrayTest {
         protected ItemsList(FrozenList<Number> m) {
             super(m);
         }
-        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Items1.getInstance().validate(arg, configuration);
         }
     }
@@ -317,7 +317,7 @@ public class ArrayTest {
         protected ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayArrayOfIntegerList of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayArrayOfInteger.getInstance().validate(arg, configuration);
         }
     }
@@ -439,7 +439,7 @@ public class ArrayTest {
         protected ItemsList1(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> m) {
             super(m);
         }
-        public static ItemsList1 of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList1 of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Items3.getInstance().validate(arg, configuration);
         }
     }
@@ -561,7 +561,7 @@ public class ArrayTest {
         protected ArrayArrayOfModelList(FrozenList<ItemsList1> m) {
             super(m);
         }
-        public static ArrayArrayOfModelList of(List<List<Map<String, ? extends @Nullable Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayArrayOfModelList of(List<List<Map<String, ? extends @Nullable Object>>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayArrayOfModel.getInstance().validate(arg, configuration);
         }
     }

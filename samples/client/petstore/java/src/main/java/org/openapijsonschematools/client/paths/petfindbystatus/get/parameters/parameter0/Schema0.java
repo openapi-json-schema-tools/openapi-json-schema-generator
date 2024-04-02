@@ -131,7 +131,7 @@ public class Schema0 {
         protected SchemaList0(FrozenList<String> m) {
             super(m);
         }
-        public static SchemaList0 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList0 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Schema01.getInstance().validate(arg, configuration);
         }
     }

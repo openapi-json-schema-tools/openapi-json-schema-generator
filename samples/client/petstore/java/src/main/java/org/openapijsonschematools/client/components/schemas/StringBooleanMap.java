@@ -53,7 +53,7 @@ public class StringBooleanMap {
             throwIfKeyNotPresent(name);
             Boolean value = get(name);
             if (value == null) {
-                throw new InvalidTypeException("Value may not be null");
+                throw new RuntimeException("Value may not be null");
             }
             return (boolean) value;
         }

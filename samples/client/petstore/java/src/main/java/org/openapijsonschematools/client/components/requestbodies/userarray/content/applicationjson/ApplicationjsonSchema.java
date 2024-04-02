@@ -29,7 +29,7 @@ public class ApplicationjsonSchema {
         protected ApplicationjsonSchemaList(FrozenList<User.UserMap> m) {
             super(m);
         }
-        public static ApplicationjsonSchemaList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ApplicationjsonSchemaList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ApplicationjsonSchema1.getInstance().validate(arg, configuration);
         }
     }

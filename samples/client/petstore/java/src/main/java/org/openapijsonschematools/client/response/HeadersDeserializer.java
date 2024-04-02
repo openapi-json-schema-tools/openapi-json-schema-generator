@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.header.Header;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 
@@ -20,7 +21,7 @@ public abstract class HeadersDeserializer<OutType> {
         this.headersSchema = headersSchema;
     }
 
-    public OutType deserialize(HttpHeaders responseHeaders, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public OutType deserialize(HttpHeaders responseHeaders, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException, NotImplementedException {
         Map<String, @Nullable Object> headersToValidate = new HashMap<>();
         for (Map.Entry<String, List<String>> entry: responseHeaders.map().entrySet()) {
             String headerName = entry.getKey();

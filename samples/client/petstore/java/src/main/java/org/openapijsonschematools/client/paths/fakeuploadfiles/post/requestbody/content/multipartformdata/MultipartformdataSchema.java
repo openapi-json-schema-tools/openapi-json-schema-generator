@@ -47,7 +47,7 @@ public class MultipartformdataSchema {
         protected MultipartformdataFilesList(FrozenList<String> m) {
             super(m);
         }
-        public static MultipartformdataFilesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static MultipartformdataFilesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return MultipartformdataFiles.getInstance().validate(arg, configuration);
         }
     }

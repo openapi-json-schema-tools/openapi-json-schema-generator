@@ -33,7 +33,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         protected AdditionalPropertiesList(FrozenList<String> m) {
             super(m);
         }
-        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return AdditionalProperties.getInstance().validate(arg, configuration);
         }
     }
@@ -169,7 +169,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         public AdditionalPropertiesList getAdditionalProperty(String name) throws UnsetPropertyException {
             var value = getOrThrow(name);
             if (!(value instanceof AdditionalPropertiesList)) {
-                throw new InvalidTypeException("Invalid value stored for " + name);
+                throw new RuntimeException("Invalid value stored for " + name);
             }
             return (AdditionalPropertiesList) value;
         }

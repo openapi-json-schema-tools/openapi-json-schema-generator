@@ -1,21 +1,16 @@
 package {{{packageName}}}.header;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.NotImplementedException;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.AbstractMap;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
 
 public class Rfc6570Serializer {
     private static final String ENCODING = "UTF-8";
@@ -32,7 +27,7 @@ public class Rfc6570Serializer {
                     .replace("%7E", "~");
             // This could be done faster with more hand-crafted code.
         } catch (UnsupportedEncodingException wow) {
-            throw new NotImplementedException(wow.getMessage(), wow);
+            throw new NotImplementedException(wow.getMessage());
         }
     }
 
@@ -89,10 +84,14 @@ public class Rfc6570Serializer {
         String varNamePiece,
         boolean namedParameterExpansion
     ) throws NotImplementedException {
-        var itemValues = inData.stream()
-                .map(v -> rfc6570ItemValue(v, percentEncode))
-                .filter(Objects::nonNull)
-                .collect(toList());
+        List<String> itemValues = new ArrayList<>();
+        for (Object v: inData) {
+            @Nullable String value = rfc6570ItemValue(v, percentEncode);
+            if (value == null) {
+                continue;
+            }
+            itemValues.add(value);
+        }
         if (itemValues.isEmpty()) {
             // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return "";
@@ -118,11 +117,18 @@ public class Rfc6570Serializer {
         String varNamePiece,
         boolean namedParameterExpansion
     ) throws NotImplementedException {
-        var inDataMap = inData.entrySet().stream()
-                .map(entry -> new AbstractMap.SimpleEntry<>(entry.getKey(), rfc6570ItemValue(entry.getValue(), percentEncode)))
-                .filter(entry -> entry.getValue() != null)
-                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (x, y) -> y, LinkedHashMap::new));
-
+        Map<String, String> inDataMap = new HashMap<>();
+        for (Map.Entry<?, ?> entry: inData.entrySet()) {
+            @Nullable String value = rfc6570ItemValue(entry.getValue(), percentEncode);
+            if (value == null) {
+                continue;
+            }
+            @Nullable Object key = entry.getKey();
+            if (!(key instanceof String strKey)) {
+                continue;
+            }
+            inDataMap.put(strKey, value);
+        }
         if (inDataMap.isEmpty()) {
             // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return "";

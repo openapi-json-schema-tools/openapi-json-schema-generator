@@ -46,7 +46,7 @@ public class ArrayOfNumberOnly {
         protected ArrayNumberList(FrozenList<Number> m) {
             super(m);
         }
-        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayNumber.getInstance().validate(arg, configuration);
         }
     }

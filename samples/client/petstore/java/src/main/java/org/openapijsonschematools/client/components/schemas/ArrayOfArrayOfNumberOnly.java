@@ -46,7 +46,7 @@ public class ArrayOfArrayOfNumberOnly {
         protected ItemsList(FrozenList<Number> m) {
             super(m);
         }
-        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return Items.getInstance().validate(arg, configuration);
         }
     }
@@ -183,7 +183,7 @@ public class ArrayOfArrayOfNumberOnly {
         protected ArrayArrayNumberList(FrozenList<ItemsList> m) {
             super(m);
         }
-        public static ArrayArrayNumberList of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayArrayNumberList of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return ArrayArrayNumber.getInstance().validate(arg, configuration);
         }
     }
