@@ -5,13 +5,12 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
-import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.ArrayList;
@@ -66,7 +65,7 @@ public class ArrayTypeSchemaTest {
             return new FrozenList<>(items);
         }
 
-        public FrozenList<String> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenList<String> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -77,7 +76,7 @@ public class ArrayTypeSchemaTest {
         }
 
         @Override
-        public ArrayWithItemsSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ArrayWithItemsSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new ArrayWithItemsSchemaBoxedList(validate(arg, configuration));
         }
 
@@ -90,19 +89,19 @@ public class ArrayTypeSchemaTest {
         }
 
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
 
         @Override
-        public ArrayWithItemsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public ArrayWithItemsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List<?> listArg) {
                 return new ArrayWithItemsSchemaBoxedList(validate(listArg, configuration));
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 
@@ -111,7 +110,7 @@ public class ArrayTypeSchemaTest {
             super(m);
         }
 
-        public static ArrayWithOutputClsSchemaList of(List<String> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public static ArrayWithOutputClsSchemaList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return new ArrayWithOutputClsSchema().validate(arg, configuration);
         }
     }
@@ -152,7 +151,7 @@ public class ArrayTypeSchemaTest {
             return new ArrayWithOutputClsSchemaList(newInstanceItems);
         }
 
-        public ArrayWithOutputClsSchemaList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ArrayWithOutputClsSchemaList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -163,7 +162,7 @@ public class ArrayTypeSchemaTest {
         }
 
         @Override
-        public ArrayWithOutputClsSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ArrayWithOutputClsSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new ArrayWithOutputClsSchemaBoxedList(validate(arg, configuration));
         }
 
@@ -176,19 +175,19 @@ public class ArrayTypeSchemaTest {
         }
 
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
 
         @Override
-        public ArrayWithOutputClsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public ArrayWithOutputClsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List<?> listArg) {
                 return new ArrayWithOutputClsSchemaBoxedList(validate(listArg, configuration));
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 
@@ -202,7 +201,7 @@ public class ArrayTypeSchemaTest {
     }
 
     @Test
-    public void testValidateArrayWithItemsSchema() throws ValidationException, InvalidTypeException {
+    public void testValidateArrayWithItemsSchema() throws ValidationException {
         // list with only item works
         List<String> inList = new ArrayList<>();
         inList.add("abc");
@@ -227,7 +226,7 @@ public class ArrayTypeSchemaTest {
     }
 
     @Test
-    public void testValidateArrayWithOutputClsSchema() throws ValidationException, InvalidTypeException {
+    public void testValidateArrayWithOutputClsSchema() throws ValidationException {
         // list with only item works
         List<String> inList = new ArrayList<>();
         inList.add("abc");

@@ -8,7 +8,6 @@ import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -67,7 +66,7 @@ public class NullableString {
         }
         
         @Override
-        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -78,7 +77,7 @@ public class NullableString {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -89,13 +88,13 @@ public class NullableString {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 return validate((Void) null, configuration);
             } else if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -107,22 +106,22 @@ public class NullableString {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public NullableString1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public NullableString1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return new NullableString1BoxedVoid(validate(arg, configuration));
         }
         @Override
-        public NullableString1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public NullableString1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new NullableString1BoxedString(validate(arg, configuration));
         }
         @Override
-        public NullableString1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public NullableString1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

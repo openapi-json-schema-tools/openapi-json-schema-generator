@@ -13,7 +13,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.DateJsonSchema;
@@ -83,7 +82,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -93,28 +92,28 @@ public class FormatTest {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number) {
                 return validate((Number) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -124,15 +123,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public IntegerSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public IntegerSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
             return new IntegerSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public IntegerSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public IntegerSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -185,7 +184,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -195,20 +194,20 @@ public class FormatTest {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg, configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number) {
                 return validate((Number) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -218,15 +217,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public Int32withValidationsBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Int32withValidationsBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
             return new Int32withValidationsBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public Int32withValidationsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Int32withValidationsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -279,7 +278,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -289,28 +288,28 @@ public class FormatTest {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number) {
                 return validate((Number) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -320,15 +319,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public NumberSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public NumberSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
             return new NumberSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public NumberSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public NumberSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -370,7 +369,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -379,16 +378,16 @@ public class FormatTest {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
         }
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg, configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number) {
                 return validate((Number) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -398,15 +397,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public FloatSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FloatSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
             return new FloatSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public FloatSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FloatSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -459,7 +458,7 @@ public class FormatTest {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -468,16 +467,16 @@ public class FormatTest {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
         }
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number) {
                 return validate((Number) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -487,15 +486,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public DoubleSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public DoubleSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
             return new DoubleSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public DoubleSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public DoubleSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -525,7 +524,7 @@ public class FormatTest {
         protected ArrayWithUniqueItemsList(FrozenList<Number> m) {
             super(m);
         }
-        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayWithUniqueItems.getInstance().validate(arg, configuration);
         }
     }
@@ -622,7 +621,7 @@ public class FormatTest {
             return new ArrayWithUniqueItemsList(newInstanceItems);
         }
         
-        public ArrayWithUniqueItemsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public ArrayWithUniqueItemsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -633,11 +632,11 @@ public class FormatTest {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -647,15 +646,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public ArrayWithUniqueItemsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ArrayWithUniqueItemsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new ArrayWithUniqueItemsBoxedList(validate(arg, configuration));
         }
         @Override
-        public ArrayWithUniqueItemsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ArrayWithUniqueItemsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List<?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -695,7 +694,7 @@ public class FormatTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -706,11 +705,11 @@ public class FormatTest {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -720,15 +719,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public StringSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public StringSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new StringSchemaBoxedString(validate(arg, configuration));
         }
         @Override
-        public StringSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public StringSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -834,7 +833,7 @@ public class FormatTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -845,11 +844,11 @@ public class FormatTest {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -859,15 +858,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public PasswordBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PasswordBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new PasswordBoxedString(validate(arg, configuration));
         }
         @Override
-        public PasswordBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PasswordBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -906,7 +905,7 @@ public class FormatTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -917,11 +916,11 @@ public class FormatTest {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -931,15 +930,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public PatternWithDigitsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PatternWithDigitsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new PatternWithDigitsBoxedString(validate(arg, configuration));
         }
         @Override
-        public PatternWithDigitsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PatternWithDigitsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -979,7 +978,7 @@ public class FormatTest {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -990,11 +989,11 @@ public class FormatTest {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -1004,15 +1003,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public PatternWithDigitsAndDelimiterBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PatternWithDigitsAndDelimiterBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new PatternWithDigitsAndDelimiterBoxedString(validate(arg, configuration));
         }
         @Override
-        public PatternWithDigitsAndDelimiterBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PatternWithDigitsAndDelimiterBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -1056,7 +1055,7 @@ public class FormatTest {
             "pattern_with_digits_and_delimiter",
             "noneProp"
         );
-        public static FormatTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static FormatTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FormatTest1.getInstance().validate(arg, configuration);
         }
         
@@ -1998,7 +1997,7 @@ public class FormatTest {
             return new FormatTestMap(castProperties);
         }
         
-        public FormatTestMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FormatTestMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -2010,11 +2009,11 @@ public class FormatTest {
         
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -2024,15 +2023,15 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public FormatTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FormatTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new FormatTest1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public FormatTest1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FormatTest1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

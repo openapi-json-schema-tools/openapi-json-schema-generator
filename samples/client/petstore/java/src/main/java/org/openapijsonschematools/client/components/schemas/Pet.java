@@ -11,7 +11,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.GenericBuilder;
@@ -73,7 +72,7 @@ public class Pet {
         protected PhotoUrlsList(FrozenList<String> m) {
             super(m);
         }
-        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return PhotoUrls.getInstance().validate(arg, configuration);
         }
     }
@@ -154,7 +153,7 @@ public class Pet {
             return new PhotoUrlsList(newInstanceItems);
         }
         
-        public PhotoUrlsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public PhotoUrlsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -165,11 +164,11 @@ public class Pet {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -179,15 +178,15 @@ public class Pet {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public PhotoUrlsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PhotoUrlsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new PhotoUrlsBoxedList(validate(arg, configuration));
         }
         @Override
-        public PhotoUrlsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PhotoUrlsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List<?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     public enum StringStatusEnums implements StringValueMethod {
@@ -242,7 +241,7 @@ public class Pet {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -253,16 +252,16 @@ public class Pet {
         }
         
         @Override
-        public String validate(StringStatusEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public String validate(StringStatusEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -272,15 +271,15 @@ public class Pet {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public StatusBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public StatusBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new StatusBoxedString(validate(arg, configuration));
         }
         @Override
-        public StatusBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public StatusBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -288,7 +287,7 @@ public class Pet {
         protected TagsList(FrozenList<Tag.TagMap> m) {
             super(m);
         }
-        public static TagsList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static TagsList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Tags.getInstance().validate(arg, configuration);
         }
     }
@@ -369,7 +368,7 @@ public class Pet {
             return new TagsList(newInstanceItems);
         }
         
-        public TagsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public TagsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -380,11 +379,11 @@ public class Pet {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -394,15 +393,15 @@ public class Pet {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public TagsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public TagsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new TagsBoxedList(validate(arg, configuration));
         }
         @Override
-        public TagsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public TagsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List<?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -420,7 +419,7 @@ public class Pet {
             "tags",
             "status"
         );
-        public static PetMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static PetMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Pet1.getInstance().validate(arg, configuration);
         }
         
@@ -730,7 +729,7 @@ public class Pet {
             return new PetMap(castProperties);
         }
         
-        public PetMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PetMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -742,11 +741,11 @@ public class Pet {
         
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -756,15 +755,15 @@ public class Pet {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public Pet1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Pet1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new Pet1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public Pet1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Pet1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

@@ -12,7 +12,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
 import org.openapijsonschematools.client.contenttype.ContentTypeDeserializer;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.ApiException;
@@ -27,8 +26,8 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         this.headers = null;
     }
 
-    protected abstract SealedBodyClass getBody(String contentType, SealedMediaTypeClass mediaType, byte[] body, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException;
-    protected abstract HeaderClass getHeaders(HttpHeaders headers, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException;
+    protected abstract SealedBodyClass getBody(String contentType, SealedMediaTypeClass mediaType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException;
+    protected abstract HeaderClass getHeaders(HttpHeaders headers, SchemaConfiguration configuration) throws ValidationException, NotImplementedException;
 
     protected @Nullable Object deserializeJson(byte[] body) {
         String bodyStr = new String(body, StandardCharsets.UTF_8);
@@ -39,7 +38,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         return new String(body, StandardCharsets.UTF_8);
     }
 
-    protected <T> T deserializeBody(String contentType, byte[] body, JsonSchema<T> schema, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException {
+    protected <T> T deserializeBody(String contentType, byte[] body, JsonSchema<T> schema, SchemaConfiguration configuration) throws ValidationException, NotImplementedException {
         if (ContentTypeDetector.contentTypeIsJson(contentType)) {
             @Nullable Object bodyData = deserializeJson(body);
             return schema.validateAndBox(bodyData, configuration);
@@ -50,7 +49,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         throw new NotImplementedException("Deserialization for contentType="+contentType+" has not yet been implemented.");
     }
 
-	public DeserializedHttpResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException, ApiException {
+	public DeserializedHttpResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
         Optional<String> contentTypeInfo = response.headers().firstValue("Content-Type");
         if (contentTypeInfo.isEmpty()) {
             throw new ApiException(

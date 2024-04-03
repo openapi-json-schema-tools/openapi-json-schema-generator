@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
 import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.mediatype.MediaType;
@@ -42,14 +41,14 @@ public class SuccessInlineContentAndHeader {
         }
 
         @Override
-        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException {
+        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException {
             ApplicationjsonMediaType thisMediaType = (ApplicationjsonMediaType) mediaType;
             var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
             return new ApplicationjsonResponseBody(deserializedBody);
         }
 
         @Override
-        protected SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException, NotImplementedException {
+        protected SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap getHeaders(HttpHeaders headers, SchemaConfiguration configuration) throws ValidationException, NotImplementedException {
             return new Headers().deserialize(headers, configuration);
         }
     }

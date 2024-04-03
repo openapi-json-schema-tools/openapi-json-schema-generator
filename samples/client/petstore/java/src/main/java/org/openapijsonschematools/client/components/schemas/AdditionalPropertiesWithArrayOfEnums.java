@@ -11,7 +11,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.GenericBuilder;
@@ -33,7 +32,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         protected AdditionalPropertiesList(FrozenList<String> m) {
             super(m);
         }
-        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return AdditionalProperties.getInstance().validate(arg, configuration);
         }
     }
@@ -119,7 +118,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return new AdditionalPropertiesList(newInstanceItems);
         }
         
-        public AdditionalPropertiesList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public AdditionalPropertiesList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -130,11 +129,11 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -144,15 +143,15 @@ public class AdditionalPropertiesWithArrayOfEnums {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public AdditionalPropertiesBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public AdditionalPropertiesBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new AdditionalPropertiesBoxedList(validate(arg, configuration));
         }
         @Override
-        public AdditionalPropertiesBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public AdditionalPropertiesBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List<?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -162,7 +161,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return AdditionalPropertiesWithArrayOfEnums1.getInstance().validate(arg, configuration);
         }
         
@@ -270,7 +269,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return new AdditionalPropertiesWithArrayOfEnumsMap(castProperties);
         }
         
-        public AdditionalPropertiesWithArrayOfEnumsMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public AdditionalPropertiesWithArrayOfEnumsMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -282,11 +281,11 @@ public class AdditionalPropertiesWithArrayOfEnums {
         
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -296,15 +295,15 @@ public class AdditionalPropertiesWithArrayOfEnums {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public AdditionalPropertiesWithArrayOfEnums1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public AdditionalPropertiesWithArrayOfEnums1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new AdditionalPropertiesWithArrayOfEnums1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public AdditionalPropertiesWithArrayOfEnums1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public AdditionalPropertiesWithArrayOfEnums1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

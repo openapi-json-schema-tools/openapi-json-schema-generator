@@ -39,11 +39,11 @@ public static class {{mapOutputJsonPathPiece.pascalCase}} extends FrozenMap<@Nul
         {{/eq}}
     {{/eq}}
         {{#if mapValueSchema}}
-    public static {{mapOutputJsonPathPiece.pascalCase}} of(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public static {{mapOutputJsonPathPiece.pascalCase}} of(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
         return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration);
     }
         {{else}}
-    public static {{mapOutputJsonPathPiece.pascalCase}} of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public static {{mapOutputJsonPathPiece.pascalCase}} of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
         return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration);
     }
         {{/if}}

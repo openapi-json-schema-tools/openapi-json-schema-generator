@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.servers;
 
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.servers.server1.Variables;
@@ -21,7 +20,7 @@ public class Server1 extends ServerWithVariables<Variables.VariablesMap> {
                 ),
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
             );
-        } catch (ValidationException | InvalidTypeException e) {
+        } catch (ValidationException e) {
             throw new RuntimeException(e);
         }
     }

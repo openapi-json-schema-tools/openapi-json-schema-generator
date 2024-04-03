@@ -3,7 +3,7 @@
         {{#eq this "null"}}
 
 @Override
-public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -53,7 +53,7 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}
             {{/if}}
 }
 
-public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -101,7 +101,7 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCa
             {{/if}}
 }
 
-public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -118,7 +118,7 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCa
             {{else}}
 
 @Override
-public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -132,7 +132,7 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
         {{#eq this "integer"}}
 
 @Override
-public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -142,20 +142,20 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     return castArg;
 }
 
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg, configuration);
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg, configuration);
 }
             {{#neq ../format "int32"}}
 
-public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
     return (long) validate((Number) arg, configuration);
 }
 
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
     return (double) validate((Number) arg, configuration);
 }
             {{/neq}}
@@ -163,7 +163,7 @@ public double validate(double arg, SchemaConfiguration configuration) throws Val
         {{#eq this "number"}}
 
 @Override
-public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -174,55 +174,55 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
 }
             {{#eq ../format null}}
 
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg, configuration);
 }
 
-public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
     return (long) validate((Number) arg, configuration);
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg, configuration);
 }
 
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
     return (double) validate((Number) arg, configuration);
 }
             {{else}}
                 {{#eq ../format "int32"}}
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg, configuration);
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg, configuration);
 }
                 {{else}}
                     {{#eq ../format "int64"}}
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg, configuration);
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg, configuration);
 }
 
-public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
     return (long) validate((Number) arg, configuration);
 }
 
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
     return (double) validate((Number) arg, configuration);
 }
                     {{else}}
                         {{#eq ../format "float"}}
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg, configuration);
 }
                         {{else}}
                             {{#eq ../format "double"}}
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
     return (double) validate((Number) arg, configuration);
 }
                             {{/eq}}
@@ -234,7 +234,7 @@ public double validate(double arg, SchemaConfiguration configuration) throws Val
         {{#eq this "boolean"}}
 
 @Override
-public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -248,7 +248,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 {{else}}
 
 @Override
-public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -260,7 +260,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
 }
 
 @Override
-public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -272,7 +272,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 }
 
 @Override
-public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -283,24 +283,24 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     return castArg;
 }
 
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg, configuration);
 }
 
-public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
     return (long) validate((Number) arg, configuration);
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg, configuration);
 }
 
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
     return (double) validate((Number) arg, configuration);
 }
 
 @Override
-public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -311,15 +311,15 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
     return castArg;
 }
 
-public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.toString(), configuration);
 }
 
-public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.toString(), configuration);
 }
 
-public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.toString(), configuration);
 }
 
@@ -358,7 +358,7 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{
             {{/if}}
 }
 
-public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -407,7 +407,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else
             {{/if}}
 }
 
-public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}? extends @Nullable Object{{/with}}>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}? extends @Nullable Object{{/with}}>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -421,55 +421,55 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else
     {{#and enumInfo enumInfo.typeToValues.null}}
 
 @Override
-public Void validate(Null{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+public Void validate(Null{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.boolean}}
 
 @Override
-public boolean validate(Boolean{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+public boolean validate(Boolean{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.string}}
 
 @Override
-public String validate(String{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+public String validate(String{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Integer}}
 
 @Override
-public int validate(Integer{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+public int validate(Integer{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Long}}
 
 @Override
-public long validate(Long{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+public long validate(Long{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return (long) validate((Number) arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Float}}
 
 @Override
-public float validate(Float{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+public float validate(Float{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Double}}
 
 @Override
-public double validate(Double{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+public double validate(Double{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return (double) validate((Number) arg.value(), configuration);
 }
     {{/and}}
 
 @Override
-public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
 {{#if types}}
     {{#each types}}
         {{#if @first}}
@@ -516,5 +516,5 @@ public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration confi
         return validate((Map<?, ?>) arg, configuration);
     }
 {{/if}}
-    throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+    throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
 }

@@ -7,7 +7,6 @@ import org.openapijsonschematools.client.contenttype.ContentTypeSerializer;
 import org.openapijsonschematools.client.contenttype.ContentTypeDeserializer;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.parameter.ParameterStyle;
 
@@ -32,7 +31,7 @@ public class ContentHeader extends HeaderBase implements Header {
     }
 
     @Override
-    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) throws NotImplementedException, ValidationException, InvalidTypeException {
+    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) throws NotImplementedException, ValidationException {
         var castInData = validate ? content.getValue().schema().validate(inData, configuration) : inData ;
         String contentType = content.getKey();
         if (ContentTypeDetector.contentTypeIsJson(contentType)) {
@@ -44,7 +43,7 @@ public class ContentHeader extends HeaderBase implements Header {
     }
 
     @Override
-    public @Nullable Object deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration) throws NotImplementedException, ValidationException, InvalidTypeException {
+    public @Nullable Object deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration) throws NotImplementedException, ValidationException {
         String inDataJoined = String.join(",", inData); // unsure if this is needed
         @Nullable Object deserializedJson = ContentTypeDeserializer.fromJson(inDataJoined);
         if (validate) {

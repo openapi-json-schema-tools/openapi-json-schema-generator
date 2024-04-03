@@ -1,10 +1,9 @@
 package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 
 public interface NumberSchemaValidator<T> {
-    Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
-    T validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+    Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException;
+    T validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException;
 }

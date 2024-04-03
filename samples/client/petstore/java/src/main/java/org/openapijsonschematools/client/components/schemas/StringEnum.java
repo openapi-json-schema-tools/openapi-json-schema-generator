@@ -8,7 +8,6 @@ import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -110,7 +109,7 @@ public class StringEnum {
         }
         
         @Override
-        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -121,7 +120,7 @@ public class StringEnum {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -132,23 +131,23 @@ public class StringEnum {
         }
         
         @Override
-        public Void validate(NullStringEnumEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public Void validate(NullStringEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
         @Override
-        public String validate(StringStringEnumEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public String validate(StringStringEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 return validate((Void) null, configuration);
             } else if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -160,22 +159,22 @@ public class StringEnum {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public StringEnum1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public StringEnum1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return new StringEnum1BoxedVoid(validate(arg, configuration));
         }
         @Override
-        public StringEnum1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public StringEnum1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new StringEnum1BoxedString(validate(arg, configuration));
         }
         @Override
-        public StringEnum1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public StringEnum1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.schemas.validation;
 
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -73,7 +72,7 @@ public class UnsetAnyTypeJsonSchema {
         }
 
         @Override
-        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -85,7 +84,7 @@ public class UnsetAnyTypeJsonSchema {
         }
 
         @Override
-        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -97,7 +96,7 @@ public class UnsetAnyTypeJsonSchema {
         }
 
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -108,24 +107,24 @@ public class UnsetAnyTypeJsonSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
 
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
 
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return (long) validate((Number) arg, configuration);
         }
 
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg, configuration);
         }
 
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
         }
 
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -136,15 +135,15 @@ public class UnsetAnyTypeJsonSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
 
-        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
 
-        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
 
-        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
 
@@ -167,7 +166,7 @@ public class UnsetAnyTypeJsonSchema {
             return new FrozenList<>(items);
         }
 
-        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -201,7 +200,7 @@ public class UnsetAnyTypeJsonSchema {
             return new FrozenMap<>(properties);
         }
 
-        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -232,7 +231,7 @@ public class UnsetAnyTypeJsonSchema {
         }
 
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 return validate((Void) null, configuration);
             } else if (arg instanceof Boolean) {
@@ -247,41 +246,41 @@ public class UnsetAnyTypeJsonSchema {
             } else if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
 
         @Override
-        public UnsetAnyTypeJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public UnsetAnyTypeJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return new UnsetAnyTypeJsonSchema1BoxedVoid(validate(arg, configuration));
         }
 
         @Override
-        public UnsetAnyTypeJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public UnsetAnyTypeJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             return new UnsetAnyTypeJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
 
         @Override
-        public UnsetAnyTypeJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public UnsetAnyTypeJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
             return new UnsetAnyTypeJsonSchema1BoxedNumber(validate(arg, configuration));
         }
 
         @Override
-        public UnsetAnyTypeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public UnsetAnyTypeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new UnsetAnyTypeJsonSchema1BoxedString(validate(arg, configuration));
         }
 
         @Override
-        public UnsetAnyTypeJsonSchema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public UnsetAnyTypeJsonSchema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new UnsetAnyTypeJsonSchema1BoxedList(validate(arg, configuration));
         }
 
         @Override
-        public UnsetAnyTypeJsonSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public UnsetAnyTypeJsonSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new UnsetAnyTypeJsonSchema1BoxedMap(validate(arg, configuration));
         }
 
         @Override
-        public UnsetAnyTypeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public UnsetAnyTypeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -297,7 +296,7 @@ public class UnsetAnyTypeJsonSchema {
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

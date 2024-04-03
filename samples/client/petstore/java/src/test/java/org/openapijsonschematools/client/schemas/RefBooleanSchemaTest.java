@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -28,13 +27,13 @@ public class RefBooleanSchemaTest {
     );
     
     @Test
-    public void testValidateTrue() throws ValidationException, InvalidTypeException {
+    public void testValidateTrue() throws ValidationException {
         Boolean validatedValue = refBooleanJsonSchema.validate(true, configuration);
         Assert.assertEquals(validatedValue, Boolean.TRUE);
     }
 
     @Test
-    public void testValidateFalse() throws ValidationException, InvalidTypeException {
+    public void testValidateFalse() throws ValidationException {
         Boolean validatedValue = refBooleanJsonSchema.validate(false, configuration);
         Assert.assertEquals(validatedValue, Boolean.FALSE);
     }

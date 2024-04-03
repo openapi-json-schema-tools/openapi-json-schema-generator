@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -26,7 +25,7 @@ public class NullSchemaTest {
 
     @Test
     @SuppressWarnings("nullness")
-    public void testValidateNull() throws ValidationException, InvalidTypeException {
+    public void testValidateNull() throws ValidationException {
         Void validatedValue = nullJsonSchema.validate(null, configuration);
         Assert.assertNull(validatedValue);
     }

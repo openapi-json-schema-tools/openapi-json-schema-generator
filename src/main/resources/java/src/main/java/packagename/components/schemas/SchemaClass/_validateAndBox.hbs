@@ -20,7 +20,7 @@
         {{/eq}}
     {{/each}}
 @Override
-public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
     {{#each types}}
         {{#if @first}}
             {{#eq this "null"}}
@@ -68,7 +68,7 @@ public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, Sc
         return validateAndBox(castArg, configuration);
     {{/each}}
     }
-    throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+    throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
 }
 {{else}}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxVoid }}
@@ -78,7 +78,7 @@ public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, Sc
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxList }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxMap }}
 @Override
-public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
     if (arg == null) {
         Void castArg = (Void) arg;
         return validateAndBox(castArg, configuration);
@@ -94,6 +94,6 @@ public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, Sc
     } else if (arg instanceof Map<?, ?> castArg) {
         return validateAndBox(castArg, configuration);
     }
-    throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+    throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
 }
 {{/if}}

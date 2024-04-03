@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -38,7 +37,7 @@ public class MapSchemaTest {
     }
 
     @Test
-    public void testValidateMap() throws ValidationException, InvalidTypeException {
+    public void testValidateMap() throws ValidationException {
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("today", LocalDate.of(2017, 7, 21));
         FrozenMap<@Nullable Object> validatedValue = mapJsonSchema.validate(inMap, configuration);

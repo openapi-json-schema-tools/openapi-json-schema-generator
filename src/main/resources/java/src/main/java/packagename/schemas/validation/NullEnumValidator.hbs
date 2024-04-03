@@ -1,9 +1,8 @@
 package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 
 public interface NullEnumValidator <EnumType extends NullValueMethod> {
-    Void validate(EnumType arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+    Void validate(EnumType arg, SchemaConfiguration configuration) throws ValidationException;
 }

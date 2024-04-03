@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.requestbody;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
@@ -96,7 +95,7 @@ public final class RequestBodySerializerTest {
     }
 
     @Test
-    public void testSerializeApplicationJson() throws ValidationException, InvalidTypeException, NotImplementedException {
+    public void testSerializeApplicationJson() throws ValidationException, NotImplementedException {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         var serializer = new MyRequestBodySerializer();
         String jsonBody;
@@ -167,7 +166,7 @@ public final class RequestBodySerializerTest {
     }
 
     @Test
-    public void testSerializeTextPlain() throws ValidationException, InvalidTypeException, NotImplementedException {
+    public void testSerializeTextPlain() throws ValidationException, NotImplementedException {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         var serializer = new MyRequestBodySerializer();
         SerializedRequestBody requestBody = serializer.serialize(

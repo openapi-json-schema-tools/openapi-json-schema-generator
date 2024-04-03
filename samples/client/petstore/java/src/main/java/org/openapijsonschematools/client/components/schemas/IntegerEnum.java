@@ -8,7 +8,6 @@ import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.DoubleEnumValidator;
@@ -132,7 +131,7 @@ public class IntegerEnum {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -142,48 +141,48 @@ public class IntegerEnum {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
         }
         
         @Override
-        public int validate(IntegerIntegerEnumEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public int validate(IntegerIntegerEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public long validate(LongIntegerEnumEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public long validate(LongIntegerEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (long) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public float validate(FloatIntegerEnumEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public float validate(FloatIntegerEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public double validate(DoubleIntegerEnumEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public double validate(DoubleIntegerEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number) {
                 return validate((Number) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -193,15 +192,15 @@ public class IntegerEnum {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public IntegerEnum1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public IntegerEnum1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
             return new IntegerEnum1BoxedNumber(validate(arg, configuration));
         }
         @Override
-        public IntegerEnum1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public IntegerEnum1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

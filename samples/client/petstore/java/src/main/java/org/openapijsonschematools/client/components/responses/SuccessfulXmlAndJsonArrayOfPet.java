@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
 import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.mediatype.MediaType;
@@ -53,7 +52,7 @@ public class SuccessfulXmlAndJsonArrayOfPet {
         }
 
         @Override
-        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException {
+        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException {
             if (mediaType instanceof ApplicationxmlMediaType thisMediaType) {
                 var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
                 return new ApplicationxmlResponseBody(deserializedBody);

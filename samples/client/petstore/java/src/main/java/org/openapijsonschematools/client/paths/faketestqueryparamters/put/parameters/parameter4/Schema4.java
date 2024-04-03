@@ -9,7 +9,6 @@ import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -38,7 +37,7 @@ public class Schema4 {
         protected SchemaList4(FrozenList<String> m) {
             super(m);
         }
-        public static SchemaList4 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static SchemaList4 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema41.getInstance().validate(arg, configuration);
         }
     }
@@ -119,7 +118,7 @@ public class Schema4 {
             return new SchemaList4(newInstanceItems);
         }
         
-        public SchemaList4 validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public SchemaList4 validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -130,11 +129,11 @@ public class Schema4 {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -144,15 +143,15 @@ public class Schema4 {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public Schema41BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Schema41BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new Schema41BoxedList(validate(arg, configuration));
         }
         @Override
-        public Schema41Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Schema41Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List<?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

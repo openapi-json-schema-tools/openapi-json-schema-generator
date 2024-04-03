@@ -2,7 +2,6 @@ package org.openapijsonschematools.client.paths.petfindbystatus.servers;
 
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.servers.ServerWithVariables;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
@@ -19,7 +18,7 @@ public class PetfindbystatusServer1 extends ServerWithVariables<Variables.Variab
                 ),
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
             );
-        } catch (ValidationException | InvalidTypeException e) {
+        } catch (ValidationException e) {
             throw new RuntimeException(e);
         }
     }

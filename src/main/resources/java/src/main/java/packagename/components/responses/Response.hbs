@@ -14,7 +14,6 @@ import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.response.ResponseDeserializer;
 import {{packageName}}.response.DeserializedHttpResponse;
 import {{packageName}}.exceptions.ApiException;
-import {{packageName}}.exceptions.InvalidTypeException;
 import {{packageName}}.exceptions.ValidationException;
 import {{packageName}}.exceptions.NotImplementedException;
     {{#if hasContentSchema}}
@@ -83,7 +82,7 @@ public class {{jsonPathPiece.pascalCase}} {
 
         {{#if hasContentSchema}}
         @Override
-        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException {
+        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException {
             {{#eq content.size 1}}
                 {{#each content}}
             {{@key.pascalCase}}MediaType thisMediaType = ({{@key.pascalCase}}MediaType) mediaType;
@@ -116,7 +115,7 @@ public class {{jsonPathPiece.pascalCase}} {
         {{/if}}
 
         @Override
-        protected {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}} getHeaders(HttpHeaders headers, SchemaConfiguration configuration){{#if headers}} throws ValidationException, InvalidTypeException, NotImplementedException{{/if}} {
+        protected {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}} getHeaders(HttpHeaders headers, SchemaConfiguration configuration){{#if headers}} throws ValidationException, NotImplementedException{{/if}} {
         {{#if headers}}
             return new {{headers.jsonPathPiece.pascalCase}}().deserialize(headers, configuration);
         {{else}}

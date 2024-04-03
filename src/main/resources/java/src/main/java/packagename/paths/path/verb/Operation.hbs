@@ -32,7 +32,6 @@ import {{packageName}}.configurations.ApiConfiguration;
 import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.exceptions.ValidationException;
 import {{packageName}}.exceptions.NotImplementedException;
-import {{packageName}}.exceptions.InvalidTypeException;
 import {{packageName}}.exceptions.ApiException;
 import {{packageName}}.restclient.RestClient;
     {{#if requestBody}}
@@ -71,7 +70,7 @@ public class {{jsonPathPiece.pascalCase}} {
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
-        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, InvalidTypeException, ApiException {
+        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             {{#with requestBody}}
 
@@ -197,7 +196,7 @@ public class {{jsonPathPiece.pascalCase}} {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, InvalidTypeException, ApiException {
+        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return {{jsonPathPiece.pascalCase}}Provider.{{jsonPathPiece.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

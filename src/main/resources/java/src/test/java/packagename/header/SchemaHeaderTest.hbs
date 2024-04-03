@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.exceptions.NotImplementedException;
 import {{{packageName}}}.schemas.AnyTypeJsonSchema;
@@ -30,7 +29,7 @@ public class SchemaHeaderTest {
     }
 
     @Test
-    public void testSerialization() throws ValidationException, NotImplementedException, InvalidTypeException {
+    public void testSerialization() throws ValidationException, NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -128,7 +127,7 @@ public class SchemaHeaderTest {
     }
 
     @Test
-    public void testDeserialization() throws ValidationException, NotImplementedException, InvalidTypeException {
+    public void testDeserialization() throws ValidationException, NotImplementedException {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
         SchemaHeader header = getHeader(NullJsonSchema.NullJsonSchema1.getInstance());

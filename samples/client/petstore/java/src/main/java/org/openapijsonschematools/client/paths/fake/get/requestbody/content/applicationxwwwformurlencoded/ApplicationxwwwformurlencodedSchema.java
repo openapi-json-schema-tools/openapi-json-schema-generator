@@ -11,7 +11,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.GenericBuilder;
@@ -85,7 +84,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -96,16 +95,16 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(StringApplicationxwwwformurlencodedItemsEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public String validate(StringApplicationxwwwformurlencodedItemsEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -114,22 +113,22 @@ public class ApplicationxwwwformurlencodedSchema {
             }
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() throws InvalidTypeException {
+        public String defaultValue() throws ValidationException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }
-            throw new InvalidTypeException("Invalid type stored in defaultValue");
+            throw new ValidationException("Invalid type stored in defaultValue");
         }
         @Override
-        public ApplicationxwwwformurlencodedItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApplicationxwwwformurlencodedItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new ApplicationxwwwformurlencodedItemsBoxedString(validate(arg, configuration));
         }
         @Override
-        public ApplicationxwwwformurlencodedItemsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApplicationxwwwformurlencodedItemsBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -137,7 +136,7 @@ public class ApplicationxwwwformurlencodedSchema {
         protected ApplicationxwwwformurlencodedEnumFormStringArrayList(FrozenList<String> m) {
             super(m);
         }
-        public static ApplicationxwwwformurlencodedEnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static ApplicationxwwwformurlencodedEnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return ApplicationxwwwformurlencodedEnumFormStringArray.getInstance().validate(arg, configuration);
         }
     }
@@ -223,7 +222,7 @@ public class ApplicationxwwwformurlencodedSchema {
             return new ApplicationxwwwformurlencodedEnumFormStringArrayList(newInstanceItems);
         }
         
-        public ApplicationxwwwformurlencodedEnumFormStringArrayList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public ApplicationxwwwformurlencodedEnumFormStringArrayList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -234,11 +233,11 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List) {
                 return validate((List<?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -248,15 +247,15 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new ApplicationxwwwformurlencodedEnumFormStringArrayBoxedList(validate(arg, configuration));
         }
         @Override
-        public ApplicationxwwwformurlencodedEnumFormStringArrayBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApplicationxwwwformurlencodedEnumFormStringArrayBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof List<?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     public enum StringApplicationxwwwformurlencodedEnumFormStringEnums implements StringValueMethod {
@@ -312,7 +311,7 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -323,16 +322,16 @@ public class ApplicationxwwwformurlencodedSchema {
         }
         
         @Override
-        public String validate(StringApplicationxwwwformurlencodedEnumFormStringEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public String validate(StringApplicationxwwwformurlencodedEnumFormStringEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -341,22 +340,22 @@ public class ApplicationxwwwformurlencodedSchema {
             }
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public String defaultValue() throws InvalidTypeException {
+        public String defaultValue() throws ValidationException {
             if (defaultValue instanceof String) {
                 return (String) defaultValue;
             }
-            throw new InvalidTypeException("Invalid type stored in defaultValue");
+            throw new ValidationException("Invalid type stored in defaultValue");
         }
         @Override
-        public ApplicationxwwwformurlencodedEnumFormStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApplicationxwwwformurlencodedEnumFormStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
             return new ApplicationxwwwformurlencodedEnumFormStringBoxedString(validate(arg, configuration));
         }
         @Override
-        public ApplicationxwwwformurlencodedEnumFormStringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApplicationxwwwformurlencodedEnumFormStringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -369,7 +368,7 @@ public class ApplicationxwwwformurlencodedSchema {
             "enum_form_string_array",
             "enum_form_string"
         );
-        public static ApplicationxwwwformurlencodedSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static ApplicationxwwwformurlencodedSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ApplicationxwwwformurlencodedSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -513,7 +512,7 @@ public class ApplicationxwwwformurlencodedSchema {
             return new ApplicationxwwwformurlencodedSchemaMap(castProperties);
         }
         
-        public ApplicationxwwwformurlencodedSchemaMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApplicationxwwwformurlencodedSchemaMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -525,11 +524,11 @@ public class ApplicationxwwwformurlencodedSchema {
         
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -539,15 +538,15 @@ public class ApplicationxwwwformurlencodedSchema {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public ApplicationxwwwformurlencodedSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApplicationxwwwformurlencodedSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             return new ApplicationxwwwformurlencodedSchema1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public ApplicationxwwwformurlencodedSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApplicationxwwwformurlencodedSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

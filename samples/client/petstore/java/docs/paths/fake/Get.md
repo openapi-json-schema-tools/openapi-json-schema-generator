@@ -35,7 +35,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -72,7 +71,7 @@ try {
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;
-} catch (ValidationException | InvalidTypeException e) {
+} catch (ValidationException e) {
     // the returned response body or header values do not conform the the schema validation requirements
     throw e;
 } catch (IOException | InterruptedException e) {

@@ -11,7 +11,6 @@ import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.restclient.RestClient;
 import org.openapijsonschematools.client.paths.Petfindbytags;
@@ -34,7 +33,7 @@ public class Get {
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
-        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, InvalidTypeException, ApiException {
+        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
@@ -73,7 +72,7 @@ public class Get {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, InvalidTypeException, ApiException {
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

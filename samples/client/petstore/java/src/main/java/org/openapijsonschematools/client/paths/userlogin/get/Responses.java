@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.paths.userlogin.get.responses.Code200Re
 import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.Code200ResponseHeadersSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.Code400Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.response.ApiResponse;
@@ -42,7 +41,7 @@ public class Responses {
             );
         }
 
-        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException, ApiException {
+        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
             String statusCode = String.valueOf(response.statusCode());
             @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (statusCodeDeserializer == null) {

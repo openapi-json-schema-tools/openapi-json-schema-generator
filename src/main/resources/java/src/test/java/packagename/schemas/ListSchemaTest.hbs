@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.FrozenList;
@@ -36,7 +35,7 @@ public class ListSchemaTest {
     }
 
     @Test
-    public void testValidateList() throws ValidationException, InvalidTypeException {
+    public void testValidateList() throws ValidationException {
         List<Object> inList = new ArrayList<>();
         inList.add("today");
         FrozenList<@Nullable Object> validatedValue = listJsonSchema.validate(inList, configuration);

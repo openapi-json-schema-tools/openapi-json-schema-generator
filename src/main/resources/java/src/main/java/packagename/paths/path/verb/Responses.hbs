@@ -9,7 +9,6 @@ import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
     {{/with}}
 {{/each}}
 import {{{packageName}}}.exceptions.ApiException;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.NotImplementedException;
 import {{{packageName}}}.exceptions.ValidationException;
 {{#if nonErrorResponses }}
@@ -84,7 +83,7 @@ public class {{responses.jsonPathPiece.pascalCase}} {
     {{/with}}
         }
 
-        public {{#if nonErrorResponses }}EndpointResponse{{else}}Void{{/if}} deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException, ApiException {
+        public {{#if nonErrorResponses }}EndpointResponse{{else}}Void{{/if}} deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
 {{#eq defaultResponse null }}
             String statusCode = String.valueOf(response.statusCode());
     {{#and statusCodeResponses wildcardCodeResponses }}

@@ -1,10 +1,9 @@
 package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 
 public interface NullSchemaValidator<T> {
-    Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
-    T validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+    Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException;
+    T validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException;
 }

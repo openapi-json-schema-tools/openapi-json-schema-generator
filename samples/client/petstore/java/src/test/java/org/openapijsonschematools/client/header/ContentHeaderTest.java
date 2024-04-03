@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.mediatype.MediaType;
@@ -26,7 +25,7 @@ public class ContentHeaderTest {
     }
 
     @Test
-    public void testSerialization() throws ValidationException, NotImplementedException, InvalidTypeException {
+    public void testSerialization() throws ValidationException, NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);

@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
@@ -24,13 +23,13 @@ public class BooleanSchemaTest {
     );
     
     @Test
-    public void testValidateTrue() throws ValidationException, InvalidTypeException {
+    public void testValidateTrue() throws ValidationException {
         boolean validatedValue = booleanJsonSchema.validate(true, configuration);
         Assert.assertTrue(validatedValue);
     }
 
     @Test
-    public void testValidateFalse() throws ValidationException, InvalidTypeException {
+    public void testValidateFalse() throws ValidationException {
         boolean validatedValue = booleanJsonSchema.validate(false, configuration);
         Assert.assertFalse(validatedValue);
     }

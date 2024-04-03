@@ -2,11 +2,10 @@ package {{{packageName}}}.response;
 
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import java.net.http.HttpResponse;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.NotImplementedException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.exceptions.ApiException;
 
 public interface ResponsesDeserializer<SealedResponseClass> {
-    SealedResponseClass deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException, ApiException;
+    SealedResponseClass deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException;
 }

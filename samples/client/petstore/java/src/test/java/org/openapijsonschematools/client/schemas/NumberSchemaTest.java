@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -24,25 +23,25 @@ public class NumberSchemaTest {
     );
 
     @Test
-    public void testValidateInteger() throws ValidationException, InvalidTypeException {
+    public void testValidateInteger() throws ValidationException {
         int validatedValue = numberJsonSchema.validate(1, configuration);
         Assert.assertEquals(validatedValue, 1);
     }
 
     @Test
-    public void testValidateLong() throws ValidationException, InvalidTypeException {
+    public void testValidateLong() throws ValidationException {
         long validatedValue = numberJsonSchema.validate(1L, configuration);
         Assert.assertEquals(validatedValue, 1L);
     }
 
     @Test
-    public void testValidateFloat() throws ValidationException, InvalidTypeException {
+    public void testValidateFloat() throws ValidationException {
         float validatedValue = numberJsonSchema.validate(3.14f, configuration);
         Assert.assertEquals(Float.compare(validatedValue, 3.14f), 0);
     }
 
     @Test
-    public void testValidateDouble() throws ValidationException, InvalidTypeException {
+    public void testValidateDouble() throws ValidationException {
         double validatedValue = numberJsonSchema.validate(3.14d, configuration);
         Assert.assertEquals(Double.compare(validatedValue, 3.14d), 0);
     }

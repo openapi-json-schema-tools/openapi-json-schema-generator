@@ -4,7 +4,6 @@ package {{{packageName}}}.{{subpackage}};
     {{#with variables}}
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
         {{#neq ../subpackage "servers"}}
 import {{{packageName}}}.servers.ServerWithVariables;
@@ -30,7 +29,7 @@ public class {{../jsonPathPiece.pascalCase}} extends ServerWithVariables<{{conta
                 ),
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
             );
-        } catch (ValidationException | InvalidTypeException e) {
+        } catch (ValidationException e) {
             throw new RuntimeException(e);
         }
     }

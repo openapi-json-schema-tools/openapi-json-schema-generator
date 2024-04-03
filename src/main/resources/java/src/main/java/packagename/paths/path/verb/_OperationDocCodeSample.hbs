@@ -67,7 +67,6 @@ import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.configurations.JsonSchemaKeywordFlags;
 import {{packageName}}.exceptions.ValidationException;
 import {{packageName}}.exceptions.NotImplementedException;
-import {{packageName}}.exceptions.InvalidTypeException;
 import {{packageName}}.exceptions.ApiException;
 import {{{packageName}}}.schemas.validation.MapUtils;
 import {{{packageName}}}.schemas.validation.FrozenList;
@@ -209,7 +208,7 @@ try {
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;
-} catch (ValidationException | InvalidTypeException e) {
+} catch (ValidationException e) {
     // the returned response body or header values do not conform the the schema validation requirements
     throw e;
 } catch (IOException | InterruptedException e) {
