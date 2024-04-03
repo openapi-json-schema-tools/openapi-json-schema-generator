@@ -7,7 +7,6 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 
 import java.util.Map;
@@ -25,7 +24,7 @@ public class Code303Response {
         }
 
         @Override
-        protected Void getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+        protected Void getBody(String contentType, Void mediaType, byte[] body, SchemaConfiguration configuration) {
             return null;
         }
 

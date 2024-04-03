@@ -4,7 +4,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
 import org.openapijsonschematools.client.contenttype.ContentTypeSerializer;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 
 import java.util.Map;
@@ -19,7 +18,7 @@ public class ContentParameter extends ParameterBase implements Parameter {
     }
 
     @Override
-    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) throws NotImplementedException, OpenapiDocumentException {
+    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) throws NotImplementedException {
         String contentType = content.getKey();
         if (ContentTypeDetector.contentTypeIsJson(contentType)) {
             var value = ContentTypeSerializer.toJson(inData);

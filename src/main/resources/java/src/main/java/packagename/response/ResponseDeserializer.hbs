@@ -13,9 +13,9 @@ import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.contenttype.ContentTypeDetector;
 import {{{packageName}}}.contenttype.ContentTypeDeserializer;
 import {{{packageName}}}.exceptions.InvalidTypeException;
-import {{{packageName}}}.exceptions.OpenapiDocumentException;
 import {{{packageName}}}.exceptions.NotImplementedException;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.exceptions.ApiException;
 import {{{packageName}}}.header.Header;
 
 public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedMediaTypeClass> {
@@ -27,7 +27,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         this.headers = null;
     }
 
-    protected abstract SealedBodyClass getBody(String contentType, byte[] body, SchemaConfiguration configuration) throws OpenapiDocumentException, InvalidTypeException, ValidationException, NotImplementedException;
+    protected abstract SealedBodyClass getBody(String contentType, SealedMediaTypeClass mediaType, byte[] body, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException;
     protected abstract HeaderClass getHeaders(HttpHeaders headers, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException;
 
     protected @Nullable Object deserializeJson(byte[] body) {
@@ -50,20 +50,25 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         throw new NotImplementedException("Deserialization for contentType="+contentType+" has not yet been implemented.");
     }
 
-	public DeserializedHttpResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws OpenapiDocumentException, InvalidTypeException, ValidationException, NotImplementedException {
+	public DeserializedHttpResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException, ApiException {
         Optional<String> contentTypeInfo = response.headers().firstValue("Content-Type");
         if (contentTypeInfo.isEmpty()) {
-            throw new OpenapiDocumentException("Invalid response returned, Content-Type header is missing and it must be included");
+            throw new ApiException(
+                "Invalid response returned, Content-Type header is missing and it must be included",
+                response
+            );
         }
         String contentType = contentTypeInfo.get();
-        if (content != null && !content.containsKey(contentType)) {
-            throw new OpenapiDocumentException(
-                    "Invalid contentType returned. contentType="+contentType+" was returned "+
-                    "when only "+content.keySet()+" are defined for statusCode="+response.statusCode()
+        @Nullable SealedMediaTypeClass mediaType = content.get(contentType);
+        if (mediaType == null) {
+            throw new ApiException(
+                "Invalid contentType returned. contentType="+contentType+" was returned "+
+                "when only "+content.keySet()+" are defined for statusCode="+response.statusCode(),
+                response
             );
         }
         byte[] bodyBytes = response.body();
-        SealedBodyClass body = getBody(contentType, bodyBytes, configuration);
+        SealedBodyClass body = getBody(contentType, mediaType, bodyBytes, configuration);
         HeaderClass headers = getHeaders(response.headers(), configuration);
         return new DeserializedHttpResponse<>(body, headers);
 	}

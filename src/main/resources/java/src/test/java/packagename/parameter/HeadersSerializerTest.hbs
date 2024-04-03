@@ -2,7 +2,6 @@ package {{{packageName}}}.parameter;
 
 import org.junit.Assert;
 import org.junit.Test;
-import {{{packageName}}}.exceptions.OpenapiDocumentException;
 import {{{packageName}}}.exceptions.NotImplementedException;
 import {{{packageName}}}.schemas.AnyTypeJsonSchema;
 
@@ -35,7 +34,7 @@ public class HeadersSerializerTest {
     }
 
     @Test
-    public void testSerialization() throws OpenapiDocumentException, NotImplementedException {
+    public void testSerialization() throws NotImplementedException {
         Map<String, ?> inData = Map.ofEntries(
                 new AbstractMap.SimpleEntry<>("param1", "a"),
                 new AbstractMap.SimpleEntry<>("param2", 3.14d)

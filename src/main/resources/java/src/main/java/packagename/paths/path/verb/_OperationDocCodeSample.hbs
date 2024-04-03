@@ -66,7 +66,6 @@ import {{packageName}}.configurations.ApiConfiguration;
 import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.configurations.JsonSchemaKeywordFlags;
 import {{packageName}}.exceptions.ValidationException;
-import {{packageName}}.exceptions.OpenapiDocumentException;
 import {{packageName}}.exceptions.NotImplementedException;
 import {{packageName}}.exceptions.InvalidTypeException;
 import {{packageName}}.exceptions.ApiException;
@@ -207,7 +206,7 @@ var request = new {{className.pascalCase}}()
 
 try {
     {{#if nonErrorResponses }}{{responses.jsonPathPiece.pascalCase}}.EndpointResponse{{else}}Void{{/if}} response = apiClient.{{jsonPathPiece.camelCase}}(request);
-} catch (ApiException | OpenapiDocumentException e) {
+} catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;
 } catch (ValidationException | InvalidTypeException e) {

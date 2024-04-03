@@ -10,7 +10,7 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.NotImplementedException;
-import {{{packageName}}}.exceptions.OpenapiDocumentException;
+import {{{packageName}}}.exceptions.ApiException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.mediatype.MediaType;
 import {{{packageName}}}.schemas.AnyTypeJsonSchema;
@@ -68,11 +68,7 @@ public class ResponseDeserializerTest {
         }
 
         @Override
-        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, InvalidTypeException {
-            SealedMediaType mediaType = content.get(contentType);
-            if (mediaType == null) {
-                throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
-            }
+        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, InvalidTypeException {
             if (mediaType instanceof ApplicationjsonMediatype thisMediaType) {
                 var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
                 return new ApplicationjsonBody(deserializedBody);
@@ -156,7 +152,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonNull() throws ValidationException, OpenapiDocumentException, NotImplementedException, InvalidTypeException {
+    public void testDeserializeApplicationJsonNull() throws ValidationException, ApiException, NotImplementedException, InvalidTypeException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(null).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -172,7 +168,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonTrue() throws ValidationException, OpenapiDocumentException, NotImplementedException, InvalidTypeException {
+    public void testDeserializeApplicationJsonTrue() throws ValidationException, ApiException, NotImplementedException, InvalidTypeException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(true).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -188,7 +184,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonFalse() throws ValidationException, OpenapiDocumentException, NotImplementedException, InvalidTypeException {
+    public void testDeserializeApplicationJsonFalse() throws ValidationException, ApiException, NotImplementedException, InvalidTypeException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(false).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -204,7 +200,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonInt() throws ValidationException, OpenapiDocumentException, NotImplementedException, InvalidTypeException {
+    public void testDeserializeApplicationJsonInt() throws ValidationException, ApiException, NotImplementedException, InvalidTypeException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(1).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -220,7 +216,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonFloat() throws ValidationException, OpenapiDocumentException, NotImplementedException, InvalidTypeException {
+    public void testDeserializeApplicationJsonFloat() throws ValidationException, ApiException, NotImplementedException, InvalidTypeException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(3.14).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -236,7 +232,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonString() throws ValidationException, OpenapiDocumentException, NotImplementedException, InvalidTypeException {
+    public void testDeserializeApplicationJsonString() throws ValidationException, ApiException, NotImplementedException, InvalidTypeException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson("a").getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");

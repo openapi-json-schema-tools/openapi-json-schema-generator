@@ -3,11 +3,10 @@ package org.openapijsonschematools.client.response;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import java.net.http.HttpResponse;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.ApiException;
 
 public interface ResponsesDeserializer<SealedResponseClass> {
-    SealedResponseClass deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws OpenapiDocumentException, InvalidTypeException, ValidationException, NotImplementedException, ApiException;
+    SealedResponseClass deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException, ApiException;
 }

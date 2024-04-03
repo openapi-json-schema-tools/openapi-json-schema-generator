@@ -33,7 +33,6 @@ import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ApiException;
@@ -106,7 +105,7 @@ var request = new PutRequestBuilder()
 
 try {
     Responses.EndpointResponse response = apiClient.put(request);
-} catch (ApiException | OpenapiDocumentException e) {
+} catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;
 } catch (ValidationException | InvalidTypeException e) {
