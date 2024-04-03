@@ -29,9 +29,7 @@ public class Parameter0 {
                 null,
                 null,
                 false,
-                Map.ofEntries(
-                    new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
-                )
+                new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
             );
         }
     }

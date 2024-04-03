@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
 import java.net.http.HttpHeaders;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -103,7 +104,7 @@ public class ContentHeaderTest {
                 return null;
             }
         }
-        Map<String, MediaType<?, ?>> content = Map.of(
+        AbstractMap.SimpleEntry<String, MediaType<?, ?>> content = new AbstractMap.SimpleEntry<>(
                 "application/json", new ApplicationJsonMediaType()
         );
         for (ParamTestCase testCase: testCases) {

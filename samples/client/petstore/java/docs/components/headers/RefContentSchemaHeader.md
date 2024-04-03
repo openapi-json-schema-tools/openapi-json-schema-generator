@@ -48,7 +48,7 @@ a class that deserializes a header value
 | @Nullable ParameterStyle | ParameterStyle.SIMPLE |
 | @Nullable Boolean explode | false |
 | @Nullable Boolean allowReserved | null |
-| Map<String, [ApplicationjsonMediaType](#applicationjsonmediatype)> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("application/json", new [ApplicationjsonMediaType](#applicationjsonmediatype)())<br>)<br>the contentType to schema info |
+| AbstractMap.SimpleEntry<String, [ApplicationjsonMediaType](#applicationjsonmediatype)> | content =  new AbstractMap.SimpleEntry<>("application/json", new [ApplicationjsonMediaType](#applicationjsonmediatype)())<br>the contentType to schema info |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

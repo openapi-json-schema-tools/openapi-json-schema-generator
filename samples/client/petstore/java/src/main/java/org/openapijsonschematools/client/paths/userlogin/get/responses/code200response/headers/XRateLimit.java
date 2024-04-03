@@ -25,9 +25,7 @@ public class XRateLimit {
                 true,
                 null,
                 false,
-                Map.ofEntries(
-                    new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
-                )
+                new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
             );
         }
     }
