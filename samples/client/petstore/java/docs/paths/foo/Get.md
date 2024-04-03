@@ -22,9 +22,6 @@ a class that allows one to call the endpoint using a method named get
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
-import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
-import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -34,6 +31,10 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
+import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
+import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
+import org.openapijsonschematools.client.paths.foo.get.responses.CodedefaultResponse;
 import org.openapijsonschematools.client.paths.foo.Get;
 
 import java.io.IOException;

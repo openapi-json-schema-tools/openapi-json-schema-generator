@@ -26,15 +26,6 @@ a class that allows one to call the endpoint using a method named delete
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
-import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
-import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.securityschemes.SecurityScheme;
-import org.openapijsonschematools.client.components.securityschemes.BearerTest;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -44,6 +35,16 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
+import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
+import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server1;
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
+import org.openapijsonschematools.client.components.securityschemes.BearerTest;
+import org.openapijsonschematools.client.paths.fake.delete.responses.Code200Response;
 import org.openapijsonschematools.client.paths.fake.Delete;
 
 import java.io.IOException;

@@ -24,11 +24,6 @@ a class that allows one to call the endpoint using a method named delete
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.delete.PathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -38,6 +33,13 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.userusername.delete.PathParameters;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server1;
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.paths.userusername.delete.responses.Code200Response;
+import org.openapijsonschematools.client.paths.userusername.delete.responses.Code404Response;
 import org.openapijsonschematools.client.paths.userusername.Delete;
 
 import java.io.IOException;
@@ -79,6 +81,10 @@ var request = new DeleteRequestBuilder()
 
 try {
     Responses.EndpointResponse response = apiClient.delete(request);
+} catch (Delete.ResponseApiException
+ e) {
+    // server returned an error response defined in the openapi document
+    throw e;
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;

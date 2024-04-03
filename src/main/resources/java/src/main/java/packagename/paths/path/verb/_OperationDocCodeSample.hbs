@@ -1,5 +1,14 @@
 ```
 {{#with operation}}
+import {{packageName}}.configurations.ApiConfiguration;
+import {{packageName}}.configurations.SchemaConfiguration;
+import {{packageName}}.configurations.JsonSchemaKeywordFlags;
+import {{packageName}}.exceptions.ValidationException;
+import {{packageName}}.exceptions.NotImplementedException;
+import {{packageName}}.exceptions.ApiException;
+import {{{packageName}}}.schemas.validation.MapUtils;
+import {{{packageName}}}.schemas.validation.FrozenList;
+import {{{packageName}}}.schemas.validation.FrozenMap;
     {{#each builders}}
         {{#or @first @last}}
             {{#each keyToBuilder}}
@@ -62,15 +71,14 @@ import {{packageName}}.components.securityschemes.{{jsonPathPiece.pascalCase}};
             {{/each}}
         {{/if}}
     {{/each}}
-import {{packageName}}.configurations.ApiConfiguration;
-import {{packageName}}.configurations.SchemaConfiguration;
-import {{packageName}}.configurations.JsonSchemaKeywordFlags;
-import {{packageName}}.exceptions.ValidationException;
-import {{packageName}}.exceptions.NotImplementedException;
-import {{packageName}}.exceptions.ApiException;
-import {{{packageName}}}.schemas.validation.MapUtils;
-import {{{packageName}}}.schemas.validation.FrozenList;
-import {{{packageName}}}.schemas.validation.FrozenMap;
+    {{#each responses}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+        {{#with getSelfOrDeepestRef}}
+            {{#with headersObjectSchema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+            {{/with}}
+        {{/with}}
+    {{/each}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 
 import java.io.IOException;
@@ -205,6 +213,11 @@ var request = new {{className.pascalCase}}()
 
 try {
     {{#if nonErrorResponses }}{{responses.jsonPathPiece.pascalCase}}.EndpointResponse{{else}}Void{{/if}} response = apiClient.{{jsonPathPiece.camelCase}}(request);
+{{#or errorStatusCodes errorWildcardStatusCodes}}
+} catch ({{> src/main/java/packagename/paths/path/verb/_OperationDocExcCodeSample }} e) {
+    // server returned an error response defined in the openapi document
+    throw e;
+{{/or}}
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;

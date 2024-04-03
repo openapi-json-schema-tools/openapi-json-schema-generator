@@ -24,6 +24,15 @@ a class that allows one to call the endpoint using a method named delete
 
 ### Code Sample
 ```
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.petpetid.delete.HeaderParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteSecurityInfo;
@@ -34,15 +43,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
-import org.openapijsonschematools.client.configurations.ApiConfiguration;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.ApiException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.paths.petpetid.delete.responses.Code400Response;
 import org.openapijsonschematools.client.paths.petpetid.Delete;
 
 import java.io.IOException;
@@ -92,6 +93,10 @@ var request = new DeleteRequestBuilder()
 
 try {
     Void response = apiClient.delete(request);
+} catch (Delete.ResponseApiException
+ e) {
+    // server returned an error response defined in the openapi document
+    throw e;
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;

@@ -24,15 +24,6 @@ a class that allows one to call the endpoint using a method named post
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.paths.petpetiduploadimage.post.RequestBody;
-import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
-import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.securityschemes.SecurityScheme;
-import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -42,6 +33,17 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.RequestBody;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PathParameters;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server1;
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
+import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.Code200Response;
+import org.openapijsonschematools.client.components.responses.successwithjsonapiresponse.SuccessWithJsonApiResponseHeadersSchema;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.Post;
 
 import java.io.IOException;

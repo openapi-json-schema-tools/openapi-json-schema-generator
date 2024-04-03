@@ -24,11 +24,6 @@ a class that allows one to call the endpoint using a method named get
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userlogin.get.QueryParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -38,6 +33,14 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.userlogin.get.QueryParameters;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server1;
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.Code200ResponseHeadersSchema;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.Code400Response;
 import org.openapijsonschematools.client.paths.userlogin.Get;
 
 import java.io.IOException;
@@ -81,6 +84,10 @@ var request = new GetRequestBuilder()
 
 try {
     Responses.EndpointResponse response = apiClient.get(request);
+} catch (Get.ResponseApiException
+ e) {
+    // server returned an error response defined in the openapi document
+    throw e;
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;

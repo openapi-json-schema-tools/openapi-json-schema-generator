@@ -1,0 +1,11 @@
+{{#and errorStatusCodes errorWildcardStatusCodes}}
+{{#each errorStatusCodes}}{{jsonPathPiece.pascalCase}}.ResponseApiException | {{/each}}{{#each errorWildcardStatusCodes}}{{jsonPathPiece.pascalCase}}.ResponseApiException{{#unless @last}} | {{/unless}}{{/each}}
+{{else}}
+    {{#or errorStatusCodes errorWildcardStatusCodes}}
+        {{#if errorStatusCodes}}
+{{#each errorStatusCodes}}{{#unless @first}} | {{/unless}}{{jsonPathPiece.pascalCase}}.ResponseApiException{{/each}}
+        {{else}}
+{{#each errorWildcardStatusCodes}}{{#unless @first}} | {{/unless}}{{jsonPathPiece.pascalCase}}.ResponseApiException{{/each}}
+        {{/if}}
+    {{/or}}
+{{/and}}
