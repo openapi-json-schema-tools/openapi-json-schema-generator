@@ -79,7 +79,7 @@ a class that deserializes a header value
 | @Nullable Boolean explode | {{explode}} |
 | @Nullable Boolean allowReserved | null |
     {{#each content}}
-| Map<String, [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)())<br>)<br>the contentType to schema info |
+| AbstractMap.SimpleEntry<String, [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)> | content =  new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)())<br>the contentType to schema info |
     {{else}}
 | JsonSchema<?> | schema = {{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}})().getInstance(){{/with}}
     {{/each}}
