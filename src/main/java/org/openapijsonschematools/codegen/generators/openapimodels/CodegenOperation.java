@@ -25,7 +25,7 @@ public class CodegenOperation {
     public final Boolean deprecated;
     public final LinkedHashSet<Integer> nonErrorStatusCodes; // values like 201
     public final LinkedHashSet<Integer> nonErrorWildcardStatusCodes; // values like 2 for @2XX
-    public final LinkedHashSet<String> errorStatusCodes; // values like 401
+    public final LinkedHashSet<Integer> errorStatusCodes; // values like 401
     public final LinkedHashSet<Integer> errorWildcardStatusCodes; // values like 4 for 4XX
     public final CodegenText summary, description;
     public final LinkedHashSet<String> produces;
@@ -57,7 +57,7 @@ public class CodegenOperation {
             Boolean deprecated,
             LinkedHashSet<Integer> nonErrorStatusCodes,
             LinkedHashSet<Integer> nonErrorWildcardStatusCodes,
-            LinkedHashSet<String> errorStatusCodes,
+            LinkedHashSet<Integer> errorStatusCodes,
             LinkedHashSet<Integer> errorWildcardStatusCodes,
             CodegenText summary,
             CodegenText description,
