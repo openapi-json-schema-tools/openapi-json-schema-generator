@@ -82,10 +82,12 @@ try {
     throw e;
 }
 if (response instanceof Responses.EndpointCode200Response castResponse) {
-    // todo add handling for sealed body
+Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+// handle deserialized body here
 } else {
     Responses.EndpointCode202Response castResponse = (Responses.EndpointCode202Response) response;
-    // todo add handling for sealed body
+Code202Response.ApplicationjsonResponseBody deserializedBody = (Code202Response.ApplicationjsonResponseBody) castResponse.body;
+// handle deserialized body here
 }
 ```
 ### Constructor Summary

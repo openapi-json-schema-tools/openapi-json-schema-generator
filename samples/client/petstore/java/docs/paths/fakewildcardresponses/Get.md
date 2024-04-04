@@ -89,14 +89,18 @@ try {
     throw e;
 }
 if (response instanceof Responses.EndpointCode1XXResponse castResponse) {
-    // todo add handling for sealed body
+Code1XXResponse.ApplicationjsonResponseBody deserializedBody = (Code1XXResponse.ApplicationjsonResponseBody) castResponse.body;
+// handle deserialized body here
 } else if (response instanceof Responses.EndpointCode2XXResponse castResponse) {
-    // todo add handling for sealed body
+Code2XXResponse.ApplicationjsonResponseBody deserializedBody = (Code2XXResponse.ApplicationjsonResponseBody) castResponse.body;
+// handle deserialized body here
 } else if (response instanceof Responses.EndpointCode200Response castResponse) {
-    // todo add handling for sealed body
+Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+// handle deserialized body here
 } else {
     Responses.EndpointCode3XXResponse castResponse = (Responses.EndpointCode3XXResponse) response;
-    // todo add handling for sealed body
+Code3XXResponse.ApplicationjsonResponseBody deserializedBody = (Code3XXResponse.ApplicationjsonResponseBody) castResponse.body;
+// handle deserialized body here
 }
 ```
 ### Constructor Summary

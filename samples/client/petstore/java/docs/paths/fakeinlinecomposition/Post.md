@@ -84,6 +84,12 @@ try {
     throw e;
 }
 Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+if (castResponse.body instanceof Code200Response.ApplicationjsonResponseBody deserializedBody) {
+    // handle deserialized body here
+} else {
+    Code200Response.MultipartformdataResponseBody deserializedBody = (Code200Response.MultipartformdataResponseBody) castResponse.body;
+    // handle deserialized body here
+}
 ```
 ### Constructor Summary
 | Constructor and Description |

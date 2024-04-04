@@ -237,6 +237,9 @@ try {
     {{#eq nonErrorResponses.size 1}}
         {{#each nonErrorResponses}}
 {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse = ({{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}}) response;
+            {{#if hasContentSchema}}
+{{> src/main/java/packagename/paths/path/verb/_OperationDocResBodyCodeSample }}
+            {{/if}}
         {{/each}}
     {{else}}
         {{#each nonErrorResponses}}
@@ -250,7 +253,9 @@ if (response instanceof {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPat
 } else if (response instanceof {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse) {
                 {{/if}}
             {{/if}}
-    // todo add handling for sealed body
+            {{#if hasContentSchema}}
+{{> src/main/java/packagename/paths/path/verb/_OperationDocResBodyCodeSample }}
+            {{/if}}
         {{/each}}
 }
     {{/eq}}

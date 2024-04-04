@@ -83,6 +83,8 @@ try {
     throw e;
 }
 Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+Code200Response.ApplicationxpemfileResponseBody deserializedBody = (Code200Response.ApplicationxpemfileResponseBody) castResponse.body;
+// handle deserialized body here
 ```
 ### Constructor Summary
 | Constructor and Description |

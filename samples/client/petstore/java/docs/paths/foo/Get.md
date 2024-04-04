@@ -79,6 +79,8 @@ try {
     throw e;
 }
 Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefaultResponse) response;
+CodedefaultResponse.ApplicationjsonResponseBody deserializedBody = (CodedefaultResponse.ApplicationjsonResponseBody) castResponse.body;
+// handle deserialized body here
 ```
 ### Constructor Summary
 | Constructor and Description |

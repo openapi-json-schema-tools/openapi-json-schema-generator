@@ -106,6 +106,7 @@ try {
     throw e;
 }
 Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+}
 ```
 ### Constructor Summary
 | Constructor and Description |

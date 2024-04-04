@@ -93,6 +93,8 @@ try {
     throw e;
 }
 Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+Code200Response.ApplicationoctetstreamResponseBody deserializedBody = (Code200Response.ApplicationoctetstreamResponseBody) castResponse.body;
+// handle deserialized body here
 ```
 ### Constructor Summary
 | Constructor and Description |

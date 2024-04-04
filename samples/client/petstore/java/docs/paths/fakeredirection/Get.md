@@ -82,10 +82,8 @@ try {
     throw e;
 }
 if (response instanceof Responses.EndpointCode3XXResponse castResponse) {
-    // todo add handling for sealed body
 } else {
     Responses.EndpointCode303Response castResponse = (Responses.EndpointCode303Response) response;
-    // todo add handling for sealed body
 }
 ```
 ### Constructor Summary
