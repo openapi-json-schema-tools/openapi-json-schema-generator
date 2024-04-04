@@ -360,10 +360,14 @@ docs/paths/fake_wild_card_responses/get/responses/response_4xx/content/applicati
 docs/paths/fake_wild_card_responses/get/responses/response_5xx/content/application_json/schema.md
 docs/paths/foo/get.md
 docs/paths/foo/get/responses/response_default/content/application_json/schema.md
+docs/paths/foo/get/servers/server_0.md
+docs/paths/foo/get/servers/server_1.md
 docs/paths/pet/post.md
 docs/paths/pet/put.md
 docs/paths/pet_find_by_status/get.md
 docs/paths/pet_find_by_status/get/parameters/parameter_0/schema.md
+docs/paths/pet_find_by_status/servers/server_0.md
+docs/paths/pet_find_by_status/servers/server_1.md
 docs/paths/pet_find_by_tags/get.md
 docs/paths/pet_find_by_tags/get/parameters/parameter_0/schema.md
 docs/paths/pet_pet_id/delete.md

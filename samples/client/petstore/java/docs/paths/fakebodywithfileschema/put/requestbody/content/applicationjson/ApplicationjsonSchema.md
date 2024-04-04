@@ -1,6 +1,6 @@
 # ApplicationjsonSchema
 public class ApplicationjsonSchema<br>
-extends [FileSchemaTestClass1](../../../../../../../components/schemas/FileSchemaTestClass.md#fileschematestclass)
+extends [FileSchemaTestClass1](../../../../../../components/schemas/FileSchemaTestClass.md#fileschematestclass)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
@@ -14,6 +14,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [FileSchemaTestClass.FileSchemaTestClass1](../../../../../../../components/schemas/FileSchemaTestClass.md#fileschematestclass1)
+extends [FileSchemaTestClass.FileSchemaTestClass1](../../../../../../components/schemas/FileSchemaTestClass.md#fileschematestclass1)
 
 A schema class that validates payloads

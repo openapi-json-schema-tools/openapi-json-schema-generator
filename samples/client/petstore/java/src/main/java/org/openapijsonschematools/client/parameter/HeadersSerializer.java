@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
@@ -14,7 +15,7 @@ public abstract class HeadersSerializer {
         this.parameters = parameters;
     }
 
-    public Map<String, List<String>> serialize(Map<String, ?> inData) {
+    public Map<String, List<String>> serialize(Map<String, ?> inData) throws NotImplementedException {
         Map<String, List<String>> results = new LinkedHashMap<>();
         for (Map.Entry<String, ?> entry: inData.entrySet()) {
             String mapKey = entry.getKey();

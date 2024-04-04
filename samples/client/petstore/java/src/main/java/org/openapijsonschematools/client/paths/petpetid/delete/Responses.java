@@ -2,6 +2,8 @@ package org.openapijsonschematools.client.paths.petpetid.delete;
 
 import org.openapijsonschematools.client.paths.petpetid.delete.responses.Code400Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -25,7 +27,7 @@ public class Responses {
             );
         }
 
-        public Void deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+        public Void deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
             String statusCode = String.valueOf(response.statusCode());
             @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (statusCodeDeserializer == null) {

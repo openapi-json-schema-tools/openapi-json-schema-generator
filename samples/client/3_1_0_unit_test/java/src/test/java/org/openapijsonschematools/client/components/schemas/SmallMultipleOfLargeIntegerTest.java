@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class SmallMultipleOfLargeIntegerTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAnyIntegerIsAMultipleOf1E8Passes() {
+    public void testAnyIntegerIsAMultipleOf1E8Passes() throws ValidationException {
         // any integer is a multiple of 1e-8
         final var schema = SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1.getInstance();
         schema.validate(

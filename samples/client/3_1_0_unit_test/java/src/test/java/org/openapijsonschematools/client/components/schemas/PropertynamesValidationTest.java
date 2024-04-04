@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -38,13 +37,13 @@ public class PropertynamesValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() {
+    public void testIgnoresOtherNonObjectsPasses() throws ValidationException {
         // ignores other non-objects
         final var schema = PropertynamesValidation.PropertynamesValidation1.getInstance();
         schema.validate(
@@ -54,7 +53,7 @@ public class PropertynamesValidationTest {
     }
 
     @Test
-    public void testAllPropertyNamesValidPasses() {
+    public void testAllPropertyNamesValidPasses() throws ValidationException {
         // all property names valid
         final var schema = PropertynamesValidation.PropertynamesValidation1.getInstance();
         schema.validate(
@@ -75,7 +74,7 @@ public class PropertynamesValidationTest {
     }
 
     @Test
-    public void testObjectWithoutPropertiesIsValidPasses() {
+    public void testObjectWithoutPropertiesIsValidPasses() throws ValidationException {
         // object without properties is valid
         final var schema = PropertynamesValidation.PropertynamesValidation1.getInstance();
         schema.validate(
@@ -86,7 +85,7 @@ public class PropertynamesValidationTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() {
+    public void testIgnoresArraysPasses() throws ValidationException {
         // ignores arrays
         final var schema = PropertynamesValidation.PropertynamesValidation1.getInstance();
         schema.validate(
@@ -101,7 +100,7 @@ public class PropertynamesValidationTest {
     }
 
     @Test
-    public void testIgnoresStringsPasses() {
+    public void testIgnoresStringsPasses() throws ValidationException {
         // ignores strings
         final var schema = PropertynamesValidation.PropertynamesValidation1.getInstance();
         schema.validate(

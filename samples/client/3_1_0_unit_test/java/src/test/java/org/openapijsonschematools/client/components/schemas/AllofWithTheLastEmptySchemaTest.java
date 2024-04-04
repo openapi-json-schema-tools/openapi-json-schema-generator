@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -27,13 +26,13 @@ public class AllofWithTheLastEmptySchemaTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testNumberIsValidPasses() {
+    public void testNumberIsValidPasses() throws ValidationException {
         // number is valid
         final var schema = AllofWithTheLastEmptySchema.AllofWithTheLastEmptySchema1.getInstance();
         schema.validate(

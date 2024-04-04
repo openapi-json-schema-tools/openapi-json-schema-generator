@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.header.StyleSerializer;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 
 import java.util.AbstractMap;
@@ -26,7 +27,7 @@ public class SchemaParameter extends ParameterBase implements Parameter {
     }
 
     @Override
-    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) {
+    public AbstractMap.SimpleEntry<String, String> serialize(@Nullable Object inData) throws NotImplementedException {
         ParameterStyle usedStyle = getStyle();
         boolean percentEncode = inType == ParameterInType.QUERY || inType == ParameterInType.PATH;
         String value;
@@ -52,7 +53,7 @@ public class SchemaParameter extends ParameterBase implements Parameter {
         } else {
             // usedStyle == ParameterStyle.DEEP_OBJECT
             // query
-            throw new RuntimeException("Style deep object serialization has not yet been implemented.");
+            throw new NotImplementedException("Style deep object serialization has not yet been implemented.");
         }
         return new AbstractMap.SimpleEntry<>(name, value);
     }

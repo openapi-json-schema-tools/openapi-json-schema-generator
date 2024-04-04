@@ -299,7 +299,7 @@ src/main/java/org/openapijsonschematools/client/contenttype/ContentTypeSerialize
 src/main/java/org/openapijsonschematools/client/exceptions/ApiException.java
 src/main/java/org/openapijsonschematools/client/exceptions/BaseException.java
 src/main/java/org/openapijsonschematools/client/exceptions/InvalidAdditionalPropertyException.java
-src/main/java/org/openapijsonschematools/client/exceptions/InvalidTypeException.java
+src/main/java/org/openapijsonschematools/client/exceptions/NotImplementedException.java
 src/main/java/org/openapijsonschematools/client/exceptions/UnsetPropertyException.java
 src/main/java/org/openapijsonschematools/client/exceptions/ValidationException.java
 src/main/java/org/openapijsonschematools/client/header/ContentHeader.java

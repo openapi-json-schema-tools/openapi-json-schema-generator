@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testPropertyValidatesPropertyPasses() {
+    public void testPropertyValidatesPropertyPasses() throws ValidationException {
         // property validates property
         final var schema = PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance();
         schema.validate(
@@ -36,7 +35,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
     }
 
     @Test
-    public void testAdditionalpropertyIgnoresPropertyPasses() {
+    public void testAdditionalpropertyIgnoresPropertyPasses() throws ValidationException {
         // additionalProperty ignores property
         final var schema = PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance();
         schema.validate(
@@ -67,13 +66,13 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testPatternpropertyValidatesNonpropertyPasses() {
+    public void testPatternpropertyValidatesNonpropertyPasses() throws ValidationException {
         // patternProperty validates nonproperty
         final var schema = PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance();
         schema.validate(
@@ -106,7 +105,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -131,7 +130,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -151,13 +150,13 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testAdditionalpropertyValidatesOthersPasses() {
+    public void testAdditionalpropertyValidatesOthersPasses() throws ValidationException {
         // additionalProperty validates others
         final var schema = PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance();
         schema.validate(

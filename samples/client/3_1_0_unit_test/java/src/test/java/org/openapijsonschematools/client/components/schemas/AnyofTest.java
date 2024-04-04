@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class AnyofTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testBothAnyofValidPasses() {
+    public void testBothAnyofValidPasses() throws ValidationException {
         // both anyOf valid
         final var schema = Anyof.Anyof1.getInstance();
         schema.validate(
@@ -37,13 +36,13 @@ public class AnyofTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testFirstAnyofValidPasses() {
+    public void testFirstAnyofValidPasses() throws ValidationException {
         // first anyOf valid
         final var schema = Anyof.Anyof1.getInstance();
         schema.validate(
@@ -53,7 +52,7 @@ public class AnyofTest {
     }
 
     @Test
-    public void testSecondAnyofValidPasses() {
+    public void testSecondAnyofValidPasses() throws ValidationException {
         // second anyOf valid
         final var schema = Anyof.Anyof1.getInstance();
         schema.validate(

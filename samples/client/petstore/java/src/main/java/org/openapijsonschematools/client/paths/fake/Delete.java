@@ -7,10 +7,13 @@ import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
 import org.openapijsonschematools.client.paths.fake.delete.Parameters;
 import org.openapijsonschematools.client.paths.fake.delete.Responses;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.restclient.RestClient;
-import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.paths.Fake;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.AuthApplier;
@@ -31,7 +34,7 @@ public class Delete {
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
-        ) throws IOException, InterruptedException {
+        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
@@ -74,7 +77,7 @@ public class Delete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException {
+        default Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -27,13 +26,13 @@ public class MaximumValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testBoundaryPointIsValidPasses() {
+    public void testBoundaryPointIsValidPasses() throws ValidationException {
         // boundary point is valid
         final var schema = MaximumValidation.MaximumValidation1.getInstance();
         schema.validate(
@@ -43,7 +42,7 @@ public class MaximumValidationTest {
     }
 
     @Test
-    public void testBelowTheMaximumIsValidPasses() {
+    public void testBelowTheMaximumIsValidPasses() throws ValidationException {
         // below the maximum is valid
         final var schema = MaximumValidation.MaximumValidation1.getInstance();
         schema.validate(
@@ -53,7 +52,7 @@ public class MaximumValidationTest {
     }
 
     @Test
-    public void testIgnoresNonNumbersPasses() {
+    public void testIgnoresNonNumbersPasses() throws ValidationException {
         // ignores non-numbers
         final var schema = MaximumValidation.MaximumValidation1.getInstance();
         schema.validate(

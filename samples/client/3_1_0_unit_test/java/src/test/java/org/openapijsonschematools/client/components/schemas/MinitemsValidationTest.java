@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class MinitemsValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testExactLengthIsValidPasses() {
+    public void testExactLengthIsValidPasses() throws ValidationException {
         // exact length is valid
         final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
@@ -30,7 +29,7 @@ public class MinitemsValidationTest {
     }
 
     @Test
-    public void testIgnoresNonArraysPasses() {
+    public void testIgnoresNonArraysPasses() throws ValidationException {
         // ignores non-arrays
         final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
@@ -40,7 +39,7 @@ public class MinitemsValidationTest {
     }
 
     @Test
-    public void testLongerIsValidPasses() {
+    public void testLongerIsValidPasses() throws ValidationException {
         // longer is valid
         final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
@@ -63,7 +62,7 @@ public class MinitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

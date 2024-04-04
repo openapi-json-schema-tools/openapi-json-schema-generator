@@ -22,8 +22,96 @@ public static class Delete1 extends ApiClient.ApiClient1 implements DeleteOperat
 
 a class that allows one to call the endpoint using a method named delete
 
-TODO code sample
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.paths.petpetid.delete.HeaderParameters;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteSecurityInfo;
+import org.openapijsonschematools.client.paths.petpetid.delete.PathParameters;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server1;
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
+import org.openapijsonschematools.client.components.securityschemes.ApiKey;
+import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
+import org.openapijsonschematools.client.paths.petpetid.delete.responses.Code400Response;
+import org.openapijsonschematools.client.paths.petpetid.Delete;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
+    new Server0(),
+    null,
+    null
+);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+List<SecurityScheme> securitySchemes = new ArrayList();
+securitySchemes.add(
+    new ApiKey("someApiKey");
+);
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
+    .petpetidDeleteSecurityInfoSecurityIndex(PetpetidDeleteSecurityInfo.SecurityIndex.SECURITY_0);
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    securitySchemes,
+    securityIndexInfo,
+    timeout
+);
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+Delete.Delete1 apiClient = new Delete.Delete1(apiConfiguration, schemaConfiguration);
+
+
+// Map validation
+PathParameters.PathParametersMap pathParameters =
+    PathParameters.PathParameters1.validate(
+    new PathParameters.PathParametersMapBuilder()
+        .petId(1L)
+
+    .build(),
+    schemaConfiguration
+);
+
+var request = new DeleteRequestBuilder()
+    .pathParameters(pathParameters)
+    .build();
+
+Void response;
+try {
+    response = apiClient.delete(request);
+} catch (Code400Response.ResponseApiException e) {
+    // server returned an error response defined in the openapi document
+    throw e;
+} catch (ApiException e) {
+    // server returned a response/contentType not defined in the openapi document
+    throw e;
+} catch (ValidationException e) {
+    // the returned response body or header values do not conform the the schema validation requirements
+    throw e;
+} catch (IOException | InterruptedException e) {
+    // an exception happened when making the request
+    throw e;
+} catch (NotImplementedException e) {
+    // the request body serialization or deserialization has not yet been implemented
+    // or the header content type deserialization has not yet been implemented for this contentType
+    throw e;
+}
+```
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |

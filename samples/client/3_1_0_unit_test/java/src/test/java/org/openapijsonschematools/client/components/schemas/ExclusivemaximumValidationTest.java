@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class ExclusivemaximumValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testBelowTheExclusivemaximumIsValidPasses() {
+    public void testBelowTheExclusivemaximumIsValidPasses() throws ValidationException {
         // below the exclusiveMaximum is valid
         final var schema = ExclusivemaximumValidation.ExclusivemaximumValidation1.getInstance();
         schema.validate(
@@ -28,7 +27,7 @@ public class ExclusivemaximumValidationTest {
     }
 
     @Test
-    public void testIgnoresNonNumbersPasses() {
+    public void testIgnoresNonNumbersPasses() throws ValidationException {
         // ignores non-numbers
         final var schema = ExclusivemaximumValidation.ExclusivemaximumValidation1.getInstance();
         schema.validate(
@@ -47,7 +46,7 @@ public class ExclusivemaximumValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -62,7 +61,7 @@ public class ExclusivemaximumValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

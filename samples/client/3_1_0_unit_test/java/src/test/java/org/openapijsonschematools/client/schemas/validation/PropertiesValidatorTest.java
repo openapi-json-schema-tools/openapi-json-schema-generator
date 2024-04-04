@@ -5,9 +5,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -36,19 +35,19 @@ public class PropertiesValidatorTest {
             if (arg instanceof Map<?, ?> mapArg) {
                 return getNewInstance(mapArg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map<?, ?> mapArg) {
                 return validate(mapArg, configuration);
             }
-            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
 
         @Override
-        public ObjectWithPropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public ObjectWithPropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             return new ObjectWithPropsSchemaBoxedMap();
         }
     }
@@ -59,7 +58,7 @@ public class PropertiesValidatorTest {
     }
 
     @Test
-    public void testCorrectPropertySucceeds() {
+    public void testCorrectPropertySucceeds() throws ValidationException {
         final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
@@ -92,7 +91,7 @@ public class PropertiesValidatorTest {
     }
 
     @Test
-    public void testNotApplicableTypeReturnsNull() {
+    public void testNotApplicableTypeReturnsNull() throws ValidationException {
         final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(

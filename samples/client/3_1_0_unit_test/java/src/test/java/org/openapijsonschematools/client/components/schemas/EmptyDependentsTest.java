@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class EmptyDependentsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testEmptyObjectPasses() {
+    public void testEmptyObjectPasses() throws ValidationException {
         // empty object
         final var schema = EmptyDependents.EmptyDependents1.getInstance();
         schema.validate(
@@ -29,7 +28,7 @@ public class EmptyDependentsTest {
     }
 
     @Test
-    public void testNonObjectIsValidPasses() {
+    public void testNonObjectIsValidPasses() throws ValidationException {
         // non-object is valid
         final var schema = EmptyDependents.EmptyDependents1.getInstance();
         schema.validate(
@@ -39,7 +38,7 @@ public class EmptyDependentsTest {
     }
 
     @Test
-    public void testObjectWithOnePropertyPasses() {
+    public void testObjectWithOnePropertyPasses() throws ValidationException {
         // object with one property
         final var schema = EmptyDependents.EmptyDependents1.getInstance();
         schema.validate(

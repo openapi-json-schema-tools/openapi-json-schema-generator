@@ -5,23 +5,24 @@ import org.openapijsonschematools.client.paths.petfindbytags.get.security.Petfin
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.EnumMap;
-
 public class PetfindbytagsGetSecurityInfo {
     public static class PetfindbytagsGetSecurityInfo1 implements SecurityRequirementObjectProvider<SecurityIndex> {
-        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
+        public final PetfindbytagsGetSecurityRequirementObject0 security0;
+        public final PetfindbytagsGetSecurityRequirementObject1 security1;
 
         public PetfindbytagsGetSecurityInfo1() {
-            this.securities = new EnumMap<>(Map.ofEntries(
-                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new PetfindbytagsGetSecurityRequirementObject0()),
-                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new PetfindbytagsGetSecurityRequirementObject1())
-            ));
+            security0 = new PetfindbytagsGetSecurityRequirementObject0();
+            security1 = new PetfindbytagsGetSecurityRequirementObject1();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
-            return securities.get(securityIndex);
+            switch (securityIndex) {
+                case SECURITY_0:
+                    return security0;
+                default:
+                    return security1;
+            }
         }
     }
 

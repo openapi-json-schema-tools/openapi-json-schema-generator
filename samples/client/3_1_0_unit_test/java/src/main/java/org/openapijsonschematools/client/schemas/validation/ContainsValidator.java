@@ -9,7 +9,7 @@ public class ContainsValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         if (!(data.arg() instanceof List)) {
             return null;
         }

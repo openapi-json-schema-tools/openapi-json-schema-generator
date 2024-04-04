@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -32,13 +31,13 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRootTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testMatchesDependencyPasses() {
+    public void testMatchesDependencyPasses() throws ValidationException {
         // matches dependency
         final var schema = DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1.getInstance();
         schema.validate(
@@ -53,7 +52,7 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRootTest {
     }
 
     @Test
-    public void testNoDependencyPasses() {
+    public void testNoDependencyPasses() throws ValidationException {
         // no dependency
         final var schema = DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1.getInstance();
         schema.validate(
@@ -86,7 +85,7 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRootTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

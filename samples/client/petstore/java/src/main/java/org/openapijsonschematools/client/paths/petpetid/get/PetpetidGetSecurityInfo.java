@@ -4,22 +4,17 @@ import org.openapijsonschematools.client.paths.petpetid.get.security.PetpetidGet
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.EnumMap;
-
 public class PetpetidGetSecurityInfo {
     public static class PetpetidGetSecurityInfo1 implements SecurityRequirementObjectProvider<SecurityIndex> {
-        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
+        public final PetpetidGetSecurityRequirementObject0 security0;
 
         public PetpetidGetSecurityInfo1() {
-            this.securities = new EnumMap<>(Map.ofEntries(
-                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new PetpetidGetSecurityRequirementObject0())
-            ));
+            security0 = new PetpetidGetSecurityRequirementObject0();
         }
 
+        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
-            return securities.get(securityIndex);
+            return security0;
         }
     }
 

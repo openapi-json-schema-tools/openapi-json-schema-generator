@@ -28,7 +28,7 @@ sealed interface that stores schema and encoding info
 
 ## ApplicationxwwwformurlencodedMediaType
 public record ApplicationxwwwformurlencodedMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1](../../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1](../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -40,7 +40,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1](../../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1](../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## RequestBody1
@@ -74,17 +74,17 @@ sealed interface that stores request contentType + validated schema data
 ## ApplicationxwwwformurlencodedRequestBody
 public record ApplicationxwwwformurlencodedRequestBody<br>
 implements [SealedRequestBody](#sealedrequestbody),<br>
-GenericRequestBody<ApplicationxwwwformurlencodedSchema.[ApplicationxwwwformurlencodedSchema1Boxed](../../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1boxed)><br>
+GenericRequestBody<ApplicationxwwwformurlencodedSchema.[ApplicationxwwwformurlencodedSchema1Boxed](../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1boxed)><br>
 
 A record class to store request body input for contentType="application/x-www-form-urlencoded"
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ApplicationxwwwformurlencodedRequestBody(ApplicationxwwwformurlencodedSchema.[ApplicationxwwwformurlencodedSchema1Boxed](../../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1boxed) body)<br>Creates an instance |
+| ApplicationxwwwformurlencodedRequestBody(ApplicationxwwwformurlencodedSchema.[ApplicationxwwwformurlencodedSchema1Boxed](../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | contentType()<br>always returns "application/x-www-form-urlencoded" |
-| ApplicationxwwwformurlencodedSchema.[ApplicationxwwwformurlencodedSchema1Boxed](../../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1boxed) | body()<br>returns the body passed in in the constructor |
+| ApplicationxwwwformurlencodedSchema.[ApplicationxwwwformurlencodedSchema1Boxed](../../../paths/fakejsonformdata/get/requestbody/content/applicationxwwwformurlencoded/ApplicationxwwwformurlencodedSchema.md#applicationxwwwformurlencodedschema1boxed) | body()<br>returns the body passed in in the constructor |

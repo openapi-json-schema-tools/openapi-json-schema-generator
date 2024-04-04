@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class StringTypeMatchesStringsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAStringIsStillAStringEvenIfItLooksLikeANumberPasses() {
+    public void testAStringIsStillAStringEvenIfItLooksLikeANumberPasses() throws ValidationException {
         // a string is still a string, even if it looks like a number
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         schema.validate(
@@ -37,7 +36,7 @@ public class StringTypeMatchesStringsTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -52,13 +51,13 @@ public class StringTypeMatchesStringsTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testAnEmptyStringIsStillAStringPasses() {
+    public void testAnEmptyStringIsStillAStringPasses() throws ValidationException {
         // an empty string is still a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         schema.validate(
@@ -78,7 +77,7 @@ public class StringTypeMatchesStringsTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -94,7 +93,7 @@ public class StringTypeMatchesStringsTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -109,13 +108,13 @@ public class StringTypeMatchesStringsTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testAStringIsAStringPasses() {
+    public void testAStringIsAStringPasses() throws ValidationException {
         // a string is a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         schema.validate(
@@ -134,7 +133,7 @@ public class StringTypeMatchesStringsTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

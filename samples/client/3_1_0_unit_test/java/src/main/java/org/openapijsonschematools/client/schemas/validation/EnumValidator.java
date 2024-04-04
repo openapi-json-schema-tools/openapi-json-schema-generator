@@ -15,7 +15,7 @@ public class EnumValidator extends BigDecimalValidator implements KeywordValidat
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var enumValues = data.schema().enumValues;
         if (enumValues == null) {
             return null;

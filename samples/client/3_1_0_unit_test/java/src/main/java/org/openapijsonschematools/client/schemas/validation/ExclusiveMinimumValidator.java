@@ -7,7 +7,7 @@ public class ExclusiveMinimumValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var exclusiveMinimum = data.schema().exclusiveMinimum;
         if (exclusiveMinimum == null) {
             return null;

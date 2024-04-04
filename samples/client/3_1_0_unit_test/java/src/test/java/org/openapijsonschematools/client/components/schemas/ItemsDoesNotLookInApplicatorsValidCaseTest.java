@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class ItemsDoesNotLookInApplicatorsValidCaseTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testPrefixitemsInAllofDoesNotConstrainItemsValidCasePasses() {
+    public void testPrefixitemsInAllofDoesNotConstrainItemsValidCasePasses() throws ValidationException {
         // prefixItems in allOf does not constrain items, valid case
         final var schema = ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1.getInstance();
         schema.validate(
@@ -45,7 +44,7 @@ public class ItemsDoesNotLookInApplicatorsValidCaseTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

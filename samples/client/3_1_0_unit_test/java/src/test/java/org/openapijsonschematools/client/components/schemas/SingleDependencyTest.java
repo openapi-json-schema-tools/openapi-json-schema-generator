@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class SingleDependencyTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testNondependantPasses() {
+    public void testNondependantPasses() throws ValidationException {
         // nondependant
         final var schema = SingleDependency.SingleDependency1.getInstance();
         schema.validate(
@@ -33,7 +32,7 @@ public class SingleDependencyTest {
     }
 
     @Test
-    public void testWithDependencyPasses() {
+    public void testWithDependencyPasses() throws ValidationException {
         // with dependency
         final var schema = SingleDependency.SingleDependency1.getInstance();
         schema.validate(
@@ -66,13 +65,13 @@ public class SingleDependencyTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() {
+    public void testIgnoresOtherNonObjectsPasses() throws ValidationException {
         // ignores other non-objects
         final var schema = SingleDependency.SingleDependency1.getInstance();
         schema.validate(
@@ -82,7 +81,7 @@ public class SingleDependencyTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() {
+    public void testIgnoresArraysPasses() throws ValidationException {
         // ignores arrays
         final var schema = SingleDependency.SingleDependency1.getInstance();
         schema.validate(
@@ -94,7 +93,7 @@ public class SingleDependencyTest {
     }
 
     @Test
-    public void testNeitherPasses() {
+    public void testNeitherPasses() throws ValidationException {
         // neither
         final var schema = SingleDependency.SingleDependency1.getInstance();
         schema.validate(
@@ -105,7 +104,7 @@ public class SingleDependencyTest {
     }
 
     @Test
-    public void testIgnoresStringsPasses() {
+    public void testIgnoresStringsPasses() throws ValidationException {
         // ignores strings
         final var schema = SingleDependency.SingleDependency1.getInstance();
         schema.validate(

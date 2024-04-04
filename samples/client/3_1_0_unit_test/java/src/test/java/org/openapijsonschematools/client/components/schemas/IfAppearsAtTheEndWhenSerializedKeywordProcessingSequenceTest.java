@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -27,13 +26,13 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testYesRedirectsToThenAndPassesPasses() {
+    public void testYesRedirectsToThenAndPassesPasses() throws ValidationException {
         // yes redirects to then and passes
         final var schema = IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1.getInstance();
         schema.validate(
@@ -43,7 +42,7 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceTest {
     }
 
     @Test
-    public void testOtherRedirectsToElseAndPassesPasses() {
+    public void testOtherRedirectsToElseAndPassesPasses() throws ValidationException {
         // other redirects to else and passes
         final var schema = IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1.getInstance();
         schema.validate(
@@ -62,7 +61,7 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

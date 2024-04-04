@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class IfAndElseWithoutThenTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testValidWhenIfTestPassesPasses() {
+    public void testValidWhenIfTestPassesPasses() throws ValidationException {
         // valid when if test passes
         final var schema = IfAndElseWithoutThen.IfAndElseWithoutThen1.getInstance();
         schema.validate(
@@ -28,7 +27,7 @@ public class IfAndElseWithoutThenTest {
     }
 
     @Test
-    public void testValidThroughElsePasses() {
+    public void testValidThroughElsePasses() throws ValidationException {
         // valid through else
         final var schema = IfAndElseWithoutThen.IfAndElseWithoutThen1.getInstance();
         schema.validate(
@@ -47,7 +46,7 @@ public class IfAndElseWithoutThenTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

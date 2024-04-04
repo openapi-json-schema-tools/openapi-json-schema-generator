@@ -22,8 +22,120 @@ public static class Post1 extends ApiClient.ApiClient1 implements PostOperation<
 
 a class that allows one to call the endpoint using a method named post
 
-TODO code sample
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.usercreatewitharray.post.RequestBody;
+import org.openapijsonschematools.client.components.requestbodies.userarray.content.applicationjson.ApplicationjsonSchema;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server1;
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.paths.usercreatewitharray.post.responses.CodedefaultResponse;
+import org.openapijsonschematools.client.paths.usercreatewitharray.Post;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
+    new Server0(),
+    null,
+    null
+);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    timeout
+);
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
+
+
+ApplicationjsonSchema1BoxedList requestBodyPayload =
+    ApplicationjsonSchema.ApplicationjsonSchema1.validateAndBox(
+    new ApplicationjsonSchema.ApplicationjsonSchemaListBuilder()
+        .add(
+            MapUtils.makeMap(
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "id",
+                    1L
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "username",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "firstName",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "lastName",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "email",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "password",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "phone",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "userStatus",
+                    1
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "objectWithNoDeclaredPropsNullable",
+                    null
+                )
+            )
+        )
+    .build(),
+    schemaConfiguration
+);
+RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
+
+var request = new PostRequestBuilder()
+    .requestBody(requestBody)
+    .build();
+
+Responses.EndpointResponse response;
+try {
+    response = apiClient.post(request);
+} catch (ApiException e) {
+    // server returned a response/contentType not defined in the openapi document
+    throw e;
+} catch (ValidationException e) {
+    // the returned response body or header values do not conform the the schema validation requirements
+    throw e;
+} catch (IOException | InterruptedException e) {
+    // an exception happened when making the request
+    throw e;
+} catch (NotImplementedException e) {
+    // the request body serialization or deserialization has not yet been implemented
+    // or the header content type deserialization has not yet been implemented for this contentType
+    throw e;
+}
+Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefaultResponse) response;
+```
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |

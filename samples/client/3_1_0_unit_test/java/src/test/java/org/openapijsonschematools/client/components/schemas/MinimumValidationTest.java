@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class MinimumValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testBoundaryPointIsValidPasses() {
+    public void testBoundaryPointIsValidPasses() throws ValidationException {
         // boundary point is valid
         final var schema = MinimumValidation.MinimumValidation1.getInstance();
         schema.validate(
@@ -37,13 +36,13 @@ public class MinimumValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testIgnoresNonNumbersPasses() {
+    public void testIgnoresNonNumbersPasses() throws ValidationException {
         // ignores non-numbers
         final var schema = MinimumValidation.MinimumValidation1.getInstance();
         schema.validate(
@@ -53,7 +52,7 @@ public class MinimumValidationTest {
     }
 
     @Test
-    public void testAboveTheMinimumIsValidPasses() {
+    public void testAboveTheMinimumIsValidPasses() throws ValidationException {
         // above the minimum is valid
         final var schema = MinimumValidation.MinimumValidation1.getInstance();
         schema.validate(

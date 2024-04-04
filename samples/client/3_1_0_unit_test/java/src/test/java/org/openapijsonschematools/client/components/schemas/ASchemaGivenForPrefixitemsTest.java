@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class ASchemaGivenForPrefixitemsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testCorrectTypesPasses() {
+    public void testCorrectTypesPasses() throws ValidationException {
         // correct types
         final var schema = ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1.getInstance();
         schema.validate(
@@ -33,7 +32,7 @@ public class ASchemaGivenForPrefixitemsTest {
     }
 
     @Test
-    public void testArrayWithAdditionalItemsPasses() {
+    public void testArrayWithAdditionalItemsPasses() throws ValidationException {
         // array with additional items
         final var schema = ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1.getInstance();
         schema.validate(
@@ -50,7 +49,7 @@ public class ASchemaGivenForPrefixitemsTest {
     }
 
     @Test
-    public void testJavascriptPseudoArrayIsValidPasses() {
+    public void testJavascriptPseudoArrayIsValidPasses() throws ValidationException {
         // JavaScript pseudo-array is valid
         final var schema = ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1.getInstance();
         schema.validate(
@@ -73,7 +72,7 @@ public class ASchemaGivenForPrefixitemsTest {
     }
 
     @Test
-    public void testEmptyArrayPasses() {
+    public void testEmptyArrayPasses() throws ValidationException {
         // empty array
         final var schema = ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1.getInstance();
         schema.validate(
@@ -96,13 +95,13 @@ public class ASchemaGivenForPrefixitemsTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testIncompleteArrayOfItemsPasses() {
+    public void testIncompleteArrayOfItemsPasses() throws ValidationException {
         // incomplete array of items
         final var schema = ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1.getInstance();
         schema.validate(

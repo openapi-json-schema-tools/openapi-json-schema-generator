@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class UnevaluatedpropertiesWithAdjacentAdditionalpropertiesTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testWithAdditionalPropertiesPasses() {
+    public void testWithAdditionalPropertiesPasses() throws ValidationException {
         // with additional properties
         final var schema = UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1.getInstance();
         schema.validate(
@@ -37,7 +36,7 @@ public class UnevaluatedpropertiesWithAdjacentAdditionalpropertiesTest {
     }
 
     @Test
-    public void testWithNoAdditionalPropertiesPasses() {
+    public void testWithNoAdditionalPropertiesPasses() throws ValidationException {
         // with no additional properties
         final var schema = UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1.getInstance();
         schema.validate(
