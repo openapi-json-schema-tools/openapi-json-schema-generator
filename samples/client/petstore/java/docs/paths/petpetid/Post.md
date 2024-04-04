@@ -93,8 +93,7 @@ var request = new PostRequestBuilder()
 
 try {
     Void response = apiClient.post(request);
-} catch (Post.ResponseApiException
- e) {
+} catch (Code405Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {

@@ -79,8 +79,7 @@ var request = new PostRequestBuilder().build();
 
 try {
     Responses.EndpointResponse response = apiClient.post(request);
-} catch (Post.ResponseApiException
- e) {
+} catch (Code404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {

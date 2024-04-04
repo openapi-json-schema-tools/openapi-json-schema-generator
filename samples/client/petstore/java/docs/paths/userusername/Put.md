@@ -112,8 +112,7 @@ var request = new PutRequestBuilder()
 
 try {
     Void response = apiClient.put(request);
-} catch (Put.ResponseApiException | Put.ResponseApiException
- e) {
+} catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {

@@ -93,8 +93,7 @@ var request = new DeleteRequestBuilder()
 
 try {
     Void response = apiClient.delete(request);
-} catch (Delete.ResponseApiException
- e) {
+} catch (Code400Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
