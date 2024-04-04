@@ -64,8 +64,9 @@ Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
 var request = new GetRequestBuilder().build();
 
+Responses.EndpointResponse response;
 try {
-    Responses.EndpointResponse response = apiClient.get(request);
+    response = apiClient.get(request);
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;
@@ -79,6 +80,12 @@ try {
     // the request body serialization or deserialization has not yet been implemented
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
+}
+if (response instanceof Responses.EndpointCode3XXResponse castResponse) {
+    // todo add handling for sealed body
+} else {
+    Responses.EndpointCode303Response castResponse = (Responses.EndpointCode303Response) response;
+    // todo add handling for sealed body
 }
 ```
 ### Constructor Summary

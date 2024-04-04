@@ -91,8 +91,9 @@ var request = new PostRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
+Void response;
 try {
-    Void response = apiClient.post(request);
+    response = apiClient.post(request);
 } catch (Code405Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;

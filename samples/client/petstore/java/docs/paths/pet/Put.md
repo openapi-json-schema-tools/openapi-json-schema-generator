@@ -121,8 +121,9 @@ var request = new PutRequestBuilder()
     .requestBody(requestBody)
     .build();
 
+Void response;
 try {
-    Void response = apiClient.put(request);
+    response = apiClient.put(request);
 } catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException | Code405Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;

@@ -65,8 +65,9 @@ Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration)
 
 var request = new PatchRequestBuilder().build();
 
+Responses.EndpointResponse response;
 try {
-    Responses.EndpointResponse response = apiClient.patch(request);
+    response = apiClient.patch(request);
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;
@@ -81,6 +82,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
+Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

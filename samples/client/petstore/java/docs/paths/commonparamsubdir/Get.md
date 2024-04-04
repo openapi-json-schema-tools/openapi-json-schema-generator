@@ -79,8 +79,9 @@ var request = new GetRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
+Responses.EndpointResponse response;
 try {
-    Responses.EndpointResponse response = apiClient.get(request);
+    response = apiClient.get(request);
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;
@@ -95,6 +96,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
+Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

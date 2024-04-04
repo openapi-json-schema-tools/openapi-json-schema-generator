@@ -77,8 +77,9 @@ Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
 var request = new PostRequestBuilder().build();
 
+Responses.EndpointResponse response;
 try {
-    Responses.EndpointResponse response = apiClient.post(request);
+    response = apiClient.post(request);
 } catch (Code404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
@@ -96,6 +97,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
+Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

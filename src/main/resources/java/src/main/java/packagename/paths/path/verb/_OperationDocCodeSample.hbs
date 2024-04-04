@@ -211,8 +211,9 @@ var request = new {{className.pascalCase}}()
         {{/each}}
     {{/eq}}
 
+{{#if nonErrorResponses }}{{responses.jsonPathPiece.pascalCase}}.EndpointResponse{{else}}Void{{/if}} response;
 try {
-    {{#if nonErrorResponses }}{{responses.jsonPathPiece.pascalCase}}.EndpointResponse{{else}}Void{{/if}} response = apiClient.{{jsonPathPiece.camelCase}}(request);
+    response = apiClient.{{jsonPathPiece.camelCase}}(request);
 {{#or errorStatusCodes errorWildcardStatusCodes}}
 } catch ({{> src/main/java/packagename/paths/path/verb/_OperationDocExcCodeSample }} e) {
     // server returned an error response defined in the openapi document
@@ -232,5 +233,27 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
+{{#if nonErrorResponses}}
+    {{#eq nonErrorResponses.size 1}}
+        {{#each nonErrorResponses}}
+{{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse = ({{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}}) response;
+        {{/each}}
+    {{else}}
+        {{#each nonErrorResponses}}
+            {{#if @first}}
+if (response instanceof {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse) {
+            {{else}}
+                {{#if @last}}
+} else {
+    {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse = ({{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}}) response;
+                {{else}}
+} else if (response instanceof {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse) {
+                {{/if}}
+            {{/if}}
+    // todo add handling for sealed body
+        {{/each}}
+}
+    {{/eq}}
+{{/if}}
 {{/with}}
 ```

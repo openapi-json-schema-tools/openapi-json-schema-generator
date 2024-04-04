@@ -79,8 +79,9 @@ var request = new DeleteRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
+Responses.EndpointResponse response;
 try {
-    Responses.EndpointResponse response = apiClient.delete(request);
+    response = apiClient.delete(request);
 } catch (ApiException e) {
     // server returned a response/contentType not defined in the openapi document
     throw e;
@@ -94,6 +95,12 @@ try {
     // the request body serialization or deserialization has not yet been implemented
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
+}
+if (response instanceof Responses.EndpointCode200Response castResponse) {
+    // todo add handling for sealed body
+} else {
+    Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefaultResponse) response;
+    // todo add handling for sealed body
 }
 ```
 ### Constructor Summary

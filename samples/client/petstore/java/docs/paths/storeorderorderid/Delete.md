@@ -79,8 +79,9 @@ var request = new DeleteRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
+Void response;
 try {
-    Void response = apiClient.delete(request);
+    response = apiClient.delete(request);
 } catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
