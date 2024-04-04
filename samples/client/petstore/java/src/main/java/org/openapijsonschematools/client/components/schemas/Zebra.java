@@ -11,6 +11,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
@@ -110,29 +111,29 @@ public class Zebra {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public TypeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public TypeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new TypeBoxedString(validate(arg, configuration));
         }
         @Override
-        public TypeBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public TypeBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     public enum StringClassNameEnums implements StringValueMethod {
@@ -199,29 +200,29 @@ public class Zebra {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public ClassNameBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public ClassNameBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ClassNameBoxedString(validate(arg, configuration));
         }
         @Override
-        public ClassNameBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public ClassNameBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -242,7 +243,7 @@ public class Zebra {
         public String className() {
                         @Nullable Object value = get("className");
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for className");
+                throw new InvalidTypeException("Invalid value stored for className");
             }
             return (String) value;
         }
@@ -252,7 +253,7 @@ public class Zebra {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for type");
+                throw new InvalidTypeException("Invalid value stored for type");
             }
             return (String) value;
         }
@@ -453,7 +454,7 @@ public class Zebra {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -461,7 +462,7 @@ public class Zebra {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -471,7 +472,7 @@ public class Zebra {
             return new ZebraMap(castProperties);
         }
         
-        public ZebraMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ZebraMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -483,29 +484,29 @@ public class Zebra {
         
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public Zebra1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public Zebra1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Zebra1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public Zebra1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public Zebra1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

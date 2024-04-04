@@ -12,62 +12,41 @@ import java.util.HashMap;
 
 public class ApiConfiguration {
     private final ServerInfo serverInfo;
-    private final ServerIndexInfo serverIndexInfo;
     private final @Nullable Duration timeout;
 
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
-        serverIndexInfo = new ServerIndexInfo();
         timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo, Duration timeout) {
         this.serverInfo = serverInfo;
-        this.serverIndexInfo = serverIndexInfo;
         this.timeout = timeout;
     }
 
     public static class ServerInfo {
-        protected final RootServerInfo.RootServerInfo1 rootServerInfo;
+        protected final RootServerInfo rootServerInfo;
 
         public ServerInfo() {
-            rootServerInfo = new RootServerInfo.RootServerInfo1();
+            rootServerInfo = new RootServerInfo();
         }
 
         public ServerInfo(
-            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo
+            @Nullable RootServerInfo rootServerInfo
         ) {
-            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, RootServerInfo.RootServerInfo1::new);
-        }
-    }
-
-    public static class ServerIndexInfo {
-        protected RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
-        public ServerIndexInfo() {}
-
-        public ServerIndexInfo rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
-            this.rootServerInfoServerIndex = serverIndex;
-            return this;
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, RootServerInfo::new);
         }
     }
 
     public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
-        var serverProvider = serverInfo.rootServerInfo;
-        if (serverIndex == null) {
-            RootServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
-            if (configServerIndex == null) {
-                throw new RuntimeException("rootServerInfoServerIndex is unset");
-            }
-            return serverProvider.getServer(configServerIndex);
-        }
-        return serverProvider.getServer(serverIndex);
+        return serverInfo.rootServerInfo.getServer(serverIndex);
     }
 
     public Map<String, List< String>> getDefaultHeaders() {
         return new HashMap<>();
     }
 
-    public @Nullable Duration getTimeout() {
+    public@Nullable Duration getTimeout() {
         return timeout;
     }
 }

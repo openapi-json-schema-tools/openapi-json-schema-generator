@@ -18,7 +18,7 @@ public class RefInAllofTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testPropertyNamedRefValidPasses() throws ValidationException, InvalidTypeException {
+    public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
         final var schema = RefInAllof.RefInAllof1.getInstance();
         schema.validate(

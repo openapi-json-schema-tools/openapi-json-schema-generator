@@ -4,7 +4,7 @@ FakeclassnametestPatchSecurityInfo.java
 public class FakeclassnametestPatchSecurityInfo
 
 A class that provides a security requirement object, and any needed security info classes
-- a class that is a SecurityRequirementObjectProvider
+- a class that stores a securityIndex and provides a SecurityRequirementsObject
 - an enum class that describes security index values
 
 ## Nested Class Summary
@@ -24,7 +24,7 @@ implements SecurityRequirementObjectProvider<[SecurityIndex](#securityindex)>
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakeclassnametestPatchSecurityRequirementObject0](../../../paths/fakeclassnametest/patch/security/FakeclassnametestPatchSecurityRequirementObject0.md) | security0 |
+| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new [FakeclassnametestPatchSecurityRequirementObject0()](../../../paths/fakeclassnametest/patch/security/FakeclassnametestPatchSecurityRequirementObject0.md)<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

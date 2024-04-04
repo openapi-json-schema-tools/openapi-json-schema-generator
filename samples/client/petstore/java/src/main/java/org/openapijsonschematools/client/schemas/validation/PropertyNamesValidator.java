@@ -1,7 +1,6 @@
 package org.openapijsonschematools.client.schemas.validation;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.exceptions.ValidationException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +10,7 @@ public class PropertyNamesValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         var propertyNames = data.schema().propertyNames;
         if (propertyNames == null) {
             return null;

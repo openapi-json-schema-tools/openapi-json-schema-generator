@@ -5,13 +5,10 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.post.PetPostSecurityInfo;
 import org.openapijsonschematools.client.paths.pet.post.RequestBody;
 import org.openapijsonschematools.client.paths.pet.post.Responses;
-import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Pet;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
@@ -34,7 +31,7 @@ public class Post {
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
-        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -75,7 +72,7 @@ public class Post {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

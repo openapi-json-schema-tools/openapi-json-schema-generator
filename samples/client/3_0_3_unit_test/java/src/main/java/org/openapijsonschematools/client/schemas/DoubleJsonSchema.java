@@ -56,7 +56,7 @@ public class DoubleJsonSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
 
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) {
             return (double) validate((Number) arg, configuration);
         }
 
@@ -65,7 +65,7 @@ public class DoubleJsonSchema {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override

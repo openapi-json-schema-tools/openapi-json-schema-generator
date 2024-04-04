@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.schemas;
 
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -43,7 +44,7 @@ public class BooleanJsonSchema {
         }
 
         @Override
-        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -59,30 +60,30 @@ public class BooleanJsonSchema {
                 boolean boolArg = (Boolean) arg;
                 return getNewInstance(boolArg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             if (arg instanceof Boolean) {
                 boolean boolArg = (Boolean) arg;
                 return validate(boolArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
 
         @Override
-        public BooleanJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+        public BooleanJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BooleanJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
 
         @Override
-        public BooleanJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public BooleanJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Boolean booleanArg) {
                 boolean castArg = booleanArg;
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

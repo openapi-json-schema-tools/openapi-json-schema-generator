@@ -82,7 +82,7 @@ public class AllofTest {
     }
 
     @Test
-    public void testAllofPasses() throws ValidationException, InvalidTypeException {
+    public void testAllofPasses() {
         // allOf
         final var schema = Allof.Allof1.getInstance();
         schema.validate(

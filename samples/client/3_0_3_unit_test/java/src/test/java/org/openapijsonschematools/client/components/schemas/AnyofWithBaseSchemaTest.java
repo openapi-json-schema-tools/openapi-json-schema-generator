@@ -33,7 +33,7 @@ public class AnyofWithBaseSchemaTest {
     }
 
     @Test
-    public void testOneAnyofValidPasses() throws ValidationException, InvalidTypeException {
+    public void testOneAnyofValidPasses() {
         // one anyOf valid
         final var schema = AnyofWithBaseSchema.AnyofWithBaseSchema1.getInstance();
         schema.validate(

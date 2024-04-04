@@ -4,7 +4,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
 import java.util.LinkedHashMap;
@@ -27,7 +26,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testHeaderSerialization() throws NotImplementedException {
+    public void testHeaderSerialization() {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -92,7 +91,7 @@ public class SchemaNonQueryParameterTest {
         var boolHeader = new HeaderParameter(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    NotImplementedException.class,
+                    InvalidTypeException.class,
                     () -> boolHeader.serialize(value)
             );
         }
@@ -105,7 +104,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testPathSerialization() throws NotImplementedException {
+    public void testPathSerialization() {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -170,7 +169,7 @@ public class SchemaNonQueryParameterTest {
         var pathParameter = new PathParameter(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    NotImplementedException.class,
+                    InvalidTypeException.class,
                     () -> pathParameter.serialize(value)
             );
         }
@@ -183,7 +182,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testCookieSerialization() throws NotImplementedException {
+    public void testCookieSerialization() {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -248,7 +247,7 @@ public class SchemaNonQueryParameterTest {
         var cookieParameter = new CookieParameter(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    NotImplementedException.class,
+                    InvalidTypeException.class,
                     () -> cookieParameter.serialize(value)
             );
         }
@@ -261,7 +260,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testPathMatrixSerialization() throws NotImplementedException {
+    public void testPathMatrixSerialization() {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -332,7 +331,7 @@ public class SchemaNonQueryParameterTest {
     }
 
     @Test
-    public void testPathLabelSerialization() throws NotImplementedException {
+    public void testPathLabelSerialization() {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);

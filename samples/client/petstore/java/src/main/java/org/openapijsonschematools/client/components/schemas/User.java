@@ -14,6 +14,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
@@ -195,7 +196,7 @@ public class User {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -203,7 +204,7 @@ public class User {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -213,7 +214,7 @@ public class User {
             return castProperties;
         }
         
-        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -225,40 +226,40 @@ public class User {
         
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 return validate((Void) null, configuration);
             } else if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
                 return getNewInstance((Void) null, pathToItem, pathToSchemas);
             } else if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public ObjectWithNoDeclaredPropsNullableBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+        public ObjectWithNoDeclaredPropsNullableBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ObjectWithNoDeclaredPropsNullableBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public ObjectWithNoDeclaredPropsNullableBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ObjectWithNoDeclaredPropsNullableBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ObjectWithNoDeclaredPropsNullableBoxedMap(validate(arg, configuration));
         }
         @Override
-        public ObjectWithNoDeclaredPropsNullableBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public ObjectWithNoDeclaredPropsNullableBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -348,7 +349,7 @@ public class User {
         }
         
         @Override
-        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -360,7 +361,7 @@ public class User {
         }
         
         @Override
-        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -372,7 +373,7 @@ public class User {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -383,24 +384,24 @@ public class User {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+        public long validate(long arg, SchemaConfiguration configuration) {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) {
             return (double) validate((Number) arg, configuration);
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -432,7 +433,7 @@ public class User {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
@@ -459,7 +460,7 @@ public class User {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -467,7 +468,7 @@ public class User {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -477,7 +478,7 @@ public class User {
             return castProperties;
         }
         
-        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -489,7 +490,7 @@ public class User {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 return validate((Void) null, configuration);
             } else if (arg instanceof Boolean) {
@@ -504,10 +505,10 @@ public class User {
             } else if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
                 return getNewInstance((Void) null, pathToItem, pathToSchemas);
             } else if (arg instanceof Boolean) {
@@ -522,34 +523,34 @@ public class User {
             } else if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public AnyTypeExceptNullPropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+        public AnyTypeExceptNullPropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public AnyTypeExceptNullPropBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+        public AnyTypeExceptNullPropBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public AnyTypeExceptNullPropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public AnyTypeExceptNullPropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public AnyTypeExceptNullPropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public AnyTypeExceptNullPropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedString(validate(arg, configuration));
         }
         @Override
-        public AnyTypeExceptNullPropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public AnyTypeExceptNullPropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedList(validate(arg, configuration));
         }
         @Override
-        public AnyTypeExceptNullPropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public AnyTypeExceptNullPropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedMap(validate(arg, configuration));
         }
         @Override
-        public AnyTypeExceptNullPropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public AnyTypeExceptNullPropBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -565,7 +566,7 @@ public class User {
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -609,7 +610,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for id");
+                throw new InvalidTypeException("Invalid value stored for id");
             }
             return (Number) value;
         }
@@ -619,7 +620,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for username");
+                throw new InvalidTypeException("Invalid value stored for username");
             }
             return (String) value;
         }
@@ -629,7 +630,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for firstName");
+                throw new InvalidTypeException("Invalid value stored for firstName");
             }
             return (String) value;
         }
@@ -639,7 +640,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for lastName");
+                throw new InvalidTypeException("Invalid value stored for lastName");
             }
             return (String) value;
         }
@@ -649,7 +650,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for email");
+                throw new InvalidTypeException("Invalid value stored for email");
             }
             return (String) value;
         }
@@ -659,7 +660,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for password");
+                throw new InvalidTypeException("Invalid value stored for password");
             }
             return (String) value;
         }
@@ -669,7 +670,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for phone");
+                throw new InvalidTypeException("Invalid value stored for phone");
             }
             return (String) value;
         }
@@ -679,7 +680,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for userStatus");
+                throw new InvalidTypeException("Invalid value stored for userStatus");
             }
             return (Number) value;
         }
@@ -689,7 +690,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof FrozenMap<?>)) {
-                throw new RuntimeException("Invalid value stored for objectWithNoDeclaredProps");
+                throw new InvalidTypeException("Invalid value stored for objectWithNoDeclaredProps");
             }
             return (FrozenMap<?>) value;
         }
@@ -699,7 +700,7 @@ public class User {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value == null || value instanceof FrozenMap<?>)) {
-                throw new RuntimeException("Invalid value stored for objectWithNoDeclaredPropsNullable");
+                throw new InvalidTypeException("Invalid value stored for objectWithNoDeclaredPropsNullable");
             }
             return (@Nullable FrozenMap<?>) value;
         }
@@ -1168,7 +1169,7 @@ public class User {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -1176,7 +1177,7 @@ public class User {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -1186,7 +1187,7 @@ public class User {
             return new UserMap(castProperties);
         }
         
-        public UserMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public UserMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -1198,29 +1199,29 @@ public class User {
         
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public User1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public User1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new User1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public User1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public User1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

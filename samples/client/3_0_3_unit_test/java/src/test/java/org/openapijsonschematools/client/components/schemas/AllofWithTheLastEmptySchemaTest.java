@@ -33,7 +33,7 @@ public class AllofWithTheLastEmptySchemaTest {
     }
 
     @Test
-    public void testNumberIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testNumberIsValidPasses() {
         // number is valid
         final var schema = AllofWithTheLastEmptySchema.AllofWithTheLastEmptySchema1.getInstance();
         schema.validate(

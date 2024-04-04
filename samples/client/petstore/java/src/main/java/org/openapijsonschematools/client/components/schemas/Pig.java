@@ -14,6 +14,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
@@ -107,7 +108,7 @@ public class Pig {
         }
         
         @Override
-        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -119,7 +120,7 @@ public class Pig {
         }
         
         @Override
-        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -131,7 +132,7 @@ public class Pig {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -142,24 +143,24 @@ public class Pig {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        public int validate(int arg, SchemaConfiguration configuration) {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+        public long validate(long arg, SchemaConfiguration configuration) {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        public float validate(float arg, SchemaConfiguration configuration) {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        public double validate(double arg, SchemaConfiguration configuration) {
             return (double) validate((Number) arg, configuration);
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -191,7 +192,7 @@ public class Pig {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
@@ -218,7 +219,7 @@ public class Pig {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -226,7 +227,7 @@ public class Pig {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -236,7 +237,7 @@ public class Pig {
             return castProperties;
         }
         
-        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0]");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -248,7 +249,7 @@ public class Pig {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 return validate((Void) null, configuration);
             } else if (arg instanceof Boolean) {
@@ -263,10 +264,10 @@ public class Pig {
             } else if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
                 return getNewInstance((Void) null, pathToItem, pathToSchemas);
             } else if (arg instanceof Boolean) {
@@ -281,34 +282,34 @@ public class Pig {
             } else if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public Pig1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+        public Pig1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Pig1BoxedVoid(validate(arg, configuration));
         }
         @Override
-        public Pig1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+        public Pig1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Pig1BoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public Pig1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public Pig1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Pig1BoxedNumber(validate(arg, configuration));
         }
         @Override
-        public Pig1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public Pig1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Pig1BoxedString(validate(arg, configuration));
         }
         @Override
-        public Pig1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public Pig1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Pig1BoxedList(validate(arg, configuration));
         }
         @Override
-        public Pig1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public Pig1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Pig1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public Pig1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public Pig1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -324,7 +325,7 @@ public class Pig {
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

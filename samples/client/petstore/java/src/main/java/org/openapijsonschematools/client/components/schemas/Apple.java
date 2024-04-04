@@ -12,6 +12,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.GenericBuilder;
@@ -76,29 +77,29 @@ public class Apple {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public CultivarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public CultivarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new CultivarBoxedString(validate(arg, configuration));
         }
         @Override
-        public CultivarBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public CultivarBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -149,29 +150,29 @@ public class Apple {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public OriginBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public OriginBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new OriginBoxedString(validate(arg, configuration));
         }
         @Override
-        public OriginBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public OriginBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -192,7 +193,7 @@ public class Apple {
         public String cultivar() {
                         @Nullable Object value = get("cultivar");
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for cultivar");
+                throw new InvalidTypeException("Invalid value stored for cultivar");
             }
             return (String) value;
         }
@@ -202,7 +203,7 @@ public class Apple {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for origin");
+                throw new InvalidTypeException("Invalid value stored for origin");
             }
             return (String) value;
         }
@@ -343,7 +344,7 @@ public class Apple {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -351,7 +352,7 @@ public class Apple {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -361,7 +362,7 @@ public class Apple {
             return new AppleMap(castProperties);
         }
         
-        public AppleMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public AppleMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -373,40 +374,40 @@ public class Apple {
         
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 return validate((Void) null, configuration);
             } else if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
                 return getNewInstance((Void) null, pathToItem, pathToSchemas);
             } else if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public Apple1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+        public Apple1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Apple1BoxedVoid(validate(arg, configuration));
         }
         @Override
-        public Apple1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public Apple1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Apple1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public Apple1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public Apple1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
             } else if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 }

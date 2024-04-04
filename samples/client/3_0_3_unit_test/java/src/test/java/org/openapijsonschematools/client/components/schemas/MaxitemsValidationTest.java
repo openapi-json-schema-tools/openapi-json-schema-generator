@@ -18,7 +18,7 @@ public class MaxitemsValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testShorterIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testShorterIsValidPasses() {
         // shorter is valid
         final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         schema.validate(
@@ -30,7 +30,7 @@ public class MaxitemsValidationTest {
     }
 
     @Test
-    public void testExactLengthIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testExactLengthIsValidPasses() {
         // exact length is valid
         final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         schema.validate(
@@ -62,7 +62,7 @@ public class MaxitemsValidationTest {
     }
 
     @Test
-    public void testIgnoresNonArraysPasses() throws ValidationException, InvalidTypeException {
+    public void testIgnoresNonArraysPasses() {
         // ignores non-arrays
         final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         schema.validate(

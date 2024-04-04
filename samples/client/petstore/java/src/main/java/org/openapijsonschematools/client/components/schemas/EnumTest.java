@@ -12,6 +12,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.GenericBuilder;
@@ -108,29 +109,29 @@ public class EnumTest {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public EnumStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumStringBoxedString(validate(arg, configuration));
         }
         @Override
-        public EnumStringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumStringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     public enum StringEnumStringRequiredEnums implements StringValueMethod {
@@ -201,29 +202,29 @@ public class EnumTest {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public EnumStringRequiredBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumStringRequiredBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumStringRequiredBoxedString(validate(arg, configuration));
         }
         @Override
-        public EnumStringRequiredBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumStringRequiredBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     public enum IntegerEnumIntegerEnums implements IntegerValueMethod {
@@ -358,29 +359,29 @@ public class EnumTest {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Number) {
                 return validate((Number) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public EnumIntegerBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumIntegerBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumIntegerBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public EnumIntegerBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumIntegerBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     public enum DoubleEnumNumberEnums implements DoubleValueMethod {
@@ -474,29 +475,29 @@ public class EnumTest {
         }
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Number) {
                 return validate((Number) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public EnumNumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumNumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumNumberBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public EnumNumberBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumNumberBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }    
     
@@ -524,7 +525,7 @@ public class EnumTest {
         public String enum_string_required() {
                         @Nullable Object value = get("enum_string_required");
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for enum_string_required");
+                throw new InvalidTypeException("Invalid value stored for enum_string_required");
             }
             return (String) value;
         }
@@ -534,7 +535,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for enum_string");
+                throw new InvalidTypeException("Invalid value stored for enum_string");
             }
             return (String) value;
         }
@@ -544,7 +545,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for enum_integer");
+                throw new InvalidTypeException("Invalid value stored for enum_integer");
             }
             return (Number) value;
         }
@@ -554,7 +555,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for enum_number");
+                throw new InvalidTypeException("Invalid value stored for enum_number");
             }
             return (Number) value;
         }
@@ -564,7 +565,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for stringEnum");
+                throw new InvalidTypeException("Invalid value stored for stringEnum");
             }
             return (@Nullable String) value;
         }
@@ -574,7 +575,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for IntegerEnum");
+                throw new InvalidTypeException("Invalid value stored for IntegerEnum");
             }
             return (Number) value;
         }
@@ -584,7 +585,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for StringEnumWithDefaultValue");
+                throw new InvalidTypeException("Invalid value stored for StringEnumWithDefaultValue");
             }
             return (String) value;
         }
@@ -594,7 +595,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for IntegerEnumWithDefaultValue");
+                throw new InvalidTypeException("Invalid value stored for IntegerEnumWithDefaultValue");
             }
             return (Number) value;
         }
@@ -604,7 +605,7 @@ public class EnumTest {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for IntegerEnumOneValue");
+                throw new InvalidTypeException("Invalid value stored for IntegerEnumOneValue");
             }
             return (Number) value;
         }
@@ -1058,7 +1059,7 @@ public class EnumTest {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -1066,7 +1067,7 @@ public class EnumTest {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -1076,7 +1077,7 @@ public class EnumTest {
             return new EnumTestMap(castProperties);
         }
         
-        public EnumTestMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumTestMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -1088,29 +1089,29 @@ public class EnumTest {
         
         
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public EnumTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumTest1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public EnumTest1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public EnumTest1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 

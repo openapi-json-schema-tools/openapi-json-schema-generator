@@ -18,7 +18,7 @@ public class AnyofTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testBothAnyofValidPasses() throws ValidationException, InvalidTypeException {
+    public void testBothAnyofValidPasses() {
         // both anyOf valid
         final var schema = Anyof.Anyof1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class AnyofTest {
     }
 
     @Test
-    public void testFirstAnyofValidPasses() throws ValidationException, InvalidTypeException {
+    public void testFirstAnyofValidPasses() {
         // first anyOf valid
         final var schema = Anyof.Anyof1.getInstance();
         schema.validate(
@@ -53,7 +53,7 @@ public class AnyofTest {
     }
 
     @Test
-    public void testSecondAnyofValidPasses() throws ValidationException, InvalidTypeException {
+    public void testSecondAnyofValidPasses() {
         // second anyOf valid
         final var schema = Anyof.Anyof1.getInstance();
         schema.validate(

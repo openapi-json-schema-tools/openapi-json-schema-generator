@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import java.util.List;
 
 public interface ListSchemaValidator <OutType, BoxedType> {
-    OutType getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException;
+    OutType getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
     OutType validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
     BoxedType validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

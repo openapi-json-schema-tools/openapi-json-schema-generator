@@ -48,7 +48,7 @@ public class OneofTest {
     }
 
     @Test
-    public void testSecondOneofValidPasses() throws ValidationException, InvalidTypeException {
+    public void testSecondOneofValidPasses() {
         // second oneOf valid
         final var schema = Oneof.Oneof1.getInstance();
         schema.validate(
@@ -58,7 +58,7 @@ public class OneofTest {
     }
 
     @Test
-    public void testFirstOneofValidPasses() throws ValidationException, InvalidTypeException {
+    public void testFirstOneofValidPasses() {
         // first oneOf valid
         final var schema = Oneof.Oneof1.getInstance();
         schema.validate(

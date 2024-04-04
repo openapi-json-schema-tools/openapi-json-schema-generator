@@ -18,7 +18,7 @@ public class PropertiesWithEscapedCharactersTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testObjectWithAllNumbersIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testObjectWithAllNumbersIsValidPasses() {
         // object with all numbers is valid
         final var schema = PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.getInstance();
         schema.validate(

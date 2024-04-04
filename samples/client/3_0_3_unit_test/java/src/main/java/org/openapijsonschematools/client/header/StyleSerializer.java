@@ -1,7 +1,6 @@
 package org.openapijsonschematools.client.header;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
 
 public class StyleSerializer extends Rfc6570Serializer {
     public static String serializeSimple(
@@ -9,7 +8,7 @@ public class StyleSerializer extends Rfc6570Serializer {
             String name,
             boolean explode,
             boolean percentEncode
-    ) throws NotImplementedException {
+    ) {
         var prefixSeparatorIterator = new PrefixSeparatorIterator("", ",");
         return rfc6570Expansion(
                 name,
@@ -25,7 +24,7 @@ public class StyleSerializer extends Rfc6570Serializer {
             String name,
             boolean explode,
             boolean percentEncode
-    ) throws NotImplementedException {
+    ) {
         // todo check that the prefix and suffix matches this one
         PrefixSeparatorIterator iterator = new PrefixSeparatorIterator("", "&");
         return rfc6570Expansion(
@@ -41,7 +40,7 @@ public class StyleSerializer extends Rfc6570Serializer {
             @Nullable Object inData,
             String name,
             boolean explode
-    ) throws NotImplementedException {
+    ) {
         PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator(";", ";");
         return rfc6570Expansion(
             name,
@@ -56,7 +55,7 @@ public class StyleSerializer extends Rfc6570Serializer {
             @Nullable Object inData,
             String name,
             boolean explode
-    ) throws NotImplementedException {
+    ) {
         PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator(".", ".");
         return rfc6570Expansion(
             name,
@@ -71,7 +70,7 @@ public class StyleSerializer extends Rfc6570Serializer {
             @Nullable Object inData,
             String name,
             boolean explode
-    ) throws NotImplementedException {
+    ) {
         PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator("", "%20");
         return rfc6570Expansion(
             name,
@@ -86,7 +85,7 @@ public class StyleSerializer extends Rfc6570Serializer {
             @Nullable Object inData,
             String name,
             boolean explode
-    ) throws NotImplementedException {
+    ) {
         PrefixSeparatorIterator usedIterator = new PrefixSeparatorIterator("", "|");
         return rfc6570Expansion(
             name,

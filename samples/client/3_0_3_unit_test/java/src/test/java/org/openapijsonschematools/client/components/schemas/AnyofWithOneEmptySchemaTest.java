@@ -18,7 +18,7 @@ public class AnyofWithOneEmptySchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testNumberIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testNumberIsValidPasses() {
         // number is valid
         final var schema = AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1.getInstance();
         schema.validate(
@@ -28,7 +28,7 @@ public class AnyofWithOneEmptySchemaTest {
     }
 
     @Test
-    public void testStringIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testStringIsValidPasses() {
         // string is valid
         final var schema = AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1.getInstance();
         schema.validate(

@@ -100,7 +100,7 @@ public class NestedItemsTest {
     }
 
     @Test
-    public void testValidNestedArrayPasses() throws ValidationException, InvalidTypeException {
+    public void testValidNestedArrayPasses() {
         // valid nested array
         final var schema = NestedItems.NestedItems1.getInstance();
         schema.validate(

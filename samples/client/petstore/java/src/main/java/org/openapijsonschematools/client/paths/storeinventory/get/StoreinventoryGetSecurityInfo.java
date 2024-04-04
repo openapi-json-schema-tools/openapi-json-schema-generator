@@ -4,17 +4,22 @@ import org.openapijsonschematools.client.paths.storeinventory.get.security.Store
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 
+import java.util.AbstractMap;
+import java.util.Map;
+import java.util.EnumMap;
+
 public class StoreinventoryGetSecurityInfo {
     public static class StoreinventoryGetSecurityInfo1 implements SecurityRequirementObjectProvider<SecurityIndex> {
-        public final StoreinventoryGetSecurityRequirementObject0 security0;
+        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
         public StoreinventoryGetSecurityInfo1() {
-            security0 = new StoreinventoryGetSecurityRequirementObject0();
+            this.securities = new EnumMap<>(Map.ofEntries(
+                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new StoreinventoryGetSecurityRequirementObject0())
+            ));
         }
 
-        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
-            return security0;
+            return securities.get(securityIndex);
         }
     }
 

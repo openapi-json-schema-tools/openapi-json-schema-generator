@@ -42,7 +42,7 @@ public class RequiredWithEscapedCharactersTest {
     }
 
     @Test
-    public void testObjectWithAllPropertiesPresentIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testObjectWithAllPropertiesPresentIsValidPasses() {
         // object with all properties present is valid
         final var schema = RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1.getInstance();
         schema.validate(

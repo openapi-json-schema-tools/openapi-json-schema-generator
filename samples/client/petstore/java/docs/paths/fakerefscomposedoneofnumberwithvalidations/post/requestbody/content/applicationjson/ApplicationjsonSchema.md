@@ -1,6 +1,6 @@
 # ApplicationjsonSchema
 public class ApplicationjsonSchema<br>
-extends [ComposedOneOfDifferentTypes1](../../../../../../components/schemas/ComposedOneOfDifferentTypes.md#composedoneofdifferenttypes)
+extends [ComposedOneOfDifferentTypes1](../../../../../../../components/schemas/ComposedOneOfDifferentTypes.md#composedoneofdifferenttypes)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
@@ -14,6 +14,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](../../../../../../components/schemas/ComposedOneOfDifferentTypes.md#composedoneofdifferenttypes1)
+extends [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](../../../../../../../components/schemas/ComposedOneOfDifferentTypes.md#composedoneofdifferenttypes1)
 
 A schema class that validates payloads

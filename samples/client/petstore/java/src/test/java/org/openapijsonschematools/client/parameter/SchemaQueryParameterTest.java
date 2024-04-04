@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.parameter;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
 import java.util.LinkedHashMap;
@@ -26,7 +26,7 @@ public class SchemaQueryParameterTest {
     }
 
     @Test
-    public void testQueryParameterNoStyleSerialization() throws NotImplementedException {
+    public void testQueryParameterNoStyleSerialization() {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -91,7 +91,7 @@ public class SchemaQueryParameterTest {
         var parameter = new QueryParameterNoStyle(false);
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    NotImplementedException.class,
+                    InvalidTypeException.class,
                     () -> parameter.serialize(value)
             );
         }
@@ -104,7 +104,7 @@ public class SchemaQueryParameterTest {
     }
 
     @Test
-    public void testQueryParameterSpaceDelimitedSerialization() throws NotImplementedException {
+    public void testQueryParameterSpaceDelimitedSerialization() {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -151,7 +151,7 @@ public class SchemaQueryParameterTest {
     }
 
     @Test
-    public void testQueryParameterPipeDelimitedSerialization() throws NotImplementedException {
+    public void testQueryParameterPipeDelimitedSerialization() {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);

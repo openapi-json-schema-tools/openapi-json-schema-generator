@@ -5,24 +5,23 @@ import org.openapijsonschematools.client.paths.petpetid.delete.security.Petpetid
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 
+import java.util.AbstractMap;
+import java.util.Map;
+import java.util.EnumMap;
+
 public class PetpetidDeleteSecurityInfo {
     public static class PetpetidDeleteSecurityInfo1 implements SecurityRequirementObjectProvider<SecurityIndex> {
-        public final PetpetidDeleteSecurityRequirementObject0 security0;
-        public final PetpetidDeleteSecurityRequirementObject1 security1;
+        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
         public PetpetidDeleteSecurityInfo1() {
-            security0 = new PetpetidDeleteSecurityRequirementObject0();
-            security1 = new PetpetidDeleteSecurityRequirementObject1();
+            this.securities = new EnumMap<>(Map.ofEntries(
+                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new PetpetidDeleteSecurityRequirementObject0()),
+                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new PetpetidDeleteSecurityRequirementObject1())
+            ));
         }
 
-        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
-            switch (securityIndex) {
-                case SECURITY_0:
-                    return security0;
-                default:
-                    return security1;
-            }
+            return securities.get(securityIndex);
         }
     }
 

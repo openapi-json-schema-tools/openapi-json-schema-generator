@@ -34,7 +34,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testIntFormatSucceedsWithFloat() throws ValidationException {
+    public void testIntFormatSucceedsWithFloat() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -59,7 +59,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testIntFormatSucceedsWithInt() throws ValidationException {
+    public void testIntFormatSucceedsWithInt() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -84,7 +84,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testInt32InclusiveMinSucceeds() throws ValidationException {
+    public void testInt32InclusiveMinSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -97,7 +97,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testInt32InclusiveMaxSucceeds() throws ValidationException {
+    public void testInt32InclusiveMaxSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -135,7 +135,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testInt64InclusiveMinSucceeds() throws ValidationException {
+    public void testInt64InclusiveMinSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -148,7 +148,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testInt64InclusiveMaxSucceeds() throws ValidationException {
+    public void testInt64InclusiveMaxSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -186,7 +186,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testFloatInclusiveMinSucceeds() throws ValidationException {
+    public void testFloatInclusiveMinSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -199,7 +199,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testFloatInclusiveMaxSucceeds() throws ValidationException {
+    public void testFloatInclusiveMaxSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -236,7 +236,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testDoubleInclusiveMinSucceeds() throws ValidationException {
+    public void testDoubleInclusiveMinSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -249,7 +249,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testDoubleInclusiveMaxSucceeds() throws ValidationException {
+    public void testDoubleInclusiveMaxSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -286,7 +286,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testValidFloatNumberStringSucceeds() throws ValidationException {
+    public void testValidFloatNumberStringSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -299,7 +299,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testValidIntNumberStringSucceeds() throws ValidationException {
+    public void testValidIntNumberStringSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -324,7 +324,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testValidDateStringSucceeds() throws ValidationException {
+    public void testValidDateStringSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
@@ -349,7 +349,7 @@ public class FormatValidatorTest {
     }
 
     @Test
-    public void testValidDateTimeStringSucceeds() throws ValidationException {
+    public void testValidDateTimeStringSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(

@@ -18,7 +18,7 @@ public class AdditionalpropertiesCanExistByItselfTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAnAdditionalValidPropertyIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testAnAdditionalValidPropertyIsValidPasses() {
         // an additional valid property is valid
         final var schema = AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.getInstance();
         schema.validate(

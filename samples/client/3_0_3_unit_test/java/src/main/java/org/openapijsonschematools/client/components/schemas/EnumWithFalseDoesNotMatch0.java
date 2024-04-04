@@ -73,7 +73,7 @@ public class EnumWithFalseDoesNotMatch0 {
         }
         
         @Override
-        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -84,7 +84,7 @@ public class EnumWithFalseDoesNotMatch0 {
         }
         
         @Override
-        public boolean validate(BooleanEnumWithFalseDoesNotMatch0Enums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public boolean validate(BooleanEnumWithFalseDoesNotMatch0Enums arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -97,12 +97,12 @@ public class EnumWithFalseDoesNotMatch0 {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof Boolean) {
                 boolean boolArg = (Boolean) arg;
                 return getNewInstance(boolArg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public EnumWithFalseDoesNotMatch01BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

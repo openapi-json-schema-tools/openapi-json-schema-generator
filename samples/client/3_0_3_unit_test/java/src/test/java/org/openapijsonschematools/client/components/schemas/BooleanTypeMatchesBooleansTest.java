@@ -48,7 +48,7 @@ public class BooleanTypeMatchesBooleansTest {
     }
 
     @Test
-    public void testFalseIsABooleanPasses() throws ValidationException, InvalidTypeException {
+    public void testFalseIsABooleanPasses() {
         // false is a boolean
         final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         schema.validate(
@@ -58,7 +58,7 @@ public class BooleanTypeMatchesBooleansTest {
     }
 
     @Test
-    public void testTrueIsABooleanPasses() throws ValidationException, InvalidTypeException {
+    public void testTrueIsABooleanPasses() {
         // true is a boolean
         final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         schema.validate(

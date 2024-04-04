@@ -6,13 +6,10 @@ import org.openapijsonschematools.client.paths.userusername.put.RequestBody;
 import org.openapijsonschematools.client.paths.userusername.put.PathParameters;
 import org.openapijsonschematools.client.paths.userusername.put.Parameters;
 import org.openapijsonschematools.client.paths.userusername.put.Responses;
-import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 import org.openapijsonschematools.client.paths.Userusername;
 
@@ -33,7 +30,7 @@ public class Put {
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
-        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
             SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
@@ -67,7 +64,7 @@ public class Put {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Void put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default Void put(PutRequest request) throws IOException, InterruptedException {
             return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

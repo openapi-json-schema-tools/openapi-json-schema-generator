@@ -60,19 +60,19 @@ public class NumberJsonSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
 
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public int validate(int arg, SchemaConfiguration configuration) {
             return (int) validate((Number) arg, configuration);
         }
 
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public long validate(long arg, SchemaConfiguration configuration) {
             return (long) validate((Number) arg, configuration);
         }
 
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) {
             return (float) validate((Number) arg, configuration);
         }
 
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) {
             return (double) validate((Number) arg, configuration);
         }
 
@@ -81,7 +81,7 @@ public class NumberJsonSchema {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override

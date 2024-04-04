@@ -36,7 +36,7 @@ public class PropertiesValidatorTest {
             if (arg instanceof Map<?, ?> mapArg) {
                 return getNewInstance(mapArg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override
@@ -59,7 +59,7 @@ public class PropertiesValidatorTest {
     }
 
     @Test
-    public void testCorrectPropertySucceeds() throws ValidationException {
+    public void testCorrectPropertySucceeds() {
         final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
@@ -92,7 +92,7 @@ public class PropertiesValidatorTest {
     }
 
     @Test
-    public void testNotApplicableTypeReturnsNull() throws ValidationException {
+    public void testNotApplicableTypeReturnsNull() {
         final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(

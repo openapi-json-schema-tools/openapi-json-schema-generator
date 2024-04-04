@@ -33,7 +33,7 @@ public class EnumWithFalseDoesNotMatch0Test {
     }
 
     @Test
-    public void testFalseIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testFalseIsValidPasses() {
         // false is valid
         final var schema = EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.getInstance();
         schema.validate(

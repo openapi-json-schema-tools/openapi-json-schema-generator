@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.List;
@@ -11,7 +11,7 @@ public class UniqueItemsValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         var uniqueItems = data.schema().uniqueItems;
         if (uniqueItems == null) {
             return null;

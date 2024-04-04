@@ -4,7 +4,7 @@ PetfindbystatusGetSecurityInfo.java
 public class PetfindbystatusGetSecurityInfo
 
 A class that provides a security requirement object, and any needed security info classes
-- a class that is a SecurityRequirementObjectProvider
+- a class that stores a securityIndex and provides a SecurityRequirementsObject
 - an enum class that describes security index values
 
 ## Nested Class Summary
@@ -24,9 +24,7 @@ implements SecurityRequirementObjectProvider<[SecurityIndex](#securityindex)>
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetfindbystatusGetSecurityRequirementObject0](../../../paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject0.md) | security0 |
-| [PetfindbystatusGetSecurityRequirementObject1](../../../paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject1.md) | security1 |
-| [PetfindbystatusGetSecurityRequirementObject2](../../../paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject2.md) | security2 |
+| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new [PetfindbystatusGetSecurityRequirementObject0()](../../../paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject0.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new [PetfindbystatusGetSecurityRequirementObject1()](../../../paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject1.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, new [PetfindbystatusGetSecurityRequirementObject2()](../../../paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject2.md)<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

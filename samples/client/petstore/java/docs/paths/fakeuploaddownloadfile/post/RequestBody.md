@@ -28,7 +28,7 @@ sealed interface that stores schema and encoding info
 
 ## ApplicationoctetstreamMediaType
 public record ApplicationoctetstreamMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1](../../../paths/fakeuploaddownloadfile/post/requestbody/content/applicationoctetstream/ApplicationoctetstreamSchema.md#applicationoctetstreamschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1](../../../../paths/fakeuploaddownloadfile/post/requestbody/content/applicationoctetstream/ApplicationoctetstreamSchema.md#applicationoctetstreamschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -40,7 +40,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1](../../../paths/fakeuploaddownloadfile/post/requestbody/content/applicationoctetstream/ApplicationoctetstreamSchema.md#applicationoctetstreamschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1](../../../../paths/fakeuploaddownloadfile/post/requestbody/content/applicationoctetstream/ApplicationoctetstreamSchema.md#applicationoctetstreamschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## RequestBody1

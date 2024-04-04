@@ -18,7 +18,7 @@ public class FormatValidator implements KeywordValidator {
     private final static BigDecimal doubleInclusiveMinimum = BigDecimal.valueOf(-1.7976931348623157E+308d);
     private final static BigDecimal doubleInclusiveMaximum = BigDecimal.valueOf(1.7976931348623157E+308d);
 
-    private static void validateNumericFormat(Number arg, ValidationMetadata validationMetadata, String format) throws ValidationException {
+    private static void validateNumericFormat(Number arg, ValidationMetadata validationMetadata, String format) {
         if (format.startsWith("int")) {
             // there is a json schema test where 1.0 validates as an integer
             BigInteger intArg;
@@ -85,7 +85,7 @@ public class FormatValidator implements KeywordValidator {
         }
     }
 
-    private static void validateStringFormat(String arg, ValidationMetadata validationMetadata, String format) throws ValidationException {
+    private static void validateStringFormat(String arg, ValidationMetadata validationMetadata, String format) {
         switch (format) {
             case "uuid" -> {
                 try {
@@ -133,7 +133,7 @@ public class FormatValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         var format = data.schema().format;
         if (format == null) {
             return null;

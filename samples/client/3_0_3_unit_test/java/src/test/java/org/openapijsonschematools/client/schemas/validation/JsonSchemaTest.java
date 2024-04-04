@@ -40,7 +40,7 @@ public class JsonSchemaTest {
             if (arg instanceof String) {
                 return arg;
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override
@@ -58,7 +58,7 @@ public class JsonSchemaTest {
     }
 
     @Test
-    public void testValidateSucceeds() throws ValidationException {
+    public void testValidateSucceeds() {
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,

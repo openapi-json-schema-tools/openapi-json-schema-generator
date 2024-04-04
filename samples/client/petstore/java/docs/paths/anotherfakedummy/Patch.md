@@ -22,84 +22,8 @@ public static class Patch1 extends ApiClient.ApiClient1 implements PatchOperatio
 
 a class that allows one to call the endpoint using a method named patch
 
-### Code Sample
-```
-import org.openapijsonschematools.client.configurations.ApiConfiguration;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.ApiException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.anotherfakedummy.patch.RequestBody;
-import org.openapijsonschematools.client.components.schemas.Client;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.anotherfakedummy.patch.responses.Code200Response;
-import org.openapijsonschematools.client.paths.anotherfakedummy.Patch;
+TODO code sample
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
-ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
-    new Server0(),
-    null,
-    null
-);
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
-Duration timeout = Duration.ofSeconds(1L);
-ApiConfiguration apiConfiguration = new ApiConfiguration(
-    serverInfo
-    serverIndexInfo,
-    timeout
-);
-SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-Patch.Patch1 apiClient = new Patch.Patch1(apiConfiguration, schemaConfiguration);
-
-
-Client1BoxedMap requestBodyPayload =
-    Client.Client1.validateAndBox(
-    new Client.ClientMapBuilder1()
-        .client("a")
-
-    .build(),
-    schemaConfiguration
-);
-RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
-
-var request = new PatchRequestBuilder()
-    .requestBody(requestBody)
-    .build();
-
-Responses.EndpointResponse response;
-try {
-    response = apiClient.patch(request);
-} catch (ApiException e) {
-    // server returned a response/contentType not defined in the openapi document
-    throw e;
-} catch (ValidationException e) {
-    // the returned response body or header values do not conform the the schema validation requirements
-    throw e;
-} catch (IOException | InterruptedException e) {
-    // an exception happened when making the request
-    throw e;
-} catch (NotImplementedException e) {
-    // the request body serialization or deserialization has not yet been implemented
-    // or the header content type deserialization has not yet been implemented for this contentType
-    throw e;
-}
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
-// handle deserialized body here
-```
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |

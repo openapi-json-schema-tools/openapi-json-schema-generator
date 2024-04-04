@@ -57,7 +57,7 @@ public class UuidJsonSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
 
-        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
 
@@ -66,7 +66,7 @@ public class UuidJsonSchema {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override

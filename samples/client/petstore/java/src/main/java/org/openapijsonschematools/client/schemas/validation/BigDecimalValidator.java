@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import java.math.BigDecimal;
 
 public abstract class BigDecimalValidator {
-    protected BigDecimal getBigDecimal(Number arg) throws ValidationException {
+    protected BigDecimal getBigDecimal(Number arg) {
         if (arg instanceof Integer) {
             return new BigDecimal((Integer) arg);
         } else if (arg instanceof Long) {

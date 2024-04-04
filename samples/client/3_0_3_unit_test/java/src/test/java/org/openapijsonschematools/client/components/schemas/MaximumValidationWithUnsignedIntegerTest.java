@@ -33,7 +33,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     }
 
     @Test
-    public void testBelowTheMaximumIsInvalidPasses() throws ValidationException, InvalidTypeException {
+    public void testBelowTheMaximumIsInvalidPasses() {
         // below the maximum is invalid
         final var schema = MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     }
 
     @Test
-    public void testBoundaryPointIntegerIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testBoundaryPointIntegerIsValidPasses() {
         // boundary point integer is valid
         final var schema = MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.getInstance();
         schema.validate(
@@ -53,7 +53,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     }
 
     @Test
-    public void testBoundaryPointFloatIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testBoundaryPointFloatIsValidPasses() {
         // boundary point float is valid
         final var schema = MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.getInstance();
         schema.validate(

@@ -31,7 +31,7 @@ sealed interface that stores schema and encoding info
 
 ## ApplicationjsonMediaType
 public record ApplicationjsonMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -43,12 +43,12 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## MultipartformdataMediaType
 public record MultipartformdataMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[MultipartformdataSchema.MultipartformdataSchema1](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[MultipartformdataSchema.MultipartformdataSchema1](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -60,7 +60,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MultipartformdataSchema.MultipartformdataSchema1](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1) | schema()<br>the schema for this MediaType |
+| [MultipartformdataSchema.MultipartformdataSchema1](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## RequestBody1
@@ -95,34 +95,34 @@ sealed interface that stores request contentType + validated schema data
 ## ApplicationjsonRequestBody
 public record ApplicationjsonRequestBody<br>
 implements [SealedRequestBody](#sealedrequestbody),<br>
-GenericRequestBody<ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed)><br>
+GenericRequestBody<ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed)><br>
 
 A record class to store request body input for contentType="application/json"
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ApplicationjsonRequestBody(ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) body)<br>Creates an instance |
+| ApplicationjsonRequestBody(ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | contentType()<br>always returns "application/json" |
-| ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) | body()<br>returns the body passed in in the constructor |
+| ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) | body()<br>returns the body passed in in the constructor |
 ## MultipartformdataRequestBody
 public record MultipartformdataRequestBody<br>
 implements [SealedRequestBody](#sealedrequestbody),<br>
-GenericRequestBody<MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed)><br>
+GenericRequestBody<MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed)><br>
 
 A record class to store request body input for contentType="multipart/form-data"
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| MultipartformdataRequestBody(MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed) body)<br>Creates an instance |
+| MultipartformdataRequestBody(MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | contentType()<br>always returns "multipart/form-data" |
-| MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed) | body()<br>returns the body passed in in the constructor |
+| MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../../paths/fakemultiplerequestbodycontenttypes/post/requestbody/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed) | body()<br>returns the body passed in in the constructor |

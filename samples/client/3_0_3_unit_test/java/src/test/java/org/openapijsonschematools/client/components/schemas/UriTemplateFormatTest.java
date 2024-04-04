@@ -18,7 +18,7 @@ public class UriTemplateFormatTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAllStringFormatsIgnoreIntegersPasses() throws ValidationException, InvalidTypeException {
+    public void testAllStringFormatsIgnoreIntegersPasses() {
         // all string formats ignore integers
         final var schema = UriTemplateFormat.UriTemplateFormat1.getInstance();
         schema.validate(
@@ -28,7 +28,7 @@ public class UriTemplateFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreNullsPasses() throws ValidationException, InvalidTypeException {
+    public void testAllStringFormatsIgnoreNullsPasses() {
         // all string formats ignore nulls
         final var schema = UriTemplateFormat.UriTemplateFormat1.getInstance();
         schema.validate(
@@ -38,7 +38,7 @@ public class UriTemplateFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreObjectsPasses() throws ValidationException, InvalidTypeException {
+    public void testAllStringFormatsIgnoreObjectsPasses() {
         // all string formats ignore objects
         final var schema = UriTemplateFormat.UriTemplateFormat1.getInstance();
         schema.validate(
@@ -49,7 +49,7 @@ public class UriTemplateFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreFloatsPasses() throws ValidationException, InvalidTypeException {
+    public void testAllStringFormatsIgnoreFloatsPasses() {
         // all string formats ignore floats
         final var schema = UriTemplateFormat.UriTemplateFormat1.getInstance();
         schema.validate(
@@ -59,7 +59,7 @@ public class UriTemplateFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreArraysPasses() throws ValidationException, InvalidTypeException {
+    public void testAllStringFormatsIgnoreArraysPasses() {
         // all string formats ignore arrays
         final var schema = UriTemplateFormat.UriTemplateFormat1.getInstance();
         schema.validate(
@@ -70,7 +70,7 @@ public class UriTemplateFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreBooleansPasses() throws ValidationException, InvalidTypeException {
+    public void testAllStringFormatsIgnoreBooleansPasses() {
         // all string formats ignore booleans
         final var schema = UriTemplateFormat.UriTemplateFormat1.getInstance();
         schema.validate(

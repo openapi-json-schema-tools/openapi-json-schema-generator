@@ -6,8 +6,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.ListJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
@@ -30,7 +28,7 @@ public class SchemaHeaderTest {
     }
 
     @Test
-    public void testSerialization() throws ValidationException, NotImplementedException, InvalidTypeException {
+    public void testSerialization() {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -107,7 +105,7 @@ public class SchemaHeaderTest {
         );
         for (boolean value: Set.of(true, false)) {
             Assert.assertThrows(
-                    NotImplementedException.class,
+                    InvalidTypeException.class,
                     () -> boolHeader.serialize(value, "color", false, configuration)
             );
         }
@@ -128,7 +126,7 @@ public class SchemaHeaderTest {
     }
 
     @Test
-    public void testDeserialization() throws ValidationException, NotImplementedException, InvalidTypeException {
+    public void testDeserialization() {
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
         SchemaHeader header = getHeader(NullJsonSchema.NullJsonSchema1.getInstance());

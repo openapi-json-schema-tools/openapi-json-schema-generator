@@ -4,7 +4,7 @@ FakemultiplesecuritiesGetSecurityInfo.java
 public class FakemultiplesecuritiesGetSecurityInfo
 
 A class that provides a security requirement object, and any needed security info classes
-- a class that is a SecurityRequirementObjectProvider
+- a class that stores a securityIndex and provides a SecurityRequirementsObject
 - an enum class that describes security index values
 
 ## Nested Class Summary
@@ -24,9 +24,7 @@ implements SecurityRequirementObjectProvider<[SecurityIndex](#securityindex)>
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakemultiplesecuritiesGetSecurityRequirementObject0](../../../paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject0.md) | security0 |
-| [FakemultiplesecuritiesGetSecurityRequirementObject1](../../../paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject1.md) | security1 |
-| [FakemultiplesecuritiesGetSecurityRequirementObject2](../../../paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject2.md) | security2 |
+| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new [FakemultiplesecuritiesGetSecurityRequirementObject0()](../../../paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject0.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new [FakemultiplesecuritiesGetSecurityRequirementObject1()](../../../paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject1.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, new [FakemultiplesecuritiesGetSecurityRequirementObject2()](../../../paths/fakemultiplesecurities/get/security/FakemultiplesecuritiesGetSecurityRequirementObject2.md)<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

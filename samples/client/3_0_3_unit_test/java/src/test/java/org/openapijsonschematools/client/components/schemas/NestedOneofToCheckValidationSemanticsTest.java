@@ -18,7 +18,7 @@ public class NestedOneofToCheckValidationSemanticsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testNullIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testNullIsValidPasses() {
         // null is valid
         final var schema = NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1.getInstance();
         schema.validate(

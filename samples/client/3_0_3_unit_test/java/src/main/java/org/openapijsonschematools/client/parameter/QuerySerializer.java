@@ -1,8 +1,6 @@
 package org.openapijsonschematools.client.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -16,7 +14,7 @@ public abstract class QuerySerializer {
         this.parameters = parameters;
     }
 
-    public Map<String, String> getQueryMap(Map<String, ?> inData) throws NotImplementedException, OpenapiDocumentException {
+    public Map<String, String> getQueryMap(Map<String, ?> inData) {
         Map<String, String> results = new HashMap<>();
         for (Map.Entry<String, ?> entry: inData.entrySet()) {
             String mapKey = entry.getKey();

@@ -7,7 +7,7 @@ public class IfValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         var ifSchema = data.schema().ifSchema;
         if (ifSchema == null) {
             return null;

@@ -10,7 +10,7 @@ public class OneOfValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         var oneOf = data.schema().oneOf;
         if (oneOf == null) {
             return null;

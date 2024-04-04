@@ -18,7 +18,7 @@ public class ObjectTypeMatchesObjectsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAnObjectIsAnObjectPasses() throws ValidationException, InvalidTypeException {
+    public void testAnObjectIsAnObjectPasses() {
         // an object is an object
         final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         schema.validate(

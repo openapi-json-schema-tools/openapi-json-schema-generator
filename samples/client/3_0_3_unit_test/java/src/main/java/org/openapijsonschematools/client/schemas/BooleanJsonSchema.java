@@ -60,7 +60,7 @@ public class BooleanJsonSchema {
                 boolean boolArg = (Boolean) arg;
                 return getNewInstance(boolArg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override

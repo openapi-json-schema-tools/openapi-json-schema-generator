@@ -42,7 +42,7 @@ public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
     }
 
     @Test
-    public void testValidTestCasePasses() throws ValidationException, InvalidTypeException {
+    public void testValidTestCasePasses() {
         // valid test case
         final var schema = AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1.getInstance();
         schema.validate(

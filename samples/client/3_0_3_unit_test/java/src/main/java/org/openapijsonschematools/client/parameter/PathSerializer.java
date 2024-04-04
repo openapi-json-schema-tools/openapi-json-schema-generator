@@ -1,8 +1,6 @@
 package org.openapijsonschematools.client.parameter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
 
 import java.util.AbstractMap;
 import java.util.Map;
@@ -14,7 +12,7 @@ public abstract class PathSerializer {
         this.parameters = parameters;
     }
 
-    public String serialize(Map<String, ?> inData, String pathWithPlaceholders) throws NotImplementedException, OpenapiDocumentException {
+    public String serialize(Map<String, ?> inData, String pathWithPlaceholders) {
         String result = pathWithPlaceholders;
         for (Map.Entry<String, ?> entry: inData.entrySet()) {
             String mapKey = entry.getKey();

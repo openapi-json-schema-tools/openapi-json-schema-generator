@@ -11,7 +11,7 @@ public class DependentRequiredValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }

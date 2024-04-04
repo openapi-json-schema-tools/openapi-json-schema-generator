@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
@@ -39,25 +40,25 @@ public class JsonSchemaTest {
             if (arg instanceof String) {
                 return arg;
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             if (arg instanceof String) {
                 return arg;
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
 
         @Override
-        public SomeSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public SomeSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return new SomeSchemaBoxedString();
         }
     }
 
     @Test
-    public void testValidateSucceeds() throws ValidationException {
+    public void testValidateSucceeds() {
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,

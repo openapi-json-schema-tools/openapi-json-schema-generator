@@ -48,7 +48,7 @@ public class ArrayTypeMatchesArraysTest {
     }
 
     @Test
-    public void testAnArrayIsAnArrayPasses() throws ValidationException, InvalidTypeException {
+    public void testAnArrayIsAnArrayPasses() {
         // an array is an array
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         schema.validate(

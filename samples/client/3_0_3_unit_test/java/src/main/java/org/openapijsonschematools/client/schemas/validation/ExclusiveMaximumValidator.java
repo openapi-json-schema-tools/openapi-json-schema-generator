@@ -7,7 +7,7 @@ public class ExclusiveMaximumValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         var exclusiveMaximum = data.schema().exclusiveMaximum;
         if (exclusiveMaximum == null) {
             return null;

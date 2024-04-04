@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +12,7 @@ public class RequiredValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         var required = data.schema().required;
         if (required == null) {
             return null;

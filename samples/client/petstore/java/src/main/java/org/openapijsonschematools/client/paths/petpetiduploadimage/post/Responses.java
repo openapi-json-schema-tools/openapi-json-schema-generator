@@ -3,8 +3,6 @@ package org.openapijsonschematools.client.paths.petpetiduploadimage.post;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.Code200Response;
 import org.openapijsonschematools.client.components.responses.successwithjsonapiresponse.SuccessWithJsonApiResponseHeadersSchema;
 import org.openapijsonschematools.client.exceptions.ApiException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -37,7 +35,7 @@ public class Responses {
             );
         }
 
-        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
+        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
             String statusCode = String.valueOf(response.statusCode());
             @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (statusCodeDeserializer == null) {

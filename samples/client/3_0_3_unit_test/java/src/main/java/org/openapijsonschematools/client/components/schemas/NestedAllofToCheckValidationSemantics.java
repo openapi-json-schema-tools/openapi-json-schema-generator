@@ -148,19 +148,19 @@ public class NestedAllofToCheckValidationSemantics {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public int validate(int arg, SchemaConfiguration configuration) {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public long validate(long arg, SchemaConfiguration configuration) {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -176,15 +176,15 @@ public class NestedAllofToCheckValidationSemantics {
             return castArg;
         }
         
-        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
         
-        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
         
-        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
         
@@ -197,7 +197,7 @@ public class NestedAllofToCheckValidationSemantics {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
@@ -208,7 +208,7 @@ public class NestedAllofToCheckValidationSemantics {
             return newInstanceItems;
         }
         
-        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -224,7 +224,7 @@ public class NestedAllofToCheckValidationSemantics {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -232,7 +232,7 @@ public class NestedAllofToCheckValidationSemantics {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -272,7 +272,7 @@ public class NestedAllofToCheckValidationSemantics {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
                 return getNewInstance((Void) null, pathToItem, pathToSchemas);
             } else if (arg instanceof Boolean) {
@@ -287,7 +287,7 @@ public class NestedAllofToCheckValidationSemantics {
             } else if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public Schema0BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -441,19 +441,19 @@ public class NestedAllofToCheckValidationSemantics {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public int validate(int arg, SchemaConfiguration configuration) {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public long validate(long arg, SchemaConfiguration configuration) {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) {
             return (double) validate((Number) arg, configuration);
         }
         
@@ -469,15 +469,15 @@ public class NestedAllofToCheckValidationSemantics {
             return castArg;
         }
         
-        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
         
-        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
         
-        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.toString(), configuration);
         }
         
@@ -490,7 +490,7 @@ public class NestedAllofToCheckValidationSemantics {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
@@ -501,7 +501,7 @@ public class NestedAllofToCheckValidationSemantics {
             return newInstanceItems;
         }
         
-        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -517,7 +517,7 @@ public class NestedAllofToCheckValidationSemantics {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -525,7 +525,7 @@ public class NestedAllofToCheckValidationSemantics {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -565,7 +565,7 @@ public class NestedAllofToCheckValidationSemantics {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
                 return getNewInstance((Void) null, pathToItem, pathToSchemas);
             } else if (arg instanceof Boolean) {
@@ -580,7 +580,7 @@ public class NestedAllofToCheckValidationSemantics {
             } else if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public NestedAllofToCheckValidationSemantics1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

@@ -1,6 +1,6 @@
 # ApplicationjsonSchema
 public class ApplicationjsonSchema<br>
-extends [AdditionalPropertiesWithArrayOfEnums1](../../../../../../components/schemas/AdditionalPropertiesWithArrayOfEnums.md#additionalpropertieswitharrayofenums)
+extends [AdditionalPropertiesWithArrayOfEnums1](../../../../../../../components/schemas/AdditionalPropertiesWithArrayOfEnums.md#additionalpropertieswitharrayofenums)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
@@ -14,6 +14,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1](../../../../../../components/schemas/AdditionalPropertiesWithArrayOfEnums.md#additionalpropertieswitharrayofenums1)
+extends [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1](../../../../../../../components/schemas/AdditionalPropertiesWithArrayOfEnums.md#additionalpropertieswitharrayofenums1)
 
 A schema class that validates payloads

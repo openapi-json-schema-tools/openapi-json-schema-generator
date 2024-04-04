@@ -18,7 +18,7 @@ public class NestedAnyofToCheckValidationSemanticsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testNullIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testNullIsValidPasses() {
         // null is valid
         final var schema = NestedAnyofToCheckValidationSemantics.NestedAnyofToCheckValidationSemantics1.getInstance();
         schema.validate(

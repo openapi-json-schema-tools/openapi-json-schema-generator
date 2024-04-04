@@ -18,7 +18,7 @@ public class RequiredValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testPresentRequiredPropertyIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testPresentRequiredPropertyIsValidPasses() {
         // present required property is valid
         final var schema = RequiredValidation.RequiredValidation1.getInstance();
         schema.validate(
@@ -33,7 +33,7 @@ public class RequiredValidationTest {
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() throws ValidationException, InvalidTypeException {
+    public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
         final var schema = RequiredValidation.RequiredValidation1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class RequiredValidationTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() throws ValidationException, InvalidTypeException {
+    public void testIgnoresArraysPasses() {
         // ignores arrays
         final var schema = RequiredValidation.RequiredValidation1.getInstance();
         schema.validate(
@@ -54,7 +54,7 @@ public class RequiredValidationTest {
     }
 
     @Test
-    public void testIgnoresStringsPasses() throws ValidationException, InvalidTypeException {
+    public void testIgnoresStringsPasses() {
         // ignores strings
         final var schema = RequiredValidation.RequiredValidation1.getInstance();
         schema.validate(

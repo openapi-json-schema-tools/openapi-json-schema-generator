@@ -235,7 +235,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | ---- | --------- | ---------- |
 |Info|✓|OAS2,OAS3
 |Servers|✓|OAS3
-|Paths|✗|OAS2,OAS3
+|Paths|✓|OAS2,OAS3
 |Webhooks|✗|OAS3
 |Components|✓|OAS3
 |Security|✓|OAS2,OAS3

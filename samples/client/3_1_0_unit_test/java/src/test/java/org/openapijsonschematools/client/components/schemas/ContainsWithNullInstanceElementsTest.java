@@ -23,7 +23,7 @@ public class ContainsWithNullInstanceElementsTest {
         final var schema = ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1.getInstance();
         schema.validate(
             Arrays.asList(
-                (Void) null
+                null
             ),
             configuration
         );

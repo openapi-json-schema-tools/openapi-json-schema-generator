@@ -6,13 +6,10 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.PathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
-import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.paths.Commonparamsubdir;
 
 import java.io.IOException;
@@ -31,7 +28,7 @@ public class Post {
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
-        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        ) throws IOException, InterruptedException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
 
@@ -65,7 +62,7 @@ public class Post {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

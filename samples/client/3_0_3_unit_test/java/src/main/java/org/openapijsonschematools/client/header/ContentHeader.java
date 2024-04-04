@@ -5,9 +5,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
 import org.openapijsonschematools.client.contenttype.ContentTypeSerializer;
 import org.openapijsonschematools.client.contenttype.ContentTypeDeserializer;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.parameter.ParameterStyle;
 
@@ -31,7 +28,7 @@ public class ContentHeader extends HeaderBase implements Header {
     }
 
     @Override
-    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) throws NotImplementedException, ValidationException, InvalidTypeException {
+    public HttpHeaders serialize(@Nullable Object inData, String name, boolean validate, SchemaConfiguration configuration) {
         for (Map.Entry<String, MediaType<?, ?>> entry: content.entrySet()) {
             var castInData = validate ? entry.getValue().schema().validate(inData, configuration) : inData ;
             String contentType = entry.getKey();
@@ -39,14 +36,14 @@ public class ContentHeader extends HeaderBase implements Header {
                 var value = ContentTypeSerializer.toJson(castInData);
                 return toHeaders(name, value);
             } else {
-                throw new NotImplementedException("Serialization of "+contentType+" has not yet been implemented");
+                throw new RuntimeException("Serialization of "+contentType+" has not yet been implemented");
             }
         }
         throw new RuntimeException("Invalid value for content, it was empty and must have 1 key value pair");
     }
 
     @Override
-    public @Nullable Object deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration) throws NotImplementedException, ValidationException, InvalidTypeException {
+    public @Nullable Object deserialize(List<String> inData, boolean validate, SchemaConfiguration configuration) {
         String inDataJoined = String.join(",", inData); // unsure if this is needed
         @Nullable Object deserializedJson = ContentTypeDeserializer.fromJson(inDataJoined);
         if (validate) {
@@ -55,7 +52,7 @@ public class ContentHeader extends HeaderBase implements Header {
                 if (ContentTypeDetector.contentTypeIsJson(contentType)) {
                     return entry.getValue().schema().validate(deserializedJson, configuration);
                 } else {
-                    throw new NotImplementedException("Header deserialization of "+contentType+" has not yet been implemented");
+                    throw new RuntimeException("Header deserialization of "+contentType+" has not yet been implemented");
                 }
             }
             throw new RuntimeException("Invalid value for content, it was empty and must have 1 key value pair");

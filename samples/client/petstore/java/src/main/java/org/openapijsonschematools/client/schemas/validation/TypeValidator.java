@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.List;
 import java.util.Map;
@@ -10,7 +10,7 @@ public class TypeValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         var type = data.schema().type;
         if (type == null) {
             return null;

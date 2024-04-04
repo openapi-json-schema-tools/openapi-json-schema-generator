@@ -1,22 +1,26 @@
 package org.openapijsonschematools.client.header;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 public class Rfc6570Serializer {
     private static final String ENCODING = "UTF-8";
     private static final Set<String> namedParameterSeparators = Set.of("&", ";");
 
-    private static String percentEncode(String s) throws NotImplementedException {
+    private static String percentEncode(String s) {
         if (s == null) {
             return "";
         }
@@ -27,11 +31,11 @@ public class Rfc6570Serializer {
                     .replace("%7E", "~");
             // This could be done faster with more hand-crafted code.
         } catch (UnsupportedEncodingException wow) {
-            throw new NotImplementedException(wow.getMessage());
+            throw new RuntimeException(wow.getMessage(), wow);
         }
     }
 
-    private static @Nullable String rfc6570ItemValue(@Nullable Object item, boolean percentEncode) throws NotImplementedException {
+    private static @Nullable String rfc6570ItemValue(@Nullable Object item, boolean percentEncode) {
         /*
         Get representation if str/float/int/None/items in list/ values in dict
         None is returned if an item is undefined, use cases are value=
@@ -58,7 +62,7 @@ public class Rfc6570Serializer {
             // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return null;
         }
-        throw new NotImplementedException("Unable to generate a rfc6570 item representation of "+item);
+        throw new InvalidTypeException("Unable to generate a rfc6570 item representation of "+item);
     }
 
     private static String rfc6570StrNumberExpansion(
@@ -67,7 +71,7 @@ public class Rfc6570Serializer {
         PrefixSeparatorIterator prefixSeparatorIterator,
         String varNamePiece,
         boolean namedParameterExpansion
-    ) throws NotImplementedException {
+    ) {
         var itemValue = rfc6570ItemValue(inData, percentEncode);
         if (itemValue == null || (itemValue.isEmpty() && prefixSeparatorIterator.separator.equals(";"))) {
             return prefixSeparatorIterator.next() + varNamePiece;
@@ -83,15 +87,11 @@ public class Rfc6570Serializer {
         PrefixSeparatorIterator prefixSeparatorIterator,
         String varNamePiece,
         boolean namedParameterExpansion
-    ) throws NotImplementedException {
-        List<String> itemValues = new ArrayList<>();
-        for (Object v: inData) {
-            @Nullable String value = rfc6570ItemValue(v, percentEncode);
-            if (value == null) {
-                continue;
-            }
-            itemValues.add(value);
-        }
+    ) {
+        var itemValues = inData.stream()
+                .map(v -> rfc6570ItemValue(v, percentEncode))
+                .filter(Objects::nonNull)
+                .collect(toList());
         if (itemValues.isEmpty()) {
             // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return "";
@@ -116,19 +116,12 @@ public class Rfc6570Serializer {
         PrefixSeparatorIterator prefixSeparatorIterator,
         String varNamePiece,
         boolean namedParameterExpansion
-    ) throws NotImplementedException {
-        Map<String, String> inDataMap = new LinkedHashMap<>();
-        for (Map.Entry<?, ?> entry: inData.entrySet()) {
-            @Nullable String value = rfc6570ItemValue(entry.getValue(), percentEncode);
-            if (value == null) {
-                continue;
-            }
-            @Nullable Object key = entry.getKey();
-            if (!(key instanceof String strKey)) {
-                continue;
-            }
-            inDataMap.put(strKey, value);
-        }
+    ) {
+        var inDataMap = inData.entrySet().stream()
+                .map(entry -> new AbstractMap.SimpleEntry<>(entry.getKey(), rfc6570ItemValue(entry.getValue(), percentEncode)))
+                .filter(entry -> entry.getValue() != null)
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (x, y) -> y, LinkedHashMap::new));
+
         if (inDataMap.isEmpty()) {
             // ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return "";
@@ -150,7 +143,7 @@ public class Rfc6570Serializer {
         boolean explode,
         boolean percentEncode,
         PrefixSeparatorIterator prefixSeparatorIterator
-    ) throws NotImplementedException {
+    ) {
         /*
         Separator is for separate variables like dict with explode true,
         not for array item separation
@@ -188,6 +181,6 @@ public class Rfc6570Serializer {
             );
         }
         // bool, bytes, etc
-        throw new NotImplementedException("Unable to generate a rfc6570 representation of "+inData);
+        throw new InvalidTypeException("Unable to generate a rfc6570 representation of "+inData);
     }
 }

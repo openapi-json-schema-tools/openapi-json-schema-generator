@@ -38,7 +38,7 @@ public class NestedItems {
         protected ItemsList(FrozenList<Number> m) {
             super(m);
         }
-        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return Items2.getInstance().validate(arg, configuration);
         }
     }
@@ -120,12 +120,12 @@ public class NestedItems {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof Number)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((Number) itemInstance);
                 i += 1;
@@ -134,7 +134,7 @@ public class NestedItems {
             return new ItemsList(newInstanceItems);
         }
         
-        public ItemsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public ItemsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -152,11 +152,11 @@ public class NestedItems {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public Items2BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -175,7 +175,7 @@ public class NestedItems {
         protected ItemsList1(FrozenList<ItemsList> m) {
             super(m);
         }
-        public static ItemsList1 of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static ItemsList1 of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Items1.getInstance().validate(arg, configuration);
         }
     }
@@ -242,12 +242,12 @@ public class NestedItems {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof ItemsList)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((ItemsList) itemInstance);
                 i += 1;
@@ -256,7 +256,7 @@ public class NestedItems {
             return new ItemsList1(newInstanceItems);
         }
         
-        public ItemsList1 validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public ItemsList1 validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -274,11 +274,11 @@ public class NestedItems {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public Items1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -297,7 +297,7 @@ public class NestedItems {
         protected ItemsList2(FrozenList<ItemsList1> m) {
             super(m);
         }
-        public static ItemsList2 of(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static ItemsList2 of(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Items.getInstance().validate(arg, configuration);
         }
     }
@@ -364,12 +364,12 @@ public class NestedItems {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof ItemsList1)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((ItemsList1) itemInstance);
                 i += 1;
@@ -378,7 +378,7 @@ public class NestedItems {
             return new ItemsList2(newInstanceItems);
         }
         
-        public ItemsList2 validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public ItemsList2 validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -396,11 +396,11 @@ public class NestedItems {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ItemsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -419,7 +419,7 @@ public class NestedItems {
         protected NestedItemsList(FrozenList<ItemsList2> m) {
             super(m);
         }
-        public static NestedItemsList of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static NestedItemsList of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return NestedItems1.getInstance().validate(arg, configuration);
         }
     }
@@ -492,12 +492,12 @@ public class NestedItems {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof ItemsList2)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((ItemsList2) itemInstance);
                 i += 1;
@@ -506,7 +506,7 @@ public class NestedItems {
             return new NestedItemsList(newInstanceItems);
         }
         
-        public NestedItemsList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public NestedItemsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -524,11 +524,11 @@ public class NestedItems {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public NestedItems1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

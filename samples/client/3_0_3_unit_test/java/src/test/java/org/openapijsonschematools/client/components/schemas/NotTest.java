@@ -33,7 +33,7 @@ public class NotTest {
     }
 
     @Test
-    public void testAllowedPasses() throws ValidationException, InvalidTypeException {
+    public void testAllowedPasses() {
         // allowed
         final var schema = Not.Not1.getInstance();
         schema.validate(

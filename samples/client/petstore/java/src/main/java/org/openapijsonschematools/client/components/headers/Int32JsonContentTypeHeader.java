@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema;
 
 import java.util.AbstractMap;
+import java.util.Map;
 
 public class Int32JsonContentTypeHeader {
 
@@ -24,7 +25,9 @@ public class Int32JsonContentTypeHeader {
                 true,
                 null,
                 false,
-                new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
+                )
             );
         }
     }

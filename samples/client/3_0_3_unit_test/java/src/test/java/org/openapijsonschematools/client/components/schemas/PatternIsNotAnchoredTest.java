@@ -18,7 +18,7 @@ public class PatternIsNotAnchoredTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testMatchesASubstringPasses() throws ValidationException, InvalidTypeException {
+    public void testMatchesASubstringPasses() {
         // matches a substring
         final var schema = PatternIsNotAnchored.PatternIsNotAnchored1.getInstance();
         schema.validate(

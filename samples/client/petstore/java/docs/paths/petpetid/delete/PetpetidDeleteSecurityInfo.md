@@ -4,7 +4,7 @@ PetpetidDeleteSecurityInfo.java
 public class PetpetidDeleteSecurityInfo
 
 A class that provides a security requirement object, and any needed security info classes
-- a class that is a SecurityRequirementObjectProvider
+- a class that stores a securityIndex and provides a SecurityRequirementsObject
 - an enum class that describes security index values
 
 ## Nested Class Summary
@@ -24,8 +24,7 @@ implements SecurityRequirementObjectProvider<[SecurityIndex](#securityindex)>
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidDeleteSecurityRequirementObject0](../../../paths/petpetid/delete/security/PetpetidDeleteSecurityRequirementObject0.md) | security0 |
-| [PetpetidDeleteSecurityRequirementObject1](../../../paths/petpetid/delete/security/PetpetidDeleteSecurityRequirementObject1.md) | security1 |
+| EnumMap<SecurityIndex, SecurityRequirementObject> | securities = new EnumMap<>(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new [PetpetidDeleteSecurityRequirementObject0()](../../../paths/petpetid/delete/security/PetpetidDeleteSecurityRequirementObject0.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, new [PetpetidDeleteSecurityRequirementObject1()](../../../paths/petpetid/delete/security/PetpetidDeleteSecurityRequirementObject1.md)<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

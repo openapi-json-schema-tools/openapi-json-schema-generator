@@ -121,7 +121,7 @@ public class EnumWith1DoesNotMatchTrue {
         }
         
         @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -131,39 +131,39 @@ public class EnumWith1DoesNotMatchTrue {
             return castArg;
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
         
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return (long) validate((Number) arg, configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg, configuration);
         }
         
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
         }
         
         @Override
-        public int validate(IntegerEnumWith1DoesNotMatchTrueEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public int validate(IntegerEnumWith1DoesNotMatchTrueEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public long validate(LongEnumWith1DoesNotMatchTrueEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public long validate(LongEnumWith1DoesNotMatchTrueEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (long) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public float validate(FloatEnumWith1DoesNotMatchTrueEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public float validate(FloatEnumWith1DoesNotMatchTrueEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg.value(), configuration);
         }
         
         @Override
-        public double validate(DoubleEnumWith1DoesNotMatchTrueEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public double validate(DoubleEnumWith1DoesNotMatchTrueEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg.value(), configuration);
         }
         
@@ -175,11 +175,11 @@ public class EnumWith1DoesNotMatchTrue {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public EnumWith1DoesNotMatchTrue1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

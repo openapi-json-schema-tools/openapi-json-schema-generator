@@ -18,7 +18,7 @@ public class UniqueitemsFalseValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testNumbersAreUniqueIfMathematicallyUnequalPasses() throws ValidationException, InvalidTypeException {
+    public void testNumbersAreUniqueIfMathematicallyUnequalPasses() {
         // numbers are unique if mathematically unequal
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -32,7 +32,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testNonUniqueArrayOfIntegersIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testNonUniqueArrayOfIntegersIsValidPasses() {
         // non-unique array of integers is valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -45,7 +45,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testNonUniqueArrayOfObjectsIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testNonUniqueArrayOfObjectsIsValidPasses() {
         // non-unique array of objects is valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -68,7 +68,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testNonUniqueArrayOfArraysIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testNonUniqueArrayOfArraysIsValidPasses() {
         // non-unique array of arrays is valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -85,7 +85,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void test1AndTrueAreUniquePasses() throws ValidationException, InvalidTypeException {
+    public void test1AndTrueAreUniquePasses() {
         // 1 and true are unique
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -98,7 +98,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testUniqueArrayOfNestedObjectsIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testUniqueArrayOfNestedObjectsIsValidPasses() {
         // unique array of nested objects is valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -141,7 +141,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testUniqueArrayOfArraysIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testUniqueArrayOfArraysIsValidPasses() {
         // unique array of arrays is valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -158,7 +158,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testTrueIsNotEqualToOnePasses() throws ValidationException, InvalidTypeException {
+    public void testTrueIsNotEqualToOnePasses() {
         // true is not equal to one
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -171,7 +171,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testNonUniqueHeterogeneousTypesAreValidPasses() throws ValidationException, InvalidTypeException {
+    public void testNonUniqueHeterogeneousTypesAreValidPasses() {
         // non-unique heterogeneous types are valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -192,7 +192,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testFalseIsNotEqualToZeroPasses() throws ValidationException, InvalidTypeException {
+    public void testFalseIsNotEqualToZeroPasses() {
         // false is not equal to zero
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -205,7 +205,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testUniqueArrayOfIntegersIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testUniqueArrayOfIntegersIsValidPasses() {
         // unique array of integers is valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -218,7 +218,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void test0AndFalseAreUniquePasses() throws ValidationException, InvalidTypeException {
+    public void test0AndFalseAreUniquePasses() {
         // 0 and false are unique
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -231,7 +231,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testUniqueHeterogeneousTypesAreValidPasses() throws ValidationException, InvalidTypeException {
+    public void testUniqueHeterogeneousTypesAreValidPasses() {
         // unique heterogeneous types are valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -250,7 +250,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testUniqueArrayOfObjectsIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testUniqueArrayOfObjectsIsValidPasses() {
         // unique array of objects is valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
@@ -273,7 +273,7 @@ public class UniqueitemsFalseValidationTest {
     }
 
     @Test
-    public void testNonUniqueArrayOfNestedObjectsIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testNonUniqueArrayOfNestedObjectsIsValidPasses() {
         // non-unique array of nested objects is valid
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(

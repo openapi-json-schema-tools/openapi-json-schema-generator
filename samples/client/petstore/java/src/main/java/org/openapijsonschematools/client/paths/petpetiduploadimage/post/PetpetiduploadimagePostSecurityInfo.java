@@ -4,17 +4,22 @@ import org.openapijsonschematools.client.paths.petpetiduploadimage.post.security
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 
+import java.util.AbstractMap;
+import java.util.Map;
+import java.util.EnumMap;
+
 public class PetpetiduploadimagePostSecurityInfo {
     public static class PetpetiduploadimagePostSecurityInfo1 implements SecurityRequirementObjectProvider<SecurityIndex> {
-        public final PetpetiduploadimagePostSecurityRequirementObject0 security0;
+        final public EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
         public PetpetiduploadimagePostSecurityInfo1() {
-            security0 = new PetpetiduploadimagePostSecurityRequirementObject0();
+            this.securities = new EnumMap<>(Map.ofEntries(
+                new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, new PetpetiduploadimagePostSecurityRequirementObject0())
+            ));
         }
 
-        @Override
         public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
-            return security0;
+            return securities.get(securityIndex);
         }
     }
 

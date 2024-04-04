@@ -79,7 +79,7 @@ public class EnumsInProperties {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -90,7 +90,7 @@ public class EnumsInProperties {
         }
         
         @Override
-        public String validate(StringFooEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public String validate(StringFooEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -102,11 +102,11 @@ public class EnumsInProperties {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public FooBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -168,7 +168,7 @@ public class EnumsInProperties {
         }
         
         @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -179,7 +179,7 @@ public class EnumsInProperties {
         }
         
         @Override
-        public String validate(StringBarEnums arg,SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public String validate(StringBarEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -191,11 +191,11 @@ public class EnumsInProperties {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public BarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -220,14 +220,14 @@ public class EnumsInProperties {
         public static final Set<String> optionalKeys = Set.of(
             "foo"
         );
-        public static EnumsInPropertiesMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static EnumsInPropertiesMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return EnumsInProperties1.getInstance().validate(arg, configuration);
         }
         
         public String bar() {
                         @Nullable Object value = get("bar");
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for bar");
+                throw new InvalidTypeException("Invalid value stored for bar");
             }
             return (String) value;
         }
@@ -237,7 +237,7 @@ public class EnumsInProperties {
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for foo");
+                throw new InvalidTypeException("Invalid value stored for foo");
             }
             return (String) value;
         }
@@ -369,7 +369,7 @@ public class EnumsInProperties {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -377,7 +377,7 @@ public class EnumsInProperties {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -406,11 +406,11 @@ public class EnumsInProperties {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public EnumsInProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

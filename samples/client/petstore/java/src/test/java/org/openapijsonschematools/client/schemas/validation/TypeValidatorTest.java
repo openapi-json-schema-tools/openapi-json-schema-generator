@@ -18,7 +18,7 @@ public class TypeValidatorTest {
     }
 
     @Test
-    public void testValidateSucceeds() throws ValidationException {
+    public void testValidateSucceeds() {
         final TypeValidator validator = new TypeValidator();
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 new ArrayList<>(),

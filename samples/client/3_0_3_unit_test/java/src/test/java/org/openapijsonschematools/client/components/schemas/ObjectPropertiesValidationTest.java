@@ -18,7 +18,7 @@ public class ObjectPropertiesValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testBothPropertiesPresentAndValidIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testBothPropertiesPresentAndValidIsValidPasses() {
         // both properties present and valid is valid
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
@@ -37,7 +37,7 @@ public class ObjectPropertiesValidationTest {
     }
 
     @Test
-    public void testDoesnTInvalidateOtherPropertiesPasses() throws ValidationException, InvalidTypeException {
+    public void testDoesnTInvalidateOtherPropertiesPasses() {
         // doesn&#x27;t invalidate other properties
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
@@ -53,7 +53,7 @@ public class ObjectPropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() throws ValidationException, InvalidTypeException {
+    public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
@@ -89,7 +89,7 @@ public class ObjectPropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() throws ValidationException, InvalidTypeException {
+    public void testIgnoresArraysPasses() {
         // ignores arrays
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(

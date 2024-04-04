@@ -18,7 +18,7 @@ public class MinimumValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testBoundaryPointIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
         final var schema = MinimumValidation.MinimumValidation1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class MinimumValidationTest {
     }
 
     @Test
-    public void testIgnoresNonNumbersPasses() throws ValidationException, InvalidTypeException {
+    public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
         final var schema = MinimumValidation.MinimumValidation1.getInstance();
         schema.validate(
@@ -53,7 +53,7 @@ public class MinimumValidationTest {
     }
 
     @Test
-    public void testAboveTheMinimumIsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testAboveTheMinimumIsValidPasses() {
         // above the minimum is valid
         final var schema = MinimumValidation.MinimumValidation1.getInstance();
         schema.validate(

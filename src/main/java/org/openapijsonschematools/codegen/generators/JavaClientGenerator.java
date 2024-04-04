@@ -298,7 +298,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
                         GlobalFeature.Servers,
-                        GlobalFeature.Security
+                        GlobalFeature.Security,
+                        GlobalFeature.Paths
                 )
                 .includeComponentsFeatures(
                         ComponentsFeature.schemas,

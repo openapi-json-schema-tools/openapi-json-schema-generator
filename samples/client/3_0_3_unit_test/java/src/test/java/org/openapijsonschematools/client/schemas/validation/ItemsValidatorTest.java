@@ -37,7 +37,7 @@ public class ItemsValidatorTest {
             if (arg instanceof List<?> listArg) {
                 return getNewInstance(listArg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override
@@ -55,7 +55,7 @@ public class ItemsValidatorTest {
     }
 
     @Test
-    public void testCorrectItemsSucceeds() throws ValidationException {
+    public void testCorrectItemsSucceeds() {
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
@@ -89,7 +89,7 @@ public class ItemsValidatorTest {
     }
 
     @Test
-    public void testNotApplicableTypeReturnsNull() throws ValidationException {
+    public void testNotApplicableTypeReturnsNull() {
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,

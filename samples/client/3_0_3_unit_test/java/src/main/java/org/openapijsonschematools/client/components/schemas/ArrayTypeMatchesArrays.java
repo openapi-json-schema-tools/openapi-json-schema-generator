@@ -39,7 +39,7 @@ public class ArrayTypeMatchesArrays {
         protected ArrayTypeMatchesArraysList(FrozenList<@Nullable Object> m) {
             super(m);
         }
-        public static ArrayTypeMatchesArraysList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public static ArrayTypeMatchesArraysList of(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayTypeMatchesArrays1.getInstance().validate(arg, configuration);
         }
     }
@@ -152,7 +152,7 @@ public class ArrayTypeMatchesArrays {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
@@ -163,7 +163,7 @@ public class ArrayTypeMatchesArrays {
             return new ArrayTypeMatchesArraysList(newInstanceItems);
         }
         
-        public ArrayTypeMatchesArraysList validate(List<?> arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        public ArrayTypeMatchesArraysList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -181,11 +181,11 @@ public class ArrayTypeMatchesArrays {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }        
         @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
         public ArrayTypeMatchesArrays1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

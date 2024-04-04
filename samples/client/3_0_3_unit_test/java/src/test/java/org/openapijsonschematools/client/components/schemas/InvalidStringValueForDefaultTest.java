@@ -18,7 +18,7 @@ public class InvalidStringValueForDefaultTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testValidWhenPropertyIsSpecifiedPasses() throws ValidationException, InvalidTypeException {
+    public void testValidWhenPropertyIsSpecifiedPasses() {
         // valid when property is specified
         final var schema = InvalidStringValueForDefault.InvalidStringValueForDefault1.getInstance();
         schema.validate(
@@ -33,7 +33,7 @@ public class InvalidStringValueForDefaultTest {
     }
 
     @Test
-    public void testStillValidWhenTheInvalidDefaultIsUsedPasses() throws ValidationException, InvalidTypeException {
+    public void testStillValidWhenTheInvalidDefaultIsUsedPasses() {
         // still valid when the invalid default is used
         final var schema = InvalidStringValueForDefault.InvalidStringValueForDefault1.getInstance();
         schema.validate(

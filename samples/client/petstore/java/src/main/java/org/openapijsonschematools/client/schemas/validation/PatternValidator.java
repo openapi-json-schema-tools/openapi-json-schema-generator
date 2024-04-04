@@ -7,7 +7,7 @@ public class PatternValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         var pattern = data.schema().pattern;
         if (pattern == null) {
             return null;

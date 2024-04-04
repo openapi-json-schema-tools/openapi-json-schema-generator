@@ -18,7 +18,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testMissingPropertiesAreNotFilledInWithTheDefaultPasses() throws ValidationException, InvalidTypeException {
+    public void testMissingPropertiesAreNotFilledInWithTheDefaultPasses() {
         // missing properties are not filled in with the default
         final var schema = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.getInstance();
         schema.validate(
@@ -29,7 +29,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     }
 
     @Test
-    public void testAnExplicitPropertyValueIsCheckedAgainstMaximumPassingPasses() throws ValidationException, InvalidTypeException {
+    public void testAnExplicitPropertyValueIsCheckedAgainstMaximumPassingPasses() {
         // an explicit property value is checked against maximum (passing)
         final var schema = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.getInstance();
         schema.validate(

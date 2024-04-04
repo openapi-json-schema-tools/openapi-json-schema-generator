@@ -28,7 +28,7 @@ sealed interface that stores schema and encoding info
 
 ## Applicationjsoncharsetutf8MediaType
 public record Applicationjsoncharsetutf8MediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1](../../../paths/fakejsonwithcharset/post/requestbody/content/applicationjsoncharsetutf8/Applicationjsoncharsetutf8Schema.md#applicationjsoncharsetutf8schema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1](../../../../paths/fakejsonwithcharset/post/requestbody/content/applicationjsoncharsetutf8/Applicationjsoncharsetutf8Schema.md#applicationjsoncharsetutf8schema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -40,7 +40,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1](../../../paths/fakejsonwithcharset/post/requestbody/content/applicationjsoncharsetutf8/Applicationjsoncharsetutf8Schema.md#applicationjsoncharsetutf8schema1) | schema()<br>the schema for this MediaType |
+| [Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1](../../../../paths/fakejsonwithcharset/post/requestbody/content/applicationjsoncharsetutf8/Applicationjsoncharsetutf8Schema.md#applicationjsoncharsetutf8schema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## RequestBody1

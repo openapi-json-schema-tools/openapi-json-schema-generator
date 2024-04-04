@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.headers.refcontentschemaheader.content.applicationjson.RefContentSchemaHeaderSchema;
 
 import java.util.AbstractMap;
+import java.util.Map;
 
 public class RefContentSchemaHeader {
 
@@ -24,7 +25,9 @@ public class RefContentSchemaHeader {
                 true,
                 null,
                 false,
-                new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
+                )
             );
         }
     }

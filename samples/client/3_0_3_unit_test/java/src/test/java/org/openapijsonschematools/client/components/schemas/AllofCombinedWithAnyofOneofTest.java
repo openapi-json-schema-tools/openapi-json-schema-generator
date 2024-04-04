@@ -78,7 +78,7 @@ public class AllofCombinedWithAnyofOneofTest {
     }
 
     @Test
-    public void testAllofTrueAnyofTrueOneofTruePasses() throws ValidationException, InvalidTypeException {
+    public void testAllofTrueAnyofTrueOneofTruePasses() {
         // allOf: true, anyOf: true, oneOf: true
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         schema.validate(

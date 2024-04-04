@@ -4,8 +4,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
 import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.responses.successfulxmlandjsonarrayofpet.content.applicationxml.ApplicationxmlSchema;
 import org.openapijsonschematools.client.components.responses.successfulxmlandjsonarrayofpet.content.applicationjson.ApplicationjsonSchema;
@@ -52,15 +50,19 @@ public class SuccessfulXmlAndJsonArrayOfPet {
         }
 
         @Override
-        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException {
+        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+            SealedMediaType mediaType = content.get(contentType);
+            if (mediaType == null) {
+                throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
+            }
             if (mediaType instanceof ApplicationxmlMediaType thisMediaType) {
                 var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
                 return new ApplicationxmlResponseBody(deserializedBody);
-            } else {
-                ApplicationjsonMediaType thisMediaType = (ApplicationjsonMediaType) mediaType;
+            } else if (mediaType instanceof ApplicationjsonMediaType thisMediaType) {
                 var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
                 return new ApplicationjsonResponseBody(deserializedBody);
             }
+            throw new RuntimeException("contentType="+contentType+" returned by the server is unknown and does not exist in the openapi document");
         }
 
         @Override

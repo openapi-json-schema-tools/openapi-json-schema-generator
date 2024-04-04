@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
@@ -31,19 +32,19 @@ public class RequiredValidatorTest {
             if (arg instanceof Map<?, ?> mapArg) {
                 return getNewInstance(mapArg, pathToItem, pathToSchemas);
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
 
         @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             if (arg instanceof Map<?, ?> mapArg) {
                 return validate(mapArg, configuration);
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
 
         @Override
-        public ObjectWithRequiredSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public ObjectWithRequiredSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             return new ObjectWithRequiredSchemaBoxedMap();
         }
     }
@@ -54,7 +55,7 @@ public class RequiredValidatorTest {
     }
 
     @Test
-    public void testCorrectPropertySucceeds() throws ValidationException {
+    public void testCorrectPropertySucceeds() {
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
@@ -77,7 +78,7 @@ public class RequiredValidatorTest {
     }
 
     @Test
-    public void testNotApplicableTypeReturnsNull() throws ValidationException {
+    public void testNotApplicableTypeReturnsNull() {
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,

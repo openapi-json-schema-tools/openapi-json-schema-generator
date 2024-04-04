@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.headers.xratelimit.content.applicationjson.XRateLimitSchema;
 
 import java.util.AbstractMap;
+import java.util.Map;
 
 public class XRateLimit {
 
@@ -24,7 +25,9 @@ public class XRateLimit {
                 true,
                 null,
                 false,
-                new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
+                )
             );
         }
     }

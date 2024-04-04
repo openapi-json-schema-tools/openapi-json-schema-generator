@@ -18,7 +18,7 @@ public class NotMoreComplexSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testOtherMatchPasses() throws ValidationException, InvalidTypeException {
+    public void testOtherMatchPasses() {
         // other match
         final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         schema.validate(
@@ -53,7 +53,7 @@ public class NotMoreComplexSchemaTest {
     }
 
     @Test
-    public void testMatchPasses() throws ValidationException, InvalidTypeException {
+    public void testMatchPasses() {
         // match
         final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         schema.validate(

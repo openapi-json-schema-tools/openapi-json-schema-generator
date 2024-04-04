@@ -65,7 +65,7 @@ public class IntegerTypeMatchesIntegersTest {
     }
 
     @Test
-    public void testAFloatWithZeroFractionalPartIsAnIntegerPasses() throws ValidationException, InvalidTypeException {
+    public void testAFloatWithZeroFractionalPartIsAnIntegerPasses() {
         // a float with zero fractional part is an integer
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         schema.validate(
@@ -120,7 +120,7 @@ public class IntegerTypeMatchesIntegersTest {
     }
 
     @Test
-    public void testAnIntegerIsAnIntegerPasses() throws ValidationException, InvalidTypeException {
+    public void testAnIntegerIsAnIntegerPasses() {
         // an integer is an integer
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         schema.validate(

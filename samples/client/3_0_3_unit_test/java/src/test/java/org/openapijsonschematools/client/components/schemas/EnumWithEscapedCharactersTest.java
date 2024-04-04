@@ -33,7 +33,7 @@ public class EnumWithEscapedCharactersTest {
     }
 
     @Test
-    public void testMember2IsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testMember2IsValidPasses() {
         // member 2 is valid
         final var schema = EnumWithEscapedCharacters.EnumWithEscapedCharacters1.getInstance();
         schema.validate(
@@ -43,7 +43,7 @@ public class EnumWithEscapedCharactersTest {
     }
 
     @Test
-    public void testMember1IsValidPasses() throws ValidationException, InvalidTypeException {
+    public void testMember1IsValidPasses() {
         // member 1 is valid
         final var schema = EnumWithEscapedCharacters.EnumWithEscapedCharacters1.getInstance();
         schema.validate(

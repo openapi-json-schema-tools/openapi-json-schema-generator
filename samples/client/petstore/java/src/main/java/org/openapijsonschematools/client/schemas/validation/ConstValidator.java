@@ -10,7 +10,7 @@ public class ConstValidator extends BigDecimalValidator implements KeywordValida
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) throws ValidationException {
+    ) {
         if (!data.schema().constValueSet) {
             return null;
         }

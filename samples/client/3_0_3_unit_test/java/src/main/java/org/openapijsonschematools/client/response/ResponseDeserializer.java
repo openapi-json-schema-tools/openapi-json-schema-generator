@@ -7,28 +7,31 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.ToNumberPolicy;
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.contenttype.ContentTypeDetector;
 import org.openapijsonschematools.client.contenttype.ContentTypeDeserializer;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.exceptions.OpenapiDocumentException;
-import org.openapijsonschematools.client.exceptions.NotImplementedException;
-import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.header.Header;
 
 public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedMediaTypeClass> {
     public final Map<String, SealedMediaTypeClass> content;
     public final @Nullable Map<String, Header> headers;
+    private static final Gson gson = new GsonBuilder()
+            .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
+            .setNumberToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
+            .create();
 
     public ResponseDeserializer(Map<String, SealedMediaTypeClass> content) {
         this.content = content;
         this.headers = null;
     }
 
-    protected abstract SealedBodyClass getBody(String contentType, byte[] body, SchemaConfiguration configuration) throws OpenapiDocumentException, InvalidTypeException, ValidationException, NotImplementedException;
-    protected abstract HeaderClass getHeaders(HttpHeaders headers, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException;
+    protected abstract SealedBodyClass getBody(String contentType, byte[] body, SchemaConfiguration configuration);
+    protected abstract HeaderClass getHeaders(HttpHeaders headers, SchemaConfiguration configuration);
 
     protected @Nullable Object deserializeJson(byte[] body) {
         String bodyStr = new String(body, StandardCharsets.UTF_8);
@@ -39,7 +42,7 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
         return new String(body, StandardCharsets.UTF_8);
     }
 
-    protected <T> T deserializeBody(String contentType, byte[] body, JsonSchema<T> schema, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException, NotImplementedException {
+    protected <T> T deserializeBody(String contentType, byte[] body, JsonSchema<T> schema, SchemaConfiguration configuration) {
         if (ContentTypeDetector.contentTypeIsJson(contentType)) {
             @Nullable Object bodyData = deserializeJson(body);
             return schema.validateAndBox(bodyData, configuration);
@@ -47,17 +50,17 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass, SealedM
             String bodyData = deserializeTextPlain(body);
             return schema.validateAndBox(bodyData, configuration);
         }
-        throw new NotImplementedException("Deserialization for contentType="+contentType+" has not yet been implemented.");
+        throw new RuntimeException("Deserialization for contentType="+contentType+" has not yet been implemented.");
     }
 
-	public DeserializedHttpResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws OpenapiDocumentException, InvalidTypeException, ValidationException, NotImplementedException {
+	public DeserializedHttpResponse<SealedBodyClass, HeaderClass> deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
         Optional<String> contentTypeInfo = response.headers().firstValue("Content-Type");
         if (contentTypeInfo.isEmpty()) {
-            throw new OpenapiDocumentException("Invalid response returned, Content-Type header is missing and it must be included");
+            throw new RuntimeException("Invalid response returned, Content-Type header is missing and it must be included");
         }
         String contentType = contentTypeInfo.get();
         if (content != null && !content.containsKey(contentType)) {
-            throw new OpenapiDocumentException(
+            throw new RuntimeException(
                     "Invalid contentType returned. contentType="+contentType+" was returned "+
                     "when only "+content.keySet()+" are defined for statusCode="+response.statusCode()
             );
