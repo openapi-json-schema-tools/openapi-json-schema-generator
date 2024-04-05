@@ -36,7 +36,7 @@ import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.userlogout.get.responses.CodedefaultResponse;
-import org.openapijsonschematools.client..RootServerInfo;
+import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userlogout.Get;
 import org.openapijsonschematools.client.paths.userlogout.get.Responses;
 
@@ -53,7 +53,6 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder(
             .build()
     )
     .build();
-);
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();

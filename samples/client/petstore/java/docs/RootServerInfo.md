@@ -35,9 +35,7 @@ A class that stores servers and allows one to be returned with a ServerIndex ins
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RootServerInfoBuilder](#rootserverinfobuilder) | server0([Server0](servers/Server0.md) server0)<br>sets the server |
-| [RootServerInfoBuilder](#rootserverinfobuilder) | server1([Server1](servers/Server1.md) server1)<br>sets the server |
-| [RootServerInfoBuilder](#rootserverinfobuilder) | server2([Server2](servers/Server2.md) server2)<br>sets the server |
+| Server | getServer([ServerIndex](#serverindex) serverIndex) |
 
 ## RootServerInfoBuilder
 
@@ -51,8 +49,10 @@ a builder for [RootServerInfo1](#rootserverinfo1)
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Server | getServer([ServerIndex](#serverindex) serverIndex) |
-
+| [RootServerInfoBuilder](#rootserverinfobuilder) | server0([Server0](servers/Server0.md) server0)<br>sets the server |
+| [RootServerInfoBuilder](#rootserverinfobuilder) | server1([Server1](servers/Server1.md) server1)<br>sets the server |
+| [RootServerInfoBuilder](#rootserverinfobuilder) | server2([Server2](servers/Server2.md) server2)<br>sets the server |
+| [RootServerInfo1](#rootserverinfo1) | build() |
 
 ## ServerIndex
 enum ServerIndex<br>

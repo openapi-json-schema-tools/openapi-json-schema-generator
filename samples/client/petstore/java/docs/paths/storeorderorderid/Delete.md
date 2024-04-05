@@ -40,7 +40,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.Code400Response;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.Code404Response;
-import org.openapijsonschematools.client..RootServerInfo;
+import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorderorderid.Delete;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.Responses;
 
@@ -57,7 +57,6 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder(
             .build()
     )
     .build();
-);
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();

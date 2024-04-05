@@ -61,7 +61,6 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder(
             .build()
     )
     .build();
-);
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex.SERVER_0)
     .build();

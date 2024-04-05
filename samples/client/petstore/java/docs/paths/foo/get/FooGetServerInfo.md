@@ -34,8 +34,7 @@ A class that stores servers and allows one to be returned with a ServerIndex ins
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FooGetServerInfoBuilder](#foogetserverinfobuilder) | fooGetServer0([FooGetServer0](../../../paths/foo/get/servers/FooGetServer0.md) server0)<br>sets the server |
-| [FooGetServerInfoBuilder](#foogetserverinfobuilder) | fooGetServer1([FooGetServer1](../../../paths/foo/get/servers/FooGetServer1.md) server1)<br>sets the server |
+| Server | getServer([ServerIndex](#serverindex) serverIndex) |
 
 ## FooGetServerInfoBuilder
 
@@ -49,8 +48,9 @@ a builder for [FooGetServerInfo1](#foogetserverinfo1)
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Server | getServer([ServerIndex](#serverindex) serverIndex) |
-
+| [FooGetServerInfoBuilder](#foogetserverinfobuilder) | fooGetServer0([FooGetServer0](../../../paths/foo/get/servers/FooGetServer0.md) server0)<br>sets the server |
+| [FooGetServerInfoBuilder](#foogetserverinfobuilder) | fooGetServer1([FooGetServer1](../../../paths/foo/get/servers/FooGetServer1.md) server1)<br>sets the server |
+| [FooGetServerInfo1](#foogetserverinfo1) | build() |
 
 ## ServerIndex
 enum ServerIndex<br>

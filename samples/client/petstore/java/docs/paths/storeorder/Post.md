@@ -41,7 +41,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.storeorder.post.responses.Code200Response;
 import org.openapijsonschematools.client.paths.storeorder.post.responses.Code400Response;
-import org.openapijsonschematools.client..RootServerInfo;
+import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorder.Post;
 import org.openapijsonschematools.client.paths.storeorder.post.Responses;
 
@@ -58,7 +58,6 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder(
             .build()
     )
     .build();
-);
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();

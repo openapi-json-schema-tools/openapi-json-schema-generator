@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.responses.Code200Response;
-import org.openapijsonschematools.client..RootServerInfo;
+import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.Get;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.Responses;
 
@@ -56,7 +56,6 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder(
             .build()
     )
     .build();
-);
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();

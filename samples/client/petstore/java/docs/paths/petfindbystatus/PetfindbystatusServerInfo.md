@@ -34,8 +34,7 @@ A class that stores servers and allows one to be returned with a ServerIndex ins
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetfindbystatusServerInfoBuilder](#petfindbystatusserverinfobuilder) | petfindbystatusServer0([PetfindbystatusServer0](../../paths/petfindbystatus/servers/PetfindbystatusServer0.md) server0)<br>sets the server |
-| [PetfindbystatusServerInfoBuilder](#petfindbystatusserverinfobuilder) | petfindbystatusServer1([PetfindbystatusServer1](../../paths/petfindbystatus/servers/PetfindbystatusServer1.md) server1)<br>sets the server |
+| Server | getServer([ServerIndex](#serverindex) serverIndex) |
 
 ## PetfindbystatusServerInfoBuilder
 
@@ -49,8 +48,9 @@ a builder for [PetfindbystatusServerInfo1](#petfindbystatusserverinfo1)
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Server | getServer([ServerIndex](#serverindex) serverIndex) |
-
+| [PetfindbystatusServerInfoBuilder](#petfindbystatusserverinfobuilder) | petfindbystatusServer0([PetfindbystatusServer0](../../paths/petfindbystatus/servers/PetfindbystatusServer0.md) server0)<br>sets the server |
+| [PetfindbystatusServerInfoBuilder](#petfindbystatusserverinfobuilder) | petfindbystatusServer1([PetfindbystatusServer1](../../paths/petfindbystatus/servers/PetfindbystatusServer1.md) server1)<br>sets the server |
+| [PetfindbystatusServerInfo1](#petfindbystatusserverinfo1) | build() |
 
 ## ServerIndex
 enum ServerIndex<br>

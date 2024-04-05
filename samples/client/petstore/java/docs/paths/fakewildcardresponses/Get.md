@@ -41,7 +41,7 @@ import org.openapijsonschematools.client.paths.fakewildcardresponses.get.respons
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code3XXResponse;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code4XXResponse;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code5XXResponse;
-import org.openapijsonschematools.client..RootServerInfo;
+import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.Get;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.Responses;
 
@@ -58,7 +58,6 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder(
             .build()
     )
     .build();
-);
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();

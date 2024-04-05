@@ -80,7 +80,7 @@ import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/each}}
     {{#with servers}}
-import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+import {{packageName}}.{{#if subpackage}}{{subpackage}}{{else}}servers{{/if}}.{{jsonPathPiece.pascalCase}};
     {{/with}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
     {{#with responses}}
@@ -104,7 +104,6 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder(
     {{/each}}
     )
     .build();
-);
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     {{#each builders}}
         {{#if @first}}

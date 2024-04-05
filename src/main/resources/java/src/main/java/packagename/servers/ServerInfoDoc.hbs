@@ -35,9 +35,7 @@ A class that stores servers and allows one to be returned with a ServerIndex ins
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-{{#each servers}}
-| [{{servers.jsonPathPiece.pascalCase}}Builder](#{{servers.jsonPathPiece.kebabCase}}builder) | {{jsonPathPiece.camelCase}}([{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md) server{{@index}})<br>sets the server |
-{{/each}}
+| Server | getServer([ServerIndex](#serverindex) serverIndex) |
 
 {{headerSize}}# {{servers.jsonPathPiece.pascalCase}}Builder
 
@@ -51,8 +49,10 @@ a builder for [{{servers.jsonPathPiece.pascalCase}}1](#{{servers.jsonPathPiece.k
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Server | getServer([ServerIndex](#serverindex) serverIndex) |
-
+{{#each servers}}
+| [{{servers.jsonPathPiece.pascalCase}}Builder](#{{servers.jsonPathPiece.kebabCase}}builder) | {{jsonPathPiece.camelCase}}([{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md) server{{@index}})<br>sets the server |
+{{/each}}
+| [{{servers.jsonPathPiece.pascalCase}}1](#{{servers.jsonPathPiece.kebabCase}}1) | build() |
 
 {{headerSize}}# ServerIndex
 enum ServerIndex<br>
