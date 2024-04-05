@@ -4,6 +4,8 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.response.ResponseDeserializer;
 import org.openapijsonschematools.client.response.DeserializedHttpResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 
 import java.util.AbstractMap;
@@ -24,7 +26,7 @@ public class Code200Response {
         }
 
         @Override
-        protected Void getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+        protected Void getBody(String contentType, Void mediaType, byte[] body, SchemaConfiguration configuration) {
             return null;
         }
 

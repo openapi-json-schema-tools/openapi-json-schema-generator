@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class ContainsKeywordValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testArrayWithTwoItemsMatchingSchema56IsValidPasses() {
+    public void testArrayWithTwoItemsMatchingSchema56IsValidPasses() throws ValidationException {
         // array with two items matching schema (5, 6) is valid
         final var schema = ContainsKeywordValidation.ContainsKeywordValidation1.getInstance();
         schema.validate(
@@ -33,7 +32,7 @@ public class ContainsKeywordValidationTest {
     }
 
     @Test
-    public void testNotArrayIsValidPasses() {
+    public void testNotArrayIsValidPasses() throws ValidationException {
         // not array is valid
         final var schema = ContainsKeywordValidation.ContainsKeywordValidation1.getInstance();
         schema.validate(
@@ -44,7 +43,7 @@ public class ContainsKeywordValidationTest {
     }
 
     @Test
-    public void testArrayWithItemMatchingSchema5IsValidPasses() {
+    public void testArrayWithItemMatchingSchema5IsValidPasses() throws ValidationException {
         // array with item matching schema (5) is valid
         final var schema = ContainsKeywordValidation.ContainsKeywordValidation1.getInstance();
         schema.validate(
@@ -58,7 +57,7 @@ public class ContainsKeywordValidationTest {
     }
 
     @Test
-    public void testArrayWithItemMatchingSchema6IsValidPasses() {
+    public void testArrayWithItemMatchingSchema6IsValidPasses() throws ValidationException {
         // array with item matching schema (6) is valid
         final var schema = ContainsKeywordValidation.ContainsKeywordValidation1.getInstance();
         schema.validate(
@@ -85,7 +84,7 @@ public class ContainsKeywordValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -101,7 +100,7 @@ public class ContainsKeywordValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

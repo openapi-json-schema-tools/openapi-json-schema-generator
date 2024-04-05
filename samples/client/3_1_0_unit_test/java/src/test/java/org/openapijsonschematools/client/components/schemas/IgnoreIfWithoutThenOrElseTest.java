@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class IgnoreIfWithoutThenOrElseTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testValidWhenInvalidAgainstLoneIfPasses() {
+    public void testValidWhenInvalidAgainstLoneIfPasses() throws ValidationException {
         // valid when invalid against lone if
         final var schema = IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1.getInstance();
         schema.validate(
@@ -28,7 +27,7 @@ public class IgnoreIfWithoutThenOrElseTest {
     }
 
     @Test
-    public void testValidWhenValidAgainstLoneIfPasses() {
+    public void testValidWhenValidAgainstLoneIfPasses() throws ValidationException {
         // valid when valid against lone if
         final var schema = IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1.getInstance();
         schema.validate(

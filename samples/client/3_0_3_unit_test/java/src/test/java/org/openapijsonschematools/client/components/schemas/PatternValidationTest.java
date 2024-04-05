@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class PatternValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testIgnoresBooleansPasses() {
+    public void testIgnoresBooleansPasses() throws ValidationException {
         // ignores booleans
         final var schema = PatternValidation.PatternValidation1.getInstance();
         schema.validate(
@@ -28,7 +27,7 @@ public class PatternValidationTest {
     }
 
     @Test
-    public void testIgnoresFloatsPasses() {
+    public void testIgnoresFloatsPasses() throws ValidationException {
         // ignores floats
         final var schema = PatternValidation.PatternValidation1.getInstance();
         schema.validate(
@@ -47,13 +46,13 @@ public class PatternValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testIgnoresIntegersPasses() {
+    public void testIgnoresIntegersPasses() throws ValidationException {
         // ignores integers
         final var schema = PatternValidation.PatternValidation1.getInstance();
         schema.validate(
@@ -63,7 +62,7 @@ public class PatternValidationTest {
     }
 
     @Test
-    public void testAMatchingPatternIsValidPasses() {
+    public void testAMatchingPatternIsValidPasses() throws ValidationException {
         // a matching pattern is valid
         final var schema = PatternValidation.PatternValidation1.getInstance();
         schema.validate(
@@ -73,7 +72,7 @@ public class PatternValidationTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() {
+    public void testIgnoresArraysPasses() throws ValidationException {
         // ignores arrays
         final var schema = PatternValidation.PatternValidation1.getInstance();
         schema.validate(
@@ -84,7 +83,7 @@ public class PatternValidationTest {
     }
 
     @Test
-    public void testIgnoresObjectsPasses() {
+    public void testIgnoresObjectsPasses() throws ValidationException {
         // ignores objects
         final var schema = PatternValidation.PatternValidation1.getInstance();
         schema.validate(
@@ -95,7 +94,7 @@ public class PatternValidationTest {
     }
 
     @Test
-    public void testIgnoresNullPasses() {
+    public void testIgnoresNullPasses() throws ValidationException {
         // ignores null
         final var schema = PatternValidation.PatternValidation1.getInstance();
         schema.validate(

@@ -12,7 +12,7 @@ A class (extended from the $ref class) that contains necessary nested request bo
 | static class | [RefUserArray.RefUserArray1](#refuserarray1)<br> class that serializes request bodies |
 
 ## RefUserArray1
-public static class RefUserArray1 extends [UserArray](../../components/requestbodies/UserArray.md#userarray1)<br>
+public static class RefUserArray1 extends [UserArray1](../../components/requestbodies/UserArray.md#userarray1)<br>
 
 a class that serializes SealedRequestBody request bodies, extended from the $ref class
 

@@ -9,7 +9,7 @@ public class MaxContainsValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var maxContains = data.schema().maxContains;
         if (maxContains == null) {
             return null;

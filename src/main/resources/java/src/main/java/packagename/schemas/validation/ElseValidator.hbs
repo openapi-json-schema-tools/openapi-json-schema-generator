@@ -1,14 +1,13 @@
 package {{{packageName}}}.schemas.validation;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 
 public class ElseValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var elseSchema = data.schema().elseSchema;
         if (elseSchema == null) {
             return null;

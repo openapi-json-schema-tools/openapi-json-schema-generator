@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class NotMoreComplexSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testOtherMatchPasses() {
+    public void testOtherMatchPasses() throws ValidationException {
         // other match
         final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         schema.validate(
@@ -47,13 +46,13 @@ public class NotMoreComplexSchemaTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testMatchPasses() {
+    public void testMatchPasses() throws ValidationException {
         // match
         final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         schema.validate(

@@ -2814,7 +2814,7 @@ public class DefaultGenerator implements Generator {
         TreeMap<String, CodegenResponse> nonDefaultResponses = null;
         TreeMap<Integer, CodegenResponse> wildcardCodeResponses = null;
         TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
-        LinkedHashSet<String> errorStatusCodes = null;
+        LinkedHashSet<Integer> errorStatusCodes = null;
         LinkedHashSet<Integer> errorWildcardStatusCodes = null;
         LinkedHashSet<Integer> nonErrorStatusCodes = null;
         LinkedHashSet<Integer> nonErrorWildcardStatusCodes = null;
@@ -2873,7 +2873,7 @@ public class DefaultGenerator implements Generator {
                     if (errorStatusCodes == null) {
                         errorStatusCodes = new LinkedHashSet<>();
                     }
-                    errorStatusCodes.add(key);
+                    errorStatusCodes.add(statusCode);
                 } else {
                     if (nonErrorStatusCodes == null) {
                         nonErrorStatusCodes = new LinkedHashSet<>();
@@ -5246,13 +5246,15 @@ public class DefaultGenerator implements Generator {
             CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers", serverJsonPath);
             CodegenText description = getCodegenText(server.getDescription());
             String subpackage = getSubpackage(serverJsonPath);
+            String pathFromDocRoot = getPathFromDocRoot(serverJsonPath);
             CodegenServer cs = new CodegenServer(
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
                 description,
                 fromServerVariables(server.getVariables(), serverJsonPath + "/variables"),
                 jsonPathPiece,
                 rootServer,
-                subpackage
+                subpackage,
+                pathFromDocRoot
             );
             codegenServers.add(cs);
         }

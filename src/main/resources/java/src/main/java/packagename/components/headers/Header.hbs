@@ -34,7 +34,6 @@ import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/each}}
 
 import java.util.AbstractMap;
-import java.util.Map;
     {{/if}}
 
 public class {{jsonPathPiece.pascalCase}} {
@@ -61,11 +60,9 @@ public class {{jsonPathPiece.pascalCase}} {
                 {{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}
             );
     {{else}}
-                Map.ofEntries(
         {{#each content}}
-                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
+                new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType())
         {{/each}}
-                )
             );
     {{/if}}
         }

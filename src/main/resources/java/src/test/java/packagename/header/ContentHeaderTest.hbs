@@ -5,10 +5,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.exceptions.NotImplementedException;
 import {{{packageName}}}.mediatype.MediaType;
 import {{{packageName}}}.schemas.AnyTypeJsonSchema;
 
 import java.net.http.HttpHeaders;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +25,7 @@ public class ContentHeaderTest {
     }
 
     @Test
-    public void testSerialization() {
+    public void testSerialization() throws ValidationException, NotImplementedException {
         var mapPayload = new LinkedHashMap<String, Integer>();
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
@@ -100,7 +103,7 @@ public class ContentHeaderTest {
                 return null;
             }
         }
-        Map<String, MediaType<?, ?>> content = Map.of(
+        AbstractMap.SimpleEntry<String, MediaType<?, ?>> content = new AbstractMap.SimpleEntry<>(
                 "application/json", new ApplicationJsonMediaType()
         );
         for (ParamTestCase testCase: testCases) {

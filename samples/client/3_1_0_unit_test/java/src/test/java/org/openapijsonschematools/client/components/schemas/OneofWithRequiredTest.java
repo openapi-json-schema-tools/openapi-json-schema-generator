@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class OneofWithRequiredTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testFirstValidValidPasses() {
+    public void testFirstValidValidPasses() throws ValidationException {
         // first valid - valid
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
@@ -59,13 +58,13 @@ public class OneofWithRequiredTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testSecondValidValidPasses() {
+    public void testSecondValidValidPasses() throws ValidationException {
         // second valid - valid
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
@@ -98,7 +97,7 @@ public class OneofWithRequiredTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

@@ -942,6 +942,7 @@ public class CodegenSchema implements OperationInputProvider {
         sb.append(", instanceType=").append(instanceType);
         sb.append(", jsonPath=").append(jsonPath);
         sb.append(", arrayOutputJsonPathPiece=").append(arrayOutputJsonPathPiece);
+        sb.append(", typeToExample=").append(typeToExample);
     }
 
     @Override

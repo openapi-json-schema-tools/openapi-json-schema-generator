@@ -81,7 +81,7 @@ a class that deserializes a parameter value
 | @Nullable ParameterStyle | {{#eq style null}}null{{else}}ParameterStyle.{{#eq style "matrix"}}MATRIX{{else}}{{#eq style "label"}}LABEL{{else}}{{#eq style "form"}}FORM{{else}}{{#eq style "simple"}}SIMPLE{{else}}{{#eq style "spaceDelimited"}}SPACE_DELIMITED{{else}}{{#eq style "pipeDelimited"}}PIPE_DELIMITED{{else}}{{#eq style "deepObject"}}DEEP_OBJECT{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}} |
 | @Nullable Boolean allowReserved | {{#eq allowReserved null}}false{{else}}{{allowReserved}}{{/eq}} |
     {{#each content}}
-| Map<String, [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)())<br>)<br>the contentType to schema info |
+| AbstractMap.SimpleEntry<String, [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)> | content =  new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)())<br>the contentType to schema info |
     {{else}}
 | JsonSchema<?> | schema = {{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}})().getInstance(){{/with}}
     {{/each}}

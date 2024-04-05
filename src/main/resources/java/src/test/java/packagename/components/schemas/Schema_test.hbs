@@ -5,7 +5,6 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -21,7 +20,7 @@ public class {{containerJsonPathPiece.pascalCase}}Test {
     {{#with this }}
 
     @Test
-    public void test{{@key}}{{#if valid}}Passes{{else}}Fails{{/if}}() {
+    public void test{{@key}}{{#if valid}}Passes() throws ValidationException{{else}}Fails(){{/if}} {
         // {{description.codeEscaped}}
         final var schema = {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance();
         {{#if valid}}
@@ -46,7 +45,7 @@ public class {{containerJsonPathPiece.pascalCase}}Test {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
         {{/if}}

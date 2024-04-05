@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class ObjectPropertiesValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testBothPropertiesPresentAndValidIsValidPasses() {
+    public void testBothPropertiesPresentAndValidIsValidPasses() throws ValidationException {
         // both properties present and valid is valid
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
@@ -37,7 +36,7 @@ public class ObjectPropertiesValidationTest {
     }
 
     @Test
-    public void testDoesnTInvalidateOtherPropertiesPasses() {
+    public void testDoesnTInvalidateOtherPropertiesPasses() throws ValidationException {
         // doesn&#x27;t invalidate other properties
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
@@ -53,7 +52,7 @@ public class ObjectPropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() {
+    public void testIgnoresOtherNonObjectsPasses() throws ValidationException {
         // ignores other non-objects
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
@@ -83,13 +82,13 @@ public class ObjectPropertiesValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testIgnoresArraysPasses() {
+    public void testIgnoresArraysPasses() throws ValidationException {
         // ignores arrays
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
@@ -119,7 +118,7 @@ public class ObjectPropertiesValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

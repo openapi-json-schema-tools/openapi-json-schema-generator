@@ -2,6 +2,8 @@ package org.openapijsonschematools.client.paths.userlogout.get;
 
 import org.openapijsonschematools.client.paths.userlogout.get.responses.CodedefaultResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.response.ApiResponse;
 import org.openapijsonschematools.client.response.ResponsesDeserializer;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -27,7 +29,7 @@ public class Responses {
             this.defaultResponseDeserializer = new CodedefaultResponse.CodedefaultResponse1();
         }
 
-        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) {
+        public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
             return new EndpointCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
         }

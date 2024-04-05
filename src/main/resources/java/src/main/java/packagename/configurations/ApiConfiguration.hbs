@@ -21,6 +21,7 @@ import {{packageName}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
 {{#if securitySchemes}}
 import {{packageName}}.securityschemes.SecurityScheme;
+import {{packageName}}.exceptions.UnsetPropertyException;
 {{/if}}
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -32,6 +33,7 @@ import java.util.HashMap;
 
 public class ApiConfiguration {
     private final ServerInfo serverInfo;
+    private final ServerIndexInfo serverIndexInfo;
     {{#gt allSecurity.size 0}}
     private final SecurityInfo securityInfo;
     private final SecurityIndexInfo securityIndexInfo;
@@ -43,6 +45,7 @@ public class ApiConfiguration {
 
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
+        serverIndexInfo = new ServerIndexInfo();
     {{#gt allSecurity.size 0}}
         securityInfo = new SecurityInfo();
         securityIndexInfo = new SecurityIndexInfo();
@@ -53,8 +56,9 @@ public class ApiConfiguration {
         timeout = null;
     }
 
-    public ApiConfiguration(ServerInfo serverInfo{{#gt allSecurity.size 0}}, SecurityIndexInfo securityIndexInfo{{/gt}}{{#if securitySchemes}}, List<SecurityScheme> securitySchemes{{/if}}, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo{{#if securitySchemes}}, List<SecurityScheme> securitySchemes{{/if}}{{#gt allSecurity.size 0}}, SecurityIndexInfo securityIndexInfo{{/gt}}, Duration timeout) {
         this.serverInfo = serverInfo;
+        this.serverIndexInfo = serverIndexInfo;
     {{#gt allSecurity.size 0}}
         this.securityInfo = new SecurityInfo();
         this.securityIndexInfo = securityIndexInfo;
@@ -70,29 +74,51 @@ public class ApiConfiguration {
 
     public static class ServerInfo {
     {{#each allServers}}
-        protected final {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}};
+        protected final {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}};
     {{/each}}
 
         public ServerInfo() {
     {{#each allServers}}
-            {{jsonPathPiece.camelCase}} = new {{jsonPathPiece.pascalCase}}();
+            {{jsonPathPiece.camelCase}} = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1();
     {{/each}}
         }
 
         public ServerInfo(
     {{#each allServers}}
-            @Nullable {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
+            {{jsonPathPiece.pascalCase}}. @Nullable {{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
     {{/each}}
         ) {
     {{#each allServers}}
-            this.{{jsonPathPiece.camelCase}} = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}, {{jsonPathPiece.pascalCase}}::new);
+            this.{{jsonPathPiece.camelCase}} = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}, {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1::new);
     {{/each}}
         }
     }
 
+    public static class ServerIndexInfo {
     {{#each allServers}}
+        protected {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex {{jsonPathPiece.camelCase}}ServerIndex;
+    {{/each}}
+        public ServerIndexInfo() {}
+    {{#each allServers}}
+
+        public ServerIndexInfo {{jsonPathPiece.camelCase}}ServerIndex({{jsonPathPiece.pascalCase}}.ServerIndex serverIndex) {
+            this.{{jsonPathPiece.camelCase}}ServerIndex = serverIndex;
+            return this;
+        }
+    {{/each}}
+    }
+    {{#each allServers}}
+
     public Server getServer({{jsonPathPiece.pascalCase}}. @Nullable ServerIndex serverIndex) {
-        return serverInfo.{{jsonPathPiece.camelCase}}.getServer(serverIndex);
+        var serverProvider = serverInfo.{{jsonPathPiece.camelCase}};
+        if (serverIndex == null) {
+            {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex configServerIndex = serverIndexInfo.{{jsonPathPiece.camelCase}}ServerIndex;
+            if (configServerIndex == null) {
+                throw new RuntimeException("{{jsonPathPiece.camelCase}}ServerIndex is unset");
+            }
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
     }
     {{/each}}
     {{#gt allSecurity.size 0}}
@@ -111,7 +137,7 @@ public class ApiConfiguration {
 
     public static class SecurityIndexInfo {
         {{#each allSecurity}}
-        protected {{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex {{jsonPathPiece.camelCase}}SecurityIndex;
+        public {{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex {{jsonPathPiece.camelCase}}SecurityIndex;
         {{/each}}
 
         public SecurityIndexInfo() {}
@@ -125,12 +151,12 @@ public class ApiConfiguration {
     }
 
         {{#each allSecurity}}
-    public SecurityRequirementObject getSecurityRequirementObject({{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+    public SecurityRequirementObject getSecurityRequirementObject({{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex securityIndex) {
         var securityInfoInstance = securityInfo.{{jsonPathPiece.camelCase}};
         if (securityIndex == null) {
             {{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex configSecurityIndex = securityIndexInfo.{{jsonPathPiece.camelCase}}SecurityIndex;
             if (configSecurityIndex == null) {
-                throw new UnsetPropertyException("{{jsonPathPiece.camelCase}}SecurityIndex is unset");
+                throw new RuntimeException("{{jsonPathPiece.camelCase}}SecurityIndex is unset");
             }
             return securityInfoInstance.getSecurityRequirementObject(configSecurityIndex);
         }
@@ -153,7 +179,7 @@ public class ApiConfiguration {
         return new HashMap<>();
     }
 
-    public@Nullable Duration getTimeout() {
+    public @Nullable Duration getTimeout() {
         return timeout;
     }
 }

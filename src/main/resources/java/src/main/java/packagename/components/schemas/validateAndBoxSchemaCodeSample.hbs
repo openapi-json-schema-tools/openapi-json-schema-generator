@@ -1,0 +1,73 @@
+        {{#each typeToExample}}
+
+{{#eq @key "null"}}
+{{../jsonPathPiece.pascalCase}}BoxedVoid {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+{{else}}
+    {{#eq @key "object"}}
+        {{#if ../mapOutputJsonPathPiece}}
+{{../jsonPathPiece.pascalCase}}BoxedMap {{../payloadVarName}} =
+    {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+        {{else}}
+{{../jsonPathPiece.pascalCase}}BoxedMap {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+        {{/if}}
+    {{else}}
+        {{#eq @key "array"}}
+            {{#if ../arrayOutputJsonPathPiece}}
+{{../jsonPathPiece.pascalCase}}BoxedList {{../payloadVarName}} =
+    {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+            {{else}}
+{{../jsonPathPiece.pascalCase}}BoxedList {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+            {{/if}}
+        {{else}}
+            {{#eq @key "string" }}
+{{../jsonPathPiece.pascalCase}}BoxedString {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+            {{else}}
+                {{#eq @key "integer"}}
+                    {{#or (eq ../format null) (eq ../format "int64") }}
+{{../jsonPathPiece.pascalCase}}BoxedNumber {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+                    {{else}}
+{{../jsonPathPiece.pascalCase}}BoxedNumber {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+                    {{/or}}
+                {{else}}
+                    {{#eq @key "number"}}
+                        {{#eq ../format "int64"}}
+{{../jsonPathPiece.pascalCase}}BoxedNumber {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+                        {{else}}
+                            {{#eq ../format "float"}}
+{{../jsonPathPiece.pascalCase}}BoxedNumber {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+                            {{else}}
+                                {{#eq ../format "double"}}
+{{../jsonPathPiece.pascalCase}}BoxedNumber {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+                                {{else}}
+{{../jsonPathPiece.pascalCase}}BoxedNumber {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{else}}
+                        {{#eq @key "boolean"}}
+{{../jsonPathPiece.pascalCase}}BoxedBoolean {{../payloadVarName}} = {{../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validateAndBox(
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/eq}}
+            {{#with this}}
+                {{#and (eq type "array") ../arrayInputJsonPathPiece.pascalCase }}
+    new {{../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}()
+        {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" constructor=true }}
+    .build(),
+                {{else}}
+                    {{#and (eq type "object") ../mapInputJsonPathPiece.pascalCase }}
+    new {{../containerJsonPathPiece.pascalCase}}.{{../mapInputJsonPathPiece.pascalCase}}()
+        {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" constructor=true optionalProperties=../optionalProperties requiredProperties=../requiredProperties }}
+    .build(),
+                    {{else}}
+    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," }}
+                    {{/and}}
+                {{/and}}
+            {{/with}}
+    {{../configVarName}}
+);
+        {{/each}}

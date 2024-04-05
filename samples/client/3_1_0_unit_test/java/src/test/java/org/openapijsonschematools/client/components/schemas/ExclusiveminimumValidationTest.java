@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -27,13 +26,13 @@ public class ExclusiveminimumValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testAboveTheExclusiveminimumIsValidPasses() {
+    public void testAboveTheExclusiveminimumIsValidPasses() throws ValidationException {
         // above the exclusiveMinimum is valid
         final var schema = ExclusiveminimumValidation.ExclusiveminimumValidation1.getInstance();
         schema.validate(
@@ -43,7 +42,7 @@ public class ExclusiveminimumValidationTest {
     }
 
     @Test
-    public void testIgnoresNonNumbersPasses() {
+    public void testIgnoresNonNumbersPasses() throws ValidationException {
         // ignores non-numbers
         final var schema = ExclusiveminimumValidation.ExclusiveminimumValidation1.getInstance();
         schema.validate(
@@ -62,7 +61,7 @@ public class ExclusiveminimumValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

@@ -8,6 +8,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.NotImplementedException;
+import {{{packageName}}}.exceptions.ApiException;
+import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.mediatype.MediaType;
 import {{{packageName}}}.schemas.AnyTypeJsonSchema;
 import {{{packageName}}}.schemas.StringJsonSchema;
@@ -64,11 +67,7 @@ public class ResponseDeserializerTest {
         }
 
         @Override
-        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
-            SealedMediaType mediaType = content.get(contentType);
-            if (mediaType == null) {
-                throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
-            }
+        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException {
             if (mediaType instanceof ApplicationjsonMediatype thisMediaType) {
                 var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
                 return new ApplicationjsonBody(deserializedBody);
@@ -152,7 +151,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonNull() {
+    public void testDeserializeApplicationJsonNull() throws ValidationException, ApiException, NotImplementedException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(null).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -168,7 +167,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonTrue() {
+    public void testDeserializeApplicationJsonTrue() throws ValidationException, ApiException, NotImplementedException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(true).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -184,7 +183,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonFalse() {
+    public void testDeserializeApplicationJsonFalse() throws ValidationException, ApiException, NotImplementedException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(false).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -200,7 +199,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonInt() {
+    public void testDeserializeApplicationJsonInt() throws ValidationException, ApiException, NotImplementedException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(1).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -216,7 +215,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonFloat() {
+    public void testDeserializeApplicationJsonFloat() throws ValidationException, ApiException, NotImplementedException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson(3.14).getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");
@@ -232,7 +231,7 @@ public class ResponseDeserializerTest {
     }
 
     @Test
-    public void testDeserializeApplicationJsonString() {
+    public void testDeserializeApplicationJsonString() throws ValidationException, ApiException, NotImplementedException {
         var deserializer = new MyResponseDeserializer();
         byte[] bodyBytes = toJson("a").getBytes(StandardCharsets.UTF_8);
         BytesHttpResponse response = new BytesHttpResponse(bodyBytes, "application/json");

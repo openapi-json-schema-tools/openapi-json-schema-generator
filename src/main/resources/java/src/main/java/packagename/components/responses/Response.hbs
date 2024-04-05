@@ -14,6 +14,8 @@ import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.response.ResponseDeserializer;
 import {{packageName}}.response.DeserializedHttpResponse;
 import {{packageName}}.exceptions.ApiException;
+import {{packageName}}.exceptions.ValidationException;
+import {{packageName}}.exceptions.NotImplementedException;
     {{#if hasContentSchema}}
 import {{packageName}}.mediatype.MediaType;
     {{else}}
@@ -80,32 +82,40 @@ public class {{jsonPathPiece.pascalCase}} {
 
         {{#if hasContentSchema}}
         @Override
-        protected SealedResponseBody getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
-            SealedMediaType mediaType = content.get(contentType);
-            if (mediaType == null) {
-                throw new RuntimeException("Invalid contentType was received back from the server that does not exist in the openapi document");
-            }
-            {{#each content}}
-                {{#if @first}}
+        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException {
+            {{#eq content.size 1}}
+                {{#each content}}
+            {{@key.pascalCase}}MediaType thisMediaType = ({{@key.pascalCase}}MediaType) mediaType;
+            var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
+            return new {{@key.pascalCase}}ResponseBody(deserializedBody);
+                {{/each}}
+            {{else}}
+                {{#each content}}
+                    {{#if @first}}
             if (mediaType instanceof {{@key.pascalCase}}MediaType thisMediaType) {
-                {{else}}
+                    {{else}}
+                        {{#if @last}}
+            } else {
+                {{@key.pascalCase}}MediaType thisMediaType = ({{@key.pascalCase}}MediaType) mediaType;
+                        {{else}}
             } else if (mediaType instanceof {{@key.pascalCase}}MediaType thisMediaType) {
-                {{/if}}
+                        {{/if}}
+                    {{/if}}
                 var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
                 return new {{@key.pascalCase}}ResponseBody(deserializedBody);
-            {{/each}}
+                {{/each}}
             }
-            throw new RuntimeException("contentType="+contentType+" returned by the server is unknown and does not exist in the openapi document");
+            {{/eq}}
         }
         {{else}}
         @Override
-        protected Void getBody(String contentType, byte[] body, SchemaConfiguration configuration) {
+        protected Void getBody(String contentType, Void mediaType, byte[] body, SchemaConfiguration configuration) {
             return null;
         }
         {{/if}}
 
         @Override
-        protected {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}} getHeaders(HttpHeaders headers, SchemaConfiguration configuration) {
+        protected {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Void{{/with}} getHeaders(HttpHeaders headers, SchemaConfiguration configuration){{#if headers}} throws ValidationException, NotImplementedException{{/if}} {
         {{#if headers}}
             return new {{headers.jsonPathPiece.pascalCase}}().deserialize(headers, configuration);
         {{else}}

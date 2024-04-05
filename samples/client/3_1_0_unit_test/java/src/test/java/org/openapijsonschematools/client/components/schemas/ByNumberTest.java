@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -27,13 +26,13 @@ public class ByNumberTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void test45IsMultipleOf15Passes() {
+    public void test45IsMultipleOf15Passes() throws ValidationException {
         // 4.5 is multiple of 1.5
         final var schema = ByNumber.ByNumber1.getInstance();
         schema.validate(
@@ -43,7 +42,7 @@ public class ByNumberTest {
     }
 
     @Test
-    public void testZeroIsMultipleOfAnythingPasses() {
+    public void testZeroIsMultipleOfAnythingPasses() throws ValidationException {
         // zero is multiple of anything
         final var schema = ByNumber.ByNumber1.getInstance();
         schema.validate(

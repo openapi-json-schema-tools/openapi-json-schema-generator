@@ -7,7 +7,7 @@ public class MaxLengthValidator extends LengthValidator implements KeywordValida
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var maxLength = data.schema().maxLength;
         if (maxLength == null) {
             return null;

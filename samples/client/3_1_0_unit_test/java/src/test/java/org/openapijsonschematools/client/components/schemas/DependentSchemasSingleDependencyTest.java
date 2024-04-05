@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -36,13 +35,13 @@ public class DependentSchemasSingleDependencyTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testValidPasses() {
+    public void testValidPasses() throws ValidationException {
         // valid
         final var schema = DependentSchemasSingleDependency.DependentSchemasSingleDependency1.getInstance();
         schema.validate(
@@ -61,7 +60,7 @@ public class DependentSchemasSingleDependencyTest {
     }
 
     @Test
-    public void testNoDependencyPasses() {
+    public void testNoDependencyPasses() throws ValidationException {
         // no dependency
         final var schema = DependentSchemasSingleDependency.DependentSchemasSingleDependency1.getInstance();
         schema.validate(
@@ -76,7 +75,7 @@ public class DependentSchemasSingleDependencyTest {
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() {
+    public void testIgnoresOtherNonObjectsPasses() throws ValidationException {
         // ignores other non-objects
         final var schema = DependentSchemasSingleDependency.DependentSchemasSingleDependency1.getInstance();
         schema.validate(
@@ -86,7 +85,7 @@ public class DependentSchemasSingleDependencyTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() {
+    public void testIgnoresArraysPasses() throws ValidationException {
         // ignores arrays
         final var schema = DependentSchemasSingleDependency.DependentSchemasSingleDependency1.getInstance();
         schema.validate(
@@ -116,13 +115,13 @@ public class DependentSchemasSingleDependencyTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testIgnoresStringsPasses() {
+    public void testIgnoresStringsPasses() throws ValidationException {
         // ignores strings
         final var schema = DependentSchemasSingleDependency.DependentSchemasSingleDependency1.getInstance();
         schema.validate(
@@ -150,7 +149,7 @@ public class DependentSchemasSingleDependencyTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

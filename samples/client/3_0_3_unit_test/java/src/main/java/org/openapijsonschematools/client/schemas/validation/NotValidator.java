@@ -7,7 +7,7 @@ public class NotValidator implements KeywordValidator {
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var not = data.schema().not;
         if (not == null) {
             return null;

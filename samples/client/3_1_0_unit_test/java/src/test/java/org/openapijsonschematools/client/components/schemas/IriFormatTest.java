@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class IriFormatTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAllStringFormatsIgnoreIntegersPasses() {
+    public void testAllStringFormatsIgnoreIntegersPasses() throws ValidationException {
         // all string formats ignore integers
         final var schema = IriFormat.IriFormat1.getInstance();
         schema.validate(
@@ -28,7 +27,7 @@ public class IriFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreNullsPasses() {
+    public void testAllStringFormatsIgnoreNullsPasses() throws ValidationException {
         // all string formats ignore nulls
         final var schema = IriFormat.IriFormat1.getInstance();
         schema.validate(
@@ -38,7 +37,7 @@ public class IriFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreObjectsPasses() {
+    public void testAllStringFormatsIgnoreObjectsPasses() throws ValidationException {
         // all string formats ignore objects
         final var schema = IriFormat.IriFormat1.getInstance();
         schema.validate(
@@ -49,7 +48,7 @@ public class IriFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreFloatsPasses() {
+    public void testAllStringFormatsIgnoreFloatsPasses() throws ValidationException {
         // all string formats ignore floats
         final var schema = IriFormat.IriFormat1.getInstance();
         schema.validate(
@@ -59,7 +58,7 @@ public class IriFormatTest {
     }
 
     @Test
-    public void testInvalidIriStringIsOnlyAnAnnotationByDefaultPasses() {
+    public void testInvalidIriStringIsOnlyAnAnnotationByDefaultPasses() throws ValidationException {
         // invalid iri string is only an annotation by default
         final var schema = IriFormat.IriFormat1.getInstance();
         schema.validate(
@@ -69,7 +68,7 @@ public class IriFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreArraysPasses() {
+    public void testAllStringFormatsIgnoreArraysPasses() throws ValidationException {
         // all string formats ignore arrays
         final var schema = IriFormat.IriFormat1.getInstance();
         schema.validate(
@@ -80,7 +79,7 @@ public class IriFormatTest {
     }
 
     @Test
-    public void testAllStringFormatsIgnoreBooleansPasses() {
+    public void testAllStringFormatsIgnoreBooleansPasses() throws ValidationException {
         // all string formats ignore booleans
         final var schema = IriFormat.IriFormat1.getInstance();
         schema.validate(

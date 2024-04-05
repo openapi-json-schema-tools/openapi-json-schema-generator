@@ -50,7 +50,7 @@ a class that deserializes a parameter value
 | @Nullable Boolean explode | null |
 | @Nullable ParameterStyle | null |
 | @Nullable Boolean allowReserved | false |
-| Map<String, [ApplicationjsonMediaType](#applicationjsonmediatype)> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("application/json", new [ApplicationjsonMediaType](#applicationjsonmediatype)())<br>)<br>the contentType to schema info |
+| AbstractMap.SimpleEntry<String, [ApplicationjsonMediaType](#applicationjsonmediatype)> | content =  new AbstractMap.SimpleEntry<>("application/json", new [ApplicationjsonMediaType](#applicationjsonmediatype)())<br>the contentType to schema info |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

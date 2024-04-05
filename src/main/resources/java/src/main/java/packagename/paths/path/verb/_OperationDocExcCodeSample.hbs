@@ -1,0 +1,11 @@
+{{#and errorStatusCodes errorWildcardStatusCodes}}
+{{#each errorStatusCodes}}{{#with (mapLookup ../statusCodeResponses .)}}{{jsonPathPiece.pascalCase}}{{/with}}.ResponseApiException | {{/each}}{{#each errorWildcardStatusCodes}}{{#with (mapLookup ../wildcardCodeResponses .)}}{{jsonPathPiece.pascalCase}}{{/with}}.ResponseApiException{{#unless @last}} | {{/unless}}{{/each}}
+{{~else}}
+    {{#or errorStatusCodes errorWildcardStatusCodes}}
+        {{#if errorStatusCodes}}
+{{#each errorStatusCodes}}{{#unless @first}} | {{/unless}}{{#with (mapLookup ../statusCodeResponses .)}}{{jsonPathPiece.pascalCase}}{{/with}}.ResponseApiException{{/each}}
+        {{~else}}
+{{#each errorWildcardStatusCodes}}{{#unless @first}} | {{/unless}}{{#with (mapLookup ../wildcardCodeResponses .)}}{{jsonPathPiece.pascalCase}}{{/with}}.ResponseApiException{{/each}}
+        {{~/if}}
+    {{/or}}
+{{/and}}

@@ -77,11 +77,11 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema<{{jsonPathPi
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_getNewInstanceObject_implementor }}
 {{#if defaultValue}}
-    public String defaultValue() {
+    public String defaultValue() throws ValidationException {
         if (defaultValue instanceof String) {
             return (String) defaultValue;
         }
-        throw new InvalidTypeException("Invalid type stored in defaultValue");
+        throw new ValidationException("Invalid type stored in defaultValue");
     }
 {{/if}}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBox }}

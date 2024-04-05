@@ -28,7 +28,7 @@ sealed interface that stores schema and encoding info
 
 ## ApplicationjsonMediaType
 public record ApplicationjsonMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/fakerefsenum/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../paths/fakerefsenum/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -40,7 +40,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/fakerefsenum/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../paths/fakerefsenum/post/requestbody/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## RequestBody1
@@ -74,17 +74,17 @@ sealed interface that stores request contentType + validated schema data
 ## ApplicationjsonRequestBody
 public record ApplicationjsonRequestBody<br>
 implements [SealedRequestBody](#sealedrequestbody),<br>
-GenericRequestBody<ApplicationjsonSchema.[StringEnum1Boxed](../../../../components/schemas/StringEnum.md#stringenum1boxed)><br>
+GenericRequestBody<ApplicationjsonSchema.[StringEnum1Boxed](../../../components/schemas/StringEnum.md#stringenum1boxed)><br>
 
 A record class to store request body input for contentType="application/json"
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ApplicationjsonRequestBody(ApplicationjsonSchema.[StringEnum1Boxed](../../../../components/schemas/StringEnum.md#stringenum1boxed) body)<br>Creates an instance |
+| ApplicationjsonRequestBody(ApplicationjsonSchema.[StringEnum1Boxed](../../../components/schemas/StringEnum.md#stringenum1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | contentType()<br>always returns "application/json" |
-| ApplicationjsonSchema.[StringEnum1Boxed](../../../../components/schemas/StringEnum.md#stringenum1boxed) | body()<br>returns the body passed in in the constructor |
+| ApplicationjsonSchema.[StringEnum1Boxed](../../../components/schemas/StringEnum.md#stringenum1boxed) | body()<br>returns the body passed in in the constructor |

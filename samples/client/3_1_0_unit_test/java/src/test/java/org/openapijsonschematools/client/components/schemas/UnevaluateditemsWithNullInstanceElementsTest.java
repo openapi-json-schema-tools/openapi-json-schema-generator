@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class UnevaluateditemsWithNullInstanceElementsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAllowsNullElementsPasses() {
+    public void testAllowsNullElementsPasses() throws ValidationException {
         // allows null elements
         final var schema = UnevaluateditemsWithNullInstanceElements.UnevaluateditemsWithNullInstanceElements1.getInstance();
         schema.validate(

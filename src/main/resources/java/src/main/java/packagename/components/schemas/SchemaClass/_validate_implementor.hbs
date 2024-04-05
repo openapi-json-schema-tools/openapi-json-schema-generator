@@ -20,7 +20,7 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}
     for(Map.Entry<?, ?> entry: arg.entrySet()) {
         @Nullable Object entryKey = entry.getKey();
         if (!(entryKey instanceof String)) {
-            throw new InvalidTypeException("Invalid non-string key value");
+            throw new RuntimeException("Invalid non-string key value");
         }
         String propertyName = (String) entryKey;
         List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -28,7 +28,7 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}
         Object value = entry.getValue();
         LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
         if (schemas == null) {
-            throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+            throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
         }
         JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -37,7 +37,7 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}
         properties.put(propertyName, propertyInstance);
             {{else}}
         if (!({{#contains ../mapValueSchema.types "null" }}propertyInstance == null || {{/contains}}propertyInstance instanceof {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
-            throw new InvalidTypeException("Invalid instantiated value");
+            throw new RuntimeException("Invalid instantiated value");
         }
         properties.put(propertyName, ({{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
             {{/if}}
@@ -53,7 +53,7 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}
             {{/if}}
 }
 
-public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -75,7 +75,7 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCa
         itemPathToItem.add(i);
         LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
         if (schemas == null) {
-            throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+            throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
         }
         JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
@@ -84,7 +84,7 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCa
         items.add(itemInstance);
             {{else}}
         if (!({{#contains ../listItemSchema.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
-            throw new InvalidTypeException("Invalid instantiated value");
+            throw new RuntimeException("Invalid instantiated value");
         }
         items.add(({{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
             {{/if}}
@@ -248,7 +248,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 {{else}}
 
 @Override
-public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -260,7 +260,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
 }
 
 @Override
-public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -272,7 +272,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 }
 
 @Override
-public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -283,24 +283,24 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     return castArg;
 }
 
-public int validate(int arg, SchemaConfiguration configuration) {
+public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg, configuration);
 }
 
-public long validate(long arg, SchemaConfiguration configuration) {
+public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
     return (long) validate((Number) arg, configuration);
 }
 
-public float validate(float arg, SchemaConfiguration configuration) {
+public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg, configuration);
 }
 
-public double validate(double arg, SchemaConfiguration configuration) {
+public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
     return (double) validate((Number) arg, configuration);
 }
 
 @Override
-public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -332,7 +332,7 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{
         itemPathToItem.add(i);
         LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(itemPathToItem);
         if (schemas == null) {
-            throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+            throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
         }
         JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
@@ -341,7 +341,7 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{
         items.add(itemInstance);
             {{else}}
         if (!({{#contains listItemSchema.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
-            throw new InvalidTypeException("Invalid instantiated value");
+            throw new RuntimeException("Invalid instantiated value");
         }
         items.add(({{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
             {{/if}}
@@ -374,7 +374,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else
     for(Map.Entry<?, ?> entry: arg.entrySet()) {
         @Nullable Object entryKey = entry.getKey();
         if (!(entryKey instanceof String)) {
-            throw new InvalidTypeException("Invalid non-string key value");
+            throw new RuntimeException("Invalid non-string key value");
         }
         String propertyName = (String) entryKey;
         List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -382,7 +382,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else
         Object value = entry.getValue();
         LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(propertyPathToItem);
         if (schemas == null) {
-            throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+            throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
         }
         JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
@@ -391,7 +391,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else
         properties.put(propertyName, propertyInstance);
             {{else}}
         if (!({{#contains mapValueSchema.types "null" }}propertyInstance == null || {{/contains}}propertyInstance instanceof {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
-            throw new InvalidTypeException("Invalid instantiated value");
+            throw new RuntimeException("Invalid instantiated value");
         }
         properties.put(propertyName, ({{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
             {{/if}}
@@ -407,7 +407,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else
             {{/if}}
 }
 
-public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}? extends @Nullable Object{{/with}}>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}? extends @Nullable Object{{/with}}>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -469,7 +469,7 @@ public double validate(Double{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaCon
     {{/and}}
 
 @Override
-public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
 {{#if types}}
     {{#each types}}
         {{#if @first}}
@@ -516,5 +516,5 @@ public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration confi
         return validate((Map<?, ?>) arg, configuration);
     }
 {{/if}}
-    throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+    throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
 }

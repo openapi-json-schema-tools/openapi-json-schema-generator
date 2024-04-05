@@ -4,9 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -24,13 +23,13 @@ public class BooleanSchemaTest {
     );
     
     @Test
-    public void testValidateTrue() {
+    public void testValidateTrue() throws ValidationException {
         boolean validatedValue = booleanJsonSchema.validate(true, configuration);
         Assert.assertTrue(validatedValue);
     }
 
     @Test
-    public void testValidateFalse() {
+    public void testValidateFalse() throws ValidationException {
         boolean validatedValue = booleanJsonSchema.validate(false, configuration);
         Assert.assertFalse(validatedValue);
     }

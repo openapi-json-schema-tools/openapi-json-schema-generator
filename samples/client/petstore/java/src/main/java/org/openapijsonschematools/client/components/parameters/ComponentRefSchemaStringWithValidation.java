@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.parameters.componentrefschemastringwithvalidation.content.applicationjson.ApplicationjsonSchema;
 
 import java.util.AbstractMap;
-import java.util.Map;
 
 public class ComponentRefSchemaStringWithValidation {
 
@@ -29,9 +28,7 @@ public class ComponentRefSchemaStringWithValidation {
                 null,
                 null,
                 false,
-                Map.ofEntries(
-                    new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
-                )
+                new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
             );
         }
     }

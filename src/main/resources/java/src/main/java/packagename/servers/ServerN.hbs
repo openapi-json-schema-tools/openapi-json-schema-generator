@@ -4,6 +4,7 @@ package {{{packageName}}}.{{subpackage}};
     {{#with variables}}
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.ValidationException;
         {{#neq ../subpackage "servers"}}
 import {{{packageName}}}.servers.ServerWithVariables;
         {{/neq}}
@@ -18,18 +19,25 @@ public class {{../jsonPathPiece.pascalCase}} extends ServerWithVariables<{{conta
     {{../description.original}}
     */
         {{/if}}
-
-    public {{../jsonPathPiece.pascalCase}}() {
-        super(
-            "{{../url}}",
-            {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance().validate(
+    private static {{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}} getVariables() {
+        try {
+            return {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance().validate(
                 MapUtils.makeMap(
         {{#each requiredProperties}}
                     new AbstractMap.SimpleEntry<>("{{{@key.original}}}", {{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance().defaultValue()){{#unless @last}},{{/unless}}
         {{/each}}
                 ),
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
-            )
+            );
+        } catch (ValidationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public {{../jsonPathPiece.pascalCase}}() {
+        super(
+            "{{../url}}",
+            getVariables()
         );
     }
     public {{../jsonPathPiece.pascalCase}}({{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}} variables) {
@@ -37,7 +45,9 @@ public class {{../jsonPathPiece.pascalCase}} extends ServerWithVariables<{{conta
     }
 }
     {{else}}
+        {{#neq ../subpackage "servers"}}
 import {{{packageName}}}.servers.ServerWithoutVariables;
+        {{/neq}}
 
 public class {{jsonPathPiece.pascalCase}} extends ServerWithoutVariables {
         {{#if ../description}}

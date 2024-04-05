@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -36,13 +35,13 @@ public class RequiredWithEscapedCharactersTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testObjectWithAllPropertiesPresentIsValidPasses() {
+    public void testObjectWithAllPropertiesPresentIsValidPasses() throws ValidationException {
         // object with all properties present is valid
         final var schema = RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1.getInstance();
         schema.validate(

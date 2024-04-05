@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.parameters.parameter0.content.applicationjson.Schema0;
 
 import java.util.AbstractMap;
-import java.util.Map;
 
 public class Parameter0 {
 
@@ -29,9 +28,7 @@ public class Parameter0 {
                 null,
                 null,
                 false,
-                Map.ofEntries(
-                    new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
-                )
+                new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
             );
         }
     }

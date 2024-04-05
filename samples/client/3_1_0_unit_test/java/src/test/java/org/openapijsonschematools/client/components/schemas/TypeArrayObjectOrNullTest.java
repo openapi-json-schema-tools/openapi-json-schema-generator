@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -27,13 +26,13 @@ public class TypeArrayObjectOrNullTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testNullIsValidPasses() {
+    public void testNullIsValidPasses() throws ValidationException {
         // null is valid
         final var schema = TypeArrayObjectOrNull.TypeArrayObjectOrNull1.getInstance();
         schema.validate(
@@ -52,13 +51,13 @@ public class TypeArrayObjectOrNullTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testArrayIsValidPasses() {
+    public void testArrayIsValidPasses() throws ValidationException {
         // array is valid
         final var schema = TypeArrayObjectOrNull.TypeArrayObjectOrNull1.getInstance();
         schema.validate(
@@ -72,7 +71,7 @@ public class TypeArrayObjectOrNullTest {
     }
 
     @Test
-    public void testObjectIsValidPasses() {
+    public void testObjectIsValidPasses() throws ValidationException {
         // object is valid
         final var schema = TypeArrayObjectOrNull.TypeArrayObjectOrNull1.getInstance();
         schema.validate(

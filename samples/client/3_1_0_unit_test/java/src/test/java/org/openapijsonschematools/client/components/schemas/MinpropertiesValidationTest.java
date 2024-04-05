@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class MinpropertiesValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testExactLengthIsValidPasses() {
+    public void testExactLengthIsValidPasses() throws ValidationException {
         // exact length is valid
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
@@ -33,7 +32,7 @@ public class MinpropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() {
+    public void testIgnoresOtherNonObjectsPasses() throws ValidationException {
         // ignores other non-objects
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
@@ -43,7 +42,7 @@ public class MinpropertiesValidationTest {
     }
 
     @Test
-    public void testLongerIsValidPasses() {
+    public void testLongerIsValidPasses() throws ValidationException {
         // longer is valid
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
@@ -62,7 +61,7 @@ public class MinpropertiesValidationTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() {
+    public void testIgnoresArraysPasses() throws ValidationException {
         // ignores arrays
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
@@ -83,13 +82,13 @@ public class MinpropertiesValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testIgnoresStringsPasses() {
+    public void testIgnoresStringsPasses() throws ValidationException {
         // ignores strings
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(

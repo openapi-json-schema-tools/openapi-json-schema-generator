@@ -47,6 +47,18 @@ public enum CustomHelpers implements Helper<Object> {
         }
     },
 
+    mapLookup {
+        @Override public Object apply(final Object a, final Options options) throws IOException {
+            // lookup converts keys into strings even if they are not, so ue a custom helper instead
+            Object key = options.param(0, null);
+            if (!(a instanceof Map<?, ?>)) {
+                throw new IOException("invalid lookup first arg input");
+            }
+            return ((Map<?, ?>) a).get(key);
+        }
+    },
+
+
     /**
      * Makes an empty array of strings
      */

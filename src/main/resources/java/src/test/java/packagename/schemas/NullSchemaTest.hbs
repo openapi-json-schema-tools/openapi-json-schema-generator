@@ -4,9 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
@@ -26,7 +25,7 @@ public class NullSchemaTest {
 
     @Test
     @SuppressWarnings("nullness")
-    public void testValidateNull() {
+    public void testValidateNull() throws ValidationException {
         Void validatedValue = nullJsonSchema.validate(null, configuration);
         Assert.assertNull(validatedValue);
     }

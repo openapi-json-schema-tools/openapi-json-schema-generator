@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -31,7 +30,7 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -59,13 +58,13 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testATrueAndA1AreUniquePasses() {
+    public void testATrueAndA1AreUniquePasses() throws ValidationException {
         // {\\\&quot;a\\\&quot;: true} and {\\\&quot;a\\\&quot;: 1} are unique
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -88,7 +87,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void test1AndTrueAreUniquePasses() {
+    public void test1AndTrueAreUniquePasses() throws ValidationException {
         // [1] and [true] are unique
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -117,13 +116,13 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testNested0AndFalseAreUniquePasses() {
+    public void testNested0AndFalseAreUniquePasses() throws ValidationException {
         // nested [0] and [false] are unique
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -176,7 +175,7 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -198,13 +197,13 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testAFalseAndA0AreUniquePasses() {
+    public void testAFalseAndA0AreUniquePasses() throws ValidationException {
         // {\\\&quot;a\\\&quot;: false} and {\\\&quot;a\\\&quot;: 0} are unique
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -246,13 +245,13 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void test0AndFalseAreUniquePasses() {
+    public void test0AndFalseAreUniquePasses() throws ValidationException {
         // [0] and [false] are unique
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -311,7 +310,7 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -330,7 +329,7 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -349,13 +348,13 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testUniqueArrayOfNestedObjectsIsValidPasses() {
+    public void testUniqueArrayOfNestedObjectsIsValidPasses() throws ValidationException {
         // unique array of nested objects is valid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -398,7 +397,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void testUniqueArrayOfArraysIsValidPasses() {
+    public void testUniqueArrayOfArraysIsValidPasses() throws ValidationException {
         // unique array of arrays is valid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -415,7 +414,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void testTrueIsNotEqualToOnePasses() {
+    public void testTrueIsNotEqualToOnePasses() throws ValidationException {
         // true is not equal to one
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -428,7 +427,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void testNested1AndTrueAreUniquePasses() {
+    public void testNested1AndTrueAreUniquePasses() throws ValidationException {
         // nested [1] and [true] are unique
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -451,7 +450,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void testUniqueArrayOfStringsIsValidPasses() {
+    public void testUniqueArrayOfStringsIsValidPasses() throws ValidationException {
         // unique array of strings is valid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -465,7 +464,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void testFalseIsNotEqualToZeroPasses() {
+    public void testFalseIsNotEqualToZeroPasses() throws ValidationException {
         // false is not equal to zero
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -478,7 +477,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void testUniqueArrayOfIntegersIsValidPasses() {
+    public void testUniqueArrayOfIntegersIsValidPasses() throws ValidationException {
         // unique array of integers is valid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -491,7 +490,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void testDifferentObjectsAreUniquePasses() {
+    public void testDifferentObjectsAreUniquePasses() throws ValidationException {
         // different objects are unique
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -522,7 +521,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void testUniqueHeterogeneousTypesAreValidPasses() {
+    public void testUniqueHeterogeneousTypesAreValidPasses() throws ValidationException {
         // unique heterogeneous types are valid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -542,7 +541,7 @@ public class UniqueitemsValidationTest {
     }
 
     @Test
-    public void testUniqueArrayOfObjectsIsValidPasses() {
+    public void testUniqueArrayOfObjectsIsValidPasses() throws ValidationException {
         // unique array of objects is valid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
@@ -585,7 +584,7 @@ public class UniqueitemsValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

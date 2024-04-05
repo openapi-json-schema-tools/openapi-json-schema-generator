@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class UnevaluateditemsAsSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testWithValidUnevaluatedItemsPasses() {
+    public void testWithValidUnevaluatedItemsPasses() throws ValidationException {
         // with valid unevaluated items
         final var schema = UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1.getInstance();
         schema.validate(
@@ -41,13 +40,13 @@ public class UnevaluateditemsAsSchemaTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testWithNoUnevaluatedItemsPasses() {
+    public void testWithNoUnevaluatedItemsPasses() throws ValidationException {
         // with no unevaluated items
         final var schema = UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1.getInstance();
         schema.validate(

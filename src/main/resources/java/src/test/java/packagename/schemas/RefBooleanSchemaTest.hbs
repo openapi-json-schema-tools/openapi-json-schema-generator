@@ -4,9 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
@@ -28,13 +27,13 @@ public class RefBooleanSchemaTest {
     );
     
     @Test
-    public void testValidateTrue() {
+    public void testValidateTrue() throws ValidationException {
         Boolean validatedValue = refBooleanJsonSchema.validate(true, configuration);
         Assert.assertEquals(validatedValue, Boolean.TRUE);
     }
 
     @Test
-    public void testValidateFalse() {
+    public void testValidateFalse() throws ValidationException {
         Boolean validatedValue = refBooleanJsonSchema.validate(false, configuration);
         Assert.assertEquals(validatedValue, Boolean.FALSE);
     }

@@ -59,7 +59,7 @@ public {{> src/main/java/packagename/components/schemas/types/schema_output_type
     throwIfKeyNotPresent(name);
     Boolean value = get(name);
     if (value == null) {
-        throw new InvalidTypeException("Value may not be null");
+        throw new RuntimeException("Value may not be null");
     }
     return (boolean) value;
                 {{else}}
@@ -68,7 +68,7 @@ public {{> src/main/java/packagename/components/schemas/types/schema_output_type
             {{else}}
     var value = getOrThrow(name);
     if (!({{#contains types "null" }}value == null || {{/contains}}value instanceof {{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
-        throw new InvalidTypeException("Invalid value stored for " + name);
+        throw new RuntimeException("Invalid value stored for " + name);
     }
     return ({{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) value;
             {{/and}}

@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class InvalidStringValueForDefaultTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testValidWhenPropertyIsSpecifiedPasses() {
+    public void testValidWhenPropertyIsSpecifiedPasses() throws ValidationException {
         // valid when property is specified
         final var schema = InvalidStringValueForDefault.InvalidStringValueForDefault1.getInstance();
         schema.validate(
@@ -33,7 +32,7 @@ public class InvalidStringValueForDefaultTest {
     }
 
     @Test
-    public void testStillValidWhenTheInvalidDefaultIsUsedPasses() {
+    public void testStillValidWhenTheInvalidDefaultIsUsedPasses() throws ValidationException {
         // still valid when the invalid default is used
         final var schema = InvalidStringValueForDefault.InvalidStringValueForDefault1.getInstance();
         schema.validate(

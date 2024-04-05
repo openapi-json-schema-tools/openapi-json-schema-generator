@@ -9,7 +9,7 @@ public class MultipleOfValidator extends BigDecimalValidator implements KeywordV
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
-    ) {
+    ) throws ValidationException {
         var multipleOf = data.schema().multipleOf;
         if (multipleOf == null) {
             return null;

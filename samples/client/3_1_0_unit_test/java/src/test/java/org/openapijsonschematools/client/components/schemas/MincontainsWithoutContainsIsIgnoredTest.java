@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class MincontainsWithoutContainsIsIgnoredTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testOneItemValidAgainstLoneMincontainsPasses() {
+    public void testOneItemValidAgainstLoneMincontainsPasses() throws ValidationException {
         // one item valid against lone minContains
         final var schema = MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1.getInstance();
         schema.validate(
@@ -30,7 +29,7 @@ public class MincontainsWithoutContainsIsIgnoredTest {
     }
 
     @Test
-    public void testZeroItemsStillValidAgainstLoneMincontainsPasses() {
+    public void testZeroItemsStillValidAgainstLoneMincontainsPasses() throws ValidationException {
         // zero items still valid against lone minContains
         final var schema = MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1.getInstance();
         schema.validate(

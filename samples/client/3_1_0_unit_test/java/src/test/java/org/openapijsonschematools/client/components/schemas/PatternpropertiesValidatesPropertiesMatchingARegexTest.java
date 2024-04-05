@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -36,13 +35,13 @@ public class PatternpropertiesValidatesPropertiesMatchingARegexTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testASingleValidMatchIsValidPasses() {
+    public void testASingleValidMatchIsValidPasses() throws ValidationException {
         // a single valid match is valid
         final var schema = PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1.getInstance();
         schema.validate(
@@ -57,7 +56,7 @@ public class PatternpropertiesValidatesPropertiesMatchingARegexTest {
     }
 
     @Test
-    public void testIgnoresOtherNonObjectsPasses() {
+    public void testIgnoresOtherNonObjectsPasses() throws ValidationException {
         // ignores other non-objects
         final var schema = PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1.getInstance();
         schema.validate(
@@ -85,13 +84,13 @@ public class PatternpropertiesValidatesPropertiesMatchingARegexTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testMultipleValidMatchesIsValidPasses() {
+    public void testMultipleValidMatchesIsValidPasses() throws ValidationException {
         // multiple valid matches is valid
         final var schema = PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1.getInstance();
         schema.validate(
@@ -110,7 +109,7 @@ public class PatternpropertiesValidatesPropertiesMatchingARegexTest {
     }
 
     @Test
-    public void testIgnoresArraysPasses() {
+    public void testIgnoresArraysPasses() throws ValidationException {
         // ignores arrays
         final var schema = PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1.getInstance();
         schema.validate(
@@ -122,7 +121,7 @@ public class PatternpropertiesValidatesPropertiesMatchingARegexTest {
     }
 
     @Test
-    public void testIgnoresStringsPasses() {
+    public void testIgnoresStringsPasses() throws ValidationException {
         // ignores strings
         final var schema = PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1.getInstance();
         schema.validate(

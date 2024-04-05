@@ -298,7 +298,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
                         GlobalFeature.Servers,
-                        GlobalFeature.Security
+                        GlobalFeature.Security,
+                        GlobalFeature.Paths
                 )
                 .includeComponentsFeatures(
                         ComponentsFeature.schemas,
@@ -729,7 +730,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         exceptionClasses.add("ApiException");
         exceptionClasses.add("BaseException");
         exceptionClasses.add("InvalidAdditionalPropertyException");
-        exceptionClasses.add("InvalidTypeException");
+        exceptionClasses.add("NotImplementedException");
         exceptionClasses.add("UnsetPropertyException");
         exceptionClasses.add("ValidationException");
         for (String exceptionClass: exceptionClasses) {
@@ -2055,7 +2056,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         imports.add("import " + packageName + ".schemas.validation.JsonSchemaInfo;");
         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
         imports.add("import "+packageName + ".exceptions.ValidationException;");
-        imports.add("import "+packageName + ".exceptions.InvalidTypeException;"); // for castToAllowedTypes
         imports.add("import java.util.Set;"); // for validate
         imports.add("import java.util.HashSet;"); // for validate
         imports.add("import java.util.Objects;"); // for validate

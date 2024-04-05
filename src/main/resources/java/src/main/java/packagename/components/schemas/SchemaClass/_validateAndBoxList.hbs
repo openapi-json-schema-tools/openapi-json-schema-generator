@@ -1,4 +1,4 @@
 @Override
-public {{jsonPathPiece.pascalCase}}BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public {{jsonPathPiece.pascalCase}}BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
     return new {{jsonPathPiece.pascalCase}}BoxedList(validate(arg, configuration));
 }

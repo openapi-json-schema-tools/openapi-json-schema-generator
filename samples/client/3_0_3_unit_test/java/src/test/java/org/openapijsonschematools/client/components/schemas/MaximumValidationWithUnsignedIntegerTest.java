@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -27,13 +26,13 @@ public class MaximumValidationWithUnsignedIntegerTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testBelowTheMaximumIsInvalidPasses() {
+    public void testBelowTheMaximumIsInvalidPasses() throws ValidationException {
         // below the maximum is invalid
         final var schema = MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.getInstance();
         schema.validate(
@@ -43,7 +42,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     }
 
     @Test
-    public void testBoundaryPointIntegerIsValidPasses() {
+    public void testBoundaryPointIntegerIsValidPasses() throws ValidationException {
         // boundary point integer is valid
         final var schema = MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.getInstance();
         schema.validate(
@@ -53,7 +52,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     }
 
     @Test
-    public void testBoundaryPointFloatIsValidPasses() {
+    public void testBoundaryPointFloatIsValidPasses() throws ValidationException {
         // boundary point float is valid
         final var schema = MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.getInstance();
         schema.validate(
