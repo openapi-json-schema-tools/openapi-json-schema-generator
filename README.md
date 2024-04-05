@@ -17,8 +17,6 @@ Currently, the following languages/frameworks are supported:
 
 - python (Stability: Stable)
 - java (Stability: Experimental)
-  - So far schema validation for v3.0.0-v3.1.0 has been implemented for Java
-  - If you want to use this generator as a Java client, please consider filing PRs adding openapi features in [this project](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues/290)
 
 ## Join Our Community
 We use a Discord server as a place to ask questions and help each other. It offers functionality very similar to Slack.
@@ -71,6 +69,9 @@ And many more!
 
 - v3.0.0 - [v3.1.0](docs/generators/java.md#schema-feature) OpenAPI Specification support for component schemas
 - Very [thorough documentation generated in the style of javadocs, includes code samples](samples/client/petstore/java/docs/components/schemas/Money.md#money)
+- Sealed classes used to define different endpoint responses.
+  Sealed classes used to define different response body classes.
+  Endpoint code samples include exhaustive handling of the sealed classes.
 - Input types constrained for a Schema in SomeSchema.validate
   - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data
 - Immutable List output classes generated and returned by validate for List&lt;?&gt; input
