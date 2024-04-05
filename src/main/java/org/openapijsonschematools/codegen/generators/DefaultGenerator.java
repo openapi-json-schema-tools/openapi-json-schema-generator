@@ -2970,7 +2970,7 @@ public class DefaultGenerator implements Generator {
                 parametersInfo,
                 hasRequiredParamOrBody,
                 hasOptionalParamOrBody,
-                security,
+                usedSecurity,
                 tags,
                 responses,
                 statusCodeResponses,

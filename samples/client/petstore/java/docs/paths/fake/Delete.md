@@ -69,8 +69,9 @@ List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new BearerTest("someAccessToken");
 );
-ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
-    .fakeDeleteSecurityInfoSecurityIndex(FakeDeleteSecurityInfo.SecurityIndex.SECURITY_0);
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .fakeDeleteSecurityRequirementObject0SecurityIndex(FakeDeleteSecurityRequirementObject0.SecurityIndex.SECURITY_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo

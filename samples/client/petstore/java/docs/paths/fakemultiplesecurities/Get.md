@@ -68,8 +68,9 @@ securitySchemes.add(
 securitySchemes.add(
     new ApiKey("someApiKey");
 );
-ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
-    .fakemultiplesecuritiesGetSecurityInfoSecurityIndex(FakemultiplesecuritiesGetSecurityInfo.SecurityIndex.SECURITY_0);
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .fakemultiplesecuritiesGetSecurityRequirementObject0SecurityIndex(FakemultiplesecuritiesGetSecurityRequirementObject0.SecurityIndex.SECURITY_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo

@@ -68,8 +68,9 @@ List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new ApiKey("someApiKey");
 );
-ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
-    .petpetidDeleteSecurityInfoSecurityIndex(PetpetidDeleteSecurityInfo.SecurityIndex.SECURITY_0);
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .petpetidDeleteSecurityRequirementObject0SecurityIndex(PetpetidDeleteSecurityRequirementObject0.SecurityIndex.SECURITY_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo

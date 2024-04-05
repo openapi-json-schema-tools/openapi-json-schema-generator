@@ -132,11 +132,16 @@ List<SecurityScheme> securitySchemes = new ArrayList();
                                 {{/with}}
                             {{/each}}
                         {{/each}}
-ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
-    .{{jsonPathPiece.camelCase}}SecurityIndex({{jsonPathPiece.pascalCase}}.SecurityIndex.SECURITY_0);
                     {{/with}}
                 {{/eq}}
             {{/each}}
+        {{/if}}
+    {{/each}}
+    {{#each security}}
+        {{#if @first}}
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .{{jsonPathPiece.camelCase}}SecurityIndex({{jsonPathPiece.pascalCase}}.SecurityIndex.SECURITY_0)
+    .build();
         {{/if}}
     {{/each}}
 Duration timeout = Duration.ofSeconds(1L);

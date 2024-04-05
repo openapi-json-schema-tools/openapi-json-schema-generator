@@ -66,8 +66,9 @@ List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new HttpBasicTest("someUserId", "somePassword");
 );
-ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
-    .fakePostSecurityInfoSecurityIndex(FakePostSecurityInfo.SecurityIndex.SECURITY_0);
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .fakePostSecurityRequirementObject0SecurityIndex(FakePostSecurityRequirementObject0.SecurityIndex.SECURITY_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo

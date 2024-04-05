@@ -496,7 +496,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 generateXDocs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointInfo, true);
 
                 // paths.some_path.security.security_requirement_0.py
-                if (operation.security != null) {
+                if (operation.security != null && operation.security.subpackage != null && operation.security.subpackage.equals(operation.responses.subpackage)) {
                     String securityJsonPath = operationJsonPath + "/security";
                     generateSecurity(files, operation.security, securityJsonPath, "../../../");
                 }
@@ -1351,7 +1351,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         URL url = URLPathUtils.getServerURL(openAPI, null);
         TreeSet<CodegenList<CodegenServer>> allServers = new TreeSet<>();
-        List<CodegenList<CodegenSecurityRequirementObject>> allSecurity = new ArrayList<>();
+        TreeSet<CodegenList<CodegenSecurityRequirementObject>> allSecurity = new TreeSet<>();
         boolean hasServers = false;
         if (servers != null) {
             allServers.add(servers);
@@ -1372,7 +1372,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                             allServers.add(operation.servers);
                             hasServers = true;
                         }
-                        if (operation.security != null) {
+                        if (operation.security != null && !allSecurity.contains(operation.security)) {
                             allSecurity.add(operation.security);
                         }
                     }

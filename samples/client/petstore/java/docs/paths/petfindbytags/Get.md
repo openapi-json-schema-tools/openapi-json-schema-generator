@@ -65,8 +65,9 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
-ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
-    .petfindbytagsGetSecurityInfoSecurityIndex(PetfindbytagsGetSecurityInfo.SecurityIndex.SECURITY_0);
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .petfindbytagsGetSecurityRequirementObject0SecurityIndex(PetfindbytagsGetSecurityRequirementObject0.SecurityIndex.SECURITY_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
