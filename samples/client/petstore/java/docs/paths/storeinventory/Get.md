@@ -41,6 +41,7 @@ import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.paths.storeinventory.get.responses.Code200Response;
 import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.SuccessInlineContentAndHeaderHeadersSchema;
 import org.openapijsonschematools.client.paths.storeinventory.Get;
+import org.openapijsonschematools.client.paths.storeinventory.get.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -53,8 +54,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     null,
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new ApiKey("someApiKey");

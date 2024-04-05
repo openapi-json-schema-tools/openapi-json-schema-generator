@@ -44,6 +44,7 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.responses.Code200Response;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.Post;
+import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -56,8 +57,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     null,
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
     .fakepetiduploadimagewithrequiredfilePostSecurityInfoSecurityIndex(FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex.SECURITY_0);

@@ -82,34 +82,55 @@ public class ApiConfiguration {
     }
 
     public static class ServerIndexInfo {
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final FooGetServerInfo.ServerIndex fooGetServerInfoServerIndex;
+        final PetfindbystatusServerInfo.ServerIndex petfindbystatusServerInfoServerIndex;
+
+        ServerIndexInfo(
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex,
+        PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex
+        ) {
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.fooGetServerInfoServerIndex = Objects.requireNonNullElseGet(fooGetServerInfoServerIndex, FooGetServerInfo.ServerIndex.SERVER_0);;
+            this.petfindbystatusServerInfoServerIndex = Objects.requireNonNullElseGet(petfindbystatusServerInfoServerIndex, PetfindbystatusServerInfo.ServerIndex.SERVER_0);;
+        }
+    }
+
+    public static class ServerIndexInfoBuilder {
         protected RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
         protected FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex;
         protected PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex;
-        public ServerIndexInfo() {}
+        public ServerIndexInfoBuilder() {}
 
-        public ServerIndexInfo rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
             this.rootServerInfoServerIndex = serverIndex;
             return this;
         }
 
-        public ServerIndexInfo fooGetServerInfoServerIndex(FooGetServerInfo.ServerIndex serverIndex) {
+        public ServerIndexInfoBuilder fooGetServerInfoServerIndex(FooGetServerInfo.ServerIndex serverIndex) {
             this.fooGetServerInfoServerIndex = serverIndex;
             return this;
         }
 
-        public ServerIndexInfo petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex serverIndex) {
+        public ServerIndexInfoBuilder petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex serverIndex) {
             this.petfindbystatusServerInfoServerIndex = serverIndex;
             return this;
+        }
+
+        public ServerIndexInfo build() {
+            return new ServerIndexInfo(
+                rootServerInfoServerIndex,
+                fooGetServerInfoServerIndex,
+                petfindbystatusServerInfoServerIndex
+            );
         }
     }
 
     public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.rootServerInfo;
         if (serverIndex == null) {
-            RootServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
-            if (configServerIndex == null) {
-                throw new RuntimeException("rootServerInfoServerIndex is unset");
-            }
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);
@@ -118,10 +139,7 @@ public class ApiConfiguration {
     public Server getServer(FooGetServerInfo. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.fooGetServerInfo;
         if (serverIndex == null) {
-            FooGetServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.fooGetServerInfoServerIndex;
-            if (configServerIndex == null) {
-                throw new RuntimeException("fooGetServerInfoServerIndex is unset");
-            }
+            FooGetServerInfo.ServerIndex configServerIndex = serverIndexInfo.fooGetServerInfoServerIndex;
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);
@@ -130,10 +148,7 @@ public class ApiConfiguration {
     public Server getServer(PetfindbystatusServerInfo. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.petfindbystatusServerInfo;
         if (serverIndex == null) {
-            PetfindbystatusServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.petfindbystatusServerInfoServerIndex;
-            if (configServerIndex == null) {
-                throw new RuntimeException("petfindbystatusServerInfoServerIndex is unset");
-            }
+            PetfindbystatusServerInfo.ServerIndex configServerIndex = serverIndexInfo.petfindbystatusServerInfoServerIndex;
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);

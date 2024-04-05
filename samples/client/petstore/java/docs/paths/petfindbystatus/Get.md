@@ -45,6 +45,7 @@ import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Code200Response;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Code400Response;
 import org.openapijsonschematools.client.paths.petfindbystatus.Get;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -56,8 +57,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     new PetfindbystatusServer0(),
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex.SERVER_0)
+    .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new ApiKey("someApiKey");

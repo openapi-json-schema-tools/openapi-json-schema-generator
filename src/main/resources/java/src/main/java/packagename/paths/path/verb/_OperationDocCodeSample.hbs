@@ -79,45 +79,44 @@ import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
             {{/with}}
         {{/with}}
     {{/each}}
+    {{#with servers}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{#with responses}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
-ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
-    {{#each builders}}
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .{{servers.jsonPathPiece.camelCase}}(
+        new {{servers.jsonPathPiece.pascalCase}}.{{servers.jsonPathPiece.pascalCase}}Builder()
+    {{#each servers}}
         {{#if @first}}
-            {{#each keyToBuilder}}
-                {{#eq @key.camelCase "serverIndex"}}
-                    {{#with property}}
-                        {{! CodegenList of CodegenServer }}
-                        {{#each this}}
-                            {{#if @first}}
-    new {{jsonPathPiece.pascalCase}}(){{#unless @last}},{{/unless}}
-                            {{else}}
-    null{{#unless @last}},{{/unless}}
-                            {{/if}}
-                        {{/each}}
-                    {{/with}}
-                {{/eq}}
-            {{/each}}
+            .{{jsonPathPiece.camelCase}}(new {{jsonPathPiece.pascalCase}}())
+            .build()
         {{/if}}
     {{/each}}
+    )
+    .build();
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     {{#each builders}}
         {{#if @first}}
             {{#each keyToBuilder}}
                 {{#eq @key.camelCase "serverIndex"}}
                     {{#with property}}
                         {{! CodegenList of CodegenServer }}
-    .{{jsonPathPiece.camelCase}}ServerIndex({{jsonPathPiece.pascalCase}}.ServerIndex.SERVER_0);
+    .{{jsonPathPiece.camelCase}}ServerIndex({{jsonPathPiece.pascalCase}}.ServerIndex.SERVER_0)
                     {{/with}}
                 {{/eq}}
             {{/each}}
+    .build();
         {{/if}}
     {{/each}}
     {{#each builders}}

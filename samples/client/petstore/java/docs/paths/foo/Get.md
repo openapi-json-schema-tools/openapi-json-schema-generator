@@ -36,6 +36,7 @@ import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
 import org.openapijsonschematools.client.paths.foo.get.responses.CodedefaultResponse;
 import org.openapijsonschematools.client.paths.foo.Get;
+import org.openapijsonschematools.client.paths.foo.get.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -47,8 +48,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     new FooGetServer0(),
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .fooGetServerInfoServerIndex(FooGetServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .fooGetServerInfoServerIndex(FooGetServerInfo.ServerIndex.SERVER_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo

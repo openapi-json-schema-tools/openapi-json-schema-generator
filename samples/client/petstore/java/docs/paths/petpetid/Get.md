@@ -45,6 +45,7 @@ import org.openapijsonschematools.client.paths.petpetid.get.responses.Code200Res
 import org.openapijsonschematools.client.paths.petpetid.get.responses.Code400Response;
 import org.openapijsonschematools.client.paths.petpetid.get.responses.Code404Response;
 import org.openapijsonschematools.client.paths.petpetid.Get;
+import org.openapijsonschematools.client.paths.petpetid.get.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -57,8 +58,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     null,
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new ApiKey("someApiKey");

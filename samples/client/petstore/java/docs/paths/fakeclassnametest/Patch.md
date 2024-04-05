@@ -44,6 +44,7 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKeyQuery;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.responses.Code200Response;
 import org.openapijsonschematools.client.paths.fakeclassnametest.Patch;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -56,8 +57,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     null,
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new ApiKeyQuery("someApiKey");

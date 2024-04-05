@@ -508,7 +508,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     generateRequestBodyDoc(files, operation.requestBody, requestBodyJsonPath, "../../../", generator.shouldGenerateFile(requestBodyJsonPath, true));
                 }
 
-                if (operation.servers != null) {
+                if (operation.servers != null && operation.servers.subpackage.startsWith(operation.subpackage)) {
                     generateServers(files, operation.servers, operationJsonPath + "/servers", "../../../");
                 }
 

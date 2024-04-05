@@ -39,6 +39,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.responses.Code200Response;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.Post;
+import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -51,8 +52,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     null,
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo

@@ -74,48 +74,85 @@ public class ApiConfiguration {
 
     public static class ServerInfo {
     {{#each allServers}}
-        protected final {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}};
+        final {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}};
     {{/each}}
 
-        public ServerInfo() {
-    {{#each allServers}}
-            {{jsonPathPiece.camelCase}} = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1();
-    {{/each}}
-        }
-
-        public ServerInfo(
+        ServerInfo(
     {{#each allServers}}
             {{jsonPathPiece.pascalCase}}. @Nullable {{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
     {{/each}}
         ) {
     {{#each allServers}}
-            this.{{jsonPathPiece.camelCase}} = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}, {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1::new);
+            this.{{jsonPathPiece.camelCase}} = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}, new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Builder().build());
     {{/each}}
+        }
+    }
+
+    public static class ServerInfoBuilder {
+    {{#each allServers}}
+        private {{jsonPathPiece.pascalCase}}. @Nullable {{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}};
+    {{/each}}
+        public ServerIndexInfoBuilder() {}
+    {{#each allServers}}
+
+        public ServerInfoBuilder {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}}) {
+            this.{{jsonPathPiece.camelCase}} = {{jsonPathPiece.camelCase}};
+            return this;
+        }
+    {{/each}}
+
+        public ServerInfo build() {
+            return new ServerInfo(
+    {{#each allServers}}
+                {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
+    {{/each}}
+            );
         }
     }
 
     public static class ServerIndexInfo {
     {{#each allServers}}
-        protected {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex {{jsonPathPiece.camelCase}}ServerIndex;
+        final {{jsonPathPiece.pascalCase}}.ServerIndex {{jsonPathPiece.camelCase}}ServerIndex;
     {{/each}}
-        public ServerIndexInfo() {}
+
+        ServerIndexInfo(
+    {{#each allServers}}
+        {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex {{jsonPathPiece.camelCase}}ServerIndex{{#unless @last}},{{/unless}}
+    {{/each}}
+        ) {
+    {{#each allServers}}
+            this.{{jsonPathPiece.camelCase}}ServerIndex = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}ServerIndex, {{jsonPathPiece.pascalCase}}.ServerIndex.SERVER_0);;
+    {{/each}}
+        }
+    }
+
+    public static class ServerIndexInfoBuilder {
+    {{#each allServers}}
+        private {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex {{jsonPathPiece.camelCase}}ServerIndex;
+    {{/each}}
+        public ServerIndexInfoBuilder() {}
     {{#each allServers}}
 
-        public ServerIndexInfo {{jsonPathPiece.camelCase}}ServerIndex({{jsonPathPiece.pascalCase}}.ServerIndex serverIndex) {
+        public ServerIndexInfoBuilder {{jsonPathPiece.camelCase}}ServerIndex({{jsonPathPiece.pascalCase}}.ServerIndex serverIndex) {
             this.{{jsonPathPiece.camelCase}}ServerIndex = serverIndex;
             return this;
         }
     {{/each}}
+
+        public ServerIndexInfo build() {
+            return new ServerIndexInfo(
+    {{#each allServers}}
+                {{jsonPathPiece.camelCase}}ServerIndex{{#unless @last}},{{/unless}}
+    {{/each}}
+            );
+        }
     }
     {{#each allServers}}
 
     public Server getServer({{jsonPathPiece.pascalCase}}. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.{{jsonPathPiece.camelCase}};
         if (serverIndex == null) {
-            {{jsonPathPiece.pascalCase}}. @Nullable ServerIndex configServerIndex = serverIndexInfo.{{jsonPathPiece.camelCase}}ServerIndex;
-            if (configServerIndex == null) {
-                throw new RuntimeException("{{jsonPathPiece.camelCase}}ServerIndex is unset");
-            }
+            {{jsonPathPiece.pascalCase}}.ServerIndex configServerIndex = serverIndexInfo.{{jsonPathPiece.camelCase}}ServerIndex;
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);

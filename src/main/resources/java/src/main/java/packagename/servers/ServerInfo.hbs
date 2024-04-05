@@ -16,16 +16,10 @@ import java.util.Objects;
 public class {{servers.jsonPathPiece.pascalCase}} {
     public static class {{servers.jsonPathPiece.pascalCase}}1 implements ServerProvider<ServerIndex> {
     {{#each servers}}
-        public final {{jsonPathPiece.pascalCase}} server{{@index}};
+        private final {{jsonPathPiece.pascalCase}} server{{@index}};
     {{/each}}
 
-        public {{servers.jsonPathPiece.pascalCase}}1() {
-    {{#each servers}}
-            server{{@index}} = new {{jsonPathPiece.pascalCase}}();
-    {{/each}}
-        }
-
-        public {{servers.jsonPathPiece.pascalCase}}1(
+        {{servers.jsonPathPiece.pascalCase}}1(
         {{#each servers}}
             @Nullable {{jsonPathPiece.pascalCase}} server{{@index}}{{#unless @last}},{{/unless}}
         {{/each}}
@@ -52,6 +46,29 @@ public class {{servers.jsonPathPiece.pascalCase}} {
         {{/each}}
             }
     {{/eq}}
+        }
+    }
+
+    public static class {{servers.jsonPathPiece.pascalCase}}Builder {
+    {{#each servers}}
+        private @Nullable {{jsonPathPiece.pascalCase}} server{{@index}};
+    {{/each}}
+
+        public {{servers.jsonPathPiece.pascalCase}}Builder() {}
+    {{#each servers}}
+
+        public {{../servers.jsonPathPiece.pascalCase}}Builder {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}} server{{@index}}) {
+            this.server{{@index}} = server{{@index}};
+            return this;
+        }
+    {{/each}}
+
+        public {{servers.jsonPathPiece.pascalCase}}1 build() {
+            return new {{servers.jsonPathPiece.pascalCase}}1(
+    {{#each servers}}
+                server{{@index}}{{#unless @last}},{{/unless}}
+    {{/each}}
+            );
         }
     }
 

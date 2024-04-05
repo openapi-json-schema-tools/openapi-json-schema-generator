@@ -42,6 +42,7 @@ import org.openapijsonschematools.client.paths.fakewildcardresponses.get.respons
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code4XXResponse;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code5XXResponse;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.Get;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -54,8 +55,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     null,
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo

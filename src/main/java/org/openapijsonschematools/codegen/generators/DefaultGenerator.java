@@ -2965,7 +2965,7 @@ public class DefaultGenerator implements Generator {
                 summary,
                 description,
                 produces,
-                servers,
+                usedServers,
                 requestBody,
                 parametersInfo,
                 hasRequiredParamOrBody,

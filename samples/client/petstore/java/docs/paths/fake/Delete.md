@@ -46,6 +46,7 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.BearerTest;
 import org.openapijsonschematools.client.paths.fake.delete.responses.Code200Response;
 import org.openapijsonschematools.client.paths.fake.Delete;
+import org.openapijsonschematools.client.paths.fake.delete.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -58,8 +59,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     null,
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new BearerTest("someAccessToken");

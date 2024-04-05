@@ -47,6 +47,7 @@ import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 import org.openapijsonschematools.client.paths.pet.post.responses.Code200Response;
 import org.openapijsonschematools.client.paths.pet.post.responses.Code405Response;
 import org.openapijsonschematools.client.paths.pet.Post;
+import org.openapijsonschematools.client.paths.pet.post.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -59,8 +60,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     null,
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new ApiKey("someApiKey");

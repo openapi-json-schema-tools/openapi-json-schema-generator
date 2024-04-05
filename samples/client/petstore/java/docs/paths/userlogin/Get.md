@@ -42,6 +42,7 @@ import org.openapijsonschematools.client.paths.userlogin.get.responses.Code200Re
 import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.Code200ResponseHeadersSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.Code400Response;
 import org.openapijsonschematools.client.paths.userlogin.Get;
+import org.openapijsonschematools.client.paths.userlogin.get.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -54,8 +55,9 @@ ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
     null,
     null
 );
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0);
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
