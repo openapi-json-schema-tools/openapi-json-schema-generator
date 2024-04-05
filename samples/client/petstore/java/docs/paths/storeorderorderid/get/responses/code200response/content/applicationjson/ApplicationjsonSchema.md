@@ -1,6 +1,6 @@
 # ApplicationjsonSchema
 public class ApplicationjsonSchema<br>
-extends [Order1](../../../../../../../../../components/schemas/Order.md#order)
+extends [Order1](../../../../../../../../components/schemas/Order.md#order)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
@@ -14,6 +14,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [Order.Order1](../../../../../../../../../components/schemas/Order.md#order1)
+extends [Order.Order1](../../../../../../../../components/schemas/Order.md#order1)
 
 A schema class that validates payloads

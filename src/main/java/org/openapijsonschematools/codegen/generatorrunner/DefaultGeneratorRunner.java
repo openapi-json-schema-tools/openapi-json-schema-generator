@@ -549,7 +549,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                         String code = responseEntry.getKey();
                         CodegenResponse response = responseEntry.getValue();
                         String responseJsonPath = responsesJsonPath + "/" + code;
-                        generateResponse(files, response, responseJsonPath, "../../../../../");
+                        generateResponse(files, response, responseJsonPath, "../../../../");
                     }
                 }
 

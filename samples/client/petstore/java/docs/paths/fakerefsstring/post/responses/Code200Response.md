@@ -27,7 +27,7 @@ sealed interface that stores schema and encoding info
 
 ## ApplicationjsonMediaType
 public record ApplicationjsonMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../../paths/fakerefsstring/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/fakerefsstring/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -39,7 +39,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../../paths/fakerefsstring/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/fakerefsstring/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## SealedResponseBody
