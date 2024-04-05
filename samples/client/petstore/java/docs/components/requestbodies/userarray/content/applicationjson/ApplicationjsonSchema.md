@@ -116,7 +116,7 @@ ApplicationjsonSchema.ApplicationjsonSchemaList validatedPayload =
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(List.class) |
-| Class<? extends JsonSchema> | items = [User.User1.class](../../../../../components/schemas/User.md#user1) |
+| Class<? extends JsonSchema> | items = [User.User1.class](../../../../components/schemas/User.md#user1) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

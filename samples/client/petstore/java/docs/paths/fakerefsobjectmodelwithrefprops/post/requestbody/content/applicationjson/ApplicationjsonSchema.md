@@ -1,6 +1,6 @@
 # ApplicationjsonSchema
 public class ApplicationjsonSchema<br>
-extends [ObjectModelWithRefProps1](../../../../../../components/schemas/ObjectModelWithRefProps.md#objectmodelwithrefprops)
+extends [ObjectModelWithRefProps1](../../../../../components/schemas/ObjectModelWithRefProps.md#objectmodelwithrefprops)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
@@ -14,6 +14,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [ObjectModelWithRefProps.ObjectModelWithRefProps1](../../../../../../components/schemas/ObjectModelWithRefProps.md#objectmodelwithrefprops1)
+extends [ObjectModelWithRefProps.ObjectModelWithRefProps1](../../../../../components/schemas/ObjectModelWithRefProps.md#objectmodelwithrefprops1)
 
 A schema class that validates payloads

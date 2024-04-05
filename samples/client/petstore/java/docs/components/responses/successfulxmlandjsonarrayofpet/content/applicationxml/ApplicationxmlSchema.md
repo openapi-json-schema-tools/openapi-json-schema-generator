@@ -122,7 +122,7 @@ ApplicationxmlSchema.ApplicationxmlSchemaList validatedPayload =
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(List.class) |
-| Class<? extends JsonSchema> | items = [Pet.Pet1.class](../../../../../../components/schemas/Pet.md#pet1) |
+| Class<? extends JsonSchema> | items = [Pet.Pet1.class](../../../../../components/schemas/Pet.md#pet1) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
