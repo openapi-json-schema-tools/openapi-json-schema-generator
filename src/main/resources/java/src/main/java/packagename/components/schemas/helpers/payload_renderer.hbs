@@ -50,7 +50,7 @@ MapUtils.makeMap(
         {{/each}}
     {{else}}
 Arrays.asList(
-        {{#eq value.length 1}}
+        {{#eq value.size 1}}
             {{#each value}}
                 {{! list with single null needs to describe the item as (Void) }}
     {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}

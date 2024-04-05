@@ -22,7 +22,7 @@ public class UnevaluateditemsWithNullInstanceElementsTest {
         final var schema = UnevaluateditemsWithNullInstanceElements.UnevaluateditemsWithNullInstanceElements1.getInstance();
         schema.validate(
             Arrays.asList(
-                null
+                (Void) null
             ),
             configuration
         );
