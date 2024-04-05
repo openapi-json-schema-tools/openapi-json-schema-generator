@@ -3400,6 +3400,11 @@ components:
           type: string
         b:
           type: number
+        ArrayProperty:
+          items:
+            $ref: '#/components/schemas/EnumClass'
+          type: array
+          nullable: true
       additionalProperties: false
     ObjectWithNonIntersectingValues:
       properties:

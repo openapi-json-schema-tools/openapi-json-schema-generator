@@ -27,7 +27,7 @@
         {{#eq types.size 1}}
 {{> components/schemas/types/_schema_io_type_base }}
         {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     {{> components/schemas/types/_schema_io_type_base paramName=false optional=false endChar="," }}
     {{#if optional}}
     schemas.Unset
