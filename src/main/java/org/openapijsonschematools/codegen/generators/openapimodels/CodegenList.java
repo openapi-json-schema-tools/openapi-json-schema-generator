@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * A class to store inline codegenschema definitions
  */
-public class CodegenList <T> extends AbstractList<T> implements OperationInputProvider {
+public class CodegenList <T> extends AbstractList<T> implements OperationInputProvider, Comparable<CodegenList> {
     public final List<T> items;
     public final CodegenKey jsonPathPiece;
     public final String subpackage;
@@ -48,5 +48,10 @@ public class CodegenList <T> extends AbstractList<T> implements OperationInputPr
     @Override
     public String pathFromDocRoot() {
         return pathFromDocRoot;
+    }
+
+    @Override
+    public int compareTo(CodegenList o) {
+        return jsonPathPiece.pascalCase.compareTo(o.jsonPathPiece.pascalCase);
     }
 }

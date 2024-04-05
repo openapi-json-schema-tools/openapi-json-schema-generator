@@ -1350,7 +1350,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         bundle.put("apiPackage", generator.apiPackage());
 
         URL url = URLPathUtils.getServerURL(openAPI, null);
-        List<CodegenList<CodegenServer>> allServers = new ArrayList<>();
+        TreeSet<CodegenList<CodegenServer>> allServers = new TreeSet<>();
         List<CodegenList<CodegenSecurityRequirementObject>> allSecurity = new ArrayList<>();
         boolean hasServers = false;
         if (servers != null) {
@@ -1368,7 +1368,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 }
                 if (pathItem.operations != null) {
                     for (CodegenOperation operation: pathItem.operations.values()) {
-                        if (operation.servers != null) {
+                        if (operation.servers != null && !allServers.contains(operation.servers)) {
                             allServers.add(operation.servers);
                             hasServers = true;
                         }

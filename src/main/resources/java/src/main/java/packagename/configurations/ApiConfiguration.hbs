@@ -1,7 +1,6 @@
 package {{{packageName}}}.configurations;
 
 {{#gt allSecurity.size 0}}
-import {{{packageName}}}.exceptions.UnsetPropertyException;
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
 {{/gt}}
 import {{{packageName}}}.servers.Server;
@@ -21,7 +20,6 @@ import {{packageName}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
 {{#if securitySchemes}}
 import {{packageName}}.securityschemes.SecurityScheme;
-import {{packageName}}.exceptions.UnsetPropertyException;
 {{/if}}
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -44,8 +42,8 @@ public class ApiConfiguration {
     {{/if}}
 
     public ApiConfiguration() {
-        serverInfo = new ServerInfo();
-        serverIndexInfo = new ServerIndexInfo();
+        serverInfo = new ServerInfoBuilder().build();
+        serverIndexInfo = new ServerIndexInfoBuilder().build();
     {{#gt allSecurity.size 0}}
         securityInfo = new SecurityInfo();
         securityIndexInfo = new SecurityIndexInfo();
@@ -83,7 +81,7 @@ public class ApiConfiguration {
     {{/each}}
         ) {
     {{#each allServers}}
-            this.{{jsonPathPiece.camelCase}} = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}, new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Builder().build());
+            this.{{jsonPathPiece.camelCase}} = Objects.requireNonNullElse({{jsonPathPiece.camelCase}}, new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Builder().build());
     {{/each}}
         }
     }
@@ -92,7 +90,7 @@ public class ApiConfiguration {
     {{#each allServers}}
         private {{jsonPathPiece.pascalCase}}. @Nullable {{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}};
     {{/each}}
-        public ServerIndexInfoBuilder() {}
+        public ServerInfoBuilder() {}
     {{#each allServers}}
 
         public ServerInfoBuilder {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 {{jsonPathPiece.camelCase}}) {
@@ -121,7 +119,7 @@ public class ApiConfiguration {
     {{/each}}
         ) {
     {{#each allServers}}
-            this.{{jsonPathPiece.camelCase}}ServerIndex = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}ServerIndex, {{jsonPathPiece.pascalCase}}.ServerIndex.SERVER_0);;
+            this.{{jsonPathPiece.camelCase}}ServerIndex = Objects.requireNonNullElse({{jsonPathPiece.camelCase}}ServerIndex, {{jsonPathPiece.pascalCase}}.ServerIndex.SERVER_0);
     {{/each}}
         }
     }
