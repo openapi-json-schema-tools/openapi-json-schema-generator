@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class MinlengthValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testExactLengthIsValidPasses() {
+    public void testExactLengthIsValidPasses() throws ValidationException {
         // exact length is valid
         final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(
@@ -28,7 +27,7 @@ public class MinlengthValidationTest {
     }
 
     @Test
-    public void testLongerIsValidPasses() {
+    public void testLongerIsValidPasses() throws ValidationException {
         // longer is valid
         final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(
@@ -38,7 +37,7 @@ public class MinlengthValidationTest {
     }
 
     @Test
-    public void testIgnoresNonStringsPasses() {
+    public void testIgnoresNonStringsPasses() throws ValidationException {
         // ignores non-strings
         final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(
@@ -57,7 +56,7 @@ public class MinlengthValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -72,7 +71,7 @@ public class MinlengthValidationTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

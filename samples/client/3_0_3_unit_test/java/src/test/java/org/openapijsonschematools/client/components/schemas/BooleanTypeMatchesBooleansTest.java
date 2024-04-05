@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -27,7 +26,7 @@ public class BooleanTypeMatchesBooleansTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -42,13 +41,13 @@ public class BooleanTypeMatchesBooleansTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testFalseIsABooleanPasses() {
+    public void testFalseIsABooleanPasses() throws ValidationException {
         // false is a boolean
         final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         schema.validate(
@@ -58,7 +57,7 @@ public class BooleanTypeMatchesBooleansTest {
     }
 
     @Test
-    public void testTrueIsABooleanPasses() {
+    public void testTrueIsABooleanPasses() throws ValidationException {
         // true is a boolean
         final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         schema.validate(
@@ -78,7 +77,7 @@ public class BooleanTypeMatchesBooleansTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -94,7 +93,7 @@ public class BooleanTypeMatchesBooleansTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -109,7 +108,7 @@ public class BooleanTypeMatchesBooleansTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -124,7 +123,7 @@ public class BooleanTypeMatchesBooleansTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -139,7 +138,7 @@ public class BooleanTypeMatchesBooleansTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -154,7 +153,7 @@ public class BooleanTypeMatchesBooleansTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }

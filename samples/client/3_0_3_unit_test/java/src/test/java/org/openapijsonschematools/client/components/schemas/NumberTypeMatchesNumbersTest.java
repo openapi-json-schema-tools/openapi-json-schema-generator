@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -18,7 +17,7 @@ public class NumberTypeMatchesNumbersTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
-    public void testAFloatIsANumberPasses() {
+    public void testAFloatIsANumberPasses() throws ValidationException {
         // a float is a number
         final var schema = NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.getInstance();
         schema.validate(
@@ -28,7 +27,7 @@ public class NumberTypeMatchesNumbersTest {
     }
 
     @Test
-    public void testAnIntegerIsANumberPasses() {
+    public void testAnIntegerIsANumberPasses() throws ValidationException {
         // an integer is a number
         final var schema = NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.getInstance();
         schema.validate(
@@ -47,7 +46,7 @@ public class NumberTypeMatchesNumbersTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -62,13 +61,13 @@ public class NumberTypeMatchesNumbersTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
 
     @Test
-    public void testAFloatWithZeroFractionalPartIsANumberAndAnIntegerPasses() {
+    public void testAFloatWithZeroFractionalPartIsANumberAndAnIntegerPasses() throws ValidationException {
         // a float with zero fractional part is a number (and an integer)
         final var schema = NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.getInstance();
         schema.validate(
@@ -87,7 +86,7 @@ public class NumberTypeMatchesNumbersTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -102,7 +101,7 @@ public class NumberTypeMatchesNumbersTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -118,7 +117,7 @@ public class NumberTypeMatchesNumbersTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
@@ -134,7 +133,7 @@ public class NumberTypeMatchesNumbersTest {
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
-        } catch (ValidationException | InvalidTypeException ignored) {
+        } catch (ValidationException ignored) {
             ;
         }
     }
