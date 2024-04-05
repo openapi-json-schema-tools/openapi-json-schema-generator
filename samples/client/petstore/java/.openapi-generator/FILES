@@ -542,6 +542,7 @@ docs/paths/pet/put/security/PetPutSecurityRequirementObject1.md
 docs/paths/petfindbystatus/Get.md
 docs/paths/petfindbystatus/PetfindbystatusServerInfo.md
 docs/paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md
+docs/paths/petfindbystatus/get/PetfindbystatusGetServerInfo.md
 docs/paths/petfindbystatus/get/QueryParameters.md
 docs/paths/petfindbystatus/get/Responses.md
 docs/paths/petfindbystatus/get/parameters/parameter0/Schema0.md
@@ -550,6 +551,9 @@ docs/paths/petfindbystatus/get/responses/Code400Response.md
 docs/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject0.md
 docs/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject1.md
 docs/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject2.md
+docs/paths/petfindbystatus/get/servers/PetfindbystatusGetServer0.md
+docs/paths/petfindbystatus/get/servers/PetfindbystatusGetServer1.md
+docs/paths/petfindbystatus/get/servers/server1/Variables.md
 docs/paths/petfindbystatus/servers/PetfindbystatusServer0.md
 docs/paths/petfindbystatus/servers/PetfindbystatusServer1.md
 docs/paths/petfindbystatus/servers/server1/Variables.md
@@ -1397,6 +1401,7 @@ src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/Get.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/PetfindbystatusServerInfo.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/Parameters.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.java
+src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/PetfindbystatusGetServerInfo.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/Responses.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/parameters/Parameter0.java
@@ -1406,6 +1411,9 @@ src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/respon
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject0.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject1.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/security/PetfindbystatusGetSecurityRequirementObject2.java
+src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/servers/PetfindbystatusGetServer0.java
+src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/servers/PetfindbystatusGetServer1.java
+src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/servers/server1/Variables.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/PetfindbystatusServer0.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/PetfindbystatusServer1.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/server1/Variables.java

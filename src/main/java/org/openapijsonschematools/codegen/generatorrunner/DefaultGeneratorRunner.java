@@ -508,7 +508,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     generateRequestBodyDoc(files, operation.requestBody, requestBodyJsonPath, "../../../", generator.shouldGenerateFile(requestBodyJsonPath, true));
                 }
 
-                if (operation.servers != null && operation.servers.subpackage.startsWith(operation.subpackage)) {
+                if (operation.servers != null && operation.servers.subpackage != null && operation.servers.subpackage.startsWith(operation.subpackage)) {
                     generateServers(files, operation.servers, operationJsonPath + "/servers", "../../../");
                 }
 
@@ -726,7 +726,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         // schemas
         LinkedHashMap<CodegenKey, CodegenMediaType> content = requestBody.content;
         if (content != null && !content.isEmpty()) {
-            generateContent(files, content, jsonPath, docRoot);
+            generateContent(files, content, jsonPath, docRoot + "../");
         }
     }
 

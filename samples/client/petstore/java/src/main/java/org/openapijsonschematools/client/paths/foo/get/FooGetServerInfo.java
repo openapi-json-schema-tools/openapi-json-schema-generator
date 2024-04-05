@@ -10,15 +10,10 @@ import java.util.Objects;
 
 public class FooGetServerInfo {
     public static class FooGetServerInfo1 implements ServerProvider<ServerIndex> {
-        public final FooGetServer0 server0;
-        public final FooGetServer1 server1;
+        private final FooGetServer0 server0;
+        private final FooGetServer1 server1;
 
-        public FooGetServerInfo1() {
-            server0 = new FooGetServer0();
-            server1 = new FooGetServer1();
-        }
-
-        public FooGetServerInfo1(
+        FooGetServerInfo1(
             @Nullable FooGetServer0 server0,
             @Nullable FooGetServer1 server1
         ) {
@@ -34,6 +29,30 @@ public class FooGetServerInfo {
                 default:
                     return server1;
             }
+        }
+    }
+
+    public static class FooGetServerInfoBuilder {
+        private @Nullable FooGetServer0 server0;
+        private @Nullable FooGetServer1 server1;
+
+        public FooGetServerInfoBuilder() {}
+
+        public FooGetServerInfoBuilder fooGetServer0(FooGetServer0 server0) {
+            this.server0 = server0;
+            return this;
+        }
+
+        public FooGetServerInfoBuilder fooGetServer1(FooGetServer1 server1) {
+            this.server1 = server1;
+            return this;
+        }
+
+        public FooGetServerInfo1 build() {
+            return new FooGetServerInfo1(
+                server0,
+                server1
+            );
         }
     }
 

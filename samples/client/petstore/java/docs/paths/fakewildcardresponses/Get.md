@@ -41,6 +41,7 @@ import org.openapijsonschematools.client.paths.fakewildcardresponses.get.respons
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code3XXResponse;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code4XXResponse;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code5XXResponse;
+import org.openapijsonschematools.client..RootServerInfo;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.Get;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.Responses;
 
@@ -49,11 +50,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
-ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
-    new Server0(),
-    null,
-    null
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .rootServerInfo(
+        new RootServerInfo.RootServerInfoBuilder()
+            .server0(new Server0())
+            .build()
+    )
+    .build();
 );
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)

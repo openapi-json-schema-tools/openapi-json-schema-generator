@@ -44,6 +44,7 @@ import org.openapijsonschematools.client.components.securityschemes.HttpSignatur
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Code200Response;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Code400Response;
+import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.Get;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
 
@@ -52,10 +53,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
-ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
-    new PetfindbystatusServer0(),
-    null
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .petfindbystatusServerInfo(
+        new PetfindbystatusServerInfo.PetfindbystatusServerInfoBuilder()
+            .petfindbystatusServer0(new PetfindbystatusServer0())
+            .build()
+    )
+    .build();
 );
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex.SERVER_0)

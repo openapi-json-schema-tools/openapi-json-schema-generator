@@ -41,6 +41,7 @@ import org.openapijsonschematools.client.components.securityschemes.HttpBasicTes
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.responses.Code200Response;
+import org.openapijsonschematools.client..RootServerInfo;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.Get;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.Responses;
 
@@ -49,11 +50,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
-ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
-    new Server0(),
-    null,
-    null
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .rootServerInfo(
+        new RootServerInfo.RootServerInfoBuilder()
+            .server0(new Server0())
+            .build()
+    )
+    .build();
 );
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)

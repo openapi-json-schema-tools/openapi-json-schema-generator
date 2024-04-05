@@ -4,8 +4,74 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.servers.Server;
 import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
+import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
 import org.openapijsonschematools.client.paths.fake.post.FakePostSecurityInfo;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.FakemultiplesecuritiesGetSecurityInfo;
@@ -60,48 +126,1226 @@ public class ApiConfiguration {
     }
 
     public static class ServerInfo {
-        protected final RootServerInfo.RootServerInfo1 rootServerInfo;
-        protected final FooGetServerInfo.FooGetServerInfo1 fooGetServerInfo;
-        protected final PetfindbystatusServerInfo.PetfindbystatusServerInfo1 petfindbystatusServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final FooGetServerInfo.FooGetServerInfo1 fooGetServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final PetfindbystatusServerInfo.PetfindbystatusServerInfo1 petfindbystatusServerInfo;
+        final PetfindbystatusServerInfo.PetfindbystatusServerInfo1 petfindbystatusServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
 
-        public ServerInfo() {
-            rootServerInfo = new RootServerInfo.RootServerInfo1();
-            fooGetServerInfo = new FooGetServerInfo.FooGetServerInfo1();
-            petfindbystatusServerInfo = new PetfindbystatusServerInfo.PetfindbystatusServerInfo1();
-        }
-
-        public ServerInfo(
+        ServerInfo(
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
             RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
             FooGetServerInfo. @Nullable FooGetServerInfo1 fooGetServerInfo,
-            PetfindbystatusServerInfo. @Nullable PetfindbystatusServerInfo1 petfindbystatusServerInfo
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            PetfindbystatusServerInfo. @Nullable PetfindbystatusServerInfo1 petfindbystatusServerInfo,
+            PetfindbystatusServerInfo. @Nullable PetfindbystatusServerInfo1 petfindbystatusServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo,
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo
         ) {
-            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, RootServerInfo.RootServerInfo1::new);
-            this.fooGetServerInfo = Objects.requireNonNullElseGet(fooGetServerInfo, FooGetServerInfo.FooGetServerInfo1::new);
-            this.petfindbystatusServerInfo = Objects.requireNonNullElseGet(petfindbystatusServerInfo, PetfindbystatusServerInfo.PetfindbystatusServerInfo1::new);
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.fooGetServerInfo = Objects.requireNonNullElseGet(fooGetServerInfo, new FooGetServerInfo.FooGetServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.petfindbystatusServerInfo = Objects.requireNonNullElseGet(petfindbystatusServerInfo, new PetfindbystatusServerInfo.PetfindbystatusServerInfoBuilder().build());
+            this.petfindbystatusServerInfo = Objects.requireNonNullElseGet(petfindbystatusServerInfo, new PetfindbystatusServerInfo.PetfindbystatusServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+        }
+    }
+
+    public static class ServerInfoBuilder {
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private FooGetServerInfo. @Nullable FooGetServerInfo1 fooGetServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private PetfindbystatusServerInfo. @Nullable PetfindbystatusServerInfo1 petfindbystatusServerInfo;
+        private PetfindbystatusServerInfo. @Nullable PetfindbystatusServerInfo1 petfindbystatusServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        public ServerIndexInfoBuilder() {}
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder fooGetServerInfo(FooGetServerInfo.FooGetServerInfo1 fooGetServerInfo) {
+            this.fooGetServerInfo = fooGetServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder petfindbystatusServerInfo(PetfindbystatusServerInfo.PetfindbystatusServerInfo1 petfindbystatusServerInfo) {
+            this.petfindbystatusServerInfo = petfindbystatusServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder petfindbystatusServerInfo(PetfindbystatusServerInfo.PetfindbystatusServerInfo1 petfindbystatusServerInfo) {
+            this.petfindbystatusServerInfo = petfindbystatusServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfo build() {
+            return new ServerInfo(
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                fooGetServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                petfindbystatusServerInfo,
+                petfindbystatusServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo,
+                rootServerInfo
+            );
         }
     }
 
     public static class ServerIndexInfo {
         final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
         final FooGetServerInfo.ServerIndex fooGetServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
         final PetfindbystatusServerInfo.ServerIndex petfindbystatusServerInfoServerIndex;
+        final PetfindbystatusServerInfo.ServerIndex petfindbystatusServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
 
         ServerIndexInfo(
         RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
         FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex,
-        PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex,
+        PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex,
+        RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex
         ) {
             this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
             this.fooGetServerInfoServerIndex = Objects.requireNonNullElseGet(fooGetServerInfoServerIndex, FooGetServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
             this.petfindbystatusServerInfoServerIndex = Objects.requireNonNullElseGet(petfindbystatusServerInfoServerIndex, PetfindbystatusServerInfo.ServerIndex.SERVER_0);;
+            this.petfindbystatusServerInfoServerIndex = Objects.requireNonNullElseGet(petfindbystatusServerInfoServerIndex, PetfindbystatusServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
+            this.rootServerInfoServerIndex = Objects.requireNonNullElseGet(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);;
         }
     }
 
     public static class ServerIndexInfoBuilder {
-        protected RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
-        protected FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex;
-        protected PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex;
+        private PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
         public ServerIndexInfoBuilder() {}
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
 
         public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
             this.rootServerInfoServerIndex = serverIndex;
@@ -113,18 +1357,598 @@ public class ApiConfiguration {
             return this;
         }
 
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
         public ServerIndexInfoBuilder petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex serverIndex) {
             this.petfindbystatusServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex serverIndex) {
+            this.petfindbystatusServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
+            return this;
+        }
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
             return this;
         }
 
         public ServerIndexInfo build() {
             return new ServerIndexInfo(
                 rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
                 fooGetServerInfoServerIndex,
-                petfindbystatusServerInfoServerIndex
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                petfindbystatusServerInfoServerIndex,
+                petfindbystatusServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex,
+                rootServerInfoServerIndex
             );
         }
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
     }
 
     public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
@@ -145,10 +1969,190 @@ public class ApiConfiguration {
         return serverProvider.getServer(serverIndex);
     }
 
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
     public Server getServer(PetfindbystatusServerInfo. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.petfindbystatusServerInfo;
         if (serverIndex == null) {
             PetfindbystatusServerInfo.ServerIndex configServerIndex = serverIndexInfo.petfindbystatusServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(PetfindbystatusServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.petfindbystatusServerInfo;
+        if (serverIndex == null) {
+            PetfindbystatusServerInfo.ServerIndex configServerIndex = serverIndexInfo.petfindbystatusServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            return serverProvider.getServer(configServerIndex);
+        }
+        return serverProvider.getServer(serverIndex);
+    }
+
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
+        if (serverIndex == null) {
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);

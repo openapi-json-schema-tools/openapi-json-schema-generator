@@ -35,6 +35,7 @@ import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
 import org.openapijsonschematools.client.paths.foo.get.responses.CodedefaultResponse;
+import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
 import org.openapijsonschematools.client.paths.foo.Get;
 import org.openapijsonschematools.client.paths.foo.get.Responses;
 
@@ -43,10 +44,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
-ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
-    new FooGetServer0(),
-    null
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .fooGetServerInfo(
+        new FooGetServerInfo.FooGetServerInfoBuilder()
+            .fooGetServer0(new FooGetServer0())
+            .build()
+    )
+    .build();
 );
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     .fooGetServerInfoServerIndex(FooGetServerInfo.ServerIndex.SERVER_0)
