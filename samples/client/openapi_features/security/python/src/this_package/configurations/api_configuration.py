@@ -42,8 +42,8 @@ class SecurityIndexInfoRequired(typing.TypedDict):
 SecurityIndexInfoOptional = typing.TypedDict(
     'SecurityIndexInfoOptional',
     {
+        "paths//pathWithNoExplicitSecurity/get/security": typing.Literal[],
         "paths//pathWithOneExplicitSecurity/get/security": typing.Literal[0],
-        "paths//pathWithSecurityFromRoot/get/security": typing.Literal[0, 1, 2, 3],
         "paths//pathWithTwoExplicitSecurity/get/security": typing.Literal[0, 1],
     },
     total=False
@@ -327,8 +327,8 @@ class ApiConfiguration(object):
         self,
         key_prefix: typing.Literal[
             "security",
+            "paths//pathWithNoExplicitSecurity/get/security",
             "paths//pathWithOneExplicitSecurity/get/security",
-            "paths//pathWithSecurityFromRoot/get/security",
             "paths//pathWithTwoExplicitSecurity/get/security",
         ],
         security_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
