@@ -163,58 +163,14 @@ See how to do this in the code sample.
 Set the available servers by defining your used servers in ApiConfiguration.server_info
 Then select your server by setting a server index in ApiConfiguration.server_index_info or by
 passing server_index in to the endpoint method.
-- these servers are specific to this endpoint
+- these servers are the general api servers
 - defaults to server_index=0, server.url = http://petstore.swagger.io:80/v2
 
 server_index | Class | Description
 ------------ | ----- | ------------
-0 | [Server0](#server0) | petstore server
-1 | [Server1](#server1) | The local server
-2 | [Server2](#server2) | staging server with no variables
-
-petstore_api.servers.server_0
-### Server0
-
-#### Description
-petstore server
-
-#### Url
-http://{server}.swagger.io:{port}/v2
-
-#### Variables
-Key | Type | Description | Notes
---- | ---- | ----------- | ------
-**server** | str | server host prefix |  must be one of ["petstore", "qa-petstore", "dev-petstore"] if omitted the client will use the default value of petstore
-**port** | str | the port |  must be one of ["80", "8080"] if omitted the client will use the default value of 80
-
-[[Back to top]](#top) [[Back to Servers]](../../README.md#Servers) [[Back to README]](../../README.md)
-
-petstore_api.servers.server_1
-### Server1
-
-#### Description
-The local server
-
-#### Url
-https://localhost:8080/{version}
-
-#### Variables
-Key | Type | Description | Notes
---- | ---- | ----------- | ------
-**version** | str |  |  must be one of ["v1", "v2"] if omitted the client will use the default value of v2
-
-[[Back to top]](#top) [[Back to Servers]](../../README.md#Servers) [[Back to README]](../../README.md)
-
-petstore_api.servers.server_2
-### Server2
-
-#### Description
-staging server with no variables
-
-#### Url
-https://localhost:8080
-
-[[Back to top]](#top) [[Back to Servers]](../../README.md#Servers) [[Back to README]](../../README.md)
+0 | [Server0](../../servers/server_0.md) | petstore server
+1 | [Server1](../../servers/server_1.md) | The local server
+2 | [Server2](../../servers/server_2.md) | staging server with no variables
 
 ## Code Sample
 

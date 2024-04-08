@@ -114,7 +114,7 @@ See how to do this in the code sample.
 Set the available servers by defining your used servers in ApiConfiguration.server_info
 Then select your server by setting a server index in ApiConfiguration.server_index_info or by
 passing server_index in to the endpoint method.
-- these servers are specific to this endpoint
+- these servers are specific to this "/pet/findByStatus" path
 - defaults to server_index=0, server.url = https://path-server-test.petstore.local/v2
 
 server_index | Class | Description
