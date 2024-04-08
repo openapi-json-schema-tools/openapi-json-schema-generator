@@ -39,11 +39,11 @@ public class ItemsSchema {
     }
     
     
-    public static class AdditionalProperty extends StringJsonSchema.StringJsonSchema1 {
-        private static @Nullable AdditionalProperty instance = null;
-        public static AdditionalProperty getInstance() {
+    public static class SomeProperty extends StringJsonSchema.StringJsonSchema1 {
+        private static @Nullable SomeProperty instance = null;
+        public static SomeProperty getInstance() {
             if (instance == null) {
-                instance = new AdditionalProperty();
+                instance = new SomeProperty();
             }
             return instance;
         }
@@ -68,7 +68,7 @@ public class ItemsSchema {
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "name",
-            "additionalProperty",
+            "someProperty",
             "secondAdditionalProperty"
         );
         public static ItemsSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -85,12 +85,12 @@ public class ItemsSchema {
             return (String) value;
         }
         
-        public String additionalProperty() throws UnsetPropertyException {
-            String key = "additionalProperty";
+        public String someProperty() throws UnsetPropertyException {
+            String key = "someProperty";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for additionalProperty");
+                throw new RuntimeException("Invalid value stored for someProperty");
             }
             return (String) value;
         }
@@ -123,14 +123,14 @@ public class ItemsSchema {
         }
     }
     
-    public interface SetterForAdditionalProperty <T> {
+    public interface SetterForSomeProperty <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+        T getBuilderAfterSomeProperty(Map<String, @Nullable Object> instance);
         
-        default T additionalProperty(String value) {
+        default T someProperty(String value) {
             var instance = getInstance();
-            instance.put("additionalProperty", value);
-            return getBuilderAfterAdditionalProperty(instance);
+            instance.put("someProperty", value);
+            return getBuilderAfterSomeProperty(instance);
         }
     }
     
@@ -145,11 +145,11 @@ public class ItemsSchema {
         }
     }
     
-    public static class ItemsSchemaMapBuilder extends UnsetAddPropsSetter<ItemsSchemaMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForName<ItemsSchemaMapBuilder>, SetterForAdditionalProperty<ItemsSchemaMapBuilder>, SetterForSecondAdditionalProperty<ItemsSchemaMapBuilder> {
+    public static class ItemsSchemaMapBuilder extends UnsetAddPropsSetter<ItemsSchemaMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForName<ItemsSchemaMapBuilder>, SetterForSomeProperty<ItemsSchemaMapBuilder>, SetterForSecondAdditionalProperty<ItemsSchemaMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "name",
-            "additionalProperty",
+            "someProperty",
             "secondAdditionalProperty"
         );
         public Set<String> getKnownKeys() {
@@ -167,7 +167,7 @@ public class ItemsSchema {
         public ItemsSchemaMapBuilder getBuilderAfterName(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public ItemsSchemaMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public ItemsSchemaMapBuilder getBuilderAfterSomeProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
         public ItemsSchemaMapBuilder getBuilderAfterSecondAdditionalProperty(Map<String, @Nullable Object> instance) {
@@ -205,7 +205,7 @@ public class ItemsSchema {
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                     new PropertyEntry("name", Name.class),
-                    new PropertyEntry("additionalProperty", AdditionalProperty.class),
+                    new PropertyEntry("someProperty", SomeProperty.class),
                     new PropertyEntry("secondAdditionalProperty", SecondAdditionalProperty.class)
                 ))
             );

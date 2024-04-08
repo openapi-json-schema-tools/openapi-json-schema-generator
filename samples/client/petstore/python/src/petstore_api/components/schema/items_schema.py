@@ -11,13 +11,13 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Name: typing_extensions.TypeAlias = schemas.StrSchema
-AdditionalProperty: typing_extensions.TypeAlias = schemas.StrSchema
+SomeProperty: typing_extensions.TypeAlias = schemas.StrSchema
 SecondAdditionalProperty: typing_extensions.TypeAlias = schemas.StrSchema
 Properties = typing.TypedDict(
     'Properties',
     {
         "name": typing.Type[Name],
-        "additionalProperty": typing.Type[AdditionalProperty],
+        "someProperty": typing.Type[SomeProperty],
         "secondAdditionalProperty": typing.Type[SecondAdditionalProperty],
     }
 )
@@ -29,7 +29,7 @@ class ItemsSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "name",
-        "additionalProperty",
+        "someProperty",
         "secondAdditionalProperty",
     })
     
@@ -40,7 +40,7 @@ class ItemsSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             str,
             schemas.Unset
         ] = schemas.unset,
-        additionalProperty: typing.Union[
+        someProperty: typing.Union[
             str,
             schemas.Unset
         ] = schemas.unset,
@@ -54,7 +54,7 @@ class ItemsSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_: typing.Dict[str, typing.Any] = {}
         for key_, val in (
             ("name", name),
-            ("additionalProperty", additionalProperty),
+            ("someProperty", someProperty),
             ("secondAdditionalProperty", secondAdditionalProperty),
         ):
             if isinstance(val, schemas.Unset):
@@ -85,8 +85,8 @@ class ItemsSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def additionalProperty(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("additionalProperty", schemas.unset)
+    def someProperty(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("someProperty", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(

@@ -3469,7 +3469,7 @@ components:
       properties:
         name:
           type: string
-        additionalProperty:
+        someProperty:
           type: string
         secondAdditionalProperty:
           type: string

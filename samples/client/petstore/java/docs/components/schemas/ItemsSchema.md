@@ -20,9 +20,9 @@ A class that contains necessary nested
 | sealed interface | [ItemsSchema.SecondAdditionalPropertyBoxed](#secondadditionalpropertyboxed)<br> sealed interface for validated payloads |
 | record | [ItemsSchema.SecondAdditionalPropertyBoxedString](#secondadditionalpropertyboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ItemsSchema.SecondAdditionalProperty](#secondadditionalproperty)<br> schema class |
-| sealed interface | [ItemsSchema.AdditionalPropertyBoxed](#additionalpropertyboxed)<br> sealed interface for validated payloads |
-| record | [ItemsSchema.AdditionalPropertyBoxedString](#additionalpropertyboxedstring)<br> boxed class to store validated String payloads |
-| static class | [ItemsSchema.AdditionalProperty](#additionalproperty)<br> schema class |
+| sealed interface | [ItemsSchema.SomePropertyBoxed](#somepropertyboxed)<br> sealed interface for validated payloads |
+| record | [ItemsSchema.SomePropertyBoxedString](#somepropertyboxedstring)<br> boxed class to store validated String payloads |
+| static class | [ItemsSchema.SomeProperty](#someproperty)<br> schema class |
 | sealed interface | [ItemsSchema.NameBoxed](#nameboxed)<br> sealed interface for validated payloads |
 | record | [ItemsSchema.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ItemsSchema.Name](#name)<br> schema class |
@@ -79,7 +79,7 @@ ItemsSchema.ItemsSchemaMap validatedPayload =
     new ItemsSchema.ItemsSchemaMapBuilder()
         .name("a")
 
-        .additionalProperty("a")
+        .someProperty("a")
 
         .secondAdditionalProperty("a")
 
@@ -92,7 +92,7 @@ ItemsSchema.ItemsSchemaMap validatedPayload =
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("name", [Name.class](#name))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("additionalProperty", [AdditionalProperty.class](#additionalproperty))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("secondAdditionalProperty", [SecondAdditionalProperty.class](#secondadditionalproperty)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("name", [Name.class](#name))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("someProperty", [SomeProperty.class](#someproperty))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("secondAdditionalProperty", [SecondAdditionalProperty.class](#secondadditionalproperty)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -118,7 +118,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [ItemsSchemaMapBuilder](#itemsschemamapbuilder) | name(String value) |
-| [ItemsSchemaMapBuilder](#itemsschemamapbuilder) | additionalProperty(String value) |
+| [ItemsSchemaMapBuilder](#itemsschemamapbuilder) | someProperty(String value) |
 | [ItemsSchemaMapBuilder](#itemsschemamapbuilder) | secondAdditionalProperty(String value) |
 | [ItemsSchemaMapBuilder](#itemsschemamapbuilder) | additionalProperty(String key, Void value) |
 | [ItemsSchemaMapBuilder](#itemsschemamapbuilder) | additionalProperty(String key, boolean value) |
@@ -141,7 +141,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ItemsSchemaMap](#itemsschemamap) | of([Map<String, ? extends @Nullable Object>](#itemsschemamapbuilder) arg, SchemaConfiguration configuration) |
 | String | name()<br>[optional] |
-| String | additionalProperty()<br>[optional] |
+| String | someProperty()<br>[optional] |
 | String | secondAdditionalProperty()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
@@ -180,23 +180,23 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
-## AdditionalPropertyBoxed
-public sealed interface AdditionalPropertyBoxed<br>
+## SomePropertyBoxed
+public sealed interface SomePropertyBoxed<br>
 permits<br>
-[AdditionalPropertyBoxedString](#additionalpropertyboxedstring)
+[SomePropertyBoxedString](#somepropertyboxedstring)
 
 sealed interface that stores validated payloads using boxed classes
 
-## AdditionalPropertyBoxedString
-public record AdditionalPropertyBoxedString<br>
-implements [AdditionalPropertyBoxed](#additionalpropertyboxed)
+## SomePropertyBoxedString
+public record SomePropertyBoxedString<br>
+implements [SomePropertyBoxed](#somepropertyboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| AdditionalPropertyBoxedString(String data)<br>Creates an instance, private visibility |
+| SomePropertyBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -204,8 +204,8 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## AdditionalProperty
-public static class AdditionalProperty<br>
+## SomeProperty
+public static class SomeProperty<br>
 extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
