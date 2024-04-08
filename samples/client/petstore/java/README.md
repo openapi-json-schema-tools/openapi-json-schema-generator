@@ -222,6 +222,7 @@ allowed input and output types.
 | [IntegerMin15.IntegerMin151](docs/components/schemas/IntegerMin15.md#integermin151) | |
 | [IsoscelesTriangle.IsoscelesTriangle1](docs/components/schemas/IsoscelesTriangle.md#isoscelestriangle1) | |
 | [Items.Items1](docs/components/schemas/Items.md#items1) | component&#x27;s name collides with the inner schema name |
+| [ItemsSchema.ItemsSchema1](docs/components/schemas/ItemsSchema.md#itemsschema1) | |
 | [JSONPatchRequest.JSONPatchRequest1](docs/components/schemas/JSONPatchRequest.md#jsonpatchrequest1) | |
 | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1](docs/components/schemas/JSONPatchRequestAddReplaceTest.md#jsonpatchrequestaddreplacetest1) | |
 | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1](docs/components/schemas/JSONPatchRequestMoveCopy.md#jsonpatchrequestmovecopy1) | |
@@ -229,6 +230,7 @@ allowed input and output types.
 | [MapTest.MapTest1](docs/components/schemas/MapTest.md#maptest1) | |
 | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1](docs/components/schemas/MixedPropertiesAndAdditionalPropertiesClass.md#mixedpropertiesandadditionalpropertiesclass1) | |
 | [Money.Money1](docs/components/schemas/Money.md#money1) | |
+| [MultiPropertiesSchema.MultiPropertiesSchema1](docs/components/schemas/MultiPropertiesSchema.md#multipropertiesschema1) | |
 | [MyObjectDto.MyObjectDto1](docs/components/schemas/MyObjectDto.md#myobjectdto1) | |
 | [Name.Name1](docs/components/schemas/Name.md#name1) | Model for testing model name same as property name |
 | [NoAdditionalProperties.NoAdditionalProperties1](docs/components/schemas/NoAdditionalProperties.md#noadditionalproperties1) | |

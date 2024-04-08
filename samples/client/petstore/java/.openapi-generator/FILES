@@ -112,6 +112,7 @@ docs/components/schemas/IntegerMax10.md
 docs/components/schemas/IntegerMin15.md
 docs/components/schemas/IsoscelesTriangle.md
 docs/components/schemas/Items.md
+docs/components/schemas/ItemsSchema.md
 docs/components/schemas/JSONPatchRequest.md
 docs/components/schemas/JSONPatchRequestAddReplaceTest.md
 docs/components/schemas/JSONPatchRequestMoveCopy.md
@@ -120,6 +121,7 @@ docs/components/schemas/Mammal.md
 docs/components/schemas/MapTest.md
 docs/components/schemas/MixedPropertiesAndAdditionalPropertiesClass.md
 docs/components/schemas/Money.md
+docs/components/schemas/MultiPropertiesSchema.md
 docs/components/schemas/MyObjectDto.md
 docs/components/schemas/Name.md
 docs/components/schemas/NoAdditionalProperties.md
@@ -811,6 +813,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/IntegerMax10.
 src/main/java/org/openapijsonschematools/client/components/schemas/IntegerMin15.java
 src/main/java/org/openapijsonschematools/client/components/schemas/IsoscelesTriangle.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Items.java
+src/main/java/org/openapijsonschematools/client/components/schemas/ItemsSchema.java
 src/main/java/org/openapijsonschematools/client/components/schemas/JSONPatchRequest.java
 src/main/java/org/openapijsonschematools/client/components/schemas/JSONPatchRequestAddReplaceTest.java
 src/main/java/org/openapijsonschematools/client/components/schemas/JSONPatchRequestMoveCopy.java
@@ -819,6 +822,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/Mammal.java
 src/main/java/org/openapijsonschematools/client/components/schemas/MapTest.java
 src/main/java/org/openapijsonschematools/client/components/schemas/MixedPropertiesAndAdditionalPropertiesClass.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Money.java
+src/main/java/org/openapijsonschematools/client/components/schemas/MultiPropertiesSchema.java
 src/main/java/org/openapijsonschematools/client/components/schemas/MyObjectDto.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Name.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NoAdditionalProperties.java
@@ -1695,6 +1699,8 @@ src/main/java/org/openapijsonschematools/client/servers/ServerWithVariables.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.java
 src/main/java/org/openapijsonschematools/client/servers/server0/Variables.java
 src/main/java/org/openapijsonschematools/client/servers/server1/Variables.java
+src/test/java/org/openapijsonschematools/client/components/schemas/ItemsSchemaTest.java
+src/test/java/org/openapijsonschematools/client/components/schemas/MultiPropertiesSchemaTest.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/header/ContentHeaderTest.java
 src/test/java/org/openapijsonschematools/client/header/SchemaHeaderTest.java

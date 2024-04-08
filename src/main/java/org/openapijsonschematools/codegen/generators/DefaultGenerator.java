@@ -3708,7 +3708,7 @@ public class DefaultGenerator implements Generator {
                 continue;
             }
             final CodegenSchema prop = entry.getValue();
-            if (prop.refInfo != null) {
+            if (prop.hasAnyRefs()) {
                 allAreInline = false;
             }
             optionalProperties.put(key, prop);

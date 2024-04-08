@@ -74,6 +74,7 @@ from petstore_api.components.schema.integer_max10 import IntegerMax10
 from petstore_api.components.schema.integer_min15 import IntegerMin15
 from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
 from petstore_api.components.schema.items import Items
+from petstore_api.components.schema.items_schema import ItemsSchema
 from petstore_api.components.schema.json_patch_request import JSONPatchRequest
 from petstore_api.components.schema.json_patch_request_add_replace_test import JSONPatchRequestAddReplaceTest
 from petstore_api.components.schema.json_patch_request_move_copy import JSONPatchRequestMoveCopy
@@ -81,6 +82,7 @@ from petstore_api.components.schema.json_patch_request_remove import JSONPatchRe
 from petstore_api.components.schema.map_test import MapTest
 from petstore_api.components.schema.mixed_properties_and_additional_properties_class import MixedPropertiesAndAdditionalPropertiesClass
 from petstore_api.components.schema.money import Money
+from petstore_api.components.schema.multi_properties_schema import MultiPropertiesSchema
 from petstore_api.components.schema.my_object_dto import MyObjectDto
 from petstore_api.components.schema.name import Name
 from petstore_api.components.schema.no_additional_properties import NoAdditionalProperties

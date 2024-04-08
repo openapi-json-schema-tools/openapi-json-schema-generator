@@ -305,6 +305,7 @@ Class | Description
 [IntegerMin15](docs/components/schema/integer_min15.md) |
 [IsoscelesTriangle](docs/components/schema/isosceles_triangle.md) |
 [Items](docs/components/schema/items.md) | component&#x27;s name collides with the inner schema name
+[ItemsSchema](docs/components/schema/items_schema.md) |
 [JSONPatchRequest](docs/components/schema/json_patch_request.md) |
 [JSONPatchRequestAddReplaceTest](docs/components/schema/json_patch_request_add_replace_test.md) |
 [JSONPatchRequestMoveCopy](docs/components/schema/json_patch_request_move_copy.md) |
@@ -312,6 +313,7 @@ Class | Description
 [MapTest](docs/components/schema/map_test.md) |
 [MixedPropertiesAndAdditionalPropertiesClass](docs/components/schema/mixed_properties_and_additional_properties_class.md) |
 [Money](docs/components/schema/money.md) |
+[MultiPropertiesSchema](docs/components/schema/multi_properties_schema.md) |
 [MyObjectDto](docs/components/schema/my_object_dto.md) |
 [Name](docs/components/schema/name.md) | Model for testing model name same as property name
 [NoAdditionalProperties](docs/components/schema/no_additional_properties.md) |
