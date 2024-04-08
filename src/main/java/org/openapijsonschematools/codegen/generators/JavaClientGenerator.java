@@ -1034,6 +1034,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 put("src/main/java/packagename/paths/path/PathItem.hbs", ".java");
             }}
         );
+        // path apis
+        jsonPathTemplateFiles.put(
+            CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATH,
+            new HashMap<>() {{
+                put("src/main/java/packagename/apis/paths/Api.hbs", ".java");
+            }}
+        );
 
         // schema
         HashMap<String, String> schemaTemplates = new HashMap<>();
@@ -1400,8 +1407,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     public String toPathFilename(String name, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
-        if (pathPieces.length == 3) {
+        boolean pathClassCase = (pathPieces.length == 3 || (pathPieces.length == 4 && pathPieces[1].equals("apis")));
+        if (pathClassCase) {
             // #/paths/somePath -> Somepath
+            // #/apis/paths/somePath -> Somepath
             String moduleFilename = toModuleFilename(name, jsonPath);
             return camelize(moduleFilename, false);
         }
