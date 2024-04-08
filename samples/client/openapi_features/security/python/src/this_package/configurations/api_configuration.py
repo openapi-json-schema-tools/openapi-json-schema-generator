@@ -23,10 +23,6 @@ from this_package.components.security_schemes import security_scheme_api_key
 from this_package.components.security_schemes import security_scheme_bearer_test
 from this_package.components.security_schemes import security_scheme_http_basic_test
 from this_package.servers import server_0
-from this_package.paths.path_with_no_explicit_security.get.servers import server_0 as path_with_no_explicit_security_get_server_0
-from this_package.paths.path_with_one_explicit_security.get.servers import server_0 as path_with_one_explicit_security_get_server_0
-from this_package.paths.path_with_security_from_root.get.servers import server_0 as path_with_security_from_root_get_server_0
-from this_package.paths.path_with_two_explicit_security.get.servers import server_0 as path_with_two_explicit_security_get_server_0
 
 # security scheme key identifier to security scheme instance
 SecuritySchemeInfo = typing.TypedDict(
@@ -65,10 +61,6 @@ ServerInfo = typing.TypedDict(
     'ServerInfo',
     {
         'servers/0': server_0.Server0,
-        "paths//pathWithNoExplicitSecurity/get/servers/0": path_with_no_explicit_security_get_server_0.Server0,
-        "paths//pathWithOneExplicitSecurity/get/servers/0": path_with_one_explicit_security_get_server_0.Server0,
-        "paths//pathWithSecurityFromRoot/get/servers/0": path_with_security_from_root_get_server_0.Server0,
-        "paths//pathWithTwoExplicitSecurity/get/servers/0": path_with_two_explicit_security_get_server_0.Server0,
     },
     total=False
 )

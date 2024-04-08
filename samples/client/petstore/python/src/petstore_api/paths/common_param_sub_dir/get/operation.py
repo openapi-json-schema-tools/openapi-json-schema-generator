@@ -115,7 +115,7 @@ class BaseApi(api_client.Api):
         )
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            "paths//commonParam/{subDir}//get/servers", server_index
+            "servers", server_index
         )
 
         raw_response = self.api_client.call_api(

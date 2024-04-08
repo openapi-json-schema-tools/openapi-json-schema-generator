@@ -132,7 +132,7 @@ class BaseApi(api_client.Api):
             headers=headers
         )
         host = self.api_client.configuration.get_server_url(
-            "paths//pet/{petId}/uploadImage/post/servers", server_index
+            "servers", server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
             "paths//pet/{petId}/uploadImage/post/security",

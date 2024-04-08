@@ -35,11 +35,11 @@ from {{packageName}}.paths.{{../@key.snakeCase}}.servers import {{jsonPathPiece.
         {{/if}}
         {{#if operations}}
             {{#each operations}}
-                {{#if servers}}
+                {{#eq responses.subpackage servers.subpackage}}
                     {{#each servers}}
 from {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers import {{jsonPathPiece.snakeCase}} as {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}
                     {{/each}}
-                {{/if}}
+                {{/eq}}
             {{/each}}
         {{/if}}
     {{/each}}
@@ -105,11 +105,11 @@ ServerInfo = typing.TypedDict(
     {{/if}}
     {{#if operations}}
         {{#each operations}}
-            {{#if servers}}
+            {{#eq responses.subpackage servers.subpackage}}
                 {{#each servers}}
         "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
                 {{/each}}
-            {{/if}}
+            {{/eq}}
         {{/each}}
     {{/if}}
 {{/each}}

@@ -19,14 +19,12 @@ import urllib3
 
 from this_package import exceptions
 from this_package.servers import server_0
-from this_package.paths.operators.post.servers import server_0 as operators_post_server_0
 
 # the server to use at each openapi document json path
 ServerInfo = typing.TypedDict(
     'ServerInfo',
     {
         'servers/0': server_0.Server0,
-        "paths//operators/post/servers/0": operators_post_server_0.Server0,
     },
     total=False
 )

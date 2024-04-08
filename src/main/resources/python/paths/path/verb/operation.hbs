@@ -386,21 +386,21 @@ class BaseApi(api_client.Api):
             headers=headers
         )
     {{/if}}
-    {{#if servers}}
+    {{#neq servers.subpackage null}}
+        {{#eq servers.subpackage responses.subpackage}}
         host = self.api_client.configuration.get_server_url(
             "paths/{{{path.original}}}/{{httpMethod.original}}/servers", server_index
         )
-    {{else}}
-        {{#if pathItem.servers}}
+        {{else}}
         host = self.api_client.configuration.get_server_url(
             "paths/{{{path.original}}}/servers", server_index
         )
-        {{else}}
+        {{/eq}}
+    {{else}}
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
         )
-        {{/if}}
-    {{/if}}
+    {{/neq}}
     {{#neq security null}}
         {{#gt security.size 0}}
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(

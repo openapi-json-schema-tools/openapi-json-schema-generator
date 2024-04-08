@@ -70,7 +70,7 @@ class BaseApi(api_client.Api):
         headers = self._get_headers(accept_content_types=accept_content_types)
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            "paths//responseBody/postEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes/post/servers", server_index
+            "servers", server_index
         )
 
         raw_response = self.api_client.call_api(

@@ -98,7 +98,7 @@ class BaseApi(api_client.Api):
             headers=headers
         )
         host = self.api_client.configuration.get_server_url(
-            "paths//fake/jsonWithCharset/post/servers", server_index
+            "servers", server_index
         )
 
         raw_response = self.api_client.call_api(
