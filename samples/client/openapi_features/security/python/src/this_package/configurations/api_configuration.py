@@ -72,10 +72,6 @@ class ServerIndexInfoRequired(typing.TypedDict):
 ServerIndexInfoOptional = typing.TypedDict(
     'ServerIndexInfoOptional',
     {
-        "paths//pathWithNoExplicitSecurity/get/servers": typing.Literal[0],
-        "paths//pathWithOneExplicitSecurity/get/servers": typing.Literal[0],
-        "paths//pathWithSecurityFromRoot/get/servers": typing.Literal[0],
-        "paths//pathWithTwoExplicitSecurity/get/servers": typing.Literal[0],
     },
     total=False
 )

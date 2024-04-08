@@ -134,9 +134,9 @@ ServerIndexInfoOptional = typing.TypedDict(
     {{/if}}
     {{#if operations}}
         {{#each operations}}
-            {{#if servers}}
+            {{#eq responses.subpackage servers.subpackage}}
         "paths/{{../@key.original}}/{{@key.original}}/servers": typing.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
-            {{/if}}
+            {{/eq}}
         {{/each}}
     {{/if}}
 {{/each}}

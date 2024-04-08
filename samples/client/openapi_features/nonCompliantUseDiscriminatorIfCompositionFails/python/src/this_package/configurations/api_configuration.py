@@ -36,7 +36,6 @@ class ServerIndexInfoRequired(typing.TypedDict):
 ServerIndexInfoOptional = typing.TypedDict(
     'ServerIndexInfoOptional',
     {
-        "paths//operators/post/servers": typing.Literal[0],
     },
     total=False
 )
