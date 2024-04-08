@@ -16,8 +16,8 @@ public class ApiConfiguration {
     private final @Nullable Duration timeout;
 
     public ApiConfiguration() {
-        serverInfo = new ServerInfo();
-        serverIndexInfo = new ServerIndexInfo();
+        serverInfo = new ServerInfoBuilder().build();
+        serverIndexInfo = new ServerIndexInfoBuilder().build();
         timeout = null;
     }
 
@@ -28,36 +28,61 @@ public class ApiConfiguration {
     }
 
     public static class ServerInfo {
-        protected final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
 
-        public ServerInfo() {
-            rootServerInfo = new RootServerInfo.RootServerInfo1();
-        }
-
-        public ServerInfo(
+        ServerInfo(
             RootServerInfo. @Nullable RootServerInfo1 rootServerInfo
         ) {
-            this.rootServerInfo = Objects.requireNonNullElseGet(rootServerInfo, RootServerInfo.RootServerInfo1::new);
+            this.rootServerInfo = Objects.requireNonNullElse(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+        }
+    }
+
+    public static class ServerInfoBuilder {
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        public ServerInfoBuilder() {}
+
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
+            return this;
+        }
+
+        public ServerInfo build() {
+            return new ServerInfo(
+                rootServerInfo
+            );
         }
     }
 
     public static class ServerIndexInfo {
-        protected RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
-        public ServerIndexInfo() {}
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
 
-        public ServerIndexInfo rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+        ServerIndexInfo(
+            RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex
+        ) {
+            this.rootServerInfoServerIndex = Objects.requireNonNullElse(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);
+        }
+    }
+
+    public static class ServerIndexInfoBuilder {
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        public ServerIndexInfoBuilder() {}
+
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
             this.rootServerInfoServerIndex = serverIndex;
             return this;
+        }
+
+        public ServerIndexInfo build() {
+            return new ServerIndexInfo(
+                rootServerInfoServerIndex
+            );
         }
     }
 
     public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
         var serverProvider = serverInfo.rootServerInfo;
         if (serverIndex == null) {
-            RootServerInfo. @Nullable ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
-            if (configServerIndex == null) {
-                throw new RuntimeException("rootServerInfoServerIndex is unset");
-            }
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);

@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     securityIndexInfo,
     timeout
 );
-SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 Post.Post1 apiClient = new Post.Post1(apiConfiguration, schemaConfiguration);
 
 

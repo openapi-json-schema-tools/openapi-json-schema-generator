@@ -29,10 +29,207 @@ from petstore_api.components.security_schemes import security_scheme_petstore_au
 from petstore_api.servers import server_0
 from petstore_api.servers import server_1
 from petstore_api.servers import server_2
+from petstore_api.paths.solidus.get.servers import server_0 as solidus_get_server_0
+from petstore_api.paths.solidus.get.servers import server_1 as solidus_get_server_1
+from petstore_api.paths.solidus.get.servers import server_2 as solidus_get_server_2
+from petstore_api.paths.another_fake_dummy.patch.servers import server_0 as another_fake_dummy_patch_server_0
+from petstore_api.paths.another_fake_dummy.patch.servers import server_1 as another_fake_dummy_patch_server_1
+from petstore_api.paths.another_fake_dummy.patch.servers import server_2 as another_fake_dummy_patch_server_2
+from petstore_api.paths.common_param_sub_dir.delete.servers import server_0 as common_param_sub_dir_delete_server_0
+from petstore_api.paths.common_param_sub_dir.delete.servers import server_1 as common_param_sub_dir_delete_server_1
+from petstore_api.paths.common_param_sub_dir.delete.servers import server_2 as common_param_sub_dir_delete_server_2
+from petstore_api.paths.common_param_sub_dir.get.servers import server_0 as common_param_sub_dir_get_server_0
+from petstore_api.paths.common_param_sub_dir.get.servers import server_1 as common_param_sub_dir_get_server_1
+from petstore_api.paths.common_param_sub_dir.get.servers import server_2 as common_param_sub_dir_get_server_2
+from petstore_api.paths.common_param_sub_dir.post.servers import server_0 as common_param_sub_dir_post_server_0
+from petstore_api.paths.common_param_sub_dir.post.servers import server_1 as common_param_sub_dir_post_server_1
+from petstore_api.paths.common_param_sub_dir.post.servers import server_2 as common_param_sub_dir_post_server_2
+from petstore_api.paths.fake.delete.servers import server_0 as fake_delete_server_0
+from petstore_api.paths.fake.delete.servers import server_1 as fake_delete_server_1
+from petstore_api.paths.fake.delete.servers import server_2 as fake_delete_server_2
+from petstore_api.paths.fake.get.servers import server_0 as fake_get_server_0
+from petstore_api.paths.fake.get.servers import server_1 as fake_get_server_1
+from petstore_api.paths.fake.get.servers import server_2 as fake_get_server_2
+from petstore_api.paths.fake.patch.servers import server_0 as fake_patch_server_0
+from petstore_api.paths.fake.patch.servers import server_1 as fake_patch_server_1
+from petstore_api.paths.fake.patch.servers import server_2 as fake_patch_server_2
+from petstore_api.paths.fake.post.servers import server_0 as fake_post_server_0
+from petstore_api.paths.fake.post.servers import server_1 as fake_post_server_1
+from petstore_api.paths.fake.post.servers import server_2 as fake_post_server_2
+from petstore_api.paths.fake_additional_properties_with_array_of_enums.get.servers import server_0 as fake_additional_properties_with_array_of_enums_get_server_0
+from petstore_api.paths.fake_additional_properties_with_array_of_enums.get.servers import server_1 as fake_additional_properties_with_array_of_enums_get_server_1
+from petstore_api.paths.fake_additional_properties_with_array_of_enums.get.servers import server_2 as fake_additional_properties_with_array_of_enums_get_server_2
+from petstore_api.paths.fake_body_with_file_schema.put.servers import server_0 as fake_body_with_file_schema_put_server_0
+from petstore_api.paths.fake_body_with_file_schema.put.servers import server_1 as fake_body_with_file_schema_put_server_1
+from petstore_api.paths.fake_body_with_file_schema.put.servers import server_2 as fake_body_with_file_schema_put_server_2
+from petstore_api.paths.fake_body_with_query_params.put.servers import server_0 as fake_body_with_query_params_put_server_0
+from petstore_api.paths.fake_body_with_query_params.put.servers import server_1 as fake_body_with_query_params_put_server_1
+from petstore_api.paths.fake_body_with_query_params.put.servers import server_2 as fake_body_with_query_params_put_server_2
+from petstore_api.paths.fake_case_sensitive_params.put.servers import server_0 as fake_case_sensitive_params_put_server_0
+from petstore_api.paths.fake_case_sensitive_params.put.servers import server_1 as fake_case_sensitive_params_put_server_1
+from petstore_api.paths.fake_case_sensitive_params.put.servers import server_2 as fake_case_sensitive_params_put_server_2
+from petstore_api.paths.fake_delete_coffee_id.delete.servers import server_0 as fake_delete_coffee_id_delete_server_0
+from petstore_api.paths.fake_delete_coffee_id.delete.servers import server_1 as fake_delete_coffee_id_delete_server_1
+from petstore_api.paths.fake_delete_coffee_id.delete.servers import server_2 as fake_delete_coffee_id_delete_server_2
+from petstore_api.paths.fake_health.get.servers import server_0 as fake_health_get_server_0
+from petstore_api.paths.fake_health.get.servers import server_1 as fake_health_get_server_1
+from petstore_api.paths.fake_health.get.servers import server_2 as fake_health_get_server_2
+from petstore_api.paths.fake_inline_additional_properties.post.servers import server_0 as fake_inline_additional_properties_post_server_0
+from petstore_api.paths.fake_inline_additional_properties.post.servers import server_1 as fake_inline_additional_properties_post_server_1
+from petstore_api.paths.fake_inline_additional_properties.post.servers import server_2 as fake_inline_additional_properties_post_server_2
+from petstore_api.paths.fake_inline_composition.post.servers import server_0 as fake_inline_composition_post_server_0
+from petstore_api.paths.fake_inline_composition.post.servers import server_1 as fake_inline_composition_post_server_1
+from petstore_api.paths.fake_inline_composition.post.servers import server_2 as fake_inline_composition_post_server_2
+from petstore_api.paths.fake_json_form_data.get.servers import server_0 as fake_json_form_data_get_server_0
+from petstore_api.paths.fake_json_form_data.get.servers import server_1 as fake_json_form_data_get_server_1
+from petstore_api.paths.fake_json_form_data.get.servers import server_2 as fake_json_form_data_get_server_2
+from petstore_api.paths.fake_json_patch.patch.servers import server_0 as fake_json_patch_patch_server_0
+from petstore_api.paths.fake_json_patch.patch.servers import server_1 as fake_json_patch_patch_server_1
+from petstore_api.paths.fake_json_patch.patch.servers import server_2 as fake_json_patch_patch_server_2
+from petstore_api.paths.fake_json_with_charset.post.servers import server_0 as fake_json_with_charset_post_server_0
+from petstore_api.paths.fake_json_with_charset.post.servers import server_1 as fake_json_with_charset_post_server_1
+from petstore_api.paths.fake_json_with_charset.post.servers import server_2 as fake_json_with_charset_post_server_2
+from petstore_api.paths.fake_multiple_request_body_content_types.post.servers import server_0 as fake_multiple_request_body_content_types_post_server_0
+from petstore_api.paths.fake_multiple_request_body_content_types.post.servers import server_1 as fake_multiple_request_body_content_types_post_server_1
+from petstore_api.paths.fake_multiple_request_body_content_types.post.servers import server_2 as fake_multiple_request_body_content_types_post_server_2
+from petstore_api.paths.fake_multiple_response_bodies.get.servers import server_0 as fake_multiple_response_bodies_get_server_0
+from petstore_api.paths.fake_multiple_response_bodies.get.servers import server_1 as fake_multiple_response_bodies_get_server_1
+from petstore_api.paths.fake_multiple_response_bodies.get.servers import server_2 as fake_multiple_response_bodies_get_server_2
+from petstore_api.paths.fake_multiple_securities.get.servers import server_0 as fake_multiple_securities_get_server_0
+from petstore_api.paths.fake_multiple_securities.get.servers import server_1 as fake_multiple_securities_get_server_1
+from petstore_api.paths.fake_multiple_securities.get.servers import server_2 as fake_multiple_securities_get_server_2
+from petstore_api.paths.fake_obj_in_query.get.servers import server_0 as fake_obj_in_query_get_server_0
+from petstore_api.paths.fake_obj_in_query.get.servers import server_1 as fake_obj_in_query_get_server_1
+from petstore_api.paths.fake_obj_in_query.get.servers import server_2 as fake_obj_in_query_get_server_2
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.servers import server_0 as fake_parameter_collisions1_abab_self_ab_post_server_0
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.servers import server_1 as fake_parameter_collisions1_abab_self_ab_post_server_1
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.servers import server_2 as fake_parameter_collisions1_abab_self_ab_post_server_2
+from petstore_api.paths.fake_pem_content_type.get.servers import server_0 as fake_pem_content_type_get_server_0
+from petstore_api.paths.fake_pem_content_type.get.servers import server_1 as fake_pem_content_type_get_server_1
+from petstore_api.paths.fake_pem_content_type.get.servers import server_2 as fake_pem_content_type_get_server_2
+from petstore_api.paths.fake_query_param_with_json_content_type.get.servers import server_0 as fake_query_param_with_json_content_type_get_server_0
+from petstore_api.paths.fake_query_param_with_json_content_type.get.servers import server_1 as fake_query_param_with_json_content_type_get_server_1
+from petstore_api.paths.fake_query_param_with_json_content_type.get.servers import server_2 as fake_query_param_with_json_content_type_get_server_2
+from petstore_api.paths.fake_redirection.get.servers import server_0 as fake_redirection_get_server_0
+from petstore_api.paths.fake_redirection.get.servers import server_1 as fake_redirection_get_server_1
+from petstore_api.paths.fake_redirection.get.servers import server_2 as fake_redirection_get_server_2
+from petstore_api.paths.fake_ref_obj_in_query.get.servers import server_0 as fake_ref_obj_in_query_get_server_0
+from petstore_api.paths.fake_ref_obj_in_query.get.servers import server_1 as fake_ref_obj_in_query_get_server_1
+from petstore_api.paths.fake_ref_obj_in_query.get.servers import server_2 as fake_ref_obj_in_query_get_server_2
+from petstore_api.paths.fake_refs_array_of_enums.post.servers import server_0 as fake_refs_array_of_enums_post_server_0
+from petstore_api.paths.fake_refs_array_of_enums.post.servers import server_1 as fake_refs_array_of_enums_post_server_1
+from petstore_api.paths.fake_refs_array_of_enums.post.servers import server_2 as fake_refs_array_of_enums_post_server_2
+from petstore_api.paths.fake_refs_arraymodel.post.servers import server_0 as fake_refs_arraymodel_post_server_0
+from petstore_api.paths.fake_refs_arraymodel.post.servers import server_1 as fake_refs_arraymodel_post_server_1
+from petstore_api.paths.fake_refs_arraymodel.post.servers import server_2 as fake_refs_arraymodel_post_server_2
+from petstore_api.paths.fake_refs_boolean.post.servers import server_0 as fake_refs_boolean_post_server_0
+from petstore_api.paths.fake_refs_boolean.post.servers import server_1 as fake_refs_boolean_post_server_1
+from petstore_api.paths.fake_refs_boolean.post.servers import server_2 as fake_refs_boolean_post_server_2
+from petstore_api.paths.fake_refs_composed_one_of_number_with_validations.post.servers import server_0 as fake_refs_composed_one_of_number_with_validations_post_server_0
+from petstore_api.paths.fake_refs_composed_one_of_number_with_validations.post.servers import server_1 as fake_refs_composed_one_of_number_with_validations_post_server_1
+from petstore_api.paths.fake_refs_composed_one_of_number_with_validations.post.servers import server_2 as fake_refs_composed_one_of_number_with_validations_post_server_2
+from petstore_api.paths.fake_refs_enum.post.servers import server_0 as fake_refs_enum_post_server_0
+from petstore_api.paths.fake_refs_enum.post.servers import server_1 as fake_refs_enum_post_server_1
+from petstore_api.paths.fake_refs_enum.post.servers import server_2 as fake_refs_enum_post_server_2
+from petstore_api.paths.fake_refs_mammal.post.servers import server_0 as fake_refs_mammal_post_server_0
+from petstore_api.paths.fake_refs_mammal.post.servers import server_1 as fake_refs_mammal_post_server_1
+from petstore_api.paths.fake_refs_mammal.post.servers import server_2 as fake_refs_mammal_post_server_2
+from petstore_api.paths.fake_refs_number.post.servers import server_0 as fake_refs_number_post_server_0
+from petstore_api.paths.fake_refs_number.post.servers import server_1 as fake_refs_number_post_server_1
+from petstore_api.paths.fake_refs_number.post.servers import server_2 as fake_refs_number_post_server_2
+from petstore_api.paths.fake_refs_object_model_with_ref_props.post.servers import server_0 as fake_refs_object_model_with_ref_props_post_server_0
+from petstore_api.paths.fake_refs_object_model_with_ref_props.post.servers import server_1 as fake_refs_object_model_with_ref_props_post_server_1
+from petstore_api.paths.fake_refs_object_model_with_ref_props.post.servers import server_2 as fake_refs_object_model_with_ref_props_post_server_2
+from petstore_api.paths.fake_refs_string.post.servers import server_0 as fake_refs_string_post_server_0
+from petstore_api.paths.fake_refs_string.post.servers import server_1 as fake_refs_string_post_server_1
+from petstore_api.paths.fake_refs_string.post.servers import server_2 as fake_refs_string_post_server_2
+from petstore_api.paths.fake_response_without_schema.get.servers import server_0 as fake_response_without_schema_get_server_0
+from petstore_api.paths.fake_response_without_schema.get.servers import server_1 as fake_response_without_schema_get_server_1
+from petstore_api.paths.fake_response_without_schema.get.servers import server_2 as fake_response_without_schema_get_server_2
+from petstore_api.paths.fake_test_query_paramters.put.servers import server_0 as fake_test_query_paramters_put_server_0
+from petstore_api.paths.fake_test_query_paramters.put.servers import server_1 as fake_test_query_paramters_put_server_1
+from petstore_api.paths.fake_test_query_paramters.put.servers import server_2 as fake_test_query_paramters_put_server_2
+from petstore_api.paths.fake_upload_download_file.post.servers import server_0 as fake_upload_download_file_post_server_0
+from petstore_api.paths.fake_upload_download_file.post.servers import server_1 as fake_upload_download_file_post_server_1
+from petstore_api.paths.fake_upload_download_file.post.servers import server_2 as fake_upload_download_file_post_server_2
+from petstore_api.paths.fake_upload_file.post.servers import server_0 as fake_upload_file_post_server_0
+from petstore_api.paths.fake_upload_file.post.servers import server_1 as fake_upload_file_post_server_1
+from petstore_api.paths.fake_upload_file.post.servers import server_2 as fake_upload_file_post_server_2
+from petstore_api.paths.fake_upload_files.post.servers import server_0 as fake_upload_files_post_server_0
+from petstore_api.paths.fake_upload_files.post.servers import server_1 as fake_upload_files_post_server_1
+from petstore_api.paths.fake_upload_files.post.servers import server_2 as fake_upload_files_post_server_2
+from petstore_api.paths.fake_wild_card_responses.get.servers import server_0 as fake_wild_card_responses_get_server_0
+from petstore_api.paths.fake_wild_card_responses.get.servers import server_1 as fake_wild_card_responses_get_server_1
+from petstore_api.paths.fake_wild_card_responses.get.servers import server_2 as fake_wild_card_responses_get_server_2
+from petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.servers import server_0 as fake_pet_id_upload_image_with_required_file_post_server_0
+from petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.servers import server_1 as fake_pet_id_upload_image_with_required_file_post_server_1
+from petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.servers import server_2 as fake_pet_id_upload_image_with_required_file_post_server_2
+from petstore_api.paths.fake_classname_test.patch.servers import server_0 as fake_classname_test_patch_server_0
+from petstore_api.paths.fake_classname_test.patch.servers import server_1 as fake_classname_test_patch_server_1
+from petstore_api.paths.fake_classname_test.patch.servers import server_2 as fake_classname_test_patch_server_2
 from petstore_api.paths.foo.get.servers import server_0 as foo_get_server_0
 from petstore_api.paths.foo.get.servers import server_1 as foo_get_server_1
+from petstore_api.paths.pet.post.servers import server_0 as pet_post_server_0
+from petstore_api.paths.pet.post.servers import server_1 as pet_post_server_1
+from petstore_api.paths.pet.post.servers import server_2 as pet_post_server_2
+from petstore_api.paths.pet.put.servers import server_0 as pet_put_server_0
+from petstore_api.paths.pet.put.servers import server_1 as pet_put_server_1
+from petstore_api.paths.pet.put.servers import server_2 as pet_put_server_2
 from petstore_api.paths.pet_find_by_status.servers import server_0 as pet_find_by_status_server_0
 from petstore_api.paths.pet_find_by_status.servers import server_1 as pet_find_by_status_server_1
+from petstore_api.paths.pet_find_by_status.get.servers import server_0 as pet_find_by_status_get_server_0
+from petstore_api.paths.pet_find_by_status.get.servers import server_1 as pet_find_by_status_get_server_1
+from petstore_api.paths.pet_find_by_tags.get.servers import server_0 as pet_find_by_tags_get_server_0
+from petstore_api.paths.pet_find_by_tags.get.servers import server_1 as pet_find_by_tags_get_server_1
+from petstore_api.paths.pet_find_by_tags.get.servers import server_2 as pet_find_by_tags_get_server_2
+from petstore_api.paths.pet_pet_id.delete.servers import server_0 as pet_pet_id_delete_server_0
+from petstore_api.paths.pet_pet_id.delete.servers import server_1 as pet_pet_id_delete_server_1
+from petstore_api.paths.pet_pet_id.delete.servers import server_2 as pet_pet_id_delete_server_2
+from petstore_api.paths.pet_pet_id.get.servers import server_0 as pet_pet_id_get_server_0
+from petstore_api.paths.pet_pet_id.get.servers import server_1 as pet_pet_id_get_server_1
+from petstore_api.paths.pet_pet_id.get.servers import server_2 as pet_pet_id_get_server_2
+from petstore_api.paths.pet_pet_id.post.servers import server_0 as pet_pet_id_post_server_0
+from petstore_api.paths.pet_pet_id.post.servers import server_1 as pet_pet_id_post_server_1
+from petstore_api.paths.pet_pet_id.post.servers import server_2 as pet_pet_id_post_server_2
+from petstore_api.paths.pet_pet_id_upload_image.post.servers import server_0 as pet_pet_id_upload_image_post_server_0
+from petstore_api.paths.pet_pet_id_upload_image.post.servers import server_1 as pet_pet_id_upload_image_post_server_1
+from petstore_api.paths.pet_pet_id_upload_image.post.servers import server_2 as pet_pet_id_upload_image_post_server_2
+from petstore_api.paths.store_inventory.get.servers import server_0 as store_inventory_get_server_0
+from petstore_api.paths.store_inventory.get.servers import server_1 as store_inventory_get_server_1
+from petstore_api.paths.store_inventory.get.servers import server_2 as store_inventory_get_server_2
+from petstore_api.paths.store_order.post.servers import server_0 as store_order_post_server_0
+from petstore_api.paths.store_order.post.servers import server_1 as store_order_post_server_1
+from petstore_api.paths.store_order.post.servers import server_2 as store_order_post_server_2
+from petstore_api.paths.store_order_order_id.delete.servers import server_0 as store_order_order_id_delete_server_0
+from petstore_api.paths.store_order_order_id.delete.servers import server_1 as store_order_order_id_delete_server_1
+from petstore_api.paths.store_order_order_id.delete.servers import server_2 as store_order_order_id_delete_server_2
+from petstore_api.paths.store_order_order_id.get.servers import server_0 as store_order_order_id_get_server_0
+from petstore_api.paths.store_order_order_id.get.servers import server_1 as store_order_order_id_get_server_1
+from petstore_api.paths.store_order_order_id.get.servers import server_2 as store_order_order_id_get_server_2
+from petstore_api.paths.user.post.servers import server_0 as user_post_server_0
+from petstore_api.paths.user.post.servers import server_1 as user_post_server_1
+from petstore_api.paths.user.post.servers import server_2 as user_post_server_2
+from petstore_api.paths.user_create_with_array.post.servers import server_0 as user_create_with_array_post_server_0
+from petstore_api.paths.user_create_with_array.post.servers import server_1 as user_create_with_array_post_server_1
+from petstore_api.paths.user_create_with_array.post.servers import server_2 as user_create_with_array_post_server_2
+from petstore_api.paths.user_create_with_list.post.servers import server_0 as user_create_with_list_post_server_0
+from petstore_api.paths.user_create_with_list.post.servers import server_1 as user_create_with_list_post_server_1
+from petstore_api.paths.user_create_with_list.post.servers import server_2 as user_create_with_list_post_server_2
+from petstore_api.paths.user_login.get.servers import server_0 as user_login_get_server_0
+from petstore_api.paths.user_login.get.servers import server_1 as user_login_get_server_1
+from petstore_api.paths.user_login.get.servers import server_2 as user_login_get_server_2
+from petstore_api.paths.user_logout.get.servers import server_0 as user_logout_get_server_0
+from petstore_api.paths.user_logout.get.servers import server_1 as user_logout_get_server_1
+from petstore_api.paths.user_logout.get.servers import server_2 as user_logout_get_server_2
+from petstore_api.paths.user_username.delete.servers import server_0 as user_username_delete_server_0
+from petstore_api.paths.user_username.delete.servers import server_1 as user_username_delete_server_1
+from petstore_api.paths.user_username.delete.servers import server_2 as user_username_delete_server_2
+from petstore_api.paths.user_username.get.servers import server_0 as user_username_get_server_0
+from petstore_api.paths.user_username.get.servers import server_1 as user_username_get_server_1
+from petstore_api.paths.user_username.get.servers import server_2 as user_username_get_server_2
+from petstore_api.paths.user_username.put.servers import server_0 as user_username_put_server_0
+from petstore_api.paths.user_username.put.servers import server_1 as user_username_put_server_1
+from petstore_api.paths.user_username.put.servers import server_2 as user_username_put_server_2
 
 # security scheme key identifier to security scheme instance
 SecuritySchemeInfo = typing.TypedDict(
@@ -88,10 +285,207 @@ ServerInfo = typing.TypedDict(
         'servers/0': server_0.Server0,
         'servers/1': server_1.Server1,
         'servers/2': server_2.Server2,
+        "paths///get/servers/0": solidus_get_server_0.Server0,
+        "paths///get/servers/1": solidus_get_server_1.Server1,
+        "paths///get/servers/2": solidus_get_server_2.Server2,
+        "paths//another-fake/dummy/patch/servers/0": another_fake_dummy_patch_server_0.Server0,
+        "paths//another-fake/dummy/patch/servers/1": another_fake_dummy_patch_server_1.Server1,
+        "paths//another-fake/dummy/patch/servers/2": another_fake_dummy_patch_server_2.Server2,
+        "paths//commonParam/{subDir}//delete/servers/0": common_param_sub_dir_delete_server_0.Server0,
+        "paths//commonParam/{subDir}//delete/servers/1": common_param_sub_dir_delete_server_1.Server1,
+        "paths//commonParam/{subDir}//delete/servers/2": common_param_sub_dir_delete_server_2.Server2,
+        "paths//commonParam/{subDir}//get/servers/0": common_param_sub_dir_get_server_0.Server0,
+        "paths//commonParam/{subDir}//get/servers/1": common_param_sub_dir_get_server_1.Server1,
+        "paths//commonParam/{subDir}//get/servers/2": common_param_sub_dir_get_server_2.Server2,
+        "paths//commonParam/{subDir}//post/servers/0": common_param_sub_dir_post_server_0.Server0,
+        "paths//commonParam/{subDir}//post/servers/1": common_param_sub_dir_post_server_1.Server1,
+        "paths//commonParam/{subDir}//post/servers/2": common_param_sub_dir_post_server_2.Server2,
+        "paths//fake/delete/servers/0": fake_delete_server_0.Server0,
+        "paths//fake/delete/servers/1": fake_delete_server_1.Server1,
+        "paths//fake/delete/servers/2": fake_delete_server_2.Server2,
+        "paths//fake/get/servers/0": fake_get_server_0.Server0,
+        "paths//fake/get/servers/1": fake_get_server_1.Server1,
+        "paths//fake/get/servers/2": fake_get_server_2.Server2,
+        "paths//fake/patch/servers/0": fake_patch_server_0.Server0,
+        "paths//fake/patch/servers/1": fake_patch_server_1.Server1,
+        "paths//fake/patch/servers/2": fake_patch_server_2.Server2,
+        "paths//fake/post/servers/0": fake_post_server_0.Server0,
+        "paths//fake/post/servers/1": fake_post_server_1.Server1,
+        "paths//fake/post/servers/2": fake_post_server_2.Server2,
+        "paths//fake/additional-properties-with-array-of-enums/get/servers/0": fake_additional_properties_with_array_of_enums_get_server_0.Server0,
+        "paths//fake/additional-properties-with-array-of-enums/get/servers/1": fake_additional_properties_with_array_of_enums_get_server_1.Server1,
+        "paths//fake/additional-properties-with-array-of-enums/get/servers/2": fake_additional_properties_with_array_of_enums_get_server_2.Server2,
+        "paths//fake/body-with-file-schema/put/servers/0": fake_body_with_file_schema_put_server_0.Server0,
+        "paths//fake/body-with-file-schema/put/servers/1": fake_body_with_file_schema_put_server_1.Server1,
+        "paths//fake/body-with-file-schema/put/servers/2": fake_body_with_file_schema_put_server_2.Server2,
+        "paths//fake/body-with-query-params/put/servers/0": fake_body_with_query_params_put_server_0.Server0,
+        "paths//fake/body-with-query-params/put/servers/1": fake_body_with_query_params_put_server_1.Server1,
+        "paths//fake/body-with-query-params/put/servers/2": fake_body_with_query_params_put_server_2.Server2,
+        "paths//fake/case-sensitive-params/put/servers/0": fake_case_sensitive_params_put_server_0.Server0,
+        "paths//fake/case-sensitive-params/put/servers/1": fake_case_sensitive_params_put_server_1.Server1,
+        "paths//fake/case-sensitive-params/put/servers/2": fake_case_sensitive_params_put_server_2.Server2,
+        "paths//fake/deleteCoffee/{id}/delete/servers/0": fake_delete_coffee_id_delete_server_0.Server0,
+        "paths//fake/deleteCoffee/{id}/delete/servers/1": fake_delete_coffee_id_delete_server_1.Server1,
+        "paths//fake/deleteCoffee/{id}/delete/servers/2": fake_delete_coffee_id_delete_server_2.Server2,
+        "paths//fake/health/get/servers/0": fake_health_get_server_0.Server0,
+        "paths//fake/health/get/servers/1": fake_health_get_server_1.Server1,
+        "paths//fake/health/get/servers/2": fake_health_get_server_2.Server2,
+        "paths//fake/inline-additionalProperties/post/servers/0": fake_inline_additional_properties_post_server_0.Server0,
+        "paths//fake/inline-additionalProperties/post/servers/1": fake_inline_additional_properties_post_server_1.Server1,
+        "paths//fake/inline-additionalProperties/post/servers/2": fake_inline_additional_properties_post_server_2.Server2,
+        "paths//fake/inlineComposition//post/servers/0": fake_inline_composition_post_server_0.Server0,
+        "paths//fake/inlineComposition//post/servers/1": fake_inline_composition_post_server_1.Server1,
+        "paths//fake/inlineComposition//post/servers/2": fake_inline_composition_post_server_2.Server2,
+        "paths//fake/jsonFormData/get/servers/0": fake_json_form_data_get_server_0.Server0,
+        "paths//fake/jsonFormData/get/servers/1": fake_json_form_data_get_server_1.Server1,
+        "paths//fake/jsonFormData/get/servers/2": fake_json_form_data_get_server_2.Server2,
+        "paths//fake/jsonPatch/patch/servers/0": fake_json_patch_patch_server_0.Server0,
+        "paths//fake/jsonPatch/patch/servers/1": fake_json_patch_patch_server_1.Server1,
+        "paths//fake/jsonPatch/patch/servers/2": fake_json_patch_patch_server_2.Server2,
+        "paths//fake/jsonWithCharset/post/servers/0": fake_json_with_charset_post_server_0.Server0,
+        "paths//fake/jsonWithCharset/post/servers/1": fake_json_with_charset_post_server_1.Server1,
+        "paths//fake/jsonWithCharset/post/servers/2": fake_json_with_charset_post_server_2.Server2,
+        "paths//fake/multipleRequestBodyContentTypes//post/servers/0": fake_multiple_request_body_content_types_post_server_0.Server0,
+        "paths//fake/multipleRequestBodyContentTypes//post/servers/1": fake_multiple_request_body_content_types_post_server_1.Server1,
+        "paths//fake/multipleRequestBodyContentTypes//post/servers/2": fake_multiple_request_body_content_types_post_server_2.Server2,
+        "paths//fake/multipleResponseBodies/get/servers/0": fake_multiple_response_bodies_get_server_0.Server0,
+        "paths//fake/multipleResponseBodies/get/servers/1": fake_multiple_response_bodies_get_server_1.Server1,
+        "paths//fake/multipleResponseBodies/get/servers/2": fake_multiple_response_bodies_get_server_2.Server2,
+        "paths//fake/multipleSecurities/get/servers/0": fake_multiple_securities_get_server_0.Server0,
+        "paths//fake/multipleSecurities/get/servers/1": fake_multiple_securities_get_server_1.Server1,
+        "paths//fake/multipleSecurities/get/servers/2": fake_multiple_securities_get_server_2.Server2,
+        "paths//fake/objInQuery/get/servers/0": fake_obj_in_query_get_server_0.Server0,
+        "paths//fake/objInQuery/get/servers/1": fake_obj_in_query_get_server_1.Server1,
+        "paths//fake/objInQuery/get/servers/2": fake_obj_in_query_get_server_2.Server2,
+        "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers/0": fake_parameter_collisions1_abab_self_ab_post_server_0.Server0,
+        "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers/1": fake_parameter_collisions1_abab_self_ab_post_server_1.Server1,
+        "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers/2": fake_parameter_collisions1_abab_self_ab_post_server_2.Server2,
+        "paths//fake/pemContentType/get/servers/0": fake_pem_content_type_get_server_0.Server0,
+        "paths//fake/pemContentType/get/servers/1": fake_pem_content_type_get_server_1.Server1,
+        "paths//fake/pemContentType/get/servers/2": fake_pem_content_type_get_server_2.Server2,
+        "paths//fake/queryParamWithJsonContentType/get/servers/0": fake_query_param_with_json_content_type_get_server_0.Server0,
+        "paths//fake/queryParamWithJsonContentType/get/servers/1": fake_query_param_with_json_content_type_get_server_1.Server1,
+        "paths//fake/queryParamWithJsonContentType/get/servers/2": fake_query_param_with_json_content_type_get_server_2.Server2,
+        "paths//fake/redirection/get/servers/0": fake_redirection_get_server_0.Server0,
+        "paths//fake/redirection/get/servers/1": fake_redirection_get_server_1.Server1,
+        "paths//fake/redirection/get/servers/2": fake_redirection_get_server_2.Server2,
+        "paths//fake/refObjInQuery/get/servers/0": fake_ref_obj_in_query_get_server_0.Server0,
+        "paths//fake/refObjInQuery/get/servers/1": fake_ref_obj_in_query_get_server_1.Server1,
+        "paths//fake/refObjInQuery/get/servers/2": fake_ref_obj_in_query_get_server_2.Server2,
+        "paths//fake/refs/array-of-enums/post/servers/0": fake_refs_array_of_enums_post_server_0.Server0,
+        "paths//fake/refs/array-of-enums/post/servers/1": fake_refs_array_of_enums_post_server_1.Server1,
+        "paths//fake/refs/array-of-enums/post/servers/2": fake_refs_array_of_enums_post_server_2.Server2,
+        "paths//fake/refs/arraymodel/post/servers/0": fake_refs_arraymodel_post_server_0.Server0,
+        "paths//fake/refs/arraymodel/post/servers/1": fake_refs_arraymodel_post_server_1.Server1,
+        "paths//fake/refs/arraymodel/post/servers/2": fake_refs_arraymodel_post_server_2.Server2,
+        "paths//fake/refs/boolean/post/servers/0": fake_refs_boolean_post_server_0.Server0,
+        "paths//fake/refs/boolean/post/servers/1": fake_refs_boolean_post_server_1.Server1,
+        "paths//fake/refs/boolean/post/servers/2": fake_refs_boolean_post_server_2.Server2,
+        "paths//fake/refs/composed_one_of_number_with_validations/post/servers/0": fake_refs_composed_one_of_number_with_validations_post_server_0.Server0,
+        "paths//fake/refs/composed_one_of_number_with_validations/post/servers/1": fake_refs_composed_one_of_number_with_validations_post_server_1.Server1,
+        "paths//fake/refs/composed_one_of_number_with_validations/post/servers/2": fake_refs_composed_one_of_number_with_validations_post_server_2.Server2,
+        "paths//fake/refs/enum/post/servers/0": fake_refs_enum_post_server_0.Server0,
+        "paths//fake/refs/enum/post/servers/1": fake_refs_enum_post_server_1.Server1,
+        "paths//fake/refs/enum/post/servers/2": fake_refs_enum_post_server_2.Server2,
+        "paths//fake/refs/mammal/post/servers/0": fake_refs_mammal_post_server_0.Server0,
+        "paths//fake/refs/mammal/post/servers/1": fake_refs_mammal_post_server_1.Server1,
+        "paths//fake/refs/mammal/post/servers/2": fake_refs_mammal_post_server_2.Server2,
+        "paths//fake/refs/number/post/servers/0": fake_refs_number_post_server_0.Server0,
+        "paths//fake/refs/number/post/servers/1": fake_refs_number_post_server_1.Server1,
+        "paths//fake/refs/number/post/servers/2": fake_refs_number_post_server_2.Server2,
+        "paths//fake/refs/object_model_with_ref_props/post/servers/0": fake_refs_object_model_with_ref_props_post_server_0.Server0,
+        "paths//fake/refs/object_model_with_ref_props/post/servers/1": fake_refs_object_model_with_ref_props_post_server_1.Server1,
+        "paths//fake/refs/object_model_with_ref_props/post/servers/2": fake_refs_object_model_with_ref_props_post_server_2.Server2,
+        "paths//fake/refs/string/post/servers/0": fake_refs_string_post_server_0.Server0,
+        "paths//fake/refs/string/post/servers/1": fake_refs_string_post_server_1.Server1,
+        "paths//fake/refs/string/post/servers/2": fake_refs_string_post_server_2.Server2,
+        "paths//fake/responseWithoutSchema/get/servers/0": fake_response_without_schema_get_server_0.Server0,
+        "paths//fake/responseWithoutSchema/get/servers/1": fake_response_without_schema_get_server_1.Server1,
+        "paths//fake/responseWithoutSchema/get/servers/2": fake_response_without_schema_get_server_2.Server2,
+        "paths//fake/test-query-paramters/put/servers/0": fake_test_query_paramters_put_server_0.Server0,
+        "paths//fake/test-query-paramters/put/servers/1": fake_test_query_paramters_put_server_1.Server1,
+        "paths//fake/test-query-paramters/put/servers/2": fake_test_query_paramters_put_server_2.Server2,
+        "paths//fake/uploadDownloadFile/post/servers/0": fake_upload_download_file_post_server_0.Server0,
+        "paths//fake/uploadDownloadFile/post/servers/1": fake_upload_download_file_post_server_1.Server1,
+        "paths//fake/uploadDownloadFile/post/servers/2": fake_upload_download_file_post_server_2.Server2,
+        "paths//fake/uploadFile/post/servers/0": fake_upload_file_post_server_0.Server0,
+        "paths//fake/uploadFile/post/servers/1": fake_upload_file_post_server_1.Server1,
+        "paths//fake/uploadFile/post/servers/2": fake_upload_file_post_server_2.Server2,
+        "paths//fake/uploadFiles/post/servers/0": fake_upload_files_post_server_0.Server0,
+        "paths//fake/uploadFiles/post/servers/1": fake_upload_files_post_server_1.Server1,
+        "paths//fake/uploadFiles/post/servers/2": fake_upload_files_post_server_2.Server2,
+        "paths//fake/wildCardResponses/get/servers/0": fake_wild_card_responses_get_server_0.Server0,
+        "paths//fake/wildCardResponses/get/servers/1": fake_wild_card_responses_get_server_1.Server1,
+        "paths//fake/wildCardResponses/get/servers/2": fake_wild_card_responses_get_server_2.Server2,
+        "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers/0": fake_pet_id_upload_image_with_required_file_post_server_0.Server0,
+        "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers/1": fake_pet_id_upload_image_with_required_file_post_server_1.Server1,
+        "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers/2": fake_pet_id_upload_image_with_required_file_post_server_2.Server2,
+        "paths//fake_classname_test/patch/servers/0": fake_classname_test_patch_server_0.Server0,
+        "paths//fake_classname_test/patch/servers/1": fake_classname_test_patch_server_1.Server1,
+        "paths//fake_classname_test/patch/servers/2": fake_classname_test_patch_server_2.Server2,
         "paths//foo/get/servers/0": foo_get_server_0.Server0,
         "paths//foo/get/servers/1": foo_get_server_1.Server1,
+        "paths//pet/post/servers/0": pet_post_server_0.Server0,
+        "paths//pet/post/servers/1": pet_post_server_1.Server1,
+        "paths//pet/post/servers/2": pet_post_server_2.Server2,
+        "paths//pet/put/servers/0": pet_put_server_0.Server0,
+        "paths//pet/put/servers/1": pet_put_server_1.Server1,
+        "paths//pet/put/servers/2": pet_put_server_2.Server2,
         "paths//pet/findByStatus/servers/0": pet_find_by_status_server_0.Server0,
         "paths//pet/findByStatus/servers/1": pet_find_by_status_server_1.Server1,
+        "paths//pet/findByStatus/get/servers/0": pet_find_by_status_get_server_0.Server0,
+        "paths//pet/findByStatus/get/servers/1": pet_find_by_status_get_server_1.Server1,
+        "paths//pet/findByTags/get/servers/0": pet_find_by_tags_get_server_0.Server0,
+        "paths//pet/findByTags/get/servers/1": pet_find_by_tags_get_server_1.Server1,
+        "paths//pet/findByTags/get/servers/2": pet_find_by_tags_get_server_2.Server2,
+        "paths//pet/{petId}/delete/servers/0": pet_pet_id_delete_server_0.Server0,
+        "paths//pet/{petId}/delete/servers/1": pet_pet_id_delete_server_1.Server1,
+        "paths//pet/{petId}/delete/servers/2": pet_pet_id_delete_server_2.Server2,
+        "paths//pet/{petId}/get/servers/0": pet_pet_id_get_server_0.Server0,
+        "paths//pet/{petId}/get/servers/1": pet_pet_id_get_server_1.Server1,
+        "paths//pet/{petId}/get/servers/2": pet_pet_id_get_server_2.Server2,
+        "paths//pet/{petId}/post/servers/0": pet_pet_id_post_server_0.Server0,
+        "paths//pet/{petId}/post/servers/1": pet_pet_id_post_server_1.Server1,
+        "paths//pet/{petId}/post/servers/2": pet_pet_id_post_server_2.Server2,
+        "paths//pet/{petId}/uploadImage/post/servers/0": pet_pet_id_upload_image_post_server_0.Server0,
+        "paths//pet/{petId}/uploadImage/post/servers/1": pet_pet_id_upload_image_post_server_1.Server1,
+        "paths//pet/{petId}/uploadImage/post/servers/2": pet_pet_id_upload_image_post_server_2.Server2,
+        "paths//store/inventory/get/servers/0": store_inventory_get_server_0.Server0,
+        "paths//store/inventory/get/servers/1": store_inventory_get_server_1.Server1,
+        "paths//store/inventory/get/servers/2": store_inventory_get_server_2.Server2,
+        "paths//store/order/post/servers/0": store_order_post_server_0.Server0,
+        "paths//store/order/post/servers/1": store_order_post_server_1.Server1,
+        "paths//store/order/post/servers/2": store_order_post_server_2.Server2,
+        "paths//store/order/{order_id}/delete/servers/0": store_order_order_id_delete_server_0.Server0,
+        "paths//store/order/{order_id}/delete/servers/1": store_order_order_id_delete_server_1.Server1,
+        "paths//store/order/{order_id}/delete/servers/2": store_order_order_id_delete_server_2.Server2,
+        "paths//store/order/{order_id}/get/servers/0": store_order_order_id_get_server_0.Server0,
+        "paths//store/order/{order_id}/get/servers/1": store_order_order_id_get_server_1.Server1,
+        "paths//store/order/{order_id}/get/servers/2": store_order_order_id_get_server_2.Server2,
+        "paths//user/post/servers/0": user_post_server_0.Server0,
+        "paths//user/post/servers/1": user_post_server_1.Server1,
+        "paths//user/post/servers/2": user_post_server_2.Server2,
+        "paths//user/createWithArray/post/servers/0": user_create_with_array_post_server_0.Server0,
+        "paths//user/createWithArray/post/servers/1": user_create_with_array_post_server_1.Server1,
+        "paths//user/createWithArray/post/servers/2": user_create_with_array_post_server_2.Server2,
+        "paths//user/createWithList/post/servers/0": user_create_with_list_post_server_0.Server0,
+        "paths//user/createWithList/post/servers/1": user_create_with_list_post_server_1.Server1,
+        "paths//user/createWithList/post/servers/2": user_create_with_list_post_server_2.Server2,
+        "paths//user/login/get/servers/0": user_login_get_server_0.Server0,
+        "paths//user/login/get/servers/1": user_login_get_server_1.Server1,
+        "paths//user/login/get/servers/2": user_login_get_server_2.Server2,
+        "paths//user/logout/get/servers/0": user_logout_get_server_0.Server0,
+        "paths//user/logout/get/servers/1": user_logout_get_server_1.Server1,
+        "paths//user/logout/get/servers/2": user_logout_get_server_2.Server2,
+        "paths//user/{username}/delete/servers/0": user_username_delete_server_0.Server0,
+        "paths//user/{username}/delete/servers/1": user_username_delete_server_1.Server1,
+        "paths//user/{username}/delete/servers/2": user_username_delete_server_2.Server2,
+        "paths//user/{username}/get/servers/0": user_username_get_server_0.Server0,
+        "paths//user/{username}/get/servers/1": user_username_get_server_1.Server1,
+        "paths//user/{username}/get/servers/2": user_username_get_server_2.Server2,
+        "paths//user/{username}/put/servers/0": user_username_put_server_0.Server0,
+        "paths//user/{username}/put/servers/1": user_username_put_server_1.Server1,
+        "paths//user/{username}/put/servers/2": user_username_put_server_2.Server2,
     },
     total=False
 )
@@ -103,8 +497,74 @@ class ServerIndexInfoRequired(typing.TypedDict):
 ServerIndexInfoOptional = typing.TypedDict(
     'ServerIndexInfoOptional',
     {
+        "paths///get/servers": typing.Literal[0, 1, 2],
+        "paths//another-fake/dummy/patch/servers": typing.Literal[0, 1, 2],
+        "paths//commonParam/{subDir}//delete/servers": typing.Literal[0, 1, 2],
+        "paths//commonParam/{subDir}//get/servers": typing.Literal[0, 1, 2],
+        "paths//commonParam/{subDir}//post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/delete/servers": typing.Literal[0, 1, 2],
+        "paths//fake/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/patch/servers": typing.Literal[0, 1, 2],
+        "paths//fake/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/additional-properties-with-array-of-enums/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/body-with-file-schema/put/servers": typing.Literal[0, 1, 2],
+        "paths//fake/body-with-query-params/put/servers": typing.Literal[0, 1, 2],
+        "paths//fake/case-sensitive-params/put/servers": typing.Literal[0, 1, 2],
+        "paths//fake/deleteCoffee/{id}/delete/servers": typing.Literal[0, 1, 2],
+        "paths//fake/health/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/inline-additionalProperties/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/inlineComposition//post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/jsonFormData/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/jsonPatch/patch/servers": typing.Literal[0, 1, 2],
+        "paths//fake/jsonWithCharset/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/multipleRequestBodyContentTypes//post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/multipleResponseBodies/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/multipleSecurities/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/objInQuery/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/pemContentType/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/queryParamWithJsonContentType/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/redirection/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refObjInQuery/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refs/array-of-enums/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refs/arraymodel/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refs/boolean/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refs/composed_one_of_number_with_validations/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refs/enum/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refs/mammal/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refs/number/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refs/object_model_with_ref_props/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/refs/string/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/responseWithoutSchema/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/test-query-paramters/put/servers": typing.Literal[0, 1, 2],
+        "paths//fake/uploadDownloadFile/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/uploadFile/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/uploadFiles/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake/wildCardResponses/get/servers": typing.Literal[0, 1, 2],
+        "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers": typing.Literal[0, 1, 2],
+        "paths//fake_classname_test/patch/servers": typing.Literal[0, 1, 2],
         "paths//foo/get/servers": typing.Literal[0, 1],
+        "paths//pet/post/servers": typing.Literal[0, 1, 2],
+        "paths//pet/put/servers": typing.Literal[0, 1, 2],
         "paths//pet/findByStatus/servers": typing.Literal[0, 1],
+        "paths//pet/findByStatus/get/servers": typing.Literal[0, 1],
+        "paths//pet/findByTags/get/servers": typing.Literal[0, 1, 2],
+        "paths//pet/{petId}/delete/servers": typing.Literal[0, 1, 2],
+        "paths//pet/{petId}/get/servers": typing.Literal[0, 1, 2],
+        "paths//pet/{petId}/post/servers": typing.Literal[0, 1, 2],
+        "paths//pet/{petId}/uploadImage/post/servers": typing.Literal[0, 1, 2],
+        "paths//store/inventory/get/servers": typing.Literal[0, 1, 2],
+        "paths//store/order/post/servers": typing.Literal[0, 1, 2],
+        "paths//store/order/{order_id}/delete/servers": typing.Literal[0, 1, 2],
+        "paths//store/order/{order_id}/get/servers": typing.Literal[0, 1, 2],
+        "paths//user/post/servers": typing.Literal[0, 1, 2],
+        "paths//user/createWithArray/post/servers": typing.Literal[0, 1, 2],
+        "paths//user/createWithList/post/servers": typing.Literal[0, 1, 2],
+        "paths//user/login/get/servers": typing.Literal[0, 1, 2],
+        "paths//user/logout/get/servers": typing.Literal[0, 1, 2],
+        "paths//user/{username}/delete/servers": typing.Literal[0, 1, 2],
+        "paths//user/{username}/get/servers": typing.Literal[0, 1, 2],
+        "paths//user/{username}/put/servers": typing.Literal[0, 1, 2],
     },
     total=False
 )
@@ -149,10 +609,207 @@ class ApiConfiguration(object):
             'servers/0': server_0.Server0(),
             'servers/1': server_1.Server1(),
             'servers/2': server_2.Server2(),
+            "paths///get/servers/0": solidus_get_server_0.Server0(),
+            "paths///get/servers/1": solidus_get_server_1.Server1(),
+            "paths///get/servers/2": solidus_get_server_2.Server2(),
+            "paths//another-fake/dummy/patch/servers/0": another_fake_dummy_patch_server_0.Server0(),
+            "paths//another-fake/dummy/patch/servers/1": another_fake_dummy_patch_server_1.Server1(),
+            "paths//another-fake/dummy/patch/servers/2": another_fake_dummy_patch_server_2.Server2(),
+            "paths//commonParam/{subDir}//delete/servers/0": common_param_sub_dir_delete_server_0.Server0(),
+            "paths//commonParam/{subDir}//delete/servers/1": common_param_sub_dir_delete_server_1.Server1(),
+            "paths//commonParam/{subDir}//delete/servers/2": common_param_sub_dir_delete_server_2.Server2(),
+            "paths//commonParam/{subDir}//get/servers/0": common_param_sub_dir_get_server_0.Server0(),
+            "paths//commonParam/{subDir}//get/servers/1": common_param_sub_dir_get_server_1.Server1(),
+            "paths//commonParam/{subDir}//get/servers/2": common_param_sub_dir_get_server_2.Server2(),
+            "paths//commonParam/{subDir}//post/servers/0": common_param_sub_dir_post_server_0.Server0(),
+            "paths//commonParam/{subDir}//post/servers/1": common_param_sub_dir_post_server_1.Server1(),
+            "paths//commonParam/{subDir}//post/servers/2": common_param_sub_dir_post_server_2.Server2(),
+            "paths//fake/delete/servers/0": fake_delete_server_0.Server0(),
+            "paths//fake/delete/servers/1": fake_delete_server_1.Server1(),
+            "paths//fake/delete/servers/2": fake_delete_server_2.Server2(),
+            "paths//fake/get/servers/0": fake_get_server_0.Server0(),
+            "paths//fake/get/servers/1": fake_get_server_1.Server1(),
+            "paths//fake/get/servers/2": fake_get_server_2.Server2(),
+            "paths//fake/patch/servers/0": fake_patch_server_0.Server0(),
+            "paths//fake/patch/servers/1": fake_patch_server_1.Server1(),
+            "paths//fake/patch/servers/2": fake_patch_server_2.Server2(),
+            "paths//fake/post/servers/0": fake_post_server_0.Server0(),
+            "paths//fake/post/servers/1": fake_post_server_1.Server1(),
+            "paths//fake/post/servers/2": fake_post_server_2.Server2(),
+            "paths//fake/additional-properties-with-array-of-enums/get/servers/0": fake_additional_properties_with_array_of_enums_get_server_0.Server0(),
+            "paths//fake/additional-properties-with-array-of-enums/get/servers/1": fake_additional_properties_with_array_of_enums_get_server_1.Server1(),
+            "paths//fake/additional-properties-with-array-of-enums/get/servers/2": fake_additional_properties_with_array_of_enums_get_server_2.Server2(),
+            "paths//fake/body-with-file-schema/put/servers/0": fake_body_with_file_schema_put_server_0.Server0(),
+            "paths//fake/body-with-file-schema/put/servers/1": fake_body_with_file_schema_put_server_1.Server1(),
+            "paths//fake/body-with-file-schema/put/servers/2": fake_body_with_file_schema_put_server_2.Server2(),
+            "paths//fake/body-with-query-params/put/servers/0": fake_body_with_query_params_put_server_0.Server0(),
+            "paths//fake/body-with-query-params/put/servers/1": fake_body_with_query_params_put_server_1.Server1(),
+            "paths//fake/body-with-query-params/put/servers/2": fake_body_with_query_params_put_server_2.Server2(),
+            "paths//fake/case-sensitive-params/put/servers/0": fake_case_sensitive_params_put_server_0.Server0(),
+            "paths//fake/case-sensitive-params/put/servers/1": fake_case_sensitive_params_put_server_1.Server1(),
+            "paths//fake/case-sensitive-params/put/servers/2": fake_case_sensitive_params_put_server_2.Server2(),
+            "paths//fake/deleteCoffee/{id}/delete/servers/0": fake_delete_coffee_id_delete_server_0.Server0(),
+            "paths//fake/deleteCoffee/{id}/delete/servers/1": fake_delete_coffee_id_delete_server_1.Server1(),
+            "paths//fake/deleteCoffee/{id}/delete/servers/2": fake_delete_coffee_id_delete_server_2.Server2(),
+            "paths//fake/health/get/servers/0": fake_health_get_server_0.Server0(),
+            "paths//fake/health/get/servers/1": fake_health_get_server_1.Server1(),
+            "paths//fake/health/get/servers/2": fake_health_get_server_2.Server2(),
+            "paths//fake/inline-additionalProperties/post/servers/0": fake_inline_additional_properties_post_server_0.Server0(),
+            "paths//fake/inline-additionalProperties/post/servers/1": fake_inline_additional_properties_post_server_1.Server1(),
+            "paths//fake/inline-additionalProperties/post/servers/2": fake_inline_additional_properties_post_server_2.Server2(),
+            "paths//fake/inlineComposition//post/servers/0": fake_inline_composition_post_server_0.Server0(),
+            "paths//fake/inlineComposition//post/servers/1": fake_inline_composition_post_server_1.Server1(),
+            "paths//fake/inlineComposition//post/servers/2": fake_inline_composition_post_server_2.Server2(),
+            "paths//fake/jsonFormData/get/servers/0": fake_json_form_data_get_server_0.Server0(),
+            "paths//fake/jsonFormData/get/servers/1": fake_json_form_data_get_server_1.Server1(),
+            "paths//fake/jsonFormData/get/servers/2": fake_json_form_data_get_server_2.Server2(),
+            "paths//fake/jsonPatch/patch/servers/0": fake_json_patch_patch_server_0.Server0(),
+            "paths//fake/jsonPatch/patch/servers/1": fake_json_patch_patch_server_1.Server1(),
+            "paths//fake/jsonPatch/patch/servers/2": fake_json_patch_patch_server_2.Server2(),
+            "paths//fake/jsonWithCharset/post/servers/0": fake_json_with_charset_post_server_0.Server0(),
+            "paths//fake/jsonWithCharset/post/servers/1": fake_json_with_charset_post_server_1.Server1(),
+            "paths//fake/jsonWithCharset/post/servers/2": fake_json_with_charset_post_server_2.Server2(),
+            "paths//fake/multipleRequestBodyContentTypes//post/servers/0": fake_multiple_request_body_content_types_post_server_0.Server0(),
+            "paths//fake/multipleRequestBodyContentTypes//post/servers/1": fake_multiple_request_body_content_types_post_server_1.Server1(),
+            "paths//fake/multipleRequestBodyContentTypes//post/servers/2": fake_multiple_request_body_content_types_post_server_2.Server2(),
+            "paths//fake/multipleResponseBodies/get/servers/0": fake_multiple_response_bodies_get_server_0.Server0(),
+            "paths//fake/multipleResponseBodies/get/servers/1": fake_multiple_response_bodies_get_server_1.Server1(),
+            "paths//fake/multipleResponseBodies/get/servers/2": fake_multiple_response_bodies_get_server_2.Server2(),
+            "paths//fake/multipleSecurities/get/servers/0": fake_multiple_securities_get_server_0.Server0(),
+            "paths//fake/multipleSecurities/get/servers/1": fake_multiple_securities_get_server_1.Server1(),
+            "paths//fake/multipleSecurities/get/servers/2": fake_multiple_securities_get_server_2.Server2(),
+            "paths//fake/objInQuery/get/servers/0": fake_obj_in_query_get_server_0.Server0(),
+            "paths//fake/objInQuery/get/servers/1": fake_obj_in_query_get_server_1.Server1(),
+            "paths//fake/objInQuery/get/servers/2": fake_obj_in_query_get_server_2.Server2(),
+            "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers/0": fake_parameter_collisions1_abab_self_ab_post_server_0.Server0(),
+            "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers/1": fake_parameter_collisions1_abab_self_ab_post_server_1.Server1(),
+            "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers/2": fake_parameter_collisions1_abab_self_ab_post_server_2.Server2(),
+            "paths//fake/pemContentType/get/servers/0": fake_pem_content_type_get_server_0.Server0(),
+            "paths//fake/pemContentType/get/servers/1": fake_pem_content_type_get_server_1.Server1(),
+            "paths//fake/pemContentType/get/servers/2": fake_pem_content_type_get_server_2.Server2(),
+            "paths//fake/queryParamWithJsonContentType/get/servers/0": fake_query_param_with_json_content_type_get_server_0.Server0(),
+            "paths//fake/queryParamWithJsonContentType/get/servers/1": fake_query_param_with_json_content_type_get_server_1.Server1(),
+            "paths//fake/queryParamWithJsonContentType/get/servers/2": fake_query_param_with_json_content_type_get_server_2.Server2(),
+            "paths//fake/redirection/get/servers/0": fake_redirection_get_server_0.Server0(),
+            "paths//fake/redirection/get/servers/1": fake_redirection_get_server_1.Server1(),
+            "paths//fake/redirection/get/servers/2": fake_redirection_get_server_2.Server2(),
+            "paths//fake/refObjInQuery/get/servers/0": fake_ref_obj_in_query_get_server_0.Server0(),
+            "paths//fake/refObjInQuery/get/servers/1": fake_ref_obj_in_query_get_server_1.Server1(),
+            "paths//fake/refObjInQuery/get/servers/2": fake_ref_obj_in_query_get_server_2.Server2(),
+            "paths//fake/refs/array-of-enums/post/servers/0": fake_refs_array_of_enums_post_server_0.Server0(),
+            "paths//fake/refs/array-of-enums/post/servers/1": fake_refs_array_of_enums_post_server_1.Server1(),
+            "paths//fake/refs/array-of-enums/post/servers/2": fake_refs_array_of_enums_post_server_2.Server2(),
+            "paths//fake/refs/arraymodel/post/servers/0": fake_refs_arraymodel_post_server_0.Server0(),
+            "paths//fake/refs/arraymodel/post/servers/1": fake_refs_arraymodel_post_server_1.Server1(),
+            "paths//fake/refs/arraymodel/post/servers/2": fake_refs_arraymodel_post_server_2.Server2(),
+            "paths//fake/refs/boolean/post/servers/0": fake_refs_boolean_post_server_0.Server0(),
+            "paths//fake/refs/boolean/post/servers/1": fake_refs_boolean_post_server_1.Server1(),
+            "paths//fake/refs/boolean/post/servers/2": fake_refs_boolean_post_server_2.Server2(),
+            "paths//fake/refs/composed_one_of_number_with_validations/post/servers/0": fake_refs_composed_one_of_number_with_validations_post_server_0.Server0(),
+            "paths//fake/refs/composed_one_of_number_with_validations/post/servers/1": fake_refs_composed_one_of_number_with_validations_post_server_1.Server1(),
+            "paths//fake/refs/composed_one_of_number_with_validations/post/servers/2": fake_refs_composed_one_of_number_with_validations_post_server_2.Server2(),
+            "paths//fake/refs/enum/post/servers/0": fake_refs_enum_post_server_0.Server0(),
+            "paths//fake/refs/enum/post/servers/1": fake_refs_enum_post_server_1.Server1(),
+            "paths//fake/refs/enum/post/servers/2": fake_refs_enum_post_server_2.Server2(),
+            "paths//fake/refs/mammal/post/servers/0": fake_refs_mammal_post_server_0.Server0(),
+            "paths//fake/refs/mammal/post/servers/1": fake_refs_mammal_post_server_1.Server1(),
+            "paths//fake/refs/mammal/post/servers/2": fake_refs_mammal_post_server_2.Server2(),
+            "paths//fake/refs/number/post/servers/0": fake_refs_number_post_server_0.Server0(),
+            "paths//fake/refs/number/post/servers/1": fake_refs_number_post_server_1.Server1(),
+            "paths//fake/refs/number/post/servers/2": fake_refs_number_post_server_2.Server2(),
+            "paths//fake/refs/object_model_with_ref_props/post/servers/0": fake_refs_object_model_with_ref_props_post_server_0.Server0(),
+            "paths//fake/refs/object_model_with_ref_props/post/servers/1": fake_refs_object_model_with_ref_props_post_server_1.Server1(),
+            "paths//fake/refs/object_model_with_ref_props/post/servers/2": fake_refs_object_model_with_ref_props_post_server_2.Server2(),
+            "paths//fake/refs/string/post/servers/0": fake_refs_string_post_server_0.Server0(),
+            "paths//fake/refs/string/post/servers/1": fake_refs_string_post_server_1.Server1(),
+            "paths//fake/refs/string/post/servers/2": fake_refs_string_post_server_2.Server2(),
+            "paths//fake/responseWithoutSchema/get/servers/0": fake_response_without_schema_get_server_0.Server0(),
+            "paths//fake/responseWithoutSchema/get/servers/1": fake_response_without_schema_get_server_1.Server1(),
+            "paths//fake/responseWithoutSchema/get/servers/2": fake_response_without_schema_get_server_2.Server2(),
+            "paths//fake/test-query-paramters/put/servers/0": fake_test_query_paramters_put_server_0.Server0(),
+            "paths//fake/test-query-paramters/put/servers/1": fake_test_query_paramters_put_server_1.Server1(),
+            "paths//fake/test-query-paramters/put/servers/2": fake_test_query_paramters_put_server_2.Server2(),
+            "paths//fake/uploadDownloadFile/post/servers/0": fake_upload_download_file_post_server_0.Server0(),
+            "paths//fake/uploadDownloadFile/post/servers/1": fake_upload_download_file_post_server_1.Server1(),
+            "paths//fake/uploadDownloadFile/post/servers/2": fake_upload_download_file_post_server_2.Server2(),
+            "paths//fake/uploadFile/post/servers/0": fake_upload_file_post_server_0.Server0(),
+            "paths//fake/uploadFile/post/servers/1": fake_upload_file_post_server_1.Server1(),
+            "paths//fake/uploadFile/post/servers/2": fake_upload_file_post_server_2.Server2(),
+            "paths//fake/uploadFiles/post/servers/0": fake_upload_files_post_server_0.Server0(),
+            "paths//fake/uploadFiles/post/servers/1": fake_upload_files_post_server_1.Server1(),
+            "paths//fake/uploadFiles/post/servers/2": fake_upload_files_post_server_2.Server2(),
+            "paths//fake/wildCardResponses/get/servers/0": fake_wild_card_responses_get_server_0.Server0(),
+            "paths//fake/wildCardResponses/get/servers/1": fake_wild_card_responses_get_server_1.Server1(),
+            "paths//fake/wildCardResponses/get/servers/2": fake_wild_card_responses_get_server_2.Server2(),
+            "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers/0": fake_pet_id_upload_image_with_required_file_post_server_0.Server0(),
+            "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers/1": fake_pet_id_upload_image_with_required_file_post_server_1.Server1(),
+            "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers/2": fake_pet_id_upload_image_with_required_file_post_server_2.Server2(),
+            "paths//fake_classname_test/patch/servers/0": fake_classname_test_patch_server_0.Server0(),
+            "paths//fake_classname_test/patch/servers/1": fake_classname_test_patch_server_1.Server1(),
+            "paths//fake_classname_test/patch/servers/2": fake_classname_test_patch_server_2.Server2(),
             "paths//foo/get/servers/0": foo_get_server_0.Server0(),
             "paths//foo/get/servers/1": foo_get_server_1.Server1(),
+            "paths//pet/post/servers/0": pet_post_server_0.Server0(),
+            "paths//pet/post/servers/1": pet_post_server_1.Server1(),
+            "paths//pet/post/servers/2": pet_post_server_2.Server2(),
+            "paths//pet/put/servers/0": pet_put_server_0.Server0(),
+            "paths//pet/put/servers/1": pet_put_server_1.Server1(),
+            "paths//pet/put/servers/2": pet_put_server_2.Server2(),
             "paths//pet/findByStatus/servers/0": pet_find_by_status_server_0.Server0(),
             "paths//pet/findByStatus/servers/1": pet_find_by_status_server_1.Server1(),
+            "paths//pet/findByStatus/get/servers/0": pet_find_by_status_get_server_0.Server0(),
+            "paths//pet/findByStatus/get/servers/1": pet_find_by_status_get_server_1.Server1(),
+            "paths//pet/findByTags/get/servers/0": pet_find_by_tags_get_server_0.Server0(),
+            "paths//pet/findByTags/get/servers/1": pet_find_by_tags_get_server_1.Server1(),
+            "paths//pet/findByTags/get/servers/2": pet_find_by_tags_get_server_2.Server2(),
+            "paths//pet/{petId}/delete/servers/0": pet_pet_id_delete_server_0.Server0(),
+            "paths//pet/{petId}/delete/servers/1": pet_pet_id_delete_server_1.Server1(),
+            "paths//pet/{petId}/delete/servers/2": pet_pet_id_delete_server_2.Server2(),
+            "paths//pet/{petId}/get/servers/0": pet_pet_id_get_server_0.Server0(),
+            "paths//pet/{petId}/get/servers/1": pet_pet_id_get_server_1.Server1(),
+            "paths//pet/{petId}/get/servers/2": pet_pet_id_get_server_2.Server2(),
+            "paths//pet/{petId}/post/servers/0": pet_pet_id_post_server_0.Server0(),
+            "paths//pet/{petId}/post/servers/1": pet_pet_id_post_server_1.Server1(),
+            "paths//pet/{petId}/post/servers/2": pet_pet_id_post_server_2.Server2(),
+            "paths//pet/{petId}/uploadImage/post/servers/0": pet_pet_id_upload_image_post_server_0.Server0(),
+            "paths//pet/{petId}/uploadImage/post/servers/1": pet_pet_id_upload_image_post_server_1.Server1(),
+            "paths//pet/{petId}/uploadImage/post/servers/2": pet_pet_id_upload_image_post_server_2.Server2(),
+            "paths//store/inventory/get/servers/0": store_inventory_get_server_0.Server0(),
+            "paths//store/inventory/get/servers/1": store_inventory_get_server_1.Server1(),
+            "paths//store/inventory/get/servers/2": store_inventory_get_server_2.Server2(),
+            "paths//store/order/post/servers/0": store_order_post_server_0.Server0(),
+            "paths//store/order/post/servers/1": store_order_post_server_1.Server1(),
+            "paths//store/order/post/servers/2": store_order_post_server_2.Server2(),
+            "paths//store/order/{order_id}/delete/servers/0": store_order_order_id_delete_server_0.Server0(),
+            "paths//store/order/{order_id}/delete/servers/1": store_order_order_id_delete_server_1.Server1(),
+            "paths//store/order/{order_id}/delete/servers/2": store_order_order_id_delete_server_2.Server2(),
+            "paths//store/order/{order_id}/get/servers/0": store_order_order_id_get_server_0.Server0(),
+            "paths//store/order/{order_id}/get/servers/1": store_order_order_id_get_server_1.Server1(),
+            "paths//store/order/{order_id}/get/servers/2": store_order_order_id_get_server_2.Server2(),
+            "paths//user/post/servers/0": user_post_server_0.Server0(),
+            "paths//user/post/servers/1": user_post_server_1.Server1(),
+            "paths//user/post/servers/2": user_post_server_2.Server2(),
+            "paths//user/createWithArray/post/servers/0": user_create_with_array_post_server_0.Server0(),
+            "paths//user/createWithArray/post/servers/1": user_create_with_array_post_server_1.Server1(),
+            "paths//user/createWithArray/post/servers/2": user_create_with_array_post_server_2.Server2(),
+            "paths//user/createWithList/post/servers/0": user_create_with_list_post_server_0.Server0(),
+            "paths//user/createWithList/post/servers/1": user_create_with_list_post_server_1.Server1(),
+            "paths//user/createWithList/post/servers/2": user_create_with_list_post_server_2.Server2(),
+            "paths//user/login/get/servers/0": user_login_get_server_0.Server0(),
+            "paths//user/login/get/servers/1": user_login_get_server_1.Server1(),
+            "paths//user/login/get/servers/2": user_login_get_server_2.Server2(),
+            "paths//user/logout/get/servers/0": user_logout_get_server_0.Server0(),
+            "paths//user/logout/get/servers/1": user_logout_get_server_1.Server1(),
+            "paths//user/logout/get/servers/2": user_logout_get_server_2.Server2(),
+            "paths//user/{username}/delete/servers/0": user_username_delete_server_0.Server0(),
+            "paths//user/{username}/delete/servers/1": user_username_delete_server_1.Server1(),
+            "paths//user/{username}/delete/servers/2": user_username_delete_server_2.Server2(),
+            "paths//user/{username}/get/servers/0": user_username_get_server_0.Server0(),
+            "paths//user/{username}/get/servers/1": user_username_get_server_1.Server1(),
+            "paths//user/{username}/get/servers/2": user_username_get_server_2.Server2(),
+            "paths//user/{username}/put/servers/0": user_username_put_server_0.Server0(),
+            "paths//user/{username}/put/servers/1": user_username_put_server_1.Server1(),
+            "paths//user/{username}/put/servers/2": user_username_put_server_2.Server2(),
         }
         self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
         self.logger = {}
@@ -335,8 +992,74 @@ class ApiConfiguration(object):
         self,
         key_prefix: typing.Literal[
             "servers",
+            "paths///get/servers",
+            "paths//another-fake/dummy/patch/servers",
+            "paths//commonParam/{subDir}//delete/servers",
+            "paths//commonParam/{subDir}//get/servers",
+            "paths//commonParam/{subDir}//post/servers",
+            "paths//fake/delete/servers",
+            "paths//fake/get/servers",
+            "paths//fake/patch/servers",
+            "paths//fake/post/servers",
+            "paths//fake/additional-properties-with-array-of-enums/get/servers",
+            "paths//fake/body-with-file-schema/put/servers",
+            "paths//fake/body-with-query-params/put/servers",
+            "paths//fake/case-sensitive-params/put/servers",
+            "paths//fake/deleteCoffee/{id}/delete/servers",
+            "paths//fake/health/get/servers",
+            "paths//fake/inline-additionalProperties/post/servers",
+            "paths//fake/inlineComposition//post/servers",
+            "paths//fake/jsonFormData/get/servers",
+            "paths//fake/jsonPatch/patch/servers",
+            "paths//fake/jsonWithCharset/post/servers",
+            "paths//fake/multipleRequestBodyContentTypes//post/servers",
+            "paths//fake/multipleResponseBodies/get/servers",
+            "paths//fake/multipleSecurities/get/servers",
+            "paths//fake/objInQuery/get/servers",
+            "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers",
+            "paths//fake/pemContentType/get/servers",
+            "paths//fake/queryParamWithJsonContentType/get/servers",
+            "paths//fake/redirection/get/servers",
+            "paths//fake/refObjInQuery/get/servers",
+            "paths//fake/refs/array-of-enums/post/servers",
+            "paths//fake/refs/arraymodel/post/servers",
+            "paths//fake/refs/boolean/post/servers",
+            "paths//fake/refs/composed_one_of_number_with_validations/post/servers",
+            "paths//fake/refs/enum/post/servers",
+            "paths//fake/refs/mammal/post/servers",
+            "paths//fake/refs/number/post/servers",
+            "paths//fake/refs/object_model_with_ref_props/post/servers",
+            "paths//fake/refs/string/post/servers",
+            "paths//fake/responseWithoutSchema/get/servers",
+            "paths//fake/test-query-paramters/put/servers",
+            "paths//fake/uploadDownloadFile/post/servers",
+            "paths//fake/uploadFile/post/servers",
+            "paths//fake/uploadFiles/post/servers",
+            "paths//fake/wildCardResponses/get/servers",
+            "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers",
+            "paths//fake_classname_test/patch/servers",
             "paths//foo/get/servers",
+            "paths//pet/post/servers",
+            "paths//pet/put/servers",
             "paths//pet/findByStatus/servers",
+            "paths//pet/findByStatus/get/servers",
+            "paths//pet/findByTags/get/servers",
+            "paths//pet/{petId}/delete/servers",
+            "paths//pet/{petId}/get/servers",
+            "paths//pet/{petId}/post/servers",
+            "paths//pet/{petId}/uploadImage/post/servers",
+            "paths//store/inventory/get/servers",
+            "paths//store/order/post/servers",
+            "paths//store/order/{order_id}/delete/servers",
+            "paths//store/order/{order_id}/get/servers",
+            "paths//user/post/servers",
+            "paths//user/createWithArray/post/servers",
+            "paths//user/createWithList/post/servers",
+            "paths//user/login/get/servers",
+            "paths//user/logout/get/servers",
+            "paths//user/{username}/delete/servers",
+            "paths//user/{username}/get/servers",
+            "paths//user/{username}/put/servers",
         ],
         index: typing.Optional[int],
     ) -> str:
@@ -357,10 +1080,207 @@ class ApiConfiguration(object):
                 "servers/0",
                 "servers/1",
                 "servers/2",
+                "paths///get/servers/0",
+                "paths///get/servers/1",
+                "paths///get/servers/2",
+                "paths//another-fake/dummy/patch/servers/0",
+                "paths//another-fake/dummy/patch/servers/1",
+                "paths//another-fake/dummy/patch/servers/2",
+                "paths//commonParam/{subDir}//delete/servers/0",
+                "paths//commonParam/{subDir}//delete/servers/1",
+                "paths//commonParam/{subDir}//delete/servers/2",
+                "paths//commonParam/{subDir}//get/servers/0",
+                "paths//commonParam/{subDir}//get/servers/1",
+                "paths//commonParam/{subDir}//get/servers/2",
+                "paths//commonParam/{subDir}//post/servers/0",
+                "paths//commonParam/{subDir}//post/servers/1",
+                "paths//commonParam/{subDir}//post/servers/2",
+                "paths//fake/delete/servers/0",
+                "paths//fake/delete/servers/1",
+                "paths//fake/delete/servers/2",
+                "paths//fake/get/servers/0",
+                "paths//fake/get/servers/1",
+                "paths//fake/get/servers/2",
+                "paths//fake/patch/servers/0",
+                "paths//fake/patch/servers/1",
+                "paths//fake/patch/servers/2",
+                "paths//fake/post/servers/0",
+                "paths//fake/post/servers/1",
+                "paths//fake/post/servers/2",
+                "paths//fake/additional-properties-with-array-of-enums/get/servers/0",
+                "paths//fake/additional-properties-with-array-of-enums/get/servers/1",
+                "paths//fake/additional-properties-with-array-of-enums/get/servers/2",
+                "paths//fake/body-with-file-schema/put/servers/0",
+                "paths//fake/body-with-file-schema/put/servers/1",
+                "paths//fake/body-with-file-schema/put/servers/2",
+                "paths//fake/body-with-query-params/put/servers/0",
+                "paths//fake/body-with-query-params/put/servers/1",
+                "paths//fake/body-with-query-params/put/servers/2",
+                "paths//fake/case-sensitive-params/put/servers/0",
+                "paths//fake/case-sensitive-params/put/servers/1",
+                "paths//fake/case-sensitive-params/put/servers/2",
+                "paths//fake/deleteCoffee/{id}/delete/servers/0",
+                "paths//fake/deleteCoffee/{id}/delete/servers/1",
+                "paths//fake/deleteCoffee/{id}/delete/servers/2",
+                "paths//fake/health/get/servers/0",
+                "paths//fake/health/get/servers/1",
+                "paths//fake/health/get/servers/2",
+                "paths//fake/inline-additionalProperties/post/servers/0",
+                "paths//fake/inline-additionalProperties/post/servers/1",
+                "paths//fake/inline-additionalProperties/post/servers/2",
+                "paths//fake/inlineComposition//post/servers/0",
+                "paths//fake/inlineComposition//post/servers/1",
+                "paths//fake/inlineComposition//post/servers/2",
+                "paths//fake/jsonFormData/get/servers/0",
+                "paths//fake/jsonFormData/get/servers/1",
+                "paths//fake/jsonFormData/get/servers/2",
+                "paths//fake/jsonPatch/patch/servers/0",
+                "paths//fake/jsonPatch/patch/servers/1",
+                "paths//fake/jsonPatch/patch/servers/2",
+                "paths//fake/jsonWithCharset/post/servers/0",
+                "paths//fake/jsonWithCharset/post/servers/1",
+                "paths//fake/jsonWithCharset/post/servers/2",
+                "paths//fake/multipleRequestBodyContentTypes//post/servers/0",
+                "paths//fake/multipleRequestBodyContentTypes//post/servers/1",
+                "paths//fake/multipleRequestBodyContentTypes//post/servers/2",
+                "paths//fake/multipleResponseBodies/get/servers/0",
+                "paths//fake/multipleResponseBodies/get/servers/1",
+                "paths//fake/multipleResponseBodies/get/servers/2",
+                "paths//fake/multipleSecurities/get/servers/0",
+                "paths//fake/multipleSecurities/get/servers/1",
+                "paths//fake/multipleSecurities/get/servers/2",
+                "paths//fake/objInQuery/get/servers/0",
+                "paths//fake/objInQuery/get/servers/1",
+                "paths//fake/objInQuery/get/servers/2",
+                "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers/0",
+                "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers/1",
+                "paths//fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}//post/servers/2",
+                "paths//fake/pemContentType/get/servers/0",
+                "paths//fake/pemContentType/get/servers/1",
+                "paths//fake/pemContentType/get/servers/2",
+                "paths//fake/queryParamWithJsonContentType/get/servers/0",
+                "paths//fake/queryParamWithJsonContentType/get/servers/1",
+                "paths//fake/queryParamWithJsonContentType/get/servers/2",
+                "paths//fake/redirection/get/servers/0",
+                "paths//fake/redirection/get/servers/1",
+                "paths//fake/redirection/get/servers/2",
+                "paths//fake/refObjInQuery/get/servers/0",
+                "paths//fake/refObjInQuery/get/servers/1",
+                "paths//fake/refObjInQuery/get/servers/2",
+                "paths//fake/refs/array-of-enums/post/servers/0",
+                "paths//fake/refs/array-of-enums/post/servers/1",
+                "paths//fake/refs/array-of-enums/post/servers/2",
+                "paths//fake/refs/arraymodel/post/servers/0",
+                "paths//fake/refs/arraymodel/post/servers/1",
+                "paths//fake/refs/arraymodel/post/servers/2",
+                "paths//fake/refs/boolean/post/servers/0",
+                "paths//fake/refs/boolean/post/servers/1",
+                "paths//fake/refs/boolean/post/servers/2",
+                "paths//fake/refs/composed_one_of_number_with_validations/post/servers/0",
+                "paths//fake/refs/composed_one_of_number_with_validations/post/servers/1",
+                "paths//fake/refs/composed_one_of_number_with_validations/post/servers/2",
+                "paths//fake/refs/enum/post/servers/0",
+                "paths//fake/refs/enum/post/servers/1",
+                "paths//fake/refs/enum/post/servers/2",
+                "paths//fake/refs/mammal/post/servers/0",
+                "paths//fake/refs/mammal/post/servers/1",
+                "paths//fake/refs/mammal/post/servers/2",
+                "paths//fake/refs/number/post/servers/0",
+                "paths//fake/refs/number/post/servers/1",
+                "paths//fake/refs/number/post/servers/2",
+                "paths//fake/refs/object_model_with_ref_props/post/servers/0",
+                "paths//fake/refs/object_model_with_ref_props/post/servers/1",
+                "paths//fake/refs/object_model_with_ref_props/post/servers/2",
+                "paths//fake/refs/string/post/servers/0",
+                "paths//fake/refs/string/post/servers/1",
+                "paths//fake/refs/string/post/servers/2",
+                "paths//fake/responseWithoutSchema/get/servers/0",
+                "paths//fake/responseWithoutSchema/get/servers/1",
+                "paths//fake/responseWithoutSchema/get/servers/2",
+                "paths//fake/test-query-paramters/put/servers/0",
+                "paths//fake/test-query-paramters/put/servers/1",
+                "paths//fake/test-query-paramters/put/servers/2",
+                "paths//fake/uploadDownloadFile/post/servers/0",
+                "paths//fake/uploadDownloadFile/post/servers/1",
+                "paths//fake/uploadDownloadFile/post/servers/2",
+                "paths//fake/uploadFile/post/servers/0",
+                "paths//fake/uploadFile/post/servers/1",
+                "paths//fake/uploadFile/post/servers/2",
+                "paths//fake/uploadFiles/post/servers/0",
+                "paths//fake/uploadFiles/post/servers/1",
+                "paths//fake/uploadFiles/post/servers/2",
+                "paths//fake/wildCardResponses/get/servers/0",
+                "paths//fake/wildCardResponses/get/servers/1",
+                "paths//fake/wildCardResponses/get/servers/2",
+                "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers/0",
+                "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers/1",
+                "paths//fake/{petId}/uploadImageWithRequiredFile/post/servers/2",
+                "paths//fake_classname_test/patch/servers/0",
+                "paths//fake_classname_test/patch/servers/1",
+                "paths//fake_classname_test/patch/servers/2",
                 "paths//foo/get/servers/0",
                 "paths//foo/get/servers/1",
+                "paths//pet/post/servers/0",
+                "paths//pet/post/servers/1",
+                "paths//pet/post/servers/2",
+                "paths//pet/put/servers/0",
+                "paths//pet/put/servers/1",
+                "paths//pet/put/servers/2",
                 "paths//pet/findByStatus/servers/0",
                 "paths//pet/findByStatus/servers/1",
+                "paths//pet/findByStatus/get/servers/0",
+                "paths//pet/findByStatus/get/servers/1",
+                "paths//pet/findByTags/get/servers/0",
+                "paths//pet/findByTags/get/servers/1",
+                "paths//pet/findByTags/get/servers/2",
+                "paths//pet/{petId}/delete/servers/0",
+                "paths//pet/{petId}/delete/servers/1",
+                "paths//pet/{petId}/delete/servers/2",
+                "paths//pet/{petId}/get/servers/0",
+                "paths//pet/{petId}/get/servers/1",
+                "paths//pet/{petId}/get/servers/2",
+                "paths//pet/{petId}/post/servers/0",
+                "paths//pet/{petId}/post/servers/1",
+                "paths//pet/{petId}/post/servers/2",
+                "paths//pet/{petId}/uploadImage/post/servers/0",
+                "paths//pet/{petId}/uploadImage/post/servers/1",
+                "paths//pet/{petId}/uploadImage/post/servers/2",
+                "paths//store/inventory/get/servers/0",
+                "paths//store/inventory/get/servers/1",
+                "paths//store/inventory/get/servers/2",
+                "paths//store/order/post/servers/0",
+                "paths//store/order/post/servers/1",
+                "paths//store/order/post/servers/2",
+                "paths//store/order/{order_id}/delete/servers/0",
+                "paths//store/order/{order_id}/delete/servers/1",
+                "paths//store/order/{order_id}/delete/servers/2",
+                "paths//store/order/{order_id}/get/servers/0",
+                "paths//store/order/{order_id}/get/servers/1",
+                "paths//store/order/{order_id}/get/servers/2",
+                "paths//user/post/servers/0",
+                "paths//user/post/servers/1",
+                "paths//user/post/servers/2",
+                "paths//user/createWithArray/post/servers/0",
+                "paths//user/createWithArray/post/servers/1",
+                "paths//user/createWithArray/post/servers/2",
+                "paths//user/createWithList/post/servers/0",
+                "paths//user/createWithList/post/servers/1",
+                "paths//user/createWithList/post/servers/2",
+                "paths//user/login/get/servers/0",
+                "paths//user/login/get/servers/1",
+                "paths//user/login/get/servers/2",
+                "paths//user/logout/get/servers/0",
+                "paths//user/logout/get/servers/1",
+                "paths//user/logout/get/servers/2",
+                "paths//user/{username}/delete/servers/0",
+                "paths//user/{username}/delete/servers/1",
+                "paths//user/{username}/delete/servers/2",
+                "paths//user/{username}/get/servers/0",
+                "paths//user/{username}/get/servers/1",
+                "paths//user/{username}/get/servers/2",
+                "paths//user/{username}/put/servers/0",
+                "paths//user/{username}/put/servers/1",
+                "paths//user/{username}/put/servers/2",
             ],
             f"{key_prefix}/{used_index}"
         )

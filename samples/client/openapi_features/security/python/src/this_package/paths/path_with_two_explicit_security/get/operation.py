@@ -75,7 +75,7 @@ class BaseApi(api_client.Api):
         used_path = path
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            "servers", server_index
+            "paths//pathWithTwoExplicitSecurity/get/servers", server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
             "paths//pathWithTwoExplicitSecurity/get/security",

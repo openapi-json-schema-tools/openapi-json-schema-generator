@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MapSchemaTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
     static final MapJsonSchema.MapJsonSchema1 mapJsonSchema = MapJsonSchema.MapJsonSchema1.getInstance();
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),

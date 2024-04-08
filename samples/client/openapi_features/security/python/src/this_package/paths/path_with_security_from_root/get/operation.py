@@ -5,16 +5,16 @@
 """
 
 from this_package import api_client, security_schemes
-from this_package.security import (
+from this_package.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+
+from .. import path
+from .responses import response_200
+from .security import (
     security_requirement_object_0,
     security_requirement_object_1,
     security_requirement_object_2,
     security_requirement_object_3,
 )
-from this_package.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-
-from .. import path
-from .responses import response_200
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
     security_requirement_object_0.security_requirement_object,
@@ -79,10 +79,10 @@ class BaseApi(api_client.Api):
         used_path = path
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            "servers", server_index
+            "paths//pathWithSecurityFromRoot/get/servers", server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
-            "security",
+            "paths//pathWithSecurityFromRoot/get/security",
             _security,
             security_index
         )

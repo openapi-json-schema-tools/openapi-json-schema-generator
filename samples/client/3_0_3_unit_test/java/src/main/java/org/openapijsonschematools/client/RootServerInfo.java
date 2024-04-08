@@ -9,13 +9,9 @@ import java.util.Objects;
 
 public class RootServerInfo {
     public static class RootServerInfo1 implements ServerProvider<ServerIndex> {
-        public final Server0 server0;
+        private final Server0 server0;
 
-        public RootServerInfo1() {
-            server0 = new Server0();
-        }
-
-        public RootServerInfo1(
+        RootServerInfo1(
             @Nullable Server0 server0
         ) {
             this.server0 = Objects.requireNonNullElseGet(server0, Server0::new);
@@ -24,6 +20,23 @@ public class RootServerInfo {
         @Override
         public Server getServer(ServerIndex serverIndex) {
             return server0;
+        }
+    }
+
+    public static class RootServerInfoBuilder {
+        private @Nullable Server0 server0;
+
+        public RootServerInfoBuilder() {}
+
+        public RootServerInfoBuilder server0(Server0 server0) {
+            this.server0 = server0;
+            return this;
+        }
+
+        public RootServerInfo1 build() {
+            return new RootServerInfo1(
+                server0
+            );
         }
     }
 

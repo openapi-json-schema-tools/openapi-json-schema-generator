@@ -59,7 +59,7 @@ component security scheme class.
 Select the security index by setting ApiConfiguration.security_index_info or by
 passing in security_index into the endpoint method.
 See how to do this in the code sample.
-- these securities are the general api securities
+- these securities are specific to this to this endpoint
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
@@ -73,12 +73,20 @@ See how to do this in the code sample.
 Set the available servers by defining your used servers in ApiConfiguration.server_info
 Then select your server by setting a server index in ApiConfiguration.server_index_info or by
 passing server_index in to the endpoint method.
-- these servers are the general api servers
+- these servers are specific to this endpoint
 - defaults to server_index=0, server.url = http://localhost:3000
 
 server_index | Class | Description
 ------------ | ----- | ------------
-0 | [Server0](../../servers/server_0.md) |
+0 | [Server0](#server0) |
+
+this_package.servers.server_0
+### Server0
+
+#### Url
+http://localhost:3000
+
+[[Back to top]](#top) [[Back to Servers]](../../README.md#Servers) [[Back to README]](../../README.md)
 
 ## Code Sample
 
@@ -129,10 +137,11 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
 }
 
 security_index_info: api_configuration.SecurityIndexInfo = {
-    "security": 0,
-    # only set one "security": 1,
-    # only set one "security": 2,
-    # only set one "security": 3,
+    "security": 0,  # default value
+    "paths//pathWithSecurityFromRoot/get/security": 0,
+    # only set one "paths//pathWithSecurityFromRoot/get/security": 1,
+    # only set one "paths//pathWithSecurityFromRoot/get/security": 2,
+    # only set one "paths//pathWithSecurityFromRoot/get/security": 3,
 }
 used_configuration = api_configuration.ApiConfiguration(
     security_scheme_info=security_scheme_info,

@@ -7,7 +7,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
@@ -57,7 +57,7 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
@@ -105,7 +105,7 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCa
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
@@ -122,7 +122,7 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
@@ -136,7 +136,7 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
@@ -167,7 +167,7 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
@@ -238,7 +238,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
@@ -252,7 +252,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -264,7 +264,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -276,7 +276,7 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -304,7 +304,7 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -362,7 +362,7 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
@@ -411,7 +411,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

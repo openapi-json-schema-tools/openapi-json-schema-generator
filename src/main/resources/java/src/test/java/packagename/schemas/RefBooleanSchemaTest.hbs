@@ -17,7 +17,7 @@ public class RefBooleanSchemaTest {
         public static class RefBooleanSchema1 extends BooleanJsonSchema.BooleanJsonSchema1 {}
     }
 
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
     static final BooleanJsonSchema.BooleanJsonSchema1 refBooleanJsonSchema = RefBooleanSchema.RefBooleanSchema1.getInstance();
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),

@@ -113,7 +113,7 @@ class BaseApi(api_client.Api):
             headers=headers
         )
         host = self.api_client.configuration.get_server_url(
-            "servers", server_index
+            "paths//fake/body-with-query-params/put/servers", server_index
         )
 
         raw_response = self.api_client.call_api(

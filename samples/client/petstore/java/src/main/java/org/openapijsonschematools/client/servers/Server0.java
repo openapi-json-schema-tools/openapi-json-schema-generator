@@ -19,7 +19,7 @@ public class Server0 extends ServerWithVariables<Variables.VariablesMap> {
                     new AbstractMap.SimpleEntry<>("port", Variables.Port.getInstance().defaultValue()),
                     new AbstractMap.SimpleEntry<>("server", Variables.Server.getInstance().defaultValue())
                 ),
-                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
+                new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build())
             );
         } catch (ValidationException e) {
             throw new RuntimeException(e);

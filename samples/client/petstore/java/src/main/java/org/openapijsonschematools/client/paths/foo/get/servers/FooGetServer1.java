@@ -16,7 +16,7 @@ public class FooGetServer1 extends ServerWithVariables<Variables.VariablesMap> {
                 MapUtils.makeMap(
                     new AbstractMap.SimpleEntry<>("version", Variables.Version.getInstance().defaultValue())
                 ),
-                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
+                new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build())
             );
         } catch (ValidationException e) {
             throw new RuntimeException(e);

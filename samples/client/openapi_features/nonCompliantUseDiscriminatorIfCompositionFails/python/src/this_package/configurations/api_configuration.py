@@ -19,12 +19,14 @@ import urllib3
 
 from this_package import exceptions
 from this_package.servers import server_0
+from this_package.paths.operators.post.servers import server_0 as operators_post_server_0
 
 # the server to use at each openapi document json path
 ServerInfo = typing.TypedDict(
     'ServerInfo',
     {
         'servers/0': server_0.Server0,
+        "paths//operators/post/servers/0": operators_post_server_0.Server0,
     },
     total=False
 )
@@ -36,6 +38,7 @@ class ServerIndexInfoRequired(typing.TypedDict):
 ServerIndexInfoOptional = typing.TypedDict(
     'ServerIndexInfoOptional',
     {
+        "paths//operators/post/servers": typing.Literal[0],
     },
     total=False
 )
@@ -71,6 +74,7 @@ class ApiConfiguration(object):
         # Server Info
         self.server_info: ServerInfo = server_info or {
             'servers/0': server_0.Server0(),
+            "paths//operators/post/servers/0": operators_post_server_0.Server0(),
         }
         self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
         self.logger = {}
@@ -253,6 +257,7 @@ class ApiConfiguration(object):
         self,
         key_prefix: typing.Literal[
             "servers",
+            "paths//operators/post/servers",
         ],
         index: typing.Optional[int],
     ) -> str:
@@ -271,6 +276,7 @@ class ApiConfiguration(object):
         server_info_key = typing.cast(
             typing.Literal[
                 "servers/0",
+                "paths//operators/post/servers/0",
             ],
             f"{key_prefix}/{used_index}"
         )

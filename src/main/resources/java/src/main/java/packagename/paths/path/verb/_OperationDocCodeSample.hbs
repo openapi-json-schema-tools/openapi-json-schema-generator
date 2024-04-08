@@ -160,7 +160,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     {{/each}}
     timeout
 );
-SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 apiClient = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1(apiConfiguration, schemaConfiguration);
 
     {{#gt builders.size 1}}

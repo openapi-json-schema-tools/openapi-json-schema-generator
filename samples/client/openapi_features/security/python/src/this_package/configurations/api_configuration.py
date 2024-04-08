@@ -23,6 +23,10 @@ from this_package.components.security_schemes import security_scheme_api_key
 from this_package.components.security_schemes import security_scheme_bearer_test
 from this_package.components.security_schemes import security_scheme_http_basic_test
 from this_package.servers import server_0
+from this_package.paths.path_with_no_explicit_security.get.servers import server_0 as path_with_no_explicit_security_get_server_0
+from this_package.paths.path_with_one_explicit_security.get.servers import server_0 as path_with_one_explicit_security_get_server_0
+from this_package.paths.path_with_security_from_root.get.servers import server_0 as path_with_security_from_root_get_server_0
+from this_package.paths.path_with_two_explicit_security.get.servers import server_0 as path_with_two_explicit_security_get_server_0
 
 # security scheme key identifier to security scheme instance
 SecuritySchemeInfo = typing.TypedDict(
@@ -43,6 +47,7 @@ SecurityIndexInfoOptional = typing.TypedDict(
     'SecurityIndexInfoOptional',
     {
         "paths//pathWithOneExplicitSecurity/get/security": typing.Literal[0],
+        "paths//pathWithSecurityFromRoot/get/security": typing.Literal[0, 1, 2, 3],
         "paths//pathWithTwoExplicitSecurity/get/security": typing.Literal[0, 1],
     },
     total=False
@@ -60,6 +65,10 @@ ServerInfo = typing.TypedDict(
     'ServerInfo',
     {
         'servers/0': server_0.Server0,
+        "paths//pathWithNoExplicitSecurity/get/servers/0": path_with_no_explicit_security_get_server_0.Server0,
+        "paths//pathWithOneExplicitSecurity/get/servers/0": path_with_one_explicit_security_get_server_0.Server0,
+        "paths//pathWithSecurityFromRoot/get/servers/0": path_with_security_from_root_get_server_0.Server0,
+        "paths//pathWithTwoExplicitSecurity/get/servers/0": path_with_two_explicit_security_get_server_0.Server0,
     },
     total=False
 )
@@ -71,6 +80,10 @@ class ServerIndexInfoRequired(typing.TypedDict):
 ServerIndexInfoOptional = typing.TypedDict(
     'ServerIndexInfoOptional',
     {
+        "paths//pathWithNoExplicitSecurity/get/servers": typing.Literal[0],
+        "paths//pathWithOneExplicitSecurity/get/servers": typing.Literal[0],
+        "paths//pathWithSecurityFromRoot/get/servers": typing.Literal[0],
+        "paths//pathWithTwoExplicitSecurity/get/servers": typing.Literal[0],
     },
     total=False
 )
@@ -113,6 +126,10 @@ class ApiConfiguration(object):
         # Server Info
         self.server_info: ServerInfo = server_info or {
             'servers/0': server_0.Server0(),
+            "paths//pathWithNoExplicitSecurity/get/servers/0": path_with_no_explicit_security_get_server_0.Server0(),
+            "paths//pathWithOneExplicitSecurity/get/servers/0": path_with_one_explicit_security_get_server_0.Server0(),
+            "paths//pathWithSecurityFromRoot/get/servers/0": path_with_security_from_root_get_server_0.Server0(),
+            "paths//pathWithTwoExplicitSecurity/get/servers/0": path_with_two_explicit_security_get_server_0.Server0(),
         }
         self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
         self.logger = {}
@@ -295,6 +312,10 @@ class ApiConfiguration(object):
         self,
         key_prefix: typing.Literal[
             "servers",
+            "paths//pathWithNoExplicitSecurity/get/servers",
+            "paths//pathWithOneExplicitSecurity/get/servers",
+            "paths//pathWithSecurityFromRoot/get/servers",
+            "paths//pathWithTwoExplicitSecurity/get/servers",
         ],
         index: typing.Optional[int],
     ) -> str:
@@ -313,6 +334,10 @@ class ApiConfiguration(object):
         server_info_key = typing.cast(
             typing.Literal[
                 "servers/0",
+                "paths//pathWithNoExplicitSecurity/get/servers/0",
+                "paths//pathWithOneExplicitSecurity/get/servers/0",
+                "paths//pathWithSecurityFromRoot/get/servers/0",
+                "paths//pathWithTwoExplicitSecurity/get/servers/0",
             ],
             f"{key_prefix}/{used_index}"
         )
@@ -327,6 +352,7 @@ class ApiConfiguration(object):
         key_prefix: typing.Literal[
             "security",
             "paths//pathWithOneExplicitSecurity/get/security",
+            "paths//pathWithSecurityFromRoot/get/security",
             "paths//pathWithTwoExplicitSecurity/get/security",
         ],
         security_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],

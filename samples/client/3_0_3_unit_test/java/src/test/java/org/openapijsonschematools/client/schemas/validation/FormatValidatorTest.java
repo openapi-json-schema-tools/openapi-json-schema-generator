@@ -23,7 +23,7 @@ import java.util.LinkedHashSet;
 public class FormatValidatorTest {
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             new ArrayList<>(),
-            new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
+            new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()),
             new PathToSchemasMap(),
             new LinkedHashSet<>()
     );

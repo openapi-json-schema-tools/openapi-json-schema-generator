@@ -86,7 +86,7 @@ public class SchemaHeaderTest {
                         true
                 )
         );
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+        SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
         BiPredicate<String, String> headerFilter = (key, val) -> true;
         for (ParamTestCase testCase: testCases) {
             var header = new SchemaHeader(
@@ -128,7 +128,7 @@ public class SchemaHeaderTest {
 
     @Test
     public void testDeserialization() throws ValidationException, NotImplementedException {
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+        SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
         SchemaHeader header = getHeader(NullJsonSchema.NullJsonSchema1.getInstance());
         @Nullable Object deserialized = header.deserialize(List.of(""), false, configuration);

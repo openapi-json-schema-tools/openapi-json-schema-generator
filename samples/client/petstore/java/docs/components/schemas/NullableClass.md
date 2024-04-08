@@ -148,7 +148,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
 NullableClass.NullableClassMap validatedPayload =
@@ -323,7 +323,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
 NullableClass.ObjectItemsNullableMap validatedPayload =
@@ -442,7 +442,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.AdditionalProperties2.validate(
@@ -528,7 +528,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.ObjectAndItemsNullableProp.validate(
@@ -655,7 +655,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.AdditionalProperties1.validate(
@@ -741,7 +741,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.ObjectNullableProp.validate(
@@ -882,7 +882,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // List validation
 NullableClass.ArrayItemsNullableList validatedPayload =
@@ -1001,7 +1001,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.Items2.validate(
@@ -1087,7 +1087,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.ArrayAndItemsNullableProp.validate(
@@ -1214,7 +1214,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.Items1.validate(
@@ -1300,7 +1300,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.ArrayNullableProp.validate(
@@ -1459,7 +1459,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.DatetimeProp.validate(
@@ -1552,7 +1552,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.DateProp.validate(
@@ -1645,7 +1645,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.StringProp.validate(
@@ -1737,7 +1737,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.BooleanProp.validate(
@@ -1829,7 +1829,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.NumberProp.validate(
@@ -1921,7 +1921,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.IntegerProp.validate(
@@ -2014,7 +2014,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = NullableClass.AdditionalProperties3.validate(

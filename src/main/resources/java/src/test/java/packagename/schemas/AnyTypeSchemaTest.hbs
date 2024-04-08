@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 
 public class AnyTypeSchemaTest {
     static final AnyTypeJsonSchema.AnyTypeJsonSchema1 schema = AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance();
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
     @SuppressWarnings("nullness")
     private Void assertNull(@Nullable Object object) {

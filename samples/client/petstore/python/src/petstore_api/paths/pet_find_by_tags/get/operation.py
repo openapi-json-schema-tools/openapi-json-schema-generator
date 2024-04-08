@@ -109,7 +109,7 @@ class BaseApi(api_client.Api):
         )
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            "servers", server_index
+            "paths//pet/findByTags/get/servers", server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
             "paths//pet/findByTags/get/security",

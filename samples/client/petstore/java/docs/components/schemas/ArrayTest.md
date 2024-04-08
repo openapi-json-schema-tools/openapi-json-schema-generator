@@ -95,7 +95,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
 ArrayTest.ArrayTestMap validatedPayload =
@@ -235,7 +235,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // List validation
 ArrayTest.ArrayArrayOfModelList validatedPayload =
@@ -347,7 +347,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // List validation
 ArrayTest.ItemsList1 validatedPayload =
@@ -457,7 +457,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // List validation
 ArrayTest.ArrayArrayOfIntegerList validatedPayload =
@@ -560,7 +560,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // List validation
 ArrayTest.ItemsList validatedPayload =
@@ -698,7 +698,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // List validation
 ArrayTest.ArrayOfStringList validatedPayload =

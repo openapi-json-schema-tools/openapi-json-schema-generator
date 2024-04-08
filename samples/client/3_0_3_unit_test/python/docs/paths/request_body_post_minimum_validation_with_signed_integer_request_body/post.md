@@ -75,12 +75,20 @@ headers | Unset | headers were not defined |
 Set the available servers by defining your used servers in ApiConfiguration.server_info
 Then select your server by setting a server index in ApiConfiguration.server_index_info or by
 passing server_index in to the endpoint method.
-- these servers are the general api servers
+- these servers are specific to this endpoint
 - defaults to server_index=0, server.url = https://someserver.com/v1
 
 server_index | Class | Description
 ------------ | ----- | ------------
-0 | [Server0](../../servers/server_0.md) |
+0 | [Server0](#server0) |
+
+unit_test_api.servers.server_0
+### Server0
+
+#### Url
+https://someserver.com/v1
+
+[[Back to top]](#top) [[Back to Servers]](../../README.md#Servers) [[Back to README]](../../README.md)
 
 ## Code Sample
 

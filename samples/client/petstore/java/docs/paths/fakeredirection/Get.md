@@ -63,7 +63,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverIndexInfo,
     timeout
 );
-SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
 

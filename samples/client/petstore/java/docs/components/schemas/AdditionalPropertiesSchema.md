@@ -143,7 +143,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
 AdditionalPropertiesSchema.Schema2Map validatedPayload =
@@ -396,7 +396,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
 AdditionalPropertiesSchema.Schema1Map validatedPayload =
@@ -649,7 +649,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
 AdditionalPropertiesSchema.Schema0Map validatedPayload =

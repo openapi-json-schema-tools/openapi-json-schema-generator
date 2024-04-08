@@ -87,7 +87,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // null validation
 Void validatedPayload = Apple.Apple1.validate(
@@ -225,7 +225,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // String validation
 String validatedPayload = Apple.Origin.validate(
@@ -292,7 +292,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // String validation
 String validatedPayload = Apple.Cultivar.validate(

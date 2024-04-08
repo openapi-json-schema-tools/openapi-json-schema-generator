@@ -13,7 +13,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 public class NullSchemaTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
     static final NullJsonSchema.NullJsonSchema1 nullJsonSchema = NullJsonSchema.NullJsonSchema1.getInstance();
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),

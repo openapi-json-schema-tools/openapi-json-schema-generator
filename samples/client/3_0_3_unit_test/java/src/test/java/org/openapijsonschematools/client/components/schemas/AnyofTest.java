@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class AnyofTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().format().build());
 
     @Test
     public void testBothAnyofValidPasses() throws ValidationException {

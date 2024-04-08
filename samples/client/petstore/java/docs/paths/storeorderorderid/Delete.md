@@ -66,7 +66,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverIndexInfo,
     timeout
 );
-SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 Delete.Delete1 apiClient = new Delete.Delete1(apiConfiguration, schemaConfiguration);
 
 

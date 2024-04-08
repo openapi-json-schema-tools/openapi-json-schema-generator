@@ -58,7 +58,7 @@ public class ItemsValidatorTest {
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
-                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
+                new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()),
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
@@ -92,7 +92,7 @@ public class ItemsValidatorTest {
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
-                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
+                new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()),
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
@@ -112,7 +112,7 @@ public class ItemsValidatorTest {
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
-                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
+                new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()),
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
