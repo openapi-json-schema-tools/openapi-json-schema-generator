@@ -72,7 +72,9 @@ SecurityIndexInfoOptional = typing.TypedDict(
     {{#if operations}}
         {{#each operations}}
             {{#eq responses.subpackage security.subpackage}}
+                {{#gt security.size 0}}
         "paths/{{../@key.original}}/{{@key.original}}/security": typing.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
+                {{/gt}}
             {{/eq}}
         {{/each}}
     {{/if}}
@@ -475,7 +477,9 @@ class ApiConfiguration(object):
         {{#if operations}}
             {{#each operations}}
                 {{#eq responses.subpackage security.subpackage}}
+                    {{#gt security.size 0}}
             "paths/{{../@key.original}}/{{@key.original}}/security",
+                    {{/gt}}
                 {{/eq}}
             {{/each}}
         {{/if}}
