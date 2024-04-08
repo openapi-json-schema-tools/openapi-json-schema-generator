@@ -207,11 +207,11 @@ class ApiConfiguration(object):
         {{/if}}
         {{#if operations}}
             {{#each operations}}
-                {{#if servers}}
+                {{#eq responses.subpackage servers.subpackage}}
                     {{#each servers}}
             "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}}(),
                     {{/each}}
-                {{/if}}
+                {{/eq}}
             {{/each}}
         {{/if}}
     {{/each}}

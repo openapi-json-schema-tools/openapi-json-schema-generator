@@ -114,10 +114,6 @@ class ApiConfiguration(object):
         # Server Info
         self.server_info: ServerInfo = server_info or {
             'servers/0': server_0.Server0(),
-            "paths//pathWithNoExplicitSecurity/get/servers/0": path_with_no_explicit_security_get_server_0.Server0(),
-            "paths//pathWithOneExplicitSecurity/get/servers/0": path_with_one_explicit_security_get_server_0.Server0(),
-            "paths//pathWithSecurityFromRoot/get/servers/0": path_with_security_from_root_get_server_0.Server0(),
-            "paths//pathWithTwoExplicitSecurity/get/servers/0": path_with_two_explicit_security_get_server_0.Server0(),
         }
         self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
         self.logger = {}

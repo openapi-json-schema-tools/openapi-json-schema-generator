@@ -71,7 +71,6 @@ class ApiConfiguration(object):
         # Server Info
         self.server_info: ServerInfo = server_info or {
             'servers/0': server_0.Server0(),
-            "paths//operators/post/servers/0": operators_post_server_0.Server0(),
         }
         self.server_index_info: ServerIndexInfo = server_index_info or {'servers': 0}
         self.logger = {}
