@@ -3,23 +3,6 @@
 {{> _helper_header }}
 
 from {{packageName}} import api_client{{#or operation.errorStatusCodes operation.errorWildcardStatusCodes}}, exceptions{{/or}}{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
-{{#eq operation.security null}}
-    {{#neq security null}}
-        {{#gt security.size 0}}
-            {{#eq security.size 1}}
-                {{#each security}}
-from {{packageName}}.security import security_requirement_object_{{@key}}
-                {{/each}}
-            {{else}}
-from {{packageName}}.security import (
-                {{#each security}}
-    security_requirement_object_{{@key}},
-                {{/each}}
-)
-            {{/eq}}
-        {{/gt}}
-    {{/neq}}
-{{/eq}}
 from {{packageName}}.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 {{#if imports}}
 
@@ -81,13 +64,21 @@ from ..parameters import (
     {{#gt security.size 0}}
         {{#eq security.size 1}}
             {{#each security}}
+                {{#eq responses.subpackage security.subpackage}}
 from .security import security_requirement_object_{{@key}}
+                {{else}}
+from {{packageName}}.security import security_requirement_object_{{@key}}
+                {{/eq}}
             {{/each}}
         {{else}}
+            {{#eq responses.subpackage security.subpackage}}
 from .security import (
-            {{#each security}}
+            {{else}}
+from {{packageName}}.security import (
+            {{/eq}}
+                {{#each security}}
     security_requirement_object_{{@key}},
-            {{/each}}
+                {{/each}}
 )
         {{/eq}}
     {{/gt}}
@@ -403,22 +394,20 @@ class BaseApi(api_client.Api):
     {{/neq}}
     {{#neq security null}}
         {{#gt security.size 0}}
+            {{#eq responses.subpackage security.subpackage}}
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
             "paths/{{{path.original}}}/{{httpMethod.original}}/security",
             _security,
             security_index
         )
-        {{/gt}}
-    {{else}}
-        {{#neq ../security null}}
-            {{#gt ../security.size 0}}
+            {{else}}
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
             "security",
             _security,
             security_index
         )
-            {{/gt}}
-        {{/neq}}
+            {{/eq}}
+        {{/gt}}
     {{/neq}}
 
         raw_response = self.api_client.call_api(

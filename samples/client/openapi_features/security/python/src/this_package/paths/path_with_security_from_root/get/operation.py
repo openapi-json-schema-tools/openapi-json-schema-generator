@@ -9,7 +9,7 @@ from this_package.shared_imports.operation_imports import *  # pyright: ignore [
 
 from .. import path
 from .responses import response_200
-from .security import (
+from this_package.security import (
     security_requirement_object_0,
     security_requirement_object_1,
     security_requirement_object_2,
@@ -82,7 +82,7 @@ class BaseApi(api_client.Api):
             "servers", server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
-            "paths//pathWithSecurityFromRoot/get/security",
+            "security",
             _security,
             security_index
         )
