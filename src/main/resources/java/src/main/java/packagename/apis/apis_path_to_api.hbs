@@ -1,0 +1,23 @@
+import typing
+import typing_extensions
+
+{{#each paths}}
+from {{packageName}}.apis.paths.{{@key.snakeCase}} import {{@key.pascalCase}}
+{{/each}}
+
+PathToApi = typing.TypedDict(
+    'PathToApi',
+    {
+{{#each paths}}
+    "{{{@key.original}}}": typing.Type[{{@key.pascalCase}}],
+{{/each}}
+    }
+)
+
+path_to_api = PathToApi(
+    {
+{{#each paths}}
+    "{{{@key.original}}}": {{@key.pascalCase}},
+{{/each}}
+    }
+)

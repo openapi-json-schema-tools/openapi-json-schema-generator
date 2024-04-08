@@ -4082,6 +4082,10 @@ public class DefaultGenerator implements Generator {
         // #/apis/tags/someTag
         // #/apis/paths
         // #/apis/paths/somePath
+        String[] originalPieces = pathPieces.clone();
+        originalPieces[0] = "#";
+        String jsonPath = String.join("/", originalPieces);
+
         pathPieces[1] = apiPackage.replace('.', File.separatorChar);
         if (pathPieces.length < 4) {
             return;
@@ -4089,7 +4093,7 @@ public class DefaultGenerator implements Generator {
         if (pathPieces[2].equals("tags")) {
             pathPieces[3] = toApiFilename(pathPieces[3]);
         } else if (pathPieces[2].equals("paths")) {
-            pathPieces[3] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[3]), null);
+            pathPieces[3] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[3]), jsonPath);
         }
     }
 
