@@ -123,6 +123,7 @@ docs/components/schema/integer_max10.md
 docs/components/schema/integer_min15.md
 docs/components/schema/isosceles_triangle.md
 docs/components/schema/items.md
+docs/components/schema/items_schema.md
 docs/components/schema/json_patch_request.md
 docs/components/schema/json_patch_request_add_replace_test.md
 docs/components/schema/json_patch_request_move_copy.md
@@ -131,6 +132,7 @@ docs/components/schema/mammal.md
 docs/components/schema/map_test.md
 docs/components/schema/mixed_properties_and_additional_properties_class.md
 docs/components/schema/money.md
+docs/components/schema/multi_properties_schema.md
 docs/components/schema/my_object_dto.md
 docs/components/schema/name.md
 docs/components/schema/no_additional_properties.md
@@ -642,6 +644,7 @@ src/petstore_api/components/schema/integer_max10.py
 src/petstore_api/components/schema/integer_min15.py
 src/petstore_api/components/schema/isosceles_triangle.py
 src/petstore_api/components/schema/items.py
+src/petstore_api/components/schema/items_schema.py
 src/petstore_api/components/schema/json_patch_request.py
 src/petstore_api/components/schema/json_patch_request_add_replace_test.py
 src/petstore_api/components/schema/json_patch_request_move_copy.py
@@ -650,6 +653,7 @@ src/petstore_api/components/schema/mammal.py
 src/petstore_api/components/schema/map_test.py
 src/petstore_api/components/schema/mixed_properties_and_additional_properties_class.py
 src/petstore_api/components/schema/money.py
+src/petstore_api/components/schema/multi_properties_schema.py
 src/petstore_api/components/schema/my_object_dto.py
 src/petstore_api/components/schema/name.py
 src/petstore_api/components/schema/no_additional_properties.py
