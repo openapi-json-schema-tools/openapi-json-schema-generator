@@ -61,7 +61,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
 ApplicationjsonSchema.ApplicationjsonSchemaMap validatedPayload =
@@ -84,7 +84,7 @@ ApplicationjsonSchema.ApplicationjsonSchemaMap validatedPayload =
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("string", [Foo.Foo1.class](../../../../../../../../../components/schemas/Foo.md#foo1))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("string", [Foo.Foo1.class](../../../../../../../components/schemas/Foo.md#foo1))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

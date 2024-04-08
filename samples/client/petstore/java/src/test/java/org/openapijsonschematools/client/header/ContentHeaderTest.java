@@ -90,7 +90,7 @@ public class ContentHeaderTest {
                         true
                 )
         );
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+        SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
         BiPredicate<String, String> headerFilter = (key, val) -> true;
         class ApplicationJsonMediaType implements MediaType<AnyTypeJsonSchema.AnyTypeJsonSchema1, Void> {
             @Override

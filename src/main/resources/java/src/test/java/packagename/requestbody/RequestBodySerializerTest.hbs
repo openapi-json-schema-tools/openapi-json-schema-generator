@@ -96,7 +96,7 @@ public final class RequestBodySerializerTest {
 
     @Test
     public void testSerializeApplicationJson() throws ValidationException, NotImplementedException {
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+        SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
         var serializer = new MyRequestBodySerializer();
         String jsonBody;
         SerializedRequestBody requestBody = serializer.serialize(
@@ -167,7 +167,7 @@ public final class RequestBodySerializerTest {
 
     @Test
     public void testSerializeTextPlain() throws ValidationException, NotImplementedException {
-        SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+        SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
         var serializer = new MyRequestBodySerializer();
         SerializedRequestBody requestBody = serializer.serialize(
             new TextplainRequestBody(

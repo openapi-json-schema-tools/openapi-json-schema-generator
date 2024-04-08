@@ -44,94 +44,6 @@ public record JsonSchemaKeywordFlags(
         boolean unevaluatedProperties
     ) {
 
-    public static JsonSchemaKeywordFlags ofNone() {
-        return new JsonSchemaKeywordFlags(
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false
-        );
-    }
-
-    public static JsonSchemaKeywordFlags onlyFormat() {
-        return new JsonSchemaKeywordFlags(
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                true,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false
-        );
-    }
-
     public LinkedHashSet<String> getKeywords() {
         LinkedHashSet<String> enabledKeywords = new LinkedHashSet<>();
         if (additionalProperties) { enabledKeywords.add("additionalProperties"); }
@@ -174,5 +86,249 @@ public record JsonSchemaKeywordFlags(
         if (unevaluatedItems) { enabledKeywords.add("unevaluatedItems"); }
         if (unevaluatedProperties) { enabledKeywords.add("unevaluatedProperties"); }
         return enabledKeywords;
+    }
+
+    public static class Builder {
+        private boolean additionalProperties;
+        private boolean allOf;
+        private boolean anyOf;
+        private boolean const_;
+        private boolean contains;
+        private boolean dependentRequired;
+        private boolean dependentSchemas;
+        private boolean discriminator;
+        private boolean else_;
+        private boolean enum_;
+        private boolean exclusiveMaximum;
+        private boolean exclusiveMinimum;
+        private boolean format;
+        private boolean if_;
+        private boolean maximum;
+        private boolean minimum;
+        private boolean items;
+        private boolean maxContains;
+        private boolean maxItems;
+        private boolean maxLength;
+        private boolean maxProperties;
+        private boolean minContains;
+        private boolean minItems;
+        private boolean minLength;
+        private boolean minProperties;
+        private boolean multipleOf;
+        private boolean not;
+        private boolean oneOf;
+        private boolean pattern;
+        private boolean patternProperties;
+        private boolean prefixItems;
+        private boolean properties;
+        private boolean propertyNames;
+        private boolean required;
+        private boolean then;
+        private boolean type;
+        private boolean uniqueItems;
+        private boolean unevaluatedItems;
+        private boolean unevaluatedProperties;
+
+        public Builder() {}
+
+        public Builder additionalProperties() {
+            additionalProperties = true;
+            return this;
+        }
+        public Builder allOf() {
+            allOf = true;
+            return this;
+        }
+        public Builder anyOf() {
+            anyOf = true;
+            return this;
+        }
+        public Builder const_() {
+            const_ = true;
+            return this;
+        }
+        public Builder contains() {
+            contains = true;
+            return this;
+        }
+        public Builder dependentRequired() {
+            dependentRequired = true;
+            return this;
+        }
+        public Builder dependentSchemas() {
+            dependentSchemas = true;
+            return this;
+        }
+        public Builder discriminator() {
+            discriminator = true;
+            return this;
+        }
+        public Builder else_() {
+            else_ = true;
+            return this;
+        }
+        public Builder enum_() {
+            enum_ = true;
+            return this;
+        }
+        public Builder exclusiveMaximum() {
+            exclusiveMaximum = true;
+            return this;
+        }
+        public Builder exclusiveMinimum() {
+            exclusiveMinimum = true;
+            return this;
+        }
+        public Builder format() {
+            format = true;
+            return this;
+        }
+        public Builder if_() {
+            if_ = true;
+            return this;
+        }
+        public Builder maximum() {
+            maximum = true;
+            return this;
+        }
+        public Builder minimum() {
+            minimum = true;
+            return this;
+        }
+        public Builder items() {
+            items = true;
+            return this;
+        }
+        public Builder maxContains() {
+            maxContains = true;
+            return this;
+        }
+        public Builder maxItems() {
+            maxItems = true;
+            return this;
+        }
+        public Builder maxLength() {
+            maxLength = true;
+            return this;
+        }
+        public Builder maxProperties() {
+            maxProperties = true;
+            return this;
+        }
+        public Builder minContains() {
+            minContains = true;
+            return this;
+        }
+        public Builder minItems() {
+            minItems = true;
+            return this;
+        }
+        public Builder minLength() {
+            minLength = true;
+            return this;
+        }
+        public Builder minProperties() {
+            minProperties = true;
+            return this;
+        }
+        public Builder multipleOf() {
+            multipleOf = true;
+            return this;
+        }
+        public Builder not() {
+            not = true;
+            return this;
+        }
+        public Builder oneOf() {
+            oneOf = true;
+            return this;
+        }
+        public Builder pattern() {
+            pattern = true;
+            return this;
+        }
+        public Builder patternProperties() {
+            patternProperties = true;
+            return this;
+        }
+        public Builder prefixItems() {
+            prefixItems = true;
+            return this;
+        }
+        public Builder properties() {
+            properties = true;
+            return this;
+        }
+        public Builder propertyNames() {
+            propertyNames = true;
+            return this;
+        }
+        public Builder required() {
+            required = true;
+            return this;
+        }
+        public Builder then() {
+            then = true;
+            return this;
+        }
+        public Builder type() {
+            type = true;
+            return this;
+        }
+        public Builder uniqueItems() {
+            uniqueItems = true;
+            return this;
+        }
+        public Builder unevaluatedItems() {
+            unevaluatedItems = true;
+            return this;
+        }
+        public Builder unevaluatedProperties() {
+            unevaluatedProperties = true;
+            return this;
+        }
+        public JsonSchemaKeywordFlags build() {
+            return new JsonSchemaKeywordFlags(
+                additionalProperties,
+                allOf,
+                anyOf,
+                const_,
+                contains,
+                dependentRequired,
+                dependentSchemas,
+                discriminator,
+                else_,
+                enum_,
+                exclusiveMaximum,
+                exclusiveMinimum,
+                format,
+                if_,
+                maximum,
+                minimum,
+                items,
+                maxContains,
+                maxItems,
+                maxLength,
+                maxProperties,
+                minContains,
+                minItems,
+                minLength,
+                minProperties,
+                multipleOf,
+                not,
+                oneOf,
+                pattern,
+                patternProperties,
+                prefixItems,
+                properties,
+                propertyNames,
+                required,
+                then,
+                type,
+                uniqueItems,
+                unevaluatedItems,
+                unevaluatedProperties
+            );
+        }
     }
 }

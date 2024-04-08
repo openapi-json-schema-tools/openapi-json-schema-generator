@@ -1,6 +1,6 @@
 # ApplicationjsonSchema
 public class ApplicationjsonSchema<br>
-extends [RefPet1](../../../../../../../../../components/schemas/RefPet.md#refpet)
+extends [RefPet1](../../../../../../../components/schemas/RefPet.md#refpet)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
@@ -14,6 +14,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [RefPet.RefPet1](../../../../../../../../../components/schemas/RefPet.md#refpet1)
+extends [RefPet.RefPet1](../../../../../../../components/schemas/RefPet.md#refpet1)
 
 A schema class that validates payloads

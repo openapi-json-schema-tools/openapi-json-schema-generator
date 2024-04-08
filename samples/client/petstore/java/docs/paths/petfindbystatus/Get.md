@@ -44,26 +44,33 @@ import org.openapijsonschematools.client.components.securityschemes.HttpSignatur
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Code200Response;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Code400Response;
+import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.Get;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
-ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
-    new PetfindbystatusServer0(),
-    null
-);
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
-    .petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex.SERVER_0);
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .petfindbystatusServerInfo(
+        new PetfindbystatusServerInfo.PetfindbystatusServerInfoBuilder()
+            .petfindbystatusServer0(new PetfindbystatusServer0())
+            .build()
+    )
+    .build();
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .petfindbystatusServerInfoServerIndex(PetfindbystatusServerInfo.ServerIndex.SERVER_0)
+    .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
     new ApiKey("someApiKey");
 );
-ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
-    .petfindbystatusGetSecurityInfoSecurityIndex(PetfindbystatusGetSecurityInfo.SecurityIndex.SECURITY_0);
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .petfindbystatusGetSecurityRequirementObject0SecurityIndex(PetfindbystatusGetSecurityRequirementObject0.SecurityIndex.SECURITY_0)
+    .build();
 Duration timeout = Duration.ofSeconds(1L);
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
@@ -72,7 +79,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     securityIndexInfo,
     timeout
 );
-SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 Get.Get1 apiClient = new Get.Get1(apiConfiguration, schemaConfiguration);
 
 

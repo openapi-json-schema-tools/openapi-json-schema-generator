@@ -27,7 +27,7 @@ sealed interface that stores schema and encoding info
 
 ## ApplicationxpemfileMediaType
 public record ApplicationxpemfileMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationxpemfileSchema.ApplicationxpemfileSchema1](../../../../../paths/fakepemcontenttype/get/responses/code200response/content/applicationxpemfile/ApplicationxpemfileSchema.md#applicationxpemfileschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationxpemfileSchema.ApplicationxpemfileSchema1](../../../../paths/fakepemcontenttype/get/responses/code200response/content/applicationxpemfile/ApplicationxpemfileSchema.md#applicationxpemfileschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -39,7 +39,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxpemfileSchema.ApplicationxpemfileSchema1](../../../../../paths/fakepemcontenttype/get/responses/code200response/content/applicationxpemfile/ApplicationxpemfileSchema.md#applicationxpemfileschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationxpemfileSchema.ApplicationxpemfileSchema1](../../../../paths/fakepemcontenttype/get/responses/code200response/content/applicationxpemfile/ApplicationxpemfileSchema.md#applicationxpemfileschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## SealedResponseBody

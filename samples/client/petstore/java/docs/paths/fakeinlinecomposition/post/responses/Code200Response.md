@@ -30,7 +30,7 @@ sealed interface that stores schema and encoding info
 
 ## ApplicationjsonMediaType
 public record ApplicationjsonMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../../paths/fakeinlinecomposition/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/fakeinlinecomposition/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -42,12 +42,12 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../../paths/fakeinlinecomposition/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/fakeinlinecomposition/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## MultipartformdataMediaType
 public record MultipartformdataMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[MultipartformdataSchema.MultipartformdataSchema1](../../../../../paths/fakeinlinecomposition/post/responses/code200response/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[MultipartformdataSchema.MultipartformdataSchema1](../../../../paths/fakeinlinecomposition/post/responses/code200response/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -59,7 +59,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MultipartformdataSchema.MultipartformdataSchema1](../../../../../paths/fakeinlinecomposition/post/responses/code200response/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1) | schema()<br>the schema for this MediaType |
+| [MultipartformdataSchema.MultipartformdataSchema1](../../../../paths/fakeinlinecomposition/post/responses/code200response/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## SealedResponseBody
@@ -79,12 +79,12 @@ A record class to store response body for contentType="application/json"
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ApplicationjsonResponseBody(ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../../../paths/fakeinlinecomposition/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) body)<br>Creates an instance |
+| ApplicationjsonResponseBody(ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../../paths/fakeinlinecomposition/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../../../paths/fakeinlinecomposition/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) | body()<br>returns the body passed in in the constructor |
+| ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../../../paths/fakeinlinecomposition/post/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) | body()<br>returns the body passed in in the constructor |
 ## MultipartformdataResponseBody
 public record MultipartformdataResponseBody<br>
 implements [SealedResponseBody](#sealedresponsebody)
@@ -94,12 +94,12 @@ A record class to store response body for contentType="multipart/form-data"
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| MultipartformdataResponseBody(MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../../../paths/fakeinlinecomposition/post/responses/code200response/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed) body)<br>Creates an instance |
+| MultipartformdataResponseBody(MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../../paths/fakeinlinecomposition/post/responses/code200response/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../../../paths/fakeinlinecomposition/post/responses/code200response/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed) | body()<br>returns the body passed in in the constructor |
+| MultipartformdataSchema.[MultipartformdataSchema1Boxed](../../../../paths/fakeinlinecomposition/post/responses/code200response/content/multipartformdata/MultipartformdataSchema.md#multipartformdataschema1boxed) | body()<br>returns the body passed in in the constructor |
 
 ## Code200Response1
 public static class Code200Response1<br>

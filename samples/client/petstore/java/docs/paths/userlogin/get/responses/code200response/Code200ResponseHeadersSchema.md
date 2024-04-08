@@ -69,7 +69,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
 Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap validatedPayload =
@@ -94,7 +94,7 @@ Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap validatedPayload =
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("X-Rate-Limit", [XRateLimitSchema.XRateLimitSchema1.class](../../../../../../paths/userlogin/get/responses/code200response/headers/xratelimit/content/applicationjson/XRateLimitSchema.md#xratelimitschema1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32", [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class](../../../../../../components/headers/int32jsoncontenttypeheader/content/applicationjson/Int32JsonContentTypeHeaderSchema.md#int32jsoncontenttypeheaderschema1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("X-Expires-After", [XExpiresAfterSchema.XExpiresAfterSchema1.class](../../../../../../paths/userlogin/get/responses/code200response/headers/xexpiresafter/XExpiresAfterSchema.md#xexpiresafterschema1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("ref-content-schema-header", [StringWithValidation.StringWithValidation1.class](../../../../../../components/schemas/StringWithValidation.md#stringwithvalidation1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("numberHeader", [NumberHeaderSchema.NumberHeaderSchema1.class](../../../../../../components/headers/numberheader/NumberHeaderSchema.md#numberheaderschema1))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("X-Rate-Limit", [XRateLimitSchema.XRateLimitSchema1.class](../../../../../paths/userlogin/get/responses/code200response/headers/xratelimit/content/applicationjson/XRateLimitSchema.md#xratelimitschema1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32", [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class](../../../../../components/headers/int32jsoncontenttypeheader/content/applicationjson/Int32JsonContentTypeHeaderSchema.md#int32jsoncontenttypeheaderschema1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("X-Expires-After", [XExpiresAfterSchema.XExpiresAfterSchema1.class](../../../../../paths/userlogin/get/responses/code200response/headers/xexpiresafter/XExpiresAfterSchema.md#xexpiresafterschema1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("ref-content-schema-header", [StringWithValidation.StringWithValidation1.class](../../../../../components/schemas/StringWithValidation.md#stringwithvalidation1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("numberHeader", [NumberHeaderSchema.NumberHeaderSchema1.class](../../../../../components/headers/numberheader/NumberHeaderSchema.md#numberheaderschema1))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"X-Rate-Limit",<br>&nbsp;&nbsp;&nbsp;&nbsp;"int32",<br>&nbsp;&nbsp;&nbsp;&nbsp;"ref-content-schema-header"<br>)<br> |
 | Class<? extends JsonSchema> | additionalProperties = [Code200ResponseAdditionalProperties.class](#code200responseadditionalproperties) |
 

@@ -5,16 +5,16 @@
 """
 
 from this_package import api_client, security_schemes
+from this_package.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+
+from .. import path
+from .responses import response_200
 from this_package.security import (
     security_requirement_object_0,
     security_requirement_object_1,
     security_requirement_object_2,
     security_requirement_object_3,
 )
-from this_package.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-
-from .. import path
-from .responses import response_200
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
     security_requirement_object_0.security_requirement_object,

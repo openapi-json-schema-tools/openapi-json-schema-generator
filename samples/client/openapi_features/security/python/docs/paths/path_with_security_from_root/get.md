@@ -59,7 +59,7 @@ component security scheme class.
 Select the security index by setting ApiConfiguration.security_index_info or by
 passing in security_index into the endpoint method.
 See how to do this in the code sample.
-- these securities are the general api securities
+- these securities are specific to this to this endpoint
 
 | Security Index | Security Scheme to Scope Names |
 | -------------- | ------------------------------ |
@@ -129,10 +129,11 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
 }
 
 security_index_info: api_configuration.SecurityIndexInfo = {
-    "security": 0,
-    # only set one "security": 1,
-    # only set one "security": 2,
-    # only set one "security": 3,
+    "security": 0,  # default value
+    "paths//pathWithSecurityFromRoot/get/security": 0,
+    # only set one "paths//pathWithSecurityFromRoot/get/security": 1,
+    # only set one "paths//pathWithSecurityFromRoot/get/security": 2,
+    # only set one "paths//pathWithSecurityFromRoot/get/security": 3,
 }
 used_configuration = api_configuration.ApiConfiguration(
     security_scheme_info=security_scheme_info,

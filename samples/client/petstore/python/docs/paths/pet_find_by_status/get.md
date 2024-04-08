@@ -126,6 +126,7 @@ server_index | Class | Description
 
 #### Url
 https://path-server-test.petstore.local/v2
+
 ### Server1
 
 #### Url

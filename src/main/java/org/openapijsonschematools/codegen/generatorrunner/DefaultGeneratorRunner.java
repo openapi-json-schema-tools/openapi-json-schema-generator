@@ -496,7 +496,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 generateXDocs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointInfo, true);
 
                 // paths.some_path.security.security_requirement_0.py
-                if (operation.security != null) {
+                if (operation.security != null && operation.security.subpackage != null && operation.security.subpackage.equals(operation.responses.subpackage)) {
                     String securityJsonPath = operationJsonPath + "/security";
                     generateSecurity(files, operation.security, securityJsonPath, "../../../");
                 }
@@ -508,7 +508,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     generateRequestBodyDoc(files, operation.requestBody, requestBodyJsonPath, "../../../", generator.shouldGenerateFile(requestBodyJsonPath, true));
                 }
 
-                if (operation.servers != null) {
+                if (operation.servers != null && operation.servers.subpackage != null && operation.servers.subpackage.equals(operation.responses.subpackage)) {
                     generateServers(files, operation.servers, operationJsonPath + "/servers", "../../../");
                 }
 
@@ -549,7 +549,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                         String code = responseEntry.getKey();
                         CodegenResponse response = responseEntry.getValue();
                         String responseJsonPath = responsesJsonPath + "/" + code;
-                        generateResponse(files, response, responseJsonPath, "../../../../../");
+                        generateResponse(files, response, responseJsonPath, "../../../../");
                     }
                 }
 
@@ -607,7 +607,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 // schema
                 String schemaJsonPath = contentTypeJsonPath + "/schema";
                 generateSchema(files, schema, schemaJsonPath);
-                generateSchemaDocumentation(files, schema, schemaJsonPath, docRoot + "../../../", true);
+                generateSchemaDocumentation(files, schema, schemaJsonPath, docRoot + "../../", true);
 
                 Map<String, String> contentTypeTemplateInfo = generator.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE);
                 if (contentTypeTemplateInfo == null || contentTypeTemplateInfo.isEmpty()) {
@@ -726,7 +726,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         // schemas
         LinkedHashMap<CodegenKey, CodegenMediaType> content = requestBody.content;
         if (content != null && !content.isEmpty()) {
-            generateContent(files, content, jsonPath, docRoot);
+            generateContent(files, content, jsonPath, docRoot + "../");
         }
     }
 
@@ -1350,8 +1350,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         bundle.put("apiPackage", generator.apiPackage());
 
         URL url = URLPathUtils.getServerURL(openAPI, null);
-        List<CodegenList<CodegenServer>> allServers = new ArrayList<>();
-        List<CodegenList<CodegenSecurityRequirementObject>> allSecurity = new ArrayList<>();
+        TreeSet<CodegenList<CodegenServer>> allServers = new TreeSet<>();
+        TreeSet<CodegenList<CodegenSecurityRequirementObject>> allSecurity = new TreeSet<>();
         boolean hasServers = false;
         if (servers != null) {
             allServers.add(servers);
@@ -1368,11 +1368,11 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 }
                 if (pathItem.operations != null) {
                     for (CodegenOperation operation: pathItem.operations.values()) {
-                        if (operation.servers != null) {
+                        if (operation.servers != null && !allServers.contains(operation.servers)) {
                             allServers.add(operation.servers);
                             hasServers = true;
                         }
-                        if (operation.security != null) {
+                        if (operation.security != null && !allSecurity.contains(operation.security)) {
                             allSecurity.add(operation.security);
                         }
                     }

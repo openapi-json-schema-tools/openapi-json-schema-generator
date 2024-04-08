@@ -30,7 +30,7 @@ sealed interface that stores schema and encoding info
 
 ## ApplicationxmlMediaType
 public record ApplicationxmlMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationxmlSchema.ApplicationxmlSchema1](../../../../../paths/storeorderorderid/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md#applicationxmlschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationxmlSchema.ApplicationxmlSchema1](../../../../paths/storeorderorderid/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md#applicationxmlschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -42,12 +42,12 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxmlSchema.ApplicationxmlSchema1](../../../../../paths/storeorderorderid/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md#applicationxmlschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationxmlSchema.ApplicationxmlSchema1](../../../../paths/storeorderorderid/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md#applicationxmlschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## ApplicationjsonMediaType
 public record ApplicationjsonMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../../paths/storeorderorderid/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/storeorderorderid/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -59,7 +59,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../../paths/storeorderorderid/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/storeorderorderid/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## SealedResponseBody
@@ -79,12 +79,12 @@ A record class to store response body for contentType="application/xml"
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ApplicationxmlResponseBody(ApplicationxmlSchema.[Order1Boxed](../../../../../components/schemas/Order.md#order1boxed) body)<br>Creates an instance |
+| ApplicationxmlResponseBody(ApplicationxmlSchema.[Order1Boxed](../../../../components/schemas/Order.md#order1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| ApplicationxmlSchema.[Order1Boxed](../../../../../components/schemas/Order.md#order1boxed) | body()<br>returns the body passed in in the constructor |
+| ApplicationxmlSchema.[Order1Boxed](../../../../components/schemas/Order.md#order1boxed) | body()<br>returns the body passed in in the constructor |
 ## ApplicationjsonResponseBody
 public record ApplicationjsonResponseBody<br>
 implements [SealedResponseBody](#sealedresponsebody)
@@ -94,12 +94,12 @@ A record class to store response body for contentType="application/json"
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ApplicationjsonResponseBody(ApplicationjsonSchema.[Order1Boxed](../../../../../components/schemas/Order.md#order1boxed) body)<br>Creates an instance |
+| ApplicationjsonResponseBody(ApplicationjsonSchema.[Order1Boxed](../../../../components/schemas/Order.md#order1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| ApplicationjsonSchema.[Order1Boxed](../../../../../components/schemas/Order.md#order1boxed) | body()<br>returns the body passed in in the constructor |
+| ApplicationjsonSchema.[Order1Boxed](../../../../components/schemas/Order.md#order1boxed) | body()<br>returns the body passed in in the constructor |
 
 ## Code200Response1
 public static class Code200Response1<br>

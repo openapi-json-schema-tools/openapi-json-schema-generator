@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class PropertiesWithEscapedCharactersTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().format().build());
 
     @Test
     public void testObjectWithAllNumbersIsValidPasses() throws ValidationException {

@@ -27,7 +27,7 @@ public class {{../jsonPathPiece.pascalCase}} extends ServerWithVariables<{{conta
                     new AbstractMap.SimpleEntry<>("{{{@key.original}}}", {{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance().defaultValue()){{#unless @last}},{{/unless}}
         {{/each}}
                 ),
-                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
+                new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build())
             );
         } catch (ValidationException e) {
             throw new RuntimeException(e);

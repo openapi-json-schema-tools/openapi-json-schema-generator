@@ -10,15 +10,10 @@ import java.util.Objects;
 
 public class PetfindbystatusServerInfo {
     public static class PetfindbystatusServerInfo1 implements ServerProvider<ServerIndex> {
-        public final PetfindbystatusServer0 server0;
-        public final PetfindbystatusServer1 server1;
+        private final PetfindbystatusServer0 server0;
+        private final PetfindbystatusServer1 server1;
 
-        public PetfindbystatusServerInfo1() {
-            server0 = new PetfindbystatusServer0();
-            server1 = new PetfindbystatusServer1();
-        }
-
-        public PetfindbystatusServerInfo1(
+        PetfindbystatusServerInfo1(
             @Nullable PetfindbystatusServer0 server0,
             @Nullable PetfindbystatusServer1 server1
         ) {
@@ -34,6 +29,30 @@ public class PetfindbystatusServerInfo {
                 default:
                     return server1;
             }
+        }
+    }
+
+    public static class PetfindbystatusServerInfoBuilder {
+        private @Nullable PetfindbystatusServer0 server0;
+        private @Nullable PetfindbystatusServer1 server1;
+
+        public PetfindbystatusServerInfoBuilder() {}
+
+        public PetfindbystatusServerInfoBuilder petfindbystatusServer0(PetfindbystatusServer0 server0) {
+            this.server0 = server0;
+            return this;
+        }
+
+        public PetfindbystatusServerInfoBuilder petfindbystatusServer1(PetfindbystatusServer1 server1) {
+            this.server1 = server1;
+            return this;
+        }
+
+        public PetfindbystatusServerInfo1 build() {
+            return new PetfindbystatusServerInfo1(
+                server0,
+                server1
+            );
         }
     }
 

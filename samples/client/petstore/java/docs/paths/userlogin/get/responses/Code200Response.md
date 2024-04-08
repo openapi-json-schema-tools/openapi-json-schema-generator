@@ -30,7 +30,7 @@ sealed interface that stores schema and encoding info
 
 ## ApplicationxmlMediaType
 public record ApplicationxmlMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationxmlSchema.ApplicationxmlSchema1](../../../../../paths/userlogin/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md#applicationxmlschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationxmlSchema.ApplicationxmlSchema1](../../../../paths/userlogin/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md#applicationxmlschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -42,12 +42,12 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationxmlSchema.ApplicationxmlSchema1](../../../../../paths/userlogin/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md#applicationxmlschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationxmlSchema.ApplicationxmlSchema1](../../../../paths/userlogin/get/responses/code200response/content/applicationxml/ApplicationxmlSchema.md#applicationxmlschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## ApplicationjsonMediaType
 public record ApplicationjsonMediaType<br>
-implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../../paths/userlogin/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
+implements [SealedMediaType](#sealedmediatype), MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/userlogin/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1), Void>
 
 class storing schema info for a specific contentType
 
@@ -59,7 +59,7 @@ class storing schema info for a specific contentType
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../../paths/userlogin/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
+| [ApplicationjsonSchema.ApplicationjsonSchema1](../../../../paths/userlogin/get/responses/code200response/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema()<br>the schema for this MediaType |
 | Void | encoding()<br>the encoding info |
 
 ## SealedResponseBody
@@ -103,7 +103,7 @@ A record class to store response body for contentType="application/json"
 
 ## Code200Response1
 public static class Code200Response1<br>
-extends ResponseDeserializer<[SealedResponseBody](#sealedresponsebody), [Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap](../../../../../paths/userlogin/get/responses/code200response/Code200ResponseHeadersSchema.md#code200responseheadersschemamap), [SealedMediaType](#sealedmediatype)>
+extends ResponseDeserializer<[SealedResponseBody](#sealedresponsebody), [Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap](../../../../paths/userlogin/get/responses/code200response/Code200ResponseHeadersSchema.md#code200responseheadersschemamap), [SealedMediaType](#sealedmediatype)>
 
 a class that deserializes responses
 
@@ -120,4 +120,4 @@ a class that deserializes responses
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| ApiResponse<[SealedResponseBody](#sealedresponsebody), [Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap](../../../../../paths/userlogin/get/responses/code200response/Code200ResponseHeadersSchema.md#code200responseheadersschemamap)> | deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration)<br>called by endpoint when deserialize responses |
+| ApiResponse<[SealedResponseBody](#sealedresponsebody), [Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap](../../../../paths/userlogin/get/responses/code200response/Code200ResponseHeadersSchema.md#code200responseheadersschemamap)> | deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration)<br>called by endpoint when deserialize responses |

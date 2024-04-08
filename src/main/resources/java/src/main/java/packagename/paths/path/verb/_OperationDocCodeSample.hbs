@@ -79,45 +79,43 @@ import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
             {{/with}}
         {{/with}}
     {{/each}}
+    {{#with servers}}
+import {{packageName}}.{{#if subpackage}}{{subpackage}}{{else}}servers{{/if}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{#with responses}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
 
-// if you want to use a sever that is not SERVER_0 pass it in here and change the ServerIndex input below
-ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfo(
-    {{#each builders}}
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .{{servers.jsonPathPiece.camelCase}}(
+        new {{servers.jsonPathPiece.pascalCase}}.{{servers.jsonPathPiece.pascalCase}}Builder()
+    {{#each servers}}
         {{#if @first}}
-            {{#each keyToBuilder}}
-                {{#eq @key.camelCase "serverIndex"}}
-                    {{#with property}}
-                        {{! CodegenList of CodegenServer }}
-                        {{#each this}}
-                            {{#if @first}}
-    new {{jsonPathPiece.pascalCase}}(){{#unless @last}},{{/unless}}
-                            {{else}}
-    null{{#unless @last}},{{/unless}}
-                            {{/if}}
-                        {{/each}}
-                    {{/with}}
-                {{/eq}}
-            {{/each}}
+            .{{jsonPathPiece.camelCase}}(new {{jsonPathPiece.pascalCase}}())
+            .build()
         {{/if}}
     {{/each}}
-);
-ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfo()
+    )
+    .build();
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
     {{#each builders}}
         {{#if @first}}
             {{#each keyToBuilder}}
                 {{#eq @key.camelCase "serverIndex"}}
                     {{#with property}}
                         {{! CodegenList of CodegenServer }}
-    .{{jsonPathPiece.camelCase}}ServerIndex({{jsonPathPiece.pascalCase}}.ServerIndex.SERVER_0);
+    .{{jsonPathPiece.camelCase}}ServerIndex({{jsonPathPiece.pascalCase}}.ServerIndex.SERVER_0)
                     {{/with}}
                 {{/eq}}
             {{/each}}
+    .build();
         {{/if}}
     {{/each}}
     {{#each builders}}
@@ -134,11 +132,16 @@ List<SecurityScheme> securitySchemes = new ArrayList();
                                 {{/with}}
                             {{/each}}
                         {{/each}}
-ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfo();
-    .{{jsonPathPiece.camelCase}}SecurityIndex({{jsonPathPiece.pascalCase}}.SecurityIndex.SECURITY_0);
                     {{/with}}
                 {{/eq}}
             {{/each}}
+        {{/if}}
+    {{/each}}
+    {{#each security}}
+        {{#if @first}}
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .{{jsonPathPiece.camelCase}}SecurityIndex({{jsonPathPiece.pascalCase}}.SecurityIndex.SECURITY_0)
+    .build();
         {{/if}}
     {{/each}}
 Duration timeout = Duration.ofSeconds(1L);
@@ -157,7 +160,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     {{/each}}
     timeout
 );
-SchemaConfiguration schemaConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 apiClient = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1(apiConfiguration, schemaConfiguration);
 
     {{#gt builders.size 1}}

@@ -35,11 +35,11 @@ from {{packageName}}.paths.{{../@key.snakeCase}}.servers import {{jsonPathPiece.
         {{/if}}
         {{#if operations}}
             {{#each operations}}
-                {{#if servers}}
+                {{#eq responses.subpackage servers.subpackage}}
                     {{#each servers}}
 from {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers import {{jsonPathPiece.snakeCase}} as {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}
                     {{/each}}
-                {{/if}}
+                {{/eq}}
             {{/each}}
         {{/if}}
     {{/each}}
@@ -71,9 +71,11 @@ SecurityIndexInfoOptional = typing.TypedDict(
 {{#each paths}}
     {{#if operations}}
         {{#each operations}}
-            {{#if security}}
+            {{#eq responses.subpackage security.subpackage}}
+                {{#gt security.size 0}}
         "paths/{{../@key.original}}/{{@key.original}}/security": typing.Literal[{{#each security}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
-            {{/if}}
+                {{/gt}}
+            {{/eq}}
         {{/each}}
     {{/if}}
 {{/each}}
@@ -105,11 +107,11 @@ ServerInfo = typing.TypedDict(
     {{/if}}
     {{#if operations}}
         {{#each operations}}
-            {{#if servers}}
+            {{#eq responses.subpackage servers.subpackage}}
                 {{#each servers}}
         "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
                 {{/each}}
-            {{/if}}
+            {{/eq}}
         {{/each}}
     {{/if}}
 {{/each}}
@@ -134,9 +136,9 @@ ServerIndexInfoOptional = typing.TypedDict(
     {{/if}}
     {{#if operations}}
         {{#each operations}}
-            {{#if servers}}
+            {{#eq responses.subpackage servers.subpackage}}
         "paths/{{../@key.original}}/{{@key.original}}/servers": typing.Literal[{{#each servers}}{{#unless @first}}, {{/unless}}{{@key}}{{/each}}],
-            {{/if}}
+            {{/eq}}
         {{/each}}
     {{/if}}
 {{/each}}
@@ -207,11 +209,11 @@ class ApiConfiguration(object):
         {{/if}}
         {{#if operations}}
             {{#each operations}}
-                {{#if servers}}
+                {{#eq responses.subpackage servers.subpackage}}
                     {{#each servers}}
             "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}}(),
                     {{/each}}
-                {{/if}}
+                {{/eq}}
             {{/each}}
         {{/if}}
     {{/each}}
@@ -415,9 +417,9 @@ class ApiConfiguration(object):
     {{/if}}
     {{#if operations}}
         {{#each operations}}
-            {{#if servers}}
+            {{#eq responses.subpackage servers.subpackage}}
             "paths/{{../@key.original}}/{{@key.original}}/servers",
-            {{/if}}
+            {{/eq}}
         {{/each}}
     {{/if}}
 {{/each}}
@@ -449,11 +451,11 @@ class ApiConfiguration(object):
     {{/if}}
     {{#if operations}}
         {{#each operations}}
-            {{#if servers}}
+            {{#eq responses.subpackage servers.subpackage}}
                 {{#each servers}}
                 "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}",
                 {{/each}}
-            {{/if}}
+            {{/eq}}
         {{/each}}
     {{/if}}
 {{/each}}
@@ -474,9 +476,11 @@ class ApiConfiguration(object):
     {{#each paths}}
         {{#if operations}}
             {{#each operations}}
-                {{#if security}}
+                {{#eq responses.subpackage security.subpackage}}
+                    {{#gt security.size 0}}
             "paths/{{../@key.original}}/{{@key.original}}/security",
-                {{/if}}
+                    {{/gt}}
+                {{/eq}}
             {{/each}}
         {{/if}}
     {{/each}}

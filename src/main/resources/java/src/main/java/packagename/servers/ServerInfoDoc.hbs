@@ -5,12 +5,14 @@ public class {{servers.jsonPathPiece.pascalCase}}
 
 A class that provides a server, and any needed server info classes
 - a class that is a ServerProvider
+- a builder for the ServerProvider
 - an enum class that stores server index values
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [{{servers.jsonPathPiece.pascalCase}}.{{servers.jsonPathPiece.pascalCase}}1](#{{servers.jsonPathPiece.kebabCase}}1)<br>class that stores a server index |
+| static class | [{{servers.jsonPathPiece.pascalCase}}.{{servers.jsonPathPiece.pascalCase}}Builder](#{{servers.jsonPathPiece.kebabCase}}builder)<br>class that stores a server index |
 | enum | [{{servers.jsonPathPiece.pascalCase}}.ServerIndex](#serverindex)<br>class that stores a server index |
 
 {{headerSize}}# {{servers.jsonPathPiece.pascalCase}}1
@@ -21,7 +23,6 @@ A class that stores servers and allows one to be returned with a ServerIndex ins
 {{headerSize}}## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| {{servers.jsonPathPiece.pascalCase}}1()<br>Creates an instance using default server variable values |
 | {{servers.jsonPathPiece.pascalCase}}1({{#each servers}}@Nullable [{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md) server{{@index}}{{#unless @last}},{{/unless}}{{/each}})<br>Creates an instance using passed in servers |
 
 {{headerSize}}## Field Summary
@@ -35,6 +36,23 @@ A class that stores servers and allows one to be returned with a ServerIndex ins
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Server | getServer([ServerIndex](#serverindex) serverIndex) |
+
+{{headerSize}}# {{servers.jsonPathPiece.pascalCase}}Builder
+
+a builder for [{{servers.jsonPathPiece.pascalCase}}1](#{{servers.jsonPathPiece.kebabCase}}1)
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{servers.jsonPathPiece.pascalCase}}Builder()<br>Creates an instance |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+{{#each servers}}
+| [{{servers.jsonPathPiece.pascalCase}}Builder](#{{servers.jsonPathPiece.kebabCase}}builder) | {{jsonPathPiece.camelCase}}([{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md) server{{@index}})<br>sets the server |
+{{/each}}
+| [{{servers.jsonPathPiece.pascalCase}}1](#{{servers.jsonPathPiece.kebabCase}}1) | build() |
 
 {{headerSize}}# ServerIndex
 enum ServerIndex<br>
