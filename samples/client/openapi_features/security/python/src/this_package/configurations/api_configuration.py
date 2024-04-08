@@ -296,10 +296,6 @@ class ApiConfiguration(object):
         self,
         key_prefix: typing.Literal[
             "servers",
-            "paths//pathWithNoExplicitSecurity/get/servers",
-            "paths//pathWithOneExplicitSecurity/get/servers",
-            "paths//pathWithSecurityFromRoot/get/servers",
-            "paths//pathWithTwoExplicitSecurity/get/servers",
         ],
         index: typing.Optional[int],
     ) -> str:
@@ -318,10 +314,6 @@ class ApiConfiguration(object):
         server_info_key = typing.cast(
             typing.Literal[
                 "servers/0",
-                "paths//pathWithNoExplicitSecurity/get/servers/0",
-                "paths//pathWithOneExplicitSecurity/get/servers/0",
-                "paths//pathWithSecurityFromRoot/get/servers/0",
-                "paths//pathWithTwoExplicitSecurity/get/servers/0",
             ],
             f"{key_prefix}/{used_index}"
         )

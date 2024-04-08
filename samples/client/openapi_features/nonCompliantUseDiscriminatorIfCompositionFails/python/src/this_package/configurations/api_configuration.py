@@ -253,7 +253,6 @@ class ApiConfiguration(object):
         self,
         key_prefix: typing.Literal[
             "servers",
-            "paths//operators/post/servers",
         ],
         index: typing.Optional[int],
     ) -> str:
@@ -272,7 +271,6 @@ class ApiConfiguration(object):
         server_info_key = typing.cast(
             typing.Literal[
                 "servers/0",
-                "paths//operators/post/servers/0",
             ],
             f"{key_prefix}/{used_index}"
         )

@@ -415,9 +415,9 @@ class ApiConfiguration(object):
     {{/if}}
     {{#if operations}}
         {{#each operations}}
-            {{#if servers}}
+            {{#eq responses.subpackage servers.subpackage}}
             "paths/{{../@key.original}}/{{@key.original}}/servers",
-            {{/if}}
+            {{/eq}}
         {{/each}}
     {{/if}}
 {{/each}}
@@ -449,11 +449,11 @@ class ApiConfiguration(object):
     {{/if}}
     {{#if operations}}
         {{#each operations}}
-            {{#if servers}}
+            {{#eq responses.subpackage servers.subpackage}}
                 {{#each servers}}
                 "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}",
                 {{/each}}
-            {{/if}}
+            {{/eq}}
         {{/each}}
     {{/if}}
 {{/each}}
