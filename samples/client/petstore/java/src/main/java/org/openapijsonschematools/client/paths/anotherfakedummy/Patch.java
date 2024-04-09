@@ -71,7 +71,7 @@ public class Patch {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse 123test@#$%SpecialTags(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default Responses.EndpointResponse model123TestSpecialTags(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

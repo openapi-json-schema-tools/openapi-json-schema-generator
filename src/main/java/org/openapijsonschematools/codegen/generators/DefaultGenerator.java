@@ -2619,7 +2619,7 @@ public class DefaultGenerator implements Generator {
         }
         String pascalCaseName = toModelName(operationId, null);
         String kebabCase = pascalCaseName.toLowerCase(Locale.ROOT);
-        String camelCase = camelize(operationId, true);
+        String camelCase = camelize(pascalCaseName, true);
         return new CodegenKey(
                 operationId,
                 isValid(operationId),

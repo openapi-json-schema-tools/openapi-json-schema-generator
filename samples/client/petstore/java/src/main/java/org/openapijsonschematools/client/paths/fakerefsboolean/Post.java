@@ -75,7 +75,7 @@ public class Post {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse boolean(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default Responses.EndpointResponse modelBoolean(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
