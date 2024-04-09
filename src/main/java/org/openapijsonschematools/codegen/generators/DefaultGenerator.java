@@ -54,6 +54,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenEncoding;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenMap;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenMediaType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenOauthFlow;
@@ -2951,7 +2952,7 @@ public class DefaultGenerator implements Generator {
         }
         CodegenList<CodegenSecurityRequirementObject> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
-        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
+        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb", jsonPath);
         CodegenList<CodegenServer> usedServers = (servers != null) ? servers : rootOrPathServers;
         CodegenList<CodegenSecurityRequirementObject> usedSecurity = (security != null) ? security : rootSecurity;
         List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, usedServers, usedSecurity);
@@ -3043,7 +3044,6 @@ public class DefaultGenerator implements Generator {
             items,
             jsonPathPiece,
             subpackage,
-            null,
             operationInputClass,
             operationInputVariableName,
             pathFromDocRoot
@@ -3357,6 +3357,15 @@ public class DefaultGenerator implements Generator {
         return true;
     }
 
+    @Override
+    public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        switch (type) {
+            case OPERATION:
+                return toModelName(lastJsonPathFragment, jsonPath);
+            default:
+                return null;
+        }
+    }
 
     @Override
     @SuppressWarnings("static-method")
@@ -4951,12 +4960,18 @@ public class DefaultGenerator implements Generator {
                 pascalCaseName = camelize(toPathFilename(usedKey, sourceJsonPath));
                 break;
             case "misc":
-            case "verb":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 camelCaseName = camelize(usedKey, true);
                 pascalCaseName = toModelName(usedKey, sourceJsonPath);
+                break;
+            case "verb":
+                usedKey = escapeUnsafeCharacters(key);
+                isValid = isValid(usedKey);
+                snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = camelize(usedKey, true);
+                pascalCaseName = getPascalCase(CodegenKeyType.OPERATION, usedKey, sourceJsonPath);
                 break;
             case "parameters":
                 usedKey = escapeUnsafeCharacters(key);
@@ -5211,10 +5226,11 @@ public class DefaultGenerator implements Generator {
         for (Pair<String, Operation> pair: httpMethodOperationPairs) {
             Operation specOperation = pair.getRight();
             String httpMethod = pair.getLeft();
+            String operationJsonPath = jsonPath + "/" + httpMethod;
             if (specOperation != null) {
-                operations.put(getKey(
-                    httpMethod, "verb"),
-                    fromOperation(specOperation, jsonPath + "/" + httpMethod, pairToParameter, usedServers, rootSecurity)
+                operations.put(
+                    getKey(httpMethod, "verb", operationJsonPath),
+                    fromOperation(specOperation, operationJsonPath, pairToParameter, usedServers, rootSecurity)
                 );
             }
         }
@@ -5272,7 +5288,6 @@ public class DefaultGenerator implements Generator {
             codegenServers,
             jsonPathPiece,
             serversSubpackage,
-            null,
             operationInputClass,
             operationInputVariableName,
             pathFromDocRoot

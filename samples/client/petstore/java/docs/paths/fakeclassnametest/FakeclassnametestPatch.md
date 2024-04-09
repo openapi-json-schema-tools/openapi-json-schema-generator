@@ -1,0 +1,189 @@
+# FakeclassnametestPatch
+
+public class FakeclassnametestPatch
+
+A class that contains necessary endpoint classes
+- a class that calls the endpoint method using the http verb
+- a class that calls the endpoint method using the operationId name
+- class(es) to store the request inputs
+- builder(s) to set the request input data
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| static class | [FakeclassnametestPatch1](#fakeclassnametestpatch1)<br>The class that has a patch method to call the endpoint |
+| static class | [FakeclassnametestPatchRequest](#fakeclassnametestpatchrequest)<br>The final request inputs class |
+| static class | [FakeclassnametestPatchNullableRequest](#fakeclassnametestpatchnullablerequest)<br>The initial request inputs class |
+| static class | [Patch0RequestBuilder](#patch0requestbuilder)<br>A builder for the request input class |
+| static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
+
+## FakeclassnametestPatch1
+public static class FakeclassnametestPatch1 extends ApiClient.ApiClient1 implements FakeclassnametestPatchOperation<br>
+
+a class that allows one to call the endpoint using a method named patch
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchSecurityInfo;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.RequestBody;
+import org.openapijsonschematools.client.components.schemas.Client;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server1;
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
+import org.openapijsonschematools.client.components.securityschemes.ApiKeyQuery;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.responses.Code200Response;
+import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.paths.fakeclassnametest.FakeclassnametestPatch;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .rootServerInfo(
+        new RootServerInfo.RootServerInfoBuilder()
+            .server0(new Server0())
+            .build()
+    )
+    .build();
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
+List<SecurityScheme> securitySchemes = new ArrayList();
+securitySchemes.add(
+    new ApiKeyQuery("someApiKey");
+);
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .fakeclassnametestPatchSecurityRequirementObject0SecurityIndex(FakeclassnametestPatchSecurityRequirementObject0.SecurityIndex.SECURITY_0)
+    .build();
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    securitySchemes,
+    securityIndexInfo,
+    timeout
+);
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+FakeclassnametestPatch.FakeclassnametestPatch1 apiClient = new FakeclassnametestPatch.FakeclassnametestPatch1(apiConfiguration, schemaConfiguration);
+
+
+Client1BoxedMap requestBodyPayload =
+    Client.Client1.validateAndBox(
+    new Client.ClientMapBuilder1()
+        .client("a")
+
+    .build(),
+    schemaConfiguration
+);
+RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
+
+var request = new PatchRequestBuilder()
+    .requestBody(requestBody)
+    .build();
+
+Responses.EndpointResponse response;
+try {
+    response = apiClient.patch(request);
+} catch (ApiException e) {
+    // server returned a response/contentType not defined in the openapi document
+    throw e;
+} catch (ValidationException e) {
+    // the returned response body or header values do not conform the the schema validation requirements
+    throw e;
+} catch (IOException | InterruptedException e) {
+    // an exception happened when making the request
+    throw e;
+} catch (NotImplementedException e) {
+    // the request body serialization or deserialization has not yet been implemented
+    // or the header content type deserialization has not yet been implemented for this contentType
+    throw e;
+}
+Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+// handle deserialized body here
+```
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FakeclassnametestPatch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [Responses.EndpointResponse](../../paths/fakeclassnametest/patch/Responses.md#endpointresponse) | patch([FakeclassnametestPatchRequest](#fakeclassnametestpatchrequest) request) |
+
+## FakeclassnametestPatchRequest
+public static class FakeclassnametestPatchRequest<br>
+
+a class that stores the final request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| [RequestBody.SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| [FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
+
+## FakeclassnametestPatchNullableRequest
+public static class FakeclassnametestPatchNullableRequest<br>
+
+a class that stores the initial request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) | securityIndex |
+| @Nullable Duration | timeout |
+
+## Patch0RequestBuilder
+public static class Patch0RequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Patch0RequestBuilder(Patch0RequestBuilder instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakeclassnametestPatchRequest](#fakeclassnametestpatchrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Patch0RequestBuilder](#patch0requestbuilder) | securityIndex([FakeclassnametestPatchSecurityInfo.SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Patch0RequestBuilder](#patch0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+
+## PatchRequestBuilder
+public static class PatchRequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PatchRequestBuilder()<br>Creates a builder that contains null for all parameters |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [Patch0RequestBuilder](#patch0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+
+[[Back to top]](#top) [[Back to README]](../../../README.md)

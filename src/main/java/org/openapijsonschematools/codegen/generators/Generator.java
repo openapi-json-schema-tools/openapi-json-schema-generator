@@ -36,6 +36,7 @@ import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
@@ -305,4 +306,6 @@ public interface Generator {
 
     boolean generateSeparateServerSchemas();
     boolean shouldGenerateFile(String jsonPath, boolean isDoc);
+
+    String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
 }

@@ -3,14 +3,14 @@ package org.openapijsonschematools.client.apis.paths;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.paths.petpetid.Delete;
-import org.openapijsonschematools.client.paths.petpetid.Get;
-import org.openapijsonschematools.client.paths.petpetid.Post;
+import org.openapijsonschematools.client.paths.petpetid.PetpetidDelete;
+import org.openapijsonschematools.client.paths.petpetid.PetpetidGet;
+import org.openapijsonschematools.client.paths.petpetid.PetpetidPost;
 
 public class Petpetid extends ApiClient implements
-    Delete.DeleteOperation,
-    Get.GetOperation,
-    Post.PostOperation
+    PetpetidDelete.PetpetidDeleteOperation,
+    PetpetidGet.PetpetidGetOperation,
+    PetpetidPost.PetpetidPostOperation
 {
     public Petpetid(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

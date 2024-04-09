@@ -1221,12 +1221,17 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         for(Map.Entry<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> entry: tagToPathToOperations.entrySet()) {
             CodegenTag tag = entry.getKey();
             HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = entry.getValue();
+            ArrayList<CodegenOperation> operations = new ArrayList<>();
+            for (Map.Entry<CodegenKey, ArrayList<CodegenOperation>> pathtoOps: pathToOperations.entrySet()) {
+                operations.addAll(pathtoOps.getValue());
+            }
 
             Map<String, Object> apiData = new HashMap<>();
             String packageName = generator.packageName();
             apiData.put("packageName", packageName);
             apiData.put("tag", tag);
             apiData.put("pathToOperations", pathToOperations);
+            apiData.put("operations", operations);
             apiData.put("apiPackage", generator.apiPackage());
 
             class OperationIdComparator implements Comparator<CodegenKey>{

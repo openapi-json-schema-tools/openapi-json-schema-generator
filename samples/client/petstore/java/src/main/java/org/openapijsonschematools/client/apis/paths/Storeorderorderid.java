@@ -3,12 +3,12 @@ package org.openapijsonschematools.client.apis.paths;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.paths.storeorderorderid.Delete;
-import org.openapijsonschematools.client.paths.storeorderorderid.Get;
+import org.openapijsonschematools.client.paths.storeorderorderid.StoreorderorderidDelete;
+import org.openapijsonschematools.client.paths.storeorderorderid.StoreorderorderidGet;
 
 public class Storeorderorderid extends ApiClient implements
-    Delete.DeleteOperation,
-    Get.GetOperation
+    StoreorderorderidDelete.StoreorderorderidDeleteOperation,
+    StoreorderorderidGet.StoreorderorderidGetOperation
 {
     public Storeorderorderid(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

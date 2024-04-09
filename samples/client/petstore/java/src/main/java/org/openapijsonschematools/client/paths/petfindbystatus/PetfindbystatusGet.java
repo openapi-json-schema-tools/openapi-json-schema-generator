@@ -1,0 +1,212 @@
+package org.openapijsonschematools.client.paths.petfindbystatus;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetSecurityInfo;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.QueryParameters;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.Parameters;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
+import org.openapijsonschematools.client.apiclient.ApiClient;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.paths.Petfindbystatus;
+import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
+import org.openapijsonschematools.client.securityrequirementobjects.AuthApplier;
+
+import java.io.IOException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
+
+public class PetfindbystatusGet {
+    private static class PetfindbystatusGetProvider extends AuthApplier {
+        private static final String method = "get";
+
+        public static Responses.EndpointResponse get(
+            PetfindbystatusGetRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
+
+            var querySerializer = new Parameters.QueryParametersSerializer();
+            @Nullable Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
+            String host = apiConfiguration.getServer(request.serverIndex).url();
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(request.securityIndex);
+            updateParamsForAuth(
+                securityRequirementObject,
+                headers,
+                Petfindbystatus.path,
+                method,
+                bodyPublisher,
+                queryMap,
+                apiConfiguration
+            );
+
+            String url = host + Petfindbystatus.path;
+            if (queryMap != null) {
+                url = url + querySerializer.serialize(queryMap);
+            }
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers,
+                request.timeout
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface PetfindbystatusGetOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse get(PetfindbystatusGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PetfindbystatusGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public interface FindPetsByStatusOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse findPetsByStatus(PetfindbystatusGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PetfindbystatusGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class PetfindbystatusGet1 extends ApiClient implements PetfindbystatusGetOperation {
+        public PetfindbystatusGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
+        }
+    }
+
+    public static class PetfindbystatusGetRequest {
+        public QueryParameters.QueryParametersMap queryParameters;
+        public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
+        public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
+
+        public PetfindbystatusGetRequest(
+            QueryParameters.QueryParametersMap queryParameters,
+            PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex,
+            PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex,
+            @Nullable Duration timeout
+        ) {
+            this.queryParameters = queryParameters;
+            this.serverIndex = serverIndex;
+            this.securityIndex = securityIndex;
+            this.timeout = timeout;
+        }
+    }
+
+    public static class PetfindbystatusGetNullableRequest {
+        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
+        public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
+    }
+
+    public interface SetterForServerIndex <T> {
+        PetfindbystatusGetNullableRequest getInstance();
+        T getBuilderAfterServerIndex(PetfindbystatusGetNullableRequest instance);
+        default T serverIndex(PetfindbystatusServerInfo.ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForSecurityIndex <T> {
+        PetfindbystatusGetNullableRequest getInstance();
+        T getBuilderAfterSecurityIndex(PetfindbystatusGetNullableRequest instance);
+        default T securityIndex(PetfindbystatusGetSecurityInfo.SecurityIndex securityIndex) {
+            var instance = getInstance();
+            instance.securityIndex = securityIndex;
+            return getBuilderAfterSecurityIndex(instance);
+        }
+    }
+
+    public interface SetterForTimeout <T> {
+        PetfindbystatusGetNullableRequest getInstance();
+        T getBuilderAfterTimeout(PetfindbystatusGetNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
+    public interface SetterForQueryParameters <T> {
+        PetfindbystatusGetNullableRequest getInstance();
+        T getBuilderAfterQueryParameters(PetfindbystatusGetNullableRequest instance);
+        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+            var instance = getInstance();
+            instance.queryParameters = queryParameters;
+            return getBuilderAfterQueryParameters(instance);
+        }
+    }
+
+    public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForSecurityIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
+        private final PetfindbystatusGetNullableRequest instance;
+
+        public Get0RequestBuilder(PetfindbystatusGetNullableRequest instance) {
+            this.instance = instance;
+        }
+
+        public PetfindbystatusGetRequest build() {
+            var queryParameters = instance.queryParameters;
+            if (queryParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new PetfindbystatusGetRequest(
+                queryParameters,
+                instance.serverIndex,
+                instance.securityIndex,
+                instance.timeout
+            );
+        }
+
+        public PetfindbystatusGetNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Get0RequestBuilder getBuilderAfterServerIndex(PetfindbystatusGetNullableRequest instance) {
+            return this;
+        }
+
+        public Get0RequestBuilder getBuilderAfterSecurityIndex(PetfindbystatusGetNullableRequest instance) {
+            return this;
+        }
+
+        public Get0RequestBuilder getBuilderAfterTimeout(PetfindbystatusGetNullableRequest instance) {
+            return this;
+        }
+    }
+    public static class GetRequestBuilder implements SetterForQueryParameters<Get0RequestBuilder> {
+        private final PetfindbystatusGetNullableRequest instance;
+
+        public GetRequestBuilder() {
+            this.instance = new PetfindbystatusGetNullableRequest();
+        }
+
+        public PetfindbystatusGetNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Get0RequestBuilder getBuilderAfterQueryParameters(PetfindbystatusGetNullableRequest instance) {
+            return new Get0RequestBuilder(instance);
+        }
+    }
+}

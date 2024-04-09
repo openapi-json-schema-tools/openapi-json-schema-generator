@@ -1,0 +1,211 @@
+package org.openapijsonschematools.client.paths.petpetid;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetSecurityInfo;
+import org.openapijsonschematools.client.paths.petpetid.get.PathParameters;
+import org.openapijsonschematools.client.paths.petpetid.get.Parameters;
+import org.openapijsonschematools.client.paths.petpetid.get.Responses;
+import org.openapijsonschematools.client.apiclient.ApiClient;
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.restclient.RestClient;
+import org.openapijsonschematools.client.paths.Petpetid;
+import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
+import org.openapijsonschematools.client.securityrequirementobjects.AuthApplier;
+
+import java.io.IOException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
+
+public class PetpetidGet {
+    private static class PetpetidGetProvider extends AuthApplier {
+        private static final String method = "get";
+
+        public static Responses.EndpointResponse get(
+            PetpetidGetRequest request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
+
+            var pathSerializer = new Parameters.PathParametersSerializer();
+            String updatedPath = pathSerializer.serialize(request.pathParameters, Petpetid.path);
+            // TODO set this to a map if there is a query security scheme
+            @Nullable Map<String, String> queryMap = null;
+            String host = apiConfiguration.getServer(request.serverIndex).url();
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(request.securityIndex);
+            updateParamsForAuth(
+                securityRequirementObject,
+                headers,
+                updatedPath,
+                method,
+                bodyPublisher,
+                queryMap,
+                apiConfiguration
+            );
+
+            String url = host + updatedPath;
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers,
+                request.timeout
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            var responsesDeserializer = new Responses.Responses1();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
+        }
+    }
+
+    public interface PetpetidGetOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse get(PetpetidGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PetpetidGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public interface GetPetByIdOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse getPetById(PetpetidGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PetpetidGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
+    public static class PetpetidGet1 extends ApiClient implements PetpetidGetOperation {
+        public PetpetidGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
+        }
+    }
+
+    public static class PetpetidGetRequest {
+        public PathParameters.PathParametersMap pathParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
+
+        public PetpetidGetRequest(
+            PathParameters.PathParametersMap pathParameters,
+            RootServerInfo.@Nullable ServerIndex serverIndex,
+            PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex,
+            @Nullable Duration timeout
+        ) {
+            this.pathParameters = pathParameters;
+            this.serverIndex = serverIndex;
+            this.securityIndex = securityIndex;
+            this.timeout = timeout;
+        }
+    }
+
+    public static class PetpetidGetNullableRequest {
+        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex;
+        public @Nullable Duration timeout;
+    }
+
+    public interface SetterForServerIndex <T> {
+        PetpetidGetNullableRequest getInstance();
+        T getBuilderAfterServerIndex(PetpetidGetNullableRequest instance);
+        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+            var instance = getInstance();
+            instance.serverIndex = serverIndex;
+            return getBuilderAfterServerIndex(instance);
+        }
+    }
+
+    public interface SetterForSecurityIndex <T> {
+        PetpetidGetNullableRequest getInstance();
+        T getBuilderAfterSecurityIndex(PetpetidGetNullableRequest instance);
+        default T securityIndex(PetpetidGetSecurityInfo.SecurityIndex securityIndex) {
+            var instance = getInstance();
+            instance.securityIndex = securityIndex;
+            return getBuilderAfterSecurityIndex(instance);
+        }
+    }
+
+    public interface SetterForTimeout <T> {
+        PetpetidGetNullableRequest getInstance();
+        T getBuilderAfterTimeout(PetpetidGetNullableRequest instance);
+        default T timeout(Duration timeout) {
+            var instance = getInstance();
+            instance.timeout = timeout;
+            return getBuilderAfterTimeout(instance);
+        }
+    }
+
+    public interface SetterForPathParameters <T> {
+        PetpetidGetNullableRequest getInstance();
+        T getBuilderAfterPathParameters(PetpetidGetNullableRequest instance);
+        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+            var instance = getInstance();
+            instance.pathParameters = pathParameters;
+            return getBuilderAfterPathParameters(instance);
+        }
+    }
+
+    public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForSecurityIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
+        private final PetpetidGetNullableRequest instance;
+
+        public Get0RequestBuilder(PetpetidGetNullableRequest instance) {
+            this.instance = instance;
+        }
+
+        public PetpetidGetRequest build() {
+            var pathParameters = instance.pathParameters;
+            if (pathParameters == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+            return new PetpetidGetRequest(
+                pathParameters,
+                instance.serverIndex,
+                instance.securityIndex,
+                instance.timeout
+            );
+        }
+
+        public PetpetidGetNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Get0RequestBuilder getBuilderAfterServerIndex(PetpetidGetNullableRequest instance) {
+            return this;
+        }
+
+        public Get0RequestBuilder getBuilderAfterSecurityIndex(PetpetidGetNullableRequest instance) {
+            return this;
+        }
+
+        public Get0RequestBuilder getBuilderAfterTimeout(PetpetidGetNullableRequest instance) {
+            return this;
+        }
+    }
+    public static class GetRequestBuilder implements SetterForPathParameters<Get0RequestBuilder> {
+        private final PetpetidGetNullableRequest instance;
+
+        public GetRequestBuilder() {
+            this.instance = new PetpetidGetNullableRequest();
+        }
+
+        public PetpetidGetNullableRequest getInstance() {
+            return instance;
+        }
+
+        public Get0RequestBuilder getBuilderAfterPathParameters(PetpetidGetNullableRequest instance) {
+            return new Get0RequestBuilder(instance);
+        }
+    }
+}

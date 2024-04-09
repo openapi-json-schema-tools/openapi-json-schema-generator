@@ -200,6 +200,7 @@ public class {{jsonPathPiece.pascalCase}} {
             return {{jsonPathPiece.pascalCase}}Provider.{{jsonPathPiece.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
+    {{#neq jsonPathPiece.pascalCase operationId.pascalCase}}
 
     public interface {{operationId.pascalCase}}Operation {
         ApiConfiguration getApiConfiguration();
@@ -209,6 +210,7 @@ public class {{jsonPathPiece.pascalCase}} {
             return {{jsonPathPiece.pascalCase}}Provider.{{jsonPathPiece.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
+    {{/neq}}
 
     public static class {{jsonPathPiece.pascalCase}}1 extends ApiClient implements {{jsonPathPiece.pascalCase}}Operation {
         public {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {

@@ -3,17 +3,13 @@ package {{packageName}}.apis.tags;
 import {{packageName}}.apiclient.ApiClient;
 import {{packageName}}.configurations.ApiConfiguration;
 import {{packageName}}.configurations.SchemaConfiguration;
-{{#each pathToOperations}}
-    {{#each this}}
+{{#each operations}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
-    {{/each}}
 {{/each}}
 
 public class {{tag.className}} extends ApiClient implements
-{{#each pathToOperations}}
-    {{#each this}}
+{{#each operations}}
     {{jsonPathPiece.pascalCase}}.{{operationId.pascalCase}}Operation{{#unless @last}},{{/unless}}
-    {{/each}}
 {{/each}}
 {
     public {{tag.className}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {

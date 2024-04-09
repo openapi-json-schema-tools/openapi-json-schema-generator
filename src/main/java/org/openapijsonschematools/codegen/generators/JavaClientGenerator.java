@@ -41,6 +41,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParametersInfo;
@@ -2614,7 +2615,22 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     @Override
     public String toOperationFilename(String name, String jsonPath) {
-        return StringUtils.capitalize(name);
+        int lastSlash = jsonPath.lastIndexOf("/");
+        String[] pathPieces = jsonPath.split("/");
+        String pathJsonPath = jsonPath.substring(0, lastSlash);
+        String pathClassName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[pathPieces.length-2]), pathJsonPath);
+        String operationFileName = pathClassName + StringUtils.capitalize(name);
+        return operationFileName;
+    }
+
+    @Override
+    public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        switch (type) {
+            case OPERATION:
+                return toOperationFilename(lastJsonPathFragment, jsonPath);
+            default:
+                return null;
+        }
     }
 
     protected List<MapBuilder<CodegenSchema>> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
