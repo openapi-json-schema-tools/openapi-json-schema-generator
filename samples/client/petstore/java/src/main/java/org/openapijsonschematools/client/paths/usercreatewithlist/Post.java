@@ -67,6 +67,15 @@ public class Post {
         }
     }
 
+    public interface CreateUsersWithListInputOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse createUsersWithListInput(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
     public static class Post1 extends ApiClient implements PostOperation {
         public Post1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);

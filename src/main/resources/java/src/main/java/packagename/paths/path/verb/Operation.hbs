@@ -201,6 +201,15 @@ public class {{jsonPathPiece.pascalCase}} {
         }
     }
 
+    public interface {{operationId.pascalCase}}Operation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{operationId.camelCase}}({{jsonPathPiece.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return {{jsonPathPiece.pascalCase}}Provider.{{jsonPathPiece.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
     public static class {{jsonPathPiece.pascalCase}}1 extends ApiClient implements {{jsonPathPiece.pascalCase}}Operation {
         public {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
