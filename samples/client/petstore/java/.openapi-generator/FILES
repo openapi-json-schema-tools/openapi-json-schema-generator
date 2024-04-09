@@ -747,13 +747,13 @@ src/main/java/org/openapijsonschematools/client/apis/paths/Usercreatewithlist.ja
 src/main/java/org/openapijsonschematools/client/apis/paths/Userlogin.java
 src/main/java/org/openapijsonschematools/client/apis/paths/Userlogout.java
 src/main/java/org/openapijsonschematools/client/apis/paths/Userusername.java
-src/main/java/org/openapijsonschematools/client/apis/tags/$anotherFake?Api.java
-src/main/java/org/openapijsonschematools/client/apis/tags/DefaultApi.java
-src/main/java/org/openapijsonschematools/client/apis/tags/FakeApi.java
-src/main/java/org/openapijsonschematools/client/apis/tags/FakeClassnameTags 123#$%^Api.java
-src/main/java/org/openapijsonschematools/client/apis/tags/PetApi.java
-src/main/java/org/openapijsonschematools/client/apis/tags/StoreApi.java
-src/main/java/org/openapijsonschematools/client/apis/tags/UserApi.java
+src/main/java/org/openapijsonschematools/client/apis/tags/Anotherfake.java
+src/main/java/org/openapijsonschematools/client/apis/tags/Default.java
+src/main/java/org/openapijsonschematools/client/apis/tags/Fake.java
+src/main/java/org/openapijsonschematools/client/apis/tags/Fakeclassnametags123.java
+src/main/java/org/openapijsonschematools/client/apis/tags/Pet.java
+src/main/java/org/openapijsonschematools/client/apis/tags/Store.java
+src/main/java/org/openapijsonschematools/client/apis/tags/User.java
 src/main/java/org/openapijsonschematools/client/components/headers/Int32JsonContentTypeHeader.java
 src/main/java/org/openapijsonschematools/client/components/headers/NumberHeader.java
 src/main/java/org/openapijsonschematools/client/components/headers/RefContentSchemaHeader.java

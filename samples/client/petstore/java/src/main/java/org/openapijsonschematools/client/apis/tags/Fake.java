@@ -47,7 +47,7 @@ import org.openapijsonschematools.client.paths.fakeuploadfiles.Post;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.Get;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.Delete;
 
-public class FakeApi extends ApiClient implements
+public class Fake extends ApiClient implements
     Patch.JsonPatchOperation
     Post.ArrayOfEnumsOperation
     Delete.DeleteCommonParamOperation,
@@ -92,7 +92,7 @@ public class FakeApi extends ApiClient implements
     Get.AdditionalPropertiesWithArrayOfEnumsOperation
     Delete.DeleteCoffeeOperation
 {
-    public FakeApi(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Fake(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }

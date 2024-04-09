@@ -3,12 +3,12 @@ package org.openapijsonschematools.client.apis.tags;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.paths.fakeclassnametest.Patch;
+import org.openapijsonschematools.client.paths.foo.Get;
 
-public class FakeClassnameTags 123#$%^Api extends ApiClient implements
-    Patch.ClassnameOperation
+public class Default extends ApiClient implements
+    Get.FooGetOperation
 {
-    public FakeClassnameTags 123#$%^Api(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Default(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }

@@ -13,7 +13,7 @@ import org.openapijsonschematools.client.paths.petpetid.Delete;
 import org.openapijsonschematools.client.paths.petpetid.Get;
 import org.openapijsonschematools.client.paths.petpetid.Post;
 
-public class PetApi extends ApiClient implements
+public class Pet extends ApiClient implements
     Post.UploadFileWithRequiredFileOperation
     Post.AddPetOperation,
     Put.UpdatePetOperation
@@ -24,7 +24,7 @@ public class PetApi extends ApiClient implements
     Get.GetPetByIdOperation,
     Post.UpdatePetWithFormOperation
 {
-    public PetApi(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Pet(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }

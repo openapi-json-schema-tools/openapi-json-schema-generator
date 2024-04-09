@@ -3,12 +3,12 @@ package org.openapijsonschematools.client.apis.tags;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.paths.foo.Get;
+import org.openapijsonschematools.client.paths.anotherfakedummy.Patch;
 
-public class DefaultApi extends ApiClient implements
-    Get.FooGetOperation
+public class Anotherfake extends ApiClient implements
+    Patch.Model123TestSpecialTagsOperation
 {
-    public DefaultApi(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public Anotherfake(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }

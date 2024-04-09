@@ -3467,6 +3467,26 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return true;
     }
 
+    @Override
+    public String toApiFilename(String name) {
+        return toApiName(name);
+    }
+
+    @Override
+    public String toApiName(String name) {
+        if (name.isEmpty()) {
+            return "DefaultApi";
+        }
+        String usedName = sanitizeName(name, "[^a-zA-Z0-9]+");
+        // todo check if empty and if so them use enum name
+        // todo fix this, this does not handle names starting with numbers
+        if (usedName.isEmpty()) {
+            usedName = toEnumVarName(name, null).toLowerCase(Locale.ROOT);
+        }
+        usedName = camelize(usedName, false);
+        return usedName;
+    }
+
     protected String responsePathFromDocRoot(String sourceJsonPath) {
         return getPathFromDocRoot(sourceJsonPath);
     }

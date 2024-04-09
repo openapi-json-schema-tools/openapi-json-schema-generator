@@ -12,7 +12,7 @@ import org.openapijsonschematools.client.paths.userusername.Get;
 import org.openapijsonschematools.client.paths.userusername.Put;
 import org.openapijsonschematools.client.paths.usercreatewithlist.Post;
 
-public class UserApi extends ApiClient implements
+public class User extends ApiClient implements
     Get.LogoutUserOperation
     Post.CreateUsersWithArrayInputOperation
     Post.CreateUserOperation
@@ -22,7 +22,7 @@ public class UserApi extends ApiClient implements
     Put.UpdateUserOperation
     Post.CreateUsersWithListInputOperation
 {
-    public UserApi(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public User(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);
     }
 }
