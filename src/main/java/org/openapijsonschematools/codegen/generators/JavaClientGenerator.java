@@ -2629,6 +2629,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         switch (type) {
             case SCHEMA:
                 return getSchemaPascalCaseName(lastJsonPathFragment, jsonPath, true);
+            case PATH:
+                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+            case MISC:
+                return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
                 return toOperationFilename(lastJsonPathFragment, jsonPath);
             default:

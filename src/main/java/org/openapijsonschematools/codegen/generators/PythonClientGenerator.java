@@ -2152,6 +2152,10 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                     suffix = qty.toString();
                 }
                 return toModelName(usedKey + suffix, jsonPath);
+            case PATH:
+                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+            case MISC:
+                return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
                 return toModelName(lastJsonPathFragment, jsonPath);
             default:

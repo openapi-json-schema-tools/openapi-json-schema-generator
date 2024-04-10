@@ -1,10 +1,12 @@
 package org.openapijsonschematools.codegen.generators.openapimodels;
 
 public enum CodegenKeyType {
-    OPERATION,
     SCHEMA,
+    PATH,
+    OPERATION,
     PARAMETER,
     RESPONSE,
     SERVER,
-    SECURITY
+    SECURITY,
+    MISC // content-type, operation method
 }

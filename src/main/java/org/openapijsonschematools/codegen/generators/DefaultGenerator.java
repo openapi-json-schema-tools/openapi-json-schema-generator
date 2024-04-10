@@ -3396,6 +3396,10 @@ public class DefaultGenerator implements Generator {
                 }
                 usedKey = usedKey + suffix;
                 return usedKey;
+            case PATH:
+                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+            case MISC:
+                return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
                 return toModelName(lastJsonPathFragment, jsonPath);
             default:
@@ -4962,14 +4966,14 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toPathFilename(usedKey, sourceJsonPath);
-                pascalCaseName = camelize(toPathFilename(usedKey, sourceJsonPath));
+                pascalCaseName = getPascalCase(CodegenKeyType.PATH, usedKey, sourceJsonPath);
                 break;
             case "misc":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 camelCaseName = camelize(usedKey, true);
-                pascalCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.MISC, usedKey, sourceJsonPath);
                 break;
             case "verb":
                 usedKey = escapeUnsafeCharacters(key);
