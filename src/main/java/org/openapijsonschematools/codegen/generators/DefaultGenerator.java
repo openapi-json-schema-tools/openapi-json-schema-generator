@@ -739,7 +739,8 @@ public class DefaultGenerator implements Generator {
 
     public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
-    public String getPascalCaseResponse(String componentName, String jsonPath) { return toModelName(componentName, null); }
+    @Deprecated
+    public String getPascalCaseResponse(String componentName, String jsonPath) { return getPascalCase(CodegenKeyType.RESPONSE, componentName, jsonPath); }
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
@@ -954,13 +955,15 @@ public class DefaultGenerator implements Generator {
         return toModuleFilename(basename, jsonPath);
     }
 
+    @Deprecated
     @Override
     public String getPascalCaseServer(String basename, String jsonPath) {
-        return "Server" + basename;
+        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
     }
 
+    @Deprecated
     public String getPascalCaseParameter(String basename, String jsonPath) {
-        return toModelName(basename, null);
+        return getPascalCase(CodegenKeyType.PARAMETER, basename, null);
     }
 
     /**
@@ -3398,10 +3401,19 @@ public class DefaultGenerator implements Generator {
                 return usedKey;
             case PATH:
                 return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+            case PARAMETER:
+            case RESPONSE:
+                return toModelName(lastJsonPathFragment, null);
             case MISC:
-                return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
+            case REQUEST_BODY:
+            case HEADER:
+            case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
+            case SERVER:
+                return "Server" + lastJsonPathFragment;
+            case SECURITY:
+                return toSecurityFilename(lastJsonPathFragment, jsonPath);
             default:
                 return null;
         }
@@ -4986,38 +4998,37 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseParameter(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.PARAMETER, usedKey, sourceJsonPath);
                 break;
             case "requestBodies":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toRequestBodyFilename(usedKey, sourceJsonPath);
-                // todo add getPascalCaseRequestBody()
-                pascalCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.REQUEST_BODY, usedKey, sourceJsonPath);
                 break;
             case "headers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
-                pascalCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.HEADER, usedKey, sourceJsonPath);
                 break;
             case "responses":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseResponse(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.RESPONSE, usedKey, sourceJsonPath);
                 break;
             case "securitySchemes":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
-                pascalCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.SECURITY_SCHEME, usedKey, sourceJsonPath);
                 break;
             case "servers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseServer(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.SERVER, usedKey, sourceJsonPath);
                 camelCaseName = camelize(pascalCaseName, true);
                 break;
             case "security":
@@ -5026,7 +5037,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySnakeCase(key, sourceJsonPath);
-                pascalCaseName =  toSecurityPascalCase(key, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.SECURITY, usedKey, sourceJsonPath);
                 camelCaseName = camelize(pascalCaseName, true);
                 break;
         }
@@ -5043,8 +5054,9 @@ public class DefaultGenerator implements Generator {
         );
     }
 
+    @Deprecated
     protected String toSecurityPascalCase(String basename, String jsonPath) {
-        return toSecurityFilename(basename, jsonPath);
+        return getPascalCase(CodegenKeyType.SECURITY, basename, jsonPath);
     }
 
     protected String toSecuritySnakeCase(String basename, String jsonPath) {

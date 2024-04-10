@@ -827,8 +827,9 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return underscore(dropDots(toModelName(name, jsonPath)));
     }
 
+    @Deprecated
     protected String toSecurityPascalCase(String basename, String jsonPath) {
-        return "Security";
+        return getPascalCase(CodegenKeyType.SECURITY, basename, jsonPath);
     }
 
     @Override
@@ -1902,24 +1903,15 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return "security_requirement_object_" + basename;
     }
 
+    @Deprecated
     @Override
     public String getPascalCaseParameter(String name, String jsonPath) {
-        try {
-            Integer.parseInt(name);
-            // for parameters in path, or an endpoint
-            return "Parameter" + name;
-        } catch (NumberFormatException nfe) {
-            // for header parameters in responses
-            return toModelName(name, null);
-        }
+        return getPascalCase(CodegenKeyType.PARAMETER, name, jsonPath);
     }
 
+    @Deprecated
     public String getPascalCaseResponse(String name, String jsonPath) {
-        if (name.matches("^\\d[X\\d]{2}$")) {
-            // 200 or 2XX
-            return "ResponseFor" + name;
-        }
-        return toModelName(name, null);
+        return getPascalCase(CodegenKeyType.RESPONSE, name, jsonPath);
     }
 
     @Override
@@ -2155,9 +2147,28 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             case PATH:
                 return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
             case MISC:
-                return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
+            case REQUEST_BODY:
+            case HEADER:
+            case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
+            case PARAMETER:
+                try {
+                    Integer.parseInt(lastJsonPathFragment);
+                    // for parameters in path, or an endpoint
+                    return "Parameter" + lastJsonPathFragment;
+                } catch (NumberFormatException nfe) {
+                    // for header parameters in responses
+                    return toModelName(lastJsonPathFragment, null);
+                }
+            case RESPONSE:
+                if (lastJsonPathFragment.matches("^\\d[X\\d]{2}$")) {
+                    // 200 or 2XX
+                    return "ResponseFor" + lastJsonPathFragment;
+                }
+                return toModelName(lastJsonPathFragment, null);
+            case SECURITY:
+                return "Security";
             default:
                 return null;
         }

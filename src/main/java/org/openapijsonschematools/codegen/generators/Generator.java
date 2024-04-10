@@ -203,6 +203,7 @@ public interface Generator {
 
     String toSecurityFilename(String baseName, String jsonPath);
 
+    @Deprecated
     String getPascalCaseServer(String baseName, String jsonPath);
 
     String toModelImport(String refClass);

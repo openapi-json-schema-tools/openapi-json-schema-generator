@@ -147,39 +147,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
     }
 
+    @Deprecated
     @Override
     public String getPascalCaseServer(String basename, String jsonPath) {
-        if (jsonPath != null) {
-            String[] pathPieces = jsonPath.split("/");
-            if (jsonPath.startsWith("#/servers")) {
-                if (pathPieces.length == 2) {
-                    // #/servers
-                    return "RootServerInfo";
-                } else {
-                    // #/servers/0
-                    return "Server"+pathPieces[2];
-                }
-            } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 4 && pathPieces[3].equals("servers")) {
-                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
-                if (pathPieces.length == 4) {
-                    // #/paths/somePath/servers
-                    return pathKey.pascalCase + "ServerInfo";
-                } else {
-                    // #/paths/somePath/servers/0
-                    return pathKey.pascalCase + "Server"+ pathPieces[4];
-                }
-            } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 5 && pathPieces[4].equals("servers")) {
-                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
-                if (pathPieces.length == 5) {
-                    // #/paths/somePath/get/servers
-                    return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "ServerInfo";
-                } else {
-                    // #/paths/somePath/get/servers/0
-                    return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "Server" + pathPieces[5];
-                }
-            }
-        }
-        return "Server" + basename;
+        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
     }
 
     @Override
@@ -1169,12 +1140,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return toModuleFilename(componentName, jsonPath);
     }
 
+    @Deprecated
     public String getPascalCaseResponse(String componentName, String jsonPath) {
-        if (jsonPath.startsWith("#/components/responses/")) {
-            return toModelName(componentName, null);
-        } else {
-            return toModelName("Code"+componentName+"Response", null);
-        }
+        return getPascalCase(CodegenKeyType.RESPONSE, componentName, jsonPath);
     }
 
     @Override
@@ -1406,11 +1374,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return true;
     }
 
+    @Deprecated
     @Override
     public String getPascalCaseParameter(String basename, String jsonPath) {
-
-        return toParameterFilename(basename, jsonPath);
-
+        return getPascalCase(CodegenKeyType.PARAMETER, basename, jsonPath);
     }
 
     public String toPathFilename(String name, String jsonPath) {
@@ -2632,9 +2599,54 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             case PATH:
                 return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
             case MISC:
+            case REQUEST_BODY:
+            case HEADER:
+            case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
                 return toOperationFilename(lastJsonPathFragment, jsonPath);
+            case PARAMETER:
+                return toParameterFilename(lastJsonPathFragment, jsonPath);
+            case RESPONSE:
+                if (jsonPath.startsWith("#/components/responses/")) {
+                    return toModelName(lastJsonPathFragment, null);
+                } else {
+                    return toModelName("Code"+lastJsonPathFragment+"Response", null);
+                }
+            case SERVER:
+                if (jsonPath != null) {
+                    String[] pathPieces = jsonPath.split("/");
+                    if (jsonPath.startsWith("#/servers")) {
+                        if (pathPieces.length == 2) {
+                            // #/servers
+                            return "RootServerInfo";
+                        } else {
+                            // #/servers/0
+                            return "Server"+pathPieces[2];
+                        }
+                    } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 4 && pathPieces[3].equals("servers")) {
+                        CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
+                        if (pathPieces.length == 4) {
+                            // #/paths/somePath/servers
+                            return pathKey.pascalCase + "ServerInfo";
+                        } else {
+                            // #/paths/somePath/servers/0
+                            return pathKey.pascalCase + "Server"+ pathPieces[4];
+                        }
+                    } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 5 && pathPieces[4].equals("servers")) {
+                        CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
+                        if (pathPieces.length == 5) {
+                            // #/paths/somePath/get/servers
+                            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "ServerInfo";
+                        } else {
+                            // #/paths/somePath/get/servers/0
+                            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "Server" + pathPieces[5];
+                        }
+                    }
+                }
+                return "Server" + lastJsonPathFragment;
+            case SECURITY:
+                return toSecurityFilename(lastJsonPathFragment, jsonPath);
             default:
                 return null;
         }
