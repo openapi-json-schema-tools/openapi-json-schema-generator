@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [PetpetidDelete1](#petpetiddelete1)<br>The class that has a delete method to call the endpoint |
-| static class | [PetpetidDeleteRequest](#petpetiddeleterequest)<br>The final request inputs class |
-| static class | [PetpetidDeleteNullableRequest](#petpetiddeletenullablerequest)<br>The initial request inputs class |
+| static class | [Delete](#delete)<br>The class that has a delete method to call the endpoint |
+| static class | [DeleteRequest](#deleterequest)<br>The final request inputs class |
+| static class | [DeleteNullableRequest](#deletenullablerequest)<br>The initial request inputs class |
 | static class | [Delete0RequestBuilder](#delete0requestbuilder)<br>A builder for the request input class |
 | static class | [DeleteRequestBuilder](#deleterequestbuilder)<br>A builder for the request input class |
 
-## PetpetidDelete1
-public static class PetpetidDelete1 extends ApiClient.ApiClient1 implements PetpetidDeleteOperation<br>
+### Delete
+public static class Delete extends ApiClient.ApiClient1 implements DeleteOperation<br>
 
 a class that allows one to call the endpoint using a method named delete
 
@@ -80,7 +80,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetpetidDelete.PetpetidDelete1 apiClient = new PetpetidDelete.PetpetidDelete1(apiConfiguration, schemaConfiguration);
+PetpetidDelete.Delete apiClient = new PetpetidDelete.Delete(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -93,7 +93,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new DeleteRequestBuilder()
+var request = new PetpetidDelete.DeleteRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
@@ -121,12 +121,12 @@ try {
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidDelete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | delete([PetpetidDeleteRequest](#petpetiddeleterequest) request) |
+| Void | delete([DeleteRequest](#deleterequest) request) |
 
 ## PetpetidDeleteRequest
 public static class PetpetidDeleteRequest<br>
@@ -142,8 +142,8 @@ a class that stores the final request inputs
 | [PetpetidDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## PetpetidDeleteNullableRequest
-public static class PetpetidDeleteNullableRequest<br>
+## DeleteNullableRequest
+public static class DeleteNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -169,7 +169,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetpetidDeleteRequest](#petpetiddeleterequest) | build()<br>Returns the request input used to call an endpoint method |
+| [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/petpetid/delete/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete0RequestBuilder](#delete0requestbuilder) | securityIndex([PetpetidDeleteSecurityInfo.SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |

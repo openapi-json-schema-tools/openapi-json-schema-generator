@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeresponsewithoutschemaGet {
-    private static class FakeresponsewithoutschemaGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            FakeresponsewithoutschemaGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -49,12 +49,12 @@ public class FakeresponsewithoutschemaGet {
         }
     }
 
-    public interface FakeresponsewithoutschemaGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(FakeresponsewithoutschemaGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeresponsewithoutschemaGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -67,13 +67,13 @@ public class FakeresponsewithoutschemaGet {
         }
     }
 
-    public static class FakeresponsewithoutschemaGet1 extends ApiClient implements FakeresponsewithoutschemaGetOperation {
-        public FakeresponsewithoutschemaGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements FakeresponsewithoutschemaGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeresponsewithoutschemaGetRequest {
+    public static class GetRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }

@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakerefsnumber.FakerefsnumberPost;
 
 public class Fakerefsnumber extends ApiClient implements
-    FakerefsnumberPost.FakerefsnumberPostOperation
+    FakerefsnumberPost.PostOperation
 {
     public Fakerefsnumber(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

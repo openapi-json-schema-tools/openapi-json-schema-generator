@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.PetpetiduploadimagePost;
 
 public class Petpetiduploadimage extends ApiClient implements
-    PetpetiduploadimagePost.PetpetiduploadimagePostOperation
+    PetpetiduploadimagePost.PostOperation
 {
     public Petpetiduploadimage(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

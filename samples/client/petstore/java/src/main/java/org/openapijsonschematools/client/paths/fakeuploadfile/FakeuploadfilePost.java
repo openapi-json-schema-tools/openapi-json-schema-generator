@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeuploadfilePost {
-    private static class FakeuploadfilePostProvider {
+    private static class PostProvider {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            FakeuploadfilePostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -62,12 +62,12 @@ public class FakeuploadfilePost {
         }
     }
 
-    public interface FakeuploadfilePostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(FakeuploadfilePostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeuploadfilePostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -80,13 +80,13 @@ public class FakeuploadfilePost {
         }
     }
 
-    public static class FakeuploadfilePost1 extends ApiClient implements FakeuploadfilePostOperation {
-        public FakeuploadfilePost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements FakeuploadfilePostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeuploadfilePostRequest {
+    public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

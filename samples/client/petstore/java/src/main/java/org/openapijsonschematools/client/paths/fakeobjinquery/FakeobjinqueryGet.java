@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeobjinqueryGet {
-    private static class FakeobjinqueryGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            FakeobjinqueryGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -58,12 +58,12 @@ public class FakeobjinqueryGet {
         }
     }
 
-    public interface FakeobjinqueryGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(FakeobjinqueryGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeobjinqueryGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -76,13 +76,13 @@ public class FakeobjinqueryGet {
         }
     }
 
-    public static class FakeobjinqueryGet1 extends ApiClient implements FakeobjinqueryGetOperation {
-        public FakeobjinqueryGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements FakeobjinqueryGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeobjinqueryGetRequest {
+    public static class GetRequest {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeuploadfilesPost {
-    private static class FakeuploadfilesPostProvider {
+    private static class PostProvider {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            FakeuploadfilesPostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -62,12 +62,12 @@ public class FakeuploadfilesPost {
         }
     }
 
-    public interface FakeuploadfilesPostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(FakeuploadfilesPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeuploadfilesPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -80,13 +80,13 @@ public class FakeuploadfilesPost {
         }
     }
 
-    public static class FakeuploadfilesPost1 extends ApiClient implements FakeuploadfilesPostOperation {
-        public FakeuploadfilesPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements FakeuploadfilesPostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeuploadfilesPostRequest {
+    public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

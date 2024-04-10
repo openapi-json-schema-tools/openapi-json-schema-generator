@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.Map;
 
 public class SolidusGet {
-    private static class SolidusGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            SolidusGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -49,12 +49,12 @@ public class SolidusGet {
         }
     }
 
-    public interface SolidusGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(SolidusGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return SolidusGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -67,13 +67,13 @@ public class SolidusGet {
         }
     }
 
-    public static class SolidusGet1 extends ApiClient implements SolidusGetOperation {
-        public SolidusGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements SolidusGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class SolidusGetRequest {
+    public static class GetRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }

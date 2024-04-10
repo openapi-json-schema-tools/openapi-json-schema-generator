@@ -7,8 +7,8 @@ import org.openapijsonschematools.client.paths.pet.PetPost;
 import org.openapijsonschematools.client.paths.pet.PetPut;
 
 public class Pet extends ApiClient implements
-    PetPost.PetPostOperation,
-    PetPut.PetPutOperation
+    PetPost.PostOperation,
+    PetPut.PutOperation
 {
     public Pet(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

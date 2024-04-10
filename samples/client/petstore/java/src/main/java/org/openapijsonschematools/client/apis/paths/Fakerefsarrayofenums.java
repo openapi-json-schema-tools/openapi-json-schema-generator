@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakerefsarrayofenums.FakerefsarrayofenumsPost;
 
 public class Fakerefsarrayofenums extends ApiClient implements
-    FakerefsarrayofenumsPost.FakerefsarrayofenumsPostOperation
+    FakerefsarrayofenumsPost.PostOperation
 {
     public Fakerefsarrayofenums(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

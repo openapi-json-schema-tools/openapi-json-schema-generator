@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.FakejsonwithcharsetPost;
 
 public class Fakejsonwithcharset extends ApiClient implements
-    FakejsonwithcharsetPost.FakejsonwithcharsetPostOperation
+    FakejsonwithcharsetPost.PostOperation
 {
     public Fakejsonwithcharset(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

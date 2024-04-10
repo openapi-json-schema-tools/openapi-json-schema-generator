@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeadditionalpropertieswitharrayofenumsGet {
-    private static class FakeadditionalpropertieswitharrayofenumsGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            FakeadditionalpropertieswitharrayofenumsGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -62,12 +62,12 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
         }
     }
 
-    public interface FakeadditionalpropertieswitharrayofenumsGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(FakeadditionalpropertieswitharrayofenumsGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeadditionalpropertieswitharrayofenumsGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -80,13 +80,13 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
         }
     }
 
-    public static class FakeadditionalpropertieswitharrayofenumsGet1 extends ApiClient implements FakeadditionalpropertieswitharrayofenumsGetOperation {
-        public FakeadditionalpropertieswitharrayofenumsGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements FakeadditionalpropertieswitharrayofenumsGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeadditionalpropertieswitharrayofenumsGetRequest {
+    public static class GetRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

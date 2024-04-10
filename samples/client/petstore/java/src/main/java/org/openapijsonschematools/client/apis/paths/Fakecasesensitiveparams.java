@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.FakecasesensitiveparamsPut;
 
 public class Fakecasesensitiveparams extends ApiClient implements
-    FakecasesensitiveparamsPut.FakecasesensitiveparamsPutOperation
+    FakecasesensitiveparamsPut.PutOperation
 {
     public Fakecasesensitiveparams(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

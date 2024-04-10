@@ -25,11 +25,11 @@ import java.util.List;
 import java.util.Map;
 
 public class UserusernamePut {
-    private static class UserusernamePutProvider {
+    private static class PutProvider {
         private static final String method = "put";
 
         public static Void put(
-            UserusernamePutRequest request,
+            PutRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -63,12 +63,12 @@ public class UserusernamePut {
         }
     }
 
-    public interface UserusernamePutOperation {
+    public interface PutOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Void put(UserusernamePutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UserusernamePutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Void put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -81,19 +81,19 @@ public class UserusernamePut {
         }
     }
 
-    public static class UserusernamePut1 extends ApiClient implements UserusernamePutOperation {
-        public UserusernamePut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Put extends ApiClient implements UserusernamePutOperation {
+        public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class UserusernamePutRequest {
+    public static class PutRequest {
         public RequestBody.SealedRequestBody requestBody;
         public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public UserusernamePutRequest(
+        public PutRequest(
             RequestBody.SealedRequestBody requestBody,
             PathParameters.PathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
@@ -106,7 +106,7 @@ public class UserusernamePut {
         }
     }
 
-    public static class UserusernamePutNullableRequest {
+    public static class PutNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

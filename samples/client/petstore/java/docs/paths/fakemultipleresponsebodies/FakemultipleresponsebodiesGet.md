@@ -11,12 +11,12 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakemultipleresponsebodiesGet1](#fakemultipleresponsebodiesget1)<br>The class that has a get method to call the endpoint |
-| static class | [FakemultipleresponsebodiesGetRequest](#fakemultipleresponsebodiesgetrequest)<br>The request inputs class |
+| static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| static class | [GetRequest](#getrequest)<br>The request inputs class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-## FakemultipleresponsebodiesGet1
-public static class FakemultipleresponsebodiesGet1 extends ApiClient.ApiClient1 implements FakemultipleresponsebodiesGetOperation<br>
+### Get
+public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
 
@@ -64,10 +64,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakemultipleresponsebodiesGet.FakemultipleresponsebodiesGet1 apiClient = new FakemultipleresponsebodiesGet.FakemultipleresponsebodiesGet1(apiConfiguration, schemaConfiguration);
+FakemultipleresponsebodiesGet.Get apiClient = new FakemultipleresponsebodiesGet.Get(apiConfiguration, schemaConfiguration);
 
 
-var request = new GetRequestBuilder().build();
+var request = new FakemultipleresponsebodiesGet.GetRequestBuilder().build();
 
 Responses.EndpointResponse response;
 try {
@@ -98,12 +98,12 @@ Code202Response.ApplicationjsonResponseBody deserializedBody = (Code202Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakemultipleresponsebodiesGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/Responses.md#endpointresponse) | get([FakemultipleresponsebodiesGetRequest](#fakemultipleresponsebodiesgetrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## FakemultipleresponsebodiesGetRequest
 public static class FakemultipleresponsebodiesGetRequest<br>
@@ -129,7 +129,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakemultipleresponsebodiesGetRequest](#fakemultipleresponsebodiesgetrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class UsercreatewitharrayPost {
-    private static class UsercreatewitharrayPostProvider {
+    private static class PostProvider {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            UsercreatewitharrayPostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -58,12 +58,12 @@ public class UsercreatewitharrayPost {
         }
     }
 
-    public interface UsercreatewitharrayPostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(UsercreatewitharrayPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UsercreatewitharrayPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -76,18 +76,18 @@ public class UsercreatewitharrayPost {
         }
     }
 
-    public static class UsercreatewitharrayPost1 extends ApiClient implements UsercreatewitharrayPostOperation {
-        public UsercreatewitharrayPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements UsercreatewitharrayPostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class UsercreatewitharrayPostRequest {
+    public static class PostRequest {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public UsercreatewitharrayPostRequest(
+        public PostRequest(
             RequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -98,7 +98,7 @@ public class UsercreatewitharrayPost {
         }
     }
 
-    public static class UsercreatewitharrayPostNullableRequest {
+    public static class PostNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

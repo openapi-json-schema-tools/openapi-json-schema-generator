@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakehealthGet {
-    private static class FakehealthGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            FakehealthGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -49,12 +49,12 @@ public class FakehealthGet {
         }
     }
 
-    public interface FakehealthGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(FakehealthGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakehealthGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -67,13 +67,13 @@ public class FakehealthGet {
         }
     }
 
-    public static class FakehealthGet1 extends ApiClient implements FakehealthGetOperation {
-        public FakehealthGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements FakehealthGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakehealthGetRequest {
+    public static class GetRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }

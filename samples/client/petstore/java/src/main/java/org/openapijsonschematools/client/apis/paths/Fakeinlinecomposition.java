@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.FakeinlinecompositionPost;
 
 public class Fakeinlinecomposition extends ApiClient implements
-    FakeinlinecompositionPost.FakeinlinecompositionPostOperation
+    FakeinlinecompositionPost.PostOperation
 {
     public Fakeinlinecomposition(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

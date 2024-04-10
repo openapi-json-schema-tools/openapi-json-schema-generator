@@ -62,11 +62,11 @@ import java.util.List;
 import java.util.Map;
 
 public class {{jsonPathPiece.pascalCase}} {
-    private static class {{jsonPathPiece.pascalCase}}Provider{{#each builders}}{{#if @first}}{{#each keyToBuilder}}{{#eq @key.camelCase "securityIndex"}} extends AuthApplier{{/eq}}{{/each}}{{/if}}{{/each}} {
+    private static class {{method.pascalCase}}Provider{{#each builders}}{{#if @first}}{{#each keyToBuilder}}{{#eq @key.camelCase "securityIndex"}} extends AuthApplier{{/eq}}{{/each}}{{/if}}{{/each}} {
         private static final String method = "{{jsonPathPiece.original}}";
 
-        public static {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}(
-            {{jsonPathPiece.pascalCase}}Request request,
+        public static {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{method.camelCase}}(
+            {{method.pascalCase}}Request request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -192,15 +192,15 @@ public class {{jsonPathPiece.pascalCase}} {
         }
     }
 
-    public interface {{jsonPathPiece.pascalCase}}Operation {
+    public interface {{method.pascalCase}}Operation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return {{jsonPathPiece.pascalCase}}Provider.{{jsonPathPiece.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}({{method.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return {{method.pascalCase}}Provider.{{method.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
-    {{#neq jsonPathPiece.pascalCase operationId.pascalCase}}
+    {{#neq method.pascalCase operationId.pascalCase}}
 
     public interface {{operationId.pascalCase}}Operation {
         ApiConfiguration getApiConfiguration();
@@ -212,14 +212,14 @@ public class {{jsonPathPiece.pascalCase}} {
     }
     {{/neq}}
 
-    public static class {{jsonPathPiece.pascalCase}}1 extends ApiClient implements {{jsonPathPiece.pascalCase}}Operation {
-        public {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class {{method.pascalCase}} extends ApiClient implements {{jsonPathPiece.pascalCase}}Operation {
+        public {{method.pascalCase}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
     {{#eq builders.size 1}}
 
-    public static class {{jsonPathPiece.pascalCase}}Request {
+    public static class {{method.pascalCase}}Request {
         {{#each builders}}
             {{#each keyToBuilder}}
                 {{#with property}}
@@ -238,7 +238,7 @@ public class {{jsonPathPiece.pascalCase}} {
     }
     {{else}}
 
-    public static class {{jsonPathPiece.pascalCase}}Request {
+    public static class {{method.pascalCase}}Request {
         {{#each (reverse builders)}}
             {{#or @first @last}}
                 {{#each keyToBuilder}}
@@ -257,7 +257,7 @@ public class {{jsonPathPiece.pascalCase}} {
             {{/or}}
         {{/each}}
 
-        public {{jsonPathPiece.pascalCase}}Request(
+        public {{method.pascalCase}}Request(
         {{#each (reverse builders)}}
             {{#or @first @last}}
                 {{#each keyToBuilder}}
@@ -286,7 +286,7 @@ public class {{jsonPathPiece.pascalCase}} {
         }
     }
 
-    public static class {{jsonPathPiece.pascalCase}}NullableRequest {
+    public static class {{method.pascalCase}}NullableRequest {
         {{#each (reverse builders)}}
             {{#or @first @last}}
                 {{#each keyToBuilder}}

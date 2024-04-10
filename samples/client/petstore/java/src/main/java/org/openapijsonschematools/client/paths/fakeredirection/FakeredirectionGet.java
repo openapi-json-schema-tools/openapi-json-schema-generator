@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeredirectionGet {
-    private static class FakeredirectionGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            FakeredirectionGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -49,12 +49,12 @@ public class FakeredirectionGet {
         }
     }
 
-    public interface FakeredirectionGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(FakeredirectionGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeredirectionGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -67,13 +67,13 @@ public class FakeredirectionGet {
         }
     }
 
-    public static class FakeredirectionGet1 extends ApiClient implements FakeredirectionGetOperation {
-        public FakeredirectionGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements FakeredirectionGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeredirectionGetRequest {
+    public static class GetRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }

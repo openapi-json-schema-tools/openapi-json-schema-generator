@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakerefsenum.FakerefsenumPost;
 
 public class Fakerefsenum extends ApiClient implements
-    FakerefsenumPost.FakerefsenumPostOperation
+    FakerefsenumPost.PostOperation
 {
     public Fakerefsenum(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

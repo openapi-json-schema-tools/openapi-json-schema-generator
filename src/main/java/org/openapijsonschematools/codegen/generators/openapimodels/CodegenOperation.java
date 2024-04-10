@@ -50,6 +50,7 @@ public class CodegenOperation {
     public final Map<String, Object> vendorExtensions;
     public final CodegenKey operationId;
     public final CodegenKey jsonPathPiece;
+    public final CodegenKey method;
     public final List<MapBuilder<?>> builders;
     public final String subpackage;
 
@@ -79,6 +80,7 @@ public class CodegenOperation {
             Map<String, Object> vendorExtensions,
             CodegenKey operationId,
             CodegenKey jsonPathPiece,
+            CodegenKey method,
             CodegenSchema requestBodySchema,
             List<MapBuilder<?>> builders,
             String subpackage
@@ -108,6 +110,7 @@ public class CodegenOperation {
         this.vendorExtensions = vendorExtensions;
         this.operationId = operationId;
         this.jsonPathPiece = jsonPathPiece;
+        this.method = method;
         this.requestBodySchema = requestBodySchema;
         this.builders = builders;
         this.subpackage = subpackage;

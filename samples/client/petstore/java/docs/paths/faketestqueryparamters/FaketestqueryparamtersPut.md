@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FaketestqueryparamtersPut1](#faketestqueryparamtersput1)<br>The class that has a put method to call the endpoint |
-| static class | [FaketestqueryparamtersPutRequest](#faketestqueryparamtersputrequest)<br>The final request inputs class |
-| static class | [FaketestqueryparamtersPutNullableRequest](#faketestqueryparamtersputnullablerequest)<br>The initial request inputs class |
+| static class | [Put](#put)<br>The class that has a put method to call the endpoint |
+| static class | [PutRequest](#putrequest)<br>The final request inputs class |
+| static class | [PutNullableRequest](#putnullablerequest)<br>The initial request inputs class |
 | static class | [Put0RequestBuilder](#put0requestbuilder)<br>A builder for the request input class |
 | static class | [PutRequestBuilder](#putrequestbuilder)<br>A builder for the request input class |
 
-## FaketestqueryparamtersPut1
-public static class FaketestqueryparamtersPut1 extends ApiClient.ApiClient1 implements FaketestqueryparamtersPutOperation<br>
+### Put
+public static class Put extends ApiClient.ApiClient1 implements PutOperation<br>
 
 a class that allows one to call the endpoint using a method named put
 
@@ -66,7 +66,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FaketestqueryparamtersPut.FaketestqueryparamtersPut1 apiClient = new FaketestqueryparamtersPut.FaketestqueryparamtersPut1(apiConfiguration, schemaConfiguration);
+FaketestqueryparamtersPut.Put apiClient = new FaketestqueryparamtersPut.Put(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -104,7 +104,7 @@ QueryParameters.QueryParametersMap queryParameters =
     schemaConfiguration
 );
 
-var request = new PutRequestBuilder()
+var request = new FaketestqueryparamtersPut.PutRequestBuilder()
     .queryParameters(queryParameters)
     .build();
 
@@ -130,12 +130,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/faketestqueryparamters/put/Responses.md#endpointresponse) | put([FaketestqueryparamtersPutRequest](#faketestqueryparamtersputrequest) request) |
+| [Responses.EndpointResponse](../../paths/faketestqueryparamters/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
 ## FaketestqueryparamtersPutRequest
 public static class FaketestqueryparamtersPutRequest<br>
@@ -149,8 +149,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## FaketestqueryparamtersPutNullableRequest
-public static class FaketestqueryparamtersPutNullableRequest<br>
+## PutNullableRequest
+public static class PutNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -174,7 +174,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutRequest](#faketestqueryparamtersputrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put0RequestBuilder](#put0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Put0RequestBuilder](#put0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

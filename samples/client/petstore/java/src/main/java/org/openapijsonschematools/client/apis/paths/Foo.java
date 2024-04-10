@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.foo.FooGet;
 
 public class Foo extends ApiClient implements
-    FooGet.FooGetOperation
+    FooGet.GetOperation
 {
     public Foo(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FaketestqueryparamtersPut {
-    private static class FaketestqueryparamtersPutProvider {
+    private static class PutProvider {
         private static final String method = "put";
 
         public static Responses.EndpointResponse put(
-            FaketestqueryparamtersPutRequest request,
+            PutRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -55,12 +55,12 @@ public class FaketestqueryparamtersPut {
         }
     }
 
-    public interface FaketestqueryparamtersPutOperation {
+    public interface PutOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse put(FaketestqueryparamtersPutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FaketestqueryparamtersPutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -73,18 +73,18 @@ public class FaketestqueryparamtersPut {
         }
     }
 
-    public static class FaketestqueryparamtersPut1 extends ApiClient implements FaketestqueryparamtersPutOperation {
-        public FaketestqueryparamtersPut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Put extends ApiClient implements FaketestqueryparamtersPutOperation {
+        public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FaketestqueryparamtersPutRequest {
+    public static class PutRequest {
         public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public FaketestqueryparamtersPutRequest(
+        public PutRequest(
             QueryParameters.QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -95,7 +95,7 @@ public class FaketestqueryparamtersPut {
         }
     }
 
-    public static class FaketestqueryparamtersPutNullableRequest {
+    public static class PutNullableRequest {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

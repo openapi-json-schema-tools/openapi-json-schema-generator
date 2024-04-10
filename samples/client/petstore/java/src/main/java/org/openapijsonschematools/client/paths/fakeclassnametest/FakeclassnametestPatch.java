@@ -26,11 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeclassnametestPatch {
-    private static class FakeclassnametestPatchProvider extends AuthApplier {
+    private static class PatchProvider extends AuthApplier {
         private static final String method = "patch";
 
         public static Responses.EndpointResponse patch(
-            FakeclassnametestPatchRequest request,
+            PatchRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -71,12 +71,12 @@ public class FakeclassnametestPatch {
         }
     }
 
-    public interface FakeclassnametestPatchOperation {
+    public interface PatchOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse patch(FakeclassnametestPatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeclassnametestPatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -89,19 +89,19 @@ public class FakeclassnametestPatch {
         }
     }
 
-    public static class FakeclassnametestPatch1 extends ApiClient implements FakeclassnametestPatchOperation {
-        public FakeclassnametestPatch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Patch extends ApiClient implements FakeclassnametestPatchOperation {
+        public Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeclassnametestPatchRequest {
+    public static class PatchRequest {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
-        public FakeclassnametestPatchRequest(
+        public PatchRequest(
             RequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex,
@@ -114,7 +114,7 @@ public class FakeclassnametestPatch {
         }
     }
 
-    public static class FakeclassnametestPatchNullableRequest {
+    public static class PatchNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex;

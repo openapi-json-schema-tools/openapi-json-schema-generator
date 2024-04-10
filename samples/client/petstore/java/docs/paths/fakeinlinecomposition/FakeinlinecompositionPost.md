@@ -11,12 +11,12 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakeinlinecompositionPost1](#fakeinlinecompositionpost1)<br>The class that has a post method to call the endpoint |
-| static class | [FakeinlinecompositionPostRequest](#fakeinlinecompositionpostrequest)<br>The request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The request inputs class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## FakeinlinecompositionPost1
-public static class FakeinlinecompositionPost1 extends ApiClient.ApiClient1 implements FakeinlinecompositionPostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -66,10 +66,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeinlinecompositionPost.FakeinlinecompositionPost1 apiClient = new FakeinlinecompositionPost.FakeinlinecompositionPost1(apiConfiguration, schemaConfiguration);
+FakeinlinecompositionPost.Post apiClient = new FakeinlinecompositionPost.Post(apiConfiguration, schemaConfiguration);
 
 
-var request = new PostRequestBuilder().build();
+var request = new FakeinlinecompositionPost.PostRequestBuilder().build();
 
 Responses.EndpointResponse response;
 try {
@@ -99,12 +99,12 @@ if (castResponse.body instanceof Code200Response.ApplicationjsonResponseBody des
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeinlinecompositionPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeinlinecomposition/post/Responses.md#endpointresponse) | post([FakeinlinecompositionPostRequest](#fakeinlinecompositionpostrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakeinlinecomposition/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## FakeinlinecompositionPostRequest
 public static class FakeinlinecompositionPostRequest<br>
@@ -132,7 +132,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeinlinecompositionPostRequest](#fakeinlinecompositionpostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeinlinecomposition/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [PostRequestBuilder](#postrequestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakeinlinecomposition/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |

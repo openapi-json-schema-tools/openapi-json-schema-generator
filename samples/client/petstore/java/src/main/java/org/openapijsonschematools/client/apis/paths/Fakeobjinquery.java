@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakeobjinquery.FakeobjinqueryGet;
 
 public class Fakeobjinquery extends ApiClient implements
-    FakeobjinqueryGet.FakeobjinqueryGetOperation
+    FakeobjinqueryGet.GetOperation
 {
     public Fakeobjinquery(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

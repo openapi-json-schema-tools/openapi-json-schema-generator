@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakemultiplesecuritiesGet {
-    private static class FakemultiplesecuritiesGetProvider extends AuthApplier {
+    private static class GetProvider extends AuthApplier {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            FakemultiplesecuritiesGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -62,12 +62,12 @@ public class FakemultiplesecuritiesGet {
         }
     }
 
-    public interface FakemultiplesecuritiesGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(FakemultiplesecuritiesGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakemultiplesecuritiesGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -80,13 +80,13 @@ public class FakemultiplesecuritiesGet {
         }
     }
 
-    public static class FakemultiplesecuritiesGet1 extends ApiClient implements FakemultiplesecuritiesGetOperation {
-        public FakemultiplesecuritiesGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements FakemultiplesecuritiesGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakemultiplesecuritiesGetRequest {
+    public static class GetRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakemultiplesecuritiesGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;

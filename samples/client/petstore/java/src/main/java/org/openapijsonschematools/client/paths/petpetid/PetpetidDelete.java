@@ -26,11 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 public class PetpetidDelete {
-    private static class PetpetidDeleteProvider extends AuthApplier {
+    private static class DeleteProvider extends AuthApplier {
         private static final String method = "delete";
 
         public static Void delete(
-            PetpetidDeleteRequest request,
+            DeleteRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -74,12 +74,12 @@ public class PetpetidDelete {
         }
     }
 
-    public interface PetpetidDeleteOperation {
+    public interface DeleteOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Void delete(PetpetidDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return PetpetidDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Void delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -92,20 +92,20 @@ public class PetpetidDelete {
         }
     }
 
-    public static class PetpetidDelete1 extends ApiClient implements PetpetidDeleteOperation {
-        public PetpetidDelete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Delete extends ApiClient implements PetpetidDeleteOperation {
+        public Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class PetpetidDeleteRequest {
+    public static class DeleteRequest {
         public PathParameters.PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
-        public PetpetidDeleteRequest(
+        public DeleteRequest(
             PathParameters.PathParametersMap pathParameters,
             HeaderParameters.@Nullable HeaderParametersMap headerParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
@@ -120,7 +120,7 @@ public class PetpetidDelete {
         }
     }
 
-    public static class PetpetidDeleteNullableRequest {
+    public static class DeleteNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.userlogin.UserloginGet;
 
 public class Userlogin extends ApiClient implements
-    UserloginGet.UserloginGetOperation
+    UserloginGet.GetOperation
 {
     public Userlogin(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

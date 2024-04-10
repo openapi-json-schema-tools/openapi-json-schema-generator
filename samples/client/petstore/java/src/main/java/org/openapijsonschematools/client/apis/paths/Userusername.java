@@ -8,9 +8,9 @@ import org.openapijsonschematools.client.paths.userusername.UserusernameGet;
 import org.openapijsonschematools.client.paths.userusername.UserusernamePut;
 
 public class Userusername extends ApiClient implements
-    UserusernameDelete.UserusernameDeleteOperation,
-    UserusernameGet.UserusernameGetOperation,
-    UserusernamePut.UserusernamePutOperation
+    UserusernameDelete.DeleteOperation,
+    UserusernameGet.GetOperation,
+    UserusernamePut.PutOperation
 {
     public Userusername(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

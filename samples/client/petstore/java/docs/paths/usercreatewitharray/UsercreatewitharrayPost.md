@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [UsercreatewitharrayPost1](#usercreatewitharraypost1)<br>The class that has a post method to call the endpoint |
-| static class | [UsercreatewitharrayPostRequest](#usercreatewitharraypostrequest)<br>The final request inputs class |
-| static class | [UsercreatewitharrayPostNullableRequest](#usercreatewitharraypostnullablerequest)<br>The initial request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## UsercreatewitharrayPost1
-public static class UsercreatewitharrayPost1 extends ApiClient.ApiClient1 implements UsercreatewitharrayPostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UsercreatewitharrayPost.UsercreatewitharrayPost1 apiClient = new UsercreatewitharrayPost.UsercreatewitharrayPost1(apiConfiguration, schemaConfiguration);
+UsercreatewitharrayPost.Post apiClient = new UsercreatewitharrayPost.Post(apiConfiguration, schemaConfiguration);
 
 
 ApplicationjsonSchema1BoxedList requestBodyPayload =
@@ -118,7 +118,7 @@ ApplicationjsonSchema1BoxedList requestBodyPayload =
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
-var request = new PostRequestBuilder()
+var request = new UsercreatewitharrayPost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -144,12 +144,12 @@ Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefa
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UsercreatewitharrayPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/usercreatewitharray/post/Responses.md#endpointresponse) | post([UsercreatewitharrayPostRequest](#usercreatewitharraypostrequest) request) |
+| [Responses.EndpointResponse](../../paths/usercreatewitharray/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## UsercreatewitharrayPostRequest
 public static class UsercreatewitharrayPostRequest<br>
@@ -163,8 +163,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## UsercreatewitharrayPostNullableRequest
-public static class UsercreatewitharrayPostNullableRequest<br>
+## PostNullableRequest
+public static class PostNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -188,7 +188,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UsercreatewitharrayPostRequest](#usercreatewitharraypostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

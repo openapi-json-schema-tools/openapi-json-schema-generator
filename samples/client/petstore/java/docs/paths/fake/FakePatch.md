@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakePatch1](#fakepatch1)<br>The class that has a patch method to call the endpoint |
-| static class | [FakePatchRequest](#fakepatchrequest)<br>The final request inputs class |
-| static class | [FakePatchNullableRequest](#fakepatchnullablerequest)<br>The initial request inputs class |
+| static class | [Patch](#patch)<br>The class that has a patch method to call the endpoint |
+| static class | [PatchRequest](#patchrequest)<br>The final request inputs class |
+| static class | [PatchNullableRequest](#patchnullablerequest)<br>The initial request inputs class |
 | static class | [Patch0RequestBuilder](#patch0requestbuilder)<br>A builder for the request input class |
 | static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
 
-## FakePatch1
-public static class FakePatch1 extends ApiClient.ApiClient1 implements FakePatchOperation<br>
+### Patch
+public static class Patch extends ApiClient.ApiClient1 implements PatchOperation<br>
 
 a class that allows one to call the endpoint using a method named patch
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakePatch.FakePatch1 apiClient = new FakePatch.FakePatch1(apiConfiguration, schemaConfiguration);
+FakePatch.Patch apiClient = new FakePatch.Patch(apiConfiguration, schemaConfiguration);
 
 
 Client1BoxedMap requestBodyPayload =
@@ -80,7 +80,7 @@ Client1BoxedMap requestBodyPayload =
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
-var request = new PatchRequestBuilder()
+var request = new FakePatch.PatchRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -108,12 +108,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakePatch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fake/patch/Responses.md#endpointresponse) | patch([FakePatchRequest](#fakepatchrequest) request) |
+| [Responses.EndpointResponse](../../paths/fake/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
 ## FakePatchRequest
 public static class FakePatchRequest<br>
@@ -127,8 +127,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## FakePatchNullableRequest
-public static class FakePatchNullableRequest<br>
+## PatchNullableRequest
+public static class PatchNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -152,7 +152,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakePatchRequest](#fakepatchrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Patch0RequestBuilder](#patch0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

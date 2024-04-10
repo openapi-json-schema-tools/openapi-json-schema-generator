@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [CommonparamsubdirPost1](#commonparamsubdirpost1)<br>The class that has a post method to call the endpoint |
-| static class | [CommonparamsubdirPostRequest](#commonparamsubdirpostrequest)<br>The final request inputs class |
-| static class | [CommonparamsubdirPostNullableRequest](#commonparamsubdirpostnullablerequest)<br>The initial request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## CommonparamsubdirPost1
-public static class CommonparamsubdirPost1 extends ApiClient.ApiClient1 implements CommonparamsubdirPostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-CommonparamsubdirPost.CommonparamsubdirPost1 apiClient = new CommonparamsubdirPost.CommonparamsubdirPost1(apiConfiguration, schemaConfiguration);
+CommonparamsubdirPost.Post apiClient = new CommonparamsubdirPost.Post(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -80,7 +80,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new PostRequestBuilder()
+var request = new CommonparamsubdirPost.PostRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
@@ -106,12 +106,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/commonparamsubdir/post/Responses.md#endpointresponse) | post([CommonparamsubdirPostRequest](#commonparamsubdirpostrequest) request) |
+| [Responses.EndpointResponse](../../paths/commonparamsubdir/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## CommonparamsubdirPostRequest
 public static class CommonparamsubdirPostRequest<br>
@@ -126,8 +126,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## CommonparamsubdirPostNullableRequest
-public static class CommonparamsubdirPostNullableRequest<br>
+## PostNullableRequest
+public static class PostNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -152,7 +152,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirPostRequest](#commonparamsubdirpostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/commonparamsubdir/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusGet;
 
 public class Petfindbystatus extends ApiClient implements
-    PetfindbystatusGet.PetfindbystatusGetOperation
+    PetfindbystatusGet.GetOperation
 {
     public Petfindbystatus(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

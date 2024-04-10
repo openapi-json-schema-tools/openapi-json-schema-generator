@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FooGet {
-    private static class FooGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            FooGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -49,22 +49,31 @@ public class FooGet {
         }
     }
 
+    public interface GetOperation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+
     public interface FooGetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(FooGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default Responses.EndpointResponse fooGet(FooGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return FooGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
-    public static class FooGet1 extends ApiClient implements FooGetOperation {
-        public FooGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements FooGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FooGetRequest {
+    public static class GetRequest {
         public FooGetServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }

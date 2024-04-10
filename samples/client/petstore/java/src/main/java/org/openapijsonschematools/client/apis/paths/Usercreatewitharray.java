@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.usercreatewitharray.UsercreatewitharrayPost;
 
 public class Usercreatewitharray extends ApiClient implements
-    UsercreatewitharrayPost.UsercreatewitharrayPostOperation
+    UsercreatewitharrayPost.PostOperation
 {
     public Usercreatewitharray(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

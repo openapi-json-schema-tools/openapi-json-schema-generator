@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [PetPost1](#petpost1)<br>The class that has a post method to call the endpoint |
-| static class | [PetPostRequest](#petpostrequest)<br>The final request inputs class |
-| static class | [PetPostNullableRequest](#petpostnullablerequest)<br>The initial request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## PetPost1
-public static class PetPost1 extends ApiClient.ApiClient1 implements PetPostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -82,7 +82,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetPost.PetPost1 apiClient = new PetPost.PetPost1(apiConfiguration, schemaConfiguration);
+PetPost.Post apiClient = new PetPost.Post(apiConfiguration, schemaConfiguration);
 
 
 Pet1BoxedMap requestBodyPayload =
@@ -126,7 +126,7 @@ Pet1BoxedMap requestBodyPayload =
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
-var request = new PostRequestBuilder()
+var request = new PetPost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -155,12 +155,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/pet/post/Responses.md#endpointresponse) | post([PetPostRequest](#petpostrequest) request) |
+| [Responses.EndpointResponse](../../paths/pet/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PetPostRequest
 public static class PetPostRequest<br>
@@ -175,8 +175,8 @@ a class that stores the final request inputs
 | [PetPostSecurityInfo.@Nullable SecurityIndex](../../paths/pet/post/PetPostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## PetPostNullableRequest
-public static class PetPostNullableRequest<br>
+## PostNullableRequest
+public static class PostNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -201,7 +201,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetPostRequest](#petpostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | securityIndex([PetPostSecurityInfo.SecurityIndex](../../paths/pet/post/PetPostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

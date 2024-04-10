@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.storeinventory.StoreinventoryGet;
 
 public class Storeinventory extends ApiClient implements
-    StoreinventoryGet.StoreinventoryGetOperation
+    StoreinventoryGet.GetOperation
 {
     public Storeinventory(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

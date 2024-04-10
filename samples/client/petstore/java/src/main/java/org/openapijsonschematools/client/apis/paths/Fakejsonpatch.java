@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakejsonpatch.FakejsonpatchPatch;
 
 public class Fakejsonpatch extends ApiClient implements
-    FakejsonpatchPatch.FakejsonpatchPatchOperation
+    FakejsonpatchPatch.PatchOperation
 {
     public Fakejsonpatch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

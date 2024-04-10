@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.solidus.SolidusGet;
 
 public class Solidus extends ApiClient implements
-    SolidusGet.SolidusGetOperation
+    SolidusGet.GetOperation
 {
     public Solidus(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

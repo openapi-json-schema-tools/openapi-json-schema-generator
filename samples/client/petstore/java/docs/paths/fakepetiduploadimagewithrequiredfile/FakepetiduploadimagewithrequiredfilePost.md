@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakepetiduploadimagewithrequiredfilePost1](#fakepetiduploadimagewithrequiredfilepost1)<br>The class that has a post method to call the endpoint |
-| static class | [FakepetiduploadimagewithrequiredfilePostRequest](#fakepetiduploadimagewithrequiredfilepostrequest)<br>The final request inputs class |
-| static class | [FakepetiduploadimagewithrequiredfilePostNullableRequest](#fakepetiduploadimagewithrequiredfilepostnullablerequest)<br>The initial request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## FakepetiduploadimagewithrequiredfilePost1
-public static class FakepetiduploadimagewithrequiredfilePost1 extends ApiClient.ApiClient1 implements FakepetiduploadimagewithrequiredfilePostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -76,7 +76,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakepetiduploadimagewithrequiredfilePost.FakepetiduploadimagewithrequiredfilePost1 apiClient = new FakepetiduploadimagewithrequiredfilePost.FakepetiduploadimagewithrequiredfilePost1(apiConfiguration, schemaConfiguration);
+FakepetiduploadimagewithrequiredfilePost.Post apiClient = new FakepetiduploadimagewithrequiredfilePost.Post(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -89,7 +89,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new PostRequestBuilder()
+var request = new FakepetiduploadimagewithrequiredfilePost.PostRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
@@ -117,12 +117,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakepetiduploadimagewithrequiredfilePost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/Responses.md#endpointresponse) | post([FakepetiduploadimagewithrequiredfilePostRequest](#fakepetiduploadimagewithrequiredfilepostrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## FakepetiduploadimagewithrequiredfilePostRequest
 public static class FakepetiduploadimagewithrequiredfilePostRequest<br>
@@ -138,8 +138,8 @@ a class that stores the final request inputs
 | [FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## FakepetiduploadimagewithrequiredfilePostNullableRequest
-public static class FakepetiduploadimagewithrequiredfilePostNullableRequest<br>
+## PostNullableRequest
+public static class PostNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -165,7 +165,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakepetiduploadimagewithrequiredfilePostRequest](#fakepetiduploadimagewithrequiredfilepostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | securityIndex([FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |

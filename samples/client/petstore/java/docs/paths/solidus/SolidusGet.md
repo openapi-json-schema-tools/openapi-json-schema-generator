@@ -11,12 +11,12 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [SolidusGet1](#solidusget1)<br>The class that has a get method to call the endpoint |
-| static class | [SolidusGetRequest](#solidusgetrequest)<br>The request inputs class |
+| static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| static class | [GetRequest](#getrequest)<br>The request inputs class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-## SolidusGet1
-public static class SolidusGet1 extends ApiClient.ApiClient1 implements SolidusGetOperation<br>
+### Get
+public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
 
@@ -63,10 +63,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-SolidusGet.SolidusGet1 apiClient = new SolidusGet.SolidusGet1(apiConfiguration, schemaConfiguration);
+SolidusGet.Get apiClient = new SolidusGet.Get(apiConfiguration, schemaConfiguration);
 
 
-var request = new GetRequestBuilder().build();
+var request = new SolidusGet.GetRequestBuilder().build();
 
 Responses.EndpointResponse response;
 try {
@@ -90,12 +90,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| SolidusGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/solidus/get/Responses.md#endpointresponse) | get([SolidusGetRequest](#solidusgetrequest) request) |
+| [Responses.EndpointResponse](../../paths/solidus/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## SolidusGetRequest
 public static class SolidusGetRequest<br>
@@ -121,7 +121,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SolidusGetRequest](#solidusgetrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

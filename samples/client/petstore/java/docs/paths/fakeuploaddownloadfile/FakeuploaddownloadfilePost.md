@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakeuploaddownloadfilePost1](#fakeuploaddownloadfilepost1)<br>The class that has a post method to call the endpoint |
-| static class | [FakeuploaddownloadfilePostRequest](#fakeuploaddownloadfilepostrequest)<br>The final request inputs class |
-| static class | [FakeuploaddownloadfilePostNullableRequest](#fakeuploaddownloadfilepostnullablerequest)<br>The initial request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## FakeuploaddownloadfilePost1
-public static class FakeuploaddownloadfilePost1 extends ApiClient.ApiClient1 implements FakeuploaddownloadfilePostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeuploaddownloadfilePost.FakeuploaddownloadfilePost1 apiClient = new FakeuploaddownloadfilePost.FakeuploaddownloadfilePost1(apiConfiguration, schemaConfiguration);
+FakeuploaddownloadfilePost.Post apiClient = new FakeuploaddownloadfilePost.Post(apiConfiguration, schemaConfiguration);
 
 
 ApplicationoctetstreamSchema1BoxedString requestBodyPayload = ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1.validateAndBox(
@@ -76,7 +76,7 @@ ApplicationoctetstreamSchema1BoxedString requestBodyPayload = Applicationoctetst
 );
 FakeuploaddownloadfilePost.SealedRequestBody requestBody = new FakeuploaddownloadfilePost.ApplicationoctetstreamRequestBody(requestBodyPayload);
 
-var request = new PostRequestBuilder()
+var request = new FakeuploaddownloadfilePost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -104,12 +104,12 @@ Code200Response.ApplicationoctetstreamResponseBody deserializedBody = (Code200Re
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeuploaddownloadfilePost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/Responses.md#endpointresponse) | post([FakeuploaddownloadfilePostRequest](#fakeuploaddownloadfilepostrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## FakeuploaddownloadfilePostRequest
 public static class FakeuploaddownloadfilePostRequest<br>
@@ -123,8 +123,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## FakeuploaddownloadfilePostNullableRequest
-public static class FakeuploaddownloadfilePostNullableRequest<br>
+## PostNullableRequest
+public static class PostNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -148,7 +148,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeuploaddownloadfilePostRequest](#fakeuploaddownloadfilepostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

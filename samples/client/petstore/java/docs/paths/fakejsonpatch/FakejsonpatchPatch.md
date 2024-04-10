@@ -11,12 +11,12 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakejsonpatchPatch1](#fakejsonpatchpatch1)<br>The class that has a patch method to call the endpoint |
-| static class | [FakejsonpatchPatchRequest](#fakejsonpatchpatchrequest)<br>The request inputs class |
+| static class | [Patch](#patch)<br>The class that has a patch method to call the endpoint |
+| static class | [PatchRequest](#patchrequest)<br>The request inputs class |
 | static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
 
-## FakejsonpatchPatch1
-public static class FakejsonpatchPatch1 extends ApiClient.ApiClient1 implements FakejsonpatchPatchOperation<br>
+### Patch
+public static class Patch extends ApiClient.ApiClient1 implements PatchOperation<br>
 
 a class that allows one to call the endpoint using a method named patch
 
@@ -65,10 +65,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakejsonpatchPatch.FakejsonpatchPatch1 apiClient = new FakejsonpatchPatch.FakejsonpatchPatch1(apiConfiguration, schemaConfiguration);
+FakejsonpatchPatch.Patch apiClient = new FakejsonpatchPatch.Patch(apiConfiguration, schemaConfiguration);
 
 
-var request = new PatchRequestBuilder().build();
+var request = new FakejsonpatchPatch.PatchRequestBuilder().build();
 
 Responses.EndpointResponse response;
 try {
@@ -92,12 +92,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakejsonpatchPatch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakejsonpatch/patch/Responses.md#endpointresponse) | patch([FakejsonpatchPatchRequest](#fakejsonpatchpatchrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakejsonpatch/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
 ## FakejsonpatchPatchRequest
 public static class FakejsonpatchPatchRequest<br>
@@ -124,7 +124,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakejsonpatchPatchRequest](#fakejsonpatchpatchrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [PatchRequestBuilder](#patchrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakejsonpatch/patch/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [PatchRequestBuilder](#patchrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [PatchRequestBuilder](#patchrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

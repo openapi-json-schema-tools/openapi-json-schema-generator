@@ -9,10 +9,10 @@ import org.openapijsonschematools.client.paths.fake.FakePatch;
 import org.openapijsonschematools.client.paths.fake.FakePost;
 
 public class Fake extends ApiClient implements
-    FakeDelete.FakeDeleteOperation,
-    FakeGet.FakeGetOperation,
-    FakePatch.FakePatchOperation,
-    FakePost.FakePostOperation
+    FakeDelete.DeleteOperation,
+    FakeGet.GetOperation,
+    FakePatch.PatchOperation,
+    FakePost.PostOperation
 {
     public Fake(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

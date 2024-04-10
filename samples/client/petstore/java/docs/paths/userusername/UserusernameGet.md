@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [UserusernameGet1](#userusernameget1)<br>The class that has a get method to call the endpoint |
-| static class | [UserusernameGetRequest](#userusernamegetrequest)<br>The final request inputs class |
-| static class | [UserusernameGetNullableRequest](#userusernamegetnullablerequest)<br>The initial request inputs class |
+| static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| static class | [GetRequest](#getrequest)<br>The final request inputs class |
+| static class | [GetNullableRequest](#getnullablerequest)<br>The initial request inputs class |
 | static class | [Get0RequestBuilder](#get0requestbuilder)<br>A builder for the request input class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-## UserusernameGet1
-public static class UserusernameGet1 extends ApiClient.ApiClient1 implements UserusernameGetOperation<br>
+### Get
+public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
 
@@ -68,7 +68,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UserusernameGet.UserusernameGet1 apiClient = new UserusernameGet.UserusernameGet1(apiConfiguration, schemaConfiguration);
+UserusernameGet.Get apiClient = new UserusernameGet.Get(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -81,7 +81,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new GetRequestBuilder()
+var request = new UserusernameGet.GetRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
@@ -116,12 +116,12 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/userusername/get/Responses.md#endpointresponse) | get([UserusernameGetRequest](#userusernamegetrequest) request) |
+| [Responses.EndpointResponse](../../paths/userusername/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## UserusernameGetRequest
 public static class UserusernameGetRequest<br>
@@ -135,8 +135,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## UserusernameGetNullableRequest
-public static class UserusernameGetNullableRequest<br>
+## GetNullableRequest
+public static class GetNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -160,7 +160,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernameGetRequest](#userusernamegetrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Get0RequestBuilder](#get0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Get0RequestBuilder](#get0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

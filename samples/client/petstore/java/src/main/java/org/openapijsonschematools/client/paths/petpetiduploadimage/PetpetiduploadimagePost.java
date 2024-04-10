@@ -28,11 +28,11 @@ import java.util.List;
 import java.util.Map;
 
 public class PetpetiduploadimagePost {
-    private static class PetpetiduploadimagePostProvider extends AuthApplier {
+    private static class PostProvider extends AuthApplier {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            PetpetiduploadimagePostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -80,12 +80,12 @@ public class PetpetiduploadimagePost {
         }
     }
 
-    public interface PetpetiduploadimagePostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PetpetiduploadimagePostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return PetpetiduploadimagePostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -98,20 +98,20 @@ public class PetpetiduploadimagePost {
         }
     }
 
-    public static class PetpetiduploadimagePost1 extends ApiClient implements PetpetiduploadimagePostOperation {
-        public PetpetiduploadimagePost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements PetpetiduploadimagePostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class PetpetiduploadimagePostRequest {
+    public static class PostRequest {
         public PathParameters.PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
-        public PetpetiduploadimagePostRequest(
+        public PostRequest(
             PathParameters.PathParametersMap pathParameters,
             RequestBody.@Nullable SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
@@ -126,7 +126,7 @@ public class PetpetiduploadimagePost {
         }
     }
 
-    public static class PetpetiduploadimagePostNullableRequest {
+    public static class PostNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

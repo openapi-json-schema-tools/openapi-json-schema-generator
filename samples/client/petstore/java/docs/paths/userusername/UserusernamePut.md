@@ -11,16 +11,16 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [UserusernamePut1](#userusernameput1)<br>The class that has a put method to call the endpoint |
-| static class | [UserusernamePutRequest](#userusernameputrequest)<br>The final request inputs class |
-| static class | [UserusernamePutNullableRequest](#userusernameputnullablerequest)<br>The initial request inputs class |
+| static class | [Put](#put)<br>The class that has a put method to call the endpoint |
+| static class | [PutRequest](#putrequest)<br>The final request inputs class |
+| static class | [PutNullableRequest](#putnullablerequest)<br>The initial request inputs class |
 | static class | [Put00RequestBuilder](#put00requestbuilder)<br>A builder for the request input class |
 | static class | [Put01RequestBuilder](#put01requestbuilder)<br>A builder for the request input class |
 | static class | [Put10RequestBuilder](#put10requestbuilder)<br>A builder for the request input class |
 | static class | [PutRequestBuilder](#putrequestbuilder)<br>A builder for the request input class |
 
-## UserusernamePut1
-public static class UserusernamePut1 extends ApiClient.ApiClient1 implements UserusernamePutOperation<br>
+### Put
+public static class Put extends ApiClient.ApiClient1 implements PutOperation<br>
 
 a class that allows one to call the endpoint using a method named put
 
@@ -71,7 +71,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UserusernamePut.UserusernamePut1 apiClient = new UserusernamePut.UserusernamePut1(apiConfiguration, schemaConfiguration);
+UserusernamePut.Put apiClient = new UserusernamePut.Put(apiConfiguration, schemaConfiguration);
 
 
 User1BoxedMap requestBodyPayload =
@@ -110,7 +110,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new PutRequestBuilder()
+var request = new UserusernamePut.PutRequestBuilder()
     .requestBody(requestBody)
     .pathParameters(pathParameters)
     .build();
@@ -139,12 +139,12 @@ try {
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | put([UserusernamePutRequest](#userusernameputrequest) request) |
+| Void | put([PutRequest](#putrequest) request) |
 
 ## UserusernamePutRequest
 public static class UserusernamePutRequest<br>
@@ -159,8 +159,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## UserusernamePutNullableRequest
-public static class UserusernamePutNullableRequest<br>
+## PutNullableRequest
+public static class PutNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -185,7 +185,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernamePutRequest](#userusernameputrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put00RequestBuilder](#put00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Put00RequestBuilder](#put00requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

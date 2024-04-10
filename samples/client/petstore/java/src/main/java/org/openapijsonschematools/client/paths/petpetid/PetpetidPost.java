@@ -28,11 +28,11 @@ import java.util.List;
 import java.util.Map;
 
 public class PetpetidPost {
-    private static class PetpetidPostProvider extends AuthApplier {
+    private static class PostProvider extends AuthApplier {
         private static final String method = "post";
 
         public static Void post(
-            PetpetidPostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -80,12 +80,12 @@ public class PetpetidPost {
         }
     }
 
-    public interface PetpetidPostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Void post(PetpetidPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return PetpetidPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Void post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -98,20 +98,20 @@ public class PetpetidPost {
         }
     }
 
-    public static class PetpetidPost1 extends ApiClient implements PetpetidPostOperation {
-        public PetpetidPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements PetpetidPostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class PetpetidPostRequest {
+    public static class PostRequest {
         public PathParameters.PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
-        public PetpetidPostRequest(
+        public PostRequest(
             PathParameters.PathParametersMap pathParameters,
             RequestBody.@Nullable SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
@@ -126,7 +126,7 @@ public class PetpetidPost {
         }
     }
 
-    public static class PetpetidPostNullableRequest {
+    public static class PostNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

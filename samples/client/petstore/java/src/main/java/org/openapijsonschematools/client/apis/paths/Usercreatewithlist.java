@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.usercreatewithlist.UsercreatewithlistPost;
 
 public class Usercreatewithlist extends ApiClient implements
-    UsercreatewithlistPost.UsercreatewithlistPostOperation
+    UsercreatewithlistPost.PostOperation
 {
     public Usercreatewithlist(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakejsonpatchPatch {
-    private static class FakejsonpatchPatchProvider {
+    private static class PatchProvider {
         private static final String method = "patch";
 
         public static Responses.EndpointResponse patch(
-            FakejsonpatchPatchRequest request,
+            PatchRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -62,12 +62,12 @@ public class FakejsonpatchPatch {
         }
     }
 
-    public interface FakejsonpatchPatchOperation {
+    public interface PatchOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse patch(FakejsonpatchPatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakejsonpatchPatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -80,13 +80,13 @@ public class FakejsonpatchPatch {
         }
     }
 
-    public static class FakejsonpatchPatch1 extends ApiClient implements FakejsonpatchPatchOperation {
-        public FakejsonpatchPatch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Patch extends ApiClient implements FakejsonpatchPatchOperation {
+        public Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakejsonpatchPatchRequest {
+    public static class PatchRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

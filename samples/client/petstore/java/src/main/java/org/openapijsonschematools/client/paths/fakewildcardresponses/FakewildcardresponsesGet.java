@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakewildcardresponsesGet {
-    private static class FakewildcardresponsesGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            FakewildcardresponsesGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -49,12 +49,12 @@ public class FakewildcardresponsesGet {
         }
     }
 
-    public interface FakewildcardresponsesGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(FakewildcardresponsesGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakewildcardresponsesGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -67,13 +67,13 @@ public class FakewildcardresponsesGet {
         }
     }
 
-    public static class FakewildcardresponsesGet1 extends ApiClient implements FakewildcardresponsesGetOperation {
-        public FakewildcardresponsesGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements FakewildcardresponsesGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakewildcardresponsesGetRequest {
+    public static class GetRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }

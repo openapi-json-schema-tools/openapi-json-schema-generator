@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.FakepemcontenttypeGet;
 
 public class Fakepemcontenttype extends ApiClient implements
-    FakepemcontenttypeGet.FakepemcontenttypeGetOperation
+    FakepemcontenttypeGet.GetOperation
 {
     public Fakepemcontenttype(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

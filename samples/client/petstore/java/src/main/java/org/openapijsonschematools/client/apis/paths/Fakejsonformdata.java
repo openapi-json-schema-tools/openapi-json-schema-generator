@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakejsonformdata.FakejsonformdataGet;
 
 public class Fakejsonformdata extends ApiClient implements
-    FakejsonformdataGet.FakejsonformdataGetOperation
+    FakejsonformdataGet.GetOperation
 {
     public Fakejsonformdata(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

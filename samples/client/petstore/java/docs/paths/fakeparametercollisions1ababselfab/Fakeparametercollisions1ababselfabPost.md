@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [Fakeparametercollisions1ababselfabPost1](#fakeparametercollisions1ababselfabpost1)<br>The class that has a post method to call the endpoint |
-| static class | [Fakeparametercollisions1ababselfabPostRequest](#fakeparametercollisions1ababselfabpostrequest)<br>The final request inputs class |
-| static class | [Fakeparametercollisions1ababselfabPostNullableRequest](#fakeparametercollisions1ababselfabpostnullablerequest)<br>The initial request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## Fakeparametercollisions1ababselfabPost1
-public static class Fakeparametercollisions1ababselfabPost1 extends ApiClient.ApiClient1 implements Fakeparametercollisions1ababselfabPostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -70,7 +70,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-Fakeparametercollisions1ababselfabPost.Fakeparametercollisions1ababselfabPost1 apiClient = new Fakeparametercollisions1ababselfabPost.Fakeparametercollisions1ababselfabPost1(apiConfiguration, schemaConfiguration);
+Fakeparametercollisions1ababselfabPost.Post apiClient = new Fakeparametercollisions1ababselfabPost.Post(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -91,7 +91,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new PostRequestBuilder()
+var request = new Fakeparametercollisions1ababselfabPost.PostRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
@@ -119,12 +119,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Responses.md#endpointresponse) | post([Fakeparametercollisions1ababselfabPostRequest](#fakeparametercollisions1ababselfabpostrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## Fakeparametercollisions1ababselfabPostRequest
 public static class Fakeparametercollisions1ababselfabPostRequest<br>
@@ -142,8 +142,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## Fakeparametercollisions1ababselfabPostNullableRequest
-public static class Fakeparametercollisions1ababselfabPostNullableRequest<br>
+## PostNullableRequest
+public static class PostNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -171,7 +171,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostRequest](#fakeparametercollisions1ababselfabpostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |

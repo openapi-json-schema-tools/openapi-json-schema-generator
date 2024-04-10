@@ -25,11 +25,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeinlinecompositionPost {
-    private static class FakeinlinecompositionPostProvider {
+    private static class PostProvider {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            FakeinlinecompositionPostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -71,12 +71,12 @@ public class FakeinlinecompositionPost {
         }
     }
 
-    public interface FakeinlinecompositionPostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(FakeinlinecompositionPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeinlinecompositionPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -89,13 +89,13 @@ public class FakeinlinecompositionPost {
         }
     }
 
-    public static class FakeinlinecompositionPost1 extends ApiClient implements FakeinlinecompositionPostOperation {
-        public FakeinlinecompositionPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements FakeinlinecompositionPostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeinlinecompositionPostRequest {
+    public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

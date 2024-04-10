@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.FakerefscomposedoneofnumberwithvalidationsPost;
 
 public class Fakerefscomposedoneofnumberwithvalidations extends ApiClient implements
-    FakerefscomposedoneofnumberwithvalidationsPost.FakerefscomposedoneofnumberwithvalidationsPostOperation
+    FakerefscomposedoneofnumberwithvalidationsPost.PostOperation
 {
     public Fakerefscomposedoneofnumberwithvalidations(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

@@ -25,11 +25,11 @@ import java.util.List;
 import java.util.Map;
 
 public class PetfindbystatusGet {
-    private static class PetfindbystatusGetProvider extends AuthApplier {
+    private static class GetProvider extends AuthApplier {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            PetfindbystatusGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -68,12 +68,12 @@ public class PetfindbystatusGet {
         }
     }
 
-    public interface PetfindbystatusGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(PetfindbystatusGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return PetfindbystatusGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -86,19 +86,19 @@ public class PetfindbystatusGet {
         }
     }
 
-    public static class PetfindbystatusGet1 extends ApiClient implements PetfindbystatusGetOperation {
-        public PetfindbystatusGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements PetfindbystatusGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class PetfindbystatusGetRequest {
+    public static class GetRequest {
         public QueryParameters.QueryParametersMap queryParameters;
         public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
-        public PetfindbystatusGetRequest(
+        public GetRequest(
             QueryParameters.QueryParametersMap queryParameters,
             PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex,
             PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex,
@@ -111,7 +111,7 @@ public class PetfindbystatusGet {
         }
     }
 
-    public static class PetfindbystatusGetNullableRequest {
+    public static class GetNullableRequest {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;

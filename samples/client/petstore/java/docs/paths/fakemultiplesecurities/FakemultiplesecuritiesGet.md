@@ -11,12 +11,12 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakemultiplesecuritiesGet1](#fakemultiplesecuritiesget1)<br>The class that has a get method to call the endpoint |
-| static class | [FakemultiplesecuritiesGetRequest](#fakemultiplesecuritiesgetrequest)<br>The request inputs class |
+| static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| static class | [GetRequest](#getrequest)<br>The request inputs class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-## FakemultiplesecuritiesGet1
-public static class FakemultiplesecuritiesGet1 extends ApiClient.ApiClient1 implements FakemultiplesecuritiesGetOperation<br>
+### Get
+public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
 
@@ -80,10 +80,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakemultiplesecuritiesGet.FakemultiplesecuritiesGet1 apiClient = new FakemultiplesecuritiesGet.FakemultiplesecuritiesGet1(apiConfiguration, schemaConfiguration);
+FakemultiplesecuritiesGet.Get apiClient = new FakemultiplesecuritiesGet.Get(apiConfiguration, schemaConfiguration);
 
 
-var request = new GetRequestBuilder().build();
+var request = new FakemultiplesecuritiesGet.GetRequestBuilder().build();
 
 Responses.EndpointResponse response;
 try {
@@ -109,12 +109,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakemultiplesecuritiesGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakemultiplesecurities/get/Responses.md#endpointresponse) | get([FakemultiplesecuritiesGetRequest](#fakemultiplesecuritiesgetrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakemultiplesecurities/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## FakemultiplesecuritiesGetRequest
 public static class FakemultiplesecuritiesGetRequest<br>
@@ -141,7 +141,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakemultiplesecuritiesGetRequest](#fakemultiplesecuritiesgetrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | securityIndex([FakemultiplesecuritiesGetSecurityInfo.SecurityIndex](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakeclassnametestPatch1](#fakeclassnametestpatch1)<br>The class that has a patch method to call the endpoint |
-| static class | [FakeclassnametestPatchRequest](#fakeclassnametestpatchrequest)<br>The final request inputs class |
-| static class | [FakeclassnametestPatchNullableRequest](#fakeclassnametestpatchnullablerequest)<br>The initial request inputs class |
+| static class | [Patch](#patch)<br>The class that has a patch method to call the endpoint |
+| static class | [PatchRequest](#patchrequest)<br>The final request inputs class |
+| static class | [PatchNullableRequest](#patchnullablerequest)<br>The initial request inputs class |
 | static class | [Patch0RequestBuilder](#patch0requestbuilder)<br>A builder for the request input class |
 | static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
 
-## FakeclassnametestPatch1
-public static class FakeclassnametestPatch1 extends ApiClient.ApiClient1 implements FakeclassnametestPatchOperation<br>
+### Patch
+public static class Patch extends ApiClient.ApiClient1 implements PatchOperation<br>
 
 a class that allows one to call the endpoint using a method named patch
 
@@ -79,7 +79,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeclassnametestPatch.FakeclassnametestPatch1 apiClient = new FakeclassnametestPatch.FakeclassnametestPatch1(apiConfiguration, schemaConfiguration);
+FakeclassnametestPatch.Patch apiClient = new FakeclassnametestPatch.Patch(apiConfiguration, schemaConfiguration);
 
 
 Client1BoxedMap requestBodyPayload =
@@ -92,7 +92,7 @@ Client1BoxedMap requestBodyPayload =
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
-var request = new PatchRequestBuilder()
+var request = new FakeclassnametestPatch.PatchRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -120,12 +120,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeclassnametestPatch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeclassnametest/patch/Responses.md#endpointresponse) | patch([FakeclassnametestPatchRequest](#fakeclassnametestpatchrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakeclassnametest/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
 ## FakeclassnametestPatchRequest
 public static class FakeclassnametestPatchRequest<br>
@@ -140,8 +140,8 @@ a class that stores the final request inputs
 | [FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## FakeclassnametestPatchNullableRequest
-public static class FakeclassnametestPatchNullableRequest<br>
+## PatchNullableRequest
+public static class PatchNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -166,7 +166,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeclassnametestPatchRequest](#fakeclassnametestpatchrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Patch0RequestBuilder](#patch0requestbuilder) | securityIndex([FakeclassnametestPatchSecurityInfo.SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Patch0RequestBuilder](#patch0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

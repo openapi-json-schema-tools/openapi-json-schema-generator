@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeinlineadditionalpropertiesPost {
-    private static class FakeinlineadditionalpropertiesPostProvider {
+    private static class PostProvider {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            FakeinlineadditionalpropertiesPostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -58,12 +58,12 @@ public class FakeinlineadditionalpropertiesPost {
         }
     }
 
-    public interface FakeinlineadditionalpropertiesPostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(FakeinlineadditionalpropertiesPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeinlineadditionalpropertiesPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -76,18 +76,18 @@ public class FakeinlineadditionalpropertiesPost {
         }
     }
 
-    public static class FakeinlineadditionalpropertiesPost1 extends ApiClient implements FakeinlineadditionalpropertiesPostOperation {
-        public FakeinlineadditionalpropertiesPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements FakeinlineadditionalpropertiesPostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeinlineadditionalpropertiesPostRequest {
+    public static class PostRequest {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public FakeinlineadditionalpropertiesPostRequest(
+        public PostRequest(
             RequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -98,7 +98,7 @@ public class FakeinlineadditionalpropertiesPost {
         }
     }
 
-    public static class FakeinlineadditionalpropertiesPostNullableRequest {
+    public static class PostNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

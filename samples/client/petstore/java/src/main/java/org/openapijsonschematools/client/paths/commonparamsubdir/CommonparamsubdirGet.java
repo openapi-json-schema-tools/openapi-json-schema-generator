@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class CommonparamsubdirGet {
-    private static class CommonparamsubdirGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            CommonparamsubdirGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -62,12 +62,12 @@ public class CommonparamsubdirGet {
         }
     }
 
-    public interface CommonparamsubdirGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(CommonparamsubdirGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return CommonparamsubdirGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -80,19 +80,19 @@ public class CommonparamsubdirGet {
         }
     }
 
-    public static class CommonparamsubdirGet1 extends ApiClient implements CommonparamsubdirGetOperation {
-        public CommonparamsubdirGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements CommonparamsubdirGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class CommonparamsubdirGetRequest {
+    public static class GetRequest {
         public PathParameters.PathParametersMap pathParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public CommonparamsubdirGetRequest(
+        public GetRequest(
             PathParameters.PathParametersMap pathParameters,
             QueryParameters.@Nullable QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
@@ -105,7 +105,7 @@ public class CommonparamsubdirGet {
         }
     }
 
-    public static class CommonparamsubdirGetNullableRequest {
+    public static class GetNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

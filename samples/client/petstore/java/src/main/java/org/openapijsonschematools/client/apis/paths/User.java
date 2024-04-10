@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.user.UserPost;
 
 public class User extends ApiClient implements
-    UserPost.UserPostOperation
+    UserPost.PostOperation
 {
     public User(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

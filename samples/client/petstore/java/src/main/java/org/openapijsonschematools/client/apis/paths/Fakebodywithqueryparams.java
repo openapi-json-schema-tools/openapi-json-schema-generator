@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.FakebodywithqueryparamsPut;
 
 public class Fakebodywithqueryparams extends ApiClient implements
-    FakebodywithqueryparamsPut.FakebodywithqueryparamsPutOperation
+    FakebodywithqueryparamsPut.PutOperation
 {
     public Fakebodywithqueryparams(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

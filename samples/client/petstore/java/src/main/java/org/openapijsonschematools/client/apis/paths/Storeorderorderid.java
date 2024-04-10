@@ -7,8 +7,8 @@ import org.openapijsonschematools.client.paths.storeorderorderid.Storeorderorder
 import org.openapijsonschematools.client.paths.storeorderorderid.StoreorderorderidGet;
 
 public class Storeorderorderid extends ApiClient implements
-    StoreorderorderidDelete.StoreorderorderidDeleteOperation,
-    StoreorderorderidGet.StoreorderorderidGetOperation
+    StoreorderorderidDelete.DeleteOperation,
+    StoreorderorderidGet.GetOperation
 {
     public Storeorderorderid(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

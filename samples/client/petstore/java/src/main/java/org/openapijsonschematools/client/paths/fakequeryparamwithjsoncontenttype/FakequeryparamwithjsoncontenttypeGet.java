@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakequeryparamwithjsoncontenttypeGet {
-    private static class FakequeryparamwithjsoncontenttypeGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            FakequeryparamwithjsoncontenttypeGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -55,12 +55,12 @@ public class FakequeryparamwithjsoncontenttypeGet {
         }
     }
 
-    public interface FakequeryparamwithjsoncontenttypeGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(FakequeryparamwithjsoncontenttypeGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakequeryparamwithjsoncontenttypeGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -73,18 +73,18 @@ public class FakequeryparamwithjsoncontenttypeGet {
         }
     }
 
-    public static class FakequeryparamwithjsoncontenttypeGet1 extends ApiClient implements FakequeryparamwithjsoncontenttypeGetOperation {
-        public FakequeryparamwithjsoncontenttypeGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements FakequeryparamwithjsoncontenttypeGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakequeryparamwithjsoncontenttypeGetRequest {
+    public static class GetRequest {
         public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public FakequeryparamwithjsoncontenttypeGetRequest(
+        public GetRequest(
             QueryParameters.QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -95,7 +95,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
         }
     }
 
-    public static class FakequeryparamwithjsoncontenttypeGetNullableRequest {
+    public static class GetNullableRequest {
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

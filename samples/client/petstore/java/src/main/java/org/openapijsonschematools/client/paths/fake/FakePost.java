@@ -26,11 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakePost {
-    private static class FakePostProvider extends AuthApplier {
+    private static class PostProvider extends AuthApplier {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            FakePostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -75,12 +75,12 @@ public class FakePost {
         }
     }
 
-    public interface FakePostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(FakePostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakePostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -93,13 +93,13 @@ public class FakePost {
         }
     }
 
-    public static class FakePost1 extends ApiClient implements FakePostOperation {
-        public FakePost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements FakePostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakePostRequest {
+    public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakePostSecurityInfo.@Nullable SecurityIndex securityIndex;

@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class CommonparamsubdirDelete {
-    private static class CommonparamsubdirDeleteProvider {
+    private static class DeleteProvider {
         private static final String method = "delete";
 
         public static Responses.EndpointResponse delete(
-            CommonparamsubdirDeleteRequest request,
+            DeleteRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -61,12 +61,12 @@ public class CommonparamsubdirDelete {
         }
     }
 
-    public interface CommonparamsubdirDeleteOperation {
+    public interface DeleteOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse delete(CommonparamsubdirDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return CommonparamsubdirDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -79,19 +79,19 @@ public class CommonparamsubdirDelete {
         }
     }
 
-    public static class CommonparamsubdirDelete1 extends ApiClient implements CommonparamsubdirDeleteOperation {
-        public CommonparamsubdirDelete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Delete extends ApiClient implements CommonparamsubdirDeleteOperation {
+        public Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class CommonparamsubdirDeleteRequest {
+    public static class DeleteRequest {
         public PathParameters.PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public CommonparamsubdirDeleteRequest(
+        public DeleteRequest(
             PathParameters.PathParametersMap pathParameters,
             HeaderParameters.@Nullable HeaderParametersMap headerParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
@@ -104,7 +104,7 @@ public class CommonparamsubdirDelete {
         }
     }
 
-    public static class CommonparamsubdirDeleteNullableRequest {
+    public static class DeleteNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

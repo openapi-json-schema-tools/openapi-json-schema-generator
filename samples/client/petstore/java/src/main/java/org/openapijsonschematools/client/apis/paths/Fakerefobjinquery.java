@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.FakerefobjinqueryGet;
 
 public class Fakerefobjinquery extends ApiClient implements
-    FakerefobjinqueryGet.FakerefobjinqueryGetOperation
+    FakerefobjinqueryGet.GetOperation
 {
     public Fakerefobjinquery(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

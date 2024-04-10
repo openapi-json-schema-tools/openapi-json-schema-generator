@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakerefsmammalPost1](#fakerefsmammalpost1)<br>The class that has a post method to call the endpoint |
-| static class | [FakerefsmammalPostRequest](#fakerefsmammalpostrequest)<br>The final request inputs class |
-| static class | [FakerefsmammalPostNullableRequest](#fakerefsmammalpostnullablerequest)<br>The initial request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## FakerefsmammalPost1
-public static class FakerefsmammalPost1 extends ApiClient.ApiClient1 implements FakerefsmammalPostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -67,11 +67,11 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefsmammalPost.FakerefsmammalPost1 apiClient = new FakerefsmammalPost.FakerefsmammalPost1(apiConfiguration, schemaConfiguration);
+FakerefsmammalPost.Post apiClient = new FakerefsmammalPost.Post(apiConfiguration, schemaConfiguration);
 
 FakerefsmammalPost.SealedRequestBody requestBody = new FakerefsmammalPost.ApplicationjsonRequestBody(requestBodyPayload);
 
-var request = new PostRequestBuilder()
+var request = new FakerefsmammalPost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -99,12 +99,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakerefsmammalPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakerefsmammal/post/Responses.md#endpointresponse) | post([FakerefsmammalPostRequest](#fakerefsmammalpostrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakerefsmammal/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## FakerefsmammalPostRequest
 public static class FakerefsmammalPostRequest<br>
@@ -118,8 +118,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## FakerefsmammalPostNullableRequest
-public static class FakerefsmammalPostNullableRequest<br>
+## PostNullableRequest
+public static class PostNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -143,7 +143,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsmammalPostRequest](#fakerefsmammalpostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

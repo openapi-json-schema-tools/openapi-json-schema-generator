@@ -26,11 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 public class PetPut {
-    private static class PetPutProvider extends AuthApplier {
+    private static class PutProvider extends AuthApplier {
         private static final String method = "put";
 
         public static Void put(
-            PetPutRequest request,
+            PutRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -71,12 +71,12 @@ public class PetPut {
         }
     }
 
-    public interface PetPutOperation {
+    public interface PutOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Void put(PetPutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return PetPutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Void put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -89,19 +89,19 @@ public class PetPut {
         }
     }
 
-    public static class PetPut1 extends ApiClient implements PetPutOperation {
-        public PetPut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Put extends ApiClient implements PetPutOperation {
+        public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class PetPutRequest {
+    public static class PutRequest {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetPutSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
-        public PetPutRequest(
+        public PutRequest(
             RequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             PetPutSecurityInfo.@Nullable SecurityIndex securityIndex,
@@ -114,7 +114,7 @@ public class PetPut {
         }
     }
 
-    public static class PetPutNullableRequest {
+    public static class PutNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetPutSecurityInfo.@Nullable SecurityIndex securityIndex;

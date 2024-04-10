@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakebodywithfileschemaPut {
-    private static class FakebodywithfileschemaPutProvider {
+    private static class PutProvider {
         private static final String method = "put";
 
         public static Responses.EndpointResponse put(
-            FakebodywithfileschemaPutRequest request,
+            PutRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -58,12 +58,12 @@ public class FakebodywithfileschemaPut {
         }
     }
 
-    public interface FakebodywithfileschemaPutOperation {
+    public interface PutOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse put(FakebodywithfileschemaPutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakebodywithfileschemaPutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -76,18 +76,18 @@ public class FakebodywithfileschemaPut {
         }
     }
 
-    public static class FakebodywithfileschemaPut1 extends ApiClient implements FakebodywithfileschemaPutOperation {
-        public FakebodywithfileschemaPut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Put extends ApiClient implements FakebodywithfileschemaPutOperation {
+        public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakebodywithfileschemaPutRequest {
+    public static class PutRequest {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public FakebodywithfileschemaPutRequest(
+        public PutRequest(
             RequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -98,7 +98,7 @@ public class FakebodywithfileschemaPut {
         }
     }
 
-    public static class FakebodywithfileschemaPutNullableRequest {
+    public static class PutNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

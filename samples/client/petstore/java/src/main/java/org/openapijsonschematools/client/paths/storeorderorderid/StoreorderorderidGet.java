@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.Map;
 
 public class StoreorderorderidGet {
-    private static class StoreorderorderidGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            StoreorderorderidGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -54,12 +54,12 @@ public class StoreorderorderidGet {
         }
     }
 
-    public interface StoreorderorderidGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(StoreorderorderidGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return StoreorderorderidGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -72,18 +72,18 @@ public class StoreorderorderidGet {
         }
     }
 
-    public static class StoreorderorderidGet1 extends ApiClient implements StoreorderorderidGetOperation {
-        public StoreorderorderidGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements StoreorderorderidGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class StoreorderorderidGetRequest {
+    public static class GetRequest {
         public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public StoreorderorderidGetRequest(
+        public GetRequest(
             PathParameters.PathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -94,7 +94,7 @@ public class StoreorderorderidGet {
         }
     }
 
-    public static class StoreorderorderidGetNullableRequest {
+    public static class GetNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

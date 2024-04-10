@@ -11,12 +11,12 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakerefsarrayofenumsPost1](#fakerefsarrayofenumspost1)<br>The class that has a post method to call the endpoint |
-| static class | [FakerefsarrayofenumsPostRequest](#fakerefsarrayofenumspostrequest)<br>The request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The request inputs class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## FakerefsarrayofenumsPost1
-public static class FakerefsarrayofenumsPost1 extends ApiClient.ApiClient1 implements FakerefsarrayofenumsPostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -65,10 +65,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefsarrayofenumsPost.FakerefsarrayofenumsPost1 apiClient = new FakerefsarrayofenumsPost.FakerefsarrayofenumsPost1(apiConfiguration, schemaConfiguration);
+FakerefsarrayofenumsPost.Post apiClient = new FakerefsarrayofenumsPost.Post(apiConfiguration, schemaConfiguration);
 
 
-var request = new PostRequestBuilder().build();
+var request = new FakerefsarrayofenumsPost.PostRequestBuilder().build();
 
 Responses.EndpointResponse response;
 try {
@@ -94,12 +94,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakerefsarrayofenumsPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakerefsarrayofenums/post/Responses.md#endpointresponse) | post([FakerefsarrayofenumsPostRequest](#fakerefsarrayofenumspostrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakerefsarrayofenums/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## FakerefsarrayofenumsPostRequest
 public static class FakerefsarrayofenumsPostRequest<br>
@@ -126,7 +126,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsarrayofenumsPostRequest](#fakerefsarrayofenumspostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakerefsarrayofenums/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [PostRequestBuilder](#postrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakehealth.FakehealthGet;
 
 public class Fakehealth extends ApiClient implements
-    FakehealthGet.FakehealthGetOperation
+    FakehealthGet.GetOperation
 {
     public Fakehealth(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

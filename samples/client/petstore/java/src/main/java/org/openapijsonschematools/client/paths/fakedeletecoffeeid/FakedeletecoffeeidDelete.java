@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakedeletecoffeeidDelete {
-    private static class FakedeletecoffeeidDeleteProvider {
+    private static class DeleteProvider {
         private static final String method = "delete";
 
         public static Responses.EndpointResponse delete(
-            FakedeletecoffeeidDeleteRequest request,
+            DeleteRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -54,12 +54,12 @@ public class FakedeletecoffeeidDelete {
         }
     }
 
-    public interface FakedeletecoffeeidDeleteOperation {
+    public interface DeleteOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse delete(FakedeletecoffeeidDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakedeletecoffeeidDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -72,18 +72,18 @@ public class FakedeletecoffeeidDelete {
         }
     }
 
-    public static class FakedeletecoffeeidDelete1 extends ApiClient implements FakedeletecoffeeidDeleteOperation {
-        public FakedeletecoffeeidDelete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Delete extends ApiClient implements FakedeletecoffeeidDeleteOperation {
+        public Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakedeletecoffeeidDeleteRequest {
+    public static class DeleteRequest {
         public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public FakedeletecoffeeidDeleteRequest(
+        public DeleteRequest(
             PathParameters.PathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -94,7 +94,7 @@ public class FakedeletecoffeeidDelete {
         }
     }
 
-    public static class FakedeletecoffeeidDeleteNullableRequest {
+    public static class DeleteNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

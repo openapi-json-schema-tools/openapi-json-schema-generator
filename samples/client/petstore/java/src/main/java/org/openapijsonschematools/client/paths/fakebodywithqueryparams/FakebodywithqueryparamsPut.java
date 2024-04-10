@@ -25,11 +25,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakebodywithqueryparamsPut {
-    private static class FakebodywithqueryparamsPutProvider {
+    private static class PutProvider {
         private static final String method = "put";
 
         public static Responses.EndpointResponse put(
-            FakebodywithqueryparamsPutRequest request,
+            PutRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -64,12 +64,12 @@ public class FakebodywithqueryparamsPut {
         }
     }
 
-    public interface FakebodywithqueryparamsPutOperation {
+    public interface PutOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse put(FakebodywithqueryparamsPutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakebodywithqueryparamsPutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -82,19 +82,19 @@ public class FakebodywithqueryparamsPut {
         }
     }
 
-    public static class FakebodywithqueryparamsPut1 extends ApiClient implements FakebodywithqueryparamsPutOperation {
-        public FakebodywithqueryparamsPut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Put extends ApiClient implements FakebodywithqueryparamsPutOperation {
+        public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakebodywithqueryparamsPutRequest {
+    public static class PutRequest {
         public RequestBody.SealedRequestBody requestBody;
         public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public FakebodywithqueryparamsPutRequest(
+        public PutRequest(
             RequestBody.SealedRequestBody requestBody,
             QueryParameters.QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
@@ -107,7 +107,7 @@ public class FakebodywithqueryparamsPut {
         }
     }
 
-    public static class FakebodywithqueryparamsPutNullableRequest {
+    public static class PutNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

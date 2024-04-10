@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.anotherfakedummy.AnotherfakedummyPatch;
 
 public class Anotherfakedummy extends ApiClient implements
-    AnotherfakedummyPatch.AnotherfakedummyPatchOperation
+    AnotherfakedummyPatch.PatchOperation
 {
     public Anotherfakedummy(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

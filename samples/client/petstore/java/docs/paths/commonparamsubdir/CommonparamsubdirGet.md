@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [CommonparamsubdirGet1](#commonparamsubdirget1)<br>The class that has a get method to call the endpoint |
-| static class | [CommonparamsubdirGetRequest](#commonparamsubdirgetrequest)<br>The final request inputs class |
-| static class | [CommonparamsubdirGetNullableRequest](#commonparamsubdirgetnullablerequest)<br>The initial request inputs class |
+| static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| static class | [GetRequest](#getrequest)<br>The final request inputs class |
+| static class | [GetNullableRequest](#getnullablerequest)<br>The initial request inputs class |
 | static class | [Get0RequestBuilder](#get0requestbuilder)<br>A builder for the request input class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-## CommonparamsubdirGet1
-public static class CommonparamsubdirGet1 extends ApiClient.ApiClient1 implements CommonparamsubdirGetOperation<br>
+### Get
+public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-CommonparamsubdirGet.CommonparamsubdirGet1 apiClient = new CommonparamsubdirGet.CommonparamsubdirGet1(apiConfiguration, schemaConfiguration);
+CommonparamsubdirGet.Get apiClient = new CommonparamsubdirGet.Get(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -80,7 +80,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new GetRequestBuilder()
+var request = new CommonparamsubdirGet.GetRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
@@ -106,12 +106,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/commonparamsubdir/get/Responses.md#endpointresponse) | get([CommonparamsubdirGetRequest](#commonparamsubdirgetrequest) request) |
+| [Responses.EndpointResponse](../../paths/commonparamsubdir/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## CommonparamsubdirGetRequest
 public static class CommonparamsubdirGetRequest<br>
@@ -126,8 +126,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## CommonparamsubdirGetNullableRequest
-public static class CommonparamsubdirGetNullableRequest<br>
+## GetNullableRequest
+public static class GetNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -152,7 +152,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirGetRequest](#commonparamsubdirgetrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Get0RequestBuilder](#get0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/commonparamsubdir/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [Get0RequestBuilder](#get0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Get0RequestBuilder](#get0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

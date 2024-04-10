@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakedeletecoffeeidDelete1](#fakedeletecoffeeiddelete1)<br>The class that has a delete method to call the endpoint |
-| static class | [FakedeletecoffeeidDeleteRequest](#fakedeletecoffeeiddeleterequest)<br>The final request inputs class |
-| static class | [FakedeletecoffeeidDeleteNullableRequest](#fakedeletecoffeeiddeletenullablerequest)<br>The initial request inputs class |
+| static class | [Delete](#delete)<br>The class that has a delete method to call the endpoint |
+| static class | [DeleteRequest](#deleterequest)<br>The final request inputs class |
+| static class | [DeleteNullableRequest](#deletenullablerequest)<br>The initial request inputs class |
 | static class | [Delete0RequestBuilder](#delete0requestbuilder)<br>A builder for the request input class |
 | static class | [DeleteRequestBuilder](#deleterequestbuilder)<br>A builder for the request input class |
 
-## FakedeletecoffeeidDelete1
-public static class FakedeletecoffeeidDelete1 extends ApiClient.ApiClient1 implements FakedeletecoffeeidDeleteOperation<br>
+### Delete
+public static class Delete extends ApiClient.ApiClient1 implements DeleteOperation<br>
 
 a class that allows one to call the endpoint using a method named delete
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakedeletecoffeeidDelete.FakedeletecoffeeidDelete1 apiClient = new FakedeletecoffeeidDelete.FakedeletecoffeeidDelete1(apiConfiguration, schemaConfiguration);
+FakedeletecoffeeidDelete.Delete apiClient = new FakedeletecoffeeidDelete.Delete(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -80,7 +80,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new DeleteRequestBuilder()
+var request = new FakedeletecoffeeidDelete.DeleteRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
@@ -109,12 +109,12 @@ if (response instanceof Responses.EndpointCode200Response castResponse) {
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDelete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/Responses.md#endpointresponse) | delete([FakedeletecoffeeidDeleteRequest](#fakedeletecoffeeiddeleterequest) request) |
+| [Responses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
 
 ## FakedeletecoffeeidDeleteRequest
 public static class FakedeletecoffeeidDeleteRequest<br>
@@ -128,8 +128,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## FakedeletecoffeeidDeleteNullableRequest
-public static class FakedeletecoffeeidDeleteNullableRequest<br>
+## DeleteNullableRequest
+public static class DeleteNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -153,7 +153,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakedeletecoffeeidDeleteRequest](#fakedeletecoffeeiddeleterequest) | build()<br>Returns the request input used to call an endpoint method |
+| [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete0RequestBuilder](#delete0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

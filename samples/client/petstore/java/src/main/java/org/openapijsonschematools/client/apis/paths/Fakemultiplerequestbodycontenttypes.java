@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.FakemultiplerequestbodycontenttypesPost;
 
 public class Fakemultiplerequestbodycontenttypes extends ApiClient implements
-    FakemultiplerequestbodycontenttypesPost.FakemultiplerequestbodycontenttypesPostOperation
+    FakemultiplerequestbodycontenttypesPost.PostOperation
 {
     public Fakemultiplerequestbodycontenttypes(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

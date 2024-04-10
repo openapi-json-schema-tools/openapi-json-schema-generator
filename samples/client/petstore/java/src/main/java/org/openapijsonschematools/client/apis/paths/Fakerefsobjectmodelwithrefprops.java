@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.FakerefsobjectmodelwithrefpropsPost;
 
 public class Fakerefsobjectmodelwithrefprops extends ApiClient implements
-    FakerefsobjectmodelwithrefpropsPost.FakerefsobjectmodelwithrefpropsPostOperation
+    FakerefsobjectmodelwithrefpropsPost.PostOperation
 {
     public Fakerefsobjectmodelwithrefprops(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

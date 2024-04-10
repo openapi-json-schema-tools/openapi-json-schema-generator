@@ -8,9 +8,9 @@ import org.openapijsonschematools.client.paths.petpetid.PetpetidGet;
 import org.openapijsonschematools.client.paths.petpetid.PetpetidPost;
 
 public class Petpetid extends ApiClient implements
-    PetpetidDelete.PetpetidDeleteOperation,
-    PetpetidGet.PetpetidGetOperation,
-    PetpetidPost.PetpetidPostOperation
+    PetpetidDelete.DeleteOperation,
+    PetpetidGet.GetOperation,
+    PetpetidPost.PostOperation
 {
     public Petpetid(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

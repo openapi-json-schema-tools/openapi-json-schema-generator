@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [AnotherfakedummyPatch1](#anotherfakedummypatch1)<br>The class that has a patch method to call the endpoint |
-| static class | [AnotherfakedummyPatchRequest](#anotherfakedummypatchrequest)<br>The final request inputs class |
-| static class | [AnotherfakedummyPatchNullableRequest](#anotherfakedummypatchnullablerequest)<br>The initial request inputs class |
+| static class | [Patch](#patch)<br>The class that has a patch method to call the endpoint |
+| static class | [PatchRequest](#patchrequest)<br>The final request inputs class |
+| static class | [PatchNullableRequest](#patchnullablerequest)<br>The initial request inputs class |
 | static class | [Patch0RequestBuilder](#patch0requestbuilder)<br>A builder for the request input class |
 | static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
 
-## AnotherfakedummyPatch1
-public static class AnotherfakedummyPatch1 extends ApiClient.ApiClient1 implements AnotherfakedummyPatchOperation<br>
+### Patch
+public static class Patch extends ApiClient.ApiClient1 implements PatchOperation<br>
 
 a class that allows one to call the endpoint using a method named patch
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-AnotherfakedummyPatch.AnotherfakedummyPatch1 apiClient = new AnotherfakedummyPatch.AnotherfakedummyPatch1(apiConfiguration, schemaConfiguration);
+AnotherfakedummyPatch.Patch apiClient = new AnotherfakedummyPatch.Patch(apiConfiguration, schemaConfiguration);
 
 
 Client1BoxedMap requestBodyPayload =
@@ -80,7 +80,7 @@ Client1BoxedMap requestBodyPayload =
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
-var request = new PatchRequestBuilder()
+var request = new AnotherfakedummyPatch.PatchRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -108,12 +108,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| AnotherfakedummyPatch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/anotherfakedummy/patch/Responses.md#endpointresponse) | patch([AnotherfakedummyPatchRequest](#anotherfakedummypatchrequest) request) |
+| [Responses.EndpointResponse](../../paths/anotherfakedummy/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
 ## AnotherfakedummyPatchRequest
 public static class AnotherfakedummyPatchRequest<br>
@@ -127,8 +127,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## AnotherfakedummyPatchNullableRequest
-public static class AnotherfakedummyPatchNullableRequest<br>
+## PatchNullableRequest
+public static class PatchNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -152,7 +152,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnotherfakedummyPatchRequest](#anotherfakedummypatchrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PatchRequest](#patchrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Patch0RequestBuilder](#patch0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Patch0RequestBuilder](#patch0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

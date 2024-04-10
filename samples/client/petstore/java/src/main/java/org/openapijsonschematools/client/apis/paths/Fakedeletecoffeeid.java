@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.FakedeletecoffeeidDelete;
 
 public class Fakedeletecoffeeid extends ApiClient implements
-    FakedeletecoffeeidDelete.FakedeletecoffeeidDeleteOperation
+    FakedeletecoffeeidDelete.DeleteOperation
 {
     public Fakedeletecoffeeid(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

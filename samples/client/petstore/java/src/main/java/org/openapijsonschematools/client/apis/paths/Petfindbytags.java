@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.petfindbytags.PetfindbytagsGet;
 
 public class Petfindbytags extends ApiClient implements
-    PetfindbytagsGet.PetfindbytagsGetOperation
+    PetfindbytagsGet.GetOperation
 {
     public Petfindbytags(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

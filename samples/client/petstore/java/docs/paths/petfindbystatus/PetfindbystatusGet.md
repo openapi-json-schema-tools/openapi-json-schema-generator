@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [PetfindbystatusGet1](#petfindbystatusget1)<br>The class that has a get method to call the endpoint |
-| static class | [PetfindbystatusGetRequest](#petfindbystatusgetrequest)<br>The final request inputs class |
-| static class | [PetfindbystatusGetNullableRequest](#petfindbystatusgetnullablerequest)<br>The initial request inputs class |
+| static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| static class | [GetRequest](#getrequest)<br>The final request inputs class |
+| static class | [GetNullableRequest](#getnullablerequest)<br>The initial request inputs class |
 | static class | [Get0RequestBuilder](#get0requestbuilder)<br>A builder for the request input class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-## PetfindbystatusGet1
-public static class PetfindbystatusGet1 extends ApiClient.ApiClient1 implements PetfindbystatusGetOperation<br>
+### Get
+public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
 
@@ -80,7 +80,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetfindbystatusGet.PetfindbystatusGet1 apiClient = new PetfindbystatusGet.PetfindbystatusGet1(apiConfiguration, schemaConfiguration);
+PetfindbystatusGet.Get apiClient = new PetfindbystatusGet.Get(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -96,7 +96,7 @@ QueryParameters.QueryParametersMap queryParameters =
     schemaConfiguration
 );
 
-var request = new GetRequestBuilder()
+var request = new PetfindbystatusGet.GetRequestBuilder()
     .queryParameters(queryParameters)
     .build();
 
@@ -126,12 +126,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/petfindbystatus/get/Responses.md#endpointresponse) | get([PetfindbystatusGetRequest](#petfindbystatusgetrequest) request) |
+| [Responses.EndpointResponse](../../paths/petfindbystatus/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## PetfindbystatusGetRequest
 public static class PetfindbystatusGetRequest<br>
@@ -146,8 +146,8 @@ a class that stores the final request inputs
 | [PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## PetfindbystatusGetNullableRequest
-public static class PetfindbystatusGetNullableRequest<br>
+## GetNullableRequest
+public static class GetNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -172,7 +172,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetfindbystatusGetRequest](#petfindbystatusgetrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Get0RequestBuilder](#get0requestbuilder) | serverIndex([PetfindbystatusServerInfo.ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Get0RequestBuilder](#get0requestbuilder) | securityIndex([PetfindbystatusGetSecurityInfo.SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Get0RequestBuilder](#get0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

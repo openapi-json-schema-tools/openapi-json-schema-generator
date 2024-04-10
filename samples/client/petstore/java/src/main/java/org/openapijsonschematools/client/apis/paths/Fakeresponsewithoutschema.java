@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.FakeresponsewithoutschemaGet;
 
 public class Fakeresponsewithoutschema extends ApiClient implements
-    FakeresponsewithoutschemaGet.FakeresponsewithoutschemaGetOperation
+    FakeresponsewithoutschemaGet.GetOperation
 {
     public Fakeresponsewithoutschema(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

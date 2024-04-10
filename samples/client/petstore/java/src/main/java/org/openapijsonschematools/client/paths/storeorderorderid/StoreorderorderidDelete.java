@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.Map;
 
 public class StoreorderorderidDelete {
-    private static class StoreorderorderidDeleteProvider {
+    private static class DeleteProvider {
         private static final String method = "delete";
 
         public static Void delete(
-            StoreorderorderidDeleteRequest request,
+            DeleteRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -54,12 +54,12 @@ public class StoreorderorderidDelete {
         }
     }
 
-    public interface StoreorderorderidDeleteOperation {
+    public interface DeleteOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Void delete(StoreorderorderidDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return StoreorderorderidDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Void delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -72,18 +72,18 @@ public class StoreorderorderidDelete {
         }
     }
 
-    public static class StoreorderorderidDelete1 extends ApiClient implements StoreorderorderidDeleteOperation {
-        public StoreorderorderidDelete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Delete extends ApiClient implements StoreorderorderidDeleteOperation {
+        public Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class StoreorderorderidDeleteRequest {
+    public static class DeleteRequest {
         public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public StoreorderorderidDeleteRequest(
+        public DeleteRequest(
             PathParameters.PathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -94,7 +94,7 @@ public class StoreorderorderidDelete {
         }
     }
 
-    public static class StoreorderorderidDeleteNullableRequest {
+    public static class DeleteNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

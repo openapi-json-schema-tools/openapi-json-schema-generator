@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakejsonwithcharsetPost {
-    private static class FakejsonwithcharsetPostProvider {
+    private static class PostProvider {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            FakejsonwithcharsetPostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -62,12 +62,12 @@ public class FakejsonwithcharsetPost {
         }
     }
 
-    public interface FakejsonwithcharsetPostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(FakejsonwithcharsetPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakejsonwithcharsetPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -80,13 +80,13 @@ public class FakejsonwithcharsetPost {
         }
     }
 
-    public static class FakejsonwithcharsetPost1 extends ApiClient implements FakejsonwithcharsetPostOperation {
-        public FakejsonwithcharsetPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements FakejsonwithcharsetPostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakejsonwithcharsetPostRequest {
+    public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakeredirection.FakeredirectionGet;
 
 public class Fakeredirection extends ApiClient implements
-    FakeredirectionGet.FakeredirectionGetOperation
+    FakeredirectionGet.GetOperation
 {
     public Fakeredirection(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.Fakeparametercollisions1ababselfabPost;
 
 public class Fakeparametercollisions1ababselfab extends ApiClient implements
-    Fakeparametercollisions1ababselfabPost.Fakeparametercollisions1ababselfabPostOperation
+    Fakeparametercollisions1ababselfabPost.PostOperation
 {
     public Fakeparametercollisions1ababselfab(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

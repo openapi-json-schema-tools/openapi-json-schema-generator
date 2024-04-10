@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.FakemultiplesecuritiesGet;
 
 public class Fakemultiplesecurities extends ApiClient implements
-    FakemultiplesecuritiesGet.FakemultiplesecuritiesGetOperation
+    FakemultiplesecuritiesGet.GetOperation
 {
     public Fakemultiplesecurities(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

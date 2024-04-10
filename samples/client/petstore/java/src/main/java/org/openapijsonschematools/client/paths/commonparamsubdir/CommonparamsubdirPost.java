@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class CommonparamsubdirPost {
-    private static class CommonparamsubdirPostProvider {
+    private static class PostProvider {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            CommonparamsubdirPostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -61,12 +61,12 @@ public class CommonparamsubdirPost {
         }
     }
 
-    public interface CommonparamsubdirPostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(CommonparamsubdirPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return CommonparamsubdirPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -79,19 +79,19 @@ public class CommonparamsubdirPost {
         }
     }
 
-    public static class CommonparamsubdirPost1 extends ApiClient implements CommonparamsubdirPostOperation {
-        public CommonparamsubdirPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements CommonparamsubdirPostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class CommonparamsubdirPostRequest {
+    public static class PostRequest {
         public PathParameters.PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public CommonparamsubdirPostRequest(
+        public PostRequest(
             PathParameters.PathParametersMap pathParameters,
             HeaderParameters.@Nullable HeaderParametersMap headerParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
@@ -104,7 +104,7 @@ public class CommonparamsubdirPost {
         }
     }
 
-    public static class CommonparamsubdirPostNullableRequest {
+    public static class PostNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

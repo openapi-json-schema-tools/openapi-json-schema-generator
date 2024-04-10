@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.Map;
 
 public class UserusernameGet {
-    private static class UserusernameGetProvider {
+    private static class GetProvider {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            UserusernameGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -54,12 +54,12 @@ public class UserusernameGet {
         }
     }
 
-    public interface UserusernameGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(UserusernameGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UserusernameGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -72,18 +72,18 @@ public class UserusernameGet {
         }
     }
 
-    public static class UserusernameGet1 extends ApiClient implements UserusernameGetOperation {
-        public UserusernameGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements UserusernameGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class UserusernameGetRequest {
+    public static class GetRequest {
         public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public UserusernameGetRequest(
+        public GetRequest(
             PathParameters.PathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -94,7 +94,7 @@ public class UserusernameGet {
         }
     }
 
-    public static class UserusernameGetNullableRequest {
+    public static class GetNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

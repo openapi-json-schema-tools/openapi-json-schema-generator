@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.FakeadditionalpropertieswitharrayofenumsGet;
 
 public class Fakeadditionalpropertieswitharrayofenums extends ApiClient implements
-    FakeadditionalpropertieswitharrayofenumsGet.FakeadditionalpropertieswitharrayofenumsGetOperation
+    FakeadditionalpropertieswitharrayofenumsGet.GetOperation
 {
     public Fakeadditionalpropertieswitharrayofenums(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

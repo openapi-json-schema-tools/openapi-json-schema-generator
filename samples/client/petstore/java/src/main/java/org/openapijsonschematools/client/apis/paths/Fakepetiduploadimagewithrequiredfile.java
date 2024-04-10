@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.FakepetiduploadimagewithrequiredfilePost;
 
 public class Fakepetiduploadimagewithrequiredfile extends ApiClient implements
-    FakepetiduploadimagewithrequiredfilePost.FakepetiduploadimagewithrequiredfilePostOperation
+    FakepetiduploadimagewithrequiredfilePost.PostOperation
 {
     public Fakepetiduploadimagewithrequiredfile(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

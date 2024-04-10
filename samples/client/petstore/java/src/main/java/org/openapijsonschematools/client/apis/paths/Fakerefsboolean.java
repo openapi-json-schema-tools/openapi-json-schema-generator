@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakerefsboolean.FakerefsbooleanPost;
 
 public class Fakerefsboolean extends ApiClient implements
-    FakerefsbooleanPost.FakerefsbooleanPostOperation
+    FakerefsbooleanPost.PostOperation
 {
     public Fakerefsboolean(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

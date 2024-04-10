@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.FakequeryparamwithjsoncontenttypeGet;
 
 public class Fakequeryparamwithjsoncontenttype extends ApiClient implements
-    FakequeryparamwithjsoncontenttypeGet.FakequeryparamwithjsoncontenttypeGetOperation
+    FakequeryparamwithjsoncontenttypeGet.GetOperation
 {
     public Fakequeryparamwithjsoncontenttype(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

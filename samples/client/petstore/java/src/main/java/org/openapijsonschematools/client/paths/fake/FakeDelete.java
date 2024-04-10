@@ -26,11 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakeDelete {
-    private static class FakeDeleteProvider extends AuthApplier {
+    private static class DeleteProvider extends AuthApplier {
         private static final String method = "delete";
 
         public static Responses.EndpointResponse delete(
-            FakeDeleteRequest request,
+            DeleteRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -73,12 +73,12 @@ public class FakeDelete {
         }
     }
 
-    public interface FakeDeleteOperation {
+    public interface DeleteOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse delete(FakeDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -91,20 +91,20 @@ public class FakeDelete {
         }
     }
 
-    public static class FakeDelete1 extends ApiClient implements FakeDeleteOperation {
-        public FakeDelete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Delete extends ApiClient implements FakeDeleteOperation {
+        public Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakeDeleteRequest {
+    public static class DeleteRequest {
         public HeaderParameters.HeaderParametersMap headerParameters;
         public QueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
-        public FakeDeleteRequest(
+        public DeleteRequest(
             HeaderParameters.HeaderParametersMap headerParameters,
             QueryParameters.QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
@@ -119,7 +119,7 @@ public class FakeDelete {
         }
     }
 
-    public static class FakeDeleteNullableRequest {
+    public static class DeleteNullableRequest {
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;

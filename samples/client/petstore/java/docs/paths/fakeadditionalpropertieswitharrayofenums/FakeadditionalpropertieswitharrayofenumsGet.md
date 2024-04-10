@@ -11,12 +11,12 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakeadditionalpropertieswitharrayofenumsGet1](#fakeadditionalpropertieswitharrayofenumsget1)<br>The class that has a get method to call the endpoint |
-| static class | [FakeadditionalpropertieswitharrayofenumsGetRequest](#fakeadditionalpropertieswitharrayofenumsgetrequest)<br>The request inputs class |
+| static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| static class | [GetRequest](#getrequest)<br>The request inputs class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-## FakeadditionalpropertieswitharrayofenumsGet1
-public static class FakeadditionalpropertieswitharrayofenumsGet1 extends ApiClient.ApiClient1 implements FakeadditionalpropertieswitharrayofenumsGetOperation<br>
+### Get
+public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
 
@@ -65,10 +65,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeadditionalpropertieswitharrayofenumsGet.FakeadditionalpropertieswitharrayofenumsGet1 apiClient = new FakeadditionalpropertieswitharrayofenumsGet.FakeadditionalpropertieswitharrayofenumsGet1(apiConfiguration, schemaConfiguration);
+FakeadditionalpropertieswitharrayofenumsGet.Get apiClient = new FakeadditionalpropertieswitharrayofenumsGet.Get(apiConfiguration, schemaConfiguration);
 
 
-var request = new GetRequestBuilder().build();
+var request = new FakeadditionalpropertieswitharrayofenumsGet.GetRequestBuilder().build();
 
 Responses.EndpointResponse response;
 try {
@@ -94,12 +94,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeadditionalpropertieswitharrayofenumsGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/Responses.md#endpointresponse) | get([FakeadditionalpropertieswitharrayofenumsGetRequest](#fakeadditionalpropertieswitharrayofenumsgetrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## FakeadditionalpropertieswitharrayofenumsGetRequest
 public static class FakeadditionalpropertieswitharrayofenumsGetRequest<br>
@@ -126,7 +126,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeadditionalpropertieswitharrayofenumsGetRequest](#fakeadditionalpropertieswitharrayofenumsgetrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [GetRequestBuilder](#getrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeadditionalpropertieswitharrayofenums/get/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

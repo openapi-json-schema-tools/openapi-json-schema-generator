@@ -11,12 +11,12 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakerefsobjectmodelwithrefpropsPost1](#fakerefsobjectmodelwithrefpropspost1)<br>The class that has a post method to call the endpoint |
-| static class | [FakerefsobjectmodelwithrefpropsPostRequest](#fakerefsobjectmodelwithrefpropspostrequest)<br>The request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The request inputs class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## FakerefsobjectmodelwithrefpropsPost1
-public static class FakerefsobjectmodelwithrefpropsPost1 extends ApiClient.ApiClient1 implements FakerefsobjectmodelwithrefpropsPostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -65,10 +65,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefsobjectmodelwithrefpropsPost.FakerefsobjectmodelwithrefpropsPost1 apiClient = new FakerefsobjectmodelwithrefpropsPost.FakerefsobjectmodelwithrefpropsPost1(apiConfiguration, schemaConfiguration);
+FakerefsobjectmodelwithrefpropsPost.Post apiClient = new FakerefsobjectmodelwithrefpropsPost.Post(apiConfiguration, schemaConfiguration);
 
 
-var request = new PostRequestBuilder().build();
+var request = new FakerefsobjectmodelwithrefpropsPost.PostRequestBuilder().build();
 
 Responses.EndpointResponse response;
 try {
@@ -94,12 +94,12 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakerefsobjectmodelwithrefpropsPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/Responses.md#endpointresponse) | post([FakerefsobjectmodelwithrefpropsPostRequest](#fakerefsobjectmodelwithrefpropspostrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## FakerefsobjectmodelwithrefpropsPostRequest
 public static class FakerefsobjectmodelwithrefpropsPostRequest<br>
@@ -126,7 +126,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsobjectmodelwithrefpropsPostRequest](#fakerefsobjectmodelwithrefpropspostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakerefsobjectmodelwithrefprops/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [PostRequestBuilder](#postrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

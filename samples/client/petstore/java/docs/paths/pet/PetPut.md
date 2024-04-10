@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [PetPut1](#petput1)<br>The class that has a put method to call the endpoint |
-| static class | [PetPutRequest](#petputrequest)<br>The final request inputs class |
-| static class | [PetPutNullableRequest](#petputnullablerequest)<br>The initial request inputs class |
+| static class | [Put](#put)<br>The class that has a put method to call the endpoint |
+| static class | [PutRequest](#putrequest)<br>The final request inputs class |
+| static class | [PutNullableRequest](#putnullablerequest)<br>The initial request inputs class |
 | static class | [Put0RequestBuilder](#put0requestbuilder)<br>A builder for the request input class |
 | static class | [PutRequestBuilder](#putrequestbuilder)<br>A builder for the request input class |
 
-## PetPut1
-public static class PetPut1 extends ApiClient.ApiClient1 implements PetPutOperation<br>
+### Put
+public static class Put extends ApiClient.ApiClient1 implements PutOperation<br>
 
 a class that allows one to call the endpoint using a method named put
 
@@ -79,7 +79,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetPut.PetPut1 apiClient = new PetPut.PetPut1(apiConfiguration, schemaConfiguration);
+PetPut.Put apiClient = new PetPut.Put(apiConfiguration, schemaConfiguration);
 
 
 Pet1BoxedMap requestBodyPayload =
@@ -123,7 +123,7 @@ Pet1BoxedMap requestBodyPayload =
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
-var request = new PutRequestBuilder()
+var request = new PetPut.PutRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -151,12 +151,12 @@ try {
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetPut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | put([PetPutRequest](#petputrequest) request) |
+| Void | put([PutRequest](#putrequest) request) |
 
 ## PetPutRequest
 public static class PetPutRequest<br>
@@ -171,8 +171,8 @@ a class that stores the final request inputs
 | [PetPutSecurityInfo.@Nullable SecurityIndex](../../paths/pet/put/PetPutSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## PetPutNullableRequest
-public static class PetPutNullableRequest<br>
+## PutNullableRequest
+public static class PutNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -197,7 +197,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetPutRequest](#petputrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put0RequestBuilder](#put0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Put0RequestBuilder](#put0requestbuilder) | securityIndex([PetPutSecurityInfo.SecurityIndex](../../paths/pet/put/PetPutSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Put0RequestBuilder](#put0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

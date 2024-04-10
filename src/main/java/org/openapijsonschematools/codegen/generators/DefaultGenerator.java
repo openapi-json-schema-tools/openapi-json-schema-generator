@@ -2956,38 +2956,40 @@ public class DefaultGenerator implements Generator {
         CodegenList<CodegenServer> usedServers = (servers != null) ? servers : rootOrPathServers;
         CodegenList<CodegenSecurityRequirementObject> usedSecurity = (security != null) ? security : rootSecurity;
         List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, usedServers, usedSecurity);
+        CodegenKey method = getKey(pathPieces[pathPieces.length-1], "misc", jsonPath);
         String subpackage = getSubpackage(jsonPath);
 
         return new CodegenOperation(
-                deprecated,
-                nonErrorStatusCodes,
-                nonErrorWildcardStatusCodes,
-                errorStatusCodes,
-                errorWildcardStatusCodes,
-                summary,
-                description,
-                produces,
-                usedServers,
-                requestBody,
-                parametersInfo,
-                hasRequiredParamOrBody,
-                hasOptionalParamOrBody,
-                usedSecurity,
-                tags,
-                responses,
-                statusCodeResponses,
-                wildcardCodeResponses,
-                nonDefaultResponses,
-                defaultResponse,
-                callbacks,
-                externalDocs,
-                vendorExtensions,
-                operationId,
-                jsonPathPiece,
-                requestBodySchema,
-                builders,
-                subpackage
-            );
+            deprecated,
+            nonErrorStatusCodes,
+            nonErrorWildcardStatusCodes,
+            errorStatusCodes,
+            errorWildcardStatusCodes,
+            summary,
+            description,
+            produces,
+            usedServers,
+            requestBody,
+            parametersInfo,
+            hasRequiredParamOrBody,
+            hasOptionalParamOrBody,
+            usedSecurity,
+            tags,
+            responses,
+            statusCodeResponses,
+            wildcardCodeResponses,
+            nonDefaultResponses,
+            defaultResponse,
+            callbacks,
+            externalDocs,
+            vendorExtensions,
+            operationId,
+            jsonPathPiece,
+            method,
+            requestBodySchema,
+            builders,
+            subpackage
+        );
     }
 
     protected List<MapBuilder<?>> getOperationBuilders(String jsonPath, CodegenRequestBody requestBody, CodegenParametersInfo parametersInfo, CodegenList<CodegenServer> servers, CodegenList<CodegenSecurityRequirementObject> security) {

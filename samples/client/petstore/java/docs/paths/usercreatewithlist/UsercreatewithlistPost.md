@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [UsercreatewithlistPost1](#usercreatewithlistpost1)<br>The class that has a post method to call the endpoint |
-| static class | [UsercreatewithlistPostRequest](#usercreatewithlistpostrequest)<br>The final request inputs class |
-| static class | [UsercreatewithlistPostNullableRequest](#usercreatewithlistpostnullablerequest)<br>The initial request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## UsercreatewithlistPost1
-public static class UsercreatewithlistPost1 extends ApiClient.ApiClient1 implements UsercreatewithlistPostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UsercreatewithlistPost.UsercreatewithlistPost1 apiClient = new UsercreatewithlistPost.UsercreatewithlistPost1(apiConfiguration, schemaConfiguration);
+UsercreatewithlistPost.Post apiClient = new UsercreatewithlistPost.Post(apiConfiguration, schemaConfiguration);
 
 
 ApplicationjsonSchema1BoxedList requestBodyPayload =
@@ -118,7 +118,7 @@ ApplicationjsonSchema1BoxedList requestBodyPayload =
 );
 RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
-var request = new PostRequestBuilder()
+var request = new UsercreatewithlistPost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -144,12 +144,12 @@ Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefa
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UsercreatewithlistPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/usercreatewithlist/post/Responses.md#endpointresponse) | post([UsercreatewithlistPostRequest](#usercreatewithlistpostrequest) request) |
+| [Responses.EndpointResponse](../../paths/usercreatewithlist/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## UsercreatewithlistPostRequest
 public static class UsercreatewithlistPostRequest<br>
@@ -163,8 +163,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## UsercreatewithlistPostNullableRequest
-public static class UsercreatewithlistPostNullableRequest<br>
+## PostNullableRequest
+public static class PostNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -188,7 +188,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UsercreatewithlistPostRequest](#usercreatewithlistpostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

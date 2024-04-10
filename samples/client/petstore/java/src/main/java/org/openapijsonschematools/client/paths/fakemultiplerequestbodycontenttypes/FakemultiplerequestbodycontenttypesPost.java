@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakemultiplerequestbodycontenttypesPost {
-    private static class FakemultiplerequestbodycontenttypesPostProvider {
+    private static class PostProvider {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            FakemultiplerequestbodycontenttypesPostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -62,12 +62,12 @@ public class FakemultiplerequestbodycontenttypesPost {
         }
     }
 
-    public interface FakemultiplerequestbodycontenttypesPostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(FakemultiplerequestbodycontenttypesPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakemultiplerequestbodycontenttypesPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -80,13 +80,13 @@ public class FakemultiplerequestbodycontenttypesPost {
         }
     }
 
-    public static class FakemultiplerequestbodycontenttypesPost1 extends ApiClient implements FakemultiplerequestbodycontenttypesPostOperation {
-        public FakemultiplerequestbodycontenttypesPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements FakemultiplerequestbodycontenttypesPostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakemultiplerequestbodycontenttypesPostRequest {
+    public static class PostRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

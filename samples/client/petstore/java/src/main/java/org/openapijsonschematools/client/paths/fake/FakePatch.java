@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class FakePatch {
-    private static class FakePatchProvider {
+    private static class PatchProvider {
         private static final String method = "patch";
 
         public static Responses.EndpointResponse patch(
-            FakePatchRequest request,
+            PatchRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -58,12 +58,12 @@ public class FakePatch {
         }
     }
 
-    public interface FakePatchOperation {
+    public interface PatchOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse patch(FakePatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakePatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -76,18 +76,18 @@ public class FakePatch {
         }
     }
 
-    public static class FakePatch1 extends ApiClient implements FakePatchOperation {
-        public FakePatch1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Patch extends ApiClient implements FakePatchOperation {
+        public Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class FakePatchRequest {
+    public static class PatchRequest {
         public RequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public FakePatchRequest(
+        public PatchRequest(
             RequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -98,7 +98,7 @@ public class FakePatch {
         }
     }
 
-    public static class FakePatchNullableRequest {
+    public static class PatchNullableRequest {
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;

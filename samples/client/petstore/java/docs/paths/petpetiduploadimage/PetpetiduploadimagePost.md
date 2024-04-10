@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [PetpetiduploadimagePost1](#petpetiduploadimagepost1)<br>The class that has a post method to call the endpoint |
-| static class | [PetpetiduploadimagePostRequest](#petpetiduploadimagepostrequest)<br>The final request inputs class |
-| static class | [PetpetiduploadimagePostNullableRequest](#petpetiduploadimagepostnullablerequest)<br>The initial request inputs class |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-## PetpetiduploadimagePost1
-public static class PetpetiduploadimagePost1 extends ApiClient.ApiClient1 implements PetpetiduploadimagePostOperation<br>
+### Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
 
@@ -77,7 +77,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetpetiduploadimagePost.PetpetiduploadimagePost1 apiClient = new PetpetiduploadimagePost.PetpetiduploadimagePost1(apiConfiguration, schemaConfiguration);
+PetpetiduploadimagePost.Post apiClient = new PetpetiduploadimagePost.Post(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -90,7 +90,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new PostRequestBuilder()
+var request = new PetpetiduploadimagePost.PostRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
@@ -117,12 +117,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/petpetiduploadimage/post/Responses.md#endpointresponse) | post([PetpetiduploadimagePostRequest](#petpetiduploadimagepostrequest) request) |
+| [Responses.EndpointResponse](../../paths/petpetiduploadimage/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PetpetiduploadimagePostRequest
 public static class PetpetiduploadimagePostRequest<br>
@@ -138,8 +138,8 @@ a class that stores the final request inputs
 | [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## PetpetiduploadimagePostNullableRequest
-public static class PetpetiduploadimagePostNullableRequest<br>
+## PostNullableRequest
+public static class PostNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -165,7 +165,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetpetiduploadimagePostRequest](#petpetiduploadimagepostrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/petpetiduploadimage/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | securityIndex([PetpetiduploadimagePostSecurityInfo.SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |

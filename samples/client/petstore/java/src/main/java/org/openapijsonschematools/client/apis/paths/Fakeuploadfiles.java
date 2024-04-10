@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakeuploadfiles.FakeuploadfilesPost;
 
 public class Fakeuploadfiles extends ApiClient implements
-    FakeuploadfilesPost.FakeuploadfilesPostOperation
+    FakeuploadfilesPost.PostOperation
 {
     public Fakeuploadfiles(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

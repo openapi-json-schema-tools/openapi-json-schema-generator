@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakerefsarraymodel.FakerefsarraymodelPost;
 
 public class Fakerefsarraymodel extends ApiClient implements
-    FakerefsarraymodelPost.FakerefsarraymodelPostOperation
+    FakerefsarraymodelPost.PostOperation
 {
     public Fakerefsarraymodel(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.FakeinlineadditionalpropertiesPost;
 
 public class Fakeinlineadditionalproperties extends ApiClient implements
-    FakeinlineadditionalpropertiesPost.FakeinlineadditionalpropertiesPostOperation
+    FakeinlineadditionalpropertiesPost.PostOperation
 {
     public Fakeinlineadditionalproperties(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

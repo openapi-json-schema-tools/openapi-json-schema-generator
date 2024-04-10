@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.FakebodywithfileschemaPut;
 
 public class Fakebodywithfileschema extends ApiClient implements
-    FakebodywithfileschemaPut.FakebodywithfileschemaPutOperation
+    FakebodywithfileschemaPut.PutOperation
 {
     public Fakebodywithfileschema(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

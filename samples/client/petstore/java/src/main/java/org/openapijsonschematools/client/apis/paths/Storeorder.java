@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.storeorder.StoreorderPost;
 
 public class Storeorder extends ApiClient implements
-    StoreorderPost.StoreorderPostOperation
+    StoreorderPost.PostOperation
 {
     public Storeorder(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

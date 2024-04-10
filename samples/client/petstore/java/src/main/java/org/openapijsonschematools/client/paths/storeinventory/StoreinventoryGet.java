@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 public class StoreinventoryGet {
-    private static class StoreinventoryGetProvider extends AuthApplier {
+    private static class GetProvider extends AuthApplier {
         private static final String method = "get";
 
         public static Responses.EndpointResponse get(
-            StoreinventoryGetRequest request,
+            GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -62,12 +62,12 @@ public class StoreinventoryGet {
         }
     }
 
-    public interface StoreinventoryGetOperation {
+    public interface GetOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(StoreinventoryGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return StoreinventoryGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -80,13 +80,13 @@ public class StoreinventoryGet {
         }
     }
 
-    public static class StoreinventoryGet1 extends ApiClient implements StoreinventoryGetOperation {
-        public StoreinventoryGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Get extends ApiClient implements StoreinventoryGetOperation {
+        public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class StoreinventoryGetRequest {
+    public static class GetRequest {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public StoreinventoryGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;

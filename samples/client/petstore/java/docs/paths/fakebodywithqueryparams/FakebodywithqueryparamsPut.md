@@ -11,16 +11,16 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakebodywithqueryparamsPut1](#fakebodywithqueryparamsput1)<br>The class that has a put method to call the endpoint |
-| static class | [FakebodywithqueryparamsPutRequest](#fakebodywithqueryparamsputrequest)<br>The final request inputs class |
-| static class | [FakebodywithqueryparamsPutNullableRequest](#fakebodywithqueryparamsputnullablerequest)<br>The initial request inputs class |
+| static class | [Put](#put)<br>The class that has a put method to call the endpoint |
+| static class | [PutRequest](#putrequest)<br>The final request inputs class |
+| static class | [PutNullableRequest](#putnullablerequest)<br>The initial request inputs class |
 | static class | [Put00RequestBuilder](#put00requestbuilder)<br>A builder for the request input class |
 | static class | [Put01RequestBuilder](#put01requestbuilder)<br>A builder for the request input class |
 | static class | [Put10RequestBuilder](#put10requestbuilder)<br>A builder for the request input class |
 | static class | [PutRequestBuilder](#putrequestbuilder)<br>A builder for the request input class |
 
-## FakebodywithqueryparamsPut1
-public static class FakebodywithqueryparamsPut1 extends ApiClient.ApiClient1 implements FakebodywithqueryparamsPutOperation<br>
+### Put
+public static class Put extends ApiClient.ApiClient1 implements PutOperation<br>
 
 a class that allows one to call the endpoint using a method named put
 
@@ -70,7 +70,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakebodywithqueryparamsPut.FakebodywithqueryparamsPut1 apiClient = new FakebodywithqueryparamsPut.FakebodywithqueryparamsPut1(apiConfiguration, schemaConfiguration);
+FakebodywithqueryparamsPut.Put apiClient = new FakebodywithqueryparamsPut.Put(apiConfiguration, schemaConfiguration);
 
 
 User1BoxedMap requestBodyPayload =
@@ -109,7 +109,7 @@ QueryParameters.QueryParametersMap queryParameters =
     schemaConfiguration
 );
 
-var request = new PutRequestBuilder()
+var request = new FakebodywithqueryparamsPut.PutRequestBuilder()
     .requestBody(requestBody)
     .queryParameters(queryParameters)
     .build();
@@ -136,12 +136,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakebodywithqueryparams/put/Responses.md#endpointresponse) | put([FakebodywithqueryparamsPutRequest](#fakebodywithqueryparamsputrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakebodywithqueryparams/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
 ## FakebodywithqueryparamsPutRequest
 public static class FakebodywithqueryparamsPutRequest<br>
@@ -156,8 +156,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## FakebodywithqueryparamsPutNullableRequest
-public static class FakebodywithqueryparamsPutNullableRequest<br>
+## PutNullableRequest
+public static class PutNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -182,7 +182,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakebodywithqueryparamsPutRequest](#fakebodywithqueryparamsputrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put00RequestBuilder](#put00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Put00RequestBuilder](#put00requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

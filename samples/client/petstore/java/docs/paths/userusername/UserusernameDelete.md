@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [UserusernameDelete1](#userusernamedelete1)<br>The class that has a delete method to call the endpoint |
-| static class | [UserusernameDeleteRequest](#userusernamedeleterequest)<br>The final request inputs class |
-| static class | [UserusernameDeleteNullableRequest](#userusernamedeletenullablerequest)<br>The initial request inputs class |
+| static class | [Delete](#delete)<br>The class that has a delete method to call the endpoint |
+| static class | [DeleteRequest](#deleterequest)<br>The final request inputs class |
+| static class | [DeleteNullableRequest](#deletenullablerequest)<br>The initial request inputs class |
 | static class | [Delete0RequestBuilder](#delete0requestbuilder)<br>A builder for the request input class |
 | static class | [DeleteRequestBuilder](#deleterequestbuilder)<br>A builder for the request input class |
 
-## UserusernameDelete1
-public static class UserusernameDelete1 extends ApiClient.ApiClient1 implements UserusernameDeleteOperation<br>
+### Delete
+public static class Delete extends ApiClient.ApiClient1 implements DeleteOperation<br>
 
 a class that allows one to call the endpoint using a method named delete
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UserusernameDelete.UserusernameDelete1 apiClient = new UserusernameDelete.UserusernameDelete1(apiConfiguration, schemaConfiguration);
+UserusernameDelete.Delete apiClient = new UserusernameDelete.Delete(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -80,7 +80,7 @@ PathParameters.PathParametersMap pathParameters =
     schemaConfiguration
 );
 
-var request = new DeleteRequestBuilder()
+var request = new UserusernameDelete.DeleteRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
@@ -109,12 +109,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDelete1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/userusername/delete/Responses.md#endpointresponse) | delete([UserusernameDeleteRequest](#userusernamedeleterequest) request) |
+| [Responses.EndpointResponse](../../paths/userusername/delete/Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
 
 ## UserusernameDeleteRequest
 public static class UserusernameDeleteRequest<br>
@@ -128,8 +128,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## UserusernameDeleteNullableRequest
-public static class UserusernameDeleteNullableRequest<br>
+## DeleteNullableRequest
+public static class DeleteNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -153,7 +153,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernameDeleteRequest](#userusernamedeleterequest) | build()<br>Returns the request input used to call an endpoint method |
+| [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete0RequestBuilder](#delete0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

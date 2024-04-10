@@ -8,9 +8,9 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.Commonparamsubd
 import org.openapijsonschematools.client.paths.commonparamsubdir.CommonparamsubdirPost;
 
 public class Commonparamsubdir extends ApiClient implements
-    CommonparamsubdirDelete.CommonparamsubdirDeleteOperation,
-    CommonparamsubdirGet.CommonparamsubdirGetOperation,
-    CommonparamsubdirPost.CommonparamsubdirPostOperation
+    CommonparamsubdirDelete.DeleteOperation,
+    CommonparamsubdirGet.GetOperation,
+    CommonparamsubdirPost.PostOperation
 {
     public Commonparamsubdir(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

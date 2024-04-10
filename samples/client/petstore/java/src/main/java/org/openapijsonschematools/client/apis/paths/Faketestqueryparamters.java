@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.FaketestqueryparamtersPut;
 
 public class Faketestqueryparamters extends ApiClient implements
-    FaketestqueryparamtersPut.FaketestqueryparamtersPutOperation
+    FaketestqueryparamtersPut.PutOperation
 {
     public Faketestqueryparamters(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
         super(apiConfiguration, schemaConfiguration);

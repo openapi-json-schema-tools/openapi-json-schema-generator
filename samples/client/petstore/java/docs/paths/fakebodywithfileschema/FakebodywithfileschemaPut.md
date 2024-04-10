@@ -11,14 +11,14 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakebodywithfileschemaPut1](#fakebodywithfileschemaput1)<br>The class that has a put method to call the endpoint |
-| static class | [FakebodywithfileschemaPutRequest](#fakebodywithfileschemaputrequest)<br>The final request inputs class |
-| static class | [FakebodywithfileschemaPutNullableRequest](#fakebodywithfileschemaputnullablerequest)<br>The initial request inputs class |
+| static class | [Put](#put)<br>The class that has a put method to call the endpoint |
+| static class | [PutRequest](#putrequest)<br>The final request inputs class |
+| static class | [PutNullableRequest](#putnullablerequest)<br>The initial request inputs class |
 | static class | [Put0RequestBuilder](#put0requestbuilder)<br>A builder for the request input class |
 | static class | [PutRequestBuilder](#putrequestbuilder)<br>A builder for the request input class |
 
-## FakebodywithfileschemaPut1
-public static class FakebodywithfileschemaPut1 extends ApiClient.ApiClient1 implements FakebodywithfileschemaPutOperation<br>
+### Put
+public static class Put extends ApiClient.ApiClient1 implements PutOperation<br>
 
 a class that allows one to call the endpoint using a method named put
 
@@ -67,7 +67,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakebodywithfileschemaPut.FakebodywithfileschemaPut1 apiClient = new FakebodywithfileschemaPut.FakebodywithfileschemaPut1(apiConfiguration, schemaConfiguration);
+FakebodywithfileschemaPut.Put apiClient = new FakebodywithfileschemaPut.Put(apiConfiguration, schemaConfiguration);
 
 
 FileSchemaTestClass1BoxedMap requestBodyPayload =
@@ -82,7 +82,7 @@ FileSchemaTestClass1BoxedMap requestBodyPayload =
 );
 FakebodywithfileschemaPut.SealedRequestBody requestBody = new FakebodywithfileschemaPut.ApplicationjsonRequestBody(requestBodyPayload);
 
-var request = new PutRequestBuilder()
+var request = new FakebodywithfileschemaPut.PutRequestBuilder()
     .requestBody(requestBody)
     .build();
 
@@ -108,12 +108,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithfileschemaPut1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakebodywithfileschema/put/Responses.md#endpointresponse) | put([FakebodywithfileschemaPutRequest](#fakebodywithfileschemaputrequest) request) |
+| [Responses.EndpointResponse](../../paths/fakebodywithfileschema/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
 ## FakebodywithfileschemaPutRequest
 public static class FakebodywithfileschemaPutRequest<br>
@@ -127,8 +127,8 @@ a class that stores the final request inputs
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
-## FakebodywithfileschemaPutNullableRequest
-public static class FakebodywithfileschemaPutNullableRequest<br>
+## PutNullableRequest
+public static class PutNullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -152,7 +152,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakebodywithfileschemaPutRequest](#fakebodywithfileschemaputrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Put0RequestBuilder](#put0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Put0RequestBuilder](#put0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

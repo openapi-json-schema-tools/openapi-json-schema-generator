@@ -11,12 +11,12 @@ A class that contains necessary endpoint classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [FakeGet1](#fakeget1)<br>The class that has a get method to call the endpoint |
-| static class | [FakeGetRequest](#fakegetrequest)<br>The request inputs class |
+| static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| static class | [GetRequest](#getrequest)<br>The request inputs class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-## FakeGet1
-public static class FakeGet1 extends ApiClient.ApiClient1 implements FakeGetOperation<br>
+### Get
+public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
 
@@ -68,10 +68,10 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeGet.FakeGet1 apiClient = new FakeGet.FakeGet1(apiConfiguration, schemaConfiguration);
+FakeGet.Get apiClient = new FakeGet.Get(apiConfiguration, schemaConfiguration);
 
 
-var request = new GetRequestBuilder().build();
+var request = new FakeGet.GetRequestBuilder().build();
 
 Responses.EndpointResponse response;
 try {
@@ -98,12 +98,12 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeGet1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fake/get/Responses.md#endpointresponse) | get([FakeGetRequest](#fakegetrequest) request) |
+| [Responses.EndpointResponse](../../paths/fake/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## FakeGetRequest
 public static class FakeGetRequest<br>
@@ -132,7 +132,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeGetRequest](#fakegetrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [GetRequestBuilder](#getrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fake/get/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |

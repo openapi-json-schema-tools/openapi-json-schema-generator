@@ -28,11 +28,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Fakeparametercollisions1ababselfabPost {
-    private static class Fakeparametercollisions1ababselfabPostProvider {
+    private static class PostProvider {
         private static final String method = "post";
 
         public static Responses.EndpointResponse post(
-            Fakeparametercollisions1ababselfabPostRequest request,
+            PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -90,12 +90,12 @@ public class Fakeparametercollisions1ababselfabPost {
         }
     }
 
-    public interface Fakeparametercollisions1ababselfabPostOperation {
+    public interface PostOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(Fakeparametercollisions1ababselfabPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return Fakeparametercollisions1ababselfabPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -108,13 +108,13 @@ public class Fakeparametercollisions1ababselfabPost {
         }
     }
 
-    public static class Fakeparametercollisions1ababselfabPost1 extends ApiClient implements Fakeparametercollisions1ababselfabPostOperation {
-        public Fakeparametercollisions1ababselfabPost1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public static class Post extends ApiClient implements Fakeparametercollisions1ababselfabPostOperation {
+        public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
 
-    public static class Fakeparametercollisions1ababselfabPostRequest {
+    public static class PostRequest {
         public PathParameters.PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
@@ -123,7 +123,7 @@ public class Fakeparametercollisions1ababselfabPost {
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
-        public Fakeparametercollisions1ababselfabPostRequest(
+        public PostRequest(
             PathParameters.PathParametersMap pathParameters,
             RequestBody.@Nullable SealedRequestBody requestBody,
             HeaderParameters.@Nullable HeaderParametersMap headerParameters,
@@ -142,7 +142,7 @@ public class Fakeparametercollisions1ababselfabPost {
         }
     }
 
-    public static class Fakeparametercollisions1ababselfabPostNullableRequest {
+    public static class PostNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RequestBody.@Nullable SealedRequestBody requestBody;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
