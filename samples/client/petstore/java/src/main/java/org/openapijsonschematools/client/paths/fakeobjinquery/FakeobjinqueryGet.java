@@ -71,8 +71,8 @@ public class FakeobjinqueryGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse objectInQuery(FakeobjinqueryGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeobjinqueryGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse objectInQuery(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -89,7 +89,7 @@ public class FakeobjinqueryGet {
     }
 
     public interface SetterForQueryParameters <T> {
-        FakeobjinqueryGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterQueryParameters(FakeobjinqueryGetRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -99,7 +99,7 @@ public class FakeobjinqueryGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakeobjinqueryGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakeobjinqueryGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -109,7 +109,7 @@ public class FakeobjinqueryGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakeobjinqueryGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakeobjinqueryGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -119,29 +119,29 @@ public class FakeobjinqueryGet {
     }
 
     public static class GetRequestBuilder implements SetterForQueryParameters<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakeobjinqueryGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakeobjinqueryGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakeobjinqueryGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakeobjinqueryGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterQueryParameters(FakeobjinqueryGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterQueryParameters(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakeobjinqueryGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakeobjinqueryGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

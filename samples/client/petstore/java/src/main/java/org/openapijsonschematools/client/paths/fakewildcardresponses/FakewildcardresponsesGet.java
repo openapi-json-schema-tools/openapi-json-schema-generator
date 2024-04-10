@@ -62,8 +62,8 @@ public class FakewildcardresponsesGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse wildCardResponses(FakewildcardresponsesGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakewildcardresponsesGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse wildCardResponses(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -79,7 +79,7 @@ public class FakewildcardresponsesGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakewildcardresponsesGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakewildcardresponsesGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -89,7 +89,7 @@ public class FakewildcardresponsesGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakewildcardresponsesGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakewildcardresponsesGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -99,25 +99,25 @@ public class FakewildcardresponsesGet {
     }
 
     public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakewildcardresponsesGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakewildcardresponsesGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakewildcardresponsesGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakewildcardresponsesGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakewildcardresponsesGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakewildcardresponsesGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

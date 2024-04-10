@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fake;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fake.patch.RequestBody;
+import org.openapijsonschematools.client.paths.fake.patch.FakePatchRequestBody;
 import org.openapijsonschematools.client.paths.fake.patch.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -34,7 +34,7 @@ public class FakePatch {
         ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
-            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+            SerializedRequestBody serializedRequestBody = new FakePatchRequestBody.FakePatchRequestBody1().serialize(
                 request.requestBody
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -71,8 +71,8 @@ public class FakePatch {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse clientModel(FakePatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakePatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse clientModel(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -83,12 +83,12 @@ public class FakePatch {
     }
 
     public static class PatchRequest {
-        public RequestBody.SealedRequestBody requestBody;
+        public FakePatchRequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PatchRequest(
-            RequestBody.SealedRequestBody requestBody,
+            FakePatchRequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -99,13 +99,13 @@ public class FakePatch {
     }
 
     public static class PatchNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakePatchRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
-        FakePatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterServerIndex(FakePatchNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -115,7 +115,7 @@ public class FakePatch {
     }
 
     public interface SetterForTimeout <T> {
-        FakePatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterTimeout(FakePatchNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -125,9 +125,9 @@ public class FakePatch {
     }
 
     public interface SetterForRequestBody <T> {
-        FakePatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterRequestBody(FakePatchNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakePatchRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -135,13 +135,13 @@ public class FakePatch {
     }
 
     public static class Patch0RequestBuilder implements SetterForServerIndex<Patch0RequestBuilder>, SetterForTimeout<Patch0RequestBuilder> {
-        private final FakePatchNullableRequest instance;
+        private final PatchNullableRequest instance;
 
-        public Patch0RequestBuilder(FakePatchNullableRequest instance) {
+        public Patch0RequestBuilder(PatchNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakePatchRequest build() {
+        public PatchRequest build() {
             var requestBody = instance.requestBody;
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -153,30 +153,30 @@ public class FakePatch {
             );
         }
 
-        public FakePatchNullableRequest getInstance() {
+        public PatchNullableRequest getInstance() {
             return instance;
         }
 
-        public Patch0RequestBuilder getBuilderAfterServerIndex(FakePatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterServerIndex(PatchNullableRequest instance) {
             return this;
         }
 
-        public Patch0RequestBuilder getBuilderAfterTimeout(FakePatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterTimeout(PatchNullableRequest instance) {
             return this;
         }
     }
     public static class PatchRequestBuilder implements SetterForRequestBody<Patch0RequestBuilder> {
-        private final FakePatchNullableRequest instance;
+        private final PatchNullableRequest instance;
 
         public PatchRequestBuilder() {
-            this.instance = new FakePatchNullableRequest();
+            this.instance = new PatchNullableRequest();
         }
 
-        public FakePatchNullableRequest getInstance() {
+        public PatchNullableRequest getInstance() {
             return instance;
         }
 
-        public Patch0RequestBuilder getBuilderAfterRequestBody(FakePatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterRequestBody(PatchNullableRequest instance) {
             return new Patch0RequestBuilder(instance);
         }
     }

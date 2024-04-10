@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakerefsnumber;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakerefsnumber.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakerefsnumber.post.FakerefsnumberPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefsnumber.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakerefsnumberPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakerefsnumberPostRequestBody.FakerefsnumberPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakerefsnumberPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse numberWithValidations(FakerefsnumberPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakerefsnumberPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse numberWithValidations(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakerefsnumberPost {
     }
 
     public static class PostRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakerefsnumberPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakerefsnumberPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterRequestBody(FakerefsnumberPostRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakerefsnumberPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakerefsnumberPost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakerefsnumberPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterServerIndex(FakerefsnumberPostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakerefsnumberPost {
     }
 
     public interface SetterForTimeout <T> {
-        FakerefsnumberPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterTimeout(FakerefsnumberPostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakerefsnumberPost {
     }
 
     public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
-        private final FakerefsnumberPostRequest instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakerefsnumberPostRequest();
+            this.instance = new PostRequest();
         }
 
-        public FakerefsnumberPostRequest build() {
+        public PostRequest build() {
             return instance;
         }
 
-        public FakerefsnumberPostRequest getInstance() {
+        public PostRequest getInstance() {
             return instance;
         }
 
-        public PostRequestBuilder getBuilderAfterRequestBody(FakerefsnumberPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterServerIndex(FakerefsnumberPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterTimeout(FakerefsnumberPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

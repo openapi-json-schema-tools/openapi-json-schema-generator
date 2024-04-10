@@ -68,8 +68,8 @@ public class FakequeryparamwithjsoncontenttypeGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse queryParamWithJsonContentType(FakequeryparamwithjsoncontenttypeGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakequeryparamwithjsoncontenttypeGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse queryParamWithJsonContentType(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -102,7 +102,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakequeryparamwithjsoncontenttypeGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(FakequeryparamwithjsoncontenttypeGetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -112,7 +112,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakequeryparamwithjsoncontenttypeGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterTimeout(FakequeryparamwithjsoncontenttypeGetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -122,7 +122,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
     }
 
     public interface SetterForQueryParameters <T> {
-        FakequeryparamwithjsoncontenttypeGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(FakequeryparamwithjsoncontenttypeGetNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -132,13 +132,13 @@ public class FakequeryparamwithjsoncontenttypeGet {
     }
 
     public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
-        private final FakequeryparamwithjsoncontenttypeGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
-        public Get0RequestBuilder(FakequeryparamwithjsoncontenttypeGetNullableRequest instance) {
+        public Get0RequestBuilder(GetNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakequeryparamwithjsoncontenttypeGetRequest build() {
+        public GetRequest build() {
             var queryParameters = instance.queryParameters;
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -150,30 +150,30 @@ public class FakequeryparamwithjsoncontenttypeGet {
             );
         }
 
-        public FakequeryparamwithjsoncontenttypeGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterServerIndex(FakequeryparamwithjsoncontenttypeGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterServerIndex(GetNullableRequest instance) {
             return this;
         }
 
-        public Get0RequestBuilder getBuilderAfterTimeout(FakequeryparamwithjsoncontenttypeGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterTimeout(GetNullableRequest instance) {
             return this;
         }
     }
     public static class GetRequestBuilder implements SetterForQueryParameters<Get0RequestBuilder> {
-        private final FakequeryparamwithjsoncontenttypeGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakequeryparamwithjsoncontenttypeGetNullableRequest();
+            this.instance = new GetNullableRequest();
         }
 
-        public FakequeryparamwithjsoncontenttypeGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterQueryParameters(FakequeryparamwithjsoncontenttypeGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterQueryParameters(GetNullableRequest instance) {
             return new Get0RequestBuilder(instance);
         }
     }

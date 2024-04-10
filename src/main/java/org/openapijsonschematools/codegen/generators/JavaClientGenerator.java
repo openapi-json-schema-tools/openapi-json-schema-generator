@@ -1104,7 +1104,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
         if (pathPieces.length == 5) {
             // #/paths/somePath/verb/requestBody
-            return toModelName(componentName, null);
+            String pathClassName = getPathClassNamePrefix(jsonPath);
+            return pathClassName + "RequestBody";
         }
         return toModuleFilename(componentName, null);
     }
@@ -2581,12 +2582,19 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return builders;
     }
 
+    private String getPathClassNamePrefix(String jsonPath) {
+        // #/paths/somePath/get -> SomepathGet
+        String[] pathPieces = jsonPath.split("/");
+        String pathJsonPath = "#/paths/"+pathPieces[2];
+        String pathClassName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
+        return pathClassName + StringUtils.capitalize(pathPieces[3]);
+    }
+
     @Override
     public String toOperationFilename(String name, String jsonPath) {
-        int lastSlash = jsonPath.lastIndexOf("/");
         String[] pathPieces = jsonPath.split("/");
-        String pathJsonPath = jsonPath.substring(0, lastSlash);
-        String pathClassName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[pathPieces.length-2]), pathJsonPath);
+        String pathJsonPath = "#/paths/"+pathPieces[2];
+        String pathClassName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
         String operationFileName = pathClassName + StringUtils.capitalize(name);
         return operationFileName;
     }
@@ -2598,8 +2606,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 return getSchemaPascalCaseName(lastJsonPathFragment, jsonPath, true);
             case PATH:
                 return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
-            case MISC:
             case REQUEST_BODY:
+                if (jsonPath.startsWith("#/paths")) {
+                    String prefix = getPathClassNamePrefix(jsonPath);
+                    return prefix + "RequestBody";
+                }
+                return toModelName(lastJsonPathFragment, jsonPath);
+            case MISC:
             case HEADER:
             case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
@@ -2634,13 +2647,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                             return pathKey.pascalCase + "Server"+ pathPieces[4];
                         }
                     } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 5 && pathPieces[4].equals("servers")) {
-                        CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
+                        String prefix = getPathClassNamePrefix(jsonPath);
                         if (pathPieces.length == 5) {
                             // #/paths/somePath/get/servers
-                            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "ServerInfo";
+                            return prefix + "ServerInfo";
                         } else {
                             // #/paths/somePath/get/servers/0
-                            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "Server" + pathPieces[5];
+                            return prefix + "Server" + pathPieces[5];
                         }
                     }
                 }
@@ -3189,12 +3202,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
         } else if (pathPieces.length == 5) {
             // #/paths/somePath/verb/security
-            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
-            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityInfo";
+            String prefix = getPathClassNamePrefix(jsonPath);
+            return prefix + "SecurityInfo";
         } else if (pathPieces.length == 6) {
             // #/paths/somePath/verb/security/0
-            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
-            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+            String prefix = getPathClassNamePrefix(jsonPath);
+            return prefix + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
         }
         return null;
     }

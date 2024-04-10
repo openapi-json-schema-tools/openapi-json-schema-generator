@@ -62,8 +62,8 @@ public class UserlogoutGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse logoutUser(UserlogoutGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UserlogoutGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse logoutUser(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -79,7 +79,7 @@ public class UserlogoutGet {
     }
 
     public interface SetterForServerIndex <T> {
-        UserlogoutGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(UserlogoutGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -89,7 +89,7 @@ public class UserlogoutGet {
     }
 
     public interface SetterForTimeout <T> {
-        UserlogoutGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(UserlogoutGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -99,25 +99,25 @@ public class UserlogoutGet {
     }
 
     public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final UserlogoutGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new UserlogoutGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public UserlogoutGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public UserlogoutGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(UserlogoutGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(UserlogoutGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

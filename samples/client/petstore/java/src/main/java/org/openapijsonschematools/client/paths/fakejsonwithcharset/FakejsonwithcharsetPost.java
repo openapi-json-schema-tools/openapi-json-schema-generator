@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakejsonwithcharset;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.FakejsonwithcharsetPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakejsonwithcharsetPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakejsonwithcharsetPostRequestBody.FakejsonwithcharsetPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakejsonwithcharsetPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse jsonWithCharset(FakejsonwithcharsetPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakejsonwithcharsetPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse jsonWithCharset(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakejsonwithcharsetPost {
     }
 
     public static class PostRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakejsonwithcharsetPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakejsonwithcharsetPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterRequestBody(FakejsonwithcharsetPostRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakejsonwithcharsetPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakejsonwithcharsetPost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakejsonwithcharsetPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterServerIndex(FakejsonwithcharsetPostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakejsonwithcharsetPost {
     }
 
     public interface SetterForTimeout <T> {
-        FakejsonwithcharsetPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterTimeout(FakejsonwithcharsetPostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakejsonwithcharsetPost {
     }
 
     public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
-        private final FakejsonwithcharsetPostRequest instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakejsonwithcharsetPostRequest();
+            this.instance = new PostRequest();
         }
 
-        public FakejsonwithcharsetPostRequest build() {
+        public PostRequest build() {
             return instance;
         }
 
-        public FakejsonwithcharsetPostRequest getInstance() {
+        public PostRequest getInstance() {
             return instance;
         }
 
-        public PostRequestBuilder getBuilderAfterRequestBody(FakejsonwithcharsetPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterServerIndex(FakejsonwithcharsetPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterTimeout(FakejsonwithcharsetPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

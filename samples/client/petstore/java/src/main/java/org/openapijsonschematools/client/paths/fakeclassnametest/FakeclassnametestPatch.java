@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.fakeclassnametest;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchSecurityInfo;
-import org.openapijsonschematools.client.paths.fakeclassnametest.patch.RequestBody;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchRequestBody;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -37,7 +37,7 @@ public class FakeclassnametestPatch {
         ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
-            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+            SerializedRequestBody serializedRequestBody = new FakeclassnametestPatchRequestBody.FakeclassnametestPatchRequestBody1().serialize(
                 request.requestBody
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -84,8 +84,8 @@ public class FakeclassnametestPatch {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse classname(FakeclassnametestPatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeclassnametestPatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse classname(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -96,13 +96,13 @@ public class FakeclassnametestPatch {
     }
 
     public static class PatchRequest {
-        public RequestBody.SealedRequestBody requestBody;
+        public FakeclassnametestPatchRequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PatchRequest(
-            RequestBody.SealedRequestBody requestBody,
+            FakeclassnametestPatchRequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -115,14 +115,14 @@ public class FakeclassnametestPatch {
     }
 
     public static class PatchNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakeclassnametestPatchRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
-        FakeclassnametestPatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterServerIndex(FakeclassnametestPatchNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -132,7 +132,7 @@ public class FakeclassnametestPatch {
     }
 
     public interface SetterForSecurityIndex <T> {
-        FakeclassnametestPatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterSecurityIndex(FakeclassnametestPatchNullableRequest instance);
         default T securityIndex(FakeclassnametestPatchSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
@@ -142,7 +142,7 @@ public class FakeclassnametestPatch {
     }
 
     public interface SetterForTimeout <T> {
-        FakeclassnametestPatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterTimeout(FakeclassnametestPatchNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -152,9 +152,9 @@ public class FakeclassnametestPatch {
     }
 
     public interface SetterForRequestBody <T> {
-        FakeclassnametestPatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterRequestBody(FakeclassnametestPatchNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakeclassnametestPatchRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -162,13 +162,13 @@ public class FakeclassnametestPatch {
     }
 
     public static class Patch0RequestBuilder implements SetterForServerIndex<Patch0RequestBuilder>, SetterForSecurityIndex<Patch0RequestBuilder>, SetterForTimeout<Patch0RequestBuilder> {
-        private final FakeclassnametestPatchNullableRequest instance;
+        private final PatchNullableRequest instance;
 
-        public Patch0RequestBuilder(FakeclassnametestPatchNullableRequest instance) {
+        public Patch0RequestBuilder(PatchNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakeclassnametestPatchRequest build() {
+        public PatchRequest build() {
             var requestBody = instance.requestBody;
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -181,34 +181,34 @@ public class FakeclassnametestPatch {
             );
         }
 
-        public FakeclassnametestPatchNullableRequest getInstance() {
+        public PatchNullableRequest getInstance() {
             return instance;
         }
 
-        public Patch0RequestBuilder getBuilderAfterServerIndex(FakeclassnametestPatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterServerIndex(PatchNullableRequest instance) {
             return this;
         }
 
-        public Patch0RequestBuilder getBuilderAfterSecurityIndex(FakeclassnametestPatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterSecurityIndex(PatchNullableRequest instance) {
             return this;
         }
 
-        public Patch0RequestBuilder getBuilderAfterTimeout(FakeclassnametestPatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterTimeout(PatchNullableRequest instance) {
             return this;
         }
     }
     public static class PatchRequestBuilder implements SetterForRequestBody<Patch0RequestBuilder> {
-        private final FakeclassnametestPatchNullableRequest instance;
+        private final PatchNullableRequest instance;
 
         public PatchRequestBuilder() {
-            this.instance = new FakeclassnametestPatchNullableRequest();
+            this.instance = new PatchNullableRequest();
         }
 
-        public FakeclassnametestPatchNullableRequest getInstance() {
+        public PatchNullableRequest getInstance() {
             return instance;
         }
 
-        public Patch0RequestBuilder getBuilderAfterRequestBody(FakeclassnametestPatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterRequestBody(PatchNullableRequest instance) {
             return new Patch0RequestBuilder(instance);
         }
     }

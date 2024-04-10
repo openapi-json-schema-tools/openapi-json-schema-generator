@@ -31,7 +31,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.RequestBody;
+import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.FakeadditionalpropertieswitharrayofenumsGetRequestBody;
 import org.openapijsonschematools.client.components.schemas.AdditionalPropertiesWithArrayOfEnums;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
@@ -109,7 +109,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeadditionalpropertieswitharrayofenums/get/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [FakeadditionalpropertieswitharrayofenumsGetRequestBody.@Nullable SealedRequestBody](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -127,7 +127,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [GetRequestBuilder](#getrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeadditionalpropertieswitharrayofenums/get/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | requestBody([FakeadditionalpropertieswitharrayofenumsGetRequestBody.SealedRequestBody](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

@@ -36,7 +36,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.RequestBody;
+import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutRequestBody;
 import org.openapijsonschematools.client.components.schemas.User;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.QueryParameters;
 import org.openapijsonschematools.client.servers.Server0;
@@ -151,7 +151,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
 | [QueryParameters.QueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -164,7 +164,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakebodywithqueryparams/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [FakebodywithqueryparamsPutRequestBody.@Nullable SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
@@ -214,7 +214,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put00RequestBuilder](#put00requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Put00RequestBuilder](#put00requestbuilder) | requestBody([FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 ## PutRequestBuilder
 public static class PutRequestBuilder<br>
@@ -229,7 +229,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put01RequestBuilder](#put01requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Put01RequestBuilder](#put01requestbuilder) | requestBody([FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 | [Put10RequestBuilder](#put10requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -86,8 +86,8 @@ public class FakeDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse groupParameters(FakeDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse groupParameters(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -128,7 +128,7 @@ public class FakeDelete {
     }
 
     public interface SetterForServerIndex <T> {
-        FakeDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterServerIndex(FakeDeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -138,7 +138,7 @@ public class FakeDelete {
     }
 
     public interface SetterForSecurityIndex <T> {
-        FakeDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterSecurityIndex(FakeDeleteNullableRequest instance);
         default T securityIndex(FakeDeleteSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
@@ -148,7 +148,7 @@ public class FakeDelete {
     }
 
     public interface SetterForTimeout <T> {
-        FakeDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterTimeout(FakeDeleteNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -158,7 +158,7 @@ public class FakeDelete {
     }
 
     public interface SetterForHeaderParameters <T> {
-        FakeDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(FakeDeleteNullableRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
@@ -168,7 +168,7 @@ public class FakeDelete {
     }
 
     public interface SetterForQueryParameters <T> {
-        FakeDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterQueryParameters(FakeDeleteNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -178,13 +178,13 @@ public class FakeDelete {
     }
 
     public static class Delete00RequestBuilder implements SetterForServerIndex<Delete00RequestBuilder>, SetterForSecurityIndex<Delete00RequestBuilder>, SetterForTimeout<Delete00RequestBuilder> {
-        private final FakeDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete00RequestBuilder(FakeDeleteNullableRequest instance) {
+        public Delete00RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakeDeleteRequest build() {
+        public DeleteRequest build() {
             var headerParameters = instance.headerParameters;
             if (headerParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -202,68 +202,68 @@ public class FakeDelete {
             );
         }
 
-        public FakeDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete00RequestBuilder getBuilderAfterServerIndex(FakeDeleteNullableRequest instance) {
+        public Delete00RequestBuilder getBuilderAfterServerIndex(DeleteNullableRequest instance) {
             return this;
         }
 
-        public Delete00RequestBuilder getBuilderAfterSecurityIndex(FakeDeleteNullableRequest instance) {
+        public Delete00RequestBuilder getBuilderAfterSecurityIndex(DeleteNullableRequest instance) {
             return this;
         }
 
-        public Delete00RequestBuilder getBuilderAfterTimeout(FakeDeleteNullableRequest instance) {
+        public Delete00RequestBuilder getBuilderAfterTimeout(DeleteNullableRequest instance) {
             return this;
         }
     }
     public static class Delete01RequestBuilder implements SetterForQueryParameters<Delete00RequestBuilder> {
-        private final FakeDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete01RequestBuilder(FakeDeleteNullableRequest instance) {
+        public Delete01RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakeDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete00RequestBuilder getBuilderAfterQueryParameters(FakeDeleteNullableRequest instance) {
+        public Delete00RequestBuilder getBuilderAfterQueryParameters(DeleteNullableRequest instance) {
             return new Delete00RequestBuilder(instance);
         }
     }
     public static class Delete10RequestBuilder implements SetterForHeaderParameters<Delete00RequestBuilder> {
-        private final FakeDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete10RequestBuilder(FakeDeleteNullableRequest instance) {
+        public Delete10RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakeDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete00RequestBuilder getBuilderAfterHeaderParameters(FakeDeleteNullableRequest instance) {
+        public Delete00RequestBuilder getBuilderAfterHeaderParameters(DeleteNullableRequest instance) {
             return new Delete00RequestBuilder(instance);
         }
     }
     public static class DeleteRequestBuilder implements SetterForHeaderParameters<Delete01RequestBuilder>, SetterForQueryParameters<Delete10RequestBuilder> {
-        private final FakeDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
         public DeleteRequestBuilder() {
-            this.instance = new FakeDeleteNullableRequest();
+            this.instance = new DeleteNullableRequest();
         }
 
-        public FakeDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete01RequestBuilder getBuilderAfterHeaderParameters(FakeDeleteNullableRequest instance) {
+        public Delete01RequestBuilder getBuilderAfterHeaderParameters(DeleteNullableRequest instance) {
             return new Delete01RequestBuilder(instance);
         }
 
-        public Delete10RequestBuilder getBuilderAfterQueryParameters(FakeDeleteNullableRequest instance) {
+        public Delete10RequestBuilder getBuilderAfterQueryParameters(DeleteNullableRequest instance) {
             return new Delete10RequestBuilder(instance);
         }
     }

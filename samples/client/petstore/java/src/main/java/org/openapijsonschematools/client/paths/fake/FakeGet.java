@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fake;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fake.get.RequestBody;
+import org.openapijsonschematools.client.paths.fake.get.FakeGetRequestBody;
 import org.openapijsonschematools.client.paths.fake.get.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.get.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
@@ -40,7 +40,7 @@ public class FakeGet {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakeGetRequestBody.FakeGetRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -91,8 +91,8 @@ public class FakeGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse enumParameters(FakeGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse enumParameters(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -103,7 +103,7 @@ public class FakeGet {
     }
 
     public static class GetRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakeGetRequestBody.@Nullable SealedRequestBody requestBody;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
@@ -111,9 +111,9 @@ public class FakeGet {
     }
 
     public interface SetterForRequestBody <T> {
-        FakeGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterRequestBody(FakeGetRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakeGetRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -121,7 +121,7 @@ public class FakeGet {
     }
 
     public interface SetterForHeaderParameters <T> {
-        FakeGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterHeaderParameters(FakeGetRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
@@ -131,7 +131,7 @@ public class FakeGet {
     }
 
     public interface SetterForQueryParameters <T> {
-        FakeGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterQueryParameters(FakeGetRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -141,7 +141,7 @@ public class FakeGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakeGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakeGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -151,7 +151,7 @@ public class FakeGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakeGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakeGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -161,37 +161,37 @@ public class FakeGet {
     }
 
     public static class GetRequestBuilder implements SetterForRequestBody<GetRequestBuilder>, SetterForHeaderParameters<GetRequestBuilder>, SetterForQueryParameters<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakeGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakeGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakeGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakeGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterRequestBody(FakeGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterRequestBody(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterHeaderParameters(FakeGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterHeaderParameters(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterQueryParameters(FakeGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterQueryParameters(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakeGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakeGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

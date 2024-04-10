@@ -62,8 +62,8 @@ public class FakeredirectionGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse redirection(FakeredirectionGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeredirectionGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse redirection(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -79,7 +79,7 @@ public class FakeredirectionGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakeredirectionGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakeredirectionGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -89,7 +89,7 @@ public class FakeredirectionGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakeredirectionGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakeredirectionGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -99,25 +99,25 @@ public class FakeredirectionGet {
     }
 
     public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakeredirectionGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakeredirectionGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakeredirectionGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakeredirectionGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakeredirectionGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakeredirectionGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

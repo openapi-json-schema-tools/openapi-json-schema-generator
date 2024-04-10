@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.RequestBody;
+import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.FakebodywithfileschemaPutRequestBody;
 import org.openapijsonschematools.client.components.schemas.FileSchemaTestClass;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
@@ -123,7 +123,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.SealedRequestBody](../../paths/fakebodywithfileschema/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [FakebodywithfileschemaPutRequestBody.SealedRequestBody](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -135,7 +135,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakebodywithfileschema/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [FakebodywithfileschemaPutRequestBody.@Nullable SealedRequestBody](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -169,6 +169,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put0RequestBuilder](#put0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakebodywithfileschema/put/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | requestBody([FakebodywithfileschemaPutRequestBody.SealedRequestBody](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

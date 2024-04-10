@@ -31,7 +31,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.fake.get.RequestBody;
+import org.openapijsonschematools.client.paths.fake.get.FakeGetRequestBody;
 import org.openapijsonschematools.client.paths.fake.get.requestbody.content.applicationxwwwformurlencoded.ApplicationxwwwformurlencodedSchema;
 import org.openapijsonschematools.client.paths.fake.get.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.get.QueryParameters;
@@ -113,7 +113,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fake/get/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [FakeGetRequestBody.@Nullable SealedRequestBody](../../paths/fake/get/FakeGetRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
@@ -133,7 +133,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [GetRequestBuilder](#getrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fake/get/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | requestBody([FakeGetRequestBody.SealedRequestBody](../../paths/fake/get/FakeGetRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |

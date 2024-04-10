@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.usercreatewithlist.post.RequestBody;
+import org.openapijsonschematools.client.paths.usercreatewithlist.post.UsercreatewithlistPostRequestBody;
 import org.openapijsonschematools.client.components.requestbodies.userarray.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
@@ -116,7 +116,7 @@ ApplicationjsonSchema1BoxedList requestBodyPayload =
     .build(),
     schemaConfiguration
 );
-RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
+UsercreatewithlistPostRequestBody.SealedRequestBody requestBody = new UsercreatewithlistPostRequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
 var request = new UsercreatewithlistPost.PostRequestBuilder()
     .requestBody(requestBody)
@@ -159,7 +159,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.SealedRequestBody](../../paths/usercreatewithlist/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [UsercreatewithlistPostRequestBody.SealedRequestBody](../../paths/usercreatewithlist/post/UsercreatewithlistPostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -171,7 +171,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/usercreatewithlist/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [UsercreatewithlistPostRequestBody.@Nullable SealedRequestBody](../../paths/usercreatewithlist/post/UsercreatewithlistPostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -205,6 +205,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/usercreatewithlist/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | requestBody([UsercreatewithlistPostRequestBody.SealedRequestBody](../../paths/usercreatewithlist/post/UsercreatewithlistPostRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.user;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.user.post.RequestBody;
+import org.openapijsonschematools.client.paths.user.post.UserPostRequestBody;
 import org.openapijsonschematools.client.paths.user.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -34,7 +34,7 @@ public class UserPost {
         ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
-            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+            SerializedRequestBody serializedRequestBody = new UserPostRequestBody.UserPostRequestBody1().serialize(
                 request.requestBody
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -71,8 +71,8 @@ public class UserPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse createUser(UserPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UserPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse createUser(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -83,12 +83,12 @@ public class UserPost {
     }
 
     public static class PostRequest {
-        public RequestBody.SealedRequestBody requestBody;
+        public UserPostRequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            RequestBody.SealedRequestBody requestBody,
+            UserPostRequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -99,13 +99,13 @@ public class UserPost {
     }
 
     public static class PostNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public UserPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
-        UserPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(UserPostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -115,7 +115,7 @@ public class UserPost {
     }
 
     public interface SetterForTimeout <T> {
-        UserPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterTimeout(UserPostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -125,9 +125,9 @@ public class UserPost {
     }
 
     public interface SetterForRequestBody <T> {
-        UserPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterRequestBody(UserPostNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(UserPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -135,13 +135,13 @@ public class UserPost {
     }
 
     public static class Post0RequestBuilder implements SetterForServerIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
-        private final UserPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilder(UserPostNullableRequest instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
         }
 
-        public UserPostRequest build() {
+        public PostRequest build() {
             var requestBody = instance.requestBody;
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -153,30 +153,30 @@ public class UserPost {
             );
         }
 
-        public UserPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterServerIndex(UserPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterTimeout(UserPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }
     public static class PostRequestBuilder implements SetterForRequestBody<Post0RequestBuilder> {
-        private final UserPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new UserPostNullableRequest();
+            this.instance = new PostNullableRequest();
         }
 
-        public UserPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterRequestBody(UserPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterRequestBody(PostNullableRequest instance) {
             return new Post0RequestBuilder(instance);
         }
     }

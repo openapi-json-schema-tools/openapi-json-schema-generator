@@ -80,8 +80,8 @@ public class PetpetidGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse getPetById(PetpetidGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return PetpetidGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse getPetById(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -118,7 +118,7 @@ public class PetpetidGet {
     }
 
     public interface SetterForServerIndex <T> {
-        PetpetidGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(PetpetidGetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -128,7 +128,7 @@ public class PetpetidGet {
     }
 
     public interface SetterForSecurityIndex <T> {
-        PetpetidGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterSecurityIndex(PetpetidGetNullableRequest instance);
         default T securityIndex(PetpetidGetSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
@@ -138,7 +138,7 @@ public class PetpetidGet {
     }
 
     public interface SetterForTimeout <T> {
-        PetpetidGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterTimeout(PetpetidGetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -148,7 +148,7 @@ public class PetpetidGet {
     }
 
     public interface SetterForPathParameters <T> {
-        PetpetidGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(PetpetidGetNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -158,13 +158,13 @@ public class PetpetidGet {
     }
 
     public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForSecurityIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
-        private final PetpetidGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
-        public Get0RequestBuilder(PetpetidGetNullableRequest instance) {
+        public Get0RequestBuilder(GetNullableRequest instance) {
             this.instance = instance;
         }
 
-        public PetpetidGetRequest build() {
+        public GetRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -177,34 +177,34 @@ public class PetpetidGet {
             );
         }
 
-        public PetpetidGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterServerIndex(PetpetidGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterServerIndex(GetNullableRequest instance) {
             return this;
         }
 
-        public Get0RequestBuilder getBuilderAfterSecurityIndex(PetpetidGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterSecurityIndex(GetNullableRequest instance) {
             return this;
         }
 
-        public Get0RequestBuilder getBuilderAfterTimeout(PetpetidGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterTimeout(GetNullableRequest instance) {
             return this;
         }
     }
     public static class GetRequestBuilder implements SetterForPathParameters<Get0RequestBuilder> {
-        private final PetpetidGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new PetpetidGetNullableRequest();
+            this.instance = new GetNullableRequest();
         }
 
-        public PetpetidGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterPathParameters(PetpetidGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterPathParameters(GetNullableRequest instance) {
             return new Get0RequestBuilder(instance);
         }
     }

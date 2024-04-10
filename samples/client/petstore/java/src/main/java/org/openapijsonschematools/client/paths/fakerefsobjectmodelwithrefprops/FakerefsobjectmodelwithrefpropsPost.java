@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.post.FakerefsobjectmodelwithrefpropsPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakerefsobjectmodelwithrefpropsPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakerefsobjectmodelwithrefpropsPostRequestBody.FakerefsobjectmodelwithrefpropsPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakerefsobjectmodelwithrefpropsPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse objectModelWithRefProps(FakerefsobjectmodelwithrefpropsPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakerefsobjectmodelwithrefpropsPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse objectModelWithRefProps(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakerefsobjectmodelwithrefpropsPost {
     }
 
     public static class PostRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakerefsobjectmodelwithrefpropsPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakerefsobjectmodelwithrefpropsPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterRequestBody(FakerefsobjectmodelwithrefpropsPostRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakerefsobjectmodelwithrefpropsPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakerefsobjectmodelwithrefpropsPost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakerefsobjectmodelwithrefpropsPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterServerIndex(FakerefsobjectmodelwithrefpropsPostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakerefsobjectmodelwithrefpropsPost {
     }
 
     public interface SetterForTimeout <T> {
-        FakerefsobjectmodelwithrefpropsPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterTimeout(FakerefsobjectmodelwithrefpropsPostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakerefsobjectmodelwithrefpropsPost {
     }
 
     public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
-        private final FakerefsobjectmodelwithrefpropsPostRequest instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakerefsobjectmodelwithrefpropsPostRequest();
+            this.instance = new PostRequest();
         }
 
-        public FakerefsobjectmodelwithrefpropsPostRequest build() {
+        public PostRequest build() {
             return instance;
         }
 
-        public FakerefsobjectmodelwithrefpropsPostRequest getInstance() {
+        public PostRequest getInstance() {
             return instance;
         }
 
-        public PostRequestBuilder getBuilderAfterRequestBody(FakerefsobjectmodelwithrefpropsPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterServerIndex(FakerefsobjectmodelwithrefpropsPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterTimeout(FakerefsobjectmodelwithrefpropsPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

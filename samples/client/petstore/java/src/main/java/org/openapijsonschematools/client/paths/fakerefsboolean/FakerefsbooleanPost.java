@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakerefsboolean;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakerefsboolean.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakerefsboolean.post.FakerefsbooleanPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefsboolean.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakerefsbooleanPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakerefsbooleanPostRequestBody.FakerefsbooleanPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakerefsbooleanPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse modelBoolean(FakerefsbooleanPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakerefsbooleanPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse modelBoolean(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakerefsbooleanPost {
     }
 
     public static class PostRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakerefsbooleanPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakerefsbooleanPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterRequestBody(FakerefsbooleanPostRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakerefsbooleanPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakerefsbooleanPost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakerefsbooleanPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterServerIndex(FakerefsbooleanPostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakerefsbooleanPost {
     }
 
     public interface SetterForTimeout <T> {
-        FakerefsbooleanPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterTimeout(FakerefsbooleanPostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakerefsbooleanPost {
     }
 
     public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
-        private final FakerefsbooleanPostRequest instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakerefsbooleanPostRequest();
+            this.instance = new PostRequest();
         }
 
-        public FakerefsbooleanPostRequest build() {
+        public PostRequest build() {
             return instance;
         }
 
-        public FakerefsbooleanPostRequest getInstance() {
+        public PostRequest getInstance() {
             return instance;
         }
 
-        public PostRequestBuilder getBuilderAfterRequestBody(FakerefsbooleanPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterServerIndex(FakerefsbooleanPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterTimeout(FakerefsbooleanPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

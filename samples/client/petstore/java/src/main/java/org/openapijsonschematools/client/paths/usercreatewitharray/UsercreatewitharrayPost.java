@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.usercreatewitharray;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.usercreatewitharray.post.RequestBody;
+import org.openapijsonschematools.client.paths.usercreatewitharray.post.UsercreatewitharrayPostRequestBody;
 import org.openapijsonschematools.client.paths.usercreatewitharray.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -34,7 +34,7 @@ public class UsercreatewitharrayPost {
         ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
-            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+            SerializedRequestBody serializedRequestBody = new UsercreatewitharrayPostRequestBody.UsercreatewitharrayPostRequestBody1().serialize(
                 request.requestBody
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -71,8 +71,8 @@ public class UsercreatewitharrayPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse createUsersWithArrayInput(UsercreatewitharrayPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UsercreatewitharrayPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse createUsersWithArrayInput(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -83,12 +83,12 @@ public class UsercreatewitharrayPost {
     }
 
     public static class PostRequest {
-        public RequestBody.SealedRequestBody requestBody;
+        public UsercreatewitharrayPostRequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            RequestBody.SealedRequestBody requestBody,
+            UsercreatewitharrayPostRequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -99,13 +99,13 @@ public class UsercreatewitharrayPost {
     }
 
     public static class PostNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public UsercreatewitharrayPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
-        UsercreatewitharrayPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(UsercreatewitharrayPostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -115,7 +115,7 @@ public class UsercreatewitharrayPost {
     }
 
     public interface SetterForTimeout <T> {
-        UsercreatewitharrayPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterTimeout(UsercreatewitharrayPostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -125,9 +125,9 @@ public class UsercreatewitharrayPost {
     }
 
     public interface SetterForRequestBody <T> {
-        UsercreatewitharrayPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterRequestBody(UsercreatewitharrayPostNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(UsercreatewitharrayPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -135,13 +135,13 @@ public class UsercreatewitharrayPost {
     }
 
     public static class Post0RequestBuilder implements SetterForServerIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
-        private final UsercreatewitharrayPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilder(UsercreatewitharrayPostNullableRequest instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
         }
 
-        public UsercreatewitharrayPostRequest build() {
+        public PostRequest build() {
             var requestBody = instance.requestBody;
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -153,30 +153,30 @@ public class UsercreatewitharrayPost {
             );
         }
 
-        public UsercreatewitharrayPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterServerIndex(UsercreatewitharrayPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterTimeout(UsercreatewitharrayPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }
     public static class PostRequestBuilder implements SetterForRequestBody<Post0RequestBuilder> {
-        private final UsercreatewitharrayPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new UsercreatewitharrayPostNullableRequest();
+            this.instance = new PostNullableRequest();
         }
 
-        public UsercreatewitharrayPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterRequestBody(UsercreatewitharrayPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterRequestBody(PostNullableRequest instance) {
             return new Post0RequestBuilder(instance);
         }
     }

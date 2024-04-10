@@ -74,8 +74,8 @@ public class CommonparamsubdirDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse deleteCommonParam(CommonparamsubdirDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return CommonparamsubdirDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse deleteCommonParam(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -112,7 +112,7 @@ public class CommonparamsubdirDelete {
     }
 
     public interface SetterForHeaderParameters <T> {
-        CommonparamsubdirDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(CommonparamsubdirDeleteNullableRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
@@ -122,7 +122,7 @@ public class CommonparamsubdirDelete {
     }
 
     public interface SetterForServerIndex <T> {
-        CommonparamsubdirDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterServerIndex(CommonparamsubdirDeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -132,7 +132,7 @@ public class CommonparamsubdirDelete {
     }
 
     public interface SetterForTimeout <T> {
-        CommonparamsubdirDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterTimeout(CommonparamsubdirDeleteNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -142,7 +142,7 @@ public class CommonparamsubdirDelete {
     }
 
     public interface SetterForPathParameters <T> {
-        CommonparamsubdirDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(CommonparamsubdirDeleteNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -152,13 +152,13 @@ public class CommonparamsubdirDelete {
     }
 
     public static class Delete0RequestBuilder implements SetterForHeaderParameters<Delete0RequestBuilder>, SetterForServerIndex<Delete0RequestBuilder>, SetterForTimeout<Delete0RequestBuilder> {
-        private final CommonparamsubdirDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete0RequestBuilder(CommonparamsubdirDeleteNullableRequest instance) {
+        public Delete0RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
         }
 
-        public CommonparamsubdirDeleteRequest build() {
+        public DeleteRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -171,34 +171,34 @@ public class CommonparamsubdirDelete {
             );
         }
 
-        public CommonparamsubdirDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete0RequestBuilder getBuilderAfterHeaderParameters(CommonparamsubdirDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterHeaderParameters(DeleteNullableRequest instance) {
             return this;
         }
 
-        public Delete0RequestBuilder getBuilderAfterServerIndex(CommonparamsubdirDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterServerIndex(DeleteNullableRequest instance) {
             return this;
         }
 
-        public Delete0RequestBuilder getBuilderAfterTimeout(CommonparamsubdirDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterTimeout(DeleteNullableRequest instance) {
             return this;
         }
     }
     public static class DeleteRequestBuilder implements SetterForPathParameters<Delete0RequestBuilder> {
-        private final CommonparamsubdirDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
         public DeleteRequestBuilder() {
-            this.instance = new CommonparamsubdirDeleteNullableRequest();
+            this.instance = new DeleteNullableRequest();
         }
 
-        public CommonparamsubdirDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete0RequestBuilder getBuilderAfterPathParameters(CommonparamsubdirDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterPathParameters(DeleteNullableRequest instance) {
             return new Delete0RequestBuilder(instance);
         }
     }

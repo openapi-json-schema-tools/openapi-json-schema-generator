@@ -71,8 +71,8 @@ public class FakerefobjinqueryGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse refObjectInQuery(FakerefobjinqueryGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakerefobjinqueryGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse refObjectInQuery(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -89,7 +89,7 @@ public class FakerefobjinqueryGet {
     }
 
     public interface SetterForQueryParameters <T> {
-        FakerefobjinqueryGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterQueryParameters(FakerefobjinqueryGetRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -99,7 +99,7 @@ public class FakerefobjinqueryGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakerefobjinqueryGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakerefobjinqueryGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -109,7 +109,7 @@ public class FakerefobjinqueryGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakerefobjinqueryGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakerefobjinqueryGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -119,29 +119,29 @@ public class FakerefobjinqueryGet {
     }
 
     public static class GetRequestBuilder implements SetterForQueryParameters<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakerefobjinqueryGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakerefobjinqueryGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakerefobjinqueryGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakerefobjinqueryGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterQueryParameters(FakerefobjinqueryGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterQueryParameters(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakerefobjinqueryGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakerefobjinqueryGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

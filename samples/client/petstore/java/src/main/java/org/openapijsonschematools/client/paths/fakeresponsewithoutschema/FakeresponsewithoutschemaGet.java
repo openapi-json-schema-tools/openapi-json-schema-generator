@@ -62,8 +62,8 @@ public class FakeresponsewithoutschemaGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse responseWithoutSchema(FakeresponsewithoutschemaGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeresponsewithoutschemaGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse responseWithoutSchema(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -79,7 +79,7 @@ public class FakeresponsewithoutschemaGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakeresponsewithoutschemaGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakeresponsewithoutschemaGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -89,7 +89,7 @@ public class FakeresponsewithoutschemaGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakeresponsewithoutschemaGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakeresponsewithoutschemaGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -99,25 +99,25 @@ public class FakeresponsewithoutschemaGet {
     }
 
     public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakeresponsewithoutschemaGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakeresponsewithoutschemaGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakeresponsewithoutschemaGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakeresponsewithoutschemaGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakeresponsewithoutschemaGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakeresponsewithoutschemaGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

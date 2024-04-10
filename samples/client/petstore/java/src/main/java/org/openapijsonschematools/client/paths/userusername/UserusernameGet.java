@@ -67,8 +67,8 @@ public class UserusernameGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse getUserByName(UserusernameGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UserusernameGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse getUserByName(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -101,7 +101,7 @@ public class UserusernameGet {
     }
 
     public interface SetterForServerIndex <T> {
-        UserusernameGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(UserusernameGetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -111,7 +111,7 @@ public class UserusernameGet {
     }
 
     public interface SetterForTimeout <T> {
-        UserusernameGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterTimeout(UserusernameGetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -121,7 +121,7 @@ public class UserusernameGet {
     }
 
     public interface SetterForPathParameters <T> {
-        UserusernameGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(UserusernameGetNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -131,13 +131,13 @@ public class UserusernameGet {
     }
 
     public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
-        private final UserusernameGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
-        public Get0RequestBuilder(UserusernameGetNullableRequest instance) {
+        public Get0RequestBuilder(GetNullableRequest instance) {
             this.instance = instance;
         }
 
-        public UserusernameGetRequest build() {
+        public GetRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -149,30 +149,30 @@ public class UserusernameGet {
             );
         }
 
-        public UserusernameGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterServerIndex(UserusernameGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterServerIndex(GetNullableRequest instance) {
             return this;
         }
 
-        public Get0RequestBuilder getBuilderAfterTimeout(UserusernameGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterTimeout(GetNullableRequest instance) {
             return this;
         }
     }
     public static class GetRequestBuilder implements SetterForPathParameters<Get0RequestBuilder> {
-        private final UserusernameGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new UserusernameGetNullableRequest();
+            this.instance = new GetNullableRequest();
         }
 
-        public UserusernameGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterPathParameters(UserusernameGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterPathParameters(GetNullableRequest instance) {
             return new Get0RequestBuilder(instance);
         }
     }

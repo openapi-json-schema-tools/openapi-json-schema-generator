@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fake;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fake.post.RequestBody;
+import org.openapijsonschematools.client.paths.fake.post.FakePostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.post.FakePostSecurityInfo;
 import org.openapijsonschematools.client.paths.fake.post.Responses;
@@ -40,7 +40,7 @@ public class FakePost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakePostRequestBody.FakePostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -88,8 +88,8 @@ public class FakePost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse endpointParameters(FakePostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakePostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse endpointParameters(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -100,16 +100,16 @@ public class FakePost {
     }
 
     public static class PostRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakePostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakePostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterRequestBody(FakePostRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakePostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -117,7 +117,7 @@ public class FakePost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakePostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterServerIndex(FakePostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -127,7 +127,7 @@ public class FakePost {
     }
 
     public interface SetterForSecurityIndex <T> {
-        FakePostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterSecurityIndex(FakePostRequest instance);
         default T securityIndex(FakePostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
@@ -137,7 +137,7 @@ public class FakePost {
     }
 
     public interface SetterForTimeout <T> {
-        FakePostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterTimeout(FakePostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -147,33 +147,33 @@ public class FakePost {
     }
 
     public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForSecurityIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
-        private final FakePostRequest instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakePostRequest();
+            this.instance = new PostRequest();
         }
 
-        public FakePostRequest build() {
+        public PostRequest build() {
             return instance;
         }
 
-        public FakePostRequest getInstance() {
+        public PostRequest getInstance() {
             return instance;
         }
 
-        public PostRequestBuilder getBuilderAfterRequestBody(FakePostRequest instance) {
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterServerIndex(FakePostRequest instance) {
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterSecurityIndex(FakePostRequest instance) {
+        public PostRequestBuilder getBuilderAfterSecurityIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterTimeout(FakePostRequest instance) {
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

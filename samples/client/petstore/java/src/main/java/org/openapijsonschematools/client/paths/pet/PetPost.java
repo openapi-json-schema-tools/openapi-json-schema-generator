@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.pet;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.post.PetPostSecurityInfo;
-import org.openapijsonschematools.client.paths.pet.post.RequestBody;
+import org.openapijsonschematools.client.paths.pet.post.PetPostRequestBody;
 import org.openapijsonschematools.client.paths.pet.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -37,7 +37,7 @@ public class PetPost {
         ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
-            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+            SerializedRequestBody serializedRequestBody = new PetPostRequestBody.PetPostRequestBody1().serialize(
                 request.requestBody
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -84,8 +84,8 @@ public class PetPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse addPet(PetPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return PetPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse addPet(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -96,13 +96,13 @@ public class PetPost {
     }
 
     public static class PostRequest {
-        public RequestBody.SealedRequestBody requestBody;
+        public PetPostRequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            RequestBody.SealedRequestBody requestBody,
+            PetPostRequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             PetPostSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -115,14 +115,14 @@ public class PetPost {
     }
 
     public static class PostNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public PetPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
-        PetPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(PetPostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -132,7 +132,7 @@ public class PetPost {
     }
 
     public interface SetterForSecurityIndex <T> {
-        PetPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterSecurityIndex(PetPostNullableRequest instance);
         default T securityIndex(PetPostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
@@ -142,7 +142,7 @@ public class PetPost {
     }
 
     public interface SetterForTimeout <T> {
-        PetPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterTimeout(PetPostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -152,9 +152,9 @@ public class PetPost {
     }
 
     public interface SetterForRequestBody <T> {
-        PetPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterRequestBody(PetPostNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(PetPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -162,13 +162,13 @@ public class PetPost {
     }
 
     public static class Post0RequestBuilder implements SetterForServerIndex<Post0RequestBuilder>, SetterForSecurityIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
-        private final PetPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilder(PetPostNullableRequest instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
         }
 
-        public PetPostRequest build() {
+        public PostRequest build() {
             var requestBody = instance.requestBody;
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -181,34 +181,34 @@ public class PetPost {
             );
         }
 
-        public PetPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterServerIndex(PetPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterSecurityIndex(PetPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterSecurityIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterTimeout(PetPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }
     public static class PostRequestBuilder implements SetterForRequestBody<Post0RequestBuilder> {
-        private final PetPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new PetPostNullableRequest();
+            this.instance = new PostNullableRequest();
         }
 
-        public PetPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterRequestBody(PetPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterRequestBody(PostNullableRequest instance) {
             return new Post0RequestBuilder(instance);
         }
     }

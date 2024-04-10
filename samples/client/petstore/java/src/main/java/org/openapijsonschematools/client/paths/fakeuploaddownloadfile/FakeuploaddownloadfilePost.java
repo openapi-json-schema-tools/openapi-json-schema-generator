@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakeuploaddownloadfile;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.FakeuploaddownloadfilePostRequestBody;
 import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -34,7 +34,7 @@ public class FakeuploaddownloadfilePost {
         ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
-            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+            SerializedRequestBody serializedRequestBody = new FakeuploaddownloadfilePostRequestBody.FakeuploaddownloadfilePostRequestBody1().serialize(
                 request.requestBody
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -71,8 +71,8 @@ public class FakeuploaddownloadfilePost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse uploadDownloadFile(FakeuploaddownloadfilePostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeuploaddownloadfilePostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse uploadDownloadFile(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -83,12 +83,12 @@ public class FakeuploaddownloadfilePost {
     }
 
     public static class PostRequest {
-        public RequestBody.SealedRequestBody requestBody;
+        public FakeuploaddownloadfilePostRequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            RequestBody.SealedRequestBody requestBody,
+            FakeuploaddownloadfilePostRequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -99,13 +99,13 @@ public class FakeuploaddownloadfilePost {
     }
 
     public static class PostNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakeuploaddownloadfilePostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
-        FakeuploaddownloadfilePostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(FakeuploaddownloadfilePostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -115,7 +115,7 @@ public class FakeuploaddownloadfilePost {
     }
 
     public interface SetterForTimeout <T> {
-        FakeuploaddownloadfilePostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterTimeout(FakeuploaddownloadfilePostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -125,9 +125,9 @@ public class FakeuploaddownloadfilePost {
     }
 
     public interface SetterForRequestBody <T> {
-        FakeuploaddownloadfilePostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterRequestBody(FakeuploaddownloadfilePostNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakeuploaddownloadfilePostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -135,13 +135,13 @@ public class FakeuploaddownloadfilePost {
     }
 
     public static class Post0RequestBuilder implements SetterForServerIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
-        private final FakeuploaddownloadfilePostNullableRequest instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilder(FakeuploaddownloadfilePostNullableRequest instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakeuploaddownloadfilePostRequest build() {
+        public PostRequest build() {
             var requestBody = instance.requestBody;
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -153,30 +153,30 @@ public class FakeuploaddownloadfilePost {
             );
         }
 
-        public FakeuploaddownloadfilePostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterServerIndex(FakeuploaddownloadfilePostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterTimeout(FakeuploaddownloadfilePostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }
     public static class PostRequestBuilder implements SetterForRequestBody<Post0RequestBuilder> {
-        private final FakeuploaddownloadfilePostNullableRequest instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakeuploaddownloadfilePostNullableRequest();
+            this.instance = new PostNullableRequest();
         }
 
-        public FakeuploaddownloadfilePostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterRequestBody(FakeuploaddownloadfilePostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterRequestBody(PostNullableRequest instance) {
             return new Post0RequestBuilder(instance);
         }
     }

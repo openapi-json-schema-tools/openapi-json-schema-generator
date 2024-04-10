@@ -67,8 +67,8 @@ public class StoreorderorderidDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Void deleteOrder(StoreorderorderidDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return StoreorderorderidDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Void deleteOrder(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -101,7 +101,7 @@ public class StoreorderorderidDelete {
     }
 
     public interface SetterForServerIndex <T> {
-        StoreorderorderidDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterServerIndex(StoreorderorderidDeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -111,7 +111,7 @@ public class StoreorderorderidDelete {
     }
 
     public interface SetterForTimeout <T> {
-        StoreorderorderidDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterTimeout(StoreorderorderidDeleteNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -121,7 +121,7 @@ public class StoreorderorderidDelete {
     }
 
     public interface SetterForPathParameters <T> {
-        StoreorderorderidDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(StoreorderorderidDeleteNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -131,13 +131,13 @@ public class StoreorderorderidDelete {
     }
 
     public static class Delete0RequestBuilder implements SetterForServerIndex<Delete0RequestBuilder>, SetterForTimeout<Delete0RequestBuilder> {
-        private final StoreorderorderidDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete0RequestBuilder(StoreorderorderidDeleteNullableRequest instance) {
+        public Delete0RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
         }
 
-        public StoreorderorderidDeleteRequest build() {
+        public DeleteRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -149,30 +149,30 @@ public class StoreorderorderidDelete {
             );
         }
 
-        public StoreorderorderidDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete0RequestBuilder getBuilderAfterServerIndex(StoreorderorderidDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterServerIndex(DeleteNullableRequest instance) {
             return this;
         }
 
-        public Delete0RequestBuilder getBuilderAfterTimeout(StoreorderorderidDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterTimeout(DeleteNullableRequest instance) {
             return this;
         }
     }
     public static class DeleteRequestBuilder implements SetterForPathParameters<Delete0RequestBuilder> {
-        private final StoreorderorderidDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
         public DeleteRequestBuilder() {
-            this.instance = new StoreorderorderidDeleteNullableRequest();
+            this.instance = new DeleteNullableRequest();
         }
 
-        public StoreorderorderidDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete0RequestBuilder getBuilderAfterPathParameters(StoreorderorderidDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterPathParameters(DeleteNullableRequest instance) {
             return new Delete0RequestBuilder(instance);
         }
     }

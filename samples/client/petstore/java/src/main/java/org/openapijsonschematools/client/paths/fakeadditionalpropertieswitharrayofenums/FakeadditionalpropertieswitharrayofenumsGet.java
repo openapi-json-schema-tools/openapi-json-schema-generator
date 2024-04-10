@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.RequestBody;
+import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.FakeadditionalpropertieswitharrayofenumsGetRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakeadditionalpropertieswitharrayofenumsGetRequestBody.FakeadditionalpropertieswitharrayofenumsGetRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse additionalPropertiesWithArrayOfEnums(FakeadditionalpropertieswitharrayofenumsGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeadditionalpropertieswitharrayofenumsGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse additionalPropertiesWithArrayOfEnums(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
     }
 
     public static class GetRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakeadditionalpropertieswitharrayofenumsGetRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakeadditionalpropertieswitharrayofenumsGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterRequestBody(FakeadditionalpropertieswitharrayofenumsGetRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakeadditionalpropertieswitharrayofenumsGetRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakeadditionalpropertieswitharrayofenumsGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakeadditionalpropertieswitharrayofenumsGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakeadditionalpropertieswitharrayofenumsGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakeadditionalpropertieswitharrayofenumsGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
     }
 
     public static class GetRequestBuilder implements SetterForRequestBody<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakeadditionalpropertieswitharrayofenumsGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakeadditionalpropertieswitharrayofenumsGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakeadditionalpropertieswitharrayofenumsGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakeadditionalpropertieswitharrayofenumsGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterRequestBody(FakeadditionalpropertieswitharrayofenumsGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterRequestBody(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakeadditionalpropertieswitharrayofenumsGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakeadditionalpropertieswitharrayofenumsGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

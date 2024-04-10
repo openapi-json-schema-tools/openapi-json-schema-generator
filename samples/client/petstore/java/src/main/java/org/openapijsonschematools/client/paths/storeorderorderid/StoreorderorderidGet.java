@@ -67,8 +67,8 @@ public class StoreorderorderidGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse getOrderById(StoreorderorderidGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return StoreorderorderidGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse getOrderById(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -101,7 +101,7 @@ public class StoreorderorderidGet {
     }
 
     public interface SetterForServerIndex <T> {
-        StoreorderorderidGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(StoreorderorderidGetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -111,7 +111,7 @@ public class StoreorderorderidGet {
     }
 
     public interface SetterForTimeout <T> {
-        StoreorderorderidGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterTimeout(StoreorderorderidGetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -121,7 +121,7 @@ public class StoreorderorderidGet {
     }
 
     public interface SetterForPathParameters <T> {
-        StoreorderorderidGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(StoreorderorderidGetNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -131,13 +131,13 @@ public class StoreorderorderidGet {
     }
 
     public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
-        private final StoreorderorderidGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
-        public Get0RequestBuilder(StoreorderorderidGetNullableRequest instance) {
+        public Get0RequestBuilder(GetNullableRequest instance) {
             this.instance = instance;
         }
 
-        public StoreorderorderidGetRequest build() {
+        public GetRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -149,30 +149,30 @@ public class StoreorderorderidGet {
             );
         }
 
-        public StoreorderorderidGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterServerIndex(StoreorderorderidGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterServerIndex(GetNullableRequest instance) {
             return this;
         }
 
-        public Get0RequestBuilder getBuilderAfterTimeout(StoreorderorderidGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterTimeout(GetNullableRequest instance) {
             return this;
         }
     }
     public static class GetRequestBuilder implements SetterForPathParameters<Get0RequestBuilder> {
-        private final StoreorderorderidGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new StoreorderorderidGetNullableRequest();
+            this.instance = new GetNullableRequest();
         }
 
-        public StoreorderorderidGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterPathParameters(StoreorderorderidGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterPathParameters(GetNullableRequest instance) {
             return new Get0RequestBuilder(instance);
         }
     }

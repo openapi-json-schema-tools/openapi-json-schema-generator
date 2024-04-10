@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakerefsarrayofenums;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakerefsarrayofenums.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakerefsarrayofenums.post.FakerefsarrayofenumsPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefsarrayofenums.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakerefsarrayofenumsPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakerefsarrayofenumsPostRequestBody.FakerefsarrayofenumsPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakerefsarrayofenumsPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse arrayOfEnums(FakerefsarrayofenumsPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakerefsarrayofenumsPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse arrayOfEnums(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakerefsarrayofenumsPost {
     }
 
     public static class PostRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakerefsarrayofenumsPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakerefsarrayofenumsPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterRequestBody(FakerefsarrayofenumsPostRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakerefsarrayofenumsPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakerefsarrayofenumsPost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakerefsarrayofenumsPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterServerIndex(FakerefsarrayofenumsPostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakerefsarrayofenumsPost {
     }
 
     public interface SetterForTimeout <T> {
-        FakerefsarrayofenumsPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterTimeout(FakerefsarrayofenumsPostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakerefsarrayofenumsPost {
     }
 
     public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
-        private final FakerefsarrayofenumsPostRequest instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakerefsarrayofenumsPostRequest();
+            this.instance = new PostRequest();
         }
 
-        public FakerefsarrayofenumsPostRequest build() {
+        public PostRequest build() {
             return instance;
         }
 
-        public FakerefsarrayofenumsPostRequest getInstance() {
+        public PostRequest getInstance() {
             return instance;
         }
 
-        public PostRequestBuilder getBuilderAfterRequestBody(FakerefsarrayofenumsPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterServerIndex(FakerefsarrayofenumsPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterTimeout(FakerefsarrayofenumsPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

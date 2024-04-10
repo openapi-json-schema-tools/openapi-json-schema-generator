@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostRequestBody;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.HeaderParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.QueryParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.CookieParameters;
@@ -42,7 +42,7 @@ public class Fakeparametercollisions1ababselfabPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new Fakeparametercollisions1ababselfabPostRequestBody.Fakeparametercollisions1ababselfabPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -103,8 +103,8 @@ public class Fakeparametercollisions1ababselfabPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse parameterCollisions(Fakeparametercollisions1ababselfabPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return Fakeparametercollisions1ababselfabPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse parameterCollisions(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -116,7 +116,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
     public static class PostRequest {
         public PathParameters.PathParametersMap pathParameters;
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public Fakeparametercollisions1ababselfabPostRequestBody.@Nullable SealedRequestBody requestBody;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public CookieParameters.@Nullable CookieParametersMap cookieParameters;
@@ -125,7 +125,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
         public PostRequest(
             PathParameters.PathParametersMap pathParameters,
-            RequestBody.@Nullable SealedRequestBody requestBody,
+            Fakeparametercollisions1ababselfabPostRequestBody.@Nullable SealedRequestBody requestBody,
             HeaderParameters.@Nullable HeaderParametersMap headerParameters,
             QueryParameters.@Nullable QueryParametersMap queryParameters,
             CookieParameters.@Nullable CookieParametersMap cookieParameters,
@@ -144,7 +144,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
     public static class PostNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public Fakeparametercollisions1ababselfabPostRequestBody.@Nullable SealedRequestBody requestBody;
         public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public CookieParameters.@Nullable CookieParametersMap cookieParameters;
@@ -153,9 +153,9 @@ public class Fakeparametercollisions1ababselfabPost {
     }
 
     public interface SetterForRequestBody <T> {
-        Fakeparametercollisions1ababselfabPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterRequestBody(Fakeparametercollisions1ababselfabPostNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(Fakeparametercollisions1ababselfabPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -163,7 +163,7 @@ public class Fakeparametercollisions1ababselfabPost {
     }
 
     public interface SetterForHeaderParameters <T> {
-        Fakeparametercollisions1ababselfabPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
@@ -173,7 +173,7 @@ public class Fakeparametercollisions1ababselfabPost {
     }
 
     public interface SetterForQueryParameters <T> {
-        Fakeparametercollisions1ababselfabPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterQueryParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -183,7 +183,7 @@ public class Fakeparametercollisions1ababselfabPost {
     }
 
     public interface SetterForCookieParameters <T> {
-        Fakeparametercollisions1ababselfabPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterCookieParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance);
         default T cookieParameters(CookieParameters.CookieParametersMap cookieParameters) {
             var instance = getInstance();
@@ -193,7 +193,7 @@ public class Fakeparametercollisions1ababselfabPost {
     }
 
     public interface SetterForServerIndex <T> {
-        Fakeparametercollisions1ababselfabPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(Fakeparametercollisions1ababselfabPostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -203,7 +203,7 @@ public class Fakeparametercollisions1ababselfabPost {
     }
 
     public interface SetterForTimeout <T> {
-        Fakeparametercollisions1ababselfabPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterTimeout(Fakeparametercollisions1ababselfabPostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -213,7 +213,7 @@ public class Fakeparametercollisions1ababselfabPost {
     }
 
     public interface SetterForPathParameters <T> {
-        Fakeparametercollisions1ababselfabPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -223,13 +223,13 @@ public class Fakeparametercollisions1ababselfabPost {
     }
 
     public static class Post0RequestBuilder implements SetterForRequestBody<Post0RequestBuilder>, SetterForHeaderParameters<Post0RequestBuilder>, SetterForQueryParameters<Post0RequestBuilder>, SetterForCookieParameters<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
-        private final Fakeparametercollisions1ababselfabPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilder(Fakeparametercollisions1ababselfabPostNullableRequest instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
         }
 
-        public Fakeparametercollisions1ababselfabPostRequest build() {
+        public PostRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -245,46 +245,46 @@ public class Fakeparametercollisions1ababselfabPost {
             );
         }
 
-        public Fakeparametercollisions1ababselfabPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterRequestBody(Fakeparametercollisions1ababselfabPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterRequestBody(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterHeaderParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterHeaderParameters(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterQueryParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterQueryParameters(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterCookieParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterCookieParameters(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterServerIndex(Fakeparametercollisions1ababselfabPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterTimeout(Fakeparametercollisions1ababselfabPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }
     public static class PostRequestBuilder implements SetterForPathParameters<Post0RequestBuilder> {
-        private final Fakeparametercollisions1ababselfabPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new Fakeparametercollisions1ababselfabPostNullableRequest();
+            this.instance = new PostNullableRequest();
         }
 
-        public Fakeparametercollisions1ababselfabPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterPathParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterPathParameters(PostNullableRequest instance) {
             return new Post0RequestBuilder(instance);
         }
     }

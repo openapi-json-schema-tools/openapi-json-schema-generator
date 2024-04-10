@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostSecurityInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.PathParameters;
@@ -42,7 +42,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakepetiduploadimagewithrequiredfilePostRequestBody.FakepetiduploadimagewithrequiredfilePostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -93,8 +93,8 @@ public class FakepetiduploadimagewithrequiredfilePost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse uploadFileWithRequiredFile(FakepetiduploadimagewithrequiredfilePostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakepetiduploadimagewithrequiredfilePostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse uploadFileWithRequiredFile(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -106,14 +106,14 @@ public class FakepetiduploadimagewithrequiredfilePost {
 
     public static class PostRequest {
         public PathParameters.PathParametersMap pathParameters;
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
             PathParameters.PathParametersMap pathParameters,
-            RequestBody.@Nullable SealedRequestBody requestBody,
+            FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -128,16 +128,16 @@ public class FakepetiduploadimagewithrequiredfilePost {
 
     public static class PostNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakepetiduploadimagewithrequiredfilePostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterRequestBody(FakepetiduploadimagewithrequiredfilePostNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakepetiduploadimagewithrequiredfilePostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -145,7 +145,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakepetiduploadimagewithrequiredfilePostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(FakepetiduploadimagewithrequiredfilePostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -155,7 +155,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
     }
 
     public interface SetterForSecurityIndex <T> {
-        FakepetiduploadimagewithrequiredfilePostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterSecurityIndex(FakepetiduploadimagewithrequiredfilePostNullableRequest instance);
         default T securityIndex(FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
@@ -165,7 +165,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
     }
 
     public interface SetterForTimeout <T> {
-        FakepetiduploadimagewithrequiredfilePostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterTimeout(FakepetiduploadimagewithrequiredfilePostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -175,7 +175,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
     }
 
     public interface SetterForPathParameters <T> {
-        FakepetiduploadimagewithrequiredfilePostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(FakepetiduploadimagewithrequiredfilePostNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -185,13 +185,13 @@ public class FakepetiduploadimagewithrequiredfilePost {
     }
 
     public static class Post0RequestBuilder implements SetterForRequestBody<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder>, SetterForSecurityIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
-        private final FakepetiduploadimagewithrequiredfilePostNullableRequest instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilder(FakepetiduploadimagewithrequiredfilePostNullableRequest instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakepetiduploadimagewithrequiredfilePostRequest build() {
+        public PostRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -205,38 +205,38 @@ public class FakepetiduploadimagewithrequiredfilePost {
             );
         }
 
-        public FakepetiduploadimagewithrequiredfilePostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterRequestBody(FakepetiduploadimagewithrequiredfilePostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterRequestBody(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterServerIndex(FakepetiduploadimagewithrequiredfilePostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterSecurityIndex(FakepetiduploadimagewithrequiredfilePostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterSecurityIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterTimeout(FakepetiduploadimagewithrequiredfilePostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }
     public static class PostRequestBuilder implements SetterForPathParameters<Post0RequestBuilder> {
-        private final FakepetiduploadimagewithrequiredfilePostNullableRequest instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakepetiduploadimagewithrequiredfilePostNullableRequest();
+            this.instance = new PostNullableRequest();
         }
 
-        public FakepetiduploadimagewithrequiredfilePostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterPathParameters(FakepetiduploadimagewithrequiredfilePostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterPathParameters(PostNullableRequest instance) {
             return new Post0RequestBuilder(instance);
         }
     }

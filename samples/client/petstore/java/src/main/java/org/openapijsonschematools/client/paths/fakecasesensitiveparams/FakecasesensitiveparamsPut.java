@@ -68,8 +68,8 @@ public class FakecasesensitiveparamsPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse caseSensitiveParams(FakecasesensitiveparamsPutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakecasesensitiveparamsPutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse caseSensitiveParams(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -102,7 +102,7 @@ public class FakecasesensitiveparamsPut {
     }
 
     public interface SetterForServerIndex <T> {
-        FakecasesensitiveparamsPutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterServerIndex(FakecasesensitiveparamsPutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -112,7 +112,7 @@ public class FakecasesensitiveparamsPut {
     }
 
     public interface SetterForTimeout <T> {
-        FakecasesensitiveparamsPutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterTimeout(FakecasesensitiveparamsPutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -122,7 +122,7 @@ public class FakecasesensitiveparamsPut {
     }
 
     public interface SetterForQueryParameters <T> {
-        FakecasesensitiveparamsPutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(FakecasesensitiveparamsPutNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -132,13 +132,13 @@ public class FakecasesensitiveparamsPut {
     }
 
     public static class Put0RequestBuilder implements SetterForServerIndex<Put0RequestBuilder>, SetterForTimeout<Put0RequestBuilder> {
-        private final FakecasesensitiveparamsPutNullableRequest instance;
+        private final PutNullableRequest instance;
 
-        public Put0RequestBuilder(FakecasesensitiveparamsPutNullableRequest instance) {
+        public Put0RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakecasesensitiveparamsPutRequest build() {
+        public PutRequest build() {
             var queryParameters = instance.queryParameters;
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -150,30 +150,30 @@ public class FakecasesensitiveparamsPut {
             );
         }
 
-        public FakecasesensitiveparamsPutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put0RequestBuilder getBuilderAfterServerIndex(FakecasesensitiveparamsPutNullableRequest instance) {
+        public Put0RequestBuilder getBuilderAfterServerIndex(PutNullableRequest instance) {
             return this;
         }
 
-        public Put0RequestBuilder getBuilderAfterTimeout(FakecasesensitiveparamsPutNullableRequest instance) {
+        public Put0RequestBuilder getBuilderAfterTimeout(PutNullableRequest instance) {
             return this;
         }
     }
     public static class PutRequestBuilder implements SetterForQueryParameters<Put0RequestBuilder> {
-        private final FakecasesensitiveparamsPutNullableRequest instance;
+        private final PutNullableRequest instance;
 
         public PutRequestBuilder() {
-            this.instance = new FakecasesensitiveparamsPutNullableRequest();
+            this.instance = new PutNullableRequest();
         }
 
-        public FakecasesensitiveparamsPutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put0RequestBuilder getBuilderAfterQueryParameters(FakecasesensitiveparamsPutNullableRequest instance) {
+        public Put0RequestBuilder getBuilderAfterQueryParameters(PutNullableRequest instance) {
             return new Put0RequestBuilder(instance);
         }
     }

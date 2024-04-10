@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakejsonpatch;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakejsonpatch.patch.RequestBody;
+import org.openapijsonschematools.client.paths.fakejsonpatch.patch.FakejsonpatchPatchRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakejsonpatchPatch {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakejsonpatchPatchRequestBody.FakejsonpatchPatchRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakejsonpatchPatch {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse jsonPatch(FakejsonpatchPatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakejsonpatchPatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse jsonPatch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakejsonpatchPatch {
     }
 
     public static class PatchRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakejsonpatchPatchRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakejsonpatchPatchRequest getInstance();
+        PatchRequest getInstance();
         T getBuilderAfterRequestBody(FakejsonpatchPatchRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakejsonpatchPatchRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakejsonpatchPatch {
     }
 
     public interface SetterForServerIndex <T> {
-        FakejsonpatchPatchRequest getInstance();
+        PatchRequest getInstance();
         T getBuilderAfterServerIndex(FakejsonpatchPatchRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakejsonpatchPatch {
     }
 
     public interface SetterForTimeout <T> {
-        FakejsonpatchPatchRequest getInstance();
+        PatchRequest getInstance();
         T getBuilderAfterTimeout(FakejsonpatchPatchRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakejsonpatchPatch {
     }
 
     public static class PatchRequestBuilder implements SetterForRequestBody<PatchRequestBuilder>, SetterForServerIndex<PatchRequestBuilder>, SetterForTimeout<PatchRequestBuilder> {
-        private final FakejsonpatchPatchRequest instance;
+        private final PatchRequest instance;
 
         public PatchRequestBuilder() {
-            this.instance = new FakejsonpatchPatchRequest();
+            this.instance = new PatchRequest();
         }
 
-        public FakejsonpatchPatchRequest build() {
+        public PatchRequest build() {
             return instance;
         }
 
-        public FakejsonpatchPatchRequest getInstance() {
+        public PatchRequest getInstance() {
             return instance;
         }
 
-        public PatchRequestBuilder getBuilderAfterRequestBody(FakejsonpatchPatchRequest instance) {
+        public PatchRequestBuilder getBuilderAfterRequestBody(PatchRequest instance) {
             return this;
         }
 
-        public PatchRequestBuilder getBuilderAfterServerIndex(FakejsonpatchPatchRequest instance) {
+        public PatchRequestBuilder getBuilderAfterServerIndex(PatchRequest instance) {
             return this;
         }
 
-        public PatchRequestBuilder getBuilderAfterTimeout(FakejsonpatchPatchRequest instance) {
+        public PatchRequestBuilder getBuilderAfterTimeout(PatchRequest instance) {
             return this;
         }
     }

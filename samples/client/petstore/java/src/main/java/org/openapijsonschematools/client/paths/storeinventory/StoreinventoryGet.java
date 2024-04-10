@@ -75,8 +75,8 @@ public class StoreinventoryGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse getInventory(StoreinventoryGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return StoreinventoryGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse getInventory(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -93,7 +93,7 @@ public class StoreinventoryGet {
     }
 
     public interface SetterForServerIndex <T> {
-        StoreinventoryGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(StoreinventoryGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -103,7 +103,7 @@ public class StoreinventoryGet {
     }
 
     public interface SetterForSecurityIndex <T> {
-        StoreinventoryGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterSecurityIndex(StoreinventoryGetRequest instance);
         default T securityIndex(StoreinventoryGetSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class StoreinventoryGet {
     }
 
     public interface SetterForTimeout <T> {
-        StoreinventoryGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(StoreinventoryGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class StoreinventoryGet {
     }
 
     public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForSecurityIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final StoreinventoryGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new StoreinventoryGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public StoreinventoryGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public StoreinventoryGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(StoreinventoryGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterSecurityIndex(StoreinventoryGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterSecurityIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(StoreinventoryGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

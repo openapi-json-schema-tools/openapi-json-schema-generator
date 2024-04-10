@@ -62,8 +62,8 @@ public class FakehealthGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse fakeHealthGet(FakehealthGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakehealthGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse fakeHealthGet(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -79,7 +79,7 @@ public class FakehealthGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakehealthGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakehealthGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -89,7 +89,7 @@ public class FakehealthGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakehealthGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakehealthGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -99,25 +99,25 @@ public class FakehealthGet {
     }
 
     public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakehealthGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakehealthGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakehealthGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakehealthGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakehealthGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakehealthGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

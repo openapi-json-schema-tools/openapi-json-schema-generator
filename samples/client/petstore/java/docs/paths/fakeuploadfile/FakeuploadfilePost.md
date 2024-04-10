@@ -31,7 +31,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.fakeuploadfile.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakeuploadfile.post.FakeuploadfilePostRequestBody;
 import org.openapijsonschematools.client.paths.fakeuploadfile.post.requestbody.content.multipartformdata.MultipartformdataSchema;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
@@ -109,7 +109,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeuploadfile/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [FakeuploadfilePostRequestBody.@Nullable SealedRequestBody](../../paths/fakeuploadfile/post/FakeuploadfilePostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -127,7 +127,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeuploadfile/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [PostRequestBuilder](#postrequestbuilder) | requestBody([FakeuploadfilePostRequestBody.SealedRequestBody](../../paths/fakeuploadfile/post/FakeuploadfilePostRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [PostRequestBuilder](#postrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

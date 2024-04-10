@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeorder.post.RequestBody;
+import org.openapijsonschematools.client.paths.storeorder.post.StoreorderPostRequestBody;
 import org.openapijsonschematools.client.components.schemas.Order;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
@@ -141,7 +141,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.SealedRequestBody](../../paths/storeorder/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [StoreorderPostRequestBody.SealedRequestBody](../../paths/storeorder/post/StoreorderPostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -153,7 +153,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/storeorder/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [StoreorderPostRequestBody.@Nullable SealedRequestBody](../../paths/storeorder/post/StoreorderPostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -187,6 +187,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/storeorder/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | requestBody([StoreorderPostRequestBody.SealedRequestBody](../../paths/storeorder/post/StoreorderPostRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

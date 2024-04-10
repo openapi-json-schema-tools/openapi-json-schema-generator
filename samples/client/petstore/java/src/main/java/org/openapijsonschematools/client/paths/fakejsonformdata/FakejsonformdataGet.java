@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakejsonformdata;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakejsonformdata.get.RequestBody;
+import org.openapijsonschematools.client.paths.fakejsonformdata.get.FakejsonformdataGetRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakejsonformdata.get.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakejsonformdataGet {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakejsonformdataGetRequestBody.FakejsonformdataGetRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakejsonformdataGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse jsonFormData(FakejsonformdataGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakejsonformdataGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse jsonFormData(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakejsonformdataGet {
     }
 
     public static class GetRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakejsonformdataGetRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakejsonformdataGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterRequestBody(FakejsonformdataGetRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakejsonformdataGetRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakejsonformdataGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakejsonformdataGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakejsonformdataGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakejsonformdataGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakejsonformdataGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakejsonformdataGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakejsonformdataGet {
     }
 
     public static class GetRequestBuilder implements SetterForRequestBody<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakejsonformdataGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakejsonformdataGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakejsonformdataGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakejsonformdataGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterRequestBody(FakejsonformdataGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterRequestBody(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakejsonformdataGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakejsonformdataGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

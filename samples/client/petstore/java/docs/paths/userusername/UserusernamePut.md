@@ -36,7 +36,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.put.RequestBody;
+import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutRequestBody;
 import org.openapijsonschematools.client.components.schemas.User;
 import org.openapijsonschematools.client.paths.userusername.put.PathParameters;
 import org.openapijsonschematools.client.servers.Server0;
@@ -154,7 +154,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.SealedRequestBody](../../paths/userusername/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [UserusernamePutRequestBody.SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) | requestBody |
 | [PathParameters.PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -167,7 +167,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/userusername/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [UserusernamePutRequestBody.@Nullable SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) | requestBody |
 | [PathParameters.@Nullable PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
@@ -217,7 +217,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put00RequestBuilder](#put00requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/userusername/put/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Put00RequestBuilder](#put00requestbuilder) | requestBody([UserusernamePutRequestBody.SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 ## PutRequestBuilder
 public static class PutRequestBuilder<br>
@@ -232,7 +232,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put01RequestBuilder](#put01requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/userusername/put/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Put01RequestBuilder](#put01requestbuilder) | requestBody([UserusernamePutRequestBody.SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 | [Put10RequestBuilder](#put10requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

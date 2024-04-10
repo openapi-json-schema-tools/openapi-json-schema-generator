@@ -68,8 +68,8 @@ public class FaketestqueryparamtersPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse queryParameterCollectionFormat(FaketestqueryparamtersPutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FaketestqueryparamtersPutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse queryParameterCollectionFormat(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -102,7 +102,7 @@ public class FaketestqueryparamtersPut {
     }
 
     public interface SetterForServerIndex <T> {
-        FaketestqueryparamtersPutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterServerIndex(FaketestqueryparamtersPutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -112,7 +112,7 @@ public class FaketestqueryparamtersPut {
     }
 
     public interface SetterForTimeout <T> {
-        FaketestqueryparamtersPutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterTimeout(FaketestqueryparamtersPutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -122,7 +122,7 @@ public class FaketestqueryparamtersPut {
     }
 
     public interface SetterForQueryParameters <T> {
-        FaketestqueryparamtersPutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(FaketestqueryparamtersPutNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -132,13 +132,13 @@ public class FaketestqueryparamtersPut {
     }
 
     public static class Put0RequestBuilder implements SetterForServerIndex<Put0RequestBuilder>, SetterForTimeout<Put0RequestBuilder> {
-        private final FaketestqueryparamtersPutNullableRequest instance;
+        private final PutNullableRequest instance;
 
-        public Put0RequestBuilder(FaketestqueryparamtersPutNullableRequest instance) {
+        public Put0RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FaketestqueryparamtersPutRequest build() {
+        public PutRequest build() {
             var queryParameters = instance.queryParameters;
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -150,30 +150,30 @@ public class FaketestqueryparamtersPut {
             );
         }
 
-        public FaketestqueryparamtersPutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put0RequestBuilder getBuilderAfterServerIndex(FaketestqueryparamtersPutNullableRequest instance) {
+        public Put0RequestBuilder getBuilderAfterServerIndex(PutNullableRequest instance) {
             return this;
         }
 
-        public Put0RequestBuilder getBuilderAfterTimeout(FaketestqueryparamtersPutNullableRequest instance) {
+        public Put0RequestBuilder getBuilderAfterTimeout(PutNullableRequest instance) {
             return this;
         }
     }
     public static class PutRequestBuilder implements SetterForQueryParameters<Put0RequestBuilder> {
-        private final FaketestqueryparamtersPutNullableRequest instance;
+        private final PutNullableRequest instance;
 
         public PutRequestBuilder() {
-            this.instance = new FaketestqueryparamtersPutNullableRequest();
+            this.instance = new PutNullableRequest();
         }
 
-        public FaketestqueryparamtersPutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put0RequestBuilder getBuilderAfterQueryParameters(FaketestqueryparamtersPutNullableRequest instance) {
+        public Put0RequestBuilder getBuilderAfterQueryParameters(PutNullableRequest instance) {
             return new Put0RequestBuilder(instance);
         }
     }

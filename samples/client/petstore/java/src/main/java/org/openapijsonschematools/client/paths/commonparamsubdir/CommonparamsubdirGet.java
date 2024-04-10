@@ -75,8 +75,8 @@ public class CommonparamsubdirGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse getCommonParam(CommonparamsubdirGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return CommonparamsubdirGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse getCommonParam(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -113,7 +113,7 @@ public class CommonparamsubdirGet {
     }
 
     public interface SetterForQueryParameters <T> {
-        CommonparamsubdirGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(CommonparamsubdirGetNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -123,7 +123,7 @@ public class CommonparamsubdirGet {
     }
 
     public interface SetterForServerIndex <T> {
-        CommonparamsubdirGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(CommonparamsubdirGetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -133,7 +133,7 @@ public class CommonparamsubdirGet {
     }
 
     public interface SetterForTimeout <T> {
-        CommonparamsubdirGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterTimeout(CommonparamsubdirGetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -143,7 +143,7 @@ public class CommonparamsubdirGet {
     }
 
     public interface SetterForPathParameters <T> {
-        CommonparamsubdirGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(CommonparamsubdirGetNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -153,13 +153,13 @@ public class CommonparamsubdirGet {
     }
 
     public static class Get0RequestBuilder implements SetterForQueryParameters<Get0RequestBuilder>, SetterForServerIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
-        private final CommonparamsubdirGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
-        public Get0RequestBuilder(CommonparamsubdirGetNullableRequest instance) {
+        public Get0RequestBuilder(GetNullableRequest instance) {
             this.instance = instance;
         }
 
-        public CommonparamsubdirGetRequest build() {
+        public GetRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -172,34 +172,34 @@ public class CommonparamsubdirGet {
             );
         }
 
-        public CommonparamsubdirGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterQueryParameters(CommonparamsubdirGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterQueryParameters(GetNullableRequest instance) {
             return this;
         }
 
-        public Get0RequestBuilder getBuilderAfterServerIndex(CommonparamsubdirGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterServerIndex(GetNullableRequest instance) {
             return this;
         }
 
-        public Get0RequestBuilder getBuilderAfterTimeout(CommonparamsubdirGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterTimeout(GetNullableRequest instance) {
             return this;
         }
     }
     public static class GetRequestBuilder implements SetterForPathParameters<Get0RequestBuilder> {
-        private final CommonparamsubdirGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new CommonparamsubdirGetNullableRequest();
+            this.instance = new GetNullableRequest();
         }
 
-        public CommonparamsubdirGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterPathParameters(CommonparamsubdirGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterPathParameters(GetNullableRequest instance) {
             return new Get0RequestBuilder(instance);
         }
     }

@@ -62,8 +62,8 @@ public class SolidusGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse slashRoute(SolidusGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return SolidusGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse slashRoute(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -79,7 +79,7 @@ public class SolidusGet {
     }
 
     public interface SetterForServerIndex <T> {
-        SolidusGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(SolidusGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -89,7 +89,7 @@ public class SolidusGet {
     }
 
     public interface SetterForTimeout <T> {
-        SolidusGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(SolidusGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -99,25 +99,25 @@ public class SolidusGet {
     }
 
     public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final SolidusGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new SolidusGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public SolidusGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public SolidusGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(SolidusGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(SolidusGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

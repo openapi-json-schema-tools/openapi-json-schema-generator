@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakeinlinecomposition;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.FakeinlinecompositionPostRequestBody;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Parameters;
@@ -39,7 +39,7 @@ public class FakeinlinecompositionPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakeinlinecompositionPostRequestBody.FakeinlinecompositionPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -84,8 +84,8 @@ public class FakeinlinecompositionPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse inlineComposition(FakeinlinecompositionPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakeinlinecompositionPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse inlineComposition(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -96,16 +96,16 @@ public class FakeinlinecompositionPost {
     }
 
     public static class PostRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakeinlinecompositionPostRequestBody.@Nullable SealedRequestBody requestBody;
         public QueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakeinlinecompositionPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterRequestBody(FakeinlinecompositionPostRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakeinlinecompositionPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -113,7 +113,7 @@ public class FakeinlinecompositionPost {
     }
 
     public interface SetterForQueryParameters <T> {
-        FakeinlinecompositionPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterQueryParameters(FakeinlinecompositionPostRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -123,7 +123,7 @@ public class FakeinlinecompositionPost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakeinlinecompositionPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterServerIndex(FakeinlinecompositionPostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -133,7 +133,7 @@ public class FakeinlinecompositionPost {
     }
 
     public interface SetterForTimeout <T> {
-        FakeinlinecompositionPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterTimeout(FakeinlinecompositionPostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -143,33 +143,33 @@ public class FakeinlinecompositionPost {
     }
 
     public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForQueryParameters<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
-        private final FakeinlinecompositionPostRequest instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakeinlinecompositionPostRequest();
+            this.instance = new PostRequest();
         }
 
-        public FakeinlinecompositionPostRequest build() {
+        public PostRequest build() {
             return instance;
         }
 
-        public FakeinlinecompositionPostRequest getInstance() {
+        public PostRequest getInstance() {
             return instance;
         }
 
-        public PostRequestBuilder getBuilderAfterRequestBody(FakeinlinecompositionPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterQueryParameters(FakeinlinecompositionPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterQueryParameters(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterServerIndex(FakeinlinecompositionPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterTimeout(FakeinlinecompositionPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.anotherfakedummy;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.anotherfakedummy.patch.RequestBody;
+import org.openapijsonschematools.client.paths.anotherfakedummy.patch.AnotherfakedummyPatchRequestBody;
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -34,7 +34,7 @@ public class AnotherfakedummyPatch {
         ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
-            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+            SerializedRequestBody serializedRequestBody = new AnotherfakedummyPatchRequestBody.AnotherfakedummyPatchRequestBody1().serialize(
                 request.requestBody
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -71,8 +71,8 @@ public class AnotherfakedummyPatch {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse model123TestSpecialTags(AnotherfakedummyPatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return AnotherfakedummyPatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse model123TestSpecialTags(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -83,12 +83,12 @@ public class AnotherfakedummyPatch {
     }
 
     public static class PatchRequest {
-        public RequestBody.SealedRequestBody requestBody;
+        public AnotherfakedummyPatchRequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PatchRequest(
-            RequestBody.SealedRequestBody requestBody,
+            AnotherfakedummyPatchRequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -99,13 +99,13 @@ public class AnotherfakedummyPatch {
     }
 
     public static class PatchNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public AnotherfakedummyPatchRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
-        AnotherfakedummyPatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterServerIndex(AnotherfakedummyPatchNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -115,7 +115,7 @@ public class AnotherfakedummyPatch {
     }
 
     public interface SetterForTimeout <T> {
-        AnotherfakedummyPatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterTimeout(AnotherfakedummyPatchNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -125,9 +125,9 @@ public class AnotherfakedummyPatch {
     }
 
     public interface SetterForRequestBody <T> {
-        AnotherfakedummyPatchNullableRequest getInstance();
+        PatchNullableRequest getInstance();
         T getBuilderAfterRequestBody(AnotherfakedummyPatchNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(AnotherfakedummyPatchRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -135,13 +135,13 @@ public class AnotherfakedummyPatch {
     }
 
     public static class Patch0RequestBuilder implements SetterForServerIndex<Patch0RequestBuilder>, SetterForTimeout<Patch0RequestBuilder> {
-        private final AnotherfakedummyPatchNullableRequest instance;
+        private final PatchNullableRequest instance;
 
-        public Patch0RequestBuilder(AnotherfakedummyPatchNullableRequest instance) {
+        public Patch0RequestBuilder(PatchNullableRequest instance) {
             this.instance = instance;
         }
 
-        public AnotherfakedummyPatchRequest build() {
+        public PatchRequest build() {
             var requestBody = instance.requestBody;
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -153,30 +153,30 @@ public class AnotherfakedummyPatch {
             );
         }
 
-        public AnotherfakedummyPatchNullableRequest getInstance() {
+        public PatchNullableRequest getInstance() {
             return instance;
         }
 
-        public Patch0RequestBuilder getBuilderAfterServerIndex(AnotherfakedummyPatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterServerIndex(PatchNullableRequest instance) {
             return this;
         }
 
-        public Patch0RequestBuilder getBuilderAfterTimeout(AnotherfakedummyPatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterTimeout(PatchNullableRequest instance) {
             return this;
         }
     }
     public static class PatchRequestBuilder implements SetterForRequestBody<Patch0RequestBuilder> {
-        private final AnotherfakedummyPatchNullableRequest instance;
+        private final PatchNullableRequest instance;
 
         public PatchRequestBuilder() {
-            this.instance = new AnotherfakedummyPatchNullableRequest();
+            this.instance = new PatchNullableRequest();
         }
 
-        public AnotherfakedummyPatchNullableRequest getInstance() {
+        public PatchNullableRequest getInstance() {
             return instance;
         }
 
-        public Patch0RequestBuilder getBuilderAfterRequestBody(AnotherfakedummyPatchNullableRequest instance) {
+        public Patch0RequestBuilder getBuilderAfterRequestBody(PatchNullableRequest instance) {
             return new Patch0RequestBuilder(instance);
         }
     }

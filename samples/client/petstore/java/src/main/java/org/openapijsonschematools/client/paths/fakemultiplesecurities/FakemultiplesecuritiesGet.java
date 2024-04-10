@@ -75,8 +75,8 @@ public class FakemultiplesecuritiesGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse multipleSecurities(FakemultiplesecuritiesGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakemultiplesecuritiesGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse multipleSecurities(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -93,7 +93,7 @@ public class FakemultiplesecuritiesGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakemultiplesecuritiesGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakemultiplesecuritiesGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -103,7 +103,7 @@ public class FakemultiplesecuritiesGet {
     }
 
     public interface SetterForSecurityIndex <T> {
-        FakemultiplesecuritiesGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterSecurityIndex(FakemultiplesecuritiesGetRequest instance);
         default T securityIndex(FakemultiplesecuritiesGetSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakemultiplesecuritiesGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakemultiplesecuritiesGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakemultiplesecuritiesGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakemultiplesecuritiesGet {
     }
 
     public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForSecurityIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakemultiplesecuritiesGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakemultiplesecuritiesGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakemultiplesecuritiesGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakemultiplesecuritiesGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakemultiplesecuritiesGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterSecurityIndex(FakemultiplesecuritiesGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterSecurityIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakemultiplesecuritiesGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

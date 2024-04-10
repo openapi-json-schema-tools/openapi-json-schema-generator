@@ -35,7 +35,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchSecurityInfo;
-import org.openapijsonschematools.client.paths.fakeclassnametest.patch.RequestBody;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchRequestBody;
 import org.openapijsonschematools.client.components.schemas.Client;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
@@ -90,7 +90,7 @@ Client1BoxedMap requestBodyPayload =
     .build(),
     schemaConfiguration
 );
-RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
+FakeclassnametestPatchRequestBody.SealedRequestBody requestBody = new FakeclassnametestPatchRequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
 var request = new FakeclassnametestPatch.PatchRequestBuilder()
     .requestBody(requestBody)
@@ -135,7 +135,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) | requestBody |
+| [FakeclassnametestPatchRequestBody.SealedRequestBody](../../paths/fakeclassnametest/patch/FakeclassnametestPatchRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -148,7 +148,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) | requestBody |
+| [FakeclassnametestPatchRequestBody.@Nullable SealedRequestBody](../../paths/fakeclassnametest/patch/FakeclassnametestPatchRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex](../../paths/fakeclassnametest/patch/FakeclassnametestPatchSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -184,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Patch0RequestBuilder](#patch0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeclassnametest/patch/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Patch0RequestBuilder](#patch0requestbuilder) | requestBody([FakeclassnametestPatchRequestBody.SealedRequestBody](../../paths/fakeclassnametest/patch/FakeclassnametestPatchRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

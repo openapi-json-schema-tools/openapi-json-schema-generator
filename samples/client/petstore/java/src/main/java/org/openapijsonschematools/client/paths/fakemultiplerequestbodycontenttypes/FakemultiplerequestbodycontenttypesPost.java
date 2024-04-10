@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.FakemultiplerequestbodycontenttypesPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakemultiplerequestbodycontenttypesPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakemultiplerequestbodycontenttypesPostRequestBody.FakemultiplerequestbodycontenttypesPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakemultiplerequestbodycontenttypesPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse multipleRequestBodyContentTypes(FakemultiplerequestbodycontenttypesPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakemultiplerequestbodycontenttypesPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse multipleRequestBodyContentTypes(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakemultiplerequestbodycontenttypesPost {
     }
 
     public static class PostRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakemultiplerequestbodycontenttypesPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakemultiplerequestbodycontenttypesPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterRequestBody(FakemultiplerequestbodycontenttypesPostRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakemultiplerequestbodycontenttypesPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakemultiplerequestbodycontenttypesPost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakemultiplerequestbodycontenttypesPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterServerIndex(FakemultiplerequestbodycontenttypesPostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakemultiplerequestbodycontenttypesPost {
     }
 
     public interface SetterForTimeout <T> {
-        FakemultiplerequestbodycontenttypesPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterTimeout(FakemultiplerequestbodycontenttypesPostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakemultiplerequestbodycontenttypesPost {
     }
 
     public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
-        private final FakemultiplerequestbodycontenttypesPostRequest instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakemultiplerequestbodycontenttypesPostRequest();
+            this.instance = new PostRequest();
         }
 
-        public FakemultiplerequestbodycontenttypesPostRequest build() {
+        public PostRequest build() {
             return instance;
         }
 
-        public FakemultiplerequestbodycontenttypesPostRequest getInstance() {
+        public PostRequest getInstance() {
             return instance;
         }
 
-        public PostRequestBuilder getBuilderAfterRequestBody(FakemultiplerequestbodycontenttypesPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterServerIndex(FakemultiplerequestbodycontenttypesPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterTimeout(FakemultiplerequestbodycontenttypesPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

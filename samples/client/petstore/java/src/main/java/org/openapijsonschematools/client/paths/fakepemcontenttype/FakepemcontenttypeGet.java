@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakepemcontenttype;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakepemcontenttype.get.RequestBody;
+import org.openapijsonschematools.client.paths.fakepemcontenttype.get.FakepemcontenttypeGetRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.get.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakepemcontenttypeGet {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakepemcontenttypeGetRequestBody.FakepemcontenttypeGetRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakepemcontenttypeGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse pemContentType(FakepemcontenttypeGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakepemcontenttypeGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse pemContentType(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakepemcontenttypeGet {
     }
 
     public static class GetRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakepemcontenttypeGetRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakepemcontenttypeGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterRequestBody(FakepemcontenttypeGetRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakepemcontenttypeGetRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakepemcontenttypeGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakepemcontenttypeGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakepemcontenttypeGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakepemcontenttypeGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakepemcontenttypeGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakepemcontenttypeGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakepemcontenttypeGet {
     }
 
     public static class GetRequestBuilder implements SetterForRequestBody<GetRequestBuilder>, SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakepemcontenttypeGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakepemcontenttypeGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakepemcontenttypeGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakepemcontenttypeGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterRequestBody(FakepemcontenttypeGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterRequestBody(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakepemcontenttypeGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakepemcontenttypeGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

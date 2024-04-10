@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.post.FakerefscomposedoneofnumberwithvalidationsPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.post.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -37,7 +37,7 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new FakerefscomposedoneofnumberwithvalidationsPostRequestBody.FakerefscomposedoneofnumberwithvalidationsPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -75,8 +75,8 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse composedOneOfDifferentTypes(FakerefscomposedoneofnumberwithvalidationsPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakerefscomposedoneofnumberwithvalidationsPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse composedOneOfDifferentTypes(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -87,15 +87,15 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
     }
 
     public static class PostRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakerefscomposedoneofnumberwithvalidationsPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        FakerefscomposedoneofnumberwithvalidationsPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterRequestBody(FakerefscomposedoneofnumberwithvalidationsPostRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakerefscomposedoneofnumberwithvalidationsPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -103,7 +103,7 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
     }
 
     public interface SetterForServerIndex <T> {
-        FakerefscomposedoneofnumberwithvalidationsPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterServerIndex(FakerefscomposedoneofnumberwithvalidationsPostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -113,7 +113,7 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
     }
 
     public interface SetterForTimeout <T> {
-        FakerefscomposedoneofnumberwithvalidationsPostRequest getInstance();
+        PostRequest getInstance();
         T getBuilderAfterTimeout(FakerefscomposedoneofnumberwithvalidationsPostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -123,29 +123,29 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
     }
 
     public static class PostRequestBuilder implements SetterForRequestBody<PostRequestBuilder>, SetterForServerIndex<PostRequestBuilder>, SetterForTimeout<PostRequestBuilder> {
-        private final FakerefscomposedoneofnumberwithvalidationsPostRequest instance;
+        private final PostRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new FakerefscomposedoneofnumberwithvalidationsPostRequest();
+            this.instance = new PostRequest();
         }
 
-        public FakerefscomposedoneofnumberwithvalidationsPostRequest build() {
+        public PostRequest build() {
             return instance;
         }
 
-        public FakerefscomposedoneofnumberwithvalidationsPostRequest getInstance() {
+        public PostRequest getInstance() {
             return instance;
         }
 
-        public PostRequestBuilder getBuilderAfterRequestBody(FakerefscomposedoneofnumberwithvalidationsPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterRequestBody(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterServerIndex(FakerefscomposedoneofnumberwithvalidationsPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterServerIndex(PostRequest instance) {
             return this;
         }
 
-        public PostRequestBuilder getBuilderAfterTimeout(FakerefscomposedoneofnumberwithvalidationsPostRequest instance) {
+        public PostRequestBuilder getBuilderAfterTimeout(PostRequest instance) {
             return this;
         }
     }

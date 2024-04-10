@@ -35,7 +35,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.put.PetPutSecurityInfo;
-import org.openapijsonschematools.client.paths.pet.put.RequestBody;
+import org.openapijsonschematools.client.paths.pet.put.PetPutRequestBody;
 import org.openapijsonschematools.client.components.schemas.Pet;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
@@ -121,7 +121,7 @@ Pet1BoxedMap requestBodyPayload =
     .build(),
     schemaConfiguration
 );
-RequestBody.SealedRequestBody requestBody = new RequestBody.ApplicationjsonRequestBody(requestBodyPayload);
+PetPutRequestBody.SealedRequestBody requestBody = new PetPutRequestBody.ApplicationjsonRequestBody(requestBodyPayload);
 
 var request = new PetPut.PutRequestBuilder()
     .requestBody(requestBody)
@@ -166,7 +166,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.SealedRequestBody](../../paths/pet/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [PetPutRequestBody.SealedRequestBody](../../paths/pet/put/PetPutRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetPutSecurityInfo.@Nullable SecurityIndex](../../paths/pet/put/PetPutSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -179,7 +179,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/pet/put/RequestBody.md#sealedrequestbody) | requestBody |
+| [PetPutRequestBody.@Nullable SealedRequestBody](../../paths/pet/put/PetPutRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetPutSecurityInfo.@Nullable SecurityIndex](../../paths/pet/put/PetPutSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -215,6 +215,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put0RequestBuilder](#put0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/pet/put/RequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | requestBody([PetPutRequestBody.SealedRequestBody](../../paths/pet/put/PetPutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

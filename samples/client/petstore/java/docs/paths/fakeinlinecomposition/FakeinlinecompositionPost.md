@@ -31,7 +31,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.FakeinlinecompositionPostRequestBody;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.requestbody.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
@@ -114,7 +114,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeinlinecomposition/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [FakeinlinecompositionPostRequestBody.@Nullable SealedRequestBody](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeinlinecomposition/post/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -133,7 +133,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [PostRequestBuilder](#postrequestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeinlinecomposition/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [PostRequestBuilder](#postrequestbuilder) | requestBody([FakeinlinecompositionPostRequestBody.SealedRequestBody](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [PostRequestBuilder](#postrequestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakeinlinecomposition/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [PostRequestBuilder](#postrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |

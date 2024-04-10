@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakebodywithfileschema;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.RequestBody;
+import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.FakebodywithfileschemaPutRequestBody;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Responses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -34,7 +34,7 @@ public class FakebodywithfileschemaPut {
         ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
-            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+            SerializedRequestBody serializedRequestBody = new FakebodywithfileschemaPutRequestBody.FakebodywithfileschemaPutRequestBody1().serialize(
                 request.requestBody
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -71,8 +71,8 @@ public class FakebodywithfileschemaPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse bodyWithFileSchema(FakebodywithfileschemaPutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakebodywithfileschemaPutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse bodyWithFileSchema(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -83,12 +83,12 @@ public class FakebodywithfileschemaPut {
     }
 
     public static class PutRequest {
-        public RequestBody.SealedRequestBody requestBody;
+        public FakebodywithfileschemaPutRequestBody.SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
-            RequestBody.SealedRequestBody requestBody,
+            FakebodywithfileschemaPutRequestBody.SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -99,13 +99,13 @@ public class FakebodywithfileschemaPut {
     }
 
     public static class PutNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public FakebodywithfileschemaPutRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
-        FakebodywithfileschemaPutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterServerIndex(FakebodywithfileschemaPutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -115,7 +115,7 @@ public class FakebodywithfileschemaPut {
     }
 
     public interface SetterForTimeout <T> {
-        FakebodywithfileschemaPutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterTimeout(FakebodywithfileschemaPutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -125,9 +125,9 @@ public class FakebodywithfileschemaPut {
     }
 
     public interface SetterForRequestBody <T> {
-        FakebodywithfileschemaPutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterRequestBody(FakebodywithfileschemaPutNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(FakebodywithfileschemaPutRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -135,13 +135,13 @@ public class FakebodywithfileschemaPut {
     }
 
     public static class Put0RequestBuilder implements SetterForServerIndex<Put0RequestBuilder>, SetterForTimeout<Put0RequestBuilder> {
-        private final FakebodywithfileschemaPutNullableRequest instance;
+        private final PutNullableRequest instance;
 
-        public Put0RequestBuilder(FakebodywithfileschemaPutNullableRequest instance) {
+        public Put0RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakebodywithfileschemaPutRequest build() {
+        public PutRequest build() {
             var requestBody = instance.requestBody;
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -153,30 +153,30 @@ public class FakebodywithfileschemaPut {
             );
         }
 
-        public FakebodywithfileschemaPutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put0RequestBuilder getBuilderAfterServerIndex(FakebodywithfileschemaPutNullableRequest instance) {
+        public Put0RequestBuilder getBuilderAfterServerIndex(PutNullableRequest instance) {
             return this;
         }
 
-        public Put0RequestBuilder getBuilderAfterTimeout(FakebodywithfileschemaPutNullableRequest instance) {
+        public Put0RequestBuilder getBuilderAfterTimeout(PutNullableRequest instance) {
             return this;
         }
     }
     public static class PutRequestBuilder implements SetterForRequestBody<Put0RequestBuilder> {
-        private final FakebodywithfileschemaPutNullableRequest instance;
+        private final PutNullableRequest instance;
 
         public PutRequestBuilder() {
-            this.instance = new FakebodywithfileschemaPutNullableRequest();
+            this.instance = new PutNullableRequest();
         }
 
-        public FakebodywithfileschemaPutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put0RequestBuilder getBuilderAfterRequestBody(FakebodywithfileschemaPutNullableRequest instance) {
+        public Put0RequestBuilder getBuilderAfterRequestBody(PutNullableRequest instance) {
             return new Put0RequestBuilder(instance);
         }
     }

@@ -74,8 +74,8 @@ public class CommonparamsubdirPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse postCommonParam(CommonparamsubdirPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return CommonparamsubdirPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse postCommonParam(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -112,7 +112,7 @@ public class CommonparamsubdirPost {
     }
 
     public interface SetterForHeaderParameters <T> {
-        CommonparamsubdirPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(CommonparamsubdirPostNullableRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
@@ -122,7 +122,7 @@ public class CommonparamsubdirPost {
     }
 
     public interface SetterForServerIndex <T> {
-        CommonparamsubdirPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(CommonparamsubdirPostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -132,7 +132,7 @@ public class CommonparamsubdirPost {
     }
 
     public interface SetterForTimeout <T> {
-        CommonparamsubdirPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterTimeout(CommonparamsubdirPostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -142,7 +142,7 @@ public class CommonparamsubdirPost {
     }
 
     public interface SetterForPathParameters <T> {
-        CommonparamsubdirPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(CommonparamsubdirPostNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -152,13 +152,13 @@ public class CommonparamsubdirPost {
     }
 
     public static class Post0RequestBuilder implements SetterForHeaderParameters<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
-        private final CommonparamsubdirPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilder(CommonparamsubdirPostNullableRequest instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
         }
 
-        public CommonparamsubdirPostRequest build() {
+        public PostRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -171,34 +171,34 @@ public class CommonparamsubdirPost {
             );
         }
 
-        public CommonparamsubdirPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterHeaderParameters(CommonparamsubdirPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterHeaderParameters(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterServerIndex(CommonparamsubdirPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterTimeout(CommonparamsubdirPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }
     public static class PostRequestBuilder implements SetterForPathParameters<Post0RequestBuilder> {
-        private final CommonparamsubdirPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new CommonparamsubdirPostNullableRequest();
+            this.instance = new PostNullableRequest();
         }
 
-        public CommonparamsubdirPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterPathParameters(CommonparamsubdirPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterPathParameters(PostNullableRequest instance) {
             return new Post0RequestBuilder(instance);
         }
     }

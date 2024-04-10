@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.petpetid;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.petpetid.post.RequestBody;
+import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PathParameters;
@@ -42,7 +42,7 @@ public class PetpetidPost {
             @Nullable SerializedRequestBody serializedRequestBody;
             HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
             if (request.requestBody != null) {
-                serializedRequestBody = new RequestBody.RequestBody1().serialize(
+                serializedRequestBody = new PetpetidPostRequestBody.PetpetidPostRequestBody1().serialize(
                     request.requestBody
                 );
                 var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -93,8 +93,8 @@ public class PetpetidPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Void updatePetWithForm(PetpetidPostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return PetpetidPostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Void updatePetWithForm(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -106,14 +106,14 @@ public class PetpetidPost {
 
     public static class PostRequest {
         public PathParameters.PathParametersMap pathParameters;
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
             PathParameters.PathParametersMap pathParameters,
-            RequestBody.@Nullable SealedRequestBody requestBody,
+            PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -128,16 +128,16 @@ public class PetpetidPost {
 
     public static class PostNullableRequest {
         public PathParameters.@Nullable PathParametersMap pathParameters;
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForRequestBody <T> {
-        PetpetidPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterRequestBody(PetpetidPostNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(PetpetidPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -145,7 +145,7 @@ public class PetpetidPost {
     }
 
     public interface SetterForServerIndex <T> {
-        PetpetidPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(PetpetidPostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -155,7 +155,7 @@ public class PetpetidPost {
     }
 
     public interface SetterForSecurityIndex <T> {
-        PetpetidPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterSecurityIndex(PetpetidPostNullableRequest instance);
         default T securityIndex(PetpetidPostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
@@ -165,7 +165,7 @@ public class PetpetidPost {
     }
 
     public interface SetterForTimeout <T> {
-        PetpetidPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterTimeout(PetpetidPostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -175,7 +175,7 @@ public class PetpetidPost {
     }
 
     public interface SetterForPathParameters <T> {
-        PetpetidPostNullableRequest getInstance();
+        PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PetpetidPostNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -185,13 +185,13 @@ public class PetpetidPost {
     }
 
     public static class Post0RequestBuilder implements SetterForRequestBody<Post0RequestBuilder>, SetterForServerIndex<Post0RequestBuilder>, SetterForSecurityIndex<Post0RequestBuilder>, SetterForTimeout<Post0RequestBuilder> {
-        private final PetpetidPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
-        public Post0RequestBuilder(PetpetidPostNullableRequest instance) {
+        public Post0RequestBuilder(PostNullableRequest instance) {
             this.instance = instance;
         }
 
-        public PetpetidPostRequest build() {
+        public PostRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -205,38 +205,38 @@ public class PetpetidPost {
             );
         }
 
-        public PetpetidPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterRequestBody(PetpetidPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterRequestBody(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterServerIndex(PetpetidPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterServerIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterSecurityIndex(PetpetidPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterSecurityIndex(PostNullableRequest instance) {
             return this;
         }
 
-        public Post0RequestBuilder getBuilderAfterTimeout(PetpetidPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterTimeout(PostNullableRequest instance) {
             return this;
         }
     }
     public static class PostRequestBuilder implements SetterForPathParameters<Post0RequestBuilder> {
-        private final PetpetidPostNullableRequest instance;
+        private final PostNullableRequest instance;
 
         public PostRequestBuilder() {
-            this.instance = new PetpetidPostNullableRequest();
+            this.instance = new PostNullableRequest();
         }
 
-        public PetpetidPostNullableRequest getInstance() {
+        public PostNullableRequest getInstance() {
             return instance;
         }
 
-        public Post0RequestBuilder getBuilderAfterPathParameters(PetpetidPostNullableRequest instance) {
+        public Post0RequestBuilder getBuilderAfterPathParameters(PostNullableRequest instance) {
             return new Post0RequestBuilder(instance);
         }
     }

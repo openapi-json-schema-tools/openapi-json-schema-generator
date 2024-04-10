@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.userusername;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.put.RequestBody;
+import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutRequestBody;
 import org.openapijsonschematools.client.paths.userusername.put.PathParameters;
 import org.openapijsonschematools.client.paths.userusername.put.Parameters;
 import org.openapijsonschematools.client.paths.userusername.put.Responses;
@@ -36,7 +36,7 @@ public class UserusernamePut {
         ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
 
-            SerializedRequestBody serializedRequestBody = new RequestBody.RequestBody1().serialize(
+            SerializedRequestBody serializedRequestBody = new UserusernamePutRequestBody.UserusernamePutRequestBody1().serialize(
                 request.requestBody
             );
             var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
@@ -76,8 +76,8 @@ public class UserusernamePut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Void updateUser(UserusernamePutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UserusernamePutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Void updateUser(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -88,13 +88,13 @@ public class UserusernamePut {
     }
 
     public static class PutRequest {
-        public RequestBody.SealedRequestBody requestBody;
+        public UserusernamePutRequestBody.SealedRequestBody requestBody;
         public PathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
-            RequestBody.SealedRequestBody requestBody,
+            UserusernamePutRequestBody.SealedRequestBody requestBody,
             PathParameters.PathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
@@ -107,14 +107,14 @@ public class UserusernamePut {
     }
 
     public static class PutNullableRequest {
-        public RequestBody.@Nullable SealedRequestBody requestBody;
+        public UserusernamePutRequestBody.@Nullable SealedRequestBody requestBody;
         public PathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
-        UserusernamePutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterServerIndex(UserusernamePutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -124,7 +124,7 @@ public class UserusernamePut {
     }
 
     public interface SetterForTimeout <T> {
-        UserusernamePutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterTimeout(UserusernamePutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -134,9 +134,9 @@ public class UserusernamePut {
     }
 
     public interface SetterForRequestBody <T> {
-        UserusernamePutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterRequestBody(UserusernamePutNullableRequest instance);
-        default T requestBody(RequestBody.SealedRequestBody requestBody) {
+        default T requestBody(UserusernamePutRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
             return getBuilderAfterRequestBody(instance);
@@ -144,7 +144,7 @@ public class UserusernamePut {
     }
 
     public interface SetterForPathParameters <T> {
-        UserusernamePutNullableRequest getInstance();
+        PutNullableRequest getInstance();
         T getBuilderAfterPathParameters(UserusernamePutNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -154,13 +154,13 @@ public class UserusernamePut {
     }
 
     public static class Put00RequestBuilder implements SetterForServerIndex<Put00RequestBuilder>, SetterForTimeout<Put00RequestBuilder> {
-        private final UserusernamePutNullableRequest instance;
+        private final PutNullableRequest instance;
 
-        public Put00RequestBuilder(UserusernamePutNullableRequest instance) {
+        public Put00RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
         }
 
-        public UserusernamePutRequest build() {
+        public PutRequest build() {
             var requestBody = instance.requestBody;
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -177,64 +177,64 @@ public class UserusernamePut {
             );
         }
 
-        public UserusernamePutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put00RequestBuilder getBuilderAfterServerIndex(UserusernamePutNullableRequest instance) {
+        public Put00RequestBuilder getBuilderAfterServerIndex(PutNullableRequest instance) {
             return this;
         }
 
-        public Put00RequestBuilder getBuilderAfterTimeout(UserusernamePutNullableRequest instance) {
+        public Put00RequestBuilder getBuilderAfterTimeout(PutNullableRequest instance) {
             return this;
         }
     }
     public static class Put01RequestBuilder implements SetterForPathParameters<Put00RequestBuilder> {
-        private final UserusernamePutNullableRequest instance;
+        private final PutNullableRequest instance;
 
-        public Put01RequestBuilder(UserusernamePutNullableRequest instance) {
+        public Put01RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
         }
 
-        public UserusernamePutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put00RequestBuilder getBuilderAfterPathParameters(UserusernamePutNullableRequest instance) {
+        public Put00RequestBuilder getBuilderAfterPathParameters(PutNullableRequest instance) {
             return new Put00RequestBuilder(instance);
         }
     }
     public static class Put10RequestBuilder implements SetterForRequestBody<Put00RequestBuilder> {
-        private final UserusernamePutNullableRequest instance;
+        private final PutNullableRequest instance;
 
-        public Put10RequestBuilder(UserusernamePutNullableRequest instance) {
+        public Put10RequestBuilder(PutNullableRequest instance) {
             this.instance = instance;
         }
 
-        public UserusernamePutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put00RequestBuilder getBuilderAfterRequestBody(UserusernamePutNullableRequest instance) {
+        public Put00RequestBuilder getBuilderAfterRequestBody(PutNullableRequest instance) {
             return new Put00RequestBuilder(instance);
         }
     }
     public static class PutRequestBuilder implements SetterForRequestBody<Put01RequestBuilder>, SetterForPathParameters<Put10RequestBuilder> {
-        private final UserusernamePutNullableRequest instance;
+        private final PutNullableRequest instance;
 
         public PutRequestBuilder() {
-            this.instance = new UserusernamePutNullableRequest();
+            this.instance = new PutNullableRequest();
         }
 
-        public UserusernamePutNullableRequest getInstance() {
+        public PutNullableRequest getInstance() {
             return instance;
         }
 
-        public Put01RequestBuilder getBuilderAfterRequestBody(UserusernamePutNullableRequest instance) {
+        public Put01RequestBuilder getBuilderAfterRequestBody(PutNullableRequest instance) {
             return new Put01RequestBuilder(instance);
         }
 
-        public Put10RequestBuilder getBuilderAfterPathParameters(UserusernamePutNullableRequest instance) {
+        public Put10RequestBuilder getBuilderAfterPathParameters(PutNullableRequest instance) {
             return new Put10RequestBuilder(instance);
         }
     }

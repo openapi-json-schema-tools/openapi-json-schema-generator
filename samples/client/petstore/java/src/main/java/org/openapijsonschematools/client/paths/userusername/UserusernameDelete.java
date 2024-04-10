@@ -67,8 +67,8 @@ public class UserusernameDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse deleteUser(UserusernameDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UserusernameDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse deleteUser(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -101,7 +101,7 @@ public class UserusernameDelete {
     }
 
     public interface SetterForServerIndex <T> {
-        UserusernameDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterServerIndex(UserusernameDeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -111,7 +111,7 @@ public class UserusernameDelete {
     }
 
     public interface SetterForTimeout <T> {
-        UserusernameDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterTimeout(UserusernameDeleteNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -121,7 +121,7 @@ public class UserusernameDelete {
     }
 
     public interface SetterForPathParameters <T> {
-        UserusernameDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(UserusernameDeleteNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -131,13 +131,13 @@ public class UserusernameDelete {
     }
 
     public static class Delete0RequestBuilder implements SetterForServerIndex<Delete0RequestBuilder>, SetterForTimeout<Delete0RequestBuilder> {
-        private final UserusernameDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete0RequestBuilder(UserusernameDeleteNullableRequest instance) {
+        public Delete0RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
         }
 
-        public UserusernameDeleteRequest build() {
+        public DeleteRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -149,30 +149,30 @@ public class UserusernameDelete {
             );
         }
 
-        public UserusernameDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete0RequestBuilder getBuilderAfterServerIndex(UserusernameDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterServerIndex(DeleteNullableRequest instance) {
             return this;
         }
 
-        public Delete0RequestBuilder getBuilderAfterTimeout(UserusernameDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterTimeout(DeleteNullableRequest instance) {
             return this;
         }
     }
     public static class DeleteRequestBuilder implements SetterForPathParameters<Delete0RequestBuilder> {
-        private final UserusernameDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
         public DeleteRequestBuilder() {
-            this.instance = new UserusernameDeleteNullableRequest();
+            this.instance = new DeleteNullableRequest();
         }
 
-        public UserusernameDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete0RequestBuilder getBuilderAfterPathParameters(UserusernameDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterPathParameters(DeleteNullableRequest instance) {
             return new Delete0RequestBuilder(instance);
         }
     }

@@ -62,8 +62,8 @@ public class FakemultipleresponsebodiesGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse multipleResponseBodies(FakemultipleresponsebodiesGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakemultipleresponsebodiesGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse multipleResponseBodies(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -79,7 +79,7 @@ public class FakemultipleresponsebodiesGet {
     }
 
     public interface SetterForServerIndex <T> {
-        FakemultipleresponsebodiesGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterServerIndex(FakemultipleresponsebodiesGetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -89,7 +89,7 @@ public class FakemultipleresponsebodiesGet {
     }
 
     public interface SetterForTimeout <T> {
-        FakemultipleresponsebodiesGetRequest getInstance();
+        GetRequest getInstance();
         T getBuilderAfterTimeout(FakemultipleresponsebodiesGetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -99,25 +99,25 @@ public class FakemultipleresponsebodiesGet {
     }
 
     public static class GetRequestBuilder implements SetterForServerIndex<GetRequestBuilder>, SetterForTimeout<GetRequestBuilder> {
-        private final FakemultipleresponsebodiesGetRequest instance;
+        private final GetRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new FakemultipleresponsebodiesGetRequest();
+            this.instance = new GetRequest();
         }
 
-        public FakemultipleresponsebodiesGetRequest build() {
+        public GetRequest build() {
             return instance;
         }
 
-        public FakemultipleresponsebodiesGetRequest getInstance() {
+        public GetRequest getInstance() {
             return instance;
         }
 
-        public GetRequestBuilder getBuilderAfterServerIndex(FakemultipleresponsebodiesGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterServerIndex(GetRequest instance) {
             return this;
         }
 
-        public GetRequestBuilder getBuilderAfterTimeout(FakemultipleresponsebodiesGetRequest instance) {
+        public GetRequestBuilder getBuilderAfterTimeout(GetRequest instance) {
             return this;
         }
     }

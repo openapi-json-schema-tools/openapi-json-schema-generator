@@ -33,7 +33,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostRequestBody;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.HeaderParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.QueryParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.CookieParameters;
@@ -135,7 +135,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/fakeparametercollisions1ababselfab/post/PathParameters.md#pathparametersmap) | pathParameters |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [Fakeparametercollisions1ababselfabPostRequestBody.@Nullable SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
 | [CookieParameters.@Nullable CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) | cookieParameters<br>optional |
@@ -151,7 +151,7 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.@Nullable PathParametersMap](../../paths/fakeparametercollisions1ababselfab/post/PathParameters.md#pathparametersmap) | pathParameters |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [Fakeparametercollisions1ababselfabPostRequestBody.@Nullable SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostRequestBody.md#sealedrequestbody) | requestBody |
 | [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) | headerParameters |
 | [QueryParameters.@Nullable QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) | queryParameters |
 | [CookieParameters.@Nullable CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) | cookieParameters |
@@ -172,7 +172,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | requestBody([Fakeparametercollisions1ababselfabPostRequestBody.SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([CookieParametersCookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/CookieParameters.md#cookieparametersmap) cookieParameters)<br>sets the optional property |

@@ -67,8 +67,8 @@ public class FakedeletecoffeeidDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse deleteCoffee(FakedeletecoffeeidDeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return FakedeletecoffeeidDeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse deleteCoffee(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -101,7 +101,7 @@ public class FakedeletecoffeeidDelete {
     }
 
     public interface SetterForServerIndex <T> {
-        FakedeletecoffeeidDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterServerIndex(FakedeletecoffeeidDeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -111,7 +111,7 @@ public class FakedeletecoffeeidDelete {
     }
 
     public interface SetterForTimeout <T> {
-        FakedeletecoffeeidDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterTimeout(FakedeletecoffeeidDeleteNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -121,7 +121,7 @@ public class FakedeletecoffeeidDelete {
     }
 
     public interface SetterForPathParameters <T> {
-        FakedeletecoffeeidDeleteNullableRequest getInstance();
+        DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(FakedeletecoffeeidDeleteNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
@@ -131,13 +131,13 @@ public class FakedeletecoffeeidDelete {
     }
 
     public static class Delete0RequestBuilder implements SetterForServerIndex<Delete0RequestBuilder>, SetterForTimeout<Delete0RequestBuilder> {
-        private final FakedeletecoffeeidDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
-        public Delete0RequestBuilder(FakedeletecoffeeidDeleteNullableRequest instance) {
+        public Delete0RequestBuilder(DeleteNullableRequest instance) {
             this.instance = instance;
         }
 
-        public FakedeletecoffeeidDeleteRequest build() {
+        public DeleteRequest build() {
             var pathParameters = instance.pathParameters;
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -149,30 +149,30 @@ public class FakedeletecoffeeidDelete {
             );
         }
 
-        public FakedeletecoffeeidDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete0RequestBuilder getBuilderAfterServerIndex(FakedeletecoffeeidDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterServerIndex(DeleteNullableRequest instance) {
             return this;
         }
 
-        public Delete0RequestBuilder getBuilderAfterTimeout(FakedeletecoffeeidDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterTimeout(DeleteNullableRequest instance) {
             return this;
         }
     }
     public static class DeleteRequestBuilder implements SetterForPathParameters<Delete0RequestBuilder> {
-        private final FakedeletecoffeeidDeleteNullableRequest instance;
+        private final DeleteNullableRequest instance;
 
         public DeleteRequestBuilder() {
-            this.instance = new FakedeletecoffeeidDeleteNullableRequest();
+            this.instance = new DeleteNullableRequest();
         }
 
-        public FakedeletecoffeeidDeleteNullableRequest getInstance() {
+        public DeleteNullableRequest getInstance() {
             return instance;
         }
 
-        public Delete0RequestBuilder getBuilderAfterPathParameters(FakedeletecoffeeidDeleteNullableRequest instance) {
+        public Delete0RequestBuilder getBuilderAfterPathParameters(DeleteNullableRequest instance) {
             return new Delete0RequestBuilder(instance);
         }
     }

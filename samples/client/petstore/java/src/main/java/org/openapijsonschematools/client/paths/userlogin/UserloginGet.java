@@ -68,8 +68,8 @@ public class UserloginGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse loginUser(UserloginGetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return UserloginGetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default Responses.EndpointResponse loginUser(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
 
@@ -102,7 +102,7 @@ public class UserloginGet {
     }
 
     public interface SetterForServerIndex <T> {
-        UserloginGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(UserloginGetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
@@ -112,7 +112,7 @@ public class UserloginGet {
     }
 
     public interface SetterForTimeout <T> {
-        UserloginGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterTimeout(UserloginGetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
@@ -122,7 +122,7 @@ public class UserloginGet {
     }
 
     public interface SetterForQueryParameters <T> {
-        UserloginGetNullableRequest getInstance();
+        GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(UserloginGetNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
@@ -132,13 +132,13 @@ public class UserloginGet {
     }
 
     public static class Get0RequestBuilder implements SetterForServerIndex<Get0RequestBuilder>, SetterForTimeout<Get0RequestBuilder> {
-        private final UserloginGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
-        public Get0RequestBuilder(UserloginGetNullableRequest instance) {
+        public Get0RequestBuilder(GetNullableRequest instance) {
             this.instance = instance;
         }
 
-        public UserloginGetRequest build() {
+        public GetRequest build() {
             var queryParameters = instance.queryParameters;
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
@@ -150,30 +150,30 @@ public class UserloginGet {
             );
         }
 
-        public UserloginGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterServerIndex(UserloginGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterServerIndex(GetNullableRequest instance) {
             return this;
         }
 
-        public Get0RequestBuilder getBuilderAfterTimeout(UserloginGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterTimeout(GetNullableRequest instance) {
             return this;
         }
     }
     public static class GetRequestBuilder implements SetterForQueryParameters<Get0RequestBuilder> {
-        private final UserloginGetNullableRequest instance;
+        private final GetNullableRequest instance;
 
         public GetRequestBuilder() {
-            this.instance = new UserloginGetNullableRequest();
+            this.instance = new GetNullableRequest();
         }
 
-        public UserloginGetNullableRequest getInstance() {
+        public GetNullableRequest getInstance() {
             return instance;
         }
 
-        public Get0RequestBuilder getBuilderAfterQueryParameters(UserloginGetNullableRequest instance) {
+        public Get0RequestBuilder getBuilderAfterQueryParameters(GetNullableRequest instance) {
             return new Get0RequestBuilder(instance);
         }
     }

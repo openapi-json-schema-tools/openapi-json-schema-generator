@@ -33,7 +33,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.RequestBody;
+import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostSecurityInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.PathParameters;
@@ -133,7 +133,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.PathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/PathParameters.md#pathparametersmap) | pathParameters |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/RequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -147,7 +147,7 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [PathParameters.@Nullable PathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/PathParameters.md#pathparametersmap) | pathParameters |
-| [RequestBody.@Nullable SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/RequestBody.md#sealedrequestbody) | requestBody |
+| [FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -166,7 +166,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Post0RequestBuilder](#post0requestbuilder) | requestBody([RequestBody.SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/RequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | requestBody([FakepetiduploadimagewithrequiredfilePostRequestBody.SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | securityIndex([FakepetiduploadimagewithrequiredfilePostSecurityInfo.SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
