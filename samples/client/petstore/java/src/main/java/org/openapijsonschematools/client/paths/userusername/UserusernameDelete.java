@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.userusername;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.delete.PathParameters;
+import org.openapijsonschematools.client.paths.userusername.delete.UserusernameDeletePathParameters;
 import org.openapijsonschematools.client.paths.userusername.delete.Parameters;
 import org.openapijsonschematools.client.paths.userusername.delete.UserusernameDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -79,12 +79,12 @@ public class UserusernameDelete {
     }
 
     public static class DeleteRequest {
-        public PathParameters.PathParametersMap pathParameters;
+        public UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            PathParameters.PathParametersMap pathParameters,
+            UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -95,7 +95,7 @@ public class UserusernameDelete {
     }
 
     public static class DeleteNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public UserusernameDeletePathParameters.@Nullable UserusernameDeletePathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class UserusernameDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

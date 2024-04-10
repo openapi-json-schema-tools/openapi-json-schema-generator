@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.petfindbystatus;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetSecurityInfo;
-import org.openapijsonschematools.client.paths.petfindbystatus.get.QueryParameters;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetQueryParameters;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.Parameters;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -93,13 +93,13 @@ public class PetfindbystatusGet {
     }
 
     public static class GetRequest {
-        public QueryParameters.QueryParametersMap queryParameters;
+        public PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters;
         public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            QueryParameters.QueryParametersMap queryParameters,
+            PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters,
             PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex,
             PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -112,7 +112,7 @@ public class PetfindbystatusGet {
     }
 
     public static class GetNullableRequest {
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public PetfindbystatusGetQueryParameters.@Nullable PetfindbystatusGetQueryParametersMap queryParameters;
         public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -151,7 +151,7 @@ public class PetfindbystatusGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

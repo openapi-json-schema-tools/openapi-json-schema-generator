@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.storeorderorderid;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeorderorderid.delete.PathParameters;
+import org.openapijsonschematools.client.paths.storeorderorderid.delete.StoreorderorderidDeletePathParameters;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.Parameters;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.StoreorderorderidDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -78,12 +78,12 @@ public class StoreorderorderidDelete {
     }
 
     public static class DeleteRequest {
-        public PathParameters.PathParametersMap pathParameters;
+        public StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            PathParameters.PathParametersMap pathParameters,
+            StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -94,7 +94,7 @@ public class StoreorderorderidDelete {
     }
 
     public static class DeleteNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public StoreorderorderidDeletePathParameters.@Nullable StoreorderorderidDeletePathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -122,7 +122,7 @@ public class StoreorderorderidDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

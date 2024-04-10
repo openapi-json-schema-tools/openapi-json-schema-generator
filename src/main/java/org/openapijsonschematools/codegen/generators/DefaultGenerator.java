@@ -157,6 +157,7 @@ public class DefaultGenerator implements Generator {
     protected String templateEngineName;
     protected String headersSchemaFragment = "Headers";
     protected static final Set<String> operationVerbs = Set.of("get", "put", "post", "delete", "options", "head", "patch", "trace");
+    protected Set<String> xParameters = Set.of("PathParameters", "QueryParameters", "HeaderParameters", "CookieParameters");
 
     static {
         DefaultFeatureSet = FeatureSet.newBuilder()
@@ -3955,11 +3956,6 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 4) {
             return;
         }
-        Set<String> xParameters = new HashSet<>();
-        xParameters.add("PathParameters");
-        xParameters.add("QueryParameters");
-        xParameters.add("HeaderParameters");
-        xParameters.add("CookieParameters");
         if (pathPieces[3].equals("servers")) {
             if (pathPieces.length == 4) {
                 // #/paths/somePath/servers

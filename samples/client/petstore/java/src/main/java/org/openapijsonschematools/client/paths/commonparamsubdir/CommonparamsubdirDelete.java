@@ -1,9 +1,9 @@
 package org.openapijsonschematools.client.paths.commonparamsubdir;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.commonparamsubdir.delete.HeaderParameters;
+import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteHeaderParameters;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.commonparamsubdir.delete.PathParameters;
+import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeletePathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -86,14 +86,14 @@ public class CommonparamsubdirDelete {
     }
 
     public static class DeleteRequest {
-        public PathParameters.PathParametersMap pathParameters;
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters;
+        public CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            PathParameters.PathParametersMap pathParameters,
-            HeaderParameters.@Nullable HeaderParametersMap headerParameters,
+            CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters,
+            CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap headerParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -105,8 +105,8 @@ public class CommonparamsubdirDelete {
     }
 
     public static class DeleteNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public CommonparamsubdirDeletePathParameters.@Nullable CommonparamsubdirDeletePathParametersMap pathParameters;
+        public CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -114,7 +114,7 @@ public class CommonparamsubdirDelete {
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
+        default T headerParameters(CommonparamsubdirDeleteHeaderParameters.CommonparamsubdirDeleteHeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -144,7 +144,7 @@ public class CommonparamsubdirDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

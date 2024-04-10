@@ -36,7 +36,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
-import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PathParameters;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -81,9 +81,9 @@ PetpetiduploadimagePost.Post apiClient = new PetpetiduploadimagePost.Post(apiCon
 
 
 // Map validation
-PathParameters.PathParametersMap pathParameters =
-    PathParameters.PathParameters1.validate(
-    new PathParameters.PathParametersMapBuilder()
+PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters =
+    PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1.validate(
+    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -132,7 +132,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.PathParametersMap](../../paths/petpetiduploadimage/post/PathParameters.md#pathparametersmap) | pathParameters |
+| [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) | pathParameters |
 | [PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
@@ -146,7 +146,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.@Nullable PathParametersMap](../../paths/petpetiduploadimage/post/PathParameters.md#pathparametersmap) | pathParameters |
+| [PetpetiduploadimagePostPathParameters.@Nullable PetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) | pathParameters |
 | [PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex |
@@ -184,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/petpetiduploadimage/post/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetiduploadimagePostPathParametersPetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

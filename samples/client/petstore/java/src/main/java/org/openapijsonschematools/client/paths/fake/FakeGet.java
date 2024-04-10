@@ -2,8 +2,8 @@ package org.openapijsonschematools.client.paths.fake;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetRequestBody;
-import org.openapijsonschematools.client.paths.fake.get.HeaderParameters;
-import org.openapijsonschematools.client.paths.fake.get.QueryParameters;
+import org.openapijsonschematools.client.paths.fake.get.FakeGetHeaderParameters;
+import org.openapijsonschematools.client.paths.fake.get.FakeGetQueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.get.Parameters;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetResponses;
@@ -104,8 +104,8 @@ public class FakeGet {
 
     public static class GetRequest {
         public FakeGetRequestBody.@Nullable SealedRequestBody requestBody;
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public FakeGetHeaderParameters.@Nullable FakeGetHeaderParametersMap headerParameters;
+        public FakeGetQueryParameters.@Nullable FakeGetQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class FakeGet {
     public interface SetterForHeaderParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterHeaderParameters(GetRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
+        default T headerParameters(FakeGetHeaderParameters.FakeGetHeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -133,7 +133,7 @@ public class FakeGet {
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterQueryParameters(GetRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(FakeGetQueryParameters.FakeGetQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

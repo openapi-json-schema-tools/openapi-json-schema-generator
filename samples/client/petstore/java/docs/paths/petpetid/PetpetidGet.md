@@ -35,7 +35,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetSecurityInfo;
-import org.openapijsonschematools.client.paths.petpetid.get.PathParameters;
+import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -84,9 +84,9 @@ PetpetidGet.Get apiClient = new PetpetidGet.Get(apiConfiguration, schemaConfigur
 
 
 // Map validation
-PathParameters.PathParametersMap pathParameters =
-    PathParameters.PathParameters1.validate(
-    new PathParameters.PathParametersMapBuilder()
+PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters =
+    PetpetidGetPathParameters.PetpetidGetPathParameters1.validate(
+    new PetpetidGetPathParameters.PetpetidGetPathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -143,7 +143,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.PathParametersMap](../../paths/petpetid/get/PathParameters.md#pathparametersmap) | pathParameters |
+| [PetpetidGetPathParameters.PetpetidGetPathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#petpetidgetpathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetidGetSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/get/PetpetidGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -156,7 +156,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.@Nullable PathParametersMap](../../paths/petpetid/get/PathParameters.md#pathparametersmap) | pathParameters |
+| [PetpetidGetPathParameters.@Nullable PetpetidGetPathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#petpetidgetpathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetpetidGetSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/get/PetpetidGetSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -192,6 +192,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/petpetid/get/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PetpetidGetPathParametersPetpetidGetPathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#petpetidgetpathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

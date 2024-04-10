@@ -1343,7 +1343,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         String modelName = schemaJsonPathToModelName.get(jsonPath);
         if (modelName == null) {
             String[] pathPieces = jsonPath.split("/");
-            return getSchemaPascalCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
+            String lastFragment = pathPieces[pathPieces.length-1];
+            if (jsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment)) {
+                String prefix = getPathClassNamePrefix(jsonPath);
+                lastFragment = prefix + lastFragment;
+            }
+            return getSchemaPascalCaseName(lastFragment, jsonPath, false);
         }
         return modelName;
     }
@@ -2604,6 +2609,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch (type) {
             case SCHEMA:
+                if (jsonPath != null) {
+                    String[] pathPieces = jsonPath.split("/");
+                    String lastFragment = pathPieces[pathPieces.length-1];
+                    if (jsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment)) {
+                        String prefix = getPathClassNamePrefix(jsonPath);
+                        lastJsonPathFragment = prefix + lastJsonPathFragment;
+                    }
+                }
                 return getSchemaPascalCaseName(lastJsonPathFragment, jsonPath, true);
             case PATH:
                 return camelize(toPathFilename(lastJsonPathFragment, jsonPath));

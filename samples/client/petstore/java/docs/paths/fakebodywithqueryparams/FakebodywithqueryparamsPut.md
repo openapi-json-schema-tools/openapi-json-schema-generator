@@ -38,7 +38,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutRequestBody;
 import org.openapijsonschematools.client.components.schemas.User;
-import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.QueryParameters;
+import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutQueryParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -100,9 +100,9 @@ User1BoxedMap requestBodyPayload =
 FakebodywithqueryparamsPut.SealedRequestBody requestBody = new FakebodywithqueryparamsPut.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
-QueryParameters.QueryParametersMap queryParameters =
-    QueryParameters.QueryParameters1.validate(
-    new QueryParameters.QueryParametersMapBuilder()
+FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters =
+    FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters1.validate(
+    new FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMapBuilder()
         .query("a")
 
     .build(),
@@ -152,7 +152,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
-| [QueryParameters.QueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) | queryParameters |
+| [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -165,7 +165,7 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [FakebodywithqueryparamsPutRequestBody.@Nullable SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) | queryParameters |
+| [FakebodywithqueryparamsPutQueryParameters.@Nullable FakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -199,7 +199,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put00RequestBuilder](#put00requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
+| [Put00RequestBuilder](#put00requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersFakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) queryParameters)<br>sets the property |
 
 ## Put10RequestBuilder
 public static class Put10RequestBuilder<br>
@@ -230,6 +230,6 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Put01RequestBuilder](#put01requestbuilder) | requestBody([FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [Put10RequestBuilder](#put10requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakebodywithqueryparams/put/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
+| [Put10RequestBuilder](#put10requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersFakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -35,7 +35,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetSecurityInfo;
-import org.openapijsonschematools.client.paths.petfindbytags.get.QueryParameters;
+import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetQueryParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -81,9 +81,9 @@ PetfindbytagsGet.Get apiClient = new PetfindbytagsGet.Get(apiConfiguration, sche
 
 
 // Map validation
-QueryParameters.QueryParametersMap queryParameters =
-    QueryParameters.QueryParameters1.validate(
-    new QueryParameters.QueryParametersMapBuilder()
+PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMap queryParameters =
+    PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters1.validate(
+    new PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMapBuilder()
         .tags(
             Arrays.asList(
                 "a"
@@ -138,7 +138,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [QueryParameters.QueryParametersMap](../../paths/petfindbytags/get/QueryParameters.md#queryparametersmap) | queryParameters |
+| [PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMap](../../paths/petfindbytags/get/PetfindbytagsGetQueryParameters.md#petfindbytagsgetqueryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbytags/get/PetfindbytagsGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -151,7 +151,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/petfindbytags/get/QueryParameters.md#queryparametersmap) | queryParameters |
+| [PetfindbytagsGetQueryParameters.@Nullable PetfindbytagsGetQueryParametersMap](../../paths/petfindbytags/get/PetfindbytagsGetQueryParameters.md#petfindbytagsgetqueryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbytags/get/PetfindbytagsGetSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -187,6 +187,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/petfindbytags/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([PetfindbytagsGetQueryParametersPetfindbytagsGetQueryParametersMap](../../paths/petfindbytags/get/PetfindbytagsGetQueryParameters.md#petfindbytagsgetqueryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

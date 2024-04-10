@@ -38,7 +38,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutRequestBody;
 import org.openapijsonschematools.client.components.schemas.User;
-import org.openapijsonschematools.client.paths.userusername.put.PathParameters;
+import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -101,9 +101,9 @@ User1BoxedMap requestBodyPayload =
 UserusernamePut.SealedRequestBody requestBody = new UserusernamePut.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
-PathParameters.PathParametersMap pathParameters =
-    PathParameters.PathParameters1.validate(
-    new PathParameters.PathParametersMapBuilder()
+UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters =
+    UserusernamePutPathParameters.UserusernamePutPathParameters1.validate(
+    new UserusernamePutPathParameters.UserusernamePutPathParametersMapBuilder()
         .username("a")
 
     .build(),
@@ -155,7 +155,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [UserusernamePutRequestBody.SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) | requestBody |
-| [PathParameters.PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) | pathParameters |
+| [UserusernamePutPathParameters.UserusernamePutPathParametersMap](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -168,7 +168,7 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [UserusernamePutRequestBody.@Nullable SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) | requestBody |
-| [PathParameters.@Nullable PathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) | pathParameters |
+| [UserusernamePutPathParameters.@Nullable UserusernamePutPathParametersMap](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -202,7 +202,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put00RequestBuilder](#put00requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Put00RequestBuilder](#put00requestbuilder) | pathParameters([UserusernamePutPathParametersUserusernamePutPathParametersMap](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparametersmap) pathParameters)<br>sets the property |
 
 ## Put10RequestBuilder
 public static class Put10RequestBuilder<br>
@@ -233,6 +233,6 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Put01RequestBuilder](#put01requestbuilder) | requestBody([UserusernamePutRequestBody.SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [Put10RequestBuilder](#put10requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/userusername/put/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Put10RequestBuilder](#put10requestbuilder) | pathParameters([UserusernamePutPathParametersUserusernamePutPathParametersMap](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
-import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PathParameters;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostPathParameters;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Parameters;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -105,14 +105,14 @@ public class PetpetiduploadimagePost {
     }
 
     public static class PostRequest {
-        public PathParameters.PathParametersMap pathParameters;
+        public PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters;
         public PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            PathParameters.PathParametersMap pathParameters,
+            PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters,
             PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex,
@@ -127,7 +127,7 @@ public class PetpetiduploadimagePost {
     }
 
     public static class PostNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public PetpetiduploadimagePostPathParameters.@Nullable PetpetiduploadimagePostPathParametersMap pathParameters;
         public PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex;
@@ -177,7 +177,7 @@ public class PetpetiduploadimagePost {
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeorderorderid.delete.PathParameters;
+import org.openapijsonschematools.client.paths.storeorderorderid.delete.StoreorderorderidDeletePathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -71,9 +71,9 @@ StoreorderorderidDelete.Delete apiClient = new StoreorderorderidDelete.Delete(ap
 
 
 // Map validation
-PathParameters.PathParametersMap pathParameters =
-    PathParameters.PathParameters1.validate(
-    new PathParameters.PathParametersMapBuilder()
+StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMap pathParameters =
+    StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters1.validate(
+    new StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMapBuilder()
         .order_id("a")
 
     .build(),
@@ -123,7 +123,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.PathParametersMap](../../paths/storeorderorderid/delete/PathParameters.md#pathparametersmap) | pathParameters |
+| [StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#storeorderorderiddeletepathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -135,7 +135,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.@Nullable PathParametersMap](../../paths/storeorderorderid/delete/PathParameters.md#pathparametersmap) | pathParameters |
+| [StoreorderorderidDeletePathParameters.@Nullable StoreorderorderidDeletePathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#storeorderorderiddeletepathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -169,6 +169,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/storeorderorderid/delete/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([StoreorderorderidDeletePathParametersStoreorderorderidDeletePathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#storeorderorderiddeletepathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

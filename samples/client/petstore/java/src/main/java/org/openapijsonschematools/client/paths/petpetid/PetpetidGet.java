@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.petpetid;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetSecurityInfo;
-import org.openapijsonschematools.client.paths.petpetid.get.PathParameters;
+import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetPathParameters;
 import org.openapijsonschematools.client.paths.petpetid.get.Parameters;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -92,13 +92,13 @@ public class PetpetidGet {
     }
 
     public static class GetRequest {
-        public PathParameters.PathParametersMap pathParameters;
+        public PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            PathParameters.PathParametersMap pathParameters,
+            PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -111,7 +111,7 @@ public class PetpetidGet {
     }
 
     public static class GetNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public PetpetidGetPathParameters.@Nullable PetpetidGetPathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -150,7 +150,7 @@ public class PetpetidGet {
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(GetNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

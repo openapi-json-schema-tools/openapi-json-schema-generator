@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.userlogin;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userlogin.get.QueryParameters;
+import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetQueryParameters;
 import org.openapijsonschematools.client.paths.userlogin.get.Parameters;
 import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -80,12 +80,12 @@ public class UserloginGet {
     }
 
     public static class GetRequest {
-        public QueryParameters.QueryParametersMap queryParameters;
+        public UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            QueryParameters.QueryParametersMap queryParameters,
+            UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -96,7 +96,7 @@ public class UserloginGet {
     }
 
     public static class GetNullableRequest {
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public UserloginGetQueryParameters.@Nullable UserloginGetQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -124,7 +124,7 @@ public class UserloginGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

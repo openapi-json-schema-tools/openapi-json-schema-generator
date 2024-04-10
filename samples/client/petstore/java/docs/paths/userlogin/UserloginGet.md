@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userlogin.get.QueryParameters;
+import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetQueryParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -72,9 +72,9 @@ UserloginGet.Get apiClient = new UserloginGet.Get(apiConfiguration, schemaConfig
 
 
 // Map validation
-QueryParameters.QueryParametersMap queryParameters =
-    QueryParameters.QueryParameters1.validate(
-    new QueryParameters.QueryParametersMapBuilder()
+UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters =
+    UserloginGetQueryParameters.UserloginGetQueryParameters1.validate(
+    new UserloginGetQueryParameters.UserloginGetQueryParametersMapBuilder()
         .password("a")
 
         .username("a")
@@ -133,7 +133,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [QueryParameters.QueryParametersMap](../../paths/userlogin/get/QueryParameters.md#queryparametersmap) | queryParameters |
+| [UserloginGetQueryParameters.UserloginGetQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -145,7 +145,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/userlogin/get/QueryParameters.md#queryparametersmap) | queryParameters |
+| [UserloginGetQueryParameters.@Nullable UserloginGetQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -179,6 +179,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/userlogin/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([UserloginGetQueryParametersUserloginGetQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.fakebodywithqueryparams;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutRequestBody;
-import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.QueryParameters;
+import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutQueryParameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Parameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -90,13 +90,13 @@ public class FakebodywithqueryparamsPut {
 
     public static class PutRequest {
         public FakebodywithqueryparamsPutRequestBody.SealedRequestBody requestBody;
-        public QueryParameters.QueryParametersMap queryParameters;
+        public FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
             FakebodywithqueryparamsPutRequestBody.SealedRequestBody requestBody,
-            QueryParameters.QueryParametersMap queryParameters,
+            FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -109,7 +109,7 @@ public class FakebodywithqueryparamsPut {
 
     public static class PutNullableRequest {
         public FakebodywithqueryparamsPutRequestBody.@Nullable SealedRequestBody requestBody;
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public FakebodywithqueryparamsPutQueryParameters.@Nullable FakebodywithqueryparamsPutQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -147,7 +147,7 @@ public class FakebodywithqueryparamsPut {
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PutNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

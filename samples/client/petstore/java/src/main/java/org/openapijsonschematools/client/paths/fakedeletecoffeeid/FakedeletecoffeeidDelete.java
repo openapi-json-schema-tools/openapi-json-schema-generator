@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakedeletecoffeeid;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.PathParameters;
+import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.FakedeletecoffeeidDeletePathParameters;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Parameters;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.FakedeletecoffeeidDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -79,12 +79,12 @@ public class FakedeletecoffeeidDelete {
     }
 
     public static class DeleteRequest {
-        public PathParameters.PathParametersMap pathParameters;
+        public FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            PathParameters.PathParametersMap pathParameters,
+            FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -95,7 +95,7 @@ public class FakedeletecoffeeidDelete {
     }
 
     public static class DeleteNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public FakedeletecoffeeidDeletePathParameters.@Nullable FakedeletecoffeeidDeletePathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class FakedeletecoffeeidDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

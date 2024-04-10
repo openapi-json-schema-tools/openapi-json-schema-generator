@@ -1,9 +1,9 @@
 package org.openapijsonschematools.client.paths.commonparamsubdir;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.commonparamsubdir.post.HeaderParameters;
+import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostHeaderParameters;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.commonparamsubdir.post.PathParameters;
+import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostPathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -86,14 +86,14 @@ public class CommonparamsubdirPost {
     }
 
     public static class PostRequest {
-        public PathParameters.PathParametersMap pathParameters;
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap pathParameters;
+        public CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            PathParameters.PathParametersMap pathParameters,
-            HeaderParameters.@Nullable HeaderParametersMap headerParameters,
+            CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap pathParameters,
+            CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap headerParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -105,8 +105,8 @@ public class CommonparamsubdirPost {
     }
 
     public static class PostNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public CommonparamsubdirPostPathParameters.@Nullable CommonparamsubdirPostPathParametersMap pathParameters;
+        public CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -114,7 +114,7 @@ public class CommonparamsubdirPost {
     public interface SetterForHeaderParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(PostNullableRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
+        default T headerParameters(CommonparamsubdirPostHeaderParameters.CommonparamsubdirPostHeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -144,7 +144,7 @@ public class CommonparamsubdirPost {
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

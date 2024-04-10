@@ -3,8 +3,8 @@ package org.openapijsonschematools.client.paths.fake;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
-import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
-import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
+import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteHeaderParameters;
+import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteQueryParameters;
 import org.openapijsonschematools.client.paths.fake.delete.Parameters;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -98,15 +98,15 @@ public class FakeDelete {
     }
 
     public static class DeleteRequest {
-        public HeaderParameters.HeaderParametersMap headerParameters;
-        public QueryParameters.QueryParametersMap queryParameters;
+        public FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters;
+        public FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            HeaderParameters.HeaderParametersMap headerParameters,
-            QueryParameters.QueryParametersMap queryParameters,
+            FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters,
+            FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -120,8 +120,8 @@ public class FakeDelete {
     }
 
     public static class DeleteNullableRequest {
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public FakeDeleteHeaderParameters.@Nullable FakeDeleteHeaderParametersMap headerParameters;
+        public FakeDeleteQueryParameters.@Nullable FakeDeleteQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -160,7 +160,7 @@ public class FakeDelete {
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
+        default T headerParameters(FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -170,7 +170,7 @@ public class FakeDelete {
     public interface SetterForQueryParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterQueryParameters(DeleteNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

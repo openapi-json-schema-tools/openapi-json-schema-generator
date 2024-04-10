@@ -33,8 +33,8 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetRequestBody;
 import org.openapijsonschematools.client.paths.fake.get.requestbody.content.applicationxwwwformurlencoded.ApplicationxwwwformurlencodedSchema;
-import org.openapijsonschematools.client.paths.fake.get.HeaderParameters;
-import org.openapijsonschematools.client.paths.fake.get.QueryParameters;
+import org.openapijsonschematools.client.paths.fake.get.FakeGetHeaderParameters;
+import org.openapijsonschematools.client.paths.fake.get.FakeGetQueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
@@ -114,8 +114,8 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [FakeGetRequestBody.@Nullable SealedRequestBody](../../paths/fake/get/FakeGetRequestBody.md#sealedrequestbody) | requestBody<br>optional |
-| [HeaderParameters.@Nullable HeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
+| [FakeGetHeaderParameters.@Nullable FakeGetHeaderParametersMap](../../paths/fake/get/FakeGetHeaderParameters.md#fakegetheaderparametersmap) | headerParameters<br>optional |
+| [FakeGetQueryParameters.@Nullable FakeGetQueryParametersMap](../../paths/fake/get/FakeGetQueryParameters.md#fakegetqueryparametersmap) | queryParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -134,8 +134,8 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [GetRequestBuilder](#getrequestbuilder) | requestBody([FakeGetRequestBody.SealedRequestBody](../../paths/fake/get/FakeGetRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
-| [GetRequestBuilder](#getrequestbuilder) | headerParameters([HeaderParametersHeaderParametersMap](../../paths/fake/get/HeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
-| [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fake/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | headerParameters([FakeGetHeaderParametersFakeGetHeaderParametersMap](../../paths/fake/get/FakeGetHeaderParameters.md#fakegetheaderparametersmap) headerParameters)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | queryParameters([FakeGetQueryParametersFakeGetQueryParametersMap](../../paths/fake/get/FakeGetQueryParameters.md#fakegetqueryparametersmap) queryParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

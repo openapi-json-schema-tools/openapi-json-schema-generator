@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.petfindbytags;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetSecurityInfo;
-import org.openapijsonschematools.client.paths.petfindbytags.get.QueryParameters;
+import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetQueryParameters;
 import org.openapijsonschematools.client.paths.petfindbytags.get.Parameters;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -93,13 +93,13 @@ public class PetfindbytagsGet {
     }
 
     public static class GetRequest {
-        public QueryParameters.QueryParametersMap queryParameters;
+        public PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            QueryParameters.QueryParametersMap queryParameters,
+            PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -112,7 +112,7 @@ public class PetfindbytagsGet {
     }
 
     public static class GetNullableRequest {
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public PetfindbytagsGetQueryParameters.@Nullable PetfindbytagsGetQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -151,7 +151,7 @@ public class PetfindbytagsGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

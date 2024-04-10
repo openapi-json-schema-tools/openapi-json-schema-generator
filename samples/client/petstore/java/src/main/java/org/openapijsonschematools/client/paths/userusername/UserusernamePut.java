@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.userusername;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutRequestBody;
-import org.openapijsonschematools.client.paths.userusername.put.PathParameters;
+import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutPathParameters;
 import org.openapijsonschematools.client.paths.userusername.put.Parameters;
 import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -88,13 +88,13 @@ public class UserusernamePut {
 
     public static class PutRequest {
         public UserusernamePutRequestBody.SealedRequestBody requestBody;
-        public PathParameters.PathParametersMap pathParameters;
+        public UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
             UserusernamePutRequestBody.SealedRequestBody requestBody,
-            PathParameters.PathParametersMap pathParameters,
+            UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -107,7 +107,7 @@ public class UserusernamePut {
 
     public static class PutNullableRequest {
         public UserusernamePutRequestBody.@Nullable SealedRequestBody requestBody;
-        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public UserusernamePutPathParameters.@Nullable UserusernamePutPathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -145,7 +145,7 @@ public class UserusernamePut {
     public interface SetterForPathParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterPathParameters(PutNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

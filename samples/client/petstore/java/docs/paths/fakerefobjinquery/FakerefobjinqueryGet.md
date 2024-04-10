@@ -31,7 +31,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.fakerefobjinquery.get.QueryParameters;
+import org.openapijsonschematools.client.paths.fakerefobjinquery.get.FakerefobjinqueryGetQueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
@@ -106,7 +106,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/fakerefobjinquery/get/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
+| [FakerefobjinqueryGetQueryParameters.@Nullable FakerefobjinqueryGetQueryParametersMap](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#fakerefobjinquerygetqueryparametersmap) | queryParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -124,7 +124,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [GetRequestBuilder](#getrequestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/fakerefobjinquery/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | queryParameters([FakerefobjinqueryGetQueryParametersFakerefobjinqueryGetQueryParametersMap](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#fakerefobjinquerygetqueryparametersmap) queryParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

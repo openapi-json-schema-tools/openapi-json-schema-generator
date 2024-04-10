@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.get.PathParameters;
+import org.openapijsonschematools.client.paths.userusername.get.UserusernameGetPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -72,9 +72,9 @@ UserusernameGet.Get apiClient = new UserusernameGet.Get(apiConfiguration, schema
 
 
 // Map validation
-PathParameters.PathParametersMap pathParameters =
-    PathParameters.PathParameters1.validate(
-    new PathParameters.PathParametersMapBuilder()
+UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters =
+    UserusernameGetPathParameters.UserusernameGetPathParameters1.validate(
+    new UserusernameGetPathParameters.UserusernameGetPathParametersMapBuilder()
         .username("a")
 
     .build(),
@@ -131,7 +131,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.PathParametersMap](../../paths/userusername/get/PathParameters.md#pathparametersmap) | pathParameters |
+| [UserusernameGetPathParameters.UserusernameGetPathParametersMap](../../paths/userusername/get/UserusernameGetPathParameters.md#userusernamegetpathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -143,7 +143,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.@Nullable PathParametersMap](../../paths/userusername/get/PathParameters.md#pathparametersmap) | pathParameters |
+| [UserusernameGetPathParameters.@Nullable UserusernameGetPathParametersMap](../../paths/userusername/get/UserusernameGetPathParameters.md#userusernamegetpathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -177,6 +177,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/userusername/get/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([UserusernameGetPathParametersUserusernameGetPathParametersMap](../../paths/userusername/get/UserusernameGetPathParameters.md#userusernamegetpathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

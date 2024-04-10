@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.faketestqueryparamters;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.faketestqueryparamters.put.QueryParameters;
+import org.openapijsonschematools.client.paths.faketestqueryparamters.put.FaketestqueryparamtersPutQueryParameters;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Parameters;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.FaketestqueryparamtersPutResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -80,12 +80,12 @@ public class FaketestqueryparamtersPut {
     }
 
     public static class PutRequest {
-        public QueryParameters.QueryParametersMap queryParameters;
+        public FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
-            QueryParameters.QueryParametersMap queryParameters,
+            FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -96,7 +96,7 @@ public class FaketestqueryparamtersPut {
     }
 
     public static class PutNullableRequest {
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public FaketestqueryparamtersPutQueryParameters.@Nullable FaketestqueryparamtersPutQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -124,7 +124,7 @@ public class FaketestqueryparamtersPut {
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PutNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

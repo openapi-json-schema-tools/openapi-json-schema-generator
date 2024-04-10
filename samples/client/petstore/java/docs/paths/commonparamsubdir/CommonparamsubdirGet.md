@@ -33,9 +33,9 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.commonparamsubdir.get.QueryParameters;
+import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetQueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.commonparamsubdir.get.PathParameters;
+import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -71,9 +71,9 @@ CommonparamsubdirGet.Get apiClient = new CommonparamsubdirGet.Get(apiConfigurati
 
 
 // Map validation
-PathParameters.PathParametersMap pathParameters =
-    PathParameters.PathParameters1.validate(
-    new PathParameters.PathParametersMapBuilder()
+CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap pathParameters =
+    CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParameters1.validate(
+    new CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMapBuilder()
         .subDir("a")
 
     .build(),
@@ -121,8 +121,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.PathParametersMap](../../paths/commonparamsubdir/get/PathParameters.md#pathparametersmap) | pathParameters |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/commonparamsubdir/get/QueryParameters.md#queryparametersmap) | queryParameters<br>optional |
+| [CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap](../../paths/commonparamsubdir/get/CommonparamsubdirGetPathParameters.md#commonparamsubdirgetpathparametersmap) | pathParameters |
+| [CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap](../../paths/commonparamsubdir/get/CommonparamsubdirGetQueryParameters.md#commonparamsubdirgetqueryparametersmap) | queryParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -134,8 +134,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.@Nullable PathParametersMap](../../paths/commonparamsubdir/get/PathParameters.md#pathparametersmap) | pathParameters |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/commonparamsubdir/get/QueryParameters.md#queryparametersmap) | queryParameters |
+| [CommonparamsubdirGetPathParameters.@Nullable CommonparamsubdirGetPathParametersMap](../../paths/commonparamsubdir/get/CommonparamsubdirGetPathParameters.md#commonparamsubdirgetpathparametersmap) | pathParameters |
+| [CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap](../../paths/commonparamsubdir/get/CommonparamsubdirGetQueryParameters.md#commonparamsubdirgetqueryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -153,7 +153,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/commonparamsubdir/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([CommonparamsubdirGetQueryParametersCommonparamsubdirGetQueryParametersMap](../../paths/commonparamsubdir/get/CommonparamsubdirGetQueryParameters.md#commonparamsubdirgetqueryparametersmap) queryParameters)<br>sets the optional property |
 | [Get0RequestBuilder](#get0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Get0RequestBuilder](#get0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
@@ -170,6 +170,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/commonparamsubdir/get/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([CommonparamsubdirGetPathParametersCommonparamsubdirGetPathParametersMap](../../paths/commonparamsubdir/get/CommonparamsubdirGetPathParameters.md#commonparamsubdirgetpathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

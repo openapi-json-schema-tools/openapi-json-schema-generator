@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.delete.PathParameters;
+import org.openapijsonschematools.client.paths.userusername.delete.UserusernameDeletePathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -71,9 +71,9 @@ UserusernameDelete.Delete apiClient = new UserusernameDelete.Delete(apiConfigura
 
 
 // Map validation
-PathParameters.PathParametersMap pathParameters =
-    PathParameters.PathParameters1.validate(
-    new PathParameters.PathParametersMapBuilder()
+UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters =
+    UserusernameDeletePathParameters.UserusernameDeletePathParameters1.validate(
+    new UserusernameDeletePathParameters.UserusernameDeletePathParametersMapBuilder()
         .username("a")
 
     .build(),
@@ -124,7 +124,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.PathParametersMap](../../paths/userusername/delete/PathParameters.md#pathparametersmap) | pathParameters |
+| [UserusernameDeletePathParameters.UserusernameDeletePathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#userusernamedeletepathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -136,7 +136,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.@Nullable PathParametersMap](../../paths/userusername/delete/PathParameters.md#pathparametersmap) | pathParameters |
+| [UserusernameDeletePathParameters.@Nullable UserusernameDeletePathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#userusernamedeletepathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -170,6 +170,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/userusername/delete/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([UserusernameDeletePathParametersUserusernameDeletePathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#userusernamedeletepathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

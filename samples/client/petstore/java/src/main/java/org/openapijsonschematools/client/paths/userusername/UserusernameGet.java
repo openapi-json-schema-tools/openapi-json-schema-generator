@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.userusername;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.get.PathParameters;
+import org.openapijsonschematools.client.paths.userusername.get.UserusernameGetPathParameters;
 import org.openapijsonschematools.client.paths.userusername.get.Parameters;
 import org.openapijsonschematools.client.paths.userusername.get.UserusernameGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -79,12 +79,12 @@ public class UserusernameGet {
     }
 
     public static class GetRequest {
-        public PathParameters.PathParametersMap pathParameters;
+        public UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            PathParameters.PathParametersMap pathParameters,
+            UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -95,7 +95,7 @@ public class UserusernameGet {
     }
 
     public static class GetNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public UserusernameGetPathParameters.@Nullable UserusernameGetPathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class UserusernameGet {
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(GetNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

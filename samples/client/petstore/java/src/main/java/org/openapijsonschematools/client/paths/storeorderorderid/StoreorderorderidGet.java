@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.storeorderorderid;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeorderorderid.get.PathParameters;
+import org.openapijsonschematools.client.paths.storeorderorderid.get.StoreorderorderidGetPathParameters;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.Parameters;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.StoreorderorderidGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -79,12 +79,12 @@ public class StoreorderorderidGet {
     }
 
     public static class GetRequest {
-        public PathParameters.PathParametersMap pathParameters;
+        public StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            PathParameters.PathParametersMap pathParameters,
+            StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -95,7 +95,7 @@ public class StoreorderorderidGet {
     }
 
     public static class GetNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public StoreorderorderidGetPathParameters.@Nullable StoreorderorderidGetPathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class StoreorderorderidGet {
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(GetNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

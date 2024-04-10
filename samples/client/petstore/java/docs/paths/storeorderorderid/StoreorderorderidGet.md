@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeorderorderid.get.PathParameters;
+import org.openapijsonschematools.client.paths.storeorderorderid.get.StoreorderorderidGetPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -72,9 +72,9 @@ StoreorderorderidGet.Get apiClient = new StoreorderorderidGet.Get(apiConfigurati
 
 
 // Map validation
-PathParameters.PathParametersMap pathParameters =
-    PathParameters.PathParameters1.validate(
-    new PathParameters.PathParametersMapBuilder()
+StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap pathParameters =
+    StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters1.validate(
+    new StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMapBuilder()
         .order_id(1L)
 
     .build(),
@@ -131,7 +131,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.PathParametersMap](../../paths/storeorderorderid/get/PathParameters.md#pathparametersmap) | pathParameters |
+| [StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap](../../paths/storeorderorderid/get/StoreorderorderidGetPathParameters.md#storeorderorderidgetpathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -143,7 +143,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.@Nullable PathParametersMap](../../paths/storeorderorderid/get/PathParameters.md#pathparametersmap) | pathParameters |
+| [StoreorderorderidGetPathParameters.@Nullable StoreorderorderidGetPathParametersMap](../../paths/storeorderorderid/get/StoreorderorderidGetPathParameters.md#storeorderorderidgetpathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -177,6 +177,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/storeorderorderid/get/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([StoreorderorderidGetPathParametersStoreorderorderidGetPathParametersMap](../../paths/storeorderorderid/get/StoreorderorderidGetPathParameters.md#storeorderorderidgetpathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

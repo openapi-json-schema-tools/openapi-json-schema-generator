@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostSecurityInfo;
-import org.openapijsonschematools.client.paths.petpetid.post.PathParameters;
+import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostPathParameters;
 import org.openapijsonschematools.client.paths.petpetid.post.Parameters;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -104,14 +104,14 @@ public class PetpetidPost {
     }
 
     public static class PostRequest {
-        public PathParameters.PathParametersMap pathParameters;
+        public PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters;
         public PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            PathParameters.PathParametersMap pathParameters,
+            PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters,
             PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex,
@@ -126,7 +126,7 @@ public class PetpetidPost {
     }
 
     public static class PostNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
+        public PetpetidPostPathParameters.@Nullable PetpetidPostPathParametersMap pathParameters;
         public PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
@@ -176,7 +176,7 @@ public class PetpetidPost {
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

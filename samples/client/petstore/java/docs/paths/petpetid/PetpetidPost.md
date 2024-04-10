@@ -36,7 +36,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostSecurityInfo;
-import org.openapijsonschematools.client.paths.petpetid.post.PathParameters;
+import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -84,9 +84,9 @@ PetpetidPost.Post apiClient = new PetpetidPost.Post(apiConfiguration, schemaConf
 
 
 // Map validation
-PathParameters.PathParametersMap pathParameters =
-    PathParameters.PathParameters1.validate(
-    new PathParameters.PathParametersMapBuilder()
+PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters =
+    PetpetidPostPathParameters.PetpetidPostPathParameters1.validate(
+    new PetpetidPostPathParameters.PetpetidPostPathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -136,7 +136,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.PathParametersMap](../../paths/petpetid/post/PathParameters.md#pathparametersmap) | pathParameters |
+| [PetpetidPostPathParameters.PetpetidPostPathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#petpetidpostpathparametersmap) | pathParameters |
 | [PetpetidPostRequestBody.@Nullable SealedRequestBody](../../paths/petpetid/post/PetpetidPostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetidPostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/post/PetpetidPostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
@@ -150,7 +150,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PathParameters.@Nullable PathParametersMap](../../paths/petpetid/post/PathParameters.md#pathparametersmap) | pathParameters |
+| [PetpetidPostPathParameters.@Nullable PetpetidPostPathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#petpetidpostpathparametersmap) | pathParameters |
 | [PetpetidPostRequestBody.@Nullable SealedRequestBody](../../paths/petpetid/post/PetpetidPostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetpetidPostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/post/PetpetidPostSecurityInfo.md#securityindex) | securityIndex |
@@ -188,6 +188,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PathParametersPathParametersMap](../../paths/petpetid/post/PathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetidPostPathParametersPetpetidPostPathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#petpetidpostpathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -35,7 +35,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetSecurityInfo;
-import org.openapijsonschematools.client.paths.petfindbystatus.get.QueryParameters;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetQueryParameters;
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer0;
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer1;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
@@ -84,9 +84,9 @@ PetfindbystatusGet.Get apiClient = new PetfindbystatusGet.Get(apiConfiguration, 
 
 
 // Map validation
-QueryParameters.QueryParametersMap queryParameters =
-    QueryParameters.QueryParameters1.validate(
-    new QueryParameters.QueryParametersMapBuilder()
+PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters =
+    PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1.validate(
+    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMapBuilder()
         .status(
             Arrays.asList(
                 "available"
@@ -141,7 +141,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [QueryParameters.QueryParametersMap](../../paths/petfindbystatus/get/QueryParameters.md#queryparametersmap) | queryParameters |
+| [PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparametersmap) | queryParameters |
 | [PetfindbystatusServerInfo.@Nullable ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -154,7 +154,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/petfindbystatus/get/QueryParameters.md#queryparametersmap) | queryParameters |
+| [PetfindbystatusGetQueryParameters.@Nullable PetfindbystatusGetQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparametersmap) | queryParameters |
 | [PetfindbystatusServerInfo.@Nullable ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) | serverIndex |
 | [PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -190,6 +190,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/petfindbystatus/get/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([PetfindbystatusGetQueryParametersPetfindbystatusGetQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

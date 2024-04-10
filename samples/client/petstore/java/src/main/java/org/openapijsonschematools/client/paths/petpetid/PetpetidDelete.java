@@ -1,10 +1,10 @@
 package org.openapijsonschematools.client.paths.petpetid;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.petpetid.delete.HeaderParameters;
+import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteHeaderParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteSecurityInfo;
-import org.openapijsonschematools.client.paths.petpetid.delete.PathParameters;
+import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeletePathParameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.Parameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -98,15 +98,15 @@ public class PetpetidDelete {
     }
 
     public static class DeleteRequest {
-        public PathParameters.PathParametersMap pathParameters;
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public PetpetidDeletePathParameters.PetpetidDeletePathParametersMap pathParameters;
+        public PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            PathParameters.PathParametersMap pathParameters,
-            HeaderParameters.@Nullable HeaderParametersMap headerParameters,
+            PetpetidDeletePathParameters.PetpetidDeletePathParametersMap pathParameters,
+            PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParametersMap headerParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -120,8 +120,8 @@ public class PetpetidDelete {
     }
 
     public static class DeleteNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
-        public HeaderParameters.@Nullable HeaderParametersMap headerParameters;
+        public PetpetidDeletePathParameters.@Nullable PetpetidDeletePathParametersMap pathParameters;
+        public PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -130,7 +130,7 @@ public class PetpetidDelete {
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
+        default T headerParameters(PetpetidDeleteHeaderParameters.PetpetidDeleteHeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -170,7 +170,7 @@ public class PetpetidDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(PetpetidDeletePathParameters.PetpetidDeletePathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

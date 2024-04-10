@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.faketestqueryparamters.put.QueryParameters;
+import org.openapijsonschematools.client.paths.faketestqueryparamters.put.FaketestqueryparamtersPutQueryParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -70,9 +70,9 @@ FaketestqueryparamtersPut.Put apiClient = new FaketestqueryparamtersPut.Put(apiC
 
 
 // Map validation
-QueryParameters.QueryParametersMap queryParameters =
-    QueryParameters.QueryParameters1.validate(
-    new QueryParameters.QueryParametersMapBuilder()
+FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap queryParameters =
+    FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters1.validate(
+    new FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMapBuilder()
         .context(
             Arrays.asList(
                 "a"
@@ -145,7 +145,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [QueryParameters.QueryParametersMap](../../paths/faketestqueryparamters/put/QueryParameters.md#queryparametersmap) | queryParameters |
+| [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutQueryParameters.md#faketestqueryparamtersputqueryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -157,7 +157,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [QueryParameters.@Nullable QueryParametersMap](../../paths/faketestqueryparamters/put/QueryParameters.md#queryparametersmap) | queryParameters |
+| [FaketestqueryparamtersPutQueryParameters.@Nullable FaketestqueryparamtersPutQueryParametersMap](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutQueryParameters.md#faketestqueryparamtersputqueryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -191,6 +191,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put0RequestBuilder](#put0requestbuilder) | queryParameters([QueryParametersQueryParametersMap](../../paths/faketestqueryparamters/put/QueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | queryParameters([FaketestqueryparamtersPutQueryParametersFaketestqueryparamtersPutQueryParametersMap](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutQueryParameters.md#faketestqueryparamtersputqueryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

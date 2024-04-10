@@ -1,9 +1,9 @@
 package org.openapijsonschematools.client.paths.commonparamsubdir;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.paths.commonparamsubdir.get.QueryParameters;
+import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetQueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.commonparamsubdir.get.PathParameters;
+import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetPathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -87,14 +87,14 @@ public class CommonparamsubdirGet {
     }
 
     public static class GetRequest {
-        public PathParameters.PathParametersMap pathParameters;
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap pathParameters;
+        public CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            PathParameters.PathParametersMap pathParameters,
-            QueryParameters.@Nullable QueryParametersMap queryParameters,
+            CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap pathParameters,
+            CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -106,8 +106,8 @@ public class CommonparamsubdirGet {
     }
 
     public static class GetNullableRequest {
-        public PathParameters.@Nullable PathParametersMap pathParameters;
-        public QueryParameters.@Nullable QueryParametersMap queryParameters;
+        public CommonparamsubdirGetPathParameters.@Nullable CommonparamsubdirGetPathParametersMap pathParameters;
+        public CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -115,7 +115,7 @@ public class CommonparamsubdirGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
+        default T queryParameters(CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -145,7 +145,7 @@ public class CommonparamsubdirGet {
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(GetNullableRequest instance);
-        default T pathParameters(PathParameters.PathParametersMap pathParameters) {
+        default T pathParameters(CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);
