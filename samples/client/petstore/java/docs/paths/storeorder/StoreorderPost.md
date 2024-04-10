@@ -133,8 +133,8 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/storeorder/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## StoreorderPostRequest
-public static class StoreorderPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

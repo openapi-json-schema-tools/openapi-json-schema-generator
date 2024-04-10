@@ -86,7 +86,7 @@ public class PetfindbystatusGet {
         }
     }
 
-    public static class Get extends ApiClient implements PetfindbystatusGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -120,7 +120,7 @@ public class PetfindbystatusGet {
 
     public interface SetterForServerIndex <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterServerIndex(PetfindbystatusGetNullableRequest instance);
+        T getBuilderAfterServerIndex(GetNullableRequest instance);
         default T serverIndex(PetfindbystatusServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -130,7 +130,7 @@ public class PetfindbystatusGet {
 
     public interface SetterForSecurityIndex <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterSecurityIndex(PetfindbystatusGetNullableRequest instance);
+        T getBuilderAfterSecurityIndex(GetNullableRequest instance);
         default T securityIndex(PetfindbystatusGetSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -140,7 +140,7 @@ public class PetfindbystatusGet {
 
     public interface SetterForTimeout <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterTimeout(PetfindbystatusGetNullableRequest instance);
+        T getBuilderAfterTimeout(GetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -150,7 +150,7 @@ public class PetfindbystatusGet {
 
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterQueryParameters(PetfindbystatusGetNullableRequest instance);
+        T getBuilderAfterQueryParameters(GetNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -170,7 +170,7 @@ public class PetfindbystatusGet {
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new PetfindbystatusGetRequest(
+            return new GetRequest(
                 queryParameters,
                 instance.serverIndex,
                 instance.securityIndex,

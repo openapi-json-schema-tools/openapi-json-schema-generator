@@ -106,8 +106,8 @@ if (castResponse.body instanceof Code200Response.ApplicationjsonResponseBody des
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakeinlinecomposition/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## FakeinlinecompositionPostRequest
-public static class FakeinlinecompositionPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

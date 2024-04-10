@@ -101,8 +101,8 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakerefsarrayofenums/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## FakerefsarrayofenumsPostRequest
-public static class FakerefsarrayofenumsPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

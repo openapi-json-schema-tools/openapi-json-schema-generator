@@ -111,8 +111,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/storeinventory/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## StoreinventoryGetRequest
-public static class StoreinventoryGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

@@ -115,8 +115,8 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/anotherfakedummy/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
-## AnotherfakedummyPatchRequest
-public static class AnotherfakedummyPatchRequest<br>
+## PatchRequest
+public static class PatchRequest<br>
 
 a class that stores the final request inputs
 

@@ -128,8 +128,8 @@ try {
 | ----------------- | ---------------------- |
 | Void | delete([DeleteRequest](#deleterequest) request) |
 
-## PetpetidDeleteRequest
-public static class PetpetidDeleteRequest<br>
+## DeleteRequest
+public static class DeleteRequest<br>
 
 a class that stores the final request inputs
 

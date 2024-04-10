@@ -98,7 +98,7 @@ public class PetpetidPost {
         }
     }
 
-    public static class Post extends ApiClient implements PetpetidPostOperation {
+    public static class Post extends ApiClient implements PostOperation {
         public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -136,7 +136,7 @@ public class PetpetidPost {
 
     public interface SetterForRequestBody <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterRequestBody(PetpetidPostNullableRequest instance);
+        T getBuilderAfterRequestBody(PostNullableRequest instance);
         default T requestBody(PetpetidPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -146,7 +146,7 @@ public class PetpetidPost {
 
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterServerIndex(PetpetidPostNullableRequest instance);
+        T getBuilderAfterServerIndex(PostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -156,7 +156,7 @@ public class PetpetidPost {
 
     public interface SetterForSecurityIndex <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterSecurityIndex(PetpetidPostNullableRequest instance);
+        T getBuilderAfterSecurityIndex(PostNullableRequest instance);
         default T securityIndex(PetpetidPostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -166,7 +166,7 @@ public class PetpetidPost {
 
     public interface SetterForTimeout <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterTimeout(PetpetidPostNullableRequest instance);
+        T getBuilderAfterTimeout(PostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -176,7 +176,7 @@ public class PetpetidPost {
 
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterPathParameters(PetpetidPostNullableRequest instance);
+        T getBuilderAfterPathParameters(PostNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
@@ -196,7 +196,7 @@ public class PetpetidPost {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new PetpetidPostRequest(
+            return new PostRequest(
                 pathParameters,
                 instance.requestBody,
                 instance.serverIndex,

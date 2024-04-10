@@ -76,7 +76,7 @@ public class FakerefsmammalPost {
         }
     }
 
-    public static class Post extends ApiClient implements FakerefsmammalPostOperation {
+    public static class Post extends ApiClient implements PostOperation {
         public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -106,7 +106,7 @@ public class FakerefsmammalPost {
 
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterServerIndex(FakerefsmammalPostNullableRequest instance);
+        T getBuilderAfterServerIndex(PostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -116,7 +116,7 @@ public class FakerefsmammalPost {
 
     public interface SetterForTimeout <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterTimeout(FakerefsmammalPostNullableRequest instance);
+        T getBuilderAfterTimeout(PostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -126,7 +126,7 @@ public class FakerefsmammalPost {
 
     public interface SetterForRequestBody <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterRequestBody(FakerefsmammalPostNullableRequest instance);
+        T getBuilderAfterRequestBody(PostNullableRequest instance);
         default T requestBody(FakerefsmammalPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -146,7 +146,7 @@ public class FakerefsmammalPost {
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new FakerefsmammalPostRequest(
+            return new PostRequest(
                 requestBody,
                 instance.serverIndex,
                 instance.timeout

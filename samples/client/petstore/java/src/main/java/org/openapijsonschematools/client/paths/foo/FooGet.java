@@ -67,7 +67,7 @@ public class FooGet {
         }
     }
 
-    public static class Get extends ApiClient implements FooGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -80,7 +80,7 @@ public class FooGet {
 
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
-        T getBuilderAfterServerIndex(FooGetRequest instance);
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(FooGetServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -90,7 +90,7 @@ public class FooGet {
 
     public interface SetterForTimeout <T> {
         GetRequest getInstance();
-        T getBuilderAfterTimeout(FooGetRequest instance);
+        T getBuilderAfterTimeout(GetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

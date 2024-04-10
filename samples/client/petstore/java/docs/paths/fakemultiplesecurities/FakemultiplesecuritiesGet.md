@@ -116,8 +116,8 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakemultiplesecurities/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## FakemultiplesecuritiesGetRequest
-public static class FakemultiplesecuritiesGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

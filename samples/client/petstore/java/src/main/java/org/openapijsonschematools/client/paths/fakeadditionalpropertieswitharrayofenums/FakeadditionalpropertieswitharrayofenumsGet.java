@@ -80,7 +80,7 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
         }
     }
 
-    public static class Get extends ApiClient implements FakeadditionalpropertieswitharrayofenumsGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -94,7 +94,7 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
 
     public interface SetterForRequestBody <T> {
         GetRequest getInstance();
-        T getBuilderAfterRequestBody(FakeadditionalpropertieswitharrayofenumsGetRequest instance);
+        T getBuilderAfterRequestBody(GetRequest instance);
         default T requestBody(FakeadditionalpropertieswitharrayofenumsGetRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -104,7 +104,7 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
 
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
-        T getBuilderAfterServerIndex(FakeadditionalpropertieswitharrayofenumsGetRequest instance);
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -114,7 +114,7 @@ public class FakeadditionalpropertieswitharrayofenumsGet {
 
     public interface SetterForTimeout <T> {
         GetRequest getInstance();
-        T getBuilderAfterTimeout(FakeadditionalpropertieswitharrayofenumsGetRequest instance);
+        T getBuilderAfterTimeout(GetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

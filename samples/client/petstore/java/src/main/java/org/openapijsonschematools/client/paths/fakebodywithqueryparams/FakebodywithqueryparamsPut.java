@@ -82,7 +82,7 @@ public class FakebodywithqueryparamsPut {
         }
     }
 
-    public static class Put extends ApiClient implements FakebodywithqueryparamsPutOperation {
+    public static class Put extends ApiClient implements PutOperation {
         public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -116,7 +116,7 @@ public class FakebodywithqueryparamsPut {
 
     public interface SetterForServerIndex <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterServerIndex(FakebodywithqueryparamsPutNullableRequest instance);
+        T getBuilderAfterServerIndex(PutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -126,7 +126,7 @@ public class FakebodywithqueryparamsPut {
 
     public interface SetterForTimeout <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterTimeout(FakebodywithqueryparamsPutNullableRequest instance);
+        T getBuilderAfterTimeout(PutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -136,7 +136,7 @@ public class FakebodywithqueryparamsPut {
 
     public interface SetterForRequestBody <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterRequestBody(FakebodywithqueryparamsPutNullableRequest instance);
+        T getBuilderAfterRequestBody(PutNullableRequest instance);
         default T requestBody(FakebodywithqueryparamsPutRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -146,7 +146,7 @@ public class FakebodywithqueryparamsPut {
 
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterQueryParameters(FakebodywithqueryparamsPutNullableRequest instance);
+        T getBuilderAfterQueryParameters(PutNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -170,7 +170,7 @@ public class FakebodywithqueryparamsPut {
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new FakebodywithqueryparamsPutRequest(
+            return new PutRequest(
                 requestBody,
                 queryParameters,
                 instance.serverIndex,

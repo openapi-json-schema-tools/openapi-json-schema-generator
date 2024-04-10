@@ -162,8 +162,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/pet/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## PetPostRequest
-public static class PetPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

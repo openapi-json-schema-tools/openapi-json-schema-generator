@@ -81,7 +81,7 @@ public class UserusernamePut {
         }
     }
 
-    public static class Put extends ApiClient implements UserusernamePutOperation {
+    public static class Put extends ApiClient implements PutOperation {
         public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -115,7 +115,7 @@ public class UserusernamePut {
 
     public interface SetterForServerIndex <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterServerIndex(UserusernamePutNullableRequest instance);
+        T getBuilderAfterServerIndex(PutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -125,7 +125,7 @@ public class UserusernamePut {
 
     public interface SetterForTimeout <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterTimeout(UserusernamePutNullableRequest instance);
+        T getBuilderAfterTimeout(PutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -135,7 +135,7 @@ public class UserusernamePut {
 
     public interface SetterForRequestBody <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterRequestBody(UserusernamePutNullableRequest instance);
+        T getBuilderAfterRequestBody(PutNullableRequest instance);
         default T requestBody(UserusernamePutRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -145,7 +145,7 @@ public class UserusernamePut {
 
     public interface SetterForPathParameters <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterPathParameters(UserusernamePutNullableRequest instance);
+        T getBuilderAfterPathParameters(PutNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
@@ -169,7 +169,7 @@ public class UserusernamePut {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new UserusernamePutRequest(
+            return new PutRequest(
                 requestBody,
                 pathParameters,
                 instance.serverIndex,

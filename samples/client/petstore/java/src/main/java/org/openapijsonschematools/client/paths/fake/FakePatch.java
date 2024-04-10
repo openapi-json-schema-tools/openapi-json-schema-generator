@@ -76,7 +76,7 @@ public class FakePatch {
         }
     }
 
-    public static class Patch extends ApiClient implements FakePatchOperation {
+    public static class Patch extends ApiClient implements PatchOperation {
         public Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -106,7 +106,7 @@ public class FakePatch {
 
     public interface SetterForServerIndex <T> {
         PatchNullableRequest getInstance();
-        T getBuilderAfterServerIndex(FakePatchNullableRequest instance);
+        T getBuilderAfterServerIndex(PatchNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -116,7 +116,7 @@ public class FakePatch {
 
     public interface SetterForTimeout <T> {
         PatchNullableRequest getInstance();
-        T getBuilderAfterTimeout(FakePatchNullableRequest instance);
+        T getBuilderAfterTimeout(PatchNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -126,7 +126,7 @@ public class FakePatch {
 
     public interface SetterForRequestBody <T> {
         PatchNullableRequest getInstance();
-        T getBuilderAfterRequestBody(FakePatchNullableRequest instance);
+        T getBuilderAfterRequestBody(PatchNullableRequest instance);
         default T requestBody(FakePatchRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -146,7 +146,7 @@ public class FakePatch {
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new FakePatchRequest(
+            return new PatchRequest(
                 requestBody,
                 instance.serverIndex,
                 instance.timeout

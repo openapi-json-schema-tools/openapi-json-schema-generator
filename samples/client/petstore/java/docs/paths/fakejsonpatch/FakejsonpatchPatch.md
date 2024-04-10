@@ -99,8 +99,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakejsonpatch/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
-## FakejsonpatchPatchRequest
-public static class FakejsonpatchPatchRequest<br>
+## PatchRequest
+public static class PatchRequest<br>
 
 a class that stores the final request inputs
 

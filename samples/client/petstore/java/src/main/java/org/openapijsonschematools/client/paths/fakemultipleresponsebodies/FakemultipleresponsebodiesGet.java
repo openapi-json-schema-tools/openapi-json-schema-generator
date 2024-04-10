@@ -67,7 +67,7 @@ public class FakemultipleresponsebodiesGet {
         }
     }
 
-    public static class Get extends ApiClient implements FakemultipleresponsebodiesGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -80,7 +80,7 @@ public class FakemultipleresponsebodiesGet {
 
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
-        T getBuilderAfterServerIndex(FakemultipleresponsebodiesGetRequest instance);
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -90,7 +90,7 @@ public class FakemultipleresponsebodiesGet {
 
     public interface SetterForTimeout <T> {
         GetRequest getInstance();
-        T getBuilderAfterTimeout(FakemultipleresponsebodiesGetRequest instance);
+        T getBuilderAfterTimeout(GetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

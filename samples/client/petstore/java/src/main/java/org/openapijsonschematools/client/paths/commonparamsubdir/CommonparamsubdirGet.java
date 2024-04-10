@@ -80,7 +80,7 @@ public class CommonparamsubdirGet {
         }
     }
 
-    public static class Get extends ApiClient implements CommonparamsubdirGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -114,7 +114,7 @@ public class CommonparamsubdirGet {
 
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterQueryParameters(CommonparamsubdirGetNullableRequest instance);
+        T getBuilderAfterQueryParameters(GetNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -124,7 +124,7 @@ public class CommonparamsubdirGet {
 
     public interface SetterForServerIndex <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterServerIndex(CommonparamsubdirGetNullableRequest instance);
+        T getBuilderAfterServerIndex(GetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -134,7 +134,7 @@ public class CommonparamsubdirGet {
 
     public interface SetterForTimeout <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterTimeout(CommonparamsubdirGetNullableRequest instance);
+        T getBuilderAfterTimeout(GetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -144,7 +144,7 @@ public class CommonparamsubdirGet {
 
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterPathParameters(CommonparamsubdirGetNullableRequest instance);
+        T getBuilderAfterPathParameters(GetNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
@@ -164,7 +164,7 @@ public class CommonparamsubdirGet {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new CommonparamsubdirGetRequest(
+            return new GetRequest(
                 pathParameters,
                 instance.queryParameters,
                 instance.serverIndex,

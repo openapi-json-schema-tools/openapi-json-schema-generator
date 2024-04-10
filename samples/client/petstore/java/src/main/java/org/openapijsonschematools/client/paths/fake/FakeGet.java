@@ -96,7 +96,7 @@ public class FakeGet {
         }
     }
 
-    public static class Get extends ApiClient implements FakeGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -112,7 +112,7 @@ public class FakeGet {
 
     public interface SetterForRequestBody <T> {
         GetRequest getInstance();
-        T getBuilderAfterRequestBody(FakeGetRequest instance);
+        T getBuilderAfterRequestBody(GetRequest instance);
         default T requestBody(FakeGetRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -122,7 +122,7 @@ public class FakeGet {
 
     public interface SetterForHeaderParameters <T> {
         GetRequest getInstance();
-        T getBuilderAfterHeaderParameters(FakeGetRequest instance);
+        T getBuilderAfterHeaderParameters(GetRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
@@ -132,7 +132,7 @@ public class FakeGet {
 
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
-        T getBuilderAfterQueryParameters(FakeGetRequest instance);
+        T getBuilderAfterQueryParameters(GetRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -142,7 +142,7 @@ public class FakeGet {
 
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
-        T getBuilderAfterServerIndex(FakeGetRequest instance);
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -152,7 +152,7 @@ public class FakeGet {
 
     public interface SetterForTimeout <T> {
         GetRequest getInstance();
-        T getBuilderAfterTimeout(FakeGetRequest instance);
+        T getBuilderAfterTimeout(GetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

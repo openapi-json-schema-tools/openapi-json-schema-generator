@@ -97,8 +97,8 @@ Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefa
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/userlogout/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## UserlogoutGetRequest
-public static class UserlogoutGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

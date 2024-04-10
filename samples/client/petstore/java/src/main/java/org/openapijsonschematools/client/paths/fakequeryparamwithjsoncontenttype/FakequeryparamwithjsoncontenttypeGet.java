@@ -73,7 +73,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
         }
     }
 
-    public static class Get extends ApiClient implements FakequeryparamwithjsoncontenttypeGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -103,7 +103,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
 
     public interface SetterForServerIndex <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterServerIndex(FakequeryparamwithjsoncontenttypeGetNullableRequest instance);
+        T getBuilderAfterServerIndex(GetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -113,7 +113,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
 
     public interface SetterForTimeout <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterTimeout(FakequeryparamwithjsoncontenttypeGetNullableRequest instance);
+        T getBuilderAfterTimeout(GetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -123,7 +123,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
 
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterQueryParameters(FakequeryparamwithjsoncontenttypeGetNullableRequest instance);
+        T getBuilderAfterQueryParameters(GetNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -143,7 +143,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new FakequeryparamwithjsoncontenttypeGetRequest(
+            return new GetRequest(
                 queryParameters,
                 instance.serverIndex,
                 instance.timeout

@@ -101,8 +101,8 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## FakerefsobjectmodelwithrefpropsPostRequest
-public static class FakerefsobjectmodelwithrefpropsPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

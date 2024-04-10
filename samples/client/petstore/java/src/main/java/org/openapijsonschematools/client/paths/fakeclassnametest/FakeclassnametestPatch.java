@@ -89,7 +89,7 @@ public class FakeclassnametestPatch {
         }
     }
 
-    public static class Patch extends ApiClient implements FakeclassnametestPatchOperation {
+    public static class Patch extends ApiClient implements PatchOperation {
         public Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -123,7 +123,7 @@ public class FakeclassnametestPatch {
 
     public interface SetterForServerIndex <T> {
         PatchNullableRequest getInstance();
-        T getBuilderAfterServerIndex(FakeclassnametestPatchNullableRequest instance);
+        T getBuilderAfterServerIndex(PatchNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -133,7 +133,7 @@ public class FakeclassnametestPatch {
 
     public interface SetterForSecurityIndex <T> {
         PatchNullableRequest getInstance();
-        T getBuilderAfterSecurityIndex(FakeclassnametestPatchNullableRequest instance);
+        T getBuilderAfterSecurityIndex(PatchNullableRequest instance);
         default T securityIndex(FakeclassnametestPatchSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -143,7 +143,7 @@ public class FakeclassnametestPatch {
 
     public interface SetterForTimeout <T> {
         PatchNullableRequest getInstance();
-        T getBuilderAfterTimeout(FakeclassnametestPatchNullableRequest instance);
+        T getBuilderAfterTimeout(PatchNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -153,7 +153,7 @@ public class FakeclassnametestPatch {
 
     public interface SetterForRequestBody <T> {
         PatchNullableRequest getInstance();
-        T getBuilderAfterRequestBody(FakeclassnametestPatchNullableRequest instance);
+        T getBuilderAfterRequestBody(PatchNullableRequest instance);
         default T requestBody(FakeclassnametestPatchRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -173,7 +173,7 @@ public class FakeclassnametestPatch {
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new FakeclassnametestPatchRequest(
+            return new PatchRequest(
                 requestBody,
                 instance.serverIndex,
                 instance.securityIndex,

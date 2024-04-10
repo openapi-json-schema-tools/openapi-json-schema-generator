@@ -135,8 +135,8 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/petpetid/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## PetpetidGetRequest
-public static class PetpetidGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

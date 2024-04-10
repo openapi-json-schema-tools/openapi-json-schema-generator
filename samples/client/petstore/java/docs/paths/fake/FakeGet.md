@@ -105,8 +105,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fake/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## FakeGetRequest
-public static class FakeGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

@@ -115,8 +115,8 @@ try {
 | ----------------- | ---------------------- |
 | Void | delete([DeleteRequest](#deleterequest) request) |
 
-## StoreorderorderidDeleteRequest
-public static class StoreorderorderidDeleteRequest<br>
+## DeleteRequest
+public static class DeleteRequest<br>
 
 a class that stores the final request inputs
 

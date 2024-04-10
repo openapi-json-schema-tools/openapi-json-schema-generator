@@ -76,7 +76,7 @@ public class FakerefobjinqueryGet {
         }
     }
 
-    public static class Get extends ApiClient implements FakerefobjinqueryGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -90,7 +90,7 @@ public class FakerefobjinqueryGet {
 
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
-        T getBuilderAfterQueryParameters(FakerefobjinqueryGetRequest instance);
+        T getBuilderAfterQueryParameters(GetRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -100,7 +100,7 @@ public class FakerefobjinqueryGet {
 
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
-        T getBuilderAfterServerIndex(FakerefobjinqueryGetRequest instance);
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -110,7 +110,7 @@ public class FakerefobjinqueryGet {
 
     public interface SetterForTimeout <T> {
         GetRequest getInstance();
-        T getBuilderAfterTimeout(FakerefobjinqueryGetRequest instance);
+        T getBuilderAfterTimeout(GetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

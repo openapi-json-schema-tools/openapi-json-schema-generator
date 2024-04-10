@@ -80,7 +80,7 @@ public class FakejsonpatchPatch {
         }
     }
 
-    public static class Patch extends ApiClient implements FakejsonpatchPatchOperation {
+    public static class Patch extends ApiClient implements PatchOperation {
         public Patch(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -94,7 +94,7 @@ public class FakejsonpatchPatch {
 
     public interface SetterForRequestBody <T> {
         PatchRequest getInstance();
-        T getBuilderAfterRequestBody(FakejsonpatchPatchRequest instance);
+        T getBuilderAfterRequestBody(PatchRequest instance);
         default T requestBody(FakejsonpatchPatchRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -104,7 +104,7 @@ public class FakejsonpatchPatch {
 
     public interface SetterForServerIndex <T> {
         PatchRequest getInstance();
-        T getBuilderAfterServerIndex(FakejsonpatchPatchRequest instance);
+        T getBuilderAfterServerIndex(PatchRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -114,7 +114,7 @@ public class FakejsonpatchPatch {
 
     public interface SetterForTimeout <T> {
         PatchRequest getInstance();
-        T getBuilderAfterTimeout(FakejsonpatchPatchRequest instance);
+        T getBuilderAfterTimeout(PatchRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

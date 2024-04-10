@@ -91,7 +91,7 @@ public class FakeDelete {
         }
     }
 
-    public static class Delete extends ApiClient implements FakeDeleteOperation {
+    public static class Delete extends ApiClient implements DeleteOperation {
         public Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -129,7 +129,7 @@ public class FakeDelete {
 
     public interface SetterForServerIndex <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterServerIndex(FakeDeleteNullableRequest instance);
+        T getBuilderAfterServerIndex(DeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -139,7 +139,7 @@ public class FakeDelete {
 
     public interface SetterForSecurityIndex <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterSecurityIndex(FakeDeleteNullableRequest instance);
+        T getBuilderAfterSecurityIndex(DeleteNullableRequest instance);
         default T securityIndex(FakeDeleteSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -149,7 +149,7 @@ public class FakeDelete {
 
     public interface SetterForTimeout <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterTimeout(FakeDeleteNullableRequest instance);
+        T getBuilderAfterTimeout(DeleteNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -159,7 +159,7 @@ public class FakeDelete {
 
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterHeaderParameters(FakeDeleteNullableRequest instance);
+        T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
@@ -169,7 +169,7 @@ public class FakeDelete {
 
     public interface SetterForQueryParameters <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterQueryParameters(FakeDeleteNullableRequest instance);
+        T getBuilderAfterQueryParameters(DeleteNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -193,7 +193,7 @@ public class FakeDelete {
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new FakeDeleteRequest(
+            return new DeleteRequest(
                 headerParameters,
                 queryParameters,
                 instance.serverIndex,

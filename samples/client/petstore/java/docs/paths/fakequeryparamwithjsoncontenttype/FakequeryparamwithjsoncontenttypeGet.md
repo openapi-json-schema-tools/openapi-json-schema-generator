@@ -112,8 +112,8 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## FakequeryparamwithjsoncontenttypeGetRequest
-public static class FakequeryparamwithjsoncontenttypeGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

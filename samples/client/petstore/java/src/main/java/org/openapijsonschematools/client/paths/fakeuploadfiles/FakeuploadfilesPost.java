@@ -80,7 +80,7 @@ public class FakeuploadfilesPost {
         }
     }
 
-    public static class Post extends ApiClient implements FakeuploadfilesPostOperation {
+    public static class Post extends ApiClient implements PostOperation {
         public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -94,7 +94,7 @@ public class FakeuploadfilesPost {
 
     public interface SetterForRequestBody <T> {
         PostRequest getInstance();
-        T getBuilderAfterRequestBody(FakeuploadfilesPostRequest instance);
+        T getBuilderAfterRequestBody(PostRequest instance);
         default T requestBody(FakeuploadfilesPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -104,7 +104,7 @@ public class FakeuploadfilesPost {
 
     public interface SetterForServerIndex <T> {
         PostRequest getInstance();
-        T getBuilderAfterServerIndex(FakeuploadfilesPostRequest instance);
+        T getBuilderAfterServerIndex(PostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -114,7 +114,7 @@ public class FakeuploadfilesPost {
 
     public interface SetterForTimeout <T> {
         PostRequest getInstance();
-        T getBuilderAfterTimeout(FakeuploadfilesPostRequest instance);
+        T getBuilderAfterTimeout(PostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

@@ -146,8 +146,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fake/delete/Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
 
-## FakeDeleteRequest
-public static class FakeDeleteRequest<br>
+## DeleteRequest
+public static class DeleteRequest<br>
 
 a class that stores the final request inputs
 

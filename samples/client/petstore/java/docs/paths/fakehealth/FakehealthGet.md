@@ -99,8 +99,8 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakehealth/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## FakehealthGetRequest
-public static class FakehealthGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

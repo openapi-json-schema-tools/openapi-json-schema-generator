@@ -93,7 +93,7 @@ public class FakePost {
         }
     }
 
-    public static class Post extends ApiClient implements FakePostOperation {
+    public static class Post extends ApiClient implements PostOperation {
         public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -108,7 +108,7 @@ public class FakePost {
 
     public interface SetterForRequestBody <T> {
         PostRequest getInstance();
-        T getBuilderAfterRequestBody(FakePostRequest instance);
+        T getBuilderAfterRequestBody(PostRequest instance);
         default T requestBody(FakePostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -118,7 +118,7 @@ public class FakePost {
 
     public interface SetterForServerIndex <T> {
         PostRequest getInstance();
-        T getBuilderAfterServerIndex(FakePostRequest instance);
+        T getBuilderAfterServerIndex(PostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -128,7 +128,7 @@ public class FakePost {
 
     public interface SetterForSecurityIndex <T> {
         PostRequest getInstance();
-        T getBuilderAfterSecurityIndex(FakePostRequest instance);
+        T getBuilderAfterSecurityIndex(PostRequest instance);
         default T securityIndex(FakePostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -138,7 +138,7 @@ public class FakePost {
 
     public interface SetterForTimeout <T> {
         PostRequest getInstance();
-        T getBuilderAfterTimeout(FakePostRequest instance);
+        T getBuilderAfterTimeout(PostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

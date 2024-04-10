@@ -130,8 +130,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/petfindbytags/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## PetfindbytagsGetRequest
-public static class PetfindbytagsGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

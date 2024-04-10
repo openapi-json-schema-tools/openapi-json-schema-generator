@@ -118,8 +118,8 @@ Code3XXResponse.ApplicationjsonResponseBody deserializedBody = (Code3XXResponse.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakewildcardresponses/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## FakewildcardresponsesGetRequest
-public static class FakewildcardresponsesGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

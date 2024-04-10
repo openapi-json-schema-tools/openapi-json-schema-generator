@@ -113,8 +113,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## FakeinlineadditionalpropertiesPostRequest
-public static class FakeinlineadditionalpropertiesPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

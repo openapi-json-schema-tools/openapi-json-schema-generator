@@ -151,8 +151,8 @@ Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefa
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/usercreatewitharray/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## UsercreatewitharrayPostRequest
-public static class UsercreatewitharrayPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

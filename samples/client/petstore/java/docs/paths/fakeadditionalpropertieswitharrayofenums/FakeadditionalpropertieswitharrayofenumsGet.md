@@ -101,8 +101,8 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## FakeadditionalpropertieswitharrayofenumsGetRequest
-public static class FakeadditionalpropertieswitharrayofenumsGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

@@ -113,8 +113,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/commonparamsubdir/delete/Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
 
-## CommonparamsubdirDeleteRequest
-public static class CommonparamsubdirDeleteRequest<br>
+## DeleteRequest
+public static class DeleteRequest<br>
 
 a class that stores the final request inputs
 

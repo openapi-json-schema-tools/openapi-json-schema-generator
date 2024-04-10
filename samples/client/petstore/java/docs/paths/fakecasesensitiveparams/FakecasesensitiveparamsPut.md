@@ -116,8 +116,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakecasesensitiveparams/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
-## FakecasesensitiveparamsPutRequest
-public static class FakecasesensitiveparamsPutRequest<br>
+## PutRequest
+public static class PutRequest<br>
 
 a class that stores the final request inputs
 

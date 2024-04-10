@@ -97,8 +97,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/solidus/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## SolidusGetRequest
-public static class SolidusGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

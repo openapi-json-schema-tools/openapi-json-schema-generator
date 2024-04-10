@@ -79,7 +79,7 @@ public class CommonparamsubdirPost {
         }
     }
 
-    public static class Post extends ApiClient implements CommonparamsubdirPostOperation {
+    public static class Post extends ApiClient implements PostOperation {
         public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -113,7 +113,7 @@ public class CommonparamsubdirPost {
 
     public interface SetterForHeaderParameters <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterHeaderParameters(CommonparamsubdirPostNullableRequest instance);
+        T getBuilderAfterHeaderParameters(PostNullableRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
@@ -123,7 +123,7 @@ public class CommonparamsubdirPost {
 
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterServerIndex(CommonparamsubdirPostNullableRequest instance);
+        T getBuilderAfterServerIndex(PostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -133,7 +133,7 @@ public class CommonparamsubdirPost {
 
     public interface SetterForTimeout <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterTimeout(CommonparamsubdirPostNullableRequest instance);
+        T getBuilderAfterTimeout(PostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -143,7 +143,7 @@ public class CommonparamsubdirPost {
 
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterPathParameters(CommonparamsubdirPostNullableRequest instance);
+        T getBuilderAfterPathParameters(PostNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
@@ -163,7 +163,7 @@ public class CommonparamsubdirPost {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new CommonparamsubdirPostRequest(
+            return new PostRequest(
                 pathParameters,
                 instance.headerParameters,
                 instance.serverIndex,

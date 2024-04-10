@@ -123,8 +123,8 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/userusername/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## UserusernameGetRequest
-public static class UserusernameGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

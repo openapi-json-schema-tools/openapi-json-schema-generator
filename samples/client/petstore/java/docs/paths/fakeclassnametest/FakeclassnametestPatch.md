@@ -127,8 +127,8 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakeclassnametest/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
-## FakeclassnametestPatchRequest
-public static class FakeclassnametestPatchRequest<br>
+## PatchRequest
+public static class PatchRequest<br>
 
 a class that stores the final request inputs
 

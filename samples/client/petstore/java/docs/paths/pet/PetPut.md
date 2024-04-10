@@ -158,8 +158,8 @@ try {
 | ----------------- | ---------------------- |
 | Void | put([PutRequest](#putrequest) request) |
 
-## PetPutRequest
-public static class PetPutRequest<br>
+## PutRequest
+public static class PutRequest<br>
 
 a class that stores the final request inputs
 

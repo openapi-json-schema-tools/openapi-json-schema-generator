@@ -89,7 +89,7 @@ public class PetPut {
         }
     }
 
-    public static class Put extends ApiClient implements PetPutOperation {
+    public static class Put extends ApiClient implements PutOperation {
         public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -123,7 +123,7 @@ public class PetPut {
 
     public interface SetterForServerIndex <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterServerIndex(PetPutNullableRequest instance);
+        T getBuilderAfterServerIndex(PutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -133,7 +133,7 @@ public class PetPut {
 
     public interface SetterForSecurityIndex <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterSecurityIndex(PetPutNullableRequest instance);
+        T getBuilderAfterSecurityIndex(PutNullableRequest instance);
         default T securityIndex(PetPutSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -143,7 +143,7 @@ public class PetPut {
 
     public interface SetterForTimeout <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterTimeout(PetPutNullableRequest instance);
+        T getBuilderAfterTimeout(PutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -153,7 +153,7 @@ public class PetPut {
 
     public interface SetterForRequestBody <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterRequestBody(PetPutNullableRequest instance);
+        T getBuilderAfterRequestBody(PutNullableRequest instance);
         default T requestBody(PetPutRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -173,7 +173,7 @@ public class PetPut {
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new PetPutRequest(
+            return new PutRequest(
                 requestBody,
                 instance.serverIndex,
                 instance.securityIndex,

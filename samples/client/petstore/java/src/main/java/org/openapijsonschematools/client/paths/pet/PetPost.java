@@ -89,7 +89,7 @@ public class PetPost {
         }
     }
 
-    public static class Post extends ApiClient implements PetPostOperation {
+    public static class Post extends ApiClient implements PostOperation {
         public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -123,7 +123,7 @@ public class PetPost {
 
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterServerIndex(PetPostNullableRequest instance);
+        T getBuilderAfterServerIndex(PostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -133,7 +133,7 @@ public class PetPost {
 
     public interface SetterForSecurityIndex <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterSecurityIndex(PetPostNullableRequest instance);
+        T getBuilderAfterSecurityIndex(PostNullableRequest instance);
         default T securityIndex(PetPostSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -143,7 +143,7 @@ public class PetPost {
 
     public interface SetterForTimeout <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterTimeout(PetPostNullableRequest instance);
+        T getBuilderAfterTimeout(PostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -153,7 +153,7 @@ public class PetPost {
 
     public interface SetterForRequestBody <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterRequestBody(PetPostNullableRequest instance);
+        T getBuilderAfterRequestBody(PostNullableRequest instance);
         default T requestBody(PetPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -173,7 +173,7 @@ public class PetPost {
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new PetPostRequest(
+            return new PostRequest(
                 requestBody,
                 instance.serverIndex,
                 instance.securityIndex,

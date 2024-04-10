@@ -89,7 +89,7 @@ public class FakeinlinecompositionPost {
         }
     }
 
-    public static class Post extends ApiClient implements FakeinlinecompositionPostOperation {
+    public static class Post extends ApiClient implements PostOperation {
         public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -104,7 +104,7 @@ public class FakeinlinecompositionPost {
 
     public interface SetterForRequestBody <T> {
         PostRequest getInstance();
-        T getBuilderAfterRequestBody(FakeinlinecompositionPostRequest instance);
+        T getBuilderAfterRequestBody(PostRequest instance);
         default T requestBody(FakeinlinecompositionPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -114,7 +114,7 @@ public class FakeinlinecompositionPost {
 
     public interface SetterForQueryParameters <T> {
         PostRequest getInstance();
-        T getBuilderAfterQueryParameters(FakeinlinecompositionPostRequest instance);
+        T getBuilderAfterQueryParameters(PostRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -124,7 +124,7 @@ public class FakeinlinecompositionPost {
 
     public interface SetterForServerIndex <T> {
         PostRequest getInstance();
-        T getBuilderAfterServerIndex(FakeinlinecompositionPostRequest instance);
+        T getBuilderAfterServerIndex(PostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -134,7 +134,7 @@ public class FakeinlinecompositionPost {
 
     public interface SetterForTimeout <T> {
         PostRequest getInstance();
-        T getBuilderAfterTimeout(FakeinlinecompositionPostRequest instance);
+        T getBuilderAfterTimeout(PostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

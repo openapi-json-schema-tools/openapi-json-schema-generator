@@ -137,8 +137,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/faketestqueryparamters/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
-## FaketestqueryparamtersPutRequest
-public static class FaketestqueryparamtersPutRequest<br>
+## PutRequest
+public static class PutRequest<br>
 
 a class that stores the final request inputs
 

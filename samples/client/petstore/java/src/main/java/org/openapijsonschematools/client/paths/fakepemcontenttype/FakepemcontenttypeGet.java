@@ -80,7 +80,7 @@ public class FakepemcontenttypeGet {
         }
     }
 
-    public static class Get extends ApiClient implements FakepemcontenttypeGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -94,7 +94,7 @@ public class FakepemcontenttypeGet {
 
     public interface SetterForRequestBody <T> {
         GetRequest getInstance();
-        T getBuilderAfterRequestBody(FakepemcontenttypeGetRequest instance);
+        T getBuilderAfterRequestBody(GetRequest instance);
         default T requestBody(FakepemcontenttypeGetRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -104,7 +104,7 @@ public class FakepemcontenttypeGet {
 
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
-        T getBuilderAfterServerIndex(FakepemcontenttypeGetRequest instance);
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -114,7 +114,7 @@ public class FakepemcontenttypeGet {
 
     public interface SetterForTimeout <T> {
         GetRequest getInstance();
-        T getBuilderAfterTimeout(FakepemcontenttypeGetRequest instance);
+        T getBuilderAfterTimeout(GetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

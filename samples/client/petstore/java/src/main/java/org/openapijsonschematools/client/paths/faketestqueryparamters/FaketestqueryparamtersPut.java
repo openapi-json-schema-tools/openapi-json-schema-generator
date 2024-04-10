@@ -73,7 +73,7 @@ public class FaketestqueryparamtersPut {
         }
     }
 
-    public static class Put extends ApiClient implements FaketestqueryparamtersPutOperation {
+    public static class Put extends ApiClient implements PutOperation {
         public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -103,7 +103,7 @@ public class FaketestqueryparamtersPut {
 
     public interface SetterForServerIndex <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterServerIndex(FaketestqueryparamtersPutNullableRequest instance);
+        T getBuilderAfterServerIndex(PutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -113,7 +113,7 @@ public class FaketestqueryparamtersPut {
 
     public interface SetterForTimeout <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterTimeout(FaketestqueryparamtersPutNullableRequest instance);
+        T getBuilderAfterTimeout(PutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -123,7 +123,7 @@ public class FaketestqueryparamtersPut {
 
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterQueryParameters(FaketestqueryparamtersPutNullableRequest instance);
+        T getBuilderAfterQueryParameters(PutNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -143,7 +143,7 @@ public class FaketestqueryparamtersPut {
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new FaketestqueryparamtersPutRequest(
+            return new PutRequest(
                 queryParameters,
                 instance.serverIndex,
                 instance.timeout

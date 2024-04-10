@@ -101,8 +101,8 @@ Code200Response.ApplicationxpemfileResponseBody deserializedBody = (Code200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakepemcontenttype/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## FakepemcontenttypeGetRequest
-public static class FakepemcontenttypeGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

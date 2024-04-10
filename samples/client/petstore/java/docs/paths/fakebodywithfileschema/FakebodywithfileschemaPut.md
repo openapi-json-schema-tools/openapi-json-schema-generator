@@ -115,8 +115,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakebodywithfileschema/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
-## FakebodywithfileschemaPutRequest
-public static class FakebodywithfileschemaPutRequest<br>
+## PutRequest
+public static class PutRequest<br>
 
 a class that stores the final request inputs
 

@@ -76,7 +76,7 @@ public class FakebodywithfileschemaPut {
         }
     }
 
-    public static class Put extends ApiClient implements FakebodywithfileschemaPutOperation {
+    public static class Put extends ApiClient implements PutOperation {
         public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -106,7 +106,7 @@ public class FakebodywithfileschemaPut {
 
     public interface SetterForServerIndex <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterServerIndex(FakebodywithfileschemaPutNullableRequest instance);
+        T getBuilderAfterServerIndex(PutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -116,7 +116,7 @@ public class FakebodywithfileschemaPut {
 
     public interface SetterForTimeout <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterTimeout(FakebodywithfileschemaPutNullableRequest instance);
+        T getBuilderAfterTimeout(PutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -126,7 +126,7 @@ public class FakebodywithfileschemaPut {
 
     public interface SetterForRequestBody <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterRequestBody(FakebodywithfileschemaPutNullableRequest instance);
+        T getBuilderAfterRequestBody(PutNullableRequest instance);
         default T requestBody(FakebodywithfileschemaPutRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -146,7 +146,7 @@ public class FakebodywithfileschemaPut {
             if (requestBody == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new FakebodywithfileschemaPutRequest(
+            return new PutRequest(
                 requestBody,
                 instance.serverIndex,
                 instance.timeout

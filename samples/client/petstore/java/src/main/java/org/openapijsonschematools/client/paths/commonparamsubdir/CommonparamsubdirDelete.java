@@ -79,7 +79,7 @@ public class CommonparamsubdirDelete {
         }
     }
 
-    public static class Delete extends ApiClient implements CommonparamsubdirDeleteOperation {
+    public static class Delete extends ApiClient implements DeleteOperation {
         public Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -113,7 +113,7 @@ public class CommonparamsubdirDelete {
 
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterHeaderParameters(CommonparamsubdirDeleteNullableRequest instance);
+        T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
@@ -123,7 +123,7 @@ public class CommonparamsubdirDelete {
 
     public interface SetterForServerIndex <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterServerIndex(CommonparamsubdirDeleteNullableRequest instance);
+        T getBuilderAfterServerIndex(DeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -133,7 +133,7 @@ public class CommonparamsubdirDelete {
 
     public interface SetterForTimeout <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterTimeout(CommonparamsubdirDeleteNullableRequest instance);
+        T getBuilderAfterTimeout(DeleteNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -143,7 +143,7 @@ public class CommonparamsubdirDelete {
 
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterPathParameters(CommonparamsubdirDeleteNullableRequest instance);
+        T getBuilderAfterPathParameters(DeleteNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
@@ -163,7 +163,7 @@ public class CommonparamsubdirDelete {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new CommonparamsubdirDeleteRequest(
+            return new DeleteRequest(
                 pathParameters,
                 instance.headerParameters,
                 instance.serverIndex,

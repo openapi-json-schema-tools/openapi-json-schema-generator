@@ -72,7 +72,7 @@ public class UserusernameGet {
         }
     }
 
-    public static class Get extends ApiClient implements UserusernameGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -102,7 +102,7 @@ public class UserusernameGet {
 
     public interface SetterForServerIndex <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterServerIndex(UserusernameGetNullableRequest instance);
+        T getBuilderAfterServerIndex(GetNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -112,7 +112,7 @@ public class UserusernameGet {
 
     public interface SetterForTimeout <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterTimeout(UserusernameGetNullableRequest instance);
+        T getBuilderAfterTimeout(GetNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -122,7 +122,7 @@ public class UserusernameGet {
 
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
-        T getBuilderAfterPathParameters(UserusernameGetNullableRequest instance);
+        T getBuilderAfterPathParameters(GetNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
@@ -142,7 +142,7 @@ public class UserusernameGet {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new UserusernameGetRequest(
+            return new GetRequest(
                 pathParameters,
                 instance.serverIndex,
                 instance.timeout

@@ -128,8 +128,8 @@ try {
 | ----------------- | ---------------------- |
 | Void | post([PostRequest](#postrequest) request) |
 
-## PetpetidPostRequest
-public static class PetpetidPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

@@ -125,8 +125,8 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/userlogin/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## UserloginGetRequest
-public static class UserloginGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

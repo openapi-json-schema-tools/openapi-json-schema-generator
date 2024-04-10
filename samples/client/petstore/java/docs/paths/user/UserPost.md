@@ -129,8 +129,8 @@ Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefa
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/user/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## UserPostRequest
-public static class UserPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

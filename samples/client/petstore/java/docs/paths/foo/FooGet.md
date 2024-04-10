@@ -98,8 +98,8 @@ CodedefaultResponse.ApplicationjsonResponseBody deserializedBody = (CodedefaultR
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/foo/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## FooGetRequest
-public static class FooGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

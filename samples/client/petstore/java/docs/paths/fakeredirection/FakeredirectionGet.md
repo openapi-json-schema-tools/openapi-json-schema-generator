@@ -101,8 +101,8 @@ if (response instanceof Responses.EndpointCode3XXResponse castResponse) {
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakeredirection/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## FakeredirectionGetRequest
-public static class FakeredirectionGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

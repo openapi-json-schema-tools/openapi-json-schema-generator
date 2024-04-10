@@ -113,8 +113,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/commonparamsubdir/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
-## CommonparamsubdirGetRequest
-public static class CommonparamsubdirGetRequest<br>
+## GetRequest
+public static class GetRequest<br>
 
 a class that stores the final request inputs
 

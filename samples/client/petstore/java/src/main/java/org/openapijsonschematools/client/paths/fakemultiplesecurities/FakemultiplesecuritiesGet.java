@@ -80,7 +80,7 @@ public class FakemultiplesecuritiesGet {
         }
     }
 
-    public static class Get extends ApiClient implements FakemultiplesecuritiesGetOperation {
+    public static class Get extends ApiClient implements GetOperation {
         public Get(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -94,7 +94,7 @@ public class FakemultiplesecuritiesGet {
 
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
-        T getBuilderAfterServerIndex(FakemultiplesecuritiesGetRequest instance);
+        T getBuilderAfterServerIndex(GetRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -104,7 +104,7 @@ public class FakemultiplesecuritiesGet {
 
     public interface SetterForSecurityIndex <T> {
         GetRequest getInstance();
-        T getBuilderAfterSecurityIndex(FakemultiplesecuritiesGetRequest instance);
+        T getBuilderAfterSecurityIndex(GetRequest instance);
         default T securityIndex(FakemultiplesecuritiesGetSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -114,7 +114,7 @@ public class FakemultiplesecuritiesGet {
 
     public interface SetterForTimeout <T> {
         GetRequest getInstance();
-        T getBuilderAfterTimeout(FakemultiplesecuritiesGetRequest instance);
+        T getBuilderAfterTimeout(GetRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

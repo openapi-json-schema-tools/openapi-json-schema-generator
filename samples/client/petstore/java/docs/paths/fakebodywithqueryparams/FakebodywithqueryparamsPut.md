@@ -143,8 +143,8 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakebodywithqueryparams/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
-## FakebodywithqueryparamsPutRequest
-public static class FakebodywithqueryparamsPutRequest<br>
+## PutRequest
+public static class PutRequest<br>
 
 a class that stores the final request inputs
 

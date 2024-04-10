@@ -72,7 +72,7 @@ public class StoreorderorderidDelete {
         }
     }
 
-    public static class Delete extends ApiClient implements StoreorderorderidDeleteOperation {
+    public static class Delete extends ApiClient implements DeleteOperation {
         public Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -102,7 +102,7 @@ public class StoreorderorderidDelete {
 
     public interface SetterForServerIndex <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterServerIndex(StoreorderorderidDeleteNullableRequest instance);
+        T getBuilderAfterServerIndex(DeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -112,7 +112,7 @@ public class StoreorderorderidDelete {
 
     public interface SetterForTimeout <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterTimeout(StoreorderorderidDeleteNullableRequest instance);
+        T getBuilderAfterTimeout(DeleteNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -122,7 +122,7 @@ public class StoreorderorderidDelete {
 
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterPathParameters(StoreorderorderidDeleteNullableRequest instance);
+        T getBuilderAfterPathParameters(DeleteNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
@@ -142,7 +142,7 @@ public class StoreorderorderidDelete {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new StoreorderorderidDeleteRequest(
+            return new DeleteRequest(
                 pathParameters,
                 instance.serverIndex,
                 instance.timeout

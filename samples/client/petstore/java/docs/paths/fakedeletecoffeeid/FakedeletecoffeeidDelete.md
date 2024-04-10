@@ -116,8 +116,8 @@ if (response instanceof Responses.EndpointCode200Response castResponse) {
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
 
-## FakedeletecoffeeidDeleteRequest
-public static class FakedeletecoffeeidDeleteRequest<br>
+## DeleteRequest
+public static class DeleteRequest<br>
 
 a class that stores the final request inputs
 

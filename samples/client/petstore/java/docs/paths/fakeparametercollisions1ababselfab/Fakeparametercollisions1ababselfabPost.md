@@ -126,8 +126,8 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## Fakeparametercollisions1ababselfabPostRequest
-public static class Fakeparametercollisions1ababselfabPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

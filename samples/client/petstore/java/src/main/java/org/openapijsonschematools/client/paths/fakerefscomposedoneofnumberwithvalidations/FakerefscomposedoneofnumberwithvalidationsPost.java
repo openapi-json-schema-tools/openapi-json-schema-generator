@@ -80,7 +80,7 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
         }
     }
 
-    public static class Post extends ApiClient implements FakerefscomposedoneofnumberwithvalidationsPostOperation {
+    public static class Post extends ApiClient implements PostOperation {
         public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -94,7 +94,7 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
 
     public interface SetterForRequestBody <T> {
         PostRequest getInstance();
-        T getBuilderAfterRequestBody(FakerefscomposedoneofnumberwithvalidationsPostRequest instance);
+        T getBuilderAfterRequestBody(PostRequest instance);
         default T requestBody(FakerefscomposedoneofnumberwithvalidationsPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -104,7 +104,7 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
 
     public interface SetterForServerIndex <T> {
         PostRequest getInstance();
-        T getBuilderAfterServerIndex(FakerefscomposedoneofnumberwithvalidationsPostRequest instance);
+        T getBuilderAfterServerIndex(PostRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -114,7 +114,7 @@ public class FakerefscomposedoneofnumberwithvalidationsPost {
 
     public interface SetterForTimeout <T> {
         PostRequest getInstance();
-        T getBuilderAfterTimeout(FakerefscomposedoneofnumberwithvalidationsPostRequest instance);
+        T getBuilderAfterTimeout(PostRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;

@@ -146,8 +146,8 @@ try {
 | ----------------- | ---------------------- |
 | Void | put([PutRequest](#putrequest) request) |
 
-## UserusernamePutRequest
-public static class UserusernamePutRequest<br>
+## PutRequest
+public static class PutRequest<br>
 
 a class that stores the final request inputs
 

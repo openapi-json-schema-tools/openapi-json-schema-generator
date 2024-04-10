@@ -111,8 +111,8 @@ Code200Response.ApplicationoctetstreamResponseBody deserializedBody = (Code200Re
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## FakeuploaddownloadfilePostRequest
-public static class FakeuploaddownloadfilePostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

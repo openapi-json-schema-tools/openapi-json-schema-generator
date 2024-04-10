@@ -92,7 +92,7 @@ public class PetpetidDelete {
         }
     }
 
-    public static class Delete extends ApiClient implements PetpetidDeleteOperation {
+    public static class Delete extends ApiClient implements DeleteOperation {
         public Delete(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -130,7 +130,7 @@ public class PetpetidDelete {
 
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterHeaderParameters(PetpetidDeleteNullableRequest instance);
+        T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
@@ -140,7 +140,7 @@ public class PetpetidDelete {
 
     public interface SetterForServerIndex <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterServerIndex(PetpetidDeleteNullableRequest instance);
+        T getBuilderAfterServerIndex(DeleteNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -150,7 +150,7 @@ public class PetpetidDelete {
 
     public interface SetterForSecurityIndex <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterSecurityIndex(PetpetidDeleteNullableRequest instance);
+        T getBuilderAfterSecurityIndex(DeleteNullableRequest instance);
         default T securityIndex(PetpetidDeleteSecurityInfo.SecurityIndex securityIndex) {
             var instance = getInstance();
             instance.securityIndex = securityIndex;
@@ -160,7 +160,7 @@ public class PetpetidDelete {
 
     public interface SetterForTimeout <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterTimeout(PetpetidDeleteNullableRequest instance);
+        T getBuilderAfterTimeout(DeleteNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -170,7 +170,7 @@ public class PetpetidDelete {
 
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
-        T getBuilderAfterPathParameters(PetpetidDeleteNullableRequest instance);
+        T getBuilderAfterPathParameters(DeleteNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
@@ -190,7 +190,7 @@ public class PetpetidDelete {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new PetpetidDeleteRequest(
+            return new DeleteRequest(
                 pathParameters,
                 instance.headerParameters,
                 instance.serverIndex,

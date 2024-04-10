@@ -101,8 +101,8 @@ Code200Response.Applicationjsoncharsetutf8ResponseBody deserializedBody = (Code2
 | ----------------- | ---------------------- |
 | [Responses.EndpointResponse](../../paths/fakejsonwithcharset/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## FakejsonwithcharsetPostRequest
-public static class FakejsonwithcharsetPostRequest<br>
+## PostRequest
+public static class PostRequest<br>
 
 a class that stores the final request inputs
 

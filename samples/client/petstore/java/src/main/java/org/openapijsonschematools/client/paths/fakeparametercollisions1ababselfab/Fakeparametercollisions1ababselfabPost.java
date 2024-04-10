@@ -108,7 +108,7 @@ public class Fakeparametercollisions1ababselfabPost {
         }
     }
 
-    public static class Post extends ApiClient implements Fakeparametercollisions1ababselfabPostOperation {
+    public static class Post extends ApiClient implements PostOperation {
         public Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -154,7 +154,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
     public interface SetterForRequestBody <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterRequestBody(Fakeparametercollisions1ababselfabPostNullableRequest instance);
+        T getBuilderAfterRequestBody(PostNullableRequest instance);
         default T requestBody(Fakeparametercollisions1ababselfabPostRequestBody.SealedRequestBody requestBody) {
             var instance = getInstance();
             instance.requestBody = requestBody;
@@ -164,7 +164,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
     public interface SetterForHeaderParameters <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterHeaderParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance);
+        T getBuilderAfterHeaderParameters(PostNullableRequest instance);
         default T headerParameters(HeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
@@ -174,7 +174,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
     public interface SetterForQueryParameters <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterQueryParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance);
+        T getBuilderAfterQueryParameters(PostNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -184,7 +184,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
     public interface SetterForCookieParameters <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterCookieParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance);
+        T getBuilderAfterCookieParameters(PostNullableRequest instance);
         default T cookieParameters(CookieParameters.CookieParametersMap cookieParameters) {
             var instance = getInstance();
             instance.cookieParameters = cookieParameters;
@@ -194,7 +194,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterServerIndex(Fakeparametercollisions1ababselfabPostNullableRequest instance);
+        T getBuilderAfterServerIndex(PostNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -204,7 +204,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
     public interface SetterForTimeout <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterTimeout(Fakeparametercollisions1ababselfabPostNullableRequest instance);
+        T getBuilderAfterTimeout(PostNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -214,7 +214,7 @@ public class Fakeparametercollisions1ababselfabPost {
 
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
-        T getBuilderAfterPathParameters(Fakeparametercollisions1ababselfabPostNullableRequest instance);
+        T getBuilderAfterPathParameters(PostNullableRequest instance);
         default T pathParameters(PathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
@@ -234,7 +234,7 @@ public class Fakeparametercollisions1ababselfabPost {
             if (pathParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new Fakeparametercollisions1ababselfabPostRequest(
+            return new PostRequest(
                 pathParameters,
                 instance.requestBody,
                 instance.headerParameters,

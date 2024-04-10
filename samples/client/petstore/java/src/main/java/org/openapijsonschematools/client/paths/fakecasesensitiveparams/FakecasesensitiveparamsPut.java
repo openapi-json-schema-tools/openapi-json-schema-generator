@@ -73,7 +73,7 @@ public class FakecasesensitiveparamsPut {
         }
     }
 
-    public static class Put extends ApiClient implements FakecasesensitiveparamsPutOperation {
+    public static class Put extends ApiClient implements PutOperation {
         public Put(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
@@ -103,7 +103,7 @@ public class FakecasesensitiveparamsPut {
 
     public interface SetterForServerIndex <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterServerIndex(FakecasesensitiveparamsPutNullableRequest instance);
+        T getBuilderAfterServerIndex(PutNullableRequest instance);
         default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
@@ -113,7 +113,7 @@ public class FakecasesensitiveparamsPut {
 
     public interface SetterForTimeout <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterTimeout(FakecasesensitiveparamsPutNullableRequest instance);
+        T getBuilderAfterTimeout(PutNullableRequest instance);
         default T timeout(Duration timeout) {
             var instance = getInstance();
             instance.timeout = timeout;
@@ -123,7 +123,7 @@ public class FakecasesensitiveparamsPut {
 
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
-        T getBuilderAfterQueryParameters(FakecasesensitiveparamsPutNullableRequest instance);
+        T getBuilderAfterQueryParameters(PutNullableRequest instance);
         default T queryParameters(QueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
@@ -143,7 +143,7 @@ public class FakecasesensitiveparamsPut {
             if (queryParameters == null) {
                 throw new RuntimeException("invalid null value for required parameter");
             }
-            return new FakecasesensitiveparamsPutRequest(
+            return new PutRequest(
                 queryParameters,
                 instance.serverIndex,
                 instance.timeout
