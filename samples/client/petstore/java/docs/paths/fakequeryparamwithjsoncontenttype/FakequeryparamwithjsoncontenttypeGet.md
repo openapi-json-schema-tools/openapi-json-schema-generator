@@ -41,7 +41,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.FakequeryparamwithjsoncontenttypeGet;
-import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.Responses;
+import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.FakequeryparamwithjsoncontenttypeGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -81,7 +81,7 @@ var request = new FakequeryparamwithjsoncontenttypeGet.GetRequestBuilder()
     .queryParameters(queryParameters)
     .build();
 
-Responses.EndpointResponse response;
+FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -98,7 +98,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakequeryparamwithjsoncontenttypeGetResponses.EndpointCode200Response castResponse = (FakequeryparamwithjsoncontenttypeGetResponses.EndpointCode200Response) response;
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -110,7 +110,7 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

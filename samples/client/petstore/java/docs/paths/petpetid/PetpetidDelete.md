@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 import org.openapijsonschematools.client.paths.petpetid.delete.responses.Code400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.PetpetidDelete;
-import org.openapijsonschematools.client.paths.petpetid.delete.Responses;
+import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteResponses;
 
 import java.io.IOException;
 import java.util.Arrays;

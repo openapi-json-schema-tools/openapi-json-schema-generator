@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.get.QueryParame
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.PathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.Parameters;
-import org.openapijsonschematools.client.paths.commonparamsubdir.get.Responses;
+import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class CommonparamsubdirGet {
     private static class GetProvider {
         private static final String method = "get";
 
-        public static Responses.EndpointResponse get(
+        public static CommonparamsubdirGetResponses.EndpointResponse get(
             GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -57,7 +57,7 @@ public class CommonparamsubdirGet {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new CommonparamsubdirGetResponses.CommonparamsubdirGetResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -66,7 +66,7 @@ public class CommonparamsubdirGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default CommonparamsubdirGetResponses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -75,7 +75,7 @@ public class CommonparamsubdirGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse getCommonParam(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default CommonparamsubdirGetResponses.EndpointResponse getCommonParam(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

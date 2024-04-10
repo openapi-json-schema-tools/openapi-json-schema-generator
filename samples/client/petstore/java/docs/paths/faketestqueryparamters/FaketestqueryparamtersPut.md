@@ -41,7 +41,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.FaketestqueryparamtersPut;
-import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Responses;
+import org.openapijsonschematools.client.paths.faketestqueryparamters.put.FaketestqueryparamtersPutResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -108,7 +108,7 @@ var request = new FaketestqueryparamtersPut.PutRequestBuilder()
     .queryParameters(queryParameters)
     .build();
 
-Responses.EndpointResponse response;
+FaketestqueryparamtersPutResponses.EndpointResponse response;
 try {
     response = apiClient.put(request);
 } catch (ApiException e) {
@@ -125,7 +125,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FaketestqueryparamtersPutResponses.EndpointCode200Response castResponse = (FaketestqueryparamtersPutResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -135,7 +135,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/faketestqueryparamters/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
+| [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
 ## PutRequest
 public static class PutRequest<br>

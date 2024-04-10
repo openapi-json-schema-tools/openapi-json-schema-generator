@@ -40,7 +40,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.get.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.FakepemcontenttypeGet;
-import org.openapijsonschematools.client.paths.fakepemcontenttype.get.Responses;
+import org.openapijsonschematools.client.paths.fakepemcontenttype.get.FakepemcontenttypeGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ FakepemcontenttypeGet.Get apiClient = new FakepemcontenttypeGet.Get(apiConfigura
 
 var request = new FakepemcontenttypeGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakepemcontenttypeGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -87,7 +87,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakepemcontenttypeGetResponses.EndpointCode200Response castResponse = (FakepemcontenttypeGetResponses.EndpointCode200Response) response;
 Code200Response.ApplicationxpemfileResponseBody deserializedBody = (Code200Response.ApplicationxpemfileResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -99,7 +99,7 @@ Code200Response.ApplicationxpemfileResponseBody deserializedBody = (Code200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakepemcontenttype/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

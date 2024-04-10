@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.usercreatewitharray.post.responses.CodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.usercreatewitharray.UsercreatewitharrayPost;
-import org.openapijsonschematools.client.paths.usercreatewitharray.post.Responses;
+import org.openapijsonschematools.client.paths.usercreatewitharray.post.UsercreatewitharrayPostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -122,7 +122,7 @@ var request = new UsercreatewitharrayPost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
-Responses.EndpointResponse response;
+UsercreatewitharrayPostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (ApiException e) {
@@ -139,7 +139,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefaultResponse) response;
+UsercreatewitharrayPostResponses.EndpointCodedefaultResponse castResponse = (UsercreatewitharrayPostResponses.EndpointCodedefaultResponse) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -149,7 +149,7 @@ Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/usercreatewitharray/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [UsercreatewitharrayPostResponses.EndpointResponse](../../paths/usercreatewitharray/post/UsercreatewitharrayPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

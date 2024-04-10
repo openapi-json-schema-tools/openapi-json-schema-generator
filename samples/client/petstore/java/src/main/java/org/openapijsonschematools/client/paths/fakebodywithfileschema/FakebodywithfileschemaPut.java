@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.fakebodywithfileschema;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.FakebodywithfileschemaPutRequestBody;
-import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Responses;
+import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.FakebodywithfileschemaPutResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class FakebodywithfileschemaPut {
     private static class PutProvider {
         private static final String method = "put";
 
-        public static Responses.EndpointResponse put(
+        public static FakebodywithfileschemaPutResponses.EndpointResponse put(
             PutRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -53,7 +53,7 @@ public class FakebodywithfileschemaPut {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakebodywithfileschemaPutResponses.FakebodywithfileschemaPutResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -62,7 +62,7 @@ public class FakebodywithfileschemaPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakebodywithfileschemaPutResponses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -71,7 +71,7 @@ public class FakebodywithfileschemaPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse bodyWithFileSchema(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakebodywithfileschemaPutResponses.EndpointResponse bodyWithFileSchema(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

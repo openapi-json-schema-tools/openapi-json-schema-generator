@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.get.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.get.Parameters;
-import org.openapijsonschematools.client.paths.fakerefobjinquery.get.Responses;
+import org.openapijsonschematools.client.paths.fakerefobjinquery.get.FakerefobjinqueryGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -25,7 +25,7 @@ public class FakerefobjinqueryGet {
     private static class GetProvider {
         private static final String method = "get";
 
-        public static Responses.EndpointResponse get(
+        public static FakerefobjinqueryGetResponses.EndpointResponse get(
             GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -53,7 +53,7 @@ public class FakerefobjinqueryGet {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakerefobjinqueryGetResponses.FakerefobjinqueryGetResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -62,7 +62,7 @@ public class FakerefobjinqueryGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakerefobjinqueryGetResponses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -71,7 +71,7 @@ public class FakerefobjinqueryGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse refObjectInQuery(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakerefobjinqueryGetResponses.EndpointResponse refObjectInQuery(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

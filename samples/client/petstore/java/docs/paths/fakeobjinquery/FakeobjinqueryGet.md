@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeobjinquery.FakeobjinqueryGet;
-import org.openapijsonschematools.client.paths.fakeobjinquery.get.Responses;
+import org.openapijsonschematools.client.paths.fakeobjinquery.get.FakeobjinqueryGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -69,7 +69,7 @@ FakeobjinqueryGet.Get apiClient = new FakeobjinqueryGet.Get(apiConfiguration, sc
 
 var request = new FakeobjinqueryGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakeobjinqueryGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -86,7 +86,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakeobjinqueryGetResponses.EndpointCode200Response castResponse = (FakeobjinqueryGetResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -96,7 +96,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeobjinquery/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

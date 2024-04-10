@@ -44,7 +44,7 @@ import org.openapijsonschematools.client.paths.fake.post.responses.Code200Respon
 import org.openapijsonschematools.client.paths.fake.post.responses.Code404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.FakePost;
-import org.openapijsonschematools.client.paths.fake.post.Responses;
+import org.openapijsonschematools.client.paths.fake.post.FakePostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -83,7 +83,7 @@ FakePost.Post apiClient = new FakePost.Post(apiConfiguration, schemaConfiguratio
 
 var request = new FakePost.PostRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakePostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (Code404Response.ResponseApiException e) {
@@ -103,7 +103,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakePostResponses.EndpointCode200Response castResponse = (FakePostResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -113,7 +113,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fake/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [FakePostResponses.EndpointResponse](../../paths/fake/post/FakePostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

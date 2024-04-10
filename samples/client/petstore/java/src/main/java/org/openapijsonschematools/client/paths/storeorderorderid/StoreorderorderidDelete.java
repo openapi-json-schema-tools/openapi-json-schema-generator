@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.PathParameters;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.Parameters;
-import org.openapijsonschematools.client.paths.storeorderorderid.delete.Responses;
+import org.openapijsonschematools.client.paths.storeorderorderid.delete.StoreorderorderidDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -49,8 +49,7 @@ public class StoreorderorderidDelete {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
-            return responsesDeserializer.deserialize(response, schemaConfiguration);
+            return (Void) null;
         }
     }
 

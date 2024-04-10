@@ -187,8 +187,12 @@ public class {{jsonPathPiece.pascalCase}} {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            {{#if nonErrorResponses }}
+            var responsesDeserializer = new {{#with responses}}{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1{{/with}}();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+            {{else}}
+            return (Void) null;
+            {{/if}}
         }
     }
 

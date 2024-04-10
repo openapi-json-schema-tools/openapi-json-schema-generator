@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakeresponsewithoutschema;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get.Responses;
+import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get.FakeresponsewithoutschemaGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -23,7 +23,7 @@ public class FakeresponsewithoutschemaGet {
     private static class GetProvider {
         private static final String method = "get";
 
-        public static Responses.EndpointResponse get(
+        public static FakeresponsewithoutschemaGetResponses.EndpointResponse get(
             GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -44,7 +44,7 @@ public class FakeresponsewithoutschemaGet {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakeresponsewithoutschemaGetResponses.FakeresponsewithoutschemaGetResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -53,7 +53,7 @@ public class FakeresponsewithoutschemaGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeresponsewithoutschemaGetResponses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -62,7 +62,7 @@ public class FakeresponsewithoutschemaGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse responseWithoutSchema(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeresponsewithoutschemaGetResponses.EndpointResponse responseWithoutSchema(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

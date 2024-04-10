@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.storeorder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorder.post.StoreorderPostRequestBody;
-import org.openapijsonschematools.client.paths.storeorder.post.Responses;
+import org.openapijsonschematools.client.paths.storeorder.post.StoreorderPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class StoreorderPost {
     private static class PostProvider {
         private static final String method = "post";
 
-        public static Responses.EndpointResponse post(
+        public static StoreorderPostResponses.EndpointResponse post(
             PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -53,7 +53,7 @@ public class StoreorderPost {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new StoreorderPostResponses.StoreorderPostResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -62,7 +62,7 @@ public class StoreorderPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default StoreorderPostResponses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -71,7 +71,7 @@ public class StoreorderPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse placeOrder(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default StoreorderPostResponses.EndpointResponse placeOrder(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

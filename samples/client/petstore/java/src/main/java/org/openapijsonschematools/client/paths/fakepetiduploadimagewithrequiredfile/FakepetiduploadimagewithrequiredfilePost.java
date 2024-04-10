@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostSecurityInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.PathParameters;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.Parameters;
-import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.Responses;
+import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -31,7 +31,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
     private static class PostProvider extends AuthApplier {
         private static final String method = "post";
 
-        public static Responses.EndpointResponse post(
+        public static FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse post(
             PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -75,7 +75,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakepetiduploadimagewithrequiredfilePostResponses.FakepetiduploadimagewithrequiredfilePostResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -84,7 +84,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -93,7 +93,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse uploadFileWithRequiredFile(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse uploadFileWithRequiredFile(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

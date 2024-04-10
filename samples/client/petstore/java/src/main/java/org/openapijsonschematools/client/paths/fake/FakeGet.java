@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.paths.fake.get.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.get.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.get.Parameters;
-import org.openapijsonschematools.client.paths.fake.get.Responses;
+import org.openapijsonschematools.client.paths.fake.get.FakeGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -29,7 +29,7 @@ public class FakeGet {
     private static class GetProvider {
         private static final String method = "get";
 
-        public static Responses.EndpointResponse get(
+        public static FakeGetResponses.EndpointResponse get(
             GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -73,7 +73,7 @@ public class FakeGet {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakeGetResponses.FakeGetResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -82,7 +82,7 @@ public class FakeGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeGetResponses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -91,7 +91,7 @@ public class FakeGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse enumParameters(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeGetResponses.EndpointResponse enumParameters(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

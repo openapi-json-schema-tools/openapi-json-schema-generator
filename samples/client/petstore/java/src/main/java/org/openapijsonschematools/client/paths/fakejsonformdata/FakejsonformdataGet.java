@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.fakejsonformdata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakejsonformdata.get.FakejsonformdataGetRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakejsonformdata.get.Responses;
+import org.openapijsonschematools.client.paths.fakejsonformdata.get.FakejsonformdataGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class FakejsonformdataGet {
     private static class GetProvider {
         private static final String method = "get";
 
-        public static Responses.EndpointResponse get(
+        public static FakejsonformdataGetResponses.EndpointResponse get(
             GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -57,7 +57,7 @@ public class FakejsonformdataGet {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakejsonformdataGetResponses.FakejsonformdataGetResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -66,7 +66,7 @@ public class FakejsonformdataGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakejsonformdataGetResponses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -75,7 +75,7 @@ public class FakejsonformdataGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse jsonFormData(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakejsonformdataGetResponses.EndpointResponse jsonFormData(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

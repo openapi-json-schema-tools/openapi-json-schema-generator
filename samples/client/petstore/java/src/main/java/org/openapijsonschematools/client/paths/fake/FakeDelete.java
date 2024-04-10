@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInf
 import org.openapijsonschematools.client.paths.fake.delete.HeaderParameters;
 import org.openapijsonschematools.client.paths.fake.delete.QueryParameters;
 import org.openapijsonschematools.client.paths.fake.delete.Parameters;
-import org.openapijsonschematools.client.paths.fake.delete.Responses;
+import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -29,7 +29,7 @@ public class FakeDelete {
     private static class DeleteProvider extends AuthApplier {
         private static final String method = "delete";
 
-        public static Responses.EndpointResponse delete(
+        public static FakeDeleteResponses.EndpointResponse delete(
             DeleteRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -68,7 +68,7 @@ public class FakeDelete {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakeDeleteResponses.FakeDeleteResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -77,7 +77,7 @@ public class FakeDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeDeleteResponses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -86,7 +86,7 @@ public class FakeDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse groupParameters(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeDeleteResponses.EndpointResponse groupParameters(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

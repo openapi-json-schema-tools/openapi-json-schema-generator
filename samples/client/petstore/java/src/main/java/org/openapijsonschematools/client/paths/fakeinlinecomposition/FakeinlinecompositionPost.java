@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Fakein
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.QueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Parameters;
-import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Responses;
+import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.FakeinlinecompositionPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -28,7 +28,7 @@ public class FakeinlinecompositionPost {
     private static class PostProvider {
         private static final String method = "post";
 
-        public static Responses.EndpointResponse post(
+        public static FakeinlinecompositionPostResponses.EndpointResponse post(
             PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -66,7 +66,7 @@ public class FakeinlinecompositionPost {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakeinlinecompositionPostResponses.FakeinlinecompositionPostResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -75,7 +75,7 @@ public class FakeinlinecompositionPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeinlinecompositionPostResponses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -84,7 +84,7 @@ public class FakeinlinecompositionPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse inlineComposition(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeinlinecompositionPostResponses.EndpointResponse inlineComposition(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

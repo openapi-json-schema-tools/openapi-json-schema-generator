@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.HeaderPara
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.PathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Parameters;
-import org.openapijsonschematools.client.paths.commonparamsubdir.post.Responses;
+import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class CommonparamsubdirPost {
     private static class PostProvider {
         private static final String method = "post";
 
-        public static Responses.EndpointResponse post(
+        public static CommonparamsubdirPostResponses.EndpointResponse post(
             PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -56,7 +56,7 @@ public class CommonparamsubdirPost {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new CommonparamsubdirPostResponses.CommonparamsubdirPostResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -65,7 +65,7 @@ public class CommonparamsubdirPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default CommonparamsubdirPostResponses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -74,7 +74,7 @@ public class CommonparamsubdirPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse postCommonParam(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default CommonparamsubdirPostResponses.EndpointResponse postCommonParam(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

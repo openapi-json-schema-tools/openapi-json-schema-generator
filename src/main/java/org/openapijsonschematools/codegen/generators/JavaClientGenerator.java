@@ -1159,7 +1159,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         switch (pathPieces.length) {
             case 5:
                 // #/paths/somePath/verb/responses
-                return "Responses";
+                String prefix = getPathClassNamePrefix(jsonPath);
+                return prefix + "Responses";
             case 6:
                 // #/paths/somePath/verb/responses/200
                 return toModelName("Code"+componentName+"Response", null);
@@ -2624,6 +2625,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 if (jsonPath.startsWith("#/components/responses/")) {
                     return toModelName(lastJsonPathFragment, null);
                 } else {
+                    if (jsonPath.endsWith("/responses")) {
+                        String prefix = getPathClassNamePrefix(jsonPath);
+                        // #/paths/somePath/get/responses
+                        return prefix + "Responses";
+                    }
+                    // #/paths/somePath/get/responses/200
                     return toModelName("Code"+lastJsonPathFragment+"Response", null);
                 }
             case SERVER:

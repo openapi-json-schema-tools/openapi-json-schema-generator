@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.fakemultiplerequestbodycontentty
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.FakemultiplerequestbodycontenttypesPostRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.Responses;
+import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.FakemultiplerequestbodycontenttypesPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class FakemultiplerequestbodycontenttypesPost {
     private static class PostProvider {
         private static final String method = "post";
 
-        public static Responses.EndpointResponse post(
+        public static FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse post(
             PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -57,7 +57,7 @@ public class FakemultiplerequestbodycontenttypesPost {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakemultiplerequestbodycontenttypesPostResponses.FakemultiplerequestbodycontenttypesPostResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -66,7 +66,7 @@ public class FakemultiplerequestbodycontenttypesPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -75,7 +75,7 @@ public class FakemultiplerequestbodycontenttypesPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse multipleRequestBodyContentTypes(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse multipleRequestBodyContentTypes(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

@@ -43,7 +43,7 @@ import org.openapijsonschematools.client.paths.fakewildcardresponses.get.respons
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code5XXResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.FakewildcardresponsesGet;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.Responses;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.FakewildcardresponsesGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -73,7 +73,7 @@ FakewildcardresponsesGet.Get apiClient = new FakewildcardresponsesGet.Get(apiCon
 
 var request = new FakewildcardresponsesGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakewildcardresponsesGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (Code4XXResponse.ResponseApiException | Code5XXResponse.ResponseApiException e) {
@@ -93,17 +93,17 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-if (response instanceof Responses.EndpointCode1XXResponse castResponse) {
+if (response instanceof FakewildcardresponsesGetResponses.EndpointCode1XXResponse castResponse) {
 Code1XXResponse.ApplicationjsonResponseBody deserializedBody = (Code1XXResponse.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
-} else if (response instanceof Responses.EndpointCode2XXResponse castResponse) {
+} else if (response instanceof FakewildcardresponsesGetResponses.EndpointCode2XXResponse castResponse) {
 Code2XXResponse.ApplicationjsonResponseBody deserializedBody = (Code2XXResponse.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
-} else if (response instanceof Responses.EndpointCode200Response castResponse) {
+} else if (response instanceof FakewildcardresponsesGetResponses.EndpointCode200Response castResponse) {
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 } else {
-    Responses.EndpointCode3XXResponse castResponse = (Responses.EndpointCode3XXResponse) response;
+    FakewildcardresponsesGetResponses.EndpointCode3XXResponse castResponse = (FakewildcardresponsesGetResponses.EndpointCode3XXResponse) response;
 Code3XXResponse.ApplicationjsonResponseBody deserializedBody = (Code3XXResponse.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 }
@@ -116,7 +116,7 @@ Code3XXResponse.ApplicationjsonResponseBody deserializedBody = (Code3XXResponse.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakewildcardresponses/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakewildcardresponsesGetResponses.EndpointResponse](../../paths/fakewildcardresponses/get/FakewildcardresponsesGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

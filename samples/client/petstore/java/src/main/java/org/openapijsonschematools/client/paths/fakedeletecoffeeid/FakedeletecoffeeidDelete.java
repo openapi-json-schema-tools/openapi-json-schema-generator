@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.PathParameters;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Parameters;
-import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Responses;
+import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.FakedeletecoffeeidDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -25,7 +25,7 @@ public class FakedeletecoffeeidDelete {
     private static class DeleteProvider {
         private static final String method = "delete";
 
-        public static Responses.EndpointResponse delete(
+        public static FakedeletecoffeeidDeleteResponses.EndpointResponse delete(
             DeleteRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -49,7 +49,7 @@ public class FakedeletecoffeeidDelete {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakedeletecoffeeidDeleteResponses.FakedeletecoffeeidDeleteResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -58,7 +58,7 @@ public class FakedeletecoffeeidDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakedeletecoffeeidDeleteResponses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -67,7 +67,7 @@ public class FakedeletecoffeeidDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse deleteCoffee(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakedeletecoffeeidDeleteResponses.EndpointResponse deleteCoffee(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

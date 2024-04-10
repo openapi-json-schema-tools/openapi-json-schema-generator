@@ -45,7 +45,7 @@ import org.openapijsonschematools.client.components.securityschemes.ApiKeyQuery;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.FakeclassnametestPatch;
-import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -96,7 +96,7 @@ var request = new FakeclassnametestPatch.PatchRequestBuilder()
     .requestBody(requestBody)
     .build();
 
-Responses.EndpointResponse response;
+FakeclassnametestPatchResponses.EndpointResponse response;
 try {
     response = apiClient.patch(request);
 } catch (ApiException e) {
@@ -113,7 +113,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakeclassnametestPatchResponses.EndpointCode200Response castResponse = (FakeclassnametestPatchResponses.EndpointCode200Response) response;
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -125,7 +125,7 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeclassnametest/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
+| [FakeclassnametestPatchResponses.EndpointResponse](../../paths/fakeclassnametest/patch/FakeclassnametestPatchResponses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>

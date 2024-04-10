@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.paths.petpetiduploadimage.post.response
 import org.openapijsonschematools.client.components.responses.successwithjsonapiresponse.SuccessWithJsonApiResponseHeadersSchema;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.PetpetiduploadimagePost;
-import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Responses;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -94,7 +94,7 @@ var request = new PetpetiduploadimagePost.PostRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Responses.EndpointResponse response;
+PetpetiduploadimagePostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (ApiException e) {
@@ -111,7 +111,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+PetpetiduploadimagePostResponses.EndpointCode200Response castResponse = (PetpetiduploadimagePostResponses.EndpointCode200Response) response;
 }
 ```
 ### Constructor Summary
@@ -122,7 +122,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/petpetiduploadimage/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

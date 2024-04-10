@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.delete.HeaderPa
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.PathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Parameters;
-import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Responses;
+import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class CommonparamsubdirDelete {
     private static class DeleteProvider {
         private static final String method = "delete";
 
-        public static Responses.EndpointResponse delete(
+        public static CommonparamsubdirDeleteResponses.EndpointResponse delete(
             DeleteRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -56,7 +56,7 @@ public class CommonparamsubdirDelete {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new CommonparamsubdirDeleteResponses.CommonparamsubdirDeleteResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -65,7 +65,7 @@ public class CommonparamsubdirDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default CommonparamsubdirDeleteResponses.EndpointResponse delete(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -74,7 +74,7 @@ public class CommonparamsubdirDelete {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse deleteCommonParam(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default CommonparamsubdirDeleteResponses.EndpointResponse deleteCommonParam(DeleteRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return DeleteProvider.delete(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

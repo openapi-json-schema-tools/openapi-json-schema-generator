@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.storeinventory;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetSecurityInfo;
-import org.openapijsonschematools.client.paths.storeinventory.get.Responses;
+import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class StoreinventoryGet {
     private static class GetProvider extends AuthApplier {
         private static final String method = "get";
 
-        public static Responses.EndpointResponse get(
+        public static StoreinventoryGetResponses.EndpointResponse get(
             GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -57,7 +57,7 @@ public class StoreinventoryGet {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new StoreinventoryGetResponses.StoreinventoryGetResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -66,7 +66,7 @@ public class StoreinventoryGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default StoreinventoryGetResponses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -75,7 +75,7 @@ public class StoreinventoryGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse getInventory(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default StoreinventoryGetResponses.EndpointResponse getInventory(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

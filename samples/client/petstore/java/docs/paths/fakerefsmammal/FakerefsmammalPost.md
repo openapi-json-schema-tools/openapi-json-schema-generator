@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefsmammal.post.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefsmammal.FakerefsmammalPost;
-import org.openapijsonschematools.client.paths.fakerefsmammal.post.Responses;
+import org.openapijsonschematools.client.paths.fakerefsmammal.post.FakerefsmammalPostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -75,7 +75,7 @@ var request = new FakerefsmammalPost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
-Responses.EndpointResponse response;
+FakerefsmammalPostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (ApiException e) {
@@ -92,7 +92,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakerefsmammalPostResponses.EndpointCode200Response castResponse = (FakerefsmammalPostResponses.EndpointCode200Response) response;
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -104,7 +104,7 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakerefsmammal/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

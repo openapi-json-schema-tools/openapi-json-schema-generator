@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.usercreatewithlist;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.usercreatewithlist.post.UsercreatewithlistPostRequestBody;
-import org.openapijsonschematools.client.paths.usercreatewithlist.post.Responses;
+import org.openapijsonschematools.client.paths.usercreatewithlist.post.UsercreatewithlistPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class UsercreatewithlistPost {
     private static class PostProvider {
         private static final String method = "post";
 
-        public static Responses.EndpointResponse post(
+        public static UsercreatewithlistPostResponses.EndpointResponse post(
             PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -53,7 +53,7 @@ public class UsercreatewithlistPost {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new UsercreatewithlistPostResponses.UsercreatewithlistPostResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -62,7 +62,7 @@ public class UsercreatewithlistPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default UsercreatewithlistPostResponses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -71,7 +71,7 @@ public class UsercreatewithlistPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse createUsersWithListInput(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default UsercreatewithlistPostResponses.EndpointResponse createUsersWithListInput(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

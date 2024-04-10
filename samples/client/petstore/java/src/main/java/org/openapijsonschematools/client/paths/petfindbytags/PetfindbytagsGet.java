@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetSecurityInfo;
 import org.openapijsonschematools.client.paths.petfindbytags.get.QueryParameters;
 import org.openapijsonschematools.client.paths.petfindbytags.get.Parameters;
-import org.openapijsonschematools.client.paths.petfindbytags.get.Responses;
+import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -28,7 +28,7 @@ public class PetfindbytagsGet {
     private static class GetProvider extends AuthApplier {
         private static final String method = "get";
 
-        public static Responses.EndpointResponse get(
+        public static PetfindbytagsGetResponses.EndpointResponse get(
             GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -63,7 +63,7 @@ public class PetfindbytagsGet {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new PetfindbytagsGetResponses.PetfindbytagsGetResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -72,7 +72,7 @@ public class PetfindbytagsGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default PetfindbytagsGetResponses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -81,7 +81,7 @@ public class PetfindbytagsGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse findPetsByTags(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default PetfindbytagsGetResponses.EndpointResponse findPetsByTags(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

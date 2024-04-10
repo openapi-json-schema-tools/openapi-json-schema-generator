@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.paths.petpetid.get.responses.Code400Res
 import org.openapijsonschematools.client.paths.petpetid.get.responses.Code404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.PetpetidGet;
-import org.openapijsonschematools.client.paths.petpetid.get.Responses;
+import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -97,7 +97,7 @@ var request = new PetpetidGet.GetRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Responses.EndpointResponse response;
+PetpetidGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
@@ -117,7 +117,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+PetpetidGetResponses.EndpointCode200Response castResponse = (PetpetidGetResponses.EndpointCode200Response) response;
 if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
@@ -133,7 +133,7 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/petpetid/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

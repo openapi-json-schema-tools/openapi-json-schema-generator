@@ -40,7 +40,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.FakejsonwithcharsetPost;
-import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.Responses;
+import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.FakejsonwithcharsetPostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ FakejsonwithcharsetPost.Post apiClient = new FakejsonwithcharsetPost.Post(apiCon
 
 var request = new FakejsonwithcharsetPost.PostRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakejsonwithcharsetPostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (ApiException e) {
@@ -87,7 +87,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakejsonwithcharsetPostResponses.EndpointCode200Response castResponse = (FakejsonwithcharsetPostResponses.EndpointCode200Response) response;
 Code200Response.Applicationjsoncharsetutf8ResponseBody deserializedBody = (Code200Response.Applicationjsoncharsetutf8ResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -99,7 +99,7 @@ Code200Response.Applicationjsoncharsetutf8ResponseBody deserializedBody = (Code2
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakejsonwithcharset/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [FakejsonwithcharsetPostResponses.EndpointResponse](../../paths/fakejsonwithcharset/post/FakejsonwithcharsetPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

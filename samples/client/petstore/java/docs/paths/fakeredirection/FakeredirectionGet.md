@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.paths.fakeredirection.get.responses.Cod
 import org.openapijsonschematools.client.paths.fakeredirection.get.responses.Code3XXResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeredirection.FakeredirectionGet;
-import org.openapijsonschematools.client.paths.fakeredirection.get.Responses;
+import org.openapijsonschematools.client.paths.fakeredirection.get.FakeredirectionGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -69,7 +69,7 @@ FakeredirectionGet.Get apiClient = new FakeredirectionGet.Get(apiConfiguration, 
 
 var request = new FakeredirectionGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakeredirectionGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -86,9 +86,9 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-if (response instanceof Responses.EndpointCode3XXResponse castResponse) {
+if (response instanceof FakeredirectionGetResponses.EndpointCode3XXResponse castResponse) {
 } else {
-    Responses.EndpointCode303Response castResponse = (Responses.EndpointCode303Response) response;
+    FakeredirectionGetResponses.EndpointCode303Response castResponse = (FakeredirectionGetResponses.EndpointCode303Response) response;
 }
 ```
 ### Constructor Summary
@@ -99,7 +99,7 @@ if (response instanceof Responses.EndpointCode3XXResponse castResponse) {
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeredirection/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakeredirectionGetResponses.EndpointResponse](../../paths/fakeredirection/get/FakeredirectionGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

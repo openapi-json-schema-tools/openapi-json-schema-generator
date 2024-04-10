@@ -43,7 +43,7 @@ import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.C
 import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.Code404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorderorderid.StoreorderorderidGet;
-import org.openapijsonschematools.client.paths.storeorderorderid.get.Responses;
+import org.openapijsonschematools.client.paths.storeorderorderid.get.StoreorderorderidGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -85,7 +85,7 @@ var request = new StoreorderorderidGet.GetRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Responses.EndpointResponse response;
+StoreorderorderidGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
@@ -105,7 +105,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+StoreorderorderidGetResponses.EndpointCode200Response castResponse = (StoreorderorderidGetResponses.EndpointCode200Response) response;
 if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
@@ -121,7 +121,7 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/storeorderorderid/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [StoreorderorderidGetResponses.EndpointResponse](../../paths/storeorderorderid/get/StoreorderorderidGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

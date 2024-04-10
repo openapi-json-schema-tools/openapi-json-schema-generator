@@ -40,7 +40,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakejsonpatch.FakejsonpatchPatch;
-import org.openapijsonschematools.client.paths.fakejsonpatch.patch.Responses;
+import org.openapijsonschematools.client.paths.fakejsonpatch.patch.FakejsonpatchPatchResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ FakejsonpatchPatch.Patch apiClient = new FakejsonpatchPatch.Patch(apiConfigurati
 
 var request = new FakejsonpatchPatch.PatchRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakejsonpatchPatchResponses.EndpointResponse response;
 try {
     response = apiClient.patch(request);
 } catch (ApiException e) {
@@ -87,7 +87,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakejsonpatchPatchResponses.EndpointCode200Response castResponse = (FakejsonpatchPatchResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -97,7 +97,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakejsonpatch/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
+| [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>

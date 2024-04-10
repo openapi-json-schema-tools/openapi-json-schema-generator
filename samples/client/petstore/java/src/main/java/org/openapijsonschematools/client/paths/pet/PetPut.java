@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.put.PetPutSecurityInfo;
 import org.openapijsonschematools.client.paths.pet.put.PetPutRequestBody;
-import org.openapijsonschematools.client.paths.pet.put.Responses;
+import org.openapijsonschematools.client.paths.pet.put.PetPutResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -66,8 +66,7 @@ public class PetPut {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
-            return responsesDeserializer.deserialize(response, schemaConfiguration);
+            return (Void) null;
         }
     }
 

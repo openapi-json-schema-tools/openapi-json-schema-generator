@@ -37,7 +37,7 @@ import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
 import org.openapijsonschematools.client.paths.foo.get.responses.CodedefaultResponse;
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
 import org.openapijsonschematools.client.paths.foo.FooGet;
-import org.openapijsonschematools.client.paths.foo.get.Responses;
+import org.openapijsonschematools.client.paths.foo.get.FooGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -67,7 +67,7 @@ FooGet.Get apiClient = new FooGet.Get(apiConfiguration, schemaConfiguration);
 
 var request = new FooGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FooGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -84,7 +84,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefaultResponse) response;
+FooGetResponses.EndpointCodedefaultResponse castResponse = (FooGetResponses.EndpointCodedefaultResponse) response;
 CodedefaultResponse.ApplicationjsonResponseBody deserializedBody = (CodedefaultResponse.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -96,7 +96,7 @@ CodedefaultResponse.ApplicationjsonResponseBody deserializedBody = (CodedefaultR
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/foo/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FooGetResponses.EndpointResponse](../../paths/foo/get/FooGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

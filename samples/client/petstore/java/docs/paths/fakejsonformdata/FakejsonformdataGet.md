@@ -40,7 +40,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakejsonformdata.get.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakejsonformdata.FakejsonformdataGet;
-import org.openapijsonschematools.client.paths.fakejsonformdata.get.Responses;
+import org.openapijsonschematools.client.paths.fakejsonformdata.get.FakejsonformdataGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ FakejsonformdataGet.Get apiClient = new FakejsonformdataGet.Get(apiConfiguration
 
 var request = new FakejsonformdataGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakejsonformdataGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -87,7 +87,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakejsonformdataGetResponses.EndpointCode200Response castResponse = (FakejsonformdataGetResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -97,7 +97,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakejsonformdata/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

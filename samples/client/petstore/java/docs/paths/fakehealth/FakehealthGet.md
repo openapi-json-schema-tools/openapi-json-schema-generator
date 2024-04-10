@@ -38,7 +38,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakehealth.get.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakehealth.FakehealthGet;
-import org.openapijsonschematools.client.paths.fakehealth.get.Responses;
+import org.openapijsonschematools.client.paths.fakehealth.get.FakehealthGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -68,7 +68,7 @@ FakehealthGet.Get apiClient = new FakehealthGet.Get(apiConfiguration, schemaConf
 
 var request = new FakehealthGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakehealthGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -85,7 +85,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakehealthGetResponses.EndpointCode200Response castResponse = (FakehealthGetResponses.EndpointCode200Response) response;
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -97,7 +97,7 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakehealth/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

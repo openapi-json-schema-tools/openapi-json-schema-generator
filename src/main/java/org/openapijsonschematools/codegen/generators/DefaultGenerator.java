@@ -2898,7 +2898,7 @@ public class DefaultGenerator implements Generator {
             if (wildcardCodeResponses != null) {
                 wildcardCodeResponses = new TreeMap<>(wildcardCodeResponses);
             }
-            CodegenKey responsesJsonPathPiece = getKey("responses", "misc", responsesJsonPath);
+            CodegenKey responsesJsonPathPiece = getKey("responses", "responses", responsesJsonPath);
             responses = new CodegenMap<>(responsesMap, responsesJsonPathPiece, getSubpackage(responsesJsonPath), getPathFromDocRoot(responsesJsonPath));
         }
 

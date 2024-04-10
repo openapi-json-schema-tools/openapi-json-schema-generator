@@ -43,7 +43,7 @@ import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.FakemultiplesecuritiesGet;
-import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.Responses;
+import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.FakemultiplesecuritiesGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -85,7 +85,7 @@ FakemultiplesecuritiesGet.Get apiClient = new FakemultiplesecuritiesGet.Get(apiC
 
 var request = new FakemultiplesecuritiesGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakemultiplesecuritiesGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -102,7 +102,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakemultiplesecuritiesGetResponses.EndpointCode200Response castResponse = (FakemultiplesecuritiesGetResponses.EndpointCode200Response) response;
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -114,7 +114,7 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakemultiplesecurities/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

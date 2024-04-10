@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.paths.userusername.delete.responses.Cod
 import org.openapijsonschematools.client.paths.userusername.delete.responses.Code404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.UserusernameDelete;
-import org.openapijsonschematools.client.paths.userusername.delete.Responses;
+import org.openapijsonschematools.client.paths.userusername.delete.UserusernameDeleteResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -84,7 +84,7 @@ var request = new UserusernameDelete.DeleteRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Responses.EndpointResponse response;
+UserusernameDeleteResponses.EndpointResponse response;
 try {
     response = apiClient.delete(request);
 } catch (Code404Response.ResponseApiException e) {
@@ -104,7 +104,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+UserusernameDeleteResponses.EndpointCode200Response castResponse = (UserusernameDeleteResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -114,7 +114,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/userusername/delete/Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
+| [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
 
 ## DeleteRequest
 public static class DeleteRequest<br>

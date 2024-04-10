@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PathParameters;
 import org.openapijsonschematools.client.paths.petpetid.post.Parameters;
-import org.openapijsonschematools.client.paths.petpetid.post.Responses;
+import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -75,8 +75,7 @@ public class PetpetidPost {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
-            return responsesDeserializer.deserialize(response, schemaConfiguration);
+            return (Void) null;
         }
     }
 

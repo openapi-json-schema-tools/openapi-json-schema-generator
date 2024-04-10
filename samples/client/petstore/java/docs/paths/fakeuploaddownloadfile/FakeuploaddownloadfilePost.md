@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.FakeuploaddownloadfilePost;
-import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.Responses;
+import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.FakeuploaddownloadfilePostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -80,7 +80,7 @@ var request = new FakeuploaddownloadfilePost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
-Responses.EndpointResponse response;
+FakeuploaddownloadfilePostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (ApiException e) {
@@ -97,7 +97,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakeuploaddownloadfilePostResponses.EndpointCode200Response castResponse = (FakeuploaddownloadfilePostResponses.EndpointCode200Response) response;
 Code200Response.ApplicationoctetstreamResponseBody deserializedBody = (Code200Response.ApplicationoctetstreamResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -109,7 +109,7 @@ Code200Response.ApplicationoctetstreamResponseBody deserializedBody = (Code200Re
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [FakeuploaddownloadfilePostResponses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/FakeuploaddownloadfilePostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

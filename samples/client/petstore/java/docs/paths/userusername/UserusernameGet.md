@@ -43,7 +43,7 @@ import org.openapijsonschematools.client.paths.userusername.get.responses.Code40
 import org.openapijsonschematools.client.paths.userusername.get.responses.Code404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.UserusernameGet;
-import org.openapijsonschematools.client.paths.userusername.get.Responses;
+import org.openapijsonschematools.client.paths.userusername.get.UserusernameGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -85,7 +85,7 @@ var request = new UserusernameGet.GetRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Responses.EndpointResponse response;
+UserusernameGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
@@ -105,7 +105,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+UserusernameGetResponses.EndpointCode200Response castResponse = (UserusernameGetResponses.EndpointCode200Response) response;
 if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
@@ -121,7 +121,7 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/userusername/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [UserusernameGetResponses.EndpointResponse](../../paths/userusername/get/UserusernameGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

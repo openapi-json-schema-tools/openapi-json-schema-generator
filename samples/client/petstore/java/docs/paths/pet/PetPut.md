@@ -48,7 +48,7 @@ import org.openapijsonschematools.client.paths.pet.put.responses.Code404Response
 import org.openapijsonschematools.client.paths.pet.put.responses.Code405Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.PetPut;
-import org.openapijsonschematools.client.paths.pet.put.Responses;
+import org.openapijsonschematools.client.paths.pet.put.PetPutResponses;
 
 import java.io.IOException;
 import java.util.Arrays;

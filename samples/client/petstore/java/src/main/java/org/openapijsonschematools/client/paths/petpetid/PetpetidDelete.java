@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.delete.PathParameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.Parameters;
-import org.openapijsonschematools.client.paths.petpetid.delete.Responses;
+import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -69,8 +69,7 @@ public class PetpetidDelete {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
-            return responsesDeserializer.deserialize(response, schemaConfiguration);
+            return (Void) null;
         }
     }
 

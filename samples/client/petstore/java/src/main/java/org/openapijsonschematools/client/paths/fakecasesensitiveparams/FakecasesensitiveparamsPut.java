@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.QueryParameters;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Parameters;
-import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Responses;
+import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.FakecasesensitiveparamsPutResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -25,7 +25,7 @@ public class FakecasesensitiveparamsPut {
     private static class PutProvider {
         private static final String method = "put";
 
-        public static Responses.EndpointResponse put(
+        public static FakecasesensitiveparamsPutResponses.EndpointResponse put(
             PutRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -50,7 +50,7 @@ public class FakecasesensitiveparamsPut {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakecasesensitiveparamsPutResponses.FakecasesensitiveparamsPutResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -59,7 +59,7 @@ public class FakecasesensitiveparamsPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakecasesensitiveparamsPutResponses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -68,7 +68,7 @@ public class FakecasesensitiveparamsPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse caseSensitiveParams(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakecasesensitiveparamsPutResponses.EndpointResponse caseSensitiveParams(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

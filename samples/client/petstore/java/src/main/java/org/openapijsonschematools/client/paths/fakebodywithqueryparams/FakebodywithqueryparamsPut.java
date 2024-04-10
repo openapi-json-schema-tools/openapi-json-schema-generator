@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutRequestBody;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.QueryParameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Parameters;
-import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Responses;
+import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -28,7 +28,7 @@ public class FakebodywithqueryparamsPut {
     private static class PutProvider {
         private static final String method = "put";
 
-        public static Responses.EndpointResponse put(
+        public static FakebodywithqueryparamsPutResponses.EndpointResponse put(
             PutRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -59,7 +59,7 @@ public class FakebodywithqueryparamsPut {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakebodywithqueryparamsPutResponses.FakebodywithqueryparamsPutResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -68,7 +68,7 @@ public class FakebodywithqueryparamsPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakebodywithqueryparamsPutResponses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -77,7 +77,7 @@ public class FakebodywithqueryparamsPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse bodyWithQueryParams(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakebodywithqueryparamsPutResponses.EndpointResponse bodyWithQueryParams(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.paths.userusername.put.responses.Code40
 import org.openapijsonschematools.client.paths.userusername.put.responses.Code404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.UserusernamePut;
-import org.openapijsonschematools.client.paths.userusername.put.Responses;
+import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutResponses;
 
 import java.io.IOException;
 import java.util.Arrays;

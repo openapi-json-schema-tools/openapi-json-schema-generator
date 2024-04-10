@@ -38,7 +38,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.userlogout.get.responses.CodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userlogout.UserlogoutGet;
-import org.openapijsonschematools.client.paths.userlogout.get.Responses;
+import org.openapijsonschematools.client.paths.userlogout.get.UserlogoutGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -68,7 +68,7 @@ UserlogoutGet.Get apiClient = new UserlogoutGet.Get(apiConfiguration, schemaConf
 
 var request = new UserlogoutGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+UserlogoutGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -85,7 +85,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefaultResponse) response;
+UserlogoutGetResponses.EndpointCodedefaultResponse castResponse = (UserlogoutGetResponses.EndpointCodedefaultResponse) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -95,7 +95,7 @@ Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/userlogout/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [UserlogoutGetResponses.EndpointResponse](../../paths/userlogout/get/UserlogoutGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

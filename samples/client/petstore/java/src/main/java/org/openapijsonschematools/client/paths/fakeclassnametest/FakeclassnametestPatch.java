@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchSecurityInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchRequestBody;
-import org.openapijsonschematools.client.paths.fakeclassnametest.patch.Responses;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -29,7 +29,7 @@ public class FakeclassnametestPatch {
     private static class PatchProvider extends AuthApplier {
         private static final String method = "patch";
 
-        public static Responses.EndpointResponse patch(
+        public static FakeclassnametestPatchResponses.EndpointResponse patch(
             PatchRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -66,7 +66,7 @@ public class FakeclassnametestPatch {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakeclassnametestPatchResponses.FakeclassnametestPatchResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -75,7 +75,7 @@ public class FakeclassnametestPatch {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeclassnametestPatchResponses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -84,7 +84,7 @@ public class FakeclassnametestPatch {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse classname(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakeclassnametestPatchResponses.EndpointResponse classname(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

@@ -41,7 +41,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.FakecasesensitiveparamsPut;
-import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Responses;
+import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.FakecasesensitiveparamsPutResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -87,7 +87,7 @@ var request = new FakecasesensitiveparamsPut.PutRequestBuilder()
     .queryParameters(queryParameters)
     .build();
 
-Responses.EndpointResponse response;
+FakecasesensitiveparamsPutResponses.EndpointResponse response;
 try {
     response = apiClient.put(request);
 } catch (ApiException e) {
@@ -104,7 +104,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakecasesensitiveparamsPutResponses.EndpointCode200Response castResponse = (FakecasesensitiveparamsPutResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -114,7 +114,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakecasesensitiveparams/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
+| [FakecasesensitiveparamsPutResponses.EndpointResponse](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutResponses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
 ## PutRequest
 public static class PutRequest<br>

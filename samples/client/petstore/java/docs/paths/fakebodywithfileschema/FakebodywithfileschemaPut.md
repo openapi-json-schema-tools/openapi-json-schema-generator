@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.FakebodywithfileschemaPut;
-import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.Responses;
+import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.FakebodywithfileschemaPutResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -86,7 +86,7 @@ var request = new FakebodywithfileschemaPut.PutRequestBuilder()
     .requestBody(requestBody)
     .build();
 
-Responses.EndpointResponse response;
+FakebodywithfileschemaPutResponses.EndpointResponse response;
 try {
     response = apiClient.put(request);
 } catch (ApiException e) {
@@ -103,7 +103,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakebodywithfileschemaPutResponses.EndpointCode200Response castResponse = (FakebodywithfileschemaPutResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -113,7 +113,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakebodywithfileschema/put/Responses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
+| [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
 
 ## PutRequest
 public static class PutRequest<br>

@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.PathParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Parameters;
-import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Responses;
+import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -31,7 +31,7 @@ public class Fakeparametercollisions1ababselfabPost {
     private static class PostProvider {
         private static final String method = "post";
 
-        public static Responses.EndpointResponse post(
+        public static Fakeparametercollisions1ababselfabPostResponses.EndpointResponse post(
             PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -85,7 +85,7 @@ public class Fakeparametercollisions1ababselfabPost {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new Fakeparametercollisions1ababselfabPostResponses.Fakeparametercollisions1ababselfabPostResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -94,7 +94,7 @@ public class Fakeparametercollisions1ababselfabPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default Fakeparametercollisions1ababselfabPostResponses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -103,7 +103,7 @@ public class Fakeparametercollisions1ababselfabPost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse parameterCollisions(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default Fakeparametercollisions1ababselfabPostResponses.EndpointResponse parameterCollisions(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

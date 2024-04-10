@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 import org.openapijsonschematools.client.paths.petpetid.post.responses.Code405Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.PetpetidPost;
-import org.openapijsonschematools.client.paths.petpetid.post.Responses;
+import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;

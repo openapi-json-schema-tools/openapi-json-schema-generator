@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.QueryParameters;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Parameters;
-import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Responses;
+import org.openapijsonschematools.client.paths.faketestqueryparamters.put.FaketestqueryparamtersPutResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -25,7 +25,7 @@ public class FaketestqueryparamtersPut {
     private static class PutProvider {
         private static final String method = "put";
 
-        public static Responses.EndpointResponse put(
+        public static FaketestqueryparamtersPutResponses.EndpointResponse put(
             PutRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -50,7 +50,7 @@ public class FaketestqueryparamtersPut {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FaketestqueryparamtersPutResponses.FaketestqueryparamtersPutResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -59,7 +59,7 @@ public class FaketestqueryparamtersPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FaketestqueryparamtersPutResponses.EndpointResponse put(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -68,7 +68,7 @@ public class FaketestqueryparamtersPut {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse queryParameterCollectionFormat(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FaketestqueryparamtersPutResponses.EndpointResponse queryParameterCollectionFormat(PutRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PutProvider.put(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

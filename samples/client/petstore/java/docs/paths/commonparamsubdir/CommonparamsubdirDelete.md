@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.CommonparamsubdirDelete;
-import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Responses;
+import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -84,7 +84,7 @@ var request = new CommonparamsubdirDelete.DeleteRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Responses.EndpointResponse response;
+CommonparamsubdirDeleteResponses.EndpointResponse response;
 try {
     response = apiClient.delete(request);
 } catch (ApiException e) {
@@ -101,7 +101,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+CommonparamsubdirDeleteResponses.EndpointCode200Response castResponse = (CommonparamsubdirDeleteResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -111,7 +111,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/commonparamsubdir/delete/Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
+| [CommonparamsubdirDeleteResponses.EndpointResponse](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteResponses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
 
 ## DeleteRequest
 public static class DeleteRequest<br>

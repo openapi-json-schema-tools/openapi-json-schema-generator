@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.re
 import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.Code202Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.FakemultipleresponsebodiesGet;
-import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.Responses;
+import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.FakemultipleresponsebodiesGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -69,7 +69,7 @@ FakemultipleresponsebodiesGet.Get apiClient = new FakemultipleresponsebodiesGet.
 
 var request = new FakemultipleresponsebodiesGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakemultipleresponsebodiesGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -86,11 +86,11 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-if (response instanceof Responses.EndpointCode200Response castResponse) {
+if (response instanceof FakemultipleresponsebodiesGetResponses.EndpointCode200Response castResponse) {
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 } else {
-    Responses.EndpointCode202Response castResponse = (Responses.EndpointCode202Response) response;
+    FakemultipleresponsebodiesGetResponses.EndpointCode202Response castResponse = (FakemultipleresponsebodiesGetResponses.EndpointCode202Response) response;
 Code202Response.ApplicationjsonResponseBody deserializedBody = (Code202Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 }
@@ -103,7 +103,7 @@ Code202Response.ApplicationjsonResponseBody deserializedBody = (Code202Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakemultipleresponsebodiesGetResponses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/FakemultipleresponsebodiesGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

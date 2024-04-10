@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fake.patch.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.FakePatch;
-import org.openapijsonschematools.client.paths.fake.patch.Responses;
+import org.openapijsonschematools.client.paths.fake.patch.FakePatchResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -84,7 +84,7 @@ var request = new FakePatch.PatchRequestBuilder()
     .requestBody(requestBody)
     .build();
 
-Responses.EndpointResponse response;
+FakePatchResponses.EndpointResponse response;
 try {
     response = apiClient.patch(request);
 } catch (ApiException e) {
@@ -101,7 +101,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakePatchResponses.EndpointCode200Response castResponse = (FakePatchResponses.EndpointCode200Response) response;
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -113,7 +113,7 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fake/patch/Responses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
+| [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>

@@ -48,7 +48,7 @@ import org.openapijsonschematools.client.paths.pet.post.responses.Code200Respons
 import org.openapijsonschematools.client.paths.pet.post.responses.Code405Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.PetPost;
-import org.openapijsonschematools.client.paths.pet.post.Responses;
+import org.openapijsonschematools.client.paths.pet.post.PetPostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -130,7 +130,7 @@ var request = new PetPost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
-Responses.EndpointResponse response;
+PetPostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (Code405Response.ResponseApiException e) {
@@ -150,7 +150,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+PetPostResponses.EndpointCode200Response castResponse = (PetPostResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -160,7 +160,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/pet/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

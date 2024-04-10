@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutRequestBody;
 import org.openapijsonschematools.client.paths.userusername.put.PathParameters;
 import org.openapijsonschematools.client.paths.userusername.put.Parameters;
-import org.openapijsonschematools.client.paths.userusername.put.Responses;
+import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -58,8 +58,7 @@ public class UserusernamePut {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
-            return responsesDeserializer.deserialize(response, schemaConfiguration);
+            return (Void) null;
         }
     }
 

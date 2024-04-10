@@ -40,7 +40,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.FakeadditionalpropertieswitharrayofenumsGet;
-import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.Responses;
+import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.FakeadditionalpropertieswitharrayofenumsGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ FakeadditionalpropertieswitharrayofenumsGet.Get apiClient = new Fakeadditionalpr
 
 var request = new FakeadditionalpropertieswitharrayofenumsGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -87,7 +87,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointCode200Response castResponse = (FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointCode200Response) response;
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -99,7 +99,7 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

@@ -6,7 +6,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PathParameters;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Parameters;
-import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Responses;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -31,7 +31,7 @@ public class PetpetiduploadimagePost {
     private static class PostProvider extends AuthApplier {
         private static final String method = "post";
 
-        public static Responses.EndpointResponse post(
+        public static PetpetiduploadimagePostResponses.EndpointResponse post(
             PostRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -75,7 +75,7 @@ public class PetpetiduploadimagePost {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new PetpetiduploadimagePostResponses.PetpetiduploadimagePostResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -84,7 +84,7 @@ public class PetpetiduploadimagePost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default PetpetiduploadimagePostResponses.EndpointResponse post(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -93,7 +93,7 @@ public class PetpetiduploadimagePost {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse uploadImage(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default PetpetiduploadimagePostResponses.EndpointResponse uploadImage(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

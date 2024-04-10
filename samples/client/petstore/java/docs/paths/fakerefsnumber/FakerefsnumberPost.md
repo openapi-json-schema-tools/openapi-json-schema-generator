@@ -40,7 +40,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefsnumber.post.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefsnumber.FakerefsnumberPost;
-import org.openapijsonschematools.client.paths.fakerefsnumber.post.Responses;
+import org.openapijsonschematools.client.paths.fakerefsnumber.post.FakerefsnumberPostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ FakerefsnumberPost.Post apiClient = new FakerefsnumberPost.Post(apiConfiguration
 
 var request = new FakerefsnumberPost.PostRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakerefsnumberPostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (ApiException e) {
@@ -87,7 +87,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakerefsnumberPostResponses.EndpointCode200Response castResponse = (FakerefsnumberPostResponses.EndpointCode200Response) response;
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -99,7 +99,7 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakerefsnumber/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

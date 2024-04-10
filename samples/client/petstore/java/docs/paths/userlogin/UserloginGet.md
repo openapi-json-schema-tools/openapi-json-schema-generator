@@ -43,7 +43,7 @@ import org.openapijsonschematools.client.paths.userlogin.get.responses.code200re
 import org.openapijsonschematools.client.paths.userlogin.get.responses.Code400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userlogin.UserloginGet;
-import org.openapijsonschematools.client.paths.userlogin.get.Responses;
+import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -87,7 +87,7 @@ var request = new UserloginGet.GetRequestBuilder()
     .queryParameters(queryParameters)
     .build();
 
-Responses.EndpointResponse response;
+UserloginGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (Code400Response.ResponseApiException e) {
@@ -107,7 +107,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+UserloginGetResponses.EndpointCode200Response castResponse = (UserloginGetResponses.EndpointCode200Response) response;
 if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
@@ -123,7 +123,7 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/userlogin/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

@@ -43,7 +43,7 @@ import org.openapijsonschematools.client.paths.storeorder.post.responses.Code200
 import org.openapijsonschematools.client.paths.storeorder.post.responses.Code400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorder.StoreorderPost;
-import org.openapijsonschematools.client.paths.storeorder.post.Responses;
+import org.openapijsonschematools.client.paths.storeorder.post.StoreorderPostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -95,7 +95,7 @@ var request = new StoreorderPost.PostRequestBuilder()
     .requestBody(requestBody)
     .build();
 
-Responses.EndpointResponse response;
+StoreorderPostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (Code400Response.ResponseApiException e) {
@@ -115,7 +115,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+StoreorderPostResponses.EndpointCode200Response castResponse = (StoreorderPostResponses.EndpointCode200Response) response;
 if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
@@ -131,7 +131,7 @@ if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody dese
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/storeorder/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [StoreorderPostResponses.EndpointResponse](../../paths/storeorder/post/StoreorderPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

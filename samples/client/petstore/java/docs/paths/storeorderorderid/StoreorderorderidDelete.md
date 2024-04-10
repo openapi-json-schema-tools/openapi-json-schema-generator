@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.paths.storeorderorderid.delete.response
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.Code404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorderorderid.StoreorderorderidDelete;
-import org.openapijsonschematools.client.paths.storeorderorderid.delete.Responses;
+import org.openapijsonschematools.client.paths.storeorderorderid.delete.StoreorderorderidDeleteResponses;
 
 import java.io.IOException;
 import java.util.Arrays;

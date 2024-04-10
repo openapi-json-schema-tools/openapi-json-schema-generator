@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.get.PathParameters;
 import org.openapijsonschematools.client.paths.petpetid.get.Parameters;
-import org.openapijsonschematools.client.paths.petpetid.get.Responses;
+import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -28,7 +28,7 @@ public class PetpetidGet {
     private static class GetProvider extends AuthApplier {
         private static final String method = "get";
 
-        public static Responses.EndpointResponse get(
+        public static PetpetidGetResponses.EndpointResponse get(
             GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -62,7 +62,7 @@ public class PetpetidGet {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new PetpetidGetResponses.PetpetidGetResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -71,7 +71,7 @@ public class PetpetidGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default PetpetidGetResponses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -80,7 +80,7 @@ public class PetpetidGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse getPetById(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default PetpetidGetResponses.EndpointResponse getPetById(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.CommonparamsubdirGet;
-import org.openapijsonschematools.client.paths.commonparamsubdir.get.Responses;
+import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -84,7 +84,7 @@ var request = new CommonparamsubdirGet.GetRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Responses.EndpointResponse response;
+CommonparamsubdirGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -101,7 +101,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+CommonparamsubdirGetResponses.EndpointCode200Response castResponse = (CommonparamsubdirGetResponses.EndpointCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |
@@ -111,7 +111,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/commonparamsubdir/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [CommonparamsubdirGetResponses.EndpointResponse](../../paths/commonparamsubdir/get/CommonparamsubdirGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

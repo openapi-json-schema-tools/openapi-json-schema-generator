@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.respons
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.responses.CodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.FakedeletecoffeeidDelete;
-import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Responses;
+import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.FakedeletecoffeeidDeleteResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -84,7 +84,7 @@ var request = new FakedeletecoffeeidDelete.DeleteRequestBuilder()
     .pathParameters(pathParameters)
     .build();
 
-Responses.EndpointResponse response;
+FakedeletecoffeeidDeleteResponses.EndpointResponse response;
 try {
     response = apiClient.delete(request);
 } catch (ApiException e) {
@@ -101,9 +101,9 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-if (response instanceof Responses.EndpointCode200Response castResponse) {
+if (response instanceof FakedeletecoffeeidDeleteResponses.EndpointCode200Response castResponse) {
 } else {
-    Responses.EndpointCodedefaultResponse castResponse = (Responses.EndpointCodedefaultResponse) response;
+    FakedeletecoffeeidDeleteResponses.EndpointCodedefaultResponse castResponse = (FakedeletecoffeeidDeleteResponses.EndpointCodedefaultResponse) response;
 }
 ```
 ### Constructor Summary
@@ -114,7 +114,7 @@ if (response instanceof Responses.EndpointCode200Response castResponse) {
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/Responses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
+| [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
 
 ## DeleteRequest
 public static class DeleteRequest<br>

@@ -5,7 +5,7 @@ import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusSe
 import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetSecurityInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.QueryParameters;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.Parameters;
-import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -28,7 +28,7 @@ public class PetfindbystatusGet {
     private static class GetProvider extends AuthApplier {
         private static final String method = "get";
 
-        public static Responses.EndpointResponse get(
+        public static PetfindbystatusGetResponses.EndpointResponse get(
             GetRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -63,7 +63,7 @@ public class PetfindbystatusGet {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new PetfindbystatusGetResponses.PetfindbystatusGetResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -72,7 +72,7 @@ public class PetfindbystatusGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default PetfindbystatusGetResponses.EndpointResponse get(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -81,7 +81,7 @@ public class PetfindbystatusGet {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse findPetsByStatus(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default PetfindbystatusGetResponses.EndpointResponse findPetsByStatus(GetRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return GetProvider.get(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

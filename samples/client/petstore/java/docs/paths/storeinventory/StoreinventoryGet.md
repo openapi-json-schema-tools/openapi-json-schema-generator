@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.paths.storeinventory.get.responses.Code
 import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.SuccessInlineContentAndHeaderHeadersSchema;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeinventory.StoreinventoryGet;
-import org.openapijsonschematools.client.paths.storeinventory.get.Responses;
+import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -81,7 +81,7 @@ StoreinventoryGet.Get apiClient = new StoreinventoryGet.Get(apiConfiguration, sc
 
 var request = new StoreinventoryGet.GetRequestBuilder().build();
 
-Responses.EndpointResponse response;
+StoreinventoryGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (ApiException e) {
@@ -98,7 +98,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+StoreinventoryGetResponses.EndpointCode200Response castResponse = (StoreinventoryGetResponses.EndpointCode200Response) response;
 }
 ```
 ### Constructor Summary
@@ -109,7 +109,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/storeinventory/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [StoreinventoryGetResponses.EndpointResponse](../../paths/storeinventory/get/StoreinventoryGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

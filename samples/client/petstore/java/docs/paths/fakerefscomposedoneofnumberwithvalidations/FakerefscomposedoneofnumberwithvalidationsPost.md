@@ -40,7 +40,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.post.responses.Code200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.FakerefscomposedoneofnumberwithvalidationsPost;
-import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.post.Responses;
+import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.post.FakerefscomposedoneofnumberwithvalidationsPostResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ FakerefscomposedoneofnumberwithvalidationsPost.Post apiClient = new Fakerefscomp
 
 var request = new FakerefscomposedoneofnumberwithvalidationsPost.PostRequestBuilder().build();
 
-Responses.EndpointResponse response;
+FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
 } catch (ApiException e) {
@@ -87,7 +87,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointCode200Response castResponse = (FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointCode200Response) response;
 Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
@@ -99,7 +99,7 @@ Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/Responses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+| [FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/FakerefscomposedoneofnumberwithvalidationsPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

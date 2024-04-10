@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Cod
 import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Code400Response;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusGet;
-import org.openapijsonschematools.client.paths.petfindbystatus.get.Responses;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetResponses;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -100,7 +100,7 @@ var request = new PetfindbystatusGet.GetRequestBuilder()
     .queryParameters(queryParameters)
     .build();
 
-Responses.EndpointResponse response;
+PetfindbystatusGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
 } catch (Code400Response.ResponseApiException e) {
@@ -120,7 +120,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Response) response;
+PetfindbystatusGetResponses.EndpointCode200Response castResponse = (PetfindbystatusGetResponses.EndpointCode200Response) response;
 }
 ```
 ### Constructor Summary
@@ -131,7 +131,7 @@ Responses.EndpointCode200Response castResponse = (Responses.EndpointCode200Respo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Responses.EndpointResponse](../../paths/petfindbystatus/get/Responses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+| [PetfindbystatusGetResponses.EndpointResponse](../../paths/petfindbystatus/get/PetfindbystatusGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.fakejsonpatch;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.FakejsonpatchPatchRequestBody;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakejsonpatch.patch.Responses;
+import org.openapijsonschematools.client.paths.fakejsonpatch.patch.FakejsonpatchPatchResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +26,7 @@ public class FakejsonpatchPatch {
     private static class PatchProvider {
         private static final String method = "patch";
 
-        public static Responses.EndpointResponse patch(
+        public static FakejsonpatchPatchResponses.EndpointResponse patch(
             PatchRequest request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
@@ -57,7 +57,7 @@ public class FakejsonpatchPatch {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            var responsesDeserializer = new FakejsonpatchPatchResponses.FakejsonpatchPatchResponses1();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
         }
     }
@@ -66,7 +66,7 @@ public class FakejsonpatchPatch {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakejsonpatchPatchResponses.EndpointResponse patch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
@@ -75,7 +75,7 @@ public class FakejsonpatchPatch {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default Responses.EndpointResponse jsonPatch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakejsonpatchPatchResponses.EndpointResponse jsonPatch(PatchRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PatchProvider.patch(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
