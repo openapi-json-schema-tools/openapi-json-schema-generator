@@ -37,7 +37,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.responses.FakeadditionalpropertieswitharrayofenumsGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.FakeadditionalpropertieswitharrayofenumsGet;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.FakeadditionalpropertieswitharrayofenumsGetResponses;
@@ -87,8 +87,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointCode200Response castResponse = (FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointFakeadditionalpropertieswitharrayofenumsGetCode200Response castResponse = (FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointFakeadditionalpropertieswitharrayofenumsGetCode200Response) response;
+FakeadditionalpropertieswitharrayofenumsGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakeadditionalpropertieswitharrayofenumsGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

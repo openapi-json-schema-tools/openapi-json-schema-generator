@@ -37,7 +37,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakepemcontenttype.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakepemcontenttype.get.responses.FakepemcontenttypeGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.FakepemcontenttypeGet;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.get.FakepemcontenttypeGetResponses;
@@ -87,8 +87,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakepemcontenttypeGetResponses.EndpointCode200Response castResponse = (FakepemcontenttypeGetResponses.EndpointCode200Response) response;
-Code200Response.ApplicationxpemfileResponseBody deserializedBody = (Code200Response.ApplicationxpemfileResponseBody) castResponse.body;
+FakepemcontenttypeGetResponses.EndpointFakepemcontenttypeGetCode200Response castResponse = (FakepemcontenttypeGetResponses.EndpointFakepemcontenttypeGetCode200Response) response;
+FakepemcontenttypeGetCode200Response.ApplicationxpemfileResponseBody deserializedBody = (FakepemcontenttypeGetCode200Response.ApplicationxpemfileResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

@@ -38,8 +38,8 @@ import org.openapijsonschematools.client.paths.storeorderorderid.delete.Storeord
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.Code400Response;
-import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.Code404Response;
+import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.StoreorderorderidDeleteCode400Response;
+import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.StoreorderorderidDeleteCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorderorderid.StoreorderorderidDelete;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.StoreorderorderidDeleteResponses;
@@ -87,7 +87,7 @@ var request = new StoreorderorderidDelete.DeleteRequestBuilder()
 Void response;
 try {
     response = apiClient.delete(request);
-} catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
+} catch (StoreorderorderidDeleteCode400Response.ResponseApiException | StoreorderorderidDeleteCode404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {

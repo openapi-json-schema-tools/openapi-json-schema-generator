@@ -38,7 +38,7 @@ import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Fakete
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.faketestqueryparamters.put.responses.Code200Response;
+import org.openapijsonschematools.client.paths.faketestqueryparamters.put.responses.FaketestqueryparamtersPutCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.FaketestqueryparamtersPut;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.FaketestqueryparamtersPutResponses;
@@ -125,7 +125,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FaketestqueryparamtersPutResponses.EndpointCode200Response castResponse = (FaketestqueryparamtersPutResponses.EndpointCode200Response) response;
+FaketestqueryparamtersPutResponses.EndpointFaketestqueryparamtersPutCode200Response castResponse = (FaketestqueryparamtersPutResponses.EndpointFaketestqueryparamtersPutCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.userlogout.get;
 
-import org.openapijsonschematools.client.paths.userlogout.get.responses.CodedefaultResponse;
+import org.openapijsonschematools.client.paths.userlogout.get.responses.UserlogoutGetCodedefaultResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,9 +14,9 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class UserlogoutGetResponses {
-    public sealed interface EndpointResponse permits EndpointCodedefaultResponse {}
+    public sealed interface EndpointResponse permits EndpointUserlogoutGetCodedefaultResponse {}
 
-    public record EndpointCodedefaultResponse(
+    public record EndpointUserlogoutGetCodedefaultResponse(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
@@ -24,14 +24,14 @@ public class UserlogoutGetResponses {
     }
 
     public static final class UserlogoutGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
-        private final CodedefaultResponse.CodedefaultResponse1 defaultResponseDeserializer;
+        private final UserlogoutGetCodedefaultResponse.UserlogoutGetCodedefaultResponse1 defaultResponseDeserializer;
         public UserlogoutGetResponses1() {
-            this.defaultResponseDeserializer = new CodedefaultResponse.CodedefaultResponse1();
+            this.defaultResponseDeserializer = new UserlogoutGetCodedefaultResponse.UserlogoutGetCodedefaultResponse1();
         }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
-            return new EndpointCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointUserlogoutGetCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

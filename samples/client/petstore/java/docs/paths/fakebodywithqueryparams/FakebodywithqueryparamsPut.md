@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Fakeb
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.responses.FakebodywithqueryparamsPutCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.FakebodywithqueryparamsPut;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutResponses;
@@ -131,7 +131,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakebodywithqueryparamsPutResponses.EndpointCode200Response castResponse = (FakebodywithqueryparamsPutResponses.EndpointCode200Response) response;
+FakebodywithqueryparamsPutResponses.EndpointFakebodywithqueryparamsPutCode200Response castResponse = (FakebodywithqueryparamsPutResponses.EndpointFakebodywithqueryparamsPutCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

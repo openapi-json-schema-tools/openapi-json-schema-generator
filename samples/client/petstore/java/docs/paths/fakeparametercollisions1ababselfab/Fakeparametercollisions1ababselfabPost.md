@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.responses.Fakeparametercollisions1ababselfabPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.Fakeparametercollisions1ababselfabPost;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostResponses;
@@ -112,8 +112,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-Fakeparametercollisions1ababselfabPostResponses.EndpointCode200Response castResponse = (Fakeparametercollisions1ababselfabPostResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+Fakeparametercollisions1ababselfabPostResponses.EndpointFakeparametercollisions1ababselfabPostCode200Response castResponse = (Fakeparametercollisions1ababselfabPostResponses.EndpointFakeparametercollisions1ababselfabPostCode200Response) response;
+Fakeparametercollisions1ababselfabPostCode200Response.ApplicationjsonResponseBody deserializedBody = (Fakeparametercollisions1ababselfabPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

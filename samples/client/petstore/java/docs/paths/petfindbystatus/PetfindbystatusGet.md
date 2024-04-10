@@ -42,8 +42,8 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.HttpSignatureTest;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
-import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.Code400Response;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.PetfindbystatusGetCode200Response;
+import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.PetfindbystatusGetCode400Response;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusGet;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetResponses;
@@ -103,7 +103,7 @@ var request = new PetfindbystatusGet.GetRequestBuilder()
 PetfindbystatusGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
-} catch (Code400Response.ResponseApiException e) {
+} catch (PetfindbystatusGetCode400Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -120,7 +120,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-PetfindbystatusGetResponses.EndpointCode200Response castResponse = (PetfindbystatusGetResponses.EndpointCode200Response) response;
+PetfindbystatusGetResponses.EndpointPetfindbystatusGetCode200Response castResponse = (PetfindbystatusGetResponses.EndpointPetfindbystatusGetCode200Response) response;
 }
 ```
 ### Constructor Summary

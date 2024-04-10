@@ -43,9 +43,9 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.HttpSignatureTest;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
-import org.openapijsonschematools.client.paths.pet.put.responses.Code400Response;
-import org.openapijsonschematools.client.paths.pet.put.responses.Code404Response;
-import org.openapijsonschematools.client.paths.pet.put.responses.Code405Response;
+import org.openapijsonschematools.client.paths.pet.put.responses.PetPutCode400Response;
+import org.openapijsonschematools.client.paths.pet.put.responses.PetPutCode404Response;
+import org.openapijsonschematools.client.paths.pet.put.responses.PetPutCode405Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.PetPut;
 import org.openapijsonschematools.client.paths.pet.put.PetPutResponses;
@@ -130,7 +130,7 @@ var request = new PetPut.PutRequestBuilder()
 Void response;
 try {
     response = apiClient.put(request);
-} catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException | Code405Response.ResponseApiException e) {
+} catch (PetPutCode400Response.ResponseApiException | PetPutCode404Response.ResponseApiException | PetPutCode405Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {

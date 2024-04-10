@@ -38,7 +38,7 @@ import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Fakec
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.responses.FakecasesensitiveparamsPutCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.FakecasesensitiveparamsPut;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.FakecasesensitiveparamsPutResponses;
@@ -104,7 +104,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakecasesensitiveparamsPutResponses.EndpointCode200Response castResponse = (FakecasesensitiveparamsPutResponses.EndpointCode200Response) response;
+FakecasesensitiveparamsPutResponses.EndpointFakecasesensitiveparamsPutCode200Response castResponse = (FakecasesensitiveparamsPutResponses.EndpointFakecasesensitiveparamsPutCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

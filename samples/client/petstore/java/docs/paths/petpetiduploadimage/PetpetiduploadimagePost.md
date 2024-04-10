@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
-import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.PetpetiduploadimagePostCode200Response;
 import org.openapijsonschematools.client.components.responses.successwithjsonapiresponse.SuccessWithJsonApiResponseHeadersSchema;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.PetpetiduploadimagePost;
@@ -111,7 +111,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-PetpetiduploadimagePostResponses.EndpointCode200Response castResponse = (PetpetiduploadimagePostResponses.EndpointCode200Response) response;
+PetpetiduploadimagePostResponses.EndpointPetpetiduploadimagePostCode200Response castResponse = (PetpetiduploadimagePostResponses.EndpointPetpetiduploadimagePostCode200Response) response;
 }
 ```
 ### Constructor Summary

@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.solidus.get;
 
-import org.openapijsonschematools.client.paths.solidus.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.solidus.get.responses.SolidusGetCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class SolidusGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointSolidusGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointSolidusGetCode200Response(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusSolidusGetCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusSolidusGetCode200ResponseDeserializer extends SolidusGetCode200Response.SolidusGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class SolidusGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public SolidusGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusSolidusGetCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class SolidusGetResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusSolidusGetCode200ResponseDeserializer castDeserializer = (StatusSolidusGetCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointSolidusGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

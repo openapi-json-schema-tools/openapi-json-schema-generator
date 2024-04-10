@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get;
 
-import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.Code202Response;
+import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.FakemultipleresponsebodiesGetCode200Response;
+import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.FakemultipleresponsebodiesGetCode202Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -15,35 +15,35 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakemultipleresponsebodiesGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response, EndpointCode202Response {}
+    public sealed interface EndpointResponse permits EndpointFakemultipleresponsebodiesGetCode200Response, EndpointFakemultipleresponsebodiesGetCode202Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointFakemultipleresponsebodiesGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        FakemultipleresponsebodiesGetCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakemultipleresponsebodiesGetCode200Response.SealedResponseBody, Void>{
     }
 
-    public record EndpointCode202Response(
+    public record EndpointFakemultipleresponsebodiesGetCode202Response(
         HttpResponse<byte[]> response,
-        Code202Response.SealedResponseBody body,
+        FakemultipleresponsebodiesGetCode202Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code202Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakemultipleresponsebodiesGetCode202Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode202ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakemultipleresponsebodiesGetCode200ResponseDeserializer, StatusFakemultipleresponsebodiesGetCode202ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakemultipleresponsebodiesGetCode200ResponseDeserializer extends FakemultipleresponsebodiesGetCode200Response.FakemultipleresponsebodiesGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode202ResponseDeserializer extends Code202Response.Code202Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakemultipleresponsebodiesGetCode202ResponseDeserializer extends FakemultipleresponsebodiesGetCode202Response.FakemultipleresponsebodiesGetCode202Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class FakemultipleresponsebodiesGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public FakemultipleresponsebodiesGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("202", new StatusCode202ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakemultipleresponsebodiesGetCode200ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("202", new StatusFakemultipleresponsebodiesGetCode202ResponseDeserializer())
             );
         }
 
@@ -56,13 +56,13 @@ public class FakemultipleresponsebodiesGetResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusFakemultipleresponsebodiesGetCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+                return new EndpointFakemultipleresponsebodiesGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             } else {
-                StatusCode202ResponseDeserializer castDeserializer = (StatusCode202ResponseDeserializer) statusCodeDeserializer;
+                StatusFakemultipleresponsebodiesGetCode202ResponseDeserializer castDeserializer = (StatusFakemultipleresponsebodiesGetCode202ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode202Response(response, deserializedResponse.body(), deserializedResponse.headers());
+                return new EndpointFakemultipleresponsebodiesGetCode202Response(response, deserializedResponse.body(), deserializedResponse.headers());
             }
         }
     }

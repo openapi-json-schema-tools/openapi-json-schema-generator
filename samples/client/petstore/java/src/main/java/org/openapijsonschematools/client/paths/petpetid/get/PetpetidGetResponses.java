@@ -1,8 +1,8 @@
 package org.openapijsonschematools.client.paths.petpetid.get;
 
-import org.openapijsonschematools.client.paths.petpetid.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.petpetid.get.responses.Code400Response;
-import org.openapijsonschematools.client.paths.petpetid.get.responses.Code404Response;
+import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGetCode200Response;
+import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGetCode400Response;
+import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGetCode404Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -16,31 +16,31 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class PetpetidGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointPetpetidGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointPetpetidGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        PetpetidGetCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<PetpetidGetCode200Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode400ResponseDeserializer, StatusCode404ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusPetpetidGetCode200ResponseDeserializer, StatusPetpetidGetCode400ResponseDeserializer, StatusPetpetidGetCode404ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetpetidGetCode200ResponseDeserializer extends PetpetidGetCode200Response.PetpetidGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode400ResponseDeserializer extends Code400Response.Code400Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetpetidGetCode400ResponseDeserializer extends PetpetidGetCode400Response.PetpetidGetCode400Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode404ResponseDeserializer extends Code404Response.Code404Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetpetidGetCode404ResponseDeserializer extends PetpetidGetCode404Response.PetpetidGetCode404Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class PetpetidGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public PetpetidGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("400", new StatusCode400ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("404", new StatusCode404ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusPetpetidGetCode200ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("400", new StatusPetpetidGetCode400ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("404", new StatusPetpetidGetCode404ResponseDeserializer())
             );
         }
 
@@ -53,20 +53,20 @@ public class PetpetidGetResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusPetpetidGetCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
-            } else if (statusCodeDeserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
+                return new EndpointPetpetidGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            } else if (statusCodeDeserializer instanceof StatusPetpetidGetCode400ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code400Response.ResponseApiException(
+                throw new PetpetidGetCode400Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
             } else {
-                StatusCode404ResponseDeserializer castDeserializer = (StatusCode404ResponseDeserializer) statusCodeDeserializer;
+                StatusPetpetidGetCode404ResponseDeserializer castDeserializer = (StatusPetpetidGetCode404ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code404Response.ResponseApiException(
+                throw new PetpetidGetCode404Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

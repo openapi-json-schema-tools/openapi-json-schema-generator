@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.fakeuploadfile.post;
 
-import org.openapijsonschematools.client.paths.fakeuploadfile.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakeuploadfile.post.responses.FakeuploadfilePostCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakeuploadfilePostResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointFakeuploadfilePostCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointFakeuploadfilePostCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        FakeuploadfilePostCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakeuploadfilePostCode200Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakeuploadfilePostCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakeuploadfilePostCode200ResponseDeserializer extends FakeuploadfilePostCode200Response.FakeuploadfilePostCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class FakeuploadfilePostResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public FakeuploadfilePostResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakeuploadfilePostCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class FakeuploadfilePostResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusFakeuploadfilePostCode200ResponseDeserializer castDeserializer = (StatusFakeuploadfilePostCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointFakeuploadfilePostCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

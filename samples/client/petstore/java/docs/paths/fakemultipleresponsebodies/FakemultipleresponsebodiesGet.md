@@ -35,8 +35,8 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.Code202Response;
+import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.FakemultipleresponsebodiesGetCode200Response;
+import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.FakemultipleresponsebodiesGetCode202Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.FakemultipleresponsebodiesGet;
 import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.FakemultipleresponsebodiesGetResponses;
@@ -86,12 +86,12 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-if (response instanceof FakemultipleresponsebodiesGetResponses.EndpointCode200Response castResponse) {
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+if (response instanceof FakemultipleresponsebodiesGetResponses.EndpointFakemultipleresponsebodiesGetCode200Response castResponse) {
+FakemultipleresponsebodiesGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakemultipleresponsebodiesGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 } else {
-    FakemultipleresponsebodiesGetResponses.EndpointCode202Response castResponse = (FakemultipleresponsebodiesGetResponses.EndpointCode202Response) response;
-Code202Response.ApplicationjsonResponseBody deserializedBody = (Code202Response.ApplicationjsonResponseBody) castResponse.body;
+    FakemultipleresponsebodiesGetResponses.EndpointFakemultipleresponsebodiesGetCode202Response castResponse = (FakemultipleresponsebodiesGetResponses.EndpointFakemultipleresponsebodiesGetCode202Response) response;
+FakemultipleresponsebodiesGetCode202Response.ApplicationjsonResponseBody deserializedBody = (FakemultipleresponsebodiesGetCode202Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 }
 ```

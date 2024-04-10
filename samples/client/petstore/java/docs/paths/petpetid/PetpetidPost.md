@@ -43,7 +43,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
-import org.openapijsonschematools.client.paths.petpetid.post.responses.Code405Response;
+import org.openapijsonschematools.client.paths.petpetid.post.responses.PetpetidPostCode405Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.PetpetidPost;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostResponses;
@@ -100,7 +100,7 @@ var request = new PetpetidPost.PostRequestBuilder()
 Void response;
 try {
     response = apiClient.post(request);
-} catch (Code405Response.ResponseApiException e) {
+} catch (PetpetidPostCode405Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {

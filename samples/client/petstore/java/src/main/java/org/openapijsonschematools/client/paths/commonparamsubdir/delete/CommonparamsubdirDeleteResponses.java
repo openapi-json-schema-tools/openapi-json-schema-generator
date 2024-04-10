@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.commonparamsubdir.delete;
 
-import org.openapijsonschematools.client.paths.commonparamsubdir.delete.responses.Code200Response;
+import org.openapijsonschematools.client.paths.commonparamsubdir.delete.responses.CommonparamsubdirDeleteCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class CommonparamsubdirDeleteResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointCommonparamsubdirDeleteCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointCommonparamsubdirDeleteCode200Response(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusCommonparamsubdirDeleteCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusCommonparamsubdirDeleteCode200ResponseDeserializer extends CommonparamsubdirDeleteCode200Response.CommonparamsubdirDeleteCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class CommonparamsubdirDeleteResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public CommonparamsubdirDeleteResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusCommonparamsubdirDeleteCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class CommonparamsubdirDeleteResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusCommonparamsubdirDeleteCode200ResponseDeserializer castDeserializer = (StatusCommonparamsubdirDeleteCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointCommonparamsubdirDeleteCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

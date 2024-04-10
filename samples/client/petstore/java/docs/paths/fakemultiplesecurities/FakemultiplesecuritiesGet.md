@@ -40,7 +40,7 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.HttpBasicTest;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
-import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.responses.FakemultiplesecuritiesGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.FakemultiplesecuritiesGet;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.FakemultiplesecuritiesGetResponses;
@@ -102,8 +102,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakemultiplesecuritiesGetResponses.EndpointCode200Response castResponse = (FakemultiplesecuritiesGetResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+FakemultiplesecuritiesGetResponses.EndpointFakemultiplesecuritiesGetCode200Response castResponse = (FakemultiplesecuritiesGetResponses.EndpointFakemultiplesecuritiesGetCode200Response) response;
+FakemultiplesecuritiesGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakemultiplesecuritiesGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

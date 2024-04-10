@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fake.post;
 
-import org.openapijsonschematools.client.paths.fake.post.responses.Code200Response;
-import org.openapijsonschematools.client.paths.fake.post.responses.Code404Response;
+import org.openapijsonschematools.client.paths.fake.post.responses.FakePostCode200Response;
+import org.openapijsonschematools.client.paths.fake.post.responses.FakePostCode404Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -15,28 +15,28 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakePostResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointFakePostCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointFakePostCode200Response(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode404ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakePostCode200ResponseDeserializer, StatusFakePostCode404ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakePostCode200ResponseDeserializer extends FakePostCode200Response.FakePostCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode404ResponseDeserializer extends Code404Response.Code404Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakePostCode404ResponseDeserializer extends FakePostCode404Response.FakePostCode404Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class FakePostResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public FakePostResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("404", new StatusCode404ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakePostCode200ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("404", new StatusFakePostCode404ResponseDeserializer())
             );
         }
 
@@ -49,13 +49,13 @@ public class FakePostResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusFakePostCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+                return new EndpointFakePostCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             } else {
-                StatusCode404ResponseDeserializer castDeserializer = (StatusCode404ResponseDeserializer) statusCodeDeserializer;
+                StatusFakePostCode404ResponseDeserializer castDeserializer = (StatusFakePostCode404ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code404Response.ResponseApiException(
+                throw new FakePostCode404Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

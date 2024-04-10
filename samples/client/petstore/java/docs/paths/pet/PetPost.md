@@ -44,8 +44,8 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.HttpSignatureTest;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
-import org.openapijsonschematools.client.paths.pet.post.responses.Code200Response;
-import org.openapijsonschematools.client.paths.pet.post.responses.Code405Response;
+import org.openapijsonschematools.client.paths.pet.post.responses.PetPostCode200Response;
+import org.openapijsonschematools.client.paths.pet.post.responses.PetPostCode405Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.pet.PetPost;
 import org.openapijsonschematools.client.paths.pet.post.PetPostResponses;
@@ -133,7 +133,7 @@ var request = new PetPost.PostRequestBuilder()
 PetPostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
-} catch (Code405Response.ResponseApiException e) {
+} catch (PetPostCode405Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -150,7 +150,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-PetPostResponses.EndpointCode200Response castResponse = (PetPostResponses.EndpointCode200Response) response;
+PetPostResponses.EndpointPetPostCode200Response castResponse = (PetPostResponses.EndpointPetPostCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

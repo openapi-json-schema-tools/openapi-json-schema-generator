@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.pet.post;
 
-import org.openapijsonschematools.client.paths.pet.post.responses.Code200Response;
-import org.openapijsonschematools.client.paths.pet.post.responses.Code405Response;
+import org.openapijsonschematools.client.paths.pet.post.responses.PetPostCode200Response;
+import org.openapijsonschematools.client.paths.pet.post.responses.PetPostCode405Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -15,28 +15,28 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class PetPostResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointPetPostCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointPetPostCode200Response(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode405ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusPetPostCode200ResponseDeserializer, StatusPetPostCode405ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetPostCode200ResponseDeserializer extends PetPostCode200Response.PetPostCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode405ResponseDeserializer extends Code405Response.Code405Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetPostCode405ResponseDeserializer extends PetPostCode405Response.PetPostCode405Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class PetPostResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public PetPostResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("405", new StatusCode405ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusPetPostCode200ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("405", new StatusPetPostCode405ResponseDeserializer())
             );
         }
 
@@ -49,13 +49,13 @@ public class PetPostResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusPetPostCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+                return new EndpointPetPostCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             } else {
-                StatusCode405ResponseDeserializer castDeserializer = (StatusCode405ResponseDeserializer) statusCodeDeserializer;
+                StatusPetPostCode405ResponseDeserializer castDeserializer = (StatusPetPostCode405ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code405Response.ResponseApiException(
+                throw new PetPostCode405Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.storeinventory.get;
 
-import org.openapijsonschematools.client.paths.storeinventory.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.storeinventory.get.responses.StoreinventoryGetCode200Response;
 import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.SuccessInlineContentAndHeaderHeadersSchema;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
@@ -15,25 +15,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class StoreinventoryGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointStoreinventoryGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointStoreinventoryGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        StoreinventoryGetCode200Response.SealedResponseBody body,
         SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap>{
+    ) implements EndpointResponse, ApiResponse<StoreinventoryGetCode200Response.SealedResponseBody, SuccessInlineContentAndHeaderHeadersSchema.SuccessInlineContentAndHeaderHeadersSchemaMap>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusStoreinventoryGetCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusStoreinventoryGetCode200ResponseDeserializer extends StoreinventoryGetCode200Response.StoreinventoryGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class StoreinventoryGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public StoreinventoryGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusStoreinventoryGetCode200ResponseDeserializer())
             );
         }
 
@@ -46,9 +46,9 @@ public class StoreinventoryGetResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusStoreinventoryGetCode200ResponseDeserializer castDeserializer = (StatusStoreinventoryGetCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointStoreinventoryGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

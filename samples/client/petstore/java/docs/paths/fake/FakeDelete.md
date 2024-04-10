@@ -44,7 +44,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.BearerTest;
-import org.openapijsonschematools.client.paths.fake.delete.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fake.delete.responses.FakeDeleteCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.FakeDelete;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteResponses;
@@ -134,7 +134,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakeDeleteResponses.EndpointCode200Response castResponse = (FakeDeleteResponses.EndpointCode200Response) response;
+FakeDeleteResponses.EndpointFakeDeleteCode200Response castResponse = (FakeDeleteResponses.EndpointFakeDeleteCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

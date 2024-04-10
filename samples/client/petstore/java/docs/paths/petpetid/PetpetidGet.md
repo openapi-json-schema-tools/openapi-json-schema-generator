@@ -41,9 +41,9 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
-import org.openapijsonschematools.client.paths.petpetid.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.petpetid.get.responses.Code400Response;
-import org.openapijsonschematools.client.paths.petpetid.get.responses.Code404Response;
+import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGetCode200Response;
+import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGetCode400Response;
+import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGetCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.PetpetidGet;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetResponses;
@@ -100,7 +100,7 @@ var request = new PetpetidGet.GetRequestBuilder()
 PetpetidGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
-} catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
+} catch (PetpetidGetCode400Response.ResponseApiException | PetpetidGetCode404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -117,11 +117,11 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-PetpetidGetResponses.EndpointCode200Response castResponse = (PetpetidGetResponses.EndpointCode200Response) response;
-if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
+PetpetidGetResponses.EndpointPetpetidGetCode200Response castResponse = (PetpetidGetResponses.EndpointPetpetidGetCode200Response) response;
+if (castResponse.body instanceof PetpetidGetCode200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
-    Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+    PetpetidGetCode200Response.ApplicationjsonResponseBody deserializedBody = (PetpetidGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
     // handle deserialized body here
 }
 ```

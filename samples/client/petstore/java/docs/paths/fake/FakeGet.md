@@ -39,8 +39,8 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fake.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.fake.get.responses.Code404Response;
+import org.openapijsonschematools.client.paths.fake.get.responses.FakeGetCode200Response;
+import org.openapijsonschematools.client.paths.fake.get.responses.FakeGetCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.FakeGet;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetResponses;
@@ -76,7 +76,7 @@ var request = new FakeGet.GetRequestBuilder().build();
 FakeGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
-} catch (Code404Response.ResponseApiException e) {
+} catch (FakeGetCode404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -93,7 +93,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakeGetResponses.EndpointCode200Response castResponse = (FakeGetResponses.EndpointCode200Response) response;
+FakeGetResponses.EndpointFakeGetCode200Response castResponse = (FakeGetResponses.EndpointFakeGetCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

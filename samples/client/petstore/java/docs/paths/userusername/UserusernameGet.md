@@ -38,9 +38,9 @@ import org.openapijsonschematools.client.paths.userusername.get.UserusernameGetP
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.userusername.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.userusername.get.responses.Code400Response;
-import org.openapijsonschematools.client.paths.userusername.get.responses.Code404Response;
+import org.openapijsonschematools.client.paths.userusername.get.responses.UserusernameGetCode200Response;
+import org.openapijsonschematools.client.paths.userusername.get.responses.UserusernameGetCode400Response;
+import org.openapijsonschematools.client.paths.userusername.get.responses.UserusernameGetCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.UserusernameGet;
 import org.openapijsonschematools.client.paths.userusername.get.UserusernameGetResponses;
@@ -88,7 +88,7 @@ var request = new UserusernameGet.GetRequestBuilder()
 UserusernameGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
-} catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
+} catch (UserusernameGetCode400Response.ResponseApiException | UserusernameGetCode404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -105,11 +105,11 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-UserusernameGetResponses.EndpointCode200Response castResponse = (UserusernameGetResponses.EndpointCode200Response) response;
-if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
+UserusernameGetResponses.EndpointUserusernameGetCode200Response castResponse = (UserusernameGetResponses.EndpointUserusernameGetCode200Response) response;
+if (castResponse.body instanceof UserusernameGetCode200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
-    Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+    UserusernameGetCode200Response.ApplicationjsonResponseBody deserializedBody = (UserusernameGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
     // handle deserialized body here
 }
 ```

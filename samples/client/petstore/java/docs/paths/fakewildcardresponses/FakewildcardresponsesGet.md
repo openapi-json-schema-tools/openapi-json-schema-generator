@@ -35,12 +35,12 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code1XXResponse;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code2XXResponse;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code3XXResponse;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code4XXResponse;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code5XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode1XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode200Response;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode2XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode3XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode4XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode5XXResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.FakewildcardresponsesGet;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.FakewildcardresponsesGetResponses;
@@ -76,7 +76,7 @@ var request = new FakewildcardresponsesGet.GetRequestBuilder().build();
 FakewildcardresponsesGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
-} catch (Code4XXResponse.ResponseApiException | Code5XXResponse.ResponseApiException e) {
+} catch (FakewildcardresponsesGetCode4XXResponse.ResponseApiException | FakewildcardresponsesGetCode5XXResponse.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -93,18 +93,18 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-if (response instanceof FakewildcardresponsesGetResponses.EndpointCode1XXResponse castResponse) {
-Code1XXResponse.ApplicationjsonResponseBody deserializedBody = (Code1XXResponse.ApplicationjsonResponseBody) castResponse.body;
+if (response instanceof FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode1XXResponse castResponse) {
+FakewildcardresponsesGetCode1XXResponse.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode1XXResponse.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
-} else if (response instanceof FakewildcardresponsesGetResponses.EndpointCode2XXResponse castResponse) {
-Code2XXResponse.ApplicationjsonResponseBody deserializedBody = (Code2XXResponse.ApplicationjsonResponseBody) castResponse.body;
+} else if (response instanceof FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode2XXResponse castResponse) {
+FakewildcardresponsesGetCode2XXResponse.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode2XXResponse.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
-} else if (response instanceof FakewildcardresponsesGetResponses.EndpointCode200Response castResponse) {
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+} else if (response instanceof FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode200Response castResponse) {
+FakewildcardresponsesGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 } else {
-    FakewildcardresponsesGetResponses.EndpointCode3XXResponse castResponse = (FakewildcardresponsesGetResponses.EndpointCode3XXResponse) response;
-Code3XXResponse.ApplicationjsonResponseBody deserializedBody = (Code3XXResponse.ApplicationjsonResponseBody) castResponse.body;
+    FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode3XXResponse castResponse = (FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode3XXResponse) response;
+FakewildcardresponsesGetCode3XXResponse.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode3XXResponse.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 }
 ```

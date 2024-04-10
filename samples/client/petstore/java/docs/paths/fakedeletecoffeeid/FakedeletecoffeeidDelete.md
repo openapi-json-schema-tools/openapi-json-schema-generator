@@ -38,8 +38,8 @@ import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.Fakedel
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.responses.Code200Response;
-import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.responses.CodedefaultResponse;
+import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.responses.FakedeletecoffeeidDeleteCode200Response;
+import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.responses.FakedeletecoffeeidDeleteCodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.FakedeletecoffeeidDelete;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.FakedeletecoffeeidDeleteResponses;
@@ -101,9 +101,9 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-if (response instanceof FakedeletecoffeeidDeleteResponses.EndpointCode200Response castResponse) {
+if (response instanceof FakedeletecoffeeidDeleteResponses.EndpointFakedeletecoffeeidDeleteCode200Response castResponse) {
 } else {
-    FakedeletecoffeeidDeleteResponses.EndpointCodedefaultResponse castResponse = (FakedeletecoffeeidDeleteResponses.EndpointCodedefaultResponse) response;
+    FakedeletecoffeeidDeleteResponses.EndpointFakedeletecoffeeidDeleteCodedefaultResponse castResponse = (FakedeletecoffeeidDeleteResponses.EndpointFakedeletecoffeeidDeleteCodedefaultResponse) response;
 }
 ```
 ### Constructor Summary

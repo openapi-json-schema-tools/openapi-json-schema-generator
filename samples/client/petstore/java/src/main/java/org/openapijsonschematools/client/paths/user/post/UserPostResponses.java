@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.user.post;
 
-import org.openapijsonschematools.client.paths.user.post.responses.CodedefaultResponse;
+import org.openapijsonschematools.client.paths.user.post.responses.UserPostCodedefaultResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,9 +14,9 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class UserPostResponses {
-    public sealed interface EndpointResponse permits EndpointCodedefaultResponse {}
+    public sealed interface EndpointResponse permits EndpointUserPostCodedefaultResponse {}
 
-    public record EndpointCodedefaultResponse(
+    public record EndpointUserPostCodedefaultResponse(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
@@ -24,14 +24,14 @@ public class UserPostResponses {
     }
 
     public static final class UserPostResponses1 implements ResponsesDeserializer<EndpointResponse> {
-        private final CodedefaultResponse.CodedefaultResponse1 defaultResponseDeserializer;
+        private final UserPostCodedefaultResponse.UserPostCodedefaultResponse1 defaultResponseDeserializer;
         public UserPostResponses1() {
-            this.defaultResponseDeserializer = new CodedefaultResponse.CodedefaultResponse1();
+            this.defaultResponseDeserializer = new UserPostCodedefaultResponse.UserPostCodedefaultResponse1();
         }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
-            return new EndpointCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointUserPostCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

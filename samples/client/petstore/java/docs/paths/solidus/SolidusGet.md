@@ -35,7 +35,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.solidus.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.solidus.get.responses.SolidusGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.solidus.SolidusGet;
 import org.openapijsonschematools.client.paths.solidus.get.SolidusGetResponses;
@@ -85,7 +85,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-SolidusGetResponses.EndpointCode200Response castResponse = (SolidusGetResponses.EndpointCode200Response) response;
+SolidusGetResponses.EndpointSolidusGetCode200Response castResponse = (SolidusGetResponses.EndpointSolidusGetCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

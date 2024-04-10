@@ -1,8 +1,8 @@
 package org.openapijsonschematools.client.paths.userusername.get;
 
-import org.openapijsonschematools.client.paths.userusername.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.userusername.get.responses.Code400Response;
-import org.openapijsonschematools.client.paths.userusername.get.responses.Code404Response;
+import org.openapijsonschematools.client.paths.userusername.get.responses.UserusernameGetCode200Response;
+import org.openapijsonschematools.client.paths.userusername.get.responses.UserusernameGetCode400Response;
+import org.openapijsonschematools.client.paths.userusername.get.responses.UserusernameGetCode404Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -16,31 +16,31 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class UserusernameGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointUserusernameGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointUserusernameGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        UserusernameGetCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<UserusernameGetCode200Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode400ResponseDeserializer, StatusCode404ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusUserusernameGetCode200ResponseDeserializer, StatusUserusernameGetCode400ResponseDeserializer, StatusUserusernameGetCode404ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusUserusernameGetCode200ResponseDeserializer extends UserusernameGetCode200Response.UserusernameGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode400ResponseDeserializer extends Code400Response.Code400Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusUserusernameGetCode400ResponseDeserializer extends UserusernameGetCode400Response.UserusernameGetCode400Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode404ResponseDeserializer extends Code404Response.Code404Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusUserusernameGetCode404ResponseDeserializer extends UserusernameGetCode404Response.UserusernameGetCode404Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class UserusernameGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public UserusernameGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("400", new StatusCode400ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("404", new StatusCode404ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusUserusernameGetCode200ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("400", new StatusUserusernameGetCode400ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("404", new StatusUserusernameGetCode404ResponseDeserializer())
             );
         }
 
@@ -53,20 +53,20 @@ public class UserusernameGetResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusUserusernameGetCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
-            } else if (statusCodeDeserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
+                return new EndpointUserusernameGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            } else if (statusCodeDeserializer instanceof StatusUserusernameGetCode400ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code400Response.ResponseApiException(
+                throw new UserusernameGetCode400Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
             } else {
-                StatusCode404ResponseDeserializer castDeserializer = (StatusCode404ResponseDeserializer) statusCodeDeserializer;
+                StatusUserusernameGetCode404ResponseDeserializer castDeserializer = (StatusUserusernameGetCode404ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code404Response.ResponseApiException(
+                throw new UserusernameGetCode404Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

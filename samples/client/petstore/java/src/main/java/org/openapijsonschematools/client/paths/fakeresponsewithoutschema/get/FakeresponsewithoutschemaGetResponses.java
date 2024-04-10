@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get;
 
-import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get.responses.FakeresponsewithoutschemaGetCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakeresponsewithoutschemaGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointFakeresponsewithoutschemaGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointFakeresponsewithoutschemaGetCode200Response(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakeresponsewithoutschemaGetCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakeresponsewithoutschemaGetCode200ResponseDeserializer extends FakeresponsewithoutschemaGetCode200Response.FakeresponsewithoutschemaGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class FakeresponsewithoutschemaGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public FakeresponsewithoutschemaGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakeresponsewithoutschemaGetCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class FakeresponsewithoutschemaGetResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusFakeresponsewithoutschemaGetCode200ResponseDeserializer castDeserializer = (StatusFakeresponsewithoutschemaGetCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointFakeresponsewithoutschemaGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

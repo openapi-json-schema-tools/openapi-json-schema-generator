@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.components.schemas.FileSchemaTestClass;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.responses.FakebodywithfileschemaPutCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.FakebodywithfileschemaPut;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.FakebodywithfileschemaPutResponses;
@@ -103,7 +103,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakebodywithfileschemaPutResponses.EndpointCode200Response castResponse = (FakebodywithfileschemaPutResponses.EndpointCode200Response) response;
+FakebodywithfileschemaPutResponses.EndpointFakebodywithfileschemaPutCode200Response castResponse = (FakebodywithfileschemaPutResponses.EndpointFakebodywithfileschemaPutCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

@@ -39,8 +39,8 @@ import org.openapijsonschematools.client.components.schemas.Order;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.storeorder.post.responses.Code200Response;
-import org.openapijsonschematools.client.paths.storeorder.post.responses.Code400Response;
+import org.openapijsonschematools.client.paths.storeorder.post.responses.StoreorderPostCode200Response;
+import org.openapijsonschematools.client.paths.storeorder.post.responses.StoreorderPostCode400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorder.StoreorderPost;
 import org.openapijsonschematools.client.paths.storeorder.post.StoreorderPostResponses;
@@ -98,7 +98,7 @@ var request = new StoreorderPost.PostRequestBuilder()
 StoreorderPostResponses.EndpointResponse response;
 try {
     response = apiClient.post(request);
-} catch (Code400Response.ResponseApiException e) {
+} catch (StoreorderPostCode400Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -115,11 +115,11 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-StoreorderPostResponses.EndpointCode200Response castResponse = (StoreorderPostResponses.EndpointCode200Response) response;
-if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
+StoreorderPostResponses.EndpointStoreorderPostCode200Response castResponse = (StoreorderPostResponses.EndpointStoreorderPostCode200Response) response;
+if (castResponse.body instanceof StoreorderPostCode200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
-    Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+    StoreorderPostCode200Response.ApplicationjsonResponseBody deserializedBody = (StoreorderPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
     // handle deserialized body here
 }
 ```

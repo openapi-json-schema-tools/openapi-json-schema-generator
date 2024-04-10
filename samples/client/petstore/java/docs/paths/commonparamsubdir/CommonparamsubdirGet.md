@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.get.Commonparam
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.commonparamsubdir.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.commonparamsubdir.get.responses.CommonparamsubdirGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.CommonparamsubdirGet;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetResponses;
@@ -101,7 +101,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-CommonparamsubdirGetResponses.EndpointCode200Response castResponse = (CommonparamsubdirGetResponses.EndpointCode200Response) response;
+CommonparamsubdirGetResponses.EndpointCommonparamsubdirGetCode200Response castResponse = (CommonparamsubdirGetResponses.EndpointCommonparamsubdirGetCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

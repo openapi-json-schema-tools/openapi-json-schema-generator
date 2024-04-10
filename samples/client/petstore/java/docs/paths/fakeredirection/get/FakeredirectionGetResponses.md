@@ -10,18 +10,18 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCode3XXResponse](#endpointcode3xxresponse)<br> the response for 3XX |
-| record | [EndpointCode303Response](#endpointcode303response)<br> the response for 303 |
+| record | [EndpointFakeredirectionGetCode3XXResponse](#endpointfakeredirectiongetcode3xxresponse)<br> the response for 3XX |
+| record | [EndpointFakeredirectionGetCode303Response](#endpointfakeredirectiongetcode303response)<br> the response for 303 |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCode3XXResponse](#endpointcode3xxresponse),
-[EndpointCode303Response](#endpointcode303response)
+[EndpointFakeredirectionGetCode3XXResponse](#endpointfakeredirectiongetcode3xxresponse),
+[EndpointFakeredirectionGetCode303Response](#endpointfakeredirectiongetcode303response)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCode3XXResponse
-public record EndpointCode3XXResponse(
+## EndpointFakeredirectionGetCode3XXResponse
+public record EndpointFakeredirectionGetCode3XXResponse(
     HttpResponse<byte[]> response,
     Void body,
     Void headers
@@ -29,8 +29,8 @@ public record EndpointCode3XXResponse(
 
 a class that stores an endpoint response
 
-## EndpointCode303Response
-public record EndpointCode303Response(
+## EndpointFakeredirectionGetCode303Response
+public record EndpointFakeredirectionGetCode303Response(
     HttpResponse<byte[]> response,
     Void body,
     Void headers

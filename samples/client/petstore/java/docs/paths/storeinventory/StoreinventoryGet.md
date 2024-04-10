@@ -38,7 +38,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
-import org.openapijsonschematools.client.paths.storeinventory.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.storeinventory.get.responses.StoreinventoryGetCode200Response;
 import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.SuccessInlineContentAndHeaderHeadersSchema;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeinventory.StoreinventoryGet;
@@ -98,7 +98,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-StoreinventoryGetResponses.EndpointCode200Response castResponse = (StoreinventoryGetResponses.EndpointCode200Response) response;
+StoreinventoryGetResponses.EndpointStoreinventoryGetCode200Response castResponse = (StoreinventoryGetResponses.EndpointStoreinventoryGetCode200Response) response;
 }
 ```
 ### Constructor Summary

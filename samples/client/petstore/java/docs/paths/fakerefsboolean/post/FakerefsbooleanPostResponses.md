@@ -10,20 +10,20 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCode200Response](#endpointcode200response)<br> the response for 200 |
+| record | [EndpointFakerefsbooleanPostCode200Response](#endpointfakerefsbooleanpostcode200response)<br> the response for 200 |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCode200Response](#endpointcode200response)
+[EndpointFakerefsbooleanPostCode200Response](#endpointfakerefsbooleanpostcode200response)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCode200Response
-public record EndpointCode200Response(
+## EndpointFakerefsbooleanPostCode200Response
+public record EndpointFakerefsbooleanPostCode200Response(
     HttpResponse<byte[]> response,
-    [Code200Response.SealedResponseBody](../../../paths/fakerefsboolean/post/responses/Code200Response.md#sealedresponsebody) body,
+    [FakerefsbooleanPostCode200Response.SealedResponseBody](../../../paths/fakerefsboolean/post/responses/FakerefsbooleanPostCode200Response.md#sealedresponsebody) body,
     Void headers
-) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void><br>
+) implements EndpointResponse, ApiResponse<FakerefsbooleanPostCode200Response.SealedResponseBody, Void><br>
 
 a class that stores an endpoint response
 

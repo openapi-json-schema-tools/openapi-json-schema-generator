@@ -1,8 +1,8 @@
 package org.openapijsonschematools.client.paths.storeorderorderid.get;
 
-import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.Code400Response;
-import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.Code404Response;
+import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode200Response;
+import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode400Response;
+import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode404Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -16,31 +16,31 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class StoreorderorderidGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointStoreorderorderidGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointStoreorderorderidGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        StoreorderorderidGetCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<StoreorderorderidGetCode200Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode400ResponseDeserializer, StatusCode404ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusStoreorderorderidGetCode200ResponseDeserializer, StatusStoreorderorderidGetCode400ResponseDeserializer, StatusStoreorderorderidGetCode404ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusStoreorderorderidGetCode200ResponseDeserializer extends StoreorderorderidGetCode200Response.StoreorderorderidGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode400ResponseDeserializer extends Code400Response.Code400Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusStoreorderorderidGetCode400ResponseDeserializer extends StoreorderorderidGetCode400Response.StoreorderorderidGetCode400Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode404ResponseDeserializer extends Code404Response.Code404Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusStoreorderorderidGetCode404ResponseDeserializer extends StoreorderorderidGetCode404Response.StoreorderorderidGetCode404Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class StoreorderorderidGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public StoreorderorderidGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("400", new StatusCode400ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("404", new StatusCode404ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusStoreorderorderidGetCode200ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("400", new StatusStoreorderorderidGetCode400ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("404", new StatusStoreorderorderidGetCode404ResponseDeserializer())
             );
         }
 
@@ -53,20 +53,20 @@ public class StoreorderorderidGetResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusStoreorderorderidGetCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
-            } else if (statusCodeDeserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
+                return new EndpointStoreorderorderidGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            } else if (statusCodeDeserializer instanceof StatusStoreorderorderidGetCode400ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code400Response.ResponseApiException(
+                throw new StoreorderorderidGetCode400Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
             } else {
-                StatusCode404ResponseDeserializer castDeserializer = (StatusCode404ResponseDeserializer) statusCodeDeserializer;
+                StatusStoreorderorderidGetCode404ResponseDeserializer castDeserializer = (StatusStoreorderorderidGetCode404ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code404Response.ResponseApiException(
+                throw new StoreorderorderidGetCode404Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

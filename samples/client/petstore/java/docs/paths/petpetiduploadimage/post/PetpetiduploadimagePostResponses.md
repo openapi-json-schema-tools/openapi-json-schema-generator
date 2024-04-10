@@ -10,20 +10,20 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCode200Response](#endpointcode200response)<br> the response for 200 |
+| record | [EndpointPetpetiduploadimagePostCode200Response](#endpointpetpetiduploadimagepostcode200response)<br> the response for 200 |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCode200Response](#endpointcode200response)
+[EndpointPetpetiduploadimagePostCode200Response](#endpointpetpetiduploadimagepostcode200response)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCode200Response
-public record EndpointCode200Response(
+## EndpointPetpetiduploadimagePostCode200Response
+public record EndpointPetpetiduploadimagePostCode200Response(
     HttpResponse<byte[]> response,
-    [Code200Response.SealedResponseBody](../../../paths/petpetiduploadimage/post/responses/Code200Response.md#sealedresponsebody) body,
+    [PetpetiduploadimagePostCode200Response.SealedResponseBody](../../../paths/petpetiduploadimage/post/responses/PetpetiduploadimagePostCode200Response.md#sealedresponsebody) body,
     [SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap](../../../components/responses/successwithjsonapiresponse/SuccessWithJsonApiResponseHeadersSchema.md#successwithjsonapiresponseheadersschemamap) headers
-) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap><br>
+) implements EndpointResponse, ApiResponse<PetpetiduploadimagePostCode200Response.SealedResponseBody, SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap><br>
 
 a class that stores an endpoint response
 

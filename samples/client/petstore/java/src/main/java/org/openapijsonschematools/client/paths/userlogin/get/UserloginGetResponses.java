@@ -1,8 +1,8 @@
 package org.openapijsonschematools.client.paths.userlogin.get;
 
-import org.openapijsonschematools.client.paths.userlogin.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.Code200ResponseHeadersSchema;
-import org.openapijsonschematools.client.paths.userlogin.get.responses.Code400Response;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.UserloginGetCode200Response;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.UserloginGetCode200ResponseHeadersSchema;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.UserloginGetCode400Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -16,28 +16,28 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class UserloginGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointUserloginGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointUserloginGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
-        Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Code200ResponseHeadersSchema.Code200ResponseHeadersSchemaMap>{
+        UserloginGetCode200Response.SealedResponseBody body,
+        UserloginGetCode200ResponseHeadersSchema.UserloginGetCode200ResponseHeadersSchemaMap headers
+    ) implements EndpointResponse, ApiResponse<UserloginGetCode200Response.SealedResponseBody, UserloginGetCode200ResponseHeadersSchema.UserloginGetCode200ResponseHeadersSchemaMap>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode400ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusUserloginGetCode200ResponseDeserializer, StatusUserloginGetCode400ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusUserloginGetCode200ResponseDeserializer extends UserloginGetCode200Response.UserloginGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode400ResponseDeserializer extends Code400Response.Code400Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusUserloginGetCode400ResponseDeserializer extends UserloginGetCode400Response.UserloginGetCode400Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class UserloginGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public UserloginGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("400", new StatusCode400ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusUserloginGetCode200ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("400", new StatusUserloginGetCode400ResponseDeserializer())
             );
         }
 
@@ -50,13 +50,13 @@ public class UserloginGetResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusUserloginGetCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+                return new EndpointUserloginGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             } else {
-                StatusCode400ResponseDeserializer castDeserializer = (StatusCode400ResponseDeserializer) statusCodeDeserializer;
+                StatusUserloginGetCode400ResponseDeserializer castDeserializer = (StatusUserloginGetCode400ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code400Response.ResponseApiException(
+                throw new UserloginGetCode400Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

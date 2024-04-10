@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.foo.get;
 
-import org.openapijsonschematools.client.paths.foo.get.responses.CodedefaultResponse;
+import org.openapijsonschematools.client.paths.foo.get.responses.FooGetCodedefaultResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,24 +14,24 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FooGetResponses {
-    public sealed interface EndpointResponse permits EndpointCodedefaultResponse {}
+    public sealed interface EndpointResponse permits EndpointFooGetCodedefaultResponse {}
 
-    public record EndpointCodedefaultResponse(
+    public record EndpointFooGetCodedefaultResponse(
         HttpResponse<byte[]> response,
-        CodedefaultResponse.SealedResponseBody body,
+        FooGetCodedefaultResponse.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<CodedefaultResponse.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FooGetCodedefaultResponse.SealedResponseBody, Void>{
     }
 
     public static final class FooGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
-        private final CodedefaultResponse.CodedefaultResponse1 defaultResponseDeserializer;
+        private final FooGetCodedefaultResponse.FooGetCodedefaultResponse1 defaultResponseDeserializer;
         public FooGetResponses1() {
-            this.defaultResponseDeserializer = new CodedefaultResponse.CodedefaultResponse1();
+            this.defaultResponseDeserializer = new FooGetCodedefaultResponse.FooGetCodedefaultResponse1();
         }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
-            return new EndpointCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointFooGetCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

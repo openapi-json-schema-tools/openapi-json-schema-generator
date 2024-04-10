@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.fakerefsarraymodel.post;
 
-import org.openapijsonschematools.client.paths.fakerefsarraymodel.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakerefsarraymodel.post.responses.FakerefsarraymodelPostCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakerefsarraymodelPostResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointFakerefsarraymodelPostCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointFakerefsarraymodelPostCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        FakerefsarraymodelPostCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakerefsarraymodelPostCode200Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakerefsarraymodelPostCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakerefsarraymodelPostCode200ResponseDeserializer extends FakerefsarraymodelPostCode200Response.FakerefsarraymodelPostCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class FakerefsarraymodelPostResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public FakerefsarraymodelPostResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakerefsarraymodelPostCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class FakerefsarraymodelPostResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusFakerefsarraymodelPostCode200ResponseDeserializer castDeserializer = (StatusFakerefsarraymodelPostCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointFakerefsarraymodelPostCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

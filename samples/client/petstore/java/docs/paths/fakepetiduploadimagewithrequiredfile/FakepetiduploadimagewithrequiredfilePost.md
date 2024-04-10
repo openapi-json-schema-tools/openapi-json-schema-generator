@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
-import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.responses.FakepetiduploadimagewithrequiredfilePostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.FakepetiduploadimagewithrequiredfilePost;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostResponses;
@@ -110,8 +110,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakepetiduploadimagewithrequiredfilePostResponses.EndpointCode200Response castResponse = (FakepetiduploadimagewithrequiredfilePostResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+FakepetiduploadimagewithrequiredfilePostResponses.EndpointFakepetiduploadimagewithrequiredfilePostCode200Response castResponse = (FakepetiduploadimagewithrequiredfilePostResponses.EndpointFakepetiduploadimagewithrequiredfilePostCode200Response) response;
+FakepetiduploadimagewithrequiredfilePostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakepetiduploadimagewithrequiredfilePostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

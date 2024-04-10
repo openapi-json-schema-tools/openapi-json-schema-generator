@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get;
 
-import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.responses.FakequeryparamwithjsoncontenttypeGetCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakequeryparamwithjsoncontenttypeGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointFakequeryparamwithjsoncontenttypeGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointFakequeryparamwithjsoncontenttypeGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        FakequeryparamwithjsoncontenttypeGetCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakequeryparamwithjsoncontenttypeGetCode200Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakequeryparamwithjsoncontenttypeGetCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakequeryparamwithjsoncontenttypeGetCode200ResponseDeserializer extends FakequeryparamwithjsoncontenttypeGetCode200Response.FakequeryparamwithjsoncontenttypeGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class FakequeryparamwithjsoncontenttypeGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public FakequeryparamwithjsoncontenttypeGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakequeryparamwithjsoncontenttypeGetCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class FakequeryparamwithjsoncontenttypeGetResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusFakequeryparamwithjsoncontenttypeGetCode200ResponseDeserializer castDeserializer = (StatusFakequeryparamwithjsoncontenttypeGetCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointFakequeryparamwithjsoncontenttypeGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

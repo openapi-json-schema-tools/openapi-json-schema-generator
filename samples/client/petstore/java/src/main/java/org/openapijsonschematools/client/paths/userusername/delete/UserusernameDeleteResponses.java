@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.userusername.delete;
 
-import org.openapijsonschematools.client.paths.userusername.delete.responses.Code200Response;
-import org.openapijsonschematools.client.paths.userusername.delete.responses.Code404Response;
+import org.openapijsonschematools.client.paths.userusername.delete.responses.UserusernameDeleteCode200Response;
+import org.openapijsonschematools.client.paths.userusername.delete.responses.UserusernameDeleteCode404Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -15,28 +15,28 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class UserusernameDeleteResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointUserusernameDeleteCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointUserusernameDeleteCode200Response(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode404ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusUserusernameDeleteCode200ResponseDeserializer, StatusUserusernameDeleteCode404ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusUserusernameDeleteCode200ResponseDeserializer extends UserusernameDeleteCode200Response.UserusernameDeleteCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode404ResponseDeserializer extends Code404Response.Code404Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusUserusernameDeleteCode404ResponseDeserializer extends UserusernameDeleteCode404Response.UserusernameDeleteCode404Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class UserusernameDeleteResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public UserusernameDeleteResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("404", new StatusCode404ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusUserusernameDeleteCode200ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("404", new StatusUserusernameDeleteCode404ResponseDeserializer())
             );
         }
 
@@ -49,13 +49,13 @@ public class UserusernameDeleteResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusUserusernameDeleteCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+                return new EndpointUserusernameDeleteCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             } else {
-                StatusCode404ResponseDeserializer castDeserializer = (StatusCode404ResponseDeserializer) statusCodeDeserializer;
+                StatusUserusernameDeleteCode404ResponseDeserializer castDeserializer = (StatusUserusernameDeleteCode404ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code404Response.ResponseApiException(
+                throw new UserusernameDeleteCode404Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

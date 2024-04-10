@@ -10,16 +10,16 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCodedefaultResponse](#endpointcodedefaultresponse)<br> the response for default |
+| record | [EndpointUsercreatewithlistPostCodedefaultResponse](#endpointusercreatewithlistpostcodedefaultresponse)<br> the response for default |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCodedefaultResponse](#endpointcodedefaultresponse)
+[EndpointUsercreatewithlistPostCodedefaultResponse](#endpointusercreatewithlistpostcodedefaultresponse)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCodedefaultResponse
-public record EndpointCodedefaultResponse(
+## EndpointUsercreatewithlistPostCodedefaultResponse
+public record EndpointUsercreatewithlistPostCodedefaultResponse(
     HttpResponse<byte[]> response,
     Void body,
     Void headers

@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.petpetid.post;
 
-import org.openapijsonschematools.client.paths.petpetid.post.responses.Code405Response;
+import org.openapijsonschematools.client.paths.petpetid.post.responses.PetpetidPostCode405Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,16 +14,16 @@ import java.util.AbstractMap;
 
 public class PetpetidPostResponses {
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode405ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusPetpetidPostCode405ResponseDeserializer {}
 
-    public static final class StatusCode405ResponseDeserializer extends Code405Response.Code405Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetpetidPostCode405ResponseDeserializer extends PetpetidPostCode405Response.PetpetidPostCode405Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class PetpetidPostResponses1 implements ResponsesDeserializer<Void> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public PetpetidPostResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("405", new StatusCode405ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("405", new StatusPetpetidPostCode405ResponseDeserializer())
             );
         }
 
@@ -36,9 +36,9 @@ public class PetpetidPostResponses {
                     response
                 );
             }
-            StatusCode405ResponseDeserializer castDeserializer = (StatusCode405ResponseDeserializer) statusCodeDeserializer;
+            StatusPetpetidPostCode405ResponseDeserializer castDeserializer = (StatusPetpetidPostCode405ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            throw new Code405Response.ResponseApiException(
+            throw new PetpetidPostCode405Response.ResponseApiException(
                 "Received error statusCode response from server",
                 response,
                 deserializedResponse

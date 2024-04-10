@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.po
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.post.responses.FakeinlineadditionalpropertiesPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.FakeinlineadditionalpropertiesPost;
 import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.post.FakeinlineadditionalpropertiesPostResponses;
@@ -101,7 +101,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakeinlineadditionalpropertiesPostResponses.EndpointCode200Response castResponse = (FakeinlineadditionalpropertiesPostResponses.EndpointCode200Response) response;
+FakeinlineadditionalpropertiesPostResponses.EndpointFakeinlineadditionalpropertiesPostCode200Response castResponse = (FakeinlineadditionalpropertiesPostResponses.EndpointFakeinlineadditionalpropertiesPostCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

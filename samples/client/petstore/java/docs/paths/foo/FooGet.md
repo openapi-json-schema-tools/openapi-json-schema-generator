@@ -34,7 +34,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
-import org.openapijsonschematools.client.paths.foo.get.responses.CodedefaultResponse;
+import org.openapijsonschematools.client.paths.foo.get.responses.FooGetCodedefaultResponse;
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
 import org.openapijsonschematools.client.paths.foo.FooGet;
 import org.openapijsonschematools.client.paths.foo.get.FooGetResponses;
@@ -84,8 +84,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FooGetResponses.EndpointCodedefaultResponse castResponse = (FooGetResponses.EndpointCodedefaultResponse) response;
-CodedefaultResponse.ApplicationjsonResponseBody deserializedBody = (CodedefaultResponse.ApplicationjsonResponseBody) castResponse.body;
+FooGetResponses.EndpointFooGetCodedefaultResponse castResponse = (FooGetResponses.EndpointFooGetCodedefaultResponse) response;
+FooGetCodedefaultResponse.ApplicationjsonResponseBody deserializedBody = (FooGetCodedefaultResponse.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

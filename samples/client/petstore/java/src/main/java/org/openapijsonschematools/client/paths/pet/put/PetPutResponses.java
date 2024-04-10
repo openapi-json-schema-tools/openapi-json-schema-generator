@@ -1,8 +1,8 @@
 package org.openapijsonschematools.client.paths.pet.put;
 
-import org.openapijsonschematools.client.paths.pet.put.responses.Code400Response;
-import org.openapijsonschematools.client.paths.pet.put.responses.Code404Response;
-import org.openapijsonschematools.client.paths.pet.put.responses.Code405Response;
+import org.openapijsonschematools.client.paths.pet.put.responses.PetPutCode400Response;
+import org.openapijsonschematools.client.paths.pet.put.responses.PetPutCode404Response;
+import org.openapijsonschematools.client.paths.pet.put.responses.PetPutCode405Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -16,22 +16,22 @@ import java.util.AbstractMap;
 
 public class PetPutResponses {
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode400ResponseDeserializer, StatusCode404ResponseDeserializer, StatusCode405ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusPetPutCode400ResponseDeserializer, StatusPetPutCode404ResponseDeserializer, StatusPetPutCode405ResponseDeserializer {}
 
-    public static final class StatusCode400ResponseDeserializer extends Code400Response.Code400Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetPutCode400ResponseDeserializer extends PetPutCode400Response.PetPutCode400Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode404ResponseDeserializer extends Code404Response.Code404Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetPutCode404ResponseDeserializer extends PetPutCode404Response.PetPutCode404Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode405ResponseDeserializer extends Code405Response.Code405Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetPutCode405ResponseDeserializer extends PetPutCode405Response.PetPutCode405Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class PetPutResponses1 implements ResponsesDeserializer<Void> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public PetPutResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("400", new StatusCode400ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("404", new StatusCode404ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("405", new StatusCode405ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("400", new StatusPetPutCode400ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("404", new StatusPetPutCode404ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("405", new StatusPetPutCode405ResponseDeserializer())
             );
         }
 
@@ -44,24 +44,24 @@ public class PetPutResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusPetPutCode400ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code400Response.ResponseApiException(
+                throw new PetPutCode400Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
-            } else if (statusCodeDeserializer instanceof StatusCode404ResponseDeserializer castDeserializer) {
+            } else if (statusCodeDeserializer instanceof StatusPetPutCode404ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code404Response.ResponseApiException(
+                throw new PetPutCode404Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
             } else {
-                StatusCode405ResponseDeserializer castDeserializer = (StatusCode405ResponseDeserializer) statusCodeDeserializer;
+                StatusPetPutCode405ResponseDeserializer castDeserializer = (StatusPetPutCode405ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code405Response.ResponseApiException(
+                throw new PetPutCode405Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

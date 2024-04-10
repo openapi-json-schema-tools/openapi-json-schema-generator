@@ -10,20 +10,20 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCodedefaultResponse](#endpointcodedefaultresponse)<br> the response for default |
+| record | [EndpointFooGetCodedefaultResponse](#endpointfoogetcodedefaultresponse)<br> the response for default |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCodedefaultResponse](#endpointcodedefaultresponse)
+[EndpointFooGetCodedefaultResponse](#endpointfoogetcodedefaultresponse)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCodedefaultResponse
-public record EndpointCodedefaultResponse(
+## EndpointFooGetCodedefaultResponse
+public record EndpointFooGetCodedefaultResponse(
     HttpResponse<byte[]> response,
-    [CodedefaultResponse.SealedResponseBody](../../../paths/foo/get/responses/CodedefaultResponse.md#sealedresponsebody) body,
+    [FooGetCodedefaultResponse.SealedResponseBody](../../../paths/foo/get/responses/FooGetCodedefaultResponse.md#sealedresponsebody) body,
     Void headers
-) implements EndpointResponse, ApiResponse<CodedefaultResponse.SealedResponseBody, Void><br>
+) implements EndpointResponse, ApiResponse<FooGetCodedefaultResponse.SealedResponseBody, Void><br>
 
 a class that stores an endpoint response
 

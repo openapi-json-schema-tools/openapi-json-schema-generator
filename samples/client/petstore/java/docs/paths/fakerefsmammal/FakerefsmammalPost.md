@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.components.schemas.Mammal;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakerefsmammal.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakerefsmammal.post.responses.FakerefsmammalPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefsmammal.FakerefsmammalPost;
 import org.openapijsonschematools.client.paths.fakerefsmammal.post.FakerefsmammalPostResponses;
@@ -92,8 +92,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakerefsmammalPostResponses.EndpointCode200Response castResponse = (FakerefsmammalPostResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+FakerefsmammalPostResponses.EndpointFakerefsmammalPostCode200Response castResponse = (FakerefsmammalPostResponses.EndpointFakerefsmammalPostCode200Response) response;
+FakerefsmammalPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefsmammalPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

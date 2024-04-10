@@ -37,7 +37,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakerefsenum.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakerefsenum.post.responses.FakerefsenumPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefsenum.FakerefsenumPost;
 import org.openapijsonschematools.client.paths.fakerefsenum.post.FakerefsenumPostResponses;
@@ -87,8 +87,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakerefsenumPostResponses.EndpointCode200Response castResponse = (FakerefsenumPostResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+FakerefsenumPostResponses.EndpointFakerefsenumPostCode200Response castResponse = (FakerefsenumPostResponses.EndpointFakerefsenumPostCode200Response) response;
+FakerefsenumPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefsenumPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

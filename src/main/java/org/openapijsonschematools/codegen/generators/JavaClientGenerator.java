@@ -1156,14 +1156,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
             return toModuleFilename(componentName, jsonPath);
         }
+        String prefix = getPathClassNamePrefix(jsonPath);
         switch (pathPieces.length) {
             case 5:
                 // #/paths/somePath/verb/responses
-                String prefix = getPathClassNamePrefix(jsonPath);
                 return prefix + "Responses";
             case 6:
                 // #/paths/somePath/verb/responses/200
-                return toModelName("Code"+componentName+"Response", null);
+                return prefix + "Code"+ componentName + "Response";
             default:
                 return toModuleFilename("code"+componentName+"response", null);
         }
@@ -2638,13 +2638,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 if (jsonPath.startsWith("#/components/responses/")) {
                     return toModelName(lastJsonPathFragment, null);
                 } else {
+                    String prefix = getPathClassNamePrefix(jsonPath);
                     if (jsonPath.endsWith("/responses")) {
-                        String prefix = getPathClassNamePrefix(jsonPath);
                         // #/paths/somePath/get/responses
                         return prefix + "Responses";
                     }
                     // #/paths/somePath/get/responses/200
-                    return toModelName("Code"+lastJsonPathFragment+"Response", null);
+                    return prefix + "Code" + lastJsonPathFragment + "Response";
                 }
             case SERVER:
                 if (jsonPath != null) {

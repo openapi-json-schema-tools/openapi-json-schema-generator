@@ -10,20 +10,20 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCode200Response](#endpointcode200response)<br> the response for 200 |
+| record | [EndpointFakeparametercollisions1ababselfabPostCode200Response](#endpointfakeparametercollisions1ababselfabpostcode200response)<br> the response for 200 |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCode200Response](#endpointcode200response)
+[EndpointFakeparametercollisions1ababselfabPostCode200Response](#endpointfakeparametercollisions1ababselfabpostcode200response)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCode200Response
-public record EndpointCode200Response(
+## EndpointFakeparametercollisions1ababselfabPostCode200Response
+public record EndpointFakeparametercollisions1ababselfabPostCode200Response(
     HttpResponse<byte[]> response,
-    [Code200Response.SealedResponseBody](../../../paths/fakeparametercollisions1ababselfab/post/responses/Code200Response.md#sealedresponsebody) body,
+    [Fakeparametercollisions1ababselfabPostCode200Response.SealedResponseBody](../../../paths/fakeparametercollisions1ababselfab/post/responses/Fakeparametercollisions1ababselfabPostCode200Response.md#sealedresponsebody) body,
     Void headers
-) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void><br>
+) implements EndpointResponse, ApiResponse<Fakeparametercollisions1ababselfabPostCode200Response.SealedResponseBody, Void><br>
 
 a class that stores an endpoint response
 

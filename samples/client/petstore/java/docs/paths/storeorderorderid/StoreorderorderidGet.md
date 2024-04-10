@@ -38,9 +38,9 @@ import org.openapijsonschematools.client.paths.storeorderorderid.get.Storeordero
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.Code400Response;
-import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.Code404Response;
+import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode200Response;
+import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode400Response;
+import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorderorderid.StoreorderorderidGet;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.StoreorderorderidGetResponses;
@@ -88,7 +88,7 @@ var request = new StoreorderorderidGet.GetRequestBuilder()
 StoreorderorderidGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
-} catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
+} catch (StoreorderorderidGetCode400Response.ResponseApiException | StoreorderorderidGetCode404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -105,11 +105,11 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-StoreorderorderidGetResponses.EndpointCode200Response castResponse = (StoreorderorderidGetResponses.EndpointCode200Response) response;
-if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
+StoreorderorderidGetResponses.EndpointStoreorderorderidGetCode200Response castResponse = (StoreorderorderidGetResponses.EndpointStoreorderorderidGetCode200Response) response;
+if (castResponse.body instanceof StoreorderorderidGetCode200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
-    Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+    StoreorderorderidGetCode200Response.ApplicationjsonResponseBody deserializedBody = (StoreorderorderidGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
     // handle deserialized body here
 }
 ```

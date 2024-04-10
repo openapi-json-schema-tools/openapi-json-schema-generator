@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.usercreatewithlist.post;
 
-import org.openapijsonschematools.client.paths.usercreatewithlist.post.responses.CodedefaultResponse;
+import org.openapijsonschematools.client.paths.usercreatewithlist.post.responses.UsercreatewithlistPostCodedefaultResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,9 +14,9 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class UsercreatewithlistPostResponses {
-    public sealed interface EndpointResponse permits EndpointCodedefaultResponse {}
+    public sealed interface EndpointResponse permits EndpointUsercreatewithlistPostCodedefaultResponse {}
 
-    public record EndpointCodedefaultResponse(
+    public record EndpointUsercreatewithlistPostCodedefaultResponse(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
@@ -24,14 +24,14 @@ public class UsercreatewithlistPostResponses {
     }
 
     public static final class UsercreatewithlistPostResponses1 implements ResponsesDeserializer<EndpointResponse> {
-        private final CodedefaultResponse.CodedefaultResponse1 defaultResponseDeserializer;
+        private final UsercreatewithlistPostCodedefaultResponse.UsercreatewithlistPostCodedefaultResponse1 defaultResponseDeserializer;
         public UsercreatewithlistPostResponses1() {
-            this.defaultResponseDeserializer = new CodedefaultResponse.CodedefaultResponse1();
+            this.defaultResponseDeserializer = new UsercreatewithlistPostCodedefaultResponse.UsercreatewithlistPostCodedefaultResponse1();
         }
 
         public EndpointResponse deserialize(HttpResponse<byte[]> response, SchemaConfiguration configuration) throws ValidationException, NotImplementedException, ApiException {
             var deserializedResponse = defaultResponseDeserializer.deserialize(response, configuration);
-            return new EndpointCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointUsercreatewithlistPostCodedefaultResponse(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

@@ -38,8 +38,8 @@ import org.openapijsonschematools.client.paths.userusername.delete.UserusernameD
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.userusername.delete.responses.Code200Response;
-import org.openapijsonschematools.client.paths.userusername.delete.responses.Code404Response;
+import org.openapijsonschematools.client.paths.userusername.delete.responses.UserusernameDeleteCode200Response;
+import org.openapijsonschematools.client.paths.userusername.delete.responses.UserusernameDeleteCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.UserusernameDelete;
 import org.openapijsonschematools.client.paths.userusername.delete.UserusernameDeleteResponses;
@@ -87,7 +87,7 @@ var request = new UserusernameDelete.DeleteRequestBuilder()
 UserusernameDeleteResponses.EndpointResponse response;
 try {
     response = apiClient.delete(request);
-} catch (Code404Response.ResponseApiException e) {
+} catch (UserusernameDeleteCode404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -104,7 +104,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-UserusernameDeleteResponses.EndpointCode200Response castResponse = (UserusernameDeleteResponses.EndpointCode200Response) response;
+UserusernameDeleteResponses.EndpointUserusernameDeleteCode200Response castResponse = (UserusernameDeleteResponses.EndpointUserusernameDeleteCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

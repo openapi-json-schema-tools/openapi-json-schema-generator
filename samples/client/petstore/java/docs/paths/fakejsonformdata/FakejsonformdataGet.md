@@ -37,7 +37,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakejsonformdata.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakejsonformdata.get.responses.FakejsonformdataGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakejsonformdata.FakejsonformdataGet;
 import org.openapijsonschematools.client.paths.fakejsonformdata.get.FakejsonformdataGetResponses;
@@ -87,7 +87,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakejsonformdataGetResponses.EndpointCode200Response castResponse = (FakejsonformdataGetResponses.EndpointCode200Response) response;
+FakejsonformdataGetResponses.EndpointFakejsonformdataGetCode200Response castResponse = (FakejsonformdataGetResponses.EndpointFakejsonformdataGetCode200Response) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

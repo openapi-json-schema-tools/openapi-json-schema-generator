@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.fakeinlinecomposition.post;
 
-import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.responses.FakeinlinecompositionPostCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakeinlinecompositionPostResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointFakeinlinecompositionPostCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointFakeinlinecompositionPostCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        FakeinlinecompositionPostCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakeinlinecompositionPostCode200Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakeinlinecompositionPostCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakeinlinecompositionPostCode200ResponseDeserializer extends FakeinlinecompositionPostCode200Response.FakeinlinecompositionPostCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class FakeinlinecompositionPostResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public FakeinlinecompositionPostResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakeinlinecompositionPostCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class FakeinlinecompositionPostResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusFakeinlinecompositionPostCode200ResponseDeserializer castDeserializer = (StatusFakeinlinecompositionPostCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointFakeinlinecompositionPostCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

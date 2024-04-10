@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.fakehealth.get;
 
-import org.openapijsonschematools.client.paths.fakehealth.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakehealth.get.responses.FakehealthGetCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakehealthGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointFakehealthGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointFakehealthGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        FakehealthGetCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakehealthGetCode200Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakehealthGetCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakehealthGetCode200ResponseDeserializer extends FakehealthGetCode200Response.FakehealthGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class FakehealthGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public FakehealthGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakehealthGetCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class FakehealthGetResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusFakehealthGetCode200ResponseDeserializer castDeserializer = (StatusFakehealthGetCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointFakehealthGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

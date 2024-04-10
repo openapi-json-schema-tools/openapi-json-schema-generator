@@ -1,11 +1,11 @@
 package org.openapijsonschematools.client.paths.fakewildcardresponses.get;
 
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code1XXResponse;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code2XXResponse;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code3XXResponse;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code4XXResponse;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.Code5XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode1XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode200Response;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode2XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode3XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode4XXResponse;
+import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode5XXResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -19,51 +19,51 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakewildcardresponsesGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode1XXResponse, EndpointCode2XXResponse, EndpointCode200Response, EndpointCode3XXResponse {}
+    public sealed interface EndpointResponse permits EndpointFakewildcardresponsesGetCode1XXResponse, EndpointFakewildcardresponsesGetCode2XXResponse, EndpointFakewildcardresponsesGetCode200Response, EndpointFakewildcardresponsesGetCode3XXResponse {}
 
-    public record EndpointCode1XXResponse(
+    public record EndpointFakewildcardresponsesGetCode1XXResponse(
         HttpResponse<byte[]> response,
-        Code1XXResponse.SealedResponseBody body,
+        FakewildcardresponsesGetCode1XXResponse.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code1XXResponse.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakewildcardresponsesGetCode1XXResponse.SealedResponseBody, Void>{
     }
 
-    public record EndpointCode2XXResponse(
+    public record EndpointFakewildcardresponsesGetCode2XXResponse(
         HttpResponse<byte[]> response,
-        Code2XXResponse.SealedResponseBody body,
+        FakewildcardresponsesGetCode2XXResponse.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code2XXResponse.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakewildcardresponsesGetCode2XXResponse.SealedResponseBody, Void>{
     }
 
-    public record EndpointCode200Response(
+    public record EndpointFakewildcardresponsesGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        FakewildcardresponsesGetCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakewildcardresponsesGetCode200Response.SealedResponseBody, Void>{
     }
 
-    public record EndpointCode3XXResponse(
+    public record EndpointFakewildcardresponsesGetCode3XXResponse(
         HttpResponse<byte[]> response,
-        Code3XXResponse.SealedResponseBody body,
+        FakewildcardresponsesGetCode3XXResponse.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code3XXResponse.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<FakewildcardresponsesGetCode3XXResponse.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakewildcardresponsesGetCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakewildcardresponsesGetCode200ResponseDeserializer extends FakewildcardresponsesGetCode200Response.FakewildcardresponsesGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public sealed interface WildcardCodeResponseDeserializer permits WildcardCode1XXResponseDeserializer, WildcardCode2XXResponseDeserializer, WildcardCode3XXResponseDeserializer, WildcardCode4XXResponseDeserializer, WildcardCode5XXResponseDeserializer {}
+    public sealed interface WildcardCodeResponseDeserializer permits WildcardFakewildcardresponsesGetCode1XXResponseDeserializer, WildcardFakewildcardresponsesGetCode2XXResponseDeserializer, WildcardFakewildcardresponsesGetCode3XXResponseDeserializer, WildcardFakewildcardresponsesGetCode4XXResponseDeserializer, WildcardFakewildcardresponsesGetCode5XXResponseDeserializer {}
 
-    public static final class WildcardCode1XXResponseDeserializer extends Code1XXResponse.Code1XXResponse1 implements WildcardCodeResponseDeserializer {
+    public static final class WildcardFakewildcardresponsesGetCode1XXResponseDeserializer extends FakewildcardresponsesGetCode1XXResponse.FakewildcardresponsesGetCode1XXResponse1 implements WildcardCodeResponseDeserializer {
     }
-    public static final class WildcardCode2XXResponseDeserializer extends Code2XXResponse.Code2XXResponse1 implements WildcardCodeResponseDeserializer {
+    public static final class WildcardFakewildcardresponsesGetCode2XXResponseDeserializer extends FakewildcardresponsesGetCode2XXResponse.FakewildcardresponsesGetCode2XXResponse1 implements WildcardCodeResponseDeserializer {
     }
-    public static final class WildcardCode3XXResponseDeserializer extends Code3XXResponse.Code3XXResponse1 implements WildcardCodeResponseDeserializer {
+    public static final class WildcardFakewildcardresponsesGetCode3XXResponseDeserializer extends FakewildcardresponsesGetCode3XXResponse.FakewildcardresponsesGetCode3XXResponse1 implements WildcardCodeResponseDeserializer {
     }
-    public static final class WildcardCode4XXResponseDeserializer extends Code4XXResponse.Code4XXResponse1 implements WildcardCodeResponseDeserializer {
+    public static final class WildcardFakewildcardresponsesGetCode4XXResponseDeserializer extends FakewildcardresponsesGetCode4XXResponse.FakewildcardresponsesGetCode4XXResponse1 implements WildcardCodeResponseDeserializer {
     }
-    public static final class WildcardCode5XXResponseDeserializer extends Code5XXResponse.Code5XXResponse1 implements WildcardCodeResponseDeserializer {
+    public static final class WildcardFakewildcardresponsesGetCode5XXResponseDeserializer extends FakewildcardresponsesGetCode5XXResponse.FakewildcardresponsesGetCode5XXResponse1 implements WildcardCodeResponseDeserializer {
     }
 
     public static final class FakewildcardresponsesGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
@@ -71,14 +71,14 @@ public class FakewildcardresponsesGetResponses {
         private final Map<String, WildcardCodeResponseDeserializer> wildcardCodeToResponseDeserializer;
         public FakewildcardresponsesGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakewildcardresponsesGetCode200ResponseDeserializer())
             );
             this.wildcardCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("1", new WildcardCode1XXResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("2", new WildcardCode2XXResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("3", new WildcardCode3XXResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("4", new WildcardCode4XXResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("5", new WildcardCode5XXResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("1", new WildcardFakewildcardresponsesGetCode1XXResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("2", new WildcardFakewildcardresponsesGetCode2XXResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("3", new WildcardFakewildcardresponsesGetCode3XXResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("4", new WildcardFakewildcardresponsesGetCode4XXResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("5", new WildcardFakewildcardresponsesGetCode5XXResponseDeserializer())
             );
         }
 
@@ -86,9 +86,9 @@ public class FakewildcardresponsesGetResponses {
             String statusCode = String.valueOf(response.statusCode());
             @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (statusCodeDeserializer != null) {
-                StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+                StatusFakewildcardresponsesGetCode200ResponseDeserializer castDeserializer = (StatusFakewildcardresponsesGetCode200ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+                return new EndpointFakewildcardresponsesGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             }
             @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
             if (wildcardCodeDeserializer == null) {
@@ -97,38 +97,38 @@ public class FakewildcardresponsesGetResponses {
                     response
                 );
             }
-            if (wildcardCodeDeserializer instanceof WildcardCode1XXResponseDeserializer castDeserializer) {
+            if (wildcardCodeDeserializer instanceof WildcardFakewildcardresponsesGetCode1XXResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code1XXResponse.ResponseApiException(
+                throw new FakewildcardresponsesGetCode1XXResponse.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
-            } else if (wildcardCodeDeserializer instanceof WildcardCode2XXResponseDeserializer castDeserializer) {
+            } else if (wildcardCodeDeserializer instanceof WildcardFakewildcardresponsesGetCode2XXResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code2XXResponse.ResponseApiException(
+                throw new FakewildcardresponsesGetCode2XXResponse.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
-            } else if (wildcardCodeDeserializer instanceof WildcardCode3XXResponseDeserializer castDeserializer) {
+            } else if (wildcardCodeDeserializer instanceof WildcardFakewildcardresponsesGetCode3XXResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code3XXResponse.ResponseApiException(
+                throw new FakewildcardresponsesGetCode3XXResponse.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
-            } else if (wildcardCodeDeserializer instanceof WildcardCode4XXResponseDeserializer castDeserializer) {
+            } else if (wildcardCodeDeserializer instanceof WildcardFakewildcardresponsesGetCode4XXResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code4XXResponse.ResponseApiException(
+                throw new FakewildcardresponsesGetCode4XXResponse.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
             } else {
-                WildcardCode5XXResponseDeserializer castDeserializer = (WildcardCode5XXResponseDeserializer) wildcardCodeDeserializer;
+                WildcardFakewildcardresponsesGetCode5XXResponseDeserializer castDeserializer = (WildcardFakewildcardresponsesGetCode5XXResponseDeserializer) wildcardCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code5XXResponse.ResponseApiException(
+                throw new FakewildcardresponsesGetCode5XXResponse.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

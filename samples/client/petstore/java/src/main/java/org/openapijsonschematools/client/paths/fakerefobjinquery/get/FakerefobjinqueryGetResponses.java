@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.fakerefobjinquery.get;
 
-import org.openapijsonschematools.client.paths.fakerefobjinquery.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakerefobjinquery.get.responses.FakerefobjinqueryGetCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakerefobjinqueryGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointFakerefobjinqueryGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointFakerefobjinqueryGetCode200Response(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakerefobjinqueryGetCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakerefobjinqueryGetCode200ResponseDeserializer extends FakerefobjinqueryGetCode200Response.FakerefobjinqueryGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class FakerefobjinqueryGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public FakerefobjinqueryGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusFakerefobjinqueryGetCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class FakerefobjinqueryGetResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusFakerefobjinqueryGetCode200ResponseDeserializer castDeserializer = (StatusFakerefobjinqueryGetCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointFakerefobjinqueryGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

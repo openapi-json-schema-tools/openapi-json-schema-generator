@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.petpetiduploadimage.post;
 
-import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.PetpetiduploadimagePostCode200Response;
 import org.openapijsonschematools.client.components.responses.successwithjsonapiresponse.SuccessWithJsonApiResponseHeadersSchema;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
@@ -15,25 +15,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class PetpetiduploadimagePostResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointPetpetiduploadimagePostCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointPetpetiduploadimagePostCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        PetpetiduploadimagePostCode200Response.SealedResponseBody body,
         SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap>{
+    ) implements EndpointResponse, ApiResponse<PetpetiduploadimagePostCode200Response.SealedResponseBody, SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusPetpetiduploadimagePostCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetpetiduploadimagePostCode200ResponseDeserializer extends PetpetiduploadimagePostCode200Response.PetpetiduploadimagePostCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class PetpetiduploadimagePostResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public PetpetiduploadimagePostResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusPetpetiduploadimagePostCode200ResponseDeserializer())
             );
         }
 
@@ -46,9 +46,9 @@ public class PetpetiduploadimagePostResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusPetpetiduploadimagePostCode200ResponseDeserializer castDeserializer = (StatusPetpetiduploadimagePostCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointPetpetiduploadimagePostCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

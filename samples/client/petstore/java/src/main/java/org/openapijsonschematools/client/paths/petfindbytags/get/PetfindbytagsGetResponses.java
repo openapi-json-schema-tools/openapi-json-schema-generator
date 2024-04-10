@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.petfindbytags.get;
 
-import org.openapijsonschematools.client.paths.petfindbytags.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.petfindbytags.get.responses.Code400Response;
+import org.openapijsonschematools.client.paths.petfindbytags.get.responses.PetfindbytagsGetCode200Response;
+import org.openapijsonschematools.client.paths.petfindbytags.get.responses.PetfindbytagsGetCode400Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -15,28 +15,28 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class PetfindbytagsGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointPetfindbytagsGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointPetfindbytagsGetCode200Response(
         HttpResponse<byte[]> response,
-        Code200Response.SealedResponseBody body,
+        PetfindbytagsGetCode200Response.SealedResponseBody body,
         Void headers
-    ) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void>{
+    ) implements EndpointResponse, ApiResponse<PetfindbytagsGetCode200Response.SealedResponseBody, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer, StatusCode400ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusPetfindbytagsGetCode200ResponseDeserializer, StatusPetfindbytagsGetCode400ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetfindbytagsGetCode200ResponseDeserializer extends PetfindbytagsGetCode200Response.PetfindbytagsGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode400ResponseDeserializer extends Code400Response.Code400Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusPetfindbytagsGetCode400ResponseDeserializer extends PetfindbytagsGetCode400Response.PetfindbytagsGetCode400Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class PetfindbytagsGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public PetfindbytagsGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("400", new StatusCode400ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusPetfindbytagsGetCode200ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("400", new StatusPetfindbytagsGetCode400ResponseDeserializer())
             );
         }
 
@@ -49,13 +49,13 @@ public class PetfindbytagsGetResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode200ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusPetfindbytagsGetCode200ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+                return new EndpointPetfindbytagsGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
             } else {
-                StatusCode400ResponseDeserializer castDeserializer = (StatusCode400ResponseDeserializer) statusCodeDeserializer;
+                StatusPetfindbytagsGetCode400ResponseDeserializer castDeserializer = (StatusPetfindbytagsGetCode400ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code400Response.ResponseApiException(
+                throw new PetfindbytagsGetCode400Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

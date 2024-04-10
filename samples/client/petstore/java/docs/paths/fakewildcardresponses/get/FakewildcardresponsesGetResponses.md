@@ -10,53 +10,53 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCode1XXResponse](#endpointcode1xxresponse)<br> the response for 1XX |
-| record | [EndpointCode2XXResponse](#endpointcode2xxresponse)<br> the response for 2XX |
-| record | [EndpointCode200Response](#endpointcode200response)<br> the response for 200 |
-| record | [EndpointCode3XXResponse](#endpointcode3xxresponse)<br> the response for 3XX |
+| record | [EndpointFakewildcardresponsesGetCode1XXResponse](#endpointfakewildcardresponsesgetcode1xxresponse)<br> the response for 1XX |
+| record | [EndpointFakewildcardresponsesGetCode2XXResponse](#endpointfakewildcardresponsesgetcode2xxresponse)<br> the response for 2XX |
+| record | [EndpointFakewildcardresponsesGetCode200Response](#endpointfakewildcardresponsesgetcode200response)<br> the response for 200 |
+| record | [EndpointFakewildcardresponsesGetCode3XXResponse](#endpointfakewildcardresponsesgetcode3xxresponse)<br> the response for 3XX |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCode1XXResponse](#endpointcode1xxresponse),
-[EndpointCode2XXResponse](#endpointcode2xxresponse),
-[EndpointCode200Response](#endpointcode200response),
-[EndpointCode3XXResponse](#endpointcode3xxresponse)
+[EndpointFakewildcardresponsesGetCode1XXResponse](#endpointfakewildcardresponsesgetcode1xxresponse),
+[EndpointFakewildcardresponsesGetCode2XXResponse](#endpointfakewildcardresponsesgetcode2xxresponse),
+[EndpointFakewildcardresponsesGetCode200Response](#endpointfakewildcardresponsesgetcode200response),
+[EndpointFakewildcardresponsesGetCode3XXResponse](#endpointfakewildcardresponsesgetcode3xxresponse)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCode1XXResponse
-public record EndpointCode1XXResponse(
+## EndpointFakewildcardresponsesGetCode1XXResponse
+public record EndpointFakewildcardresponsesGetCode1XXResponse(
     HttpResponse<byte[]> response,
-    [Code1XXResponse.SealedResponseBody](../../../paths/fakewildcardresponses/get/responses/Code1XXResponse.md#sealedresponsebody) body,
+    [FakewildcardresponsesGetCode1XXResponse.SealedResponseBody](../../../paths/fakewildcardresponses/get/responses/FakewildcardresponsesGetCode1XXResponse.md#sealedresponsebody) body,
     Void headers
-) implements EndpointResponse, ApiResponse<Code1XXResponse.SealedResponseBody, Void><br>
+) implements EndpointResponse, ApiResponse<FakewildcardresponsesGetCode1XXResponse.SealedResponseBody, Void><br>
 
 a class that stores an endpoint response
 
-## EndpointCode2XXResponse
-public record EndpointCode2XXResponse(
+## EndpointFakewildcardresponsesGetCode2XXResponse
+public record EndpointFakewildcardresponsesGetCode2XXResponse(
     HttpResponse<byte[]> response,
-    [Code2XXResponse.SealedResponseBody](../../../paths/fakewildcardresponses/get/responses/Code2XXResponse.md#sealedresponsebody) body,
+    [FakewildcardresponsesGetCode2XXResponse.SealedResponseBody](../../../paths/fakewildcardresponses/get/responses/FakewildcardresponsesGetCode2XXResponse.md#sealedresponsebody) body,
     Void headers
-) implements EndpointResponse, ApiResponse<Code2XXResponse.SealedResponseBody, Void><br>
+) implements EndpointResponse, ApiResponse<FakewildcardresponsesGetCode2XXResponse.SealedResponseBody, Void><br>
 
 a class that stores an endpoint response
 
-## EndpointCode200Response
-public record EndpointCode200Response(
+## EndpointFakewildcardresponsesGetCode200Response
+public record EndpointFakewildcardresponsesGetCode200Response(
     HttpResponse<byte[]> response,
-    [Code200Response.SealedResponseBody](../../../paths/fakewildcardresponses/get/responses/Code200Response.md#sealedresponsebody) body,
+    [FakewildcardresponsesGetCode200Response.SealedResponseBody](../../../paths/fakewildcardresponses/get/responses/FakewildcardresponsesGetCode200Response.md#sealedresponsebody) body,
     Void headers
-) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void><br>
+) implements EndpointResponse, ApiResponse<FakewildcardresponsesGetCode200Response.SealedResponseBody, Void><br>
 
 a class that stores an endpoint response
 
-## EndpointCode3XXResponse
-public record EndpointCode3XXResponse(
+## EndpointFakewildcardresponsesGetCode3XXResponse
+public record EndpointFakewildcardresponsesGetCode3XXResponse(
     HttpResponse<byte[]> response,
-    [Code3XXResponse.SealedResponseBody](../../../paths/fakewildcardresponses/get/responses/Code3XXResponse.md#sealedresponsebody) body,
+    [FakewildcardresponsesGetCode3XXResponse.SealedResponseBody](../../../paths/fakewildcardresponses/get/responses/FakewildcardresponsesGetCode3XXResponse.md#sealedresponsebody) body,
     Void headers
-) implements EndpointResponse, ApiResponse<Code3XXResponse.SealedResponseBody, Void><br>
+) implements EndpointResponse, ApiResponse<FakewildcardresponsesGetCode3XXResponse.SealedResponseBody, Void><br>
 
 a class that stores an endpoint response
 

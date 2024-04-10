@@ -43,7 +43,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
-import org.openapijsonschematools.client.paths.petpetid.delete.responses.Code400Response;
+import org.openapijsonschematools.client.paths.petpetid.delete.responses.PetpetidDeleteCode400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.PetpetidDelete;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteResponses;
@@ -100,7 +100,7 @@ var request = new PetpetidDelete.DeleteRequestBuilder()
 Void response;
 try {
     response = apiClient.delete(request);
-} catch (Code400Response.ResponseApiException e) {
+} catch (PetpetidDeleteCode400Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {

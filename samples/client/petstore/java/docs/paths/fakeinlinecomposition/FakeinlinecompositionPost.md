@@ -38,7 +38,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.responses.FakeinlinecompositionPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.FakeinlinecompositionPost;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.FakeinlinecompositionPostResponses;
@@ -88,11 +88,11 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakeinlinecompositionPostResponses.EndpointCode200Response castResponse = (FakeinlinecompositionPostResponses.EndpointCode200Response) response;
-if (castResponse.body instanceof Code200Response.ApplicationjsonResponseBody deserializedBody) {
+FakeinlinecompositionPostResponses.EndpointFakeinlinecompositionPostCode200Response castResponse = (FakeinlinecompositionPostResponses.EndpointFakeinlinecompositionPostCode200Response) response;
+if (castResponse.body instanceof FakeinlinecompositionPostCode200Response.ApplicationjsonResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
-    Code200Response.MultipartformdataResponseBody deserializedBody = (Code200Response.MultipartformdataResponseBody) castResponse.body;
+    FakeinlinecompositionPostCode200Response.MultipartformdataResponseBody deserializedBody = (FakeinlinecompositionPostCode200Response.MultipartformdataResponseBody) castResponse.body;
     // handle deserialized body here
 }
 ```

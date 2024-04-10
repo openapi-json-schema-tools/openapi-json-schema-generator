@@ -35,8 +35,8 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakeredirection.get.responses.Code303Response;
-import org.openapijsonschematools.client.paths.fakeredirection.get.responses.Code3XXResponse;
+import org.openapijsonschematools.client.paths.fakeredirection.get.responses.FakeredirectionGetCode303Response;
+import org.openapijsonschematools.client.paths.fakeredirection.get.responses.FakeredirectionGetCode3XXResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeredirection.FakeredirectionGet;
 import org.openapijsonschematools.client.paths.fakeredirection.get.FakeredirectionGetResponses;
@@ -86,9 +86,9 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-if (response instanceof FakeredirectionGetResponses.EndpointCode3XXResponse castResponse) {
+if (response instanceof FakeredirectionGetResponses.EndpointFakeredirectionGetCode3XXResponse castResponse) {
 } else {
-    FakeredirectionGetResponses.EndpointCode303Response castResponse = (FakeredirectionGetResponses.EndpointCode303Response) response;
+    FakeredirectionGetResponses.EndpointFakeredirectionGetCode303Response castResponse = (FakeredirectionGetResponses.EndpointFakeredirectionGetCode303Response) response;
 }
 ```
 ### Constructor Summary

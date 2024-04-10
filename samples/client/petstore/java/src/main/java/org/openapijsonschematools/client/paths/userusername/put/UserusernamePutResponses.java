@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.userusername.put;
 
-import org.openapijsonschematools.client.paths.userusername.put.responses.Code400Response;
-import org.openapijsonschematools.client.paths.userusername.put.responses.Code404Response;
+import org.openapijsonschematools.client.paths.userusername.put.responses.UserusernamePutCode400Response;
+import org.openapijsonschematools.client.paths.userusername.put.responses.UserusernamePutCode404Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -15,19 +15,19 @@ import java.util.AbstractMap;
 
 public class UserusernamePutResponses {
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode400ResponseDeserializer, StatusCode404ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusUserusernamePutCode400ResponseDeserializer, StatusUserusernamePutCode404ResponseDeserializer {}
 
-    public static final class StatusCode400ResponseDeserializer extends Code400Response.Code400Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusUserusernamePutCode400ResponseDeserializer extends UserusernamePutCode400Response.UserusernamePutCode400Response1 implements StatusCodeResponseDeserializer {
     }
-    public static final class StatusCode404ResponseDeserializer extends Code404Response.Code404Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusUserusernamePutCode404ResponseDeserializer extends UserusernamePutCode404Response.UserusernamePutCode404Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class UserusernamePutResponses1 implements ResponsesDeserializer<Void> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public UserusernamePutResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("400", new StatusCode400ResponseDeserializer()),
-                new AbstractMap.SimpleEntry<>("404", new StatusCode404ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("400", new StatusUserusernamePutCode400ResponseDeserializer()),
+                new AbstractMap.SimpleEntry<>("404", new StatusUserusernamePutCode404ResponseDeserializer())
             );
         }
 
@@ -40,17 +40,17 @@ public class UserusernamePutResponses {
                     response
                 );
             }
-            if (statusCodeDeserializer instanceof StatusCode400ResponseDeserializer castDeserializer) {
+            if (statusCodeDeserializer instanceof StatusUserusernamePutCode400ResponseDeserializer castDeserializer) {
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code400Response.ResponseApiException(
+                throw new UserusernamePutCode400Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse
                 );
             } else {
-                StatusCode404ResponseDeserializer castDeserializer = (StatusCode404ResponseDeserializer) statusCodeDeserializer;
+                StatusUserusernamePutCode404ResponseDeserializer castDeserializer = (StatusUserusernamePutCode404ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                throw new Code404Response.ResponseApiException(
+                throw new UserusernamePutCode404Response.ResponseApiException(
                     "Received error statusCode response from server",
                     response,
                     deserializedResponse

@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKeyQuery;
-import org.openapijsonschematools.client.paths.fakeclassnametest.patch.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakeclassnametest.patch.responses.FakeclassnametestPatchCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.FakeclassnametestPatch;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchResponses;
@@ -113,8 +113,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakeclassnametestPatchResponses.EndpointCode200Response castResponse = (FakeclassnametestPatchResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+FakeclassnametestPatchResponses.EndpointFakeclassnametestPatchCode200Response castResponse = (FakeclassnametestPatchResponses.EndpointFakeclassnametestPatchCode200Response) response;
+FakeclassnametestPatchCode200Response.ApplicationjsonResponseBody deserializedBody = (FakeclassnametestPatchCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

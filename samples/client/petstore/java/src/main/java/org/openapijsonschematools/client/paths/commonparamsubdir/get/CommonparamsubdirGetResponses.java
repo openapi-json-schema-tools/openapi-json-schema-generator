@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.paths.commonparamsubdir.get;
 
-import org.openapijsonschematools.client.paths.commonparamsubdir.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.commonparamsubdir.get.responses.CommonparamsubdirGetCode200Response;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class CommonparamsubdirGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode200Response {}
+    public sealed interface EndpointResponse permits EndpointCommonparamsubdirGetCode200Response {}
 
-    public record EndpointCode200Response(
+    public record EndpointCommonparamsubdirGetCode200Response(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode200ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusCommonparamsubdirGetCode200ResponseDeserializer {}
 
-    public static final class StatusCode200ResponseDeserializer extends Code200Response.Code200Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusCommonparamsubdirGetCode200ResponseDeserializer extends CommonparamsubdirGetCode200Response.CommonparamsubdirGetCode200Response1 implements StatusCodeResponseDeserializer {
     }
 
     public static final class CommonparamsubdirGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
         private final Map<String, StatusCodeResponseDeserializer> statusCodeToResponseDeserializer;
         public CommonparamsubdirGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("200", new StatusCode200ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("200", new StatusCommonparamsubdirGetCode200ResponseDeserializer())
             );
         }
 
@@ -45,9 +45,9 @@ public class CommonparamsubdirGetResponses {
                     response
                 );
             }
-            StatusCode200ResponseDeserializer castDeserializer = (StatusCode200ResponseDeserializer) statusCodeDeserializer;
+            StatusCommonparamsubdirGetCode200ResponseDeserializer castDeserializer = (StatusCommonparamsubdirGetCode200ResponseDeserializer) statusCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            return new EndpointCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
+            return new EndpointCommonparamsubdirGetCode200Response(response, deserializedResponse.body(), deserializedResponse.headers());
         }
     }
 }

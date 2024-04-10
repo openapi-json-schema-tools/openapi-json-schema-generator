@@ -42,8 +42,8 @@ import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutP
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.userusername.put.responses.Code400Response;
-import org.openapijsonschematools.client.paths.userusername.put.responses.Code404Response;
+import org.openapijsonschematools.client.paths.userusername.put.responses.UserusernamePutCode400Response;
+import org.openapijsonschematools.client.paths.userusername.put.responses.UserusernamePutCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.UserusernamePut;
 import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutResponses;
@@ -118,7 +118,7 @@ var request = new UserusernamePut.PutRequestBuilder()
 Void response;
 try {
     response = apiClient.put(request);
-} catch (Code400Response.ResponseApiException | Code404Response.ResponseApiException e) {
+} catch (UserusernamePutCode400Response.ResponseApiException | UserusernamePutCode404Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {

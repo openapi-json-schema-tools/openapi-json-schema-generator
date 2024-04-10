@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakeredirection.get;
 
-import org.openapijsonschematools.client.paths.fakeredirection.get.responses.Code303Response;
-import org.openapijsonschematools.client.paths.fakeredirection.get.responses.Code3XXResponse;
+import org.openapijsonschematools.client.paths.fakeredirection.get.responses.FakeredirectionGetCode303Response;
+import org.openapijsonschematools.client.paths.fakeredirection.get.responses.FakeredirectionGetCode3XXResponse;
 import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.exceptions.NotImplementedException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -15,29 +15,29 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class FakeredirectionGetResponses {
-    public sealed interface EndpointResponse permits EndpointCode3XXResponse, EndpointCode303Response {}
+    public sealed interface EndpointResponse permits EndpointFakeredirectionGetCode3XXResponse, EndpointFakeredirectionGetCode303Response {}
 
-    public record EndpointCode3XXResponse(
+    public record EndpointFakeredirectionGetCode3XXResponse(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public record EndpointCode303Response(
+    public record EndpointFakeredirectionGetCode303Response(
         HttpResponse<byte[]> response,
         Void body,
         Void headers
     ) implements EndpointResponse, ApiResponse<Void, Void>{
     }
 
-    public sealed interface StatusCodeResponseDeserializer permits StatusCode303ResponseDeserializer {}
+    public sealed interface StatusCodeResponseDeserializer permits StatusFakeredirectionGetCode303ResponseDeserializer {}
 
-    public static final class StatusCode303ResponseDeserializer extends Code303Response.Code303Response1 implements StatusCodeResponseDeserializer {
+    public static final class StatusFakeredirectionGetCode303ResponseDeserializer extends FakeredirectionGetCode303Response.FakeredirectionGetCode303Response1 implements StatusCodeResponseDeserializer {
     }
-    public sealed interface WildcardCodeResponseDeserializer permits WildcardCode3XXResponseDeserializer {}
+    public sealed interface WildcardCodeResponseDeserializer permits WildcardFakeredirectionGetCode3XXResponseDeserializer {}
 
-    public static final class WildcardCode3XXResponseDeserializer extends Code3XXResponse.Code3XXResponse1 implements WildcardCodeResponseDeserializer {
+    public static final class WildcardFakeredirectionGetCode3XXResponseDeserializer extends FakeredirectionGetCode3XXResponse.FakeredirectionGetCode3XXResponse1 implements WildcardCodeResponseDeserializer {
     }
 
     public static final class FakeredirectionGetResponses1 implements ResponsesDeserializer<EndpointResponse> {
@@ -45,10 +45,10 @@ public class FakeredirectionGetResponses {
         private final Map<String, WildcardCodeResponseDeserializer> wildcardCodeToResponseDeserializer;
         public FakeredirectionGetResponses1() {
             this.statusCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("303", new StatusCode303ResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("303", new StatusFakeredirectionGetCode303ResponseDeserializer())
             );
             this.wildcardCodeToResponseDeserializer = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("3", new WildcardCode3XXResponseDeserializer())
+                new AbstractMap.SimpleEntry<>("3", new WildcardFakeredirectionGetCode3XXResponseDeserializer())
             );
         }
 
@@ -56,9 +56,9 @@ public class FakeredirectionGetResponses {
             String statusCode = String.valueOf(response.statusCode());
             @Nullable StatusCodeResponseDeserializer statusCodeDeserializer = statusCodeToResponseDeserializer.get(statusCode);
             if (statusCodeDeserializer != null) {
-                StatusCode303ResponseDeserializer castDeserializer = (StatusCode303ResponseDeserializer) statusCodeDeserializer;
+                StatusFakeredirectionGetCode303ResponseDeserializer castDeserializer = (StatusFakeredirectionGetCode303ResponseDeserializer) statusCodeDeserializer;
                 var deserializedResponse = castDeserializer.deserialize(response, configuration);
-                return new EndpointCode303Response(response, deserializedResponse.body(), deserializedResponse.headers());
+                return new EndpointFakeredirectionGetCode303Response(response, deserializedResponse.body(), deserializedResponse.headers());
             }
             @Nullable WildcardCodeResponseDeserializer wildcardCodeDeserializer = wildcardCodeToResponseDeserializer.get(statusCode);
             if (wildcardCodeDeserializer == null) {
@@ -67,9 +67,9 @@ public class FakeredirectionGetResponses {
                     response
                 );
             }
-            WildcardCode3XXResponseDeserializer castDeserializer = (WildcardCode3XXResponseDeserializer) wildcardCodeDeserializer;
+            WildcardFakeredirectionGetCode3XXResponseDeserializer castDeserializer = (WildcardFakeredirectionGetCode3XXResponseDeserializer) wildcardCodeDeserializer;
             var deserializedResponse = castDeserializer.deserialize(response, configuration);
-            throw new Code3XXResponse.ResponseApiException(
+            throw new FakeredirectionGetCode3XXResponse.ResponseApiException(
                 "Received error statusCode response from server",
                 response,
                 deserializedResponse

@@ -10,18 +10,18 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCode200Response](#endpointcode200response)<br> the response for 200 |
-| record | [EndpointCodedefaultResponse](#endpointcodedefaultresponse)<br> the response for default |
+| record | [EndpointFakedeletecoffeeidDeleteCode200Response](#endpointfakedeletecoffeeiddeletecode200response)<br> the response for 200 |
+| record | [EndpointFakedeletecoffeeidDeleteCodedefaultResponse](#endpointfakedeletecoffeeiddeletecodedefaultresponse)<br> the response for default |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCode200Response](#endpointcode200response),
-[EndpointCodedefaultResponse](#endpointcodedefaultresponse)
+[EndpointFakedeletecoffeeidDeleteCode200Response](#endpointfakedeletecoffeeiddeletecode200response),
+[EndpointFakedeletecoffeeidDeleteCodedefaultResponse](#endpointfakedeletecoffeeiddeletecodedefaultresponse)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCode200Response
-public record EndpointCode200Response(
+## EndpointFakedeletecoffeeidDeleteCode200Response
+public record EndpointFakedeletecoffeeidDeleteCode200Response(
     HttpResponse<byte[]> response,
     Void body,
     Void headers
@@ -29,8 +29,8 @@ public record EndpointCode200Response(
 
 a class that stores an endpoint response
 
-## EndpointCodedefaultResponse
-public record EndpointCodedefaultResponse(
+## EndpointFakedeletecoffeeidDeleteCodedefaultResponse
+public record EndpointFakedeletecoffeeidDeleteCodedefaultResponse(
     HttpResponse<byte[]> response,
     Void body,
     Void headers

@@ -38,9 +38,9 @@ import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetQueryPa
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.userlogin.get.responses.Code200Response;
-import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.Code200ResponseHeadersSchema;
-import org.openapijsonschematools.client.paths.userlogin.get.responses.Code400Response;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.UserloginGetCode200Response;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.UserloginGetCode200ResponseHeadersSchema;
+import org.openapijsonschematools.client.paths.userlogin.get.responses.UserloginGetCode400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.userlogin.UserloginGet;
 import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetResponses;
@@ -90,7 +90,7 @@ var request = new UserloginGet.GetRequestBuilder()
 UserloginGetResponses.EndpointResponse response;
 try {
     response = apiClient.get(request);
-} catch (Code400Response.ResponseApiException e) {
+} catch (UserloginGetCode400Response.ResponseApiException e) {
     // server returned an error response defined in the openapi document
     throw e;
 } catch (ApiException e) {
@@ -107,11 +107,11 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-UserloginGetResponses.EndpointCode200Response castResponse = (UserloginGetResponses.EndpointCode200Response) response;
-if (castResponse.body instanceof Code200Response.ApplicationxmlResponseBody deserializedBody) {
+UserloginGetResponses.EndpointUserloginGetCode200Response castResponse = (UserloginGetResponses.EndpointUserloginGetCode200Response) response;
+if (castResponse.body instanceof UserloginGetCode200Response.ApplicationxmlResponseBody deserializedBody) {
     // handle deserialized body here
 } else {
-    Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+    UserloginGetCode200Response.ApplicationjsonResponseBody deserializedBody = (UserloginGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
     // handle deserialized body here
 }
 ```

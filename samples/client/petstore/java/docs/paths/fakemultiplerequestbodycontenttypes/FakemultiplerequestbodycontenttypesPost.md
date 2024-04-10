@@ -37,7 +37,7 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.responses.FakemultiplerequestbodycontenttypesPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.FakemultiplerequestbodycontenttypesPost;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.FakemultiplerequestbodycontenttypesPostResponses;
@@ -87,8 +87,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakemultiplerequestbodycontenttypesPostResponses.EndpointCode200Response castResponse = (FakemultiplerequestbodycontenttypesPostResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+FakemultiplerequestbodycontenttypesPostResponses.EndpointFakemultiplerequestbodycontenttypesPostCode200Response castResponse = (FakemultiplerequestbodycontenttypesPostResponses.EndpointFakemultiplerequestbodycontenttypesPostCode200Response) response;
+FakemultiplerequestbodycontenttypesPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakemultiplerequestbodycontenttypesPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

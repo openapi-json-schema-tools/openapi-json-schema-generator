@@ -10,20 +10,20 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCode200Response](#endpointcode200response)<br> the response for 200 |
+| record | [EndpointFakeadditionalpropertieswitharrayofenumsGetCode200Response](#endpointfakeadditionalpropertieswitharrayofenumsgetcode200response)<br> the response for 200 |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCode200Response](#endpointcode200response)
+[EndpointFakeadditionalpropertieswitharrayofenumsGetCode200Response](#endpointfakeadditionalpropertieswitharrayofenumsgetcode200response)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCode200Response
-public record EndpointCode200Response(
+## EndpointFakeadditionalpropertieswitharrayofenumsGetCode200Response
+public record EndpointFakeadditionalpropertieswitharrayofenumsGetCode200Response(
     HttpResponse<byte[]> response,
-    [Code200Response.SealedResponseBody](../../../paths/fakeadditionalpropertieswitharrayofenums/get/responses/Code200Response.md#sealedresponsebody) body,
+    [FakeadditionalpropertieswitharrayofenumsGetCode200Response.SealedResponseBody](../../../paths/fakeadditionalpropertieswitharrayofenums/get/responses/FakeadditionalpropertieswitharrayofenumsGetCode200Response.md#sealedresponsebody) body,
     Void headers
-) implements EndpointResponse, ApiResponse<Code200Response.SealedResponseBody, Void><br>
+) implements EndpointResponse, ApiResponse<FakeadditionalpropertieswitharrayofenumsGetCode200Response.SealedResponseBody, Void><br>
 
 a class that stores an endpoint response
 

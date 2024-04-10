@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.components.schemas.User;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.user.post.responses.CodedefaultResponse;
+import org.openapijsonschematools.client.paths.user.post.responses.UserPostCodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.user.UserPost;
 import org.openapijsonschematools.client.paths.user.post.UserPostResponses;
@@ -117,7 +117,7 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-UserPostResponses.EndpointCodedefaultResponse castResponse = (UserPostResponses.EndpointCodedefaultResponse) response;
+UserPostResponses.EndpointUserPostCodedefaultResponse castResponse = (UserPostResponses.EndpointUserPostCodedefaultResponse) response;
 ```
 ### Constructor Summary
 | Constructor and Description |

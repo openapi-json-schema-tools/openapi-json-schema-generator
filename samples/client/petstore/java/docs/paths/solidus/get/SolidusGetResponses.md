@@ -10,16 +10,16 @@ A class that contains necessary responses classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
-| record | [EndpointCode200Response](#endpointcode200response)<br> the response for 200 |
+| record | [EndpointSolidusGetCode200Response](#endpointsolidusgetcode200response)<br> the response for 200 |
 
 ## EndpointResponse
 public sealed interface EndpointResponse permits<br>
-[EndpointCode200Response](#endpointcode200response)
+[EndpointSolidusGetCode200Response](#endpointsolidusgetcode200response)
 
 a sealed interface that stores endpoint responses
 
-## EndpointCode200Response
-public record EndpointCode200Response(
+## EndpointSolidusGetCode200Response
+public record EndpointSolidusGetCode200Response(
     HttpResponse<byte[]> response,
     Void body,
     Void headers

@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.components.schemas.Client;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fake.patch.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fake.patch.responses.FakePatchCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.FakePatch;
 import org.openapijsonschematools.client.paths.fake.patch.FakePatchResponses;
@@ -101,8 +101,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakePatchResponses.EndpointCode200Response castResponse = (FakePatchResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+FakePatchResponses.EndpointFakePatchCode200Response castResponse = (FakePatchResponses.EndpointFakePatchCode200Response) response;
+FakePatchCode200Response.ApplicationjsonResponseBody deserializedBody = (FakePatchCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

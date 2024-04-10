@@ -39,7 +39,7 @@ import org.openapijsonschematools.client.components.schemas.Client;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.anotherfakedummy.patch.responses.Code200Response;
+import org.openapijsonschematools.client.paths.anotherfakedummy.patch.responses.AnotherfakedummyPatchCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.anotherfakedummy.AnotherfakedummyPatch;
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.AnotherfakedummyPatchResponses;
@@ -101,8 +101,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-AnotherfakedummyPatchResponses.EndpointCode200Response castResponse = (AnotherfakedummyPatchResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+AnotherfakedummyPatchResponses.EndpointAnotherfakedummyPatchCode200Response castResponse = (AnotherfakedummyPatchResponses.EndpointAnotherfakedummyPatchCode200Response) response;
+AnotherfakedummyPatchCode200Response.ApplicationjsonResponseBody deserializedBody = (AnotherfakedummyPatchCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary

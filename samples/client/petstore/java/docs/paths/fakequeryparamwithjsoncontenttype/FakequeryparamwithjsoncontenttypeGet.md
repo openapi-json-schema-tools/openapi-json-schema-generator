@@ -38,7 +38,7 @@ import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
-import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.responses.Code200Response;
+import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.responses.FakequeryparamwithjsoncontenttypeGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.FakequeryparamwithjsoncontenttypeGet;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.FakequeryparamwithjsoncontenttypeGetResponses;
@@ -98,8 +98,8 @@ try {
     // or the header content type deserialization has not yet been implemented for this contentType
     throw e;
 }
-FakequeryparamwithjsoncontenttypeGetResponses.EndpointCode200Response castResponse = (FakequeryparamwithjsoncontenttypeGetResponses.EndpointCode200Response) response;
-Code200Response.ApplicationjsonResponseBody deserializedBody = (Code200Response.ApplicationjsonResponseBody) castResponse.body;
+FakequeryparamwithjsoncontenttypeGetResponses.EndpointFakequeryparamwithjsoncontenttypeGetCode200Response castResponse = (FakequeryparamwithjsoncontenttypeGetResponses.EndpointFakequeryparamwithjsoncontenttypeGetCode200Response) response;
+FakequeryparamwithjsoncontenttypeGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakequeryparamwithjsoncontenttypeGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
 ### Constructor Summary
