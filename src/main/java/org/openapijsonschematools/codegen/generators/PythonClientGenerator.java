@@ -33,6 +33,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
@@ -2128,21 +2129,34 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         LOGGER.info("################################################################################");
     }
 
+    @Deprecated
     @Override
     public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        String usedKey = escapeUnsafeCharacters(name);
-        HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
-        if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
-            sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
+    }
+
+    @Override
+    public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        switch (type) {
+            case SCHEMA:
+                String usedKey = escapeUnsafeCharacters(lastJsonPathFragment);
+                HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(jsonPath, new HashMap<>());
+                if (!sourceJsonPathToKeyToQty.containsKey(jsonPath)) {
+                    sourceJsonPathToKeyToQty.put(jsonPath, keyToQty);
+                }
+                Integer qty = keyToQty.getOrDefault(usedKey.toLowerCase(Locale.ROOT), 0);
+                qty += 1;
+                keyToQty.put(usedKey.toLowerCase(Locale.ROOT), qty);
+                String suffix = "";
+                if (qty > 1) {
+                    suffix = qty.toString();
+                }
+                return toModelName(usedKey + suffix, jsonPath);
+            case OPERATION:
+                return toModelName(lastJsonPathFragment, jsonPath);
+            default:
+                return null;
         }
-        Integer qty = keyToQty.getOrDefault(usedKey.toLowerCase(Locale.ROOT), 0);
-        qty += 1;
-        keyToQty.put(usedKey.toLowerCase(Locale.ROOT), qty);
-        String suffix = "";
-        if (qty > 1) {
-            suffix = qty.toString();
-        }
-        return toModelName(usedKey + suffix, sourceJsonPath);
     }
 
     @Override

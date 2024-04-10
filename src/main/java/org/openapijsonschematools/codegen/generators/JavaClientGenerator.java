@@ -1213,9 +1213,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return name.matches("^[a-zA-Z]\\w*$");
     }
 
+    @Deprecated
     @Override
     public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        return getSchemaPascalCaseName(name, sourceJsonPath, true);
+        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
     }
 
     protected String getCamelCaseName(String key) {
@@ -2626,6 +2627,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch (type) {
+            case SCHEMA:
+                return getSchemaPascalCaseName(lastJsonPathFragment, jsonPath, true);
             case OPERATION:
                 return toOperationFilename(lastJsonPathFragment, jsonPath);
             default:

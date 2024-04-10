@@ -108,6 +108,7 @@ public interface Generator {
 
     String getSchemaFilename(String jsonPath);
 
+    @Deprecated
     String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath);
     Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet);
     String toContentTypeFilename(String name);

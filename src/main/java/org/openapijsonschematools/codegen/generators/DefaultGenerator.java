@@ -3362,6 +3362,40 @@ public class DefaultGenerator implements Generator {
     @Override
     public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch (type) {
+            case SCHEMA:
+                String usedKey = escapeUnsafeCharacters(lastJsonPathFragment);
+                HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(jsonPath, new HashMap<>());
+                if (!sourceJsonPathToKeyToQty.containsKey(jsonPath)) {
+                    sourceJsonPathToKeyToQty.put(jsonPath, keyToQty);
+                }
+                // starts with number
+                if (usedKey.matches("^\\d.*")) {
+                    LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to Schema{}", usedKey, usedKey);
+                    usedKey = "Schema" + usedKey; // 200 -> Schema200
+                }
+
+                usedKey = camelize(usedKey);
+
+                // handle case where usedKey is empty
+                if (usedKey.isEmpty()) {
+                    // happens with a name like "/"
+                    usedKey = camelize(toEnumVarName(lastJsonPathFragment, null).toLowerCase(Locale.ROOT));
+                }
+
+                if (isReservedWord(usedKey)) {
+                    usedKey = usedKey + "Schema"; // e.g. return => ReturnSchema
+                    LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", lastJsonPathFragment, usedKey);
+                }
+
+                Integer qty = keyToQty.getOrDefault(usedKey, 0);
+                qty += 1;
+                keyToQty.put(usedKey, qty);
+                String suffix = "";
+                if (qty > 1) {
+                    suffix = qty.toString();
+                }
+                usedKey = usedKey + suffix;
+                return usedKey;
             case OPERATION:
                 return toModelName(lastJsonPathFragment, jsonPath);
             default:
@@ -4896,41 +4930,10 @@ public class DefaultGenerator implements Generator {
         return getKey(key, keyType, null);
     }
 
+    @Deprecated
     @Override
     public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        String usedKey = escapeUnsafeCharacters(name);
-        HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
-        if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
-            sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
-        }
-        // starts with number
-        if (usedKey.matches("^\\d.*")) {
-            LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to Schema{}", usedKey, usedKey);
-            usedKey = "Schema" + usedKey; // 200 -> Schema200
-        }
-
-        usedKey = camelize(usedKey);
-
-        // handle case where usedKey is empty
-        if (usedKey.isEmpty()) {
-            // happens with a name like "/"
-            usedKey = camelize(toEnumVarName(name, null).toLowerCase(Locale.ROOT));
-        }
-
-        if (isReservedWord(usedKey)) {
-            usedKey = usedKey + "Schema"; // e.g. return => ReturnSchema
-            LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", name, usedKey);
-        }
-
-        Integer qty = keyToQty.getOrDefault(usedKey, 0);
-        qty += 1;
-        keyToQty.put(usedKey, qty);
-        String suffix = "";
-        if (qty > 1) {
-            suffix = qty.toString();
-        }
-        usedKey = usedKey + suffix;
-        return usedKey;
+        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
     }
 
     protected String getCamelCaseName(String key) {
@@ -4952,7 +4955,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getSchemaPascalCaseName(key, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.SCHEMA, key, sourceJsonPath);
                 camelCaseName = getCamelCaseName(usedKey);
                 break;
             case "paths":
