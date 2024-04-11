@@ -12,10 +12,11 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| interface | [NumberWithValidationsOperation](#numberwithvalidationsoperation)<br>The interface that has a numberWithValidations method to call the endpoint |
 | static class | [PostRequest](#postrequest)<br>The request inputs class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-### Post
+## Post
 public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
@@ -100,6 +101,16 @@ FakerefsnumberPostCode200Response.ApplicationjsonResponseBody deserializedBody =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+
+## NumberWithValidationsOperation
+public interface NumberWithValidationsOperation<br>
+
+an interface that allows one to call the endpoint using a method named numberWithValidations by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) | numberWithValidations([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

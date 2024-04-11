@@ -21,7 +21,7 @@ import io.swagger.v3.oas.models.ExternalDocumentation;
 
 import java.util.*;
 
-public class CodegenOperation {
+public class CodegenOperation implements PathFromDocRootProvider {
     public final Boolean deprecated;
     public final LinkedHashSet<Integer> nonErrorStatusCodes; // values like 201
     public final LinkedHashSet<Integer> nonErrorWildcardStatusCodes; // values like 2 for @2XX
@@ -53,6 +53,7 @@ public class CodegenOperation {
     public final CodegenKey method;
     public final List<MapBuilder<?>> builders;
     public final String subpackage;
+    public final String pathFromDocRoot;
 
     public CodegenOperation(
             Boolean deprecated,
@@ -83,7 +84,8 @@ public class CodegenOperation {
             CodegenKey method,
             CodegenSchema requestBodySchema,
             List<MapBuilder<?>> builders,
-            String subpackage
+            String subpackage,
+            String pathFromDocRoot
 ) {
         this.deprecated = deprecated;
         this.nonErrorStatusCodes = nonErrorStatusCodes;
@@ -114,6 +116,7 @@ public class CodegenOperation {
         this.requestBodySchema = requestBodySchema;
         this.builders = builders;
         this.subpackage = subpackage;
+        this.pathFromDocRoot = pathFromDocRoot;
         TreeMap<String,CodegenResponse> nonErrorResponsesMap = new TreeMap<>();
         if (statusCodeResponses != null) {
             for (Map.Entry<Integer, CodegenResponse> entry: statusCodeResponses.entrySet()) {
@@ -318,5 +321,10 @@ public class CodegenOperation {
                 security, tags, responses, callbacks, externalDocs,
                 vendorExtensions, statusCodeResponses, wildcardCodeResponses,
                 nonDefaultResponses, jsonPathPiece);
+    }
+
+    @Override
+    public String pathFromDocRoot() {
+        return pathFromDocRoot;
     }
 }

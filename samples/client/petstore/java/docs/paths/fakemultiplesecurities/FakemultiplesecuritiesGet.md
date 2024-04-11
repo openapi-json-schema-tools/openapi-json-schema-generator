@@ -12,10 +12,11 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| interface | [MultipleSecuritiesOperation](#multiplesecuritiesoperation)<br>The interface that has a multipleSecurities method to call the endpoint |
 | static class | [GetRequest](#getrequest)<br>The request inputs class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-### Get
+## Get
 public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
@@ -115,6 +116,16 @@ FakemultiplesecuritiesGetCode200Response.ApplicationjsonResponseBody deserialize
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+
+## MultipleSecuritiesOperation
+public interface MultipleSecuritiesOperation<br>
+
+an interface that allows one to call the endpoint using a method named multipleSecurities by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) | multipleSecurities([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| interface | [GetPetByIdOperation](#getpetbyidoperation)<br>The interface that has a getPetById method to call the endpoint |
 | static class | [GetRequest](#getrequest)<br>The final request inputs class |
 | static class | [GetNullableRequest](#getnullablerequest)<br>The initial request inputs class |
 | static class | [Get0RequestBuilder](#get0requestbuilder)<br>A builder for the request input class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-### Get
+## Get
 public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
@@ -134,6 +135,16 @@ if (castResponse.body instanceof PetpetidGetCode200Response.ApplicationxmlRespon
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+
+## GetPetByIdOperation
+public interface GetPetByIdOperation<br>
+
+an interface that allows one to call the endpoint using a method named getPetById by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) | getPetById([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

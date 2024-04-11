@@ -12,10 +12,11 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| interface | [ObjectInQueryOperation](#objectinqueryoperation)<br>The interface that has a objectInQuery method to call the endpoint |
 | static class | [GetRequest](#getrequest)<br>The request inputs class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-### Get
+## Get
 public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
@@ -97,6 +98,16 @@ FakeobjinqueryGetResponses.EndpointFakeobjinqueryGetCode200Response castResponse
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+
+## ObjectInQueryOperation
+public interface ObjectInQueryOperation<br>
+
+an interface that allows one to call the endpoint using a method named objectInQuery by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) | objectInQuery([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

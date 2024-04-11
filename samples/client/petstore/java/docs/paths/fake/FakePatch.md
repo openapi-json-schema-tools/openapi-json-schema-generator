@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Patch](#patch)<br>The class that has a patch method to call the endpoint |
+| interface | [ClientModelOperation](#clientmodeloperation)<br>The interface that has a clientModel method to call the endpoint |
 | static class | [PatchRequest](#patchrequest)<br>The final request inputs class |
 | static class | [PatchNullableRequest](#patchnullablerequest)<br>The initial request inputs class |
 | static class | [Patch0RequestBuilder](#patch0requestbuilder)<br>A builder for the request input class |
 | static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
 
-### Patch
+## Patch
 public static class Patch extends ApiClient.ApiClient1 implements PatchOperation<br>
 
 a class that allows one to call the endpoint using a method named patch
@@ -114,6 +115,16 @@ FakePatchCode200Response.ApplicationjsonResponseBody deserializedBody = (FakePat
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
+
+## ClientModelOperation
+public interface ClientModelOperation<br>
+
+an interface that allows one to call the endpoint using a method named clientModel by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) | clientModel([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>

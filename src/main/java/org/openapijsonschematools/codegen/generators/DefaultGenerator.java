@@ -2962,6 +2962,7 @@ public class DefaultGenerator implements Generator {
         List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, usedServers, usedSecurity);
         CodegenKey method = getKey(pathPieces[pathPieces.length-1], "misc", jsonPath);
         String subpackage = getSubpackage(jsonPath);
+        String pathFromDocRoot = getPathFromDocRoot(jsonPath);
 
         return new CodegenOperation(
             deprecated,
@@ -2992,7 +2993,8 @@ public class DefaultGenerator implements Generator {
             method,
             requestBodySchema,
             builders,
-            subpackage
+            subpackage,
+            pathFromDocRoot
         );
     }
 

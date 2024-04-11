@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| interface | [UploadDownloadFileOperation](#uploaddownloadfileoperation)<br>The interface that has a uploadDownloadFile method to call the endpoint |
 | static class | [PostRequest](#postrequest)<br>The final request inputs class |
 | static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-### Post
+## Post
 public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
@@ -110,6 +111,16 @@ FakeuploaddownloadfilePostCode200Response.ApplicationoctetstreamResponseBody des
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakeuploaddownloadfilePostResponses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/FakeuploaddownloadfilePostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+
+## UploadDownloadFileOperation
+public interface UploadDownloadFileOperation<br>
+
+an interface that allows one to call the endpoint using a method named uploadDownloadFile by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakeuploaddownloadfilePostResponses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/FakeuploaddownloadfilePostResponses.md#endpointresponse) | uploadDownloadFile([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

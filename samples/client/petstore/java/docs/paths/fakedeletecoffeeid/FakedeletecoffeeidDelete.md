@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Delete](#delete)<br>The class that has a delete method to call the endpoint |
+| interface | [DeleteCoffeeOperation](#deletecoffeeoperation)<br>The interface that has a deleteCoffee method to call the endpoint |
 | static class | [DeleteRequest](#deleterequest)<br>The final request inputs class |
 | static class | [DeleteNullableRequest](#deletenullablerequest)<br>The initial request inputs class |
 | static class | [Delete0RequestBuilder](#delete0requestbuilder)<br>A builder for the request input class |
 | static class | [DeleteRequestBuilder](#deleterequestbuilder)<br>A builder for the request input class |
 
-### Delete
+## Delete
 public static class Delete extends ApiClient.ApiClient1 implements DeleteOperation<br>
 
 a class that allows one to call the endpoint using a method named delete
@@ -115,6 +116,16 @@ if (response instanceof FakedeletecoffeeidDeleteResponses.EndpointFakedeletecoff
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
+
+## DeleteCoffeeOperation
+public interface DeleteCoffeeOperation<br>
+
+an interface that allows one to call the endpoint using a method named deleteCoffee by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) | deleteCoffee([DeleteRequest](#deleterequest) request) |
 
 ## DeleteRequest
 public static class DeleteRequest<br>

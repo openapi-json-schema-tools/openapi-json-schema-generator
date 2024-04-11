@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| interface | [LoginUserOperation](#loginuseroperation)<br>The interface that has a loginUser method to call the endpoint |
 | static class | [GetRequest](#getrequest)<br>The final request inputs class |
 | static class | [GetNullableRequest](#getnullablerequest)<br>The initial request inputs class |
 | static class | [Get0RequestBuilder](#get0requestbuilder)<br>A builder for the request input class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-### Get
+## Get
 public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
@@ -124,6 +125,16 @@ if (castResponse.body instanceof UserloginGetCode200Response.ApplicationxmlRespo
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+
+## LoginUserOperation
+public interface LoginUserOperation<br>
+
+an interface that allows one to call the endpoint using a method named loginUser by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) | loginUser([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

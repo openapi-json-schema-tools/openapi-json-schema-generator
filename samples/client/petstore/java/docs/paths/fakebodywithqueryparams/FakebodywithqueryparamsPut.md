@@ -12,6 +12,7 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Put](#put)<br>The class that has a put method to call the endpoint |
+| interface | [BodyWithQueryParamsOperation](#bodywithqueryparamsoperation)<br>The interface that has a bodyWithQueryParams method to call the endpoint |
 | static class | [PutRequest](#putrequest)<br>The final request inputs class |
 | static class | [PutNullableRequest](#putnullablerequest)<br>The initial request inputs class |
 | static class | [Put00RequestBuilder](#put00requestbuilder)<br>A builder for the request input class |
@@ -19,7 +20,7 @@ A class that contains necessary endpoint classes
 | static class | [Put10RequestBuilder](#put10requestbuilder)<br>A builder for the request input class |
 | static class | [PutRequestBuilder](#putrequestbuilder)<br>A builder for the request input class |
 
-### Put
+## Put
 public static class Put extends ApiClient.ApiClient1 implements PutOperation<br>
 
 a class that allows one to call the endpoint using a method named put
@@ -142,6 +143,16 @@ FakebodywithqueryparamsPutResponses.EndpointFakebodywithqueryparamsPutCode200Res
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
+
+## BodyWithQueryParamsOperation
+public interface BodyWithQueryParamsOperation<br>
+
+an interface that allows one to call the endpoint using a method named bodyWithQueryParams by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) | bodyWithQueryParams([PutRequest](#putrequest) request) |
 
 ## PutRequest
 public static class PutRequest<br>

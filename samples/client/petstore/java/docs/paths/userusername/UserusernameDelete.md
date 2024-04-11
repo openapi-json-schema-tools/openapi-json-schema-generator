@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Delete](#delete)<br>The class that has a delete method to call the endpoint |
+| interface | [DeleteUserOperation](#deleteuseroperation)<br>The interface that has a deleteUser method to call the endpoint |
 | static class | [DeleteRequest](#deleterequest)<br>The final request inputs class |
 | static class | [DeleteNullableRequest](#deletenullablerequest)<br>The initial request inputs class |
 | static class | [Delete0RequestBuilder](#delete0requestbuilder)<br>A builder for the request input class |
 | static class | [DeleteRequestBuilder](#deleterequestbuilder)<br>A builder for the request input class |
 
-### Delete
+## Delete
 public static class Delete extends ApiClient.ApiClient1 implements DeleteOperation<br>
 
 a class that allows one to call the endpoint using a method named delete
@@ -115,6 +116,16 @@ UserusernameDeleteResponses.EndpointUserusernameDeleteCode200Response castRespon
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
+
+## DeleteUserOperation
+public interface DeleteUserOperation<br>
+
+an interface that allows one to call the endpoint using a method named deleteUser by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) | deleteUser([DeleteRequest](#deleterequest) request) |
 
 ## DeleteRequest
 public static class DeleteRequest<br>

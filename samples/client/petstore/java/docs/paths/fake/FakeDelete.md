@@ -12,6 +12,7 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Delete](#delete)<br>The class that has a delete method to call the endpoint |
+| interface | [GroupParametersOperation](#groupparametersoperation)<br>The interface that has a groupParameters method to call the endpoint |
 | static class | [DeleteRequest](#deleterequest)<br>The final request inputs class |
 | static class | [DeleteNullableRequest](#deletenullablerequest)<br>The initial request inputs class |
 | static class | [Delete00RequestBuilder](#delete00requestbuilder)<br>A builder for the request input class |
@@ -19,7 +20,7 @@ A class that contains necessary endpoint classes
 | static class | [Delete10RequestBuilder](#delete10requestbuilder)<br>A builder for the request input class |
 | static class | [DeleteRequestBuilder](#deleterequestbuilder)<br>A builder for the request input class |
 
-### Delete
+## Delete
 public static class Delete extends ApiClient.ApiClient1 implements DeleteOperation<br>
 
 a class that allows one to call the endpoint using a method named delete
@@ -145,6 +146,16 @@ FakeDeleteResponses.EndpointFakeDeleteCode200Response castResponse = (FakeDelete
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) | delete([DeleteRequest](#deleterequest) request) |
+
+## GroupParametersOperation
+public interface GroupParametersOperation<br>
+
+an interface that allows one to call the endpoint using a method named groupParameters by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) | groupParameters([DeleteRequest](#deleterequest) request) |
 
 ## DeleteRequest
 public static class DeleteRequest<br>

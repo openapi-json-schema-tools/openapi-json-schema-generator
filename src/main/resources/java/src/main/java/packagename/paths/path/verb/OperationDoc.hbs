@@ -1,12 +1,5 @@
 {{#with operation}}
-{{#eq identifierPieces.size 0}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
-{{else}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces }}
-{{/eq}}
-{{#if componentModule}}
-{{jsonPathPiece.pascalCase}}.java
-{{/if}}
+{{headerSize}} {{jsonPathPiece.pascalCase}}
 
 public class {{jsonPathPiece.pascalCase}}
 
@@ -20,6 +13,9 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [{{method.pascalCase}}](#{{method.kebabCase}})<br>The class that has a {{method.camelCase}} method to call the endpoint |
+{{#neq method.pascalCase operationId.pascalCase}}
+| interface | [{{operationId.pascalCase}}Operation](#{{operationId.kebabCase}}operation)<br>The interface that has a {{operationId.camelCase}} method to call the endpoint |
+{{/neq}}
     {{#eq builders.size 1}}
 | static class | [{{method.pascalCase}}Request](#{{method.kebabCase}}request)<br>The request inputs class |
     {{else}}
@@ -30,7 +26,7 @@ A class that contains necessary endpoint classes
 | static class | [{{className.pascalCase}}](#{{className.kebabCase}})<br>A builder for the request input class |
     {{/each}}
 
-{{headerSize}}## {{method.pascalCase}}
+{{headerSize}}# {{method.pascalCase}}
 public static class {{method.pascalCase}} extends ApiClient.ApiClient1 implements {{method.pascalCase}}Operation<br>
 
 a class that allows one to call the endpoint using a method named {{method.camelCase}}
@@ -47,13 +43,25 @@ a class that allows one to call the endpoint using a method named {{method.camel
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} | {{method.camelCase}}([{{method.pascalCase}}Request](#{{method.kebabCase}}request) request) |
+{{#neq method.pascalCase operationId.pascalCase}}
+
+{{headerSize}}# {{operationId.pascalCase}}Operation
+public interface {{operationId.pascalCase}}Operation<br>
+
+an interface that allows one to call the endpoint using a method named {{operationId.camelCase}} by the operationId
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} | {{operationId.camelCase}}([{{method.pascalCase}}Request](#{{method.kebabCase}}request) request) |
+{{/neq}}
 
     {{#eq builders.size 1}}
 {{> src/main/java/packagename/paths/path/verb/_FinalRequestClassDoc }}
     {{else}}
 {{> src/main/java/packagename/paths/path/verb/_FinalRequestClassDoc }}
 
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join method.pascalCase "NullableRequest" "")) }}
+{{headerSize}}# {{method.pascalCase}}NullableRequest
 public static class {{method.pascalCase}}NullableRequest<br>
 
 a class that stores the initial request inputs
@@ -81,7 +89,7 @@ a class that stores the initial request inputs
     {{/eq}}
     {{#each builders}}
 
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces className.pascalCase) }}
+{{headerSize}}# {{className.pascalCase}}
 public static class {{className.pascalCase}}<br>
 
 a builder for request inputs

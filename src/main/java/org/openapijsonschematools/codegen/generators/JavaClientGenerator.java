@@ -1013,6 +1013,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 put("src/main/java/packagename/apis/paths/Api.hbs", ".java");
             }}
         );
+        jsonPathDocTemplateFiles.put(
+            CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATH,
+            new HashMap<>() {{
+                put("src/main/java/packagename/apis/paths/ApiDoc.hbs", ".md");
+            }}
+        );
         jsonPathTemplateFiles.put(
             CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
             new HashMap<>() {{

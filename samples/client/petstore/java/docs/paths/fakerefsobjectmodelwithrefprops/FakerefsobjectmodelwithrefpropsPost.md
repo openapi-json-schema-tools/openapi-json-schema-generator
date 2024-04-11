@@ -12,10 +12,11 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| interface | [ObjectModelWithRefPropsOperation](#objectmodelwithrefpropsoperation)<br>The interface that has a objectModelWithRefProps method to call the endpoint |
 | static class | [PostRequest](#postrequest)<br>The request inputs class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-### Post
+## Post
 public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
@@ -100,6 +101,16 @@ FakerefsobjectmodelwithrefpropsPostCode200Response.ApplicationjsonResponseBody d
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+
+## ObjectModelWithRefPropsOperation
+public interface ObjectModelWithRefPropsOperation<br>
+
+an interface that allows one to call the endpoint using a method named objectModelWithRefProps by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) | objectModelWithRefProps([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

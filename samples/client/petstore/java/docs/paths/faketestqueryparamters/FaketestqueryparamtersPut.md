@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Put](#put)<br>The class that has a put method to call the endpoint |
+| interface | [QueryParameterCollectionFormatOperation](#queryparametercollectionformatoperation)<br>The interface that has a queryParameterCollectionFormat method to call the endpoint |
 | static class | [PutRequest](#putrequest)<br>The final request inputs class |
 | static class | [PutNullableRequest](#putnullablerequest)<br>The initial request inputs class |
 | static class | [Put0RequestBuilder](#put0requestbuilder)<br>A builder for the request input class |
 | static class | [PutRequestBuilder](#putrequestbuilder)<br>A builder for the request input class |
 
-### Put
+## Put
 public static class Put extends ApiClient.ApiClient1 implements PutOperation<br>
 
 a class that allows one to call the endpoint using a method named put
@@ -136,6 +137,16 @@ FaketestqueryparamtersPutResponses.EndpointFaketestqueryparamtersPutCode200Respo
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
+
+## QueryParameterCollectionFormatOperation
+public interface QueryParameterCollectionFormatOperation<br>
+
+an interface that allows one to call the endpoint using a method named queryParameterCollectionFormat by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) | queryParameterCollectionFormat([PutRequest](#putrequest) request) |
 
 ## PutRequest
 public static class PutRequest<br>

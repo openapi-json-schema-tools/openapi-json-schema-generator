@@ -12,10 +12,11 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| interface | [FakeHealthGetOperation](#fakehealthgetoperation)<br>The interface that has a fakeHealthGet method to call the endpoint |
 | static class | [GetRequest](#getrequest)<br>The request inputs class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-### Get
+## Get
 public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
@@ -98,6 +99,16 @@ FakehealthGetCode200Response.ApplicationjsonResponseBody deserializedBody = (Fak
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+
+## FakeHealthGetOperation
+public interface FakeHealthGetOperation<br>
+
+an interface that allows one to call the endpoint using a method named fakeHealthGet by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) | fakeHealthGet([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

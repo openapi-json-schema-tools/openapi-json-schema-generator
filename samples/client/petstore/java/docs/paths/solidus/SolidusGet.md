@@ -12,10 +12,11 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Get](#get)<br>The class that has a get method to call the endpoint |
+| interface | [SlashRouteOperation](#slashrouteoperation)<br>The interface that has a slashRoute method to call the endpoint |
 | static class | [GetRequest](#getrequest)<br>The request inputs class |
 | static class | [GetRequestBuilder](#getrequestbuilder)<br>A builder for the request input class |
 
-### Get
+## Get
 public static class Get extends ApiClient.ApiClient1 implements GetOperation<br>
 
 a class that allows one to call the endpoint using a method named get
@@ -96,6 +97,16 @@ SolidusGetResponses.EndpointSolidusGetCode200Response castResponse = (SolidusGet
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) | get([GetRequest](#getrequest) request) |
+
+## SlashRouteOperation
+public interface SlashRouteOperation<br>
+
+an interface that allows one to call the endpoint using a method named slashRoute by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) | slashRoute([GetRequest](#getrequest) request) |
 
 ## GetRequest
 public static class GetRequest<br>

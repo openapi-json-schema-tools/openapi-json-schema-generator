@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| interface | [UpdatePetWithFormOperation](#updatepetwithformoperation)<br>The interface that has a updatePetWithForm method to call the endpoint |
 | static class | [PostRequest](#postrequest)<br>The final request inputs class |
 | static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-### Post
+## Post
 public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
@@ -127,6 +128,16 @@ try {
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | post([PostRequest](#postrequest) request) |
+
+## UpdatePetWithFormOperation
+public interface UpdatePetWithFormOperation<br>
+
+an interface that allows one to call the endpoint using a method named updatePetWithForm by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Void | updatePetWithForm([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

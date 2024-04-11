@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Patch](#patch)<br>The class that has a patch method to call the endpoint |
+| interface | [Model123TestSpecialTagsOperation](#model123testspecialtagsoperation)<br>The interface that has a model123TestSpecialTags method to call the endpoint |
 | static class | [PatchRequest](#patchrequest)<br>The final request inputs class |
 | static class | [PatchNullableRequest](#patchnullablerequest)<br>The initial request inputs class |
 | static class | [Patch0RequestBuilder](#patch0requestbuilder)<br>A builder for the request input class |
 | static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
 
-### Patch
+## Patch
 public static class Patch extends ApiClient.ApiClient1 implements PatchOperation<br>
 
 a class that allows one to call the endpoint using a method named patch
@@ -114,6 +115,16 @@ AnotherfakedummyPatchCode200Response.ApplicationjsonResponseBody deserializedBod
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AnotherfakedummyPatchResponses.EndpointResponse](../../paths/anotherfakedummy/patch/AnotherfakedummyPatchResponses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
+
+## Model123TestSpecialTagsOperation
+public interface Model123TestSpecialTagsOperation<br>
+
+an interface that allows one to call the endpoint using a method named model123TestSpecialTags by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [AnotherfakedummyPatchResponses.EndpointResponse](../../paths/anotherfakedummy/patch/AnotherfakedummyPatchResponses.md#endpointresponse) | model123TestSpecialTags([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>

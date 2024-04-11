@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Put](#put)<br>The class that has a put method to call the endpoint |
+| interface | [BodyWithFileSchemaOperation](#bodywithfileschemaoperation)<br>The interface that has a bodyWithFileSchema method to call the endpoint |
 | static class | [PutRequest](#putrequest)<br>The final request inputs class |
 | static class | [PutNullableRequest](#putnullablerequest)<br>The initial request inputs class |
 | static class | [Put0RequestBuilder](#put0requestbuilder)<br>A builder for the request input class |
 | static class | [PutRequestBuilder](#putrequestbuilder)<br>A builder for the request input class |
 
-### Put
+## Put
 public static class Put extends ApiClient.ApiClient1 implements PutOperation<br>
 
 a class that allows one to call the endpoint using a method named put
@@ -114,6 +115,16 @@ FakebodywithfileschemaPutResponses.EndpointFakebodywithfileschemaPutCode200Respo
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) | put([PutRequest](#putrequest) request) |
+
+## BodyWithFileSchemaOperation
+public interface BodyWithFileSchemaOperation<br>
+
+an interface that allows one to call the endpoint using a method named bodyWithFileSchema by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) | bodyWithFileSchema([PutRequest](#putrequest) request) |
 
 ## PutRequest
 public static class PutRequest<br>

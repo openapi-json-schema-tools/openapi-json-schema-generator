@@ -12,12 +12,13 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| interface | [AddPetOperation](#addpetoperation)<br>The interface that has a addPet method to call the endpoint |
 | static class | [PostRequest](#postrequest)<br>The final request inputs class |
 | static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
 | static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
-### Post
+## Post
 public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
 
 a class that allows one to call the endpoint using a method named post
@@ -161,6 +162,16 @@ PetPostResponses.EndpointPetPostCode200Response castResponse = (PetPostResponses
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+
+## AddPetOperation
+public interface AddPetOperation<br>
+
+an interface that allows one to call the endpoint using a method named addPet by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) | addPet([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

@@ -12,10 +12,11 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Patch](#patch)<br>The class that has a patch method to call the endpoint |
+| interface | [JsonPatchOperation](#jsonpatchoperation)<br>The interface that has a jsonPatch method to call the endpoint |
 | static class | [PatchRequest](#patchrequest)<br>The request inputs class |
 | static class | [PatchRequestBuilder](#patchrequestbuilder)<br>A builder for the request input class |
 
-### Patch
+## Patch
 public static class Patch extends ApiClient.ApiClient1 implements PatchOperation<br>
 
 a class that allows one to call the endpoint using a method named patch
@@ -98,6 +99,16 @@ FakejsonpatchPatchResponses.EndpointFakejsonpatchPatchCode200Response castRespon
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) | patch([PatchRequest](#patchrequest) request) |
+
+## JsonPatchOperation
+public interface JsonPatchOperation<br>
+
+an interface that allows one to call the endpoint using a method named jsonPatch by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) | jsonPatch([PatchRequest](#patchrequest) request) |
 
 ## PatchRequest
 public static class PatchRequest<br>
