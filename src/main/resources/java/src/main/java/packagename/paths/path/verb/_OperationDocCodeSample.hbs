@@ -1,5 +1,4 @@
 ```
-{{#with operation}}
 import {{packageName}}.configurations.ApiConfiguration;
 import {{packageName}}.configurations.SchemaConfiguration;
 import {{packageName}}.configurations.JsonSchemaKeywordFlags;
@@ -82,7 +81,7 @@ import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
     {{#with servers}}
 import {{packageName}}.{{#if subpackage}}{{subpackage}}{{else}}servers{{/if}}.{{jsonPathPiece.pascalCase}};
     {{/with}}
-import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+import {{packageName}}.{{apiSubpackage}}.{{apiContainerClass}};
     {{#with responses}}
 import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
     {{/with}}
@@ -161,7 +160,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1 apiClient = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1(apiConfiguration, schemaConfiguration);
+{{apiFullyQualifiedClass}} apiClient = new {{apiFullyQualifiedClass}}(apiConfiguration, schemaConfiguration);
 
     {{#gt builders.size 1}}
     {{#each builders}}
@@ -198,12 +197,12 @@ SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchema
     {{#eq builders.size 1}}
         {{! only option props}}
         {{#each builders}}
-var request = new {{className.pascalCase}}().build();
+var request = new {{../jsonPathPiece.pascalCase}}.{{className.pascalCase}}().build();
         {{/each}}
     {{else}}
         {{#each builders}}
             {{#if @last}}
-var request = new {{className.pascalCase}}()
+var request = new {{../jsonPathPiece.pascalCase}}.{{className.pascalCase}}()
                 {{#each keyToBuilder}}
     .{{@key.camelCase}}({{@key.camelCase}})
                     {{#if @last}}
@@ -263,5 +262,4 @@ if (response instanceof {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPat
 }
     {{/eq}}
 {{/if}}
-{{/with}}
 ```

@@ -1,0 +1,200 @@
+# PetpetiduploadimagePost
+
+public class PetpetiduploadimagePost
+
+A class that contains necessary endpoint classes
+- a class that calls the endpoint method using the http verb
+- a class that calls the endpoint method using the operationId name
+- class(es) to store the request inputs
+- builder(s) to set the request input data
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| static class | [Post](#post)<br>The class that has a post method to call the endpoint |
+| interface | [UploadImageOperation](#uploadimageoperation)<br>The interface that has a uploadImage method to call the endpoint |
+| static class | [PostRequest](#postrequest)<br>The final request inputs class |
+| static class | [PostNullableRequest](#postnullablerequest)<br>The initial request inputs class |
+| static class | [Post0RequestBuilder](#post0requestbuilder)<br>A builder for the request input class |
+| static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
+
+## Post
+public static class Post extends ApiClient.ApiClient1 implements PostOperation<br>
+
+a class that allows one to call the endpoint using a method named post
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostRequestBody;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostPathParameters;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server1;
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
+import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.PetpetiduploadimagePostCode200Response;
+import org.openapijsonschematools.client.components.responses.successwithjsonapiresponse.SuccessWithJsonApiResponseHeadersSchema;
+import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.PetpetiduploadimagePost;
+import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostResponses;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .rootServerInfo(
+        new RootServerInfo.RootServerInfoBuilder()
+            .server0(new Server0())
+            .build()
+    )
+    .build();
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
+List<SecurityScheme> securitySchemes = new ArrayList();
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .petpetiduploadimagePostSecurityRequirementObject0SecurityIndex(PetpetiduploadimagePostSecurityRequirementObject0.SecurityIndex.SECURITY_0)
+    .build();
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    securitySchemes,
+    securityIndexInfo,
+    timeout
+);
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+PetpetiduploadimagePost.Post apiClient = new PetpetiduploadimagePost.Post(apiConfiguration, schemaConfiguration);
+
+
+// Map validation
+PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters =
+    PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1.validate(
+    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMapBuilder()
+        .petId(1L)
+
+    .build(),
+    schemaConfiguration
+);
+
+var request = new PetpetiduploadimagePost.PostRequestBuilder()
+    .pathParameters(pathParameters)
+    .build();
+
+PetpetiduploadimagePostResponses.EndpointResponse response;
+try {
+    response = apiClient.post(request);
+} catch (ApiException e) {
+    // server returned a response/contentType not defined in the openapi document
+    throw e;
+} catch (ValidationException e) {
+    // the returned response body or header values do not conform the the schema validation requirements
+    throw e;
+} catch (IOException | InterruptedException e) {
+    // an exception happened when making the request
+    throw e;
+} catch (NotImplementedException e) {
+    // the request body serialization or deserialization has not yet been implemented
+    // or the header content type deserialization has not yet been implemented for this contentType
+    throw e;
+}
+PetpetiduploadimagePostResponses.EndpointPetpetiduploadimagePostCode200Response castResponse = (PetpetiduploadimagePostResponses.EndpointPetpetiduploadimagePostCode200Response) response;
+}
+```
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Post(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
+
+## UploadImageOperation
+public interface UploadImageOperation<br>
+
+an interface that allows one to call the endpoint using a method named uploadImage by the operationId
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) | uploadImage([PostRequest](#postrequest) request) |
+
+## PostRequest
+public static class PostRequest<br>
+
+a class that stores the final request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) | pathParameters |
+| [PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
+| @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
+
+## PostNullableRequest
+public static class PostNullableRequest<br>
+
+a class that stores the initial request inputs
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| [PetpetiduploadimagePostPathParameters.@Nullable PetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) | pathParameters |
+| [PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostRequestBody.md#sealedrequestbody) | requestBody |
+| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex |
+| @Nullable Duration | timeout |
+
+## Post0RequestBuilder
+public static class Post0RequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Post0RequestBuilder(Post0RequestBuilder instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
+| [Post0RequestBuilder](#post0requestbuilder) | requestBody([PetpetiduploadimagePostRequestBody.SealedRequestBody](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Post0RequestBuilder](#post0requestbuilder) | securityIndex([PetpetiduploadimagePostSecurityInfo.SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+
+## PostRequestBuilder
+public static class PostRequestBuilder<br>
+
+a builder for request inputs
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PostRequestBuilder()<br>Creates a builder that contains null for all parameters |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetiduploadimagePostPathParametersPetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) pathParameters)<br>sets the property |
+
+[[Back to top]](#top) [[Back to README]](../../../README.md)

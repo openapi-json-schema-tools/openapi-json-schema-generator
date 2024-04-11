@@ -65,8 +65,8 @@ Here is the mapping from json schema types to Java types:
 
 | Json Schema Type | Java Base Class |
 | ---------------- | --------------- |
-| object           | FrozenMap (HashMap) |
-| array            | FrozenList (ArrayList) |
+| object           | FrozenMap (Map) |
+| array            | FrozenList (List) |
 | string           | String |
 | number           | Number (int, long, float, double) |
 | integer          | int, long, float, double (with values equal to integers) |
@@ -102,7 +102,7 @@ invalid Java variable names. Names like:
 - " "
 - "from"
 
-To allow these use cases to work, FrozenMap (which extends HashMap) is used as the base class of type object schemas.
+To allow these use cases to work, FrozenMap (which extends AbstractMap) is used as the base class of type object schemas.
 This means that one can use normal Map methods on instances of these classes.
 
 <details>
@@ -118,8 +118,6 @@ This means that one can use normal Map methods on instances of these classes.
 N schemas can be validated on the same payload.
 To allow multiple schemas to validate, the data must be stored using one base class whether or not
 a json schema format constraint exists in the schema.
-See the below accessors for string data:
-- type string + format: See schemas.as_date, schemas.as_datetime, schemas.as_decimal, schemas.as_uuid
 
 In json schema, type: number with no format validates both integers and floats,
 so int and float values are stored for type number.
@@ -137,7 +135,7 @@ For example the string payload '2023-12-20' is validates to both of these schema
 - type: string
   format: date
 ```
-Because of use cases like this, a datetime.date is allowed as an input to this schema, but the data
+Because of use cases like this, a LocalDate is allowed as an input to this schema, but the data
 is stored as a string.
 </details>
 
@@ -153,8 +151,16 @@ allowed input and output types.
 | ------------ | ----- | ----------- |
 | 0 | [Server0](docs/servers/Server0.md) | |
 
-## Component Schemas
+## Endpoints
+All URIs are relative to the selected server
+- The server is selected by passing in serverInfo + serverIndexInfo into configurations.ApiConfiguration
+- The security info is selected by passing in securityInfo + securityIndexInfo into configurations.ApiConfiguration
+- serverIndex + securityIndex can also be passed in to endpoint calls, see endpoint documentation
 
+| HTTP request | Methods | Description |
+| ------------ | ------- | ----------- |
+
+## Component Schemas
 | Class | Description |
 | ----- | ----------- |
 | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1](docs/components/schemas/ASchemaGivenForPrefixitems.md#aschemagivenforprefixitems1) | |
@@ -300,14 +306,3 @@ allowed input and output types.
 | [UriTemplateFormat.UriTemplateFormat1](docs/components/schemas/UriTemplateFormat.md#uritemplateformat1) | |
 | [UuidFormat.UuidFormat1](docs/components/schemas/UuidFormat.md#uuidformat1) | |
 | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1](docs/components/schemas/ValidateAgainstCorrectBranchThenVsElse.md#validateagainstcorrectbranchthenvselse1) | |
-
-## Endpoints
-
-All URIs are relative to the selected server
-- The server is selected by passing in serverInfo into configurations.ApiConfiguration
-- The security info is selected by passing in securityInfo into configurations.ApiConfiguration
-- TODO Code samples in endpoints documents show how to do this
-- serverIndex + securityIndex can also be passed in to endpoint calls, see endpoint documentation
-
-| HTTP request | Method | Description |
-| ------------ | ------ | ----------- |

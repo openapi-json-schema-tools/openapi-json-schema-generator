@@ -33,6 +33,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
@@ -826,8 +827,9 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return underscore(dropDots(toModelName(name, jsonPath)));
     }
 
+    @Deprecated
     protected String toSecurityPascalCase(String basename, String jsonPath) {
-        return "Security";
+        return getPascalCase(CodegenKeyType.SECURITY, basename, jsonPath);
     }
 
     @Override
@@ -1901,24 +1903,15 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return "security_requirement_object_" + basename;
     }
 
+    @Deprecated
     @Override
     public String getPascalCaseParameter(String name, String jsonPath) {
-        try {
-            Integer.parseInt(name);
-            // for parameters in path, or an endpoint
-            return "Parameter" + name;
-        } catch (NumberFormatException nfe) {
-            // for header parameters in responses
-            return toModelName(name, null);
-        }
+        return getPascalCase(CodegenKeyType.PARAMETER, name, jsonPath);
     }
 
+    @Deprecated
     public String getPascalCaseResponse(String name, String jsonPath) {
-        if (name.matches("^\\d[X\\d]{2}$")) {
-            // 200 or 2XX
-            return "ResponseFor" + name;
-        }
-        return toModelName(name, null);
+        return getPascalCase(CodegenKeyType.RESPONSE, name, jsonPath);
     }
 
     @Override
@@ -2128,21 +2121,59 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         LOGGER.info("################################################################################");
     }
 
+    @Deprecated
     @Override
     public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        String usedKey = escapeUnsafeCharacters(name);
-        HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
-        if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
-            sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
+    }
+
+    @Override
+    public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        switch (type) {
+            case SCHEMA:
+                String usedKey = escapeUnsafeCharacters(lastJsonPathFragment);
+                HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(jsonPath, new HashMap<>());
+                if (!sourceJsonPathToKeyToQty.containsKey(jsonPath)) {
+                    sourceJsonPathToKeyToQty.put(jsonPath, keyToQty);
+                }
+                Integer qty = keyToQty.getOrDefault(usedKey.toLowerCase(Locale.ROOT), 0);
+                qty += 1;
+                keyToQty.put(usedKey.toLowerCase(Locale.ROOT), qty);
+                String suffix = "";
+                if (qty > 1) {
+                    suffix = qty.toString();
+                }
+                return toModelName(usedKey + suffix, jsonPath);
+            case PATH:
+                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+            case MISC:
+            case OPERATION:
+            case REQUEST_BODY:
+            case HEADER:
+            case SECURITY_SCHEME:
+                return toModelName(lastJsonPathFragment, jsonPath);
+            case PARAMETER:
+                try {
+                    Integer.parseInt(lastJsonPathFragment);
+                    // for parameters in path, or an endpoint
+                    return "Parameter" + lastJsonPathFragment;
+                } catch (NumberFormatException nfe) {
+                    // for header parameters in responses
+                    return toModelName(lastJsonPathFragment, null);
+                }
+            case RESPONSE:
+                if (lastJsonPathFragment.matches("^\\d[X\\d]{2}$")) {
+                    // 200 or 2XX
+                    return "ResponseFor" + lastJsonPathFragment;
+                }
+                return toModelName(lastJsonPathFragment, null);
+            case SECURITY:
+                return "Security";
+            case SERVER:
+                return "Server" + lastJsonPathFragment;
+            default:
+                return null;
         }
-        Integer qty = keyToQty.getOrDefault(usedKey.toLowerCase(Locale.ROOT), 0);
-        qty += 1;
-        keyToQty.put(usedKey.toLowerCase(Locale.ROOT), qty);
-        String suffix = "";
-        if (qty > 1) {
-            suffix = qty.toString();
-        }
-        return toModelName(usedKey + suffix, sourceJsonPath);
     }
 
     @Override

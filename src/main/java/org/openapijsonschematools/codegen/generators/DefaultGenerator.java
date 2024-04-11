@@ -54,6 +54,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenEncoding;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenMap;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenMediaType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenOauthFlow;
@@ -156,6 +157,7 @@ public class DefaultGenerator implements Generator {
     protected String templateEngineName;
     protected String headersSchemaFragment = "Headers";
     protected static final Set<String> operationVerbs = Set.of("get", "put", "post", "delete", "options", "head", "patch", "trace");
+    protected Set<String> xParameters = Set.of("PathParameters", "QueryParameters", "HeaderParameters", "CookieParameters");
 
     static {
         DefaultFeatureSet = FeatureSet.newBuilder()
@@ -738,7 +740,8 @@ public class DefaultGenerator implements Generator {
 
     public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
-    public String getPascalCaseResponse(String componentName, String jsonPath) { return toModelName(componentName, null); }
+    @Deprecated
+    public String getPascalCaseResponse(String componentName, String jsonPath) { return getPascalCase(CodegenKeyType.RESPONSE, componentName, jsonPath); }
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
@@ -953,13 +956,15 @@ public class DefaultGenerator implements Generator {
         return toModuleFilename(basename, jsonPath);
     }
 
+    @Deprecated
     @Override
     public String getPascalCaseServer(String basename, String jsonPath) {
-        return "Server" + basename;
+        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
     }
 
+    @Deprecated
     public String getPascalCaseParameter(String basename, String jsonPath) {
-        return toModelName(basename, null);
+        return getPascalCase(CodegenKeyType.PARAMETER, basename, null);
     }
 
     /**
@@ -2619,13 +2624,14 @@ public class DefaultGenerator implements Generator {
         }
         String pascalCaseName = toModelName(operationId, null);
         String kebabCase = pascalCaseName.toLowerCase(Locale.ROOT);
+        String camelCase = camelize(pascalCaseName, true);
         return new CodegenKey(
                 operationId,
                 isValid(operationId),
                 getOperationIdSnakeCase(operationId),
                 pascalCaseName,
                 kebabCase,
-                null
+                camelCase
         );
     }
 
@@ -2893,7 +2899,7 @@ public class DefaultGenerator implements Generator {
             if (wildcardCodeResponses != null) {
                 wildcardCodeResponses = new TreeMap<>(wildcardCodeResponses);
             }
-            CodegenKey responsesJsonPathPiece = getKey("responses", "misc", responsesJsonPath);
+            CodegenKey responsesJsonPathPiece = getKey("responses", "responses", responsesJsonPath);
             responses = new CodegenMap<>(responsesMap, responsesJsonPathPiece, getSubpackage(responsesJsonPath), getPathFromDocRoot(responsesJsonPath));
         }
 
@@ -2950,42 +2956,46 @@ public class DefaultGenerator implements Generator {
         }
         CodegenList<CodegenSecurityRequirementObject> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
-        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
+        CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb", jsonPath);
         CodegenList<CodegenServer> usedServers = (servers != null) ? servers : rootOrPathServers;
         CodegenList<CodegenSecurityRequirementObject> usedSecurity = (security != null) ? security : rootSecurity;
         List<MapBuilder<?>> builders = getOperationBuilders(jsonPath, requestBody, parametersInfo, usedServers, usedSecurity);
+        CodegenKey method = getKey(pathPieces[pathPieces.length-1], "misc", jsonPath);
         String subpackage = getSubpackage(jsonPath);
+        String pathFromDocRoot = getPathFromDocRoot(jsonPath);
 
         return new CodegenOperation(
-                deprecated,
-                nonErrorStatusCodes,
-                nonErrorWildcardStatusCodes,
-                errorStatusCodes,
-                errorWildcardStatusCodes,
-                summary,
-                description,
-                produces,
-                usedServers,
-                requestBody,
-                parametersInfo,
-                hasRequiredParamOrBody,
-                hasOptionalParamOrBody,
-                usedSecurity,
-                tags,
-                responses,
-                statusCodeResponses,
-                wildcardCodeResponses,
-                nonDefaultResponses,
-                defaultResponse,
-                callbacks,
-                externalDocs,
-                vendorExtensions,
-                operationId,
-                jsonPathPiece,
-                requestBodySchema,
-                builders,
-                subpackage
-            );
+            deprecated,
+            nonErrorStatusCodes,
+            nonErrorWildcardStatusCodes,
+            errorStatusCodes,
+            errorWildcardStatusCodes,
+            summary,
+            description,
+            produces,
+            usedServers,
+            requestBody,
+            parametersInfo,
+            hasRequiredParamOrBody,
+            hasOptionalParamOrBody,
+            usedSecurity,
+            tags,
+            responses,
+            statusCodeResponses,
+            wildcardCodeResponses,
+            nonDefaultResponses,
+            defaultResponse,
+            callbacks,
+            externalDocs,
+            vendorExtensions,
+            operationId,
+            jsonPathPiece,
+            method,
+            requestBodySchema,
+            builders,
+            subpackage,
+            pathFromDocRoot
+        );
     }
 
     protected List<MapBuilder<?>> getOperationBuilders(String jsonPath, CodegenRequestBody requestBody, CodegenParametersInfo parametersInfo, CodegenList<CodegenServer> servers, CodegenList<CodegenSecurityRequirementObject> security) {
@@ -3042,7 +3052,6 @@ public class DefaultGenerator implements Generator {
             items,
             jsonPathPiece,
             subpackage,
-            null,
             operationInputClass,
             operationInputVariableName,
             pathFromDocRoot
@@ -3356,6 +3365,62 @@ public class DefaultGenerator implements Generator {
         return true;
     }
 
+    @Override
+    public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        switch (type) {
+            case SCHEMA:
+                String usedKey = escapeUnsafeCharacters(lastJsonPathFragment);
+                HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(jsonPath, new HashMap<>());
+                if (!sourceJsonPathToKeyToQty.containsKey(jsonPath)) {
+                    sourceJsonPathToKeyToQty.put(jsonPath, keyToQty);
+                }
+                // starts with number
+                if (usedKey.matches("^\\d.*")) {
+                    LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to Schema{}", usedKey, usedKey);
+                    usedKey = "Schema" + usedKey; // 200 -> Schema200
+                }
+
+                usedKey = camelize(usedKey);
+
+                // handle case where usedKey is empty
+                if (usedKey.isEmpty()) {
+                    // happens with a name like "/"
+                    usedKey = camelize(toEnumVarName(lastJsonPathFragment, null).toLowerCase(Locale.ROOT));
+                }
+
+                if (isReservedWord(usedKey)) {
+                    usedKey = usedKey + "Schema"; // e.g. return => ReturnSchema
+                    LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", lastJsonPathFragment, usedKey);
+                }
+
+                Integer qty = keyToQty.getOrDefault(usedKey, 0);
+                qty += 1;
+                keyToQty.put(usedKey, qty);
+                String suffix = "";
+                if (qty > 1) {
+                    suffix = qty.toString();
+                }
+                usedKey = usedKey + suffix;
+                return usedKey;
+            case PATH:
+                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+            case PARAMETER:
+            case RESPONSE:
+                return toModelName(lastJsonPathFragment, null);
+            case MISC:
+            case OPERATION:
+            case REQUEST_BODY:
+            case HEADER:
+            case SECURITY_SCHEME:
+                return toModelName(lastJsonPathFragment, jsonPath);
+            case SERVER:
+                return "Server" + lastJsonPathFragment;
+            case SECURITY:
+                return toSecurityFilename(lastJsonPathFragment, jsonPath);
+            default:
+                return null;
+        }
+    }
 
     @Override
     @SuppressWarnings("static-method")
@@ -3893,11 +3958,6 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 4) {
             return;
         }
-        Set<String> xParameters = new HashSet<>();
-        xParameters.add("PathParameters");
-        xParameters.add("QueryParameters");
-        xParameters.add("HeaderParameters");
-        xParameters.add("CookieParameters");
         if (pathPieces[3].equals("servers")) {
             if (pathPieces.length == 4) {
                 // #/paths/somePath/servers
@@ -4884,41 +4944,10 @@ public class DefaultGenerator implements Generator {
         return getKey(key, keyType, null);
     }
 
+    @Deprecated
     @Override
     public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        String usedKey = escapeUnsafeCharacters(name);
-        HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
-        if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
-            sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
-        }
-        // starts with number
-        if (usedKey.matches("^\\d.*")) {
-            LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to Schema{}", usedKey, usedKey);
-            usedKey = "Schema" + usedKey; // 200 -> Schema200
-        }
-
-        usedKey = camelize(usedKey);
-
-        // handle case where usedKey is empty
-        if (usedKey.isEmpty()) {
-            // happens with a name like "/"
-            usedKey = camelize(toEnumVarName(name, null).toLowerCase(Locale.ROOT));
-        }
-
-        if (isReservedWord(usedKey)) {
-            usedKey = usedKey + "Schema"; // e.g. return => ReturnSchema
-            LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", name, usedKey);
-        }
-
-        Integer qty = keyToQty.getOrDefault(usedKey, 0);
-        qty += 1;
-        keyToQty.put(usedKey, qty);
-        String suffix = "";
-        if (qty > 1) {
-            suffix = qty.toString();
-        }
-        usedKey = usedKey + suffix;
-        return usedKey;
+        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
     }
 
     protected String getCamelCaseName(String key) {
@@ -4940,59 +4969,64 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getSchemaPascalCaseName(key, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.SCHEMA, key, sourceJsonPath);
                 camelCaseName = getCamelCaseName(usedKey);
                 break;
             case "paths":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toPathFilename(usedKey, sourceJsonPath);
-                pascalCaseName = camelize(toPathFilename(usedKey, sourceJsonPath));
+                pascalCaseName = getPascalCase(CodegenKeyType.PATH, usedKey, sourceJsonPath);
                 break;
             case "misc":
+                usedKey = escapeUnsafeCharacters(key);
+                isValid = isValid(usedKey);
+                snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = camelize(usedKey, true);
+                pascalCaseName = getPascalCase(CodegenKeyType.MISC, usedKey, sourceJsonPath);
+                break;
             case "verb":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 camelCaseName = camelize(usedKey, true);
-                pascalCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.OPERATION, usedKey, sourceJsonPath);
                 break;
             case "parameters":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseParameter(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.PARAMETER, usedKey, sourceJsonPath);
                 break;
             case "requestBodies":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toRequestBodyFilename(usedKey, sourceJsonPath);
-                // todo add getPascalCaseRequestBody()
-                pascalCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.REQUEST_BODY, usedKey, sourceJsonPath);
                 break;
             case "headers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
-                pascalCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.HEADER, usedKey, sourceJsonPath);
                 break;
             case "responses":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseResponse(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.RESPONSE, usedKey, sourceJsonPath);
                 break;
             case "securitySchemes":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
-                pascalCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.SECURITY_SCHEME, usedKey, sourceJsonPath);
                 break;
             case "servers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseServer(usedKey, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.SERVER, usedKey, sourceJsonPath);
                 camelCaseName = camelize(pascalCaseName, true);
                 break;
             case "security":
@@ -5001,7 +5035,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySnakeCase(key, sourceJsonPath);
-                pascalCaseName =  toSecurityPascalCase(key, sourceJsonPath);
+                pascalCaseName = getPascalCase(CodegenKeyType.SECURITY, usedKey, sourceJsonPath);
                 camelCaseName = camelize(pascalCaseName, true);
                 break;
         }
@@ -5018,8 +5052,9 @@ public class DefaultGenerator implements Generator {
         );
     }
 
+    @Deprecated
     protected String toSecurityPascalCase(String basename, String jsonPath) {
-        return toSecurityFilename(basename, jsonPath);
+        return getPascalCase(CodegenKeyType.SECURITY, basename, jsonPath);
     }
 
     protected String toSecuritySnakeCase(String basename, String jsonPath) {
@@ -5210,10 +5245,11 @@ public class DefaultGenerator implements Generator {
         for (Pair<String, Operation> pair: httpMethodOperationPairs) {
             Operation specOperation = pair.getRight();
             String httpMethod = pair.getLeft();
+            String operationJsonPath = jsonPath + "/" + httpMethod;
             if (specOperation != null) {
-                operations.put(getKey(
-                    httpMethod, "verb"),
-                    fromOperation(specOperation, jsonPath + "/" + httpMethod, pairToParameter, usedServers, rootSecurity)
+                operations.put(
+                    getKey(httpMethod, "verb", operationJsonPath),
+                    fromOperation(specOperation, operationJsonPath, pairToParameter, usedServers, rootSecurity)
                 );
             }
         }
@@ -5271,7 +5307,6 @@ public class DefaultGenerator implements Generator {
             codegenServers,
             jsonPathPiece,
             serversSubpackage,
-            null,
             operationInputClass,
             operationInputVariableName,
             pathFromDocRoot

@@ -1,5 +1,5 @@
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "Request" "")) }}
-public static class {{jsonPathPiece.pascalCase}}Request<br>
+{{headerSize}}# {{method.pascalCase}}Request
+public static class {{method.pascalCase}}Request<br>
 
 a class that stores the final request inputs
 

@@ -62,11 +62,11 @@ import java.util.List;
 import java.util.Map;
 
 public class {{jsonPathPiece.pascalCase}} {
-    private static class {{jsonPathPiece.pascalCase}}Provider{{#each builders}}{{#if @first}}{{#each keyToBuilder}}{{#eq @key.camelCase "securityIndex"}} extends AuthApplier{{/eq}}{{/each}}{{/if}}{{/each}} {
+    private static class {{method.pascalCase}}Provider{{#each builders}}{{#if @first}}{{#each keyToBuilder}}{{#eq @key.camelCase "securityIndex"}} extends AuthApplier{{/eq}}{{/each}}{{/if}}{{/each}} {
         private static final String method = "{{jsonPathPiece.original}}";
 
-        public static {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}(
-            {{jsonPathPiece.pascalCase}}Request request,
+        public static {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{method.camelCase}}(
+            {{method.pascalCase}}Request request,
             ApiConfiguration apiConfiguration,
             SchemaConfiguration schemaConfiguration,
             HttpClient client
@@ -187,28 +187,43 @@ public class {{jsonPathPiece.pascalCase}} {
                 request.timeout
             );
             var response = RestClient.getResponse(httpRequest, client);
-            var responsesDeserializer = new Responses.Responses1();
+            {{#if nonErrorResponses }}
+            var responsesDeserializer = new {{#with responses}}{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1{{/with}}();
             return responsesDeserializer.deserialize(response, schemaConfiguration);
+            {{else}}
+            return (Void) null;
+            {{/if}}
         }
     }
 
-    public interface {{jsonPathPiece.pascalCase}}Operation {
+    public interface {{method.pascalCase}}Operation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}({{jsonPathPiece.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
-            return {{jsonPathPiece.pascalCase}}Provider.{{jsonPathPiece.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{jsonPathPiece.camelCase}}({{method.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return {{method.pascalCase}}Provider.{{method.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }
+    {{#neq method.pascalCase operationId.pascalCase}}
 
-    public static class {{jsonPathPiece.pascalCase}}1 extends ApiClient implements {{jsonPathPiece.pascalCase}}Operation {
-        public {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+    public interface {{operationId.pascalCase}}Operation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Void{{/if}} {{operationId.camelCase}}({{method.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return {{method.pascalCase}}Provider.{{jsonPathPiece.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+    {{/neq}}
+
+    public static class {{method.pascalCase}} extends ApiClient implements {{method.pascalCase}}Operation {
+        public {{method.pascalCase}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
             super(apiConfiguration, schemaConfiguration);
         }
     }
     {{#eq builders.size 1}}
 
-    public static class {{jsonPathPiece.pascalCase}}Request {
+    public static class {{method.pascalCase}}Request {
         {{#each builders}}
             {{#each keyToBuilder}}
                 {{#with property}}
@@ -227,7 +242,7 @@ public class {{jsonPathPiece.pascalCase}} {
     }
     {{else}}
 
-    public static class {{jsonPathPiece.pascalCase}}Request {
+    public static class {{method.pascalCase}}Request {
         {{#each (reverse builders)}}
             {{#or @first @last}}
                 {{#each keyToBuilder}}
@@ -246,7 +261,7 @@ public class {{jsonPathPiece.pascalCase}} {
             {{/or}}
         {{/each}}
 
-        public {{jsonPathPiece.pascalCase}}Request(
+        public {{method.pascalCase}}Request(
         {{#each (reverse builders)}}
             {{#or @first @last}}
                 {{#each keyToBuilder}}
@@ -275,7 +290,7 @@ public class {{jsonPathPiece.pascalCase}} {
         }
     }
 
-    public static class {{jsonPathPiece.pascalCase}}NullableRequest {
+    public static class {{method.pascalCase}}NullableRequest {
         {{#each (reverse builders)}}
             {{#or @first @last}}
                 {{#each keyToBuilder}}
@@ -300,8 +315,8 @@ public class {{jsonPathPiece.pascalCase}} {
             {{#each keyToBuilder}}
 
     public interface SetterFor{{@key.pascalCase}} <T> {
-        {{../../jsonPathPiece.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request getInstance();
-        T getBuilderAfter{{@key.pascalCase}}({{../../jsonPathPiece.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request instance);
+        {{../../method.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request getInstance();
+        T getBuilderAfter{{@key.pascalCase}}({{../../method.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request instance);
         default T {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}.{{else}}{{#if this.jsonPathPiece}}{{jsonPathPiece.pascalCase}}.{{/if}}{{/if}}{{operationInputClassName.pascalCase}}{{/with}} {{@key.camelCase}}) {
             var instance = getInstance();
             instance.{{@key.camelCase}} = {{@key.camelCase}};
@@ -314,20 +329,20 @@ public class {{jsonPathPiece.pascalCase}} {
 
     {{#each builders}}
     public static class {{className.pascalCase}}{{#if keyToBuilder}} implements {{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{builder.className.pascalCase}}>{{#unless @last}}, {{/unless}}{{/each}} {
-        private final {{../jsonPathPiece.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance;
+        private final {{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance;
 
         {{#if @last }}
         public {{className.pascalCase}}() {
-            this.instance = new {{../jsonPathPiece.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request();
+            this.instance = new {{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request();
         }
         {{else}}
-        public {{className.pascalCase}}({{../jsonPathPiece.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance) {
+        public {{className.pascalCase}}({{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance) {
             this.instance = instance;
         }
         {{/if}}
         {{#if @first}}
 
-        public {{../jsonPathPiece.pascalCase}}Request build() {
+        public {{../method.pascalCase}}Request build() {
         {{#gt ../builders.size 1}}
             {{#each builders}}
                 {{#if @last}}
@@ -339,7 +354,7 @@ public class {{jsonPathPiece.pascalCase}} {
                     {{/each}}
                 {{/if}}
             {{/each}}
-            return new {{../jsonPathPiece.pascalCase}}Request(
+            return new {{../method.pascalCase}}Request(
             {{#each (reverse builders)}}
                 {{#or @first @last}}
                     {{#each keyToBuilder}}
@@ -355,13 +370,13 @@ public class {{jsonPathPiece.pascalCase}} {
         {{/if}}
         {{#if keyToBuilder}}
 
-        public {{../jsonPathPiece.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request getInstance() {
+        public {{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request getInstance() {
             return instance;
         }
         {{/if}}
         {{#each keyToBuilder}}
 
-        public {{builder.className.pascalCase}} getBuilderAfter{{@key.pascalCase}}({{../jsonPathPiece.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance) {
+        public {{builder.className.pascalCase}} getBuilderAfter{{@key.pascalCase}}({{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance) {
             {{#eq builder ../this}}
                 {{! property in final builder }}
             return this;

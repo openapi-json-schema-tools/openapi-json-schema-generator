@@ -9,7 +9,7 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 
 public class {{pathItem.jsonPathPiece.pascalCase}} extends ApiClient implements
 {{#each pathItem.operations}}
-    {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Operation{{#unless @last}},{{/unless}}
+    {{jsonPathPiece.pascalCase}}.{{method.pascalCase}}Operation{{#unless @last}},{{/unless}}
 {{/each}}
 {
     public {{pathItem.jsonPathPiece.pascalCase}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {

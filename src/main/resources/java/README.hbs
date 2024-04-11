@@ -70,8 +70,8 @@ Here is the mapping from json schema types to Java types:
 
 | Json Schema Type | Java Base Class |
 | ---------------- | --------------- |
-| object           | FrozenMap (HashMap) |
-| array            | FrozenList (ArrayList) |
+| object           | FrozenMap (Map) |
+| array            | FrozenList (List) |
 | string           | String |
 | number           | Number (int, long, float, double) |
 | integer          | int, long, float, double (with values equal to integers) |
@@ -107,7 +107,7 @@ invalid Java variable names. Names like:
 - " "
 - "from"
 
-To allow these use cases to work, FrozenMap (which extends HashMap) is used as the base class of type object schemas.
+To allow these use cases to work, FrozenMap (which extends AbstractMap) is used as the base class of type object schemas.
 This means that one can use normal Map methods on instances of these classes.
 
 <details>
@@ -123,8 +123,6 @@ This means that one can use normal Map methods on instances of these classes.
 N schemas can be validated on the same payload.
 To allow multiple schemas to validate, the data must be stored using one base class whether or not
 a json schema format constraint exists in the schema.
-See the below accessors for string data:
-- type string + format: See schemas.as_date, schemas.as_datetime, schemas.as_decimal, schemas.as_uuid
 
 In json schema, type: number with no format validates both integers and floats,
 so int and float values are stored for type number.
@@ -142,7 +140,7 @@ For example the string payload '2023-12-20' is validates to both of these schema
 - type: string
   format: date
 ```
-Because of use cases like this, a datetime.date is allowed as an input to this schema, but the data
+Because of use cases like this, a LocalDate is allowed as an input to this schema, but the data
 is stored as a string.
 </details>
 
@@ -152,97 +150,33 @@ Please follow the [installation procedure](#installation) and then use the JsonS
 {{packageName}}.components.schemas to validate input payloads and instances of validated Map and List
 output classes. Json schemas allow multiple types for one schema, so a schema's validate method can have
 allowed input and output types.
+{{#each paths}}
+    {{#if @first}}
+        {{#each operations}}
+            {{#if @first}}
+                {{#each tags}}
+                    {{#if @first}}
+
+## Code Sample
+{{> src/main/java/packagename/paths/path/verb/_OperationDocCodeSample this=../this apiSubpackage="apis.tags" apiContainerClass=className apiFullyQualifiedClass=className }}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
 {{#if servers}}
 
 ## Servers
 | server_index | Class | Description |
 | ------------ | ----- | ----------- |
-{{#each servers}}
+    {{#each servers}}
 | {{@key}} | [{{jsonPathPiece.pascalCase}}](docs/servers/{{jsonPathPiece.pascalCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}} |
-{{/each}}
-{{/if}}
-{{#if schemas}}
-
-## Component Schemas
-
-| Class | Description |
-| ----- | ----------- |
-    {{#each schemas}}
-        {{#with this}}
-| [{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}](docs/components/schemas/{{containerJsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}) |{{#if description}} {{description.originalWithBr}}{{/if}} |
-        {{/with}}
     {{/each}}
-{{/if}}
-{{#if paths}}
-
-## Endpoints
-
-All URIs are relative to the selected server
-- The server is selected by passing in serverInfo into configurations.ApiConfiguration
-- The security info is selected by passing in securityInfo into configurations.ApiConfiguration
-- TODO Code samples in endpoints documents show how to do this
-- serverIndex + securityIndex can also be passed in to endpoint calls, see endpoint documentation
-
-| HTTP request | Method | Description |
-| ------------ | ------ | ----------- |
-    {{#each paths}}
-        {{#each operations}}
-| {{../@key.original}} **{{@key.original}}** | [{{jsonPathPiece.pascalCase}}1.{{jsonPathPiece.camelCase}}](docs/paths/{{../@key.kebabCase}}/{{@key.pascalCase}}.md#{{@key.kebabCase}}1) |{{#if summary}} {{summary.originalWithBr}}{{/if}} |
-        {{/each}}
-    {{/each}}
-{{/if}}
-{{#if requestBodies}}
-
-## Component RequestBodies
-
-| Class | Description |
-| ----- | ----------- |
-{{#each requestBodies}}
-    {{#with this}}
-| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/requestbodies/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}} |
-    {{/with}}
-{{/each}}
-{{/if}}
-{{#if responses}}
-
-## Component Responses
-
-| Class | Description |
-| ----- | ----------- |
-{{#each responses}}
-    {{#with this}}
-| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/responses/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}|
-    {{/with}}
-{{/each}}
-{{/if}}
-{{#if headers}}
-
-## Component Headers
-
-| Class | Description |
-| ----- | ----------- |
-{{#each headers}}
-    {{#with this}}
-| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/headers/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}} |
-    {{/with}}
-{{/each}}
-{{/if}}
-{{#if parameters}}
-
-## Component Parameters
-
-| Class | Description |
-| ----- | ----------- |
-{{#each parameters}}
-    {{#with this}}
-| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/parameters/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}} |
-    {{/with}}
-{{/each}}
 {{/if}}
 {{#if securitySchemes}}
 
 ## Component SecuritySchemes
-
 | Class | Description |
 | ----- | ----------- |
     {{#each securitySchemes}}
@@ -251,9 +185,79 @@ All URIs are relative to the selected server
         {{/with}}
     {{/each}}
 {{/if}}
+{{#if paths}}
+
+## Endpoints
+All URIs are relative to the selected server
+- The server is selected by passing in serverInfo + serverIndexInfo into configurations.ApiConfiguration
+- The security info is selected by passing in securityInfo + securityIndexInfo into configurations.ApiConfiguration
+- serverIndex + securityIndex can also be passed in to endpoint calls, see endpoint documentation
+
+| HTTP request | Methods | Description |
+| ------------ | ------- | ----------- |
+    {{#each paths}}
+        {{#each operations}}
+| {{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}.{{../operationId.camelCase}}](docs/apis/tags/{{className}}.md#{{../operationId.kebabCase}}) {{/each}} [{{../jsonPathPiece.pascalCase}}.{{method.camelCase}}](docs/paths/{{../jsonPathPiece.pascalCase}}.md#{{method.kebabCase}}) [{{jsonPathPiece.pascalCase}}.{{method.pascalCase}}.{{method.camelCase}}](docs/{{pathFromDocRoot}}.md#{{method.kebabCase}}) |{{#if summary}} {{summary.originalWithBr}}{{/if}} |
+        {{/each}}
+    {{/each}}
+{{/if}}
+{{#if schemas}}
+
+## Component Schemas
+| Class | Description |
+| ----- | ----------- |
+    {{#each schemas}}
+        {{#with this}}
+| [{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}](docs/components/schemas/{{containerJsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}) |{{#if description}} {{description.originalWithBr}}{{/if}} |
+        {{/with}}
+    {{/each}}
+{{/if}}
+{{#if requestBodies}}
+
+## Component RequestBodies
+| Class | Description |
+| ----- | ----------- |
+    {{#each requestBodies}}
+        {{#with this}}
+| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/requestbodies/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}} |
+        {{/with}}
+    {{/each}}
+{{/if}}
+{{#if responses}}
+
+## Component Responses
+| Class | Description |
+| ----- | ----------- |
+    {{#each responses}}
+        {{#with this}}
+| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/responses/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}|
+        {{/with}}
+    {{/each}}
+{{/if}}
+{{#if headers}}
+
+## Component Headers
+| Class | Description |
+| ----- | ----------- |
+    {{#each headers}}
+        {{#with this}}
+| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/headers/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}} |
+        {{/with}}
+    {{/each}}
+{{/if}}
+{{#if parameters}}
+
+## Component Parameters
+| Class | Description |
+| ----- | ----------- |
+    {{#each parameters}}
+        {{#with this}}
+| [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/parameters/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}} |
+        {{/with}}
+    {{/each}}
+{{/if}}
 {{#if infoEmail}}
 
 ## Author
-
 {{infoEmail}}
 {{/if}}

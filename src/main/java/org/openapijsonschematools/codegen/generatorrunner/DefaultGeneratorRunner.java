@@ -1124,6 +1124,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         String jsonPath = "#/apis";
         Map<String, String> apiPathsTemplates = generator.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATHS);
+        // paths api file(s)
         if (apiPathsTemplates != null) {
             for (Map.Entry<String, String> apiPathEntry: apiPathsTemplates.entrySet()) {
                 String templateFile = apiPathEntry.getKey();
@@ -1140,6 +1141,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         LinkedHashMap<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> tagToPathToOperations = new LinkedHashMap<>();
         HashMap<CodegenTag, TreeMap<CodegenKey, HashMap<CodegenKey, CodegenOperation>>> tagToOperationIdToPathToOperation = new HashMap<>();
         Map<String, String> apiPathTemplates = generator.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATH);
+        Map<String, String> apiDocPathTemplates = generator.jsonPathDocTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATH);
+        // path apis
         for(Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
             CodegenKey path = entry.getKey();
             CodegenPathItem pathItem = entry.getValue();
@@ -1158,6 +1161,26 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
                 }
             }
+
+            // path api docs
+            if (generateApiDocumentation && apiDocPathTemplates != null) {
+                for (Map.Entry<String, String> apiPathEntry: apiDocPathTemplates.entrySet()) {
+                    String templateFile = apiPathEntry.getKey();
+                    String fileName = apiPathEntry.getValue();
+                    String thisJsonPath = jsonPath + "/paths/" +  ModelUtils.encodeSlashes(path.original);
+                    String outputFile = generator.getDocsFilepath(thisJsonPath) + fileName;
+                    Map<String, Object> apiData = new HashMap<>();
+                    String packageName = generator.packageName();
+                    apiData.put("packageName", packageName);
+                    apiData.put("path", path);
+                    apiData.put("pathItem", pathItem);
+                    apiData.put("docRoot", "../../");
+                    apiData.put("headerSize", "#");
+                    generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
+                }
+            }
+
+
 
             // store operations by tag + path
             for(CodegenOperation op: pathItem.operations.values()) {
@@ -1197,11 +1220,11 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 apiData.put("tagToPathToOperations", tagToPathToOperations);
                 apiData.put("paths", paths);
                 String outputFile = generator.getFilepath(jsonPath) + fileName;
-
                 generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
             }
         }
 
+        // tags file(s)
         Map<String, String> apiTagsTemplates = generator.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAGS);
         if (apiTagsTemplates != null) {
             for (Map.Entry<String, String> apiPathEntry: apiTagsTemplates.entrySet()) {
@@ -1221,13 +1244,20 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         for(Map.Entry<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> entry: tagToPathToOperations.entrySet()) {
             CodegenTag tag = entry.getKey();
             HashMap<CodegenKey, ArrayList<CodegenOperation>> pathToOperations = entry.getValue();
+            ArrayList<CodegenOperation> operations = new ArrayList<>();
+            for (Map.Entry<CodegenKey, ArrayList<CodegenOperation>> pathtoOps: pathToOperations.entrySet()) {
+                operations.addAll(pathtoOps.getValue());
+            }
 
             Map<String, Object> apiData = new HashMap<>();
             String packageName = generator.packageName();
             apiData.put("packageName", packageName);
             apiData.put("tag", tag);
             apiData.put("pathToOperations", pathToOperations);
+            apiData.put("operations", operations);
             apiData.put("apiPackage", generator.apiPackage());
+            apiData.put("docRoot", "../../");
+            apiData.put("headerSize", "#");
 
             class OperationIdComparator implements Comparator<CodegenKey>{
                 @Override
@@ -1240,6 +1270,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             operationIdToPathToOperation.putAll(tagToOperationIdToPathToOperation.get(tag));
             apiData.put("operationIdToPathToOperation", operationIdToPathToOperation);
 
+            // tag apis
             if (apiTagTemplates != null) {
                 for (Map.Entry<String, String> apiPathEntry: apiTagTemplates.entrySet()) {
                     String templateFile = apiPathEntry.getKey();
@@ -1249,7 +1280,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     generateFile(apiData, templateFile, outputFile, files, true, CodegenConstants.APIS);
                 }
             }
-            // api docs
+            // tag api docs
             if (generateApiDocumentation && apiDocTagTemplates != null) {
                 for (Map.Entry<String, String> apiPathEntry: apiDocTagTemplates.entrySet()) {
                     String templateFile = apiPathEntry.getKey();

@@ -1,12 +1,5 @@
 {{#with operation}}
-{{#eq identifierPieces.size 0}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
-{{else}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces }}
-{{/eq}}
-{{#if componentModule}}
-{{jsonPathPiece.pascalCase}}.java
-{{/if}}
+{{headerSize}} {{jsonPathPiece.pascalCase}}
 
 public class {{jsonPathPiece.pascalCase}}
 
@@ -19,42 +12,57 @@ A class that contains necessary endpoint classes
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [{{jsonPathPiece.pascalCase}}1](#{{jsonPathPiece.kebabCase}}1)<br>The class that has a {{jsonPathPiece.camelCase}} method to call the endpoint |
+| static class | [{{method.pascalCase}}](#{{method.kebabCase}})<br>The class that has a {{method.camelCase}} method to call the endpoint |
+{{#neq method.pascalCase operationId.pascalCase}}
+| interface | [{{operationId.pascalCase}}Operation](#{{operationId.kebabCase}}operation)<br>The interface that has a {{operationId.camelCase}} method to call the endpoint |
+{{/neq}}
     {{#eq builders.size 1}}
-| static class | [{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request)<br>The request inputs class |
+| static class | [{{method.pascalCase}}Request](#{{method.kebabCase}}request)<br>The request inputs class |
     {{else}}
-| static class | [{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request)<br>The final request inputs class |
-| static class | [{{jsonPathPiece.pascalCase}}NullableRequest](#{{jsonPathPiece.kebabCase}}nullablerequest)<br>The initial request inputs class |
+| static class | [{{method.pascalCase}}Request](#{{method.kebabCase}}request)<br>The final request inputs class |
+| static class | [{{method.pascalCase}}NullableRequest](#{{method.kebabCase}}nullablerequest)<br>The initial request inputs class |
     {{/eq}}
     {{#each builders}}
 | static class | [{{className.pascalCase}}](#{{className.kebabCase}})<br>A builder for the request input class |
     {{/each}}
 
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
-public static class {{jsonPathPiece.pascalCase}}1 extends ApiClient.ApiClient1 implements {{jsonPathPiece.pascalCase}}Operation<br>
+{{headerSize}}# {{method.pascalCase}}
+public static class {{method.pascalCase}} extends ApiClient.ApiClient1 implements {{method.pascalCase}}Operation<br>
 
-a class that allows one to call the endpoint using a method named {{jsonPathPiece.camelCase}}
+a class that allows one to call the endpoint using a method named {{method.camelCase}}
 
 {{headerSize}}## Code Sample
-{{> src/main/java/packagename/paths/path/verb/_OperationDocCodeSample }}
+{{> src/main/java/packagename/paths/path/verb/_OperationDocCodeSample apiSubpackage=subpackage apiContainerClass=jsonPathPiece.pascalCase apiFullyQualifiedClass=(join jsonPathPiece.pascalCase method.pascalCase ".") }}
 
 {{headerSize}}## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| {{jsonPathPiece.pascalCase}}1(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+| {{method.pascalCase}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} | {{jsonPathPiece.camelCase}}([{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request) request) |
+| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} | {{method.camelCase}}([{{method.pascalCase}}Request](#{{method.kebabCase}}request) request) |
+{{#neq method.pascalCase operationId.pascalCase}}
+
+{{headerSize}}# {{operationId.pascalCase}}Operation
+public interface {{operationId.pascalCase}}Operation<br>
+
+an interface that allows one to call the endpoint using a method named {{operationId.camelCase}} by the operationId
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} | {{operationId.camelCase}}([{{method.pascalCase}}Request](#{{method.kebabCase}}request) request) |
+{{/neq}}
 
     {{#eq builders.size 1}}
 {{> src/main/java/packagename/paths/path/verb/_FinalRequestClassDoc }}
     {{else}}
 {{> src/main/java/packagename/paths/path/verb/_FinalRequestClassDoc }}
 
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "NullableRequest" "")) }}
-public static class {{jsonPathPiece.pascalCase}}NullableRequest<br>
+{{headerSize}}# {{method.pascalCase}}NullableRequest
+public static class {{method.pascalCase}}NullableRequest<br>
 
 a class that stores the initial request inputs
 
@@ -81,7 +89,7 @@ a class that stores the initial request inputs
     {{/eq}}
     {{#each builders}}
 
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces className.pascalCase) }}
+{{headerSize}}# {{className.pascalCase}}
 public static class {{className.pascalCase}}<br>
 
 a builder for request inputs
@@ -99,7 +107,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
         {{#if @first}}
-| [{{jsonPathPiece.pascalCase}}Request](#{{jsonPathPiece.kebabCase}}request) | build()<br>Returns the request input used to call an endpoint method |
+| [{{method.pascalCase}}Request](#{{method.kebabCase}}request) | build()<br>Returns the request input used to call an endpoint method |
         {{/if}}
         {{#each keyToBuilder}}
 | [{{builder.className.pascalCase}}](#{{builder.className.kebabCase}}) | {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}[{{containerJsonPathPiece.pascalCase}}{{else}}{{#if this.jsonPathPiece}}[{{jsonPathPiece.pascalCase}}.{{/if}}{{/if}}{{operationInputClassName.pascalCase}}{{#or containerJsonPathPiece this.jsonPathPiece}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}){{/or}}{{/with}} {{@key.camelCase}})<br>sets the {{#if ../@first}}optional {{/if}}property{{#or (eq @key.camelCase "securityIndex") (eq @key.camelCase "serverIndex") (eq @key.camelCase "timeout")}}. Note: this will override the value in apiConfiguration{{/or}} |
