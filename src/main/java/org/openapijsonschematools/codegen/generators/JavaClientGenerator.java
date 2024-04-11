@@ -3263,8 +3263,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 this.setArtifactVersion(ARTIFACT_VERSION_DEFAULT_VALUE);
             }
         }
-        additionalProperties.put(CodegenConstants.ARTIFACT_VERSION, artifactVersion);
-
+        // must be sequential after initial setting above
         if (additionalProperties.containsKey(CodegenConstants.SNAPSHOT_VERSION)) {
             if (convertPropertyToBooleanAndWriteBack(CodegenConstants.SNAPSHOT_VERSION)) {
                 this.setArtifactVersion(this.buildSnapshotVersion(this.getArtifactVersion()));

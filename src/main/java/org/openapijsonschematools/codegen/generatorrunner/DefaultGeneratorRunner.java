@@ -352,7 +352,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         Map<String, Object> schemaData = new HashMap<>();
         schemaData.put("packageName", generator.packageName());
         schemaData.put("schema", schema);
-        schemaData.putAll(generator.additionalProperties());
         schemaData.put("docRoot", docRoot);
         schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
         schemaData.put("headerSize", "#");
@@ -364,7 +363,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         schemaData.put("packageName", generator.packageName());
         schemaData.put("schema", schema);
         schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-        schemaData.putAll(generator.additionalProperties());
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODELS, schemaData, generateModels);
     }
 
@@ -902,6 +900,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             String filename = generator.getDocsFilepath(jsonPath) + suffix;
 
             HashMap<String, Object> templateData = new HashMap<>();
+            templateData.putAll(generator.additionalProperties());
             templateData.put("packageName", generator.packageName());
             templateData.put("modelPackage", generator.modelPackage());
             if (templateInfo != null && !templateInfo.isEmpty()) {
@@ -932,6 +931,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             String filename = generator.getTestFilepath(jsonPath) + suffix;
 
             HashMap<String, Object> templateData = new HashMap<>();
+            templateData.putAll(generator.additionalProperties());
             templateData.put("packageName", generator.packageName());
             templateData.put("modelPackage", generator.modelPackage());
             if (templateInfo != null && !templateInfo.isEmpty()) {
@@ -967,6 +967,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             String filename = generator.getFilepath(jsonPath) + suffix;
 
             HashMap<String, Object> templateData = new HashMap<>();
+            templateData.putAll(generator.additionalProperties());
             templateData.put("packageName", generator.packageName());
             templateData.put("modelPackage", generator.modelPackage());
             if (templateInfo != null && !templateInfo.isEmpty()) {
@@ -1087,7 +1088,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 Map<String, Object> schemaData = new HashMap<>();
                 schemaData.put("packageName", generator.packageName());
                 schemaData.put("schema", schema);
-                schemaData.putAll(generator.additionalProperties());
                 if (generateModelTests) {
                     generateXTests(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODELS, schemaData, true);
                 }
