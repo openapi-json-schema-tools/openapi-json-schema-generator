@@ -1,6 +1,6 @@
 # Faketestqueryparamters
 
-public class  extends extends ApiClient implements
+public class Faketestqueryparamters extends extends ApiClient implements
 [FaketestqueryparamtersPut.PutOperation](../../paths/faketestqueryparamters/FaketestqueryparamtersPut.md#putoperation)
 
 an api client class which contains all the routes for path="/fake/test-query-paramters"
@@ -48,7 +48,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.responses.FaketestqueryparamtersPutCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.faketestqueryparamters.FaketestqueryparamtersPut;
+import org.openapijsonschematools.client.apis.paths.Faketestqueryparamters;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.FaketestqueryparamtersPutResponses;
 
 import java.io.IOException;
@@ -74,7 +74,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FaketestqueryparamtersPut.Put apiClient = new FaketestqueryparamtersPut.Put(apiConfiguration, schemaConfiguration);
+Faketestqueryparamters apiClient = new Faketestqueryparamters(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -135,3 +135,4 @@ try {
 }
 FaketestqueryparamtersPutResponses.EndpointFaketestqueryparamtersPutCode200Response castResponse = (FaketestqueryparamtersPutResponses.EndpointFaketestqueryparamtersPutCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

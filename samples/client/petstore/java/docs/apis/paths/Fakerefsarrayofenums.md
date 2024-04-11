@@ -1,6 +1,6 @@
 # Fakerefsarrayofenums
 
-public class  extends extends ApiClient implements
+public class Fakerefsarrayofenums extends extends ApiClient implements
 [FakerefsarrayofenumsPost.PostOperation](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/refs/array-of-enums"
@@ -47,7 +47,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefsarrayofenums.post.responses.FakerefsarrayofenumsPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefsarrayofenums.FakerefsarrayofenumsPost;
+import org.openapijsonschematools.client.apis.paths.Fakerefsarrayofenums;
 import org.openapijsonschematools.client.paths.fakerefsarrayofenums.post.FakerefsarrayofenumsPostResponses;
 
 import java.io.IOException;
@@ -73,7 +73,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefsarrayofenumsPost.Post apiClient = new FakerefsarrayofenumsPost.Post(apiConfiguration, schemaConfiguration);
+Fakerefsarrayofenums apiClient = new Fakerefsarrayofenums(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakerefsarrayofenumsPost.PostRequestBuilder().build();
@@ -99,3 +99,4 @@ FakerefsarrayofenumsPostResponses.EndpointFakerefsarrayofenumsPostCode200Respons
 FakerefsarrayofenumsPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefsarrayofenumsPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Userlogout
 
-public class  extends extends ApiClient implements
+public class Userlogout extends extends ApiClient implements
 [UserlogoutGet.GetOperation](../../paths/userlogout/UserlogoutGet.md#getoperation)
 
 an api client class which contains all the routes for path="/user/logout"
@@ -47,7 +47,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.userlogout.get.responses.UserlogoutGetCodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.userlogout.UserlogoutGet;
+import org.openapijsonschematools.client.apis.paths.Userlogout;
 import org.openapijsonschematools.client.paths.userlogout.get.UserlogoutGetResponses;
 
 import java.io.IOException;
@@ -73,7 +73,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UserlogoutGet.Get apiClient = new UserlogoutGet.Get(apiConfiguration, schemaConfiguration);
+Userlogout apiClient = new Userlogout(apiConfiguration, schemaConfiguration);
 
 
 var request = new UserlogoutGet.GetRequestBuilder().build();
@@ -97,3 +97,4 @@ try {
 }
 UserlogoutGetResponses.EndpointUserlogoutGetCodedefaultResponse castResponse = (UserlogoutGetResponses.EndpointUserlogoutGetCodedefaultResponse) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

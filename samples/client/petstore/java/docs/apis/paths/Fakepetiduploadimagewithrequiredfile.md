@@ -1,6 +1,6 @@
 # Fakepetiduploadimagewithrequiredfile
 
-public class  extends extends ApiClient implements
+public class Fakepetiduploadimagewithrequiredfile extends extends ApiClient implements
 [FakepetiduploadimagewithrequiredfilePost.PostOperation](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/{petId}/uploadImageWithRequiredFile"
@@ -52,7 +52,7 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.responses.FakepetiduploadimagewithrequiredfilePostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.FakepetiduploadimagewithrequiredfilePost;
+import org.openapijsonschematools.client.apis.paths.Fakepetiduploadimagewithrequiredfile;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostResponses;
 
 import java.io.IOException;
@@ -84,7 +84,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakepetiduploadimagewithrequiredfilePost.Post apiClient = new FakepetiduploadimagewithrequiredfilePost.Post(apiConfiguration, schemaConfiguration);
+Fakepetiduploadimagewithrequiredfile apiClient = new Fakepetiduploadimagewithrequiredfile(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -122,3 +122,4 @@ FakepetiduploadimagewithrequiredfilePostResponses.EndpointFakepetiduploadimagewi
 FakepetiduploadimagewithrequiredfilePostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakepetiduploadimagewithrequiredfilePostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

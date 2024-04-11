@@ -1,6 +1,6 @@
 # Pet
 
-public class  extends extends ApiClient implements
+public class Pet extends extends ApiClient implements
 [PetPost.PostOperation](../../paths/pet/PetPost.md#postoperation),
 [PetPut.PutOperation](../../paths/pet/PetPut.md#putoperation)
 
@@ -57,7 +57,7 @@ import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 import org.openapijsonschematools.client.paths.pet.post.responses.PetPostCode200Response;
 import org.openapijsonschematools.client.paths.pet.post.responses.PetPostCode405Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.pet.PetPost;
+import org.openapijsonschematools.client.apis.paths.Pet;
 import org.openapijsonschematools.client.paths.pet.post.PetPostResponses;
 
 import java.io.IOException;
@@ -92,7 +92,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetPost.Post apiClient = new PetPost.Post(apiConfiguration, schemaConfiguration);
+Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 Pet1BoxedMap requestBodyPayload =
@@ -205,7 +205,7 @@ import org.openapijsonschematools.client.paths.pet.put.responses.PetPutCode400Re
 import org.openapijsonschematools.client.paths.pet.put.responses.PetPutCode404Response;
 import org.openapijsonschematools.client.paths.pet.put.responses.PetPutCode405Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.pet.PetPut;
+import org.openapijsonschematools.client.apis.paths.Pet;
 import org.openapijsonschematools.client.paths.pet.put.PetPutResponses;
 
 import java.io.IOException;
@@ -237,7 +237,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetPut.Put apiClient = new PetPut.Put(apiConfiguration, schemaConfiguration);
+Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 Pet1BoxedMap requestBodyPayload =
@@ -306,3 +306,4 @@ try {
     throw e;
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

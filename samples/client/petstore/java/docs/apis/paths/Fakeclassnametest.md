@@ -1,6 +1,6 @@
 # Fakeclassnametest
 
-public class  extends extends ApiClient implements
+public class Fakeclassnametest extends extends ApiClient implements
 [FakeclassnametestPatch.PatchOperation](../../paths/fakeclassnametest/FakeclassnametestPatch.md#patchoperation)
 
 an api client class which contains all the routes for path="/fake_classname_test"
@@ -52,7 +52,7 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKeyQuery;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.responses.FakeclassnametestPatchCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeclassnametest.FakeclassnametestPatch;
+import org.openapijsonschematools.client.apis.paths.Fakeclassnametest;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchResponses;
 
 import java.io.IOException;
@@ -87,7 +87,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeclassnametestPatch.Patch apiClient = new FakeclassnametestPatch.Patch(apiConfiguration, schemaConfiguration);
+Fakeclassnametest apiClient = new Fakeclassnametest(apiConfiguration, schemaConfiguration);
 
 
 Client1BoxedMap requestBodyPayload =
@@ -125,3 +125,4 @@ FakeclassnametestPatchResponses.EndpointFakeclassnametestPatchCode200Response ca
 FakeclassnametestPatchCode200Response.ApplicationjsonResponseBody deserializedBody = (FakeclassnametestPatchCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

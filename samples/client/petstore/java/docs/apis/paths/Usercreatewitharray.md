@@ -1,6 +1,6 @@
 # Usercreatewitharray
 
-public class  extends extends ApiClient implements
+public class Usercreatewitharray extends extends ApiClient implements
 [UsercreatewitharrayPost.PostOperation](../../paths/usercreatewitharray/UsercreatewitharrayPost.md#postoperation)
 
 an api client class which contains all the routes for path="/user/createWithArray"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.usercreatewitharray.post.responses.UsercreatewitharrayPostCodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.usercreatewitharray.UsercreatewitharrayPost;
+import org.openapijsonschematools.client.apis.paths.Usercreatewitharray;
 import org.openapijsonschematools.client.paths.usercreatewitharray.post.UsercreatewitharrayPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UsercreatewitharrayPost.Post apiClient = new UsercreatewitharrayPost.Post(apiConfiguration, schemaConfiguration);
+Usercreatewitharray apiClient = new Usercreatewitharray(apiConfiguration, schemaConfiguration);
 
 
 ApplicationjsonSchema1BoxedList requestBodyPayload =
@@ -149,3 +149,4 @@ try {
 }
 UsercreatewitharrayPostResponses.EndpointUsercreatewitharrayPostCodedefaultResponse castResponse = (UsercreatewitharrayPostResponses.EndpointUsercreatewitharrayPostCodedefaultResponse) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Fakewildcardresponses
 
-public class  extends extends ApiClient implements
+public class Fakewildcardresponses extends extends ApiClient implements
 [FakewildcardresponsesGet.GetOperation](../../paths/fakewildcardresponses/FakewildcardresponsesGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/wildCardResponses"
@@ -50,7 +50,7 @@ import org.openapijsonschematools.client.paths.fakewildcardresponses.get.respons
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode4XXResponse;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.FakewildcardresponsesGetCode5XXResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakewildcardresponses.FakewildcardresponsesGet;
+import org.openapijsonschematools.client.apis.paths.Fakewildcardresponses;
 import org.openapijsonschematools.client.paths.fakewildcardresponses.get.FakewildcardresponsesGetResponses;
 
 import java.io.IOException;
@@ -76,7 +76,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakewildcardresponsesGet.Get apiClient = new FakewildcardresponsesGet.Get(apiConfiguration, schemaConfiguration);
+Fakewildcardresponses apiClient = new Fakewildcardresponses(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakewildcardresponsesGet.GetRequestBuilder().build();
@@ -116,3 +116,4 @@ FakewildcardresponsesGetCode3XXResponse.ApplicationjsonResponseBody deserialized
 // handle deserialized body here
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

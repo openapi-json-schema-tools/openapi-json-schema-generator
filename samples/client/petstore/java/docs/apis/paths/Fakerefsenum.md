@@ -1,6 +1,6 @@
 # Fakerefsenum
 
-public class  extends extends ApiClient implements
+public class Fakerefsenum extends extends ApiClient implements
 [FakerefsenumPost.PostOperation](../../paths/fakerefsenum/FakerefsenumPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/refs/enum"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefsenum.post.responses.FakerefsenumPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefsenum.FakerefsenumPost;
+import org.openapijsonschematools.client.apis.paths.Fakerefsenum;
 import org.openapijsonschematools.client.paths.fakerefsenum.post.FakerefsenumPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefsenumPost.Post apiClient = new FakerefsenumPost.Post(apiConfiguration, schemaConfiguration);
+Fakerefsenum apiClient = new Fakerefsenum(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakerefsenumPost.PostRequestBuilder().build();
@@ -101,3 +101,4 @@ FakerefsenumPostResponses.EndpointFakerefsenumPostCode200Response castResponse =
 FakerefsenumPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefsenumPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

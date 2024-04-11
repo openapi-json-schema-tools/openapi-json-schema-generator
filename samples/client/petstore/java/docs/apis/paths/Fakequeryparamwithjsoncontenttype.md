@@ -1,6 +1,6 @@
 # Fakequeryparamwithjsoncontenttype
 
-public class  extends extends ApiClient implements
+public class Fakequeryparamwithjsoncontenttype extends extends ApiClient implements
 [FakequeryparamwithjsoncontenttypeGet.GetOperation](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/queryParamWithJsonContentType"
@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.responses.FakequeryparamwithjsoncontenttypeGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.FakequeryparamwithjsoncontenttypeGet;
+import org.openapijsonschematools.client.apis.paths.Fakequeryparamwithjsoncontenttype;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.FakequeryparamwithjsoncontenttypeGetResponses;
 
 import java.io.IOException;
@@ -72,7 +72,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakequeryparamwithjsoncontenttypeGet.Get apiClient = new FakequeryparamwithjsoncontenttypeGet.Get(apiConfiguration, schemaConfiguration);
+Fakequeryparamwithjsoncontenttype apiClient = new Fakequeryparamwithjsoncontenttype(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -108,3 +108,4 @@ FakequeryparamwithjsoncontenttypeGetResponses.EndpointFakequeryparamwithjsoncont
 FakequeryparamwithjsoncontenttypeGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakequeryparamwithjsoncontenttypeGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

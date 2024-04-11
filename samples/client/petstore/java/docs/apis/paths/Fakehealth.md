@@ -1,6 +1,6 @@
 # Fakehealth
 
-public class  extends extends ApiClient implements
+public class Fakehealth extends extends ApiClient implements
 [FakehealthGet.GetOperation](../../paths/fakehealth/FakehealthGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/health"
@@ -45,7 +45,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakehealth.get.responses.FakehealthGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakehealth.FakehealthGet;
+import org.openapijsonschematools.client.apis.paths.Fakehealth;
 import org.openapijsonschematools.client.paths.fakehealth.get.FakehealthGetResponses;
 
 import java.io.IOException;
@@ -71,7 +71,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakehealthGet.Get apiClient = new FakehealthGet.Get(apiConfiguration, schemaConfiguration);
+Fakehealth apiClient = new Fakehealth(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakehealthGet.GetRequestBuilder().build();
@@ -97,3 +97,4 @@ FakehealthGetResponses.EndpointFakehealthGetCode200Response castResponse = (Fake
 FakehealthGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakehealthGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

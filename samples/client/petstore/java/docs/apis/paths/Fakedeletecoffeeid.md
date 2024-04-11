@@ -1,6 +1,6 @@
 # Fakedeletecoffeeid
 
-public class  extends extends ApiClient implements
+public class Fakedeletecoffeeid extends extends ApiClient implements
 [FakedeletecoffeeidDelete.DeleteOperation](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete.md#deleteoperation)
 
 an api client class which contains all the routes for path="/fake/deleteCoffee/{id}"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.responses.FakedeletecoffeeidDeleteCode200Response;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.responses.FakedeletecoffeeidDeleteCodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakedeletecoffeeid.FakedeletecoffeeidDelete;
+import org.openapijsonschematools.client.apis.paths.Fakedeletecoffeeid;
 import org.openapijsonschematools.client.paths.fakedeletecoffeeid.delete.FakedeletecoffeeidDeleteResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakedeletecoffeeidDelete.Delete apiClient = new FakedeletecoffeeidDelete.Delete(apiConfiguration, schemaConfiguration);
+Fakedeletecoffeeid apiClient = new Fakedeletecoffeeid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -114,3 +114,4 @@ if (response instanceof FakedeletecoffeeidDeleteResponses.EndpointFakedeletecoff
     FakedeletecoffeeidDeleteResponses.EndpointFakedeletecoffeeidDeleteCodedefaultResponse castResponse = (FakedeletecoffeeidDeleteResponses.EndpointFakedeletecoffeeidDeleteCodedefaultResponse) response;
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Fakeredirection
 
-public class  extends extends ApiClient implements
+public class Fakeredirection extends extends ApiClient implements
 [FakeredirectionGet.GetOperation](../../paths/fakeredirection/FakeredirectionGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/redirection"
@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeredirection.get.responses.FakeredirectionGetCode303Response;
 import org.openapijsonschematools.client.paths.fakeredirection.get.responses.FakeredirectionGetCode3XXResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeredirection.FakeredirectionGet;
+import org.openapijsonschematools.client.apis.paths.Fakeredirection;
 import org.openapijsonschematools.client.paths.fakeredirection.get.FakeredirectionGetResponses;
 
 import java.io.IOException;
@@ -72,7 +72,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeredirectionGet.Get apiClient = new FakeredirectionGet.Get(apiConfiguration, schemaConfiguration);
+Fakeredirection apiClient = new Fakeredirection(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakeredirectionGet.GetRequestBuilder().build();
@@ -99,3 +99,4 @@ if (response instanceof FakeredirectionGetResponses.EndpointFakeredirectionGetCo
     FakeredirectionGetResponses.EndpointFakeredirectionGetCode303Response castResponse = (FakeredirectionGetResponses.EndpointFakeredirectionGetCode303Response) response;
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

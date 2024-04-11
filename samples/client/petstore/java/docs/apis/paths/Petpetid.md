@@ -1,6 +1,6 @@
 # Petpetid
 
-public class  extends extends ApiClient implements
+public class Petpetid extends extends ApiClient implements
 [PetpetidDelete.DeleteOperation](../../paths/petpetid/PetpetidDelete.md#deleteoperation),
 [PetpetidGet.GetOperation](../../paths/petpetid/PetpetidGet.md#getoperation),
 [PetpetidPost.PostOperation](../../paths/petpetid/PetpetidPost.md#postoperation)
@@ -57,7 +57,7 @@ import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.petpetid.delete.responses.PetpetidDeleteCode400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.petpetid.PetpetidDelete;
+import org.openapijsonschematools.client.apis.paths.Petpetid;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteResponses;
 
 import java.io.IOException;
@@ -92,7 +92,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetpetidDelete.Delete apiClient = new PetpetidDelete.Delete(apiConfiguration, schemaConfiguration);
+Petpetid apiClient = new Petpetid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -171,7 +171,7 @@ import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGe
 import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGetCode400Response;
 import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGetCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.petpetid.PetpetidGet;
+import org.openapijsonschematools.client.apis.paths.Petpetid;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetResponses;
 
 import java.io.IOException;
@@ -206,7 +206,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetpetidGet.Get apiClient = new PetpetidGet.Get(apiConfiguration, schemaConfiguration);
+Petpetid apiClient = new Petpetid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -292,7 +292,7 @@ import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.petpetid.post.responses.PetpetidPostCode405Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.petpetid.PetpetidPost;
+import org.openapijsonschematools.client.apis.paths.Petpetid;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostResponses;
 
 import java.io.IOException;
@@ -327,7 +327,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetpetidPost.Post apiClient = new PetpetidPost.Post(apiConfiguration, schemaConfiguration);
+Petpetid apiClient = new Petpetid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -365,3 +365,4 @@ try {
     throw e;
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

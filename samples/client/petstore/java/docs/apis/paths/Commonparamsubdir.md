@@ -1,6 +1,6 @@
 # Commonparamsubdir
 
-public class  extends extends ApiClient implements
+public class Commonparamsubdir extends extends ApiClient implements
 [CommonparamsubdirDelete.DeleteOperation](../../paths/commonparamsubdir/CommonparamsubdirDelete.md#deleteoperation),
 [CommonparamsubdirGet.GetOperation](../../paths/commonparamsubdir/CommonparamsubdirGet.md#getoperation),
 [CommonparamsubdirPost.PostOperation](../../paths/commonparamsubdir/CommonparamsubdirPost.md#postoperation)
@@ -53,7 +53,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.responses.CommonparamsubdirDeleteCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.commonparamsubdir.CommonparamsubdirDelete;
+import org.openapijsonschematools.client.apis.paths.Commonparamsubdir;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteResponses;
 
 import java.io.IOException;
@@ -79,7 +79,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-CommonparamsubdirDelete.Delete apiClient = new CommonparamsubdirDelete.Delete(apiConfiguration, schemaConfiguration);
+Commonparamsubdir apiClient = new Commonparamsubdir(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -150,7 +150,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.responses.CommonparamsubdirGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.commonparamsubdir.CommonparamsubdirGet;
+import org.openapijsonschematools.client.apis.paths.Commonparamsubdir;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetResponses;
 
 import java.io.IOException;
@@ -176,7 +176,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-CommonparamsubdirGet.Get apiClient = new CommonparamsubdirGet.Get(apiConfiguration, schemaConfiguration);
+Commonparamsubdir apiClient = new Commonparamsubdir(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -247,7 +247,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.responses.CommonparamsubdirPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.commonparamsubdir.CommonparamsubdirPost;
+import org.openapijsonschematools.client.apis.paths.Commonparamsubdir;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostResponses;
 
 import java.io.IOException;
@@ -273,7 +273,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-CommonparamsubdirPost.Post apiClient = new CommonparamsubdirPost.Post(apiConfiguration, schemaConfiguration);
+Commonparamsubdir apiClient = new Commonparamsubdir(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -309,3 +309,4 @@ try {
 }
 CommonparamsubdirPostResponses.EndpointCommonparamsubdirPostCode200Response castResponse = (CommonparamsubdirPostResponses.EndpointCommonparamsubdirPostCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

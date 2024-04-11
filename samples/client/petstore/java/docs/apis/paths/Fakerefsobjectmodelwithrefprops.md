@@ -1,6 +1,6 @@
 # Fakerefsobjectmodelwithrefprops
 
-public class  extends extends ApiClient implements
+public class Fakerefsobjectmodelwithrefprops extends extends ApiClient implements
 [FakerefsobjectmodelwithrefpropsPost.PostOperation](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/refs/object_model_with_ref_props"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.post.responses.FakerefsobjectmodelwithrefpropsPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.FakerefsobjectmodelwithrefpropsPost;
+import org.openapijsonschematools.client.apis.paths.Fakerefsobjectmodelwithrefprops;
 import org.openapijsonschematools.client.paths.fakerefsobjectmodelwithrefprops.post.FakerefsobjectmodelwithrefpropsPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefsobjectmodelwithrefpropsPost.Post apiClient = new FakerefsobjectmodelwithrefpropsPost.Post(apiConfiguration, schemaConfiguration);
+Fakerefsobjectmodelwithrefprops apiClient = new Fakerefsobjectmodelwithrefprops(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakerefsobjectmodelwithrefpropsPost.PostRequestBuilder().build();
@@ -101,3 +101,4 @@ FakerefsobjectmodelwithrefpropsPostResponses.EndpointFakerefsobjectmodelwithrefp
 FakerefsobjectmodelwithrefpropsPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefsobjectmodelwithrefpropsPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Solidus
 
-public class  extends extends ApiClient implements
+public class Solidus extends extends ApiClient implements
 [SolidusGet.GetOperation](../../paths/solidus/SolidusGet.md#getoperation)
 
 an api client class which contains all the routes for path="/"
@@ -45,7 +45,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.solidus.get.responses.SolidusGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.solidus.SolidusGet;
+import org.openapijsonschematools.client.apis.paths.Solidus;
 import org.openapijsonschematools.client.paths.solidus.get.SolidusGetResponses;
 
 import java.io.IOException;
@@ -71,7 +71,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-SolidusGet.Get apiClient = new SolidusGet.Get(apiConfiguration, schemaConfiguration);
+Solidus apiClient = new Solidus(apiConfiguration, schemaConfiguration);
 
 
 var request = new SolidusGet.GetRequestBuilder().build();
@@ -95,3 +95,4 @@ try {
 }
 SolidusGetResponses.EndpointSolidusGetCode200Response castResponse = (SolidusGetResponses.EndpointSolidusGetCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

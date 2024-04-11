@@ -1,6 +1,6 @@
 # Fakejsonpatch
 
-public class  extends extends ApiClient implements
+public class Fakejsonpatch extends extends ApiClient implements
 [FakejsonpatchPatch.PatchOperation](../../paths/fakejsonpatch/FakejsonpatchPatch.md#patchoperation)
 
 an api client class which contains all the routes for path="/fake/jsonPatch"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.responses.FakejsonpatchPatchCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakejsonpatch.FakejsonpatchPatch;
+import org.openapijsonschematools.client.apis.paths.Fakejsonpatch;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.FakejsonpatchPatchResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakejsonpatchPatch.Patch apiClient = new FakejsonpatchPatch.Patch(apiConfiguration, schemaConfiguration);
+Fakejsonpatch apiClient = new Fakejsonpatch(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakejsonpatchPatch.PatchRequestBuilder().build();
@@ -99,3 +99,4 @@ try {
 }
 FakejsonpatchPatchResponses.EndpointFakejsonpatchPatchCode200Response castResponse = (FakejsonpatchPatchResponses.EndpointFakejsonpatchPatchCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Fakemultiplesecurities
 
-public class  extends extends ApiClient implements
+public class Fakemultiplesecurities extends extends ApiClient implements
 [FakemultiplesecuritiesGet.GetOperation](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/multipleSecurities"
@@ -50,7 +50,7 @@ import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.responses.FakemultiplesecuritiesGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakemultiplesecurities.FakemultiplesecuritiesGet;
+import org.openapijsonschematools.client.apis.paths.Fakemultiplesecurities;
 import org.openapijsonschematools.client.paths.fakemultiplesecurities.get.FakemultiplesecuritiesGetResponses;
 
 import java.io.IOException;
@@ -88,7 +88,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakemultiplesecuritiesGet.Get apiClient = new FakemultiplesecuritiesGet.Get(apiConfiguration, schemaConfiguration);
+Fakemultiplesecurities apiClient = new Fakemultiplesecurities(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakemultiplesecuritiesGet.GetRequestBuilder().build();
@@ -114,3 +114,4 @@ FakemultiplesecuritiesGetResponses.EndpointFakemultiplesecuritiesGetCode200Respo
 FakemultiplesecuritiesGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakemultiplesecuritiesGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

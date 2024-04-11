@@ -1,6 +1,6 @@
 # Fakerefsmammal
 
-public class  extends extends ApiClient implements
+public class Fakerefsmammal extends extends ApiClient implements
 [FakerefsmammalPost.PostOperation](../../paths/fakerefsmammal/FakerefsmammalPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/refs/mammal"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefsmammal.post.responses.FakerefsmammalPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefsmammal.FakerefsmammalPost;
+import org.openapijsonschematools.client.apis.paths.Fakerefsmammal;
 import org.openapijsonschematools.client.paths.fakerefsmammal.post.FakerefsmammalPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefsmammalPost.Post apiClient = new FakerefsmammalPost.Post(apiConfiguration, schemaConfiguration);
+Fakerefsmammal apiClient = new Fakerefsmammal(apiConfiguration, schemaConfiguration);
 
 FakerefsmammalPost.SealedRequestBody requestBody = new FakerefsmammalPost.ApplicationjsonRequestBody(requestBodyPayload);
 
@@ -104,3 +104,4 @@ FakerefsmammalPostResponses.EndpointFakerefsmammalPostCode200Response castRespon
 FakerefsmammalPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefsmammalPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

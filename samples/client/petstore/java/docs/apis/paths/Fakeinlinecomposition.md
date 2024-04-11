@@ -1,6 +1,6 @@
 # Fakeinlinecomposition
 
-public class  extends extends ApiClient implements
+public class Fakeinlinecomposition extends extends ApiClient implements
 [FakeinlinecompositionPost.PostOperation](../../paths/fakeinlinecomposition/FakeinlinecompositionPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/inlineComposition/"
@@ -50,7 +50,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.responses.FakeinlinecompositionPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeinlinecomposition.FakeinlinecompositionPost;
+import org.openapijsonschematools.client.apis.paths.Fakeinlinecomposition;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.FakeinlinecompositionPostResponses;
 
 import java.io.IOException;
@@ -76,7 +76,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeinlinecompositionPost.Post apiClient = new FakeinlinecompositionPost.Post(apiConfiguration, schemaConfiguration);
+Fakeinlinecomposition apiClient = new Fakeinlinecomposition(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakeinlinecompositionPost.PostRequestBuilder().build();
@@ -106,3 +106,4 @@ if (castResponse.body instanceof FakeinlinecompositionPostCode200Response.Applic
     // handle deserialized body here
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

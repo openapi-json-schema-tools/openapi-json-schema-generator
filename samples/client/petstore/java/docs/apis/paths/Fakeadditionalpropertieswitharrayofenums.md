@@ -1,6 +1,6 @@
 # Fakeadditionalpropertieswitharrayofenums
 
-public class  extends extends ApiClient implements
+public class Fakeadditionalpropertieswitharrayofenums extends extends ApiClient implements
 [FakeadditionalpropertieswitharrayofenumsGet.GetOperation](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/additional-properties-with-array-of-enums"
@@ -47,7 +47,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.responses.FakeadditionalpropertieswitharrayofenumsGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.FakeadditionalpropertieswitharrayofenumsGet;
+import org.openapijsonschematools.client.apis.paths.Fakeadditionalpropertieswitharrayofenums;
 import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.FakeadditionalpropertieswitharrayofenumsGetResponses;
 
 import java.io.IOException;
@@ -73,7 +73,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeadditionalpropertieswitharrayofenumsGet.Get apiClient = new FakeadditionalpropertieswitharrayofenumsGet.Get(apiConfiguration, schemaConfiguration);
+Fakeadditionalpropertieswitharrayofenums apiClient = new Fakeadditionalpropertieswitharrayofenums(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakeadditionalpropertieswitharrayofenumsGet.GetRequestBuilder().build();
@@ -99,3 +99,4 @@ FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointFakeadditionalprope
 FakeadditionalpropertieswitharrayofenumsGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakeadditionalpropertieswitharrayofenumsGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

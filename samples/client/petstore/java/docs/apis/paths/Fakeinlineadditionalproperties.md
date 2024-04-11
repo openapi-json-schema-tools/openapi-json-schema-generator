@@ -1,6 +1,6 @@
 # Fakeinlineadditionalproperties
 
-public class  extends extends ApiClient implements
+public class Fakeinlineadditionalproperties extends extends ApiClient implements
 [FakeinlineadditionalpropertiesPost.PostOperation](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/inline-additionalProperties"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.post.responses.FakeinlineadditionalpropertiesPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.FakeinlineadditionalpropertiesPost;
+import org.openapijsonschematools.client.apis.paths.Fakeinlineadditionalproperties;
 import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.post.FakeinlineadditionalpropertiesPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeinlineadditionalpropertiesPost.Post apiClient = new FakeinlineadditionalpropertiesPost.Post(apiConfiguration, schemaConfiguration);
+Fakeinlineadditionalproperties apiClient = new Fakeinlineadditionalproperties(apiConfiguration, schemaConfiguration);
 
 
 ApplicationjsonSchema1BoxedMap requestBodyPayload =
@@ -111,3 +111,4 @@ try {
 }
 FakeinlineadditionalpropertiesPostResponses.EndpointFakeinlineadditionalpropertiesPostCode200Response castResponse = (FakeinlineadditionalpropertiesPostResponses.EndpointFakeinlineadditionalpropertiesPostCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Petfindbystatus
 
-public class  extends extends ApiClient implements
+public class Petfindbystatus extends extends ApiClient implements
 [PetfindbystatusGet.GetOperation](../../paths/petfindbystatus/PetfindbystatusGet.md#getoperation)
 
 an api client class which contains all the routes for path="/pet/findByStatus"
@@ -53,7 +53,7 @@ import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.PetfindbystatusGetCode200Response;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.responses.PetfindbystatusGetCode400Response;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
-import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusGet;
+import org.openapijsonschematools.client.apis.paths.Petfindbystatus;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.PetfindbystatusGetResponses;
 
 import java.io.IOException;
@@ -88,7 +88,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetfindbystatusGet.Get apiClient = new PetfindbystatusGet.Get(apiConfiguration, schemaConfiguration);
+Petfindbystatus apiClient = new Petfindbystatus(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -131,3 +131,4 @@ try {
 PetfindbystatusGetResponses.EndpointPetfindbystatusGetCode200Response castResponse = (PetfindbystatusGetResponses.EndpointPetfindbystatusGetCode200Response) response;
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

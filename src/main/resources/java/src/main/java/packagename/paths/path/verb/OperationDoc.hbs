@@ -32,7 +32,7 @@ public static class {{method.pascalCase}} extends ApiClient.ApiClient1 implement
 a class that allows one to call the endpoint using a method named {{method.camelCase}}
 
 {{headerSize}}## Code Sample
-{{> src/main/java/packagename/paths/path/verb/_OperationDocCodeSample }}
+{{> src/main/java/packagename/paths/path/verb/_OperationDocCodeSample apiSubpackage=subpackage apiContainerClass=jsonPathPiece.pascalCase apiFullyQualifiedClass=(join jsonPathPiece.pascalCase method.pascalCase ".") }}
 
 {{headerSize}}## Constructor Summary
 | Constructor and Description |

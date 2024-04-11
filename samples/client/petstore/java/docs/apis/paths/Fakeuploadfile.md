@@ -1,6 +1,6 @@
 # Fakeuploadfile
 
-public class  extends extends ApiClient implements
+public class Fakeuploadfile extends extends ApiClient implements
 [FakeuploadfilePost.PostOperation](../../paths/fakeuploadfile/FakeuploadfilePost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/uploadFile"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeuploadfile.post.responses.FakeuploadfilePostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeuploadfile.FakeuploadfilePost;
+import org.openapijsonschematools.client.apis.paths.Fakeuploadfile;
 import org.openapijsonschematools.client.paths.fakeuploadfile.post.FakeuploadfilePostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeuploadfilePost.Post apiClient = new FakeuploadfilePost.Post(apiConfiguration, schemaConfiguration);
+Fakeuploadfile apiClient = new Fakeuploadfile(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakeuploadfilePost.PostRequestBuilder().build();
@@ -101,3 +101,4 @@ FakeuploadfilePostResponses.EndpointFakeuploadfilePostCode200Response castRespon
 FakeuploadfilePostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakeuploadfilePostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Fakepemcontenttype
 
-public class  extends extends ApiClient implements
+public class Fakepemcontenttype extends extends ApiClient implements
 [FakepemcontenttypeGet.GetOperation](../../paths/fakepemcontenttype/FakepemcontenttypeGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/pemContentType"
@@ -47,7 +47,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.get.responses.FakepemcontenttypeGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakepemcontenttype.FakepemcontenttypeGet;
+import org.openapijsonschematools.client.apis.paths.Fakepemcontenttype;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.get.FakepemcontenttypeGetResponses;
 
 import java.io.IOException;
@@ -73,7 +73,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakepemcontenttypeGet.Get apiClient = new FakepemcontenttypeGet.Get(apiConfiguration, schemaConfiguration);
+Fakepemcontenttype apiClient = new Fakepemcontenttype(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakepemcontenttypeGet.GetRequestBuilder().build();
@@ -99,3 +99,4 @@ FakepemcontenttypeGetResponses.EndpointFakepemcontenttypeGetCode200Response cast
 FakepemcontenttypeGetCode200Response.ApplicationxpemfileResponseBody deserializedBody = (FakepemcontenttypeGetCode200Response.ApplicationxpemfileResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

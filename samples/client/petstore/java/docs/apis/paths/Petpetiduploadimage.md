@@ -1,6 +1,6 @@
 # Petpetiduploadimage
 
-public class  extends extends ApiClient implements
+public class Petpetiduploadimage extends extends ApiClient implements
 [PetpetiduploadimagePost.PostOperation](../../paths/petpetiduploadimage/PetpetiduploadimagePost.md#postoperation)
 
 an api client class which contains all the routes for path="/pet/{petId}/uploadImage"
@@ -53,7 +53,7 @@ import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.PetpetiduploadimagePostCode200Response;
 import org.openapijsonschematools.client.components.responses.successwithjsonapiresponse.SuccessWithJsonApiResponseHeadersSchema;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.petpetiduploadimage.PetpetiduploadimagePost;
+import org.openapijsonschematools.client.apis.paths.Petpetiduploadimage;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostResponses;
 
 import java.io.IOException;
@@ -85,7 +85,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetpetiduploadimagePost.Post apiClient = new PetpetiduploadimagePost.Post(apiConfiguration, schemaConfiguration);
+Petpetiduploadimage apiClient = new Petpetiduploadimage(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -122,3 +122,4 @@ try {
 PetpetiduploadimagePostResponses.EndpointPetpetiduploadimagePostCode200Response castResponse = (PetpetiduploadimagePostResponses.EndpointPetpetiduploadimagePostCode200Response) response;
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

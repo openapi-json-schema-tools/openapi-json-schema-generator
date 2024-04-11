@@ -1,6 +1,6 @@
 # Fakejsonformdata
 
-public class  extends extends ApiClient implements
+public class Fakejsonformdata extends extends ApiClient implements
 [FakejsonformdataGet.GetOperation](../../paths/fakejsonformdata/FakejsonformdataGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/jsonFormData"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakejsonformdata.get.responses.FakejsonformdataGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakejsonformdata.FakejsonformdataGet;
+import org.openapijsonschematools.client.apis.paths.Fakejsonformdata;
 import org.openapijsonschematools.client.paths.fakejsonformdata.get.FakejsonformdataGetResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakejsonformdataGet.Get apiClient = new FakejsonformdataGet.Get(apiConfiguration, schemaConfiguration);
+Fakejsonformdata apiClient = new Fakejsonformdata(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakejsonformdataGet.GetRequestBuilder().build();
@@ -99,3 +99,4 @@ try {
 }
 FakejsonformdataGetResponses.EndpointFakejsonformdataGetCode200Response castResponse = (FakejsonformdataGetResponses.EndpointFakejsonformdataGetCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

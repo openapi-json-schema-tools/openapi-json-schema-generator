@@ -1,6 +1,6 @@
 # Fakeresponsewithoutschema
 
-public class  extends extends ApiClient implements
+public class Fakeresponsewithoutschema extends extends ApiClient implements
 [FakeresponsewithoutschemaGet.GetOperation](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/responseWithoutSchema"
@@ -45,7 +45,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get.responses.FakeresponsewithoutschemaGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.FakeresponsewithoutschemaGet;
+import org.openapijsonschematools.client.apis.paths.Fakeresponsewithoutschema;
 import org.openapijsonschematools.client.paths.fakeresponsewithoutschema.get.FakeresponsewithoutschemaGetResponses;
 
 import java.io.IOException;
@@ -71,7 +71,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeresponsewithoutschemaGet.Get apiClient = new FakeresponsewithoutschemaGet.Get(apiConfiguration, schemaConfiguration);
+Fakeresponsewithoutschema apiClient = new Fakeresponsewithoutschema(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakeresponsewithoutschemaGet.GetRequestBuilder().build();
@@ -95,3 +95,4 @@ try {
 }
 FakeresponsewithoutschemaGetResponses.EndpointFakeresponsewithoutschemaGetCode200Response castResponse = (FakeresponsewithoutschemaGetResponses.EndpointFakeresponsewithoutschemaGetCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

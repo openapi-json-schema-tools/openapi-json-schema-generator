@@ -1,6 +1,6 @@
 # Userlogin
 
-public class  extends extends ApiClient implements
+public class Userlogin extends extends ApiClient implements
 [UserloginGet.GetOperation](../../paths/userlogin/UserloginGet.md#getoperation)
 
 an api client class which contains all the routes for path="/user/login"
@@ -50,7 +50,7 @@ import org.openapijsonschematools.client.paths.userlogin.get.responses.Userlogin
 import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.UserloginGetCode200ResponseHeadersSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.UserloginGetCode400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.userlogin.UserloginGet;
+import org.openapijsonschematools.client.apis.paths.Userlogin;
 import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetResponses;
 
 import java.io.IOException;
@@ -76,7 +76,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UserloginGet.Get apiClient = new UserloginGet.Get(apiConfiguration, schemaConfiguration);
+Userlogin apiClient = new Userlogin(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -123,3 +123,4 @@ if (castResponse.body instanceof UserloginGetCode200Response.ApplicationxmlRespo
     // handle deserialized body here
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Storeorderorderid
 
-public class  extends extends ApiClient implements
+public class Storeorderorderid extends extends ApiClient implements
 [StoreorderorderidDelete.DeleteOperation](../../paths/storeorderorderid/StoreorderorderidDelete.md#deleteoperation),
 [StoreorderorderidGet.GetOperation](../../paths/storeorderorderid/StoreorderorderidGet.md#getoperation)
 
@@ -51,7 +51,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.StoreorderorderidDeleteCode400Response;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.StoreorderorderidDeleteCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeorderorderid.StoreorderorderidDelete;
+import org.openapijsonschematools.client.apis.paths.Storeorderorderid;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.StoreorderorderidDeleteResponses;
 
 import java.io.IOException;
@@ -77,7 +77,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-StoreorderorderidDelete.Delete apiClient = new StoreorderorderidDelete.Delete(apiConfiguration, schemaConfiguration);
+Storeorderorderid apiClient = new Storeorderorderid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -153,7 +153,7 @@ import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.S
 import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode400Response;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeorderorderid.StoreorderorderidGet;
+import org.openapijsonschematools.client.apis.paths.Storeorderorderid;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.StoreorderorderidGetResponses;
 
 import java.io.IOException;
@@ -179,7 +179,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-StoreorderorderidGet.Get apiClient = new StoreorderorderidGet.Get(apiConfiguration, schemaConfiguration);
+Storeorderorderid apiClient = new Storeorderorderid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -224,3 +224,4 @@ if (castResponse.body instanceof StoreorderorderidGetCode200Response.Application
     // handle deserialized body here
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

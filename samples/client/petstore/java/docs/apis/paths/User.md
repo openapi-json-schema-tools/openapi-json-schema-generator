@@ -1,6 +1,6 @@
 # User
 
-public class  extends extends ApiClient implements
+public class User extends extends ApiClient implements
 [UserPost.PostOperation](../../paths/user/UserPost.md#postoperation)
 
 an api client class which contains all the routes for path="/user"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.user.post.responses.UserPostCodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.user.UserPost;
+import org.openapijsonschematools.client.apis.paths.User;
 import org.openapijsonschematools.client.paths.user.post.UserPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UserPost.Post apiClient = new UserPost.Post(apiConfiguration, schemaConfiguration);
+User apiClient = new User(apiConfiguration, schemaConfiguration);
 
 
 User1BoxedMap requestBodyPayload =
@@ -127,3 +127,4 @@ try {
 }
 UserPostResponses.EndpointUserPostCodedefaultResponse castResponse = (UserPostResponses.EndpointUserPostCodedefaultResponse) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

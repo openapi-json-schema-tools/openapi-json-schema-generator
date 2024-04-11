@@ -1,6 +1,6 @@
 # Fakejsonwithcharset
 
-public class  extends extends ApiClient implements
+public class Fakejsonwithcharset extends extends ApiClient implements
 [FakejsonwithcharsetPost.PostOperation](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/jsonWithCharset"
@@ -47,7 +47,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.responses.FakejsonwithcharsetPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakejsonwithcharset.FakejsonwithcharsetPost;
+import org.openapijsonschematools.client.apis.paths.Fakejsonwithcharset;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.FakejsonwithcharsetPostResponses;
 
 import java.io.IOException;
@@ -73,7 +73,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakejsonwithcharsetPost.Post apiClient = new FakejsonwithcharsetPost.Post(apiConfiguration, schemaConfiguration);
+Fakejsonwithcharset apiClient = new Fakejsonwithcharset(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakejsonwithcharsetPost.PostRequestBuilder().build();
@@ -99,3 +99,4 @@ FakejsonwithcharsetPostResponses.EndpointFakejsonwithcharsetPostCode200Response 
 FakejsonwithcharsetPostCode200Response.Applicationjsoncharsetutf8ResponseBody deserializedBody = (FakejsonwithcharsetPostCode200Response.Applicationjsoncharsetutf8ResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

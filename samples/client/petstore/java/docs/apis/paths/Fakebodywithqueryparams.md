@@ -1,6 +1,6 @@
 # Fakebodywithqueryparams
 
-public class  extends extends ApiClient implements
+public class Fakebodywithqueryparams extends extends ApiClient implements
 [FakebodywithqueryparamsPut.PutOperation](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut.md#putoperation)
 
 an api client class which contains all the routes for path="/fake/body-with-query-params"
@@ -48,7 +48,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.responses.FakebodywithqueryparamsPutCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakebodywithqueryparams.FakebodywithqueryparamsPut;
+import org.openapijsonschematools.client.apis.paths.Fakebodywithqueryparams;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutResponses;
 
 import java.io.IOException;
@@ -74,7 +74,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakebodywithqueryparamsPut.Put apiClient = new FakebodywithqueryparamsPut.Put(apiConfiguration, schemaConfiguration);
+Fakebodywithqueryparams apiClient = new Fakebodywithqueryparams(apiConfiguration, schemaConfiguration);
 
 
 User1BoxedMap requestBodyPayload =
@@ -137,3 +137,4 @@ try {
 }
 FakebodywithqueryparamsPutResponses.EndpointFakebodywithqueryparamsPutCode200Response castResponse = (FakebodywithqueryparamsPutResponses.EndpointFakebodywithqueryparamsPutCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

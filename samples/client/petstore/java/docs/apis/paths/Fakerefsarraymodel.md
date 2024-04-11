@@ -1,6 +1,6 @@
 # Fakerefsarraymodel
 
-public class  extends extends ApiClient implements
+public class Fakerefsarraymodel extends extends ApiClient implements
 [FakerefsarraymodelPost.PostOperation](../../paths/fakerefsarraymodel/FakerefsarraymodelPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/refs/arraymodel"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefsarraymodel.post.responses.FakerefsarraymodelPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefsarraymodel.FakerefsarraymodelPost;
+import org.openapijsonschematools.client.apis.paths.Fakerefsarraymodel;
 import org.openapijsonschematools.client.paths.fakerefsarraymodel.post.FakerefsarraymodelPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefsarraymodelPost.Post apiClient = new FakerefsarraymodelPost.Post(apiConfiguration, schemaConfiguration);
+Fakerefsarraymodel apiClient = new Fakerefsarraymodel(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakerefsarraymodelPost.PostRequestBuilder().build();
@@ -101,3 +101,4 @@ FakerefsarraymodelPostResponses.EndpointFakerefsarraymodelPostCode200Response ca
 FakerefsarraymodelPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefsarraymodelPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

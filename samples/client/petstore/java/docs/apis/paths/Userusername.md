@@ -1,6 +1,6 @@
 # Userusername
 
-public class  extends extends ApiClient implements
+public class Userusername extends extends ApiClient implements
 [UserusernameDelete.DeleteOperation](../../paths/userusername/UserusernameDelete.md#deleteoperation),
 [UserusernameGet.GetOperation](../../paths/userusername/UserusernameGet.md#getoperation),
 [UserusernamePut.PutOperation](../../paths/userusername/UserusernamePut.md#putoperation)
@@ -53,7 +53,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.userusername.delete.responses.UserusernameDeleteCode200Response;
 import org.openapijsonschematools.client.paths.userusername.delete.responses.UserusernameDeleteCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.UserusernameDelete;
+import org.openapijsonschematools.client.apis.paths.Userusername;
 import org.openapijsonschematools.client.paths.userusername.delete.UserusernameDeleteResponses;
 
 import java.io.IOException;
@@ -79,7 +79,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UserusernameDelete.Delete apiClient = new UserusernameDelete.Delete(apiConfiguration, schemaConfiguration);
+Userusername apiClient = new Userusername(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -156,7 +156,7 @@ import org.openapijsonschematools.client.paths.userusername.get.responses.Userus
 import org.openapijsonschematools.client.paths.userusername.get.responses.UserusernameGetCode400Response;
 import org.openapijsonschematools.client.paths.userusername.get.responses.UserusernameGetCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.UserusernameGet;
+import org.openapijsonschematools.client.apis.paths.Userusername;
 import org.openapijsonschematools.client.paths.userusername.get.UserusernameGetResponses;
 
 import java.io.IOException;
@@ -182,7 +182,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UserusernameGet.Get apiClient = new UserusernameGet.Get(apiConfiguration, schemaConfiguration);
+Userusername apiClient = new Userusername(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -266,7 +266,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.userusername.put.responses.UserusernamePutCode400Response;
 import org.openapijsonschematools.client.paths.userusername.put.responses.UserusernamePutCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.userusername.UserusernamePut;
+import org.openapijsonschematools.client.apis.paths.Userusername;
 import org.openapijsonschematools.client.paths.userusername.put.UserusernamePutResponses;
 
 import java.io.IOException;
@@ -292,7 +292,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UserusernamePut.Put apiClient = new UserusernamePut.Put(apiConfiguration, schemaConfiguration);
+Userusername apiClient = new Userusername(apiConfiguration, schemaConfiguration);
 
 
 User1BoxedMap requestBodyPayload =
@@ -357,3 +357,4 @@ try {
     throw e;
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

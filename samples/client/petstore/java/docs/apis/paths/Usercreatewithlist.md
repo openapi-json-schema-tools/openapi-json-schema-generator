@@ -1,6 +1,6 @@
 # Usercreatewithlist
 
-public class  extends extends ApiClient implements
+public class Usercreatewithlist extends extends ApiClient implements
 [UsercreatewithlistPost.PostOperation](../../paths/usercreatewithlist/UsercreatewithlistPost.md#postoperation)
 
 an api client class which contains all the routes for path="/user/createWithList"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.usercreatewithlist.post.responses.UsercreatewithlistPostCodedefaultResponse;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.usercreatewithlist.UsercreatewithlistPost;
+import org.openapijsonschematools.client.apis.paths.Usercreatewithlist;
 import org.openapijsonschematools.client.paths.usercreatewithlist.post.UsercreatewithlistPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-UsercreatewithlistPost.Post apiClient = new UsercreatewithlistPost.Post(apiConfiguration, schemaConfiguration);
+Usercreatewithlist apiClient = new Usercreatewithlist(apiConfiguration, schemaConfiguration);
 
 
 ApplicationjsonSchema1BoxedList requestBodyPayload =
@@ -149,3 +149,4 @@ try {
 }
 UsercreatewithlistPostResponses.EndpointUsercreatewithlistPostCodedefaultResponse castResponse = (UsercreatewithlistPostResponses.EndpointUsercreatewithlistPostCodedefaultResponse) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Fakemultiplerequestbodycontenttypes
 
-public class  extends extends ApiClient implements
+public class Fakemultiplerequestbodycontenttypes extends extends ApiClient implements
 [FakemultiplerequestbodycontenttypesPost.PostOperation](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/multipleRequestBodyContentTypes/"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.responses.FakemultiplerequestbodycontenttypesPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.FakemultiplerequestbodycontenttypesPost;
+import org.openapijsonschematools.client.apis.paths.Fakemultiplerequestbodycontenttypes;
 import org.openapijsonschematools.client.paths.fakemultiplerequestbodycontenttypes.post.FakemultiplerequestbodycontenttypesPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakemultiplerequestbodycontenttypesPost.Post apiClient = new FakemultiplerequestbodycontenttypesPost.Post(apiConfiguration, schemaConfiguration);
+Fakemultiplerequestbodycontenttypes apiClient = new Fakemultiplerequestbodycontenttypes(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakemultiplerequestbodycontenttypesPost.PostRequestBuilder().build();
@@ -101,3 +101,4 @@ FakemultiplerequestbodycontenttypesPostResponses.EndpointFakemultiplerequestbody
 FakemultiplerequestbodycontenttypesPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakemultiplerequestbodycontenttypesPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

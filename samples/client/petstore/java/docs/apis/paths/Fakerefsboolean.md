@@ -1,6 +1,6 @@
 # Fakerefsboolean
 
-public class  extends extends ApiClient implements
+public class Fakerefsboolean extends extends ApiClient implements
 [FakerefsbooleanPost.PostOperation](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/refs/boolean"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefsboolean.post.responses.FakerefsbooleanPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefsboolean.FakerefsbooleanPost;
+import org.openapijsonschematools.client.apis.paths.Fakerefsboolean;
 import org.openapijsonschematools.client.paths.fakerefsboolean.post.FakerefsbooleanPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefsbooleanPost.Post apiClient = new FakerefsbooleanPost.Post(apiConfiguration, schemaConfiguration);
+Fakerefsboolean apiClient = new Fakerefsboolean(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakerefsbooleanPost.PostRequestBuilder().build();
@@ -101,3 +101,4 @@ FakerefsbooleanPostResponses.EndpointFakerefsbooleanPostCode200Response castResp
 FakerefsbooleanPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefsbooleanPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

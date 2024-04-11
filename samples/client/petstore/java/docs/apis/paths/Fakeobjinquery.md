@@ -1,6 +1,6 @@
 # Fakeobjinquery
 
-public class  extends extends ApiClient implements
+public class Fakeobjinquery extends extends ApiClient implements
 [FakeobjinqueryGet.GetOperation](../../paths/fakeobjinquery/FakeobjinqueryGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/objInQuery"
@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.responses.FakeobjinqueryGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeobjinquery.FakeobjinqueryGet;
+import org.openapijsonschematools.client.apis.paths.Fakeobjinquery;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.FakeobjinqueryGetResponses;
 
 import java.io.IOException;
@@ -72,7 +72,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeobjinqueryGet.Get apiClient = new FakeobjinqueryGet.Get(apiConfiguration, schemaConfiguration);
+Fakeobjinquery apiClient = new Fakeobjinquery(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakeobjinqueryGet.GetRequestBuilder().build();
@@ -96,3 +96,4 @@ try {
 }
 FakeobjinqueryGetResponses.EndpointFakeobjinqueryGetCode200Response castResponse = (FakeobjinqueryGetResponses.EndpointFakeobjinqueryGetCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Fakecasesensitiveparams
 
-public class  extends extends ApiClient implements
+public class Fakecasesensitiveparams extends extends ApiClient implements
 [FakecasesensitiveparamsPut.PutOperation](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut.md#putoperation)
 
 an api client class which contains all the routes for path="/fake/case-sensitive-params"
@@ -48,7 +48,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.responses.FakecasesensitiveparamsPutCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakecasesensitiveparams.FakecasesensitiveparamsPut;
+import org.openapijsonschematools.client.apis.paths.Fakecasesensitiveparams;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.FakecasesensitiveparamsPutResponses;
 
 import java.io.IOException;
@@ -74,7 +74,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakecasesensitiveparamsPut.Put apiClient = new FakecasesensitiveparamsPut.Put(apiConfiguration, schemaConfiguration);
+Fakecasesensitiveparams apiClient = new Fakecasesensitiveparams(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -114,3 +114,4 @@ try {
 }
 FakecasesensitiveparamsPutResponses.EndpointFakecasesensitiveparamsPutCode200Response castResponse = (FakecasesensitiveparamsPutResponses.EndpointFakecasesensitiveparamsPutCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

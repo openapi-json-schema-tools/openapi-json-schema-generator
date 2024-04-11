@@ -1,6 +1,6 @@
 # Fakeparametercollisions1ababselfab
 
-public class  extends extends ApiClient implements
+public class Fakeparametercollisions1ababselfab extends extends ApiClient implements
 [Fakeparametercollisions1ababselfabPost.PostOperation](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/"
@@ -50,7 +50,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.responses.Fakeparametercollisions1ababselfabPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.Fakeparametercollisions1ababselfabPost;
+import org.openapijsonschematools.client.apis.paths.Fakeparametercollisions1ababselfab;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostResponses;
 
 import java.io.IOException;
@@ -76,7 +76,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-Fakeparametercollisions1ababselfabPost.Post apiClient = new Fakeparametercollisions1ababselfabPost.Post(apiConfiguration, schemaConfiguration);
+Fakeparametercollisions1ababselfab apiClient = new Fakeparametercollisions1ababselfab(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -122,3 +122,4 @@ Fakeparametercollisions1ababselfabPostResponses.EndpointFakeparametercollisions1
 Fakeparametercollisions1ababselfabPostCode200Response.ApplicationjsonResponseBody deserializedBody = (Fakeparametercollisions1ababselfabPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

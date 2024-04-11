@@ -1,6 +1,6 @@
 # Fakebodywithfileschema
 
-public class  extends extends ApiClient implements
+public class Fakebodywithfileschema extends extends ApiClient implements
 [FakebodywithfileschemaPut.PutOperation](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut.md#putoperation)
 
 an api client class which contains all the routes for path="/fake/body-with-file-schema"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.responses.FakebodywithfileschemaPutCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakebodywithfileschema.FakebodywithfileschemaPut;
+import org.openapijsonschematools.client.apis.paths.Fakebodywithfileschema;
 import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.FakebodywithfileschemaPutResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakebodywithfileschemaPut.Put apiClient = new FakebodywithfileschemaPut.Put(apiConfiguration, schemaConfiguration);
+Fakebodywithfileschema apiClient = new Fakebodywithfileschema(apiConfiguration, schemaConfiguration);
 
 
 FileSchemaTestClass1BoxedMap requestBodyPayload =
@@ -113,3 +113,4 @@ try {
 }
 FakebodywithfileschemaPutResponses.EndpointFakebodywithfileschemaPutCode200Response castResponse = (FakebodywithfileschemaPutResponses.EndpointFakebodywithfileschemaPutCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

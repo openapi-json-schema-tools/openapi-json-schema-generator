@@ -1,6 +1,6 @@
 # Foo
 
-public class  extends extends ApiClient implements
+public class Foo extends extends ApiClient implements
 [FooGet.GetOperation](../../paths/foo/FooGet.md#getoperation)
 
 an api client class which contains all the routes for path="/foo"
@@ -44,7 +44,7 @@ import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
 import org.openapijsonschematools.client.paths.foo.get.responses.FooGetCodedefaultResponse;
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
-import org.openapijsonschematools.client.paths.foo.FooGet;
+import org.openapijsonschematools.client.apis.paths.Foo;
 import org.openapijsonschematools.client.paths.foo.get.FooGetResponses;
 
 import java.io.IOException;
@@ -70,7 +70,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FooGet.Get apiClient = new FooGet.Get(apiConfiguration, schemaConfiguration);
+Foo apiClient = new Foo(apiConfiguration, schemaConfiguration);
 
 
 var request = new FooGet.GetRequestBuilder().build();
@@ -96,3 +96,4 @@ FooGetResponses.EndpointFooGetCodedefaultResponse castResponse = (FooGetResponse
 FooGetCodedefaultResponse.ApplicationjsonResponseBody deserializedBody = (FooGetCodedefaultResponse.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

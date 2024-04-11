@@ -1,6 +1,6 @@
 # Storeorder
 
-public class  extends extends ApiClient implements
+public class Storeorder extends extends ApiClient implements
 [StoreorderPost.PostOperation](../../paths/storeorder/StoreorderPost.md#postoperation)
 
 an api client class which contains all the routes for path="/store/order"
@@ -50,7 +50,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.storeorder.post.responses.StoreorderPostCode200Response;
 import org.openapijsonschematools.client.paths.storeorder.post.responses.StoreorderPostCode400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeorder.StoreorderPost;
+import org.openapijsonschematools.client.apis.paths.Storeorder;
 import org.openapijsonschematools.client.paths.storeorder.post.StoreorderPostResponses;
 
 import java.io.IOException;
@@ -76,7 +76,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-StoreorderPost.Post apiClient = new StoreorderPost.Post(apiConfiguration, schemaConfiguration);
+Storeorder apiClient = new Storeorder(apiConfiguration, schemaConfiguration);
 
 
 Order1BoxedMap requestBodyPayload =
@@ -131,3 +131,4 @@ if (castResponse.body instanceof StoreorderPostCode200Response.ApplicationxmlRes
     // handle deserialized body here
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

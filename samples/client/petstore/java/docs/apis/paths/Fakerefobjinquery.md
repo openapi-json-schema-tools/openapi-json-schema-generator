@@ -1,6 +1,6 @@
 # Fakerefobjinquery
 
-public class  extends extends ApiClient implements
+public class Fakerefobjinquery extends extends ApiClient implements
 [FakerefobjinqueryGet.GetOperation](../../paths/fakerefobjinquery/FakerefobjinqueryGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/refObjInQuery"
@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.get.responses.FakerefobjinqueryGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefobjinquery.FakerefobjinqueryGet;
+import org.openapijsonschematools.client.apis.paths.Fakerefobjinquery;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.get.FakerefobjinqueryGetResponses;
 
 import java.io.IOException;
@@ -72,7 +72,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefobjinqueryGet.Get apiClient = new FakerefobjinqueryGet.Get(apiConfiguration, schemaConfiguration);
+Fakerefobjinquery apiClient = new Fakerefobjinquery(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakerefobjinqueryGet.GetRequestBuilder().build();
@@ -96,3 +96,4 @@ try {
 }
 FakerefobjinqueryGetResponses.EndpointFakerefobjinqueryGetCode200Response castResponse = (FakerefobjinqueryGetResponses.EndpointFakerefobjinqueryGetCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

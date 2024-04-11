@@ -1,6 +1,6 @@
 # Fakemultipleresponsebodies
 
-public class  extends extends ApiClient implements
+public class Fakemultipleresponsebodies extends extends ApiClient implements
 [FakemultipleresponsebodiesGet.GetOperation](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet.md#getoperation)
 
 an api client class which contains all the routes for path="/fake/multipleResponseBodies"
@@ -46,7 +46,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.FakemultipleresponsebodiesGetCode200Response;
 import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.responses.FakemultipleresponsebodiesGetCode202Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.FakemultipleresponsebodiesGet;
+import org.openapijsonschematools.client.apis.paths.Fakemultipleresponsebodies;
 import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.FakemultipleresponsebodiesGetResponses;
 
 import java.io.IOException;
@@ -72,7 +72,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakemultipleresponsebodiesGet.Get apiClient = new FakemultipleresponsebodiesGet.Get(apiConfiguration, schemaConfiguration);
+Fakemultipleresponsebodies apiClient = new Fakemultipleresponsebodies(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakemultipleresponsebodiesGet.GetRequestBuilder().build();
@@ -103,3 +103,4 @@ FakemultipleresponsebodiesGetCode202Response.ApplicationjsonResponseBody deseria
 // handle deserialized body here
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -1,6 +1,6 @@
 # Storeinventory
 
-public class  extends extends ApiClient implements
+public class Storeinventory extends extends ApiClient implements
 [StoreinventoryGet.GetOperation](../../paths/storeinventory/StoreinventoryGet.md#getoperation)
 
 an api client class which contains all the routes for path="/store/inventory"
@@ -51,7 +51,7 @@ import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.paths.storeinventory.get.responses.StoreinventoryGetCode200Response;
 import org.openapijsonschematools.client.components.responses.successinlinecontentandheader.SuccessInlineContentAndHeaderHeadersSchema;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.storeinventory.StoreinventoryGet;
+import org.openapijsonschematools.client.apis.paths.Storeinventory;
 import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetResponses;
 
 import java.io.IOException;
@@ -86,7 +86,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-StoreinventoryGet.Get apiClient = new StoreinventoryGet.Get(apiConfiguration, schemaConfiguration);
+Storeinventory apiClient = new Storeinventory(apiConfiguration, schemaConfiguration);
 
 
 var request = new StoreinventoryGet.GetRequestBuilder().build();
@@ -111,3 +111,4 @@ try {
 StoreinventoryGetResponses.EndpointStoreinventoryGetCode200Response castResponse = (StoreinventoryGetResponses.EndpointStoreinventoryGetCode200Response) response;
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

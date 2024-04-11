@@ -1,6 +1,6 @@
 # Fake
 
-public class  extends extends ApiClient implements
+public class Fake extends extends ApiClient implements
 [FakeDelete.DeleteOperation](../../paths/fake/FakeDelete.md#deleteoperation),
 [FakeGet.GetOperation](../../paths/fake/FakeGet.md#getoperation),
 [FakePatch.PatchOperation](../../paths/fake/FakePatch.md#patchoperation),
@@ -58,7 +58,7 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.BearerTest;
 import org.openapijsonschematools.client.paths.fake.delete.responses.FakeDeleteCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fake.FakeDelete;
+import org.openapijsonschematools.client.apis.paths.Fake;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteResponses;
 
 import java.io.IOException;
@@ -93,7 +93,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeDelete.Delete apiClient = new FakeDelete.Delete(apiConfiguration, schemaConfiguration);
+Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -188,7 +188,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fake.get.responses.FakeGetCode200Response;
 import org.openapijsonschematools.client.paths.fake.get.responses.FakeGetCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fake.FakeGet;
+import org.openapijsonschematools.client.apis.paths.Fake;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetResponses;
 
 import java.io.IOException;
@@ -214,7 +214,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeGet.Get apiClient = new FakeGet.Get(apiConfiguration, schemaConfiguration);
+Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakeGet.GetRequestBuilder().build();
@@ -278,7 +278,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fake.patch.responses.FakePatchCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fake.FakePatch;
+import org.openapijsonschematools.client.apis.paths.Fake;
 import org.openapijsonschematools.client.paths.fake.patch.FakePatchResponses;
 
 import java.io.IOException;
@@ -304,7 +304,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakePatch.Patch apiClient = new FakePatch.Patch(apiConfiguration, schemaConfiguration);
+Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 Client1BoxedMap requestBodyPayload =
@@ -383,7 +383,7 @@ import org.openapijsonschematools.client.components.securityschemes.HttpBasicTes
 import org.openapijsonschematools.client.paths.fake.post.responses.FakePostCode200Response;
 import org.openapijsonschematools.client.paths.fake.post.responses.FakePostCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fake.FakePost;
+import org.openapijsonschematools.client.apis.paths.Fake;
 import org.openapijsonschematools.client.paths.fake.post.FakePostResponses;
 
 import java.io.IOException;
@@ -418,7 +418,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakePost.Post apiClient = new FakePost.Post(apiConfiguration, schemaConfiguration);
+Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakePost.PostRequestBuilder().build();
@@ -445,3 +445,4 @@ try {
 }
 FakePostResponses.EndpointFakePostCode200Response castResponse = (FakePostResponses.EndpointFakePostCode200Response) response;
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

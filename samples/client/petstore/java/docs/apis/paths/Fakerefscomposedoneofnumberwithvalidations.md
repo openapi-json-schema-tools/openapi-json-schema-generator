@@ -1,6 +1,6 @@
 # Fakerefscomposedoneofnumberwithvalidations
 
-public class  extends extends ApiClient implements
+public class Fakerefscomposedoneofnumberwithvalidations extends extends ApiClient implements
 [FakerefscomposedoneofnumberwithvalidationsPost.PostOperation](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/refs/composed_one_of_number_with_validations"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.post.responses.FakerefscomposedoneofnumberwithvalidationsPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.FakerefscomposedoneofnumberwithvalidationsPost;
+import org.openapijsonschematools.client.apis.paths.Fakerefscomposedoneofnumberwithvalidations;
 import org.openapijsonschematools.client.paths.fakerefscomposedoneofnumberwithvalidations.post.FakerefscomposedoneofnumberwithvalidationsPostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakerefscomposedoneofnumberwithvalidationsPost.Post apiClient = new FakerefscomposedoneofnumberwithvalidationsPost.Post(apiConfiguration, schemaConfiguration);
+Fakerefscomposedoneofnumberwithvalidations apiClient = new Fakerefscomposedoneofnumberwithvalidations(apiConfiguration, schemaConfiguration);
 
 
 var request = new FakerefscomposedoneofnumberwithvalidationsPost.PostRequestBuilder().build();
@@ -101,3 +101,4 @@ FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointFakerefscomposed
 FakerefscomposedoneofnumberwithvalidationsPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefscomposedoneofnumberwithvalidationsPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

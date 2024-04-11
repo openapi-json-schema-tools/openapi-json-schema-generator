@@ -1,6 +1,6 @@
 # Petfindbytags
 
-public class  extends extends ApiClient implements
+public class Petfindbytags extends extends ApiClient implements
 [PetfindbytagsGet.GetOperation](../../paths/petfindbytags/PetfindbytagsGet.md#getoperation)
 
 an api client class which contains all the routes for path="/pet/findByTags"
@@ -53,7 +53,7 @@ import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 import org.openapijsonschematools.client.paths.petfindbytags.get.responses.PetfindbytagsGetCode200Response;
 import org.openapijsonschematools.client.paths.petfindbytags.get.responses.PetfindbytagsGetCode400Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.petfindbytags.PetfindbytagsGet;
+import org.openapijsonschematools.client.apis.paths.Petfindbytags;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetResponses;
 
 import java.io.IOException;
@@ -85,7 +85,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-PetfindbytagsGet.Get apiClient = new PetfindbytagsGet.Get(apiConfiguration, schemaConfiguration);
+Petfindbytags apiClient = new Petfindbytags(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
@@ -128,3 +128,4 @@ try {
 PetfindbytagsGetResponses.EndpointPetfindbytagsGetCode200Response castResponse = (PetfindbytagsGetResponses.EndpointPetfindbytagsGetCode200Response) response;
 }
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

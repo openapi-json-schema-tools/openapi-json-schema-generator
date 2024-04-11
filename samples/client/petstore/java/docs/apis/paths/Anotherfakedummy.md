@@ -1,6 +1,6 @@
 # Anotherfakedummy
 
-public class  extends extends ApiClient implements
+public class Anotherfakedummy extends extends ApiClient implements
 [AnotherfakedummyPatch.PatchOperation](../../paths/anotherfakedummy/AnotherfakedummyPatch.md#patchoperation)
 
 an api client class which contains all the routes for path="/another-fake/dummy"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.responses.AnotherfakedummyPatchCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.anotherfakedummy.AnotherfakedummyPatch;
+import org.openapijsonschematools.client.apis.paths.Anotherfakedummy;
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.AnotherfakedummyPatchResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-AnotherfakedummyPatch.Patch apiClient = new AnotherfakedummyPatch.Patch(apiConfiguration, schemaConfiguration);
+Anotherfakedummy apiClient = new Anotherfakedummy(apiConfiguration, schemaConfiguration);
 
 
 Client1BoxedMap requestBodyPayload =
@@ -113,3 +113,4 @@ AnotherfakedummyPatchResponses.EndpointAnotherfakedummyPatchCode200Response cast
 AnotherfakedummyPatchCode200Response.ApplicationjsonResponseBody deserializedBody = (AnotherfakedummyPatchCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

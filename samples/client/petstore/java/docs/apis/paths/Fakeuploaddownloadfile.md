@@ -1,6 +1,6 @@
 # Fakeuploaddownloadfile
 
-public class  extends extends ApiClient implements
+public class Fakeuploaddownloadfile extends extends ApiClient implements
 [FakeuploaddownloadfilePost.PostOperation](../../paths/fakeuploaddownloadfile/FakeuploaddownloadfilePost.md#postoperation)
 
 an api client class which contains all the routes for path="/fake/uploadDownloadFile"
@@ -49,7 +49,7 @@ import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.responses.FakeuploaddownloadfilePostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
-import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.FakeuploaddownloadfilePost;
+import org.openapijsonschematools.client.apis.paths.Fakeuploaddownloadfile;
 import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.FakeuploaddownloadfilePostResponses;
 
 import java.io.IOException;
@@ -75,7 +75,7 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
     timeout
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-FakeuploaddownloadfilePost.Post apiClient = new FakeuploaddownloadfilePost.Post(apiConfiguration, schemaConfiguration);
+Fakeuploaddownloadfile apiClient = new Fakeuploaddownloadfile(apiConfiguration, schemaConfiguration);
 
 
 ApplicationoctetstreamSchema1BoxedString requestBodyPayload = ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1.validateAndBox(
@@ -109,3 +109,4 @@ FakeuploaddownloadfilePostResponses.EndpointFakeuploaddownloadfilePostCode200Res
 FakeuploaddownloadfilePostCode200Response.ApplicationoctetstreamResponseBody deserializedBody = (FakeuploaddownloadfilePostCode200Response.ApplicationoctetstreamResponseBody) castResponse.body;
 // handle deserialized body here
 ```
+[[Back to top]](#top) [[Back to README]](../../../README.md)

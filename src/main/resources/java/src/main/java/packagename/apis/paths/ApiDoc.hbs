@@ -1,6 +1,6 @@
 # {{pathItem.jsonPathPiece.pascalCase}}
 
-public class {{jsonPathPiece.pascalCase}} extends extends ApiClient implements
+public class {{pathItem.jsonPathPiece.pascalCase}} extends extends ApiClient implements
 {{#each pathItem.operations}}
 [{{jsonPathPiece.pascalCase}}.{{method.pascalCase}}Operation]({{docRoot}}{{pathFromDocRoot}}.md#{{method.kebabCase}}operation){{#unless @last}},{{/unless}}
 {{/each}}
@@ -38,5 +38,7 @@ NotImplementedException - the request body serialization or deserialization has 
 ApiException - server returned a response/contentType not defined in the openapi document<br>
 
 {{headerSize}}### Code Sample
-{{> src/main/java/packagename/paths/path/verb/_OperationDocCodeSample operation=this }}
+{{> src/main/java/packagename/paths/path/verb/_OperationDocCodeSample apiSubpackage="apis.paths" apiContainerClass=pathItem.jsonPathPiece.pascalCase apiFullyQualifiedClass=pathItem.jsonPathPiece.pascalCase }}
 {{/each}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" endpointLink=true}}
