@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakemultipleresponsebodies;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakemultipleresponsebodies.get.FakemultipleresponsebodiesGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -74,14 +74,14 @@ public class FakemultipleresponsebodiesGet {
     }
 
     public static class GetRequest {
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
         T getBuilderAfterServerIndex(GetRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakejsonwithcharset;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.FakejsonwithcharsetPostRequestBody;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakejsonwithcharset.post.FakejsonwithcharsetPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
 import org.openapijsonschematools.client.configurations.ApiConfiguration;
@@ -88,7 +88,7 @@ public class FakejsonwithcharsetPost {
 
     public static class PostRequest {
         public FakejsonwithcharsetPostRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
@@ -105,7 +105,7 @@ public class FakejsonwithcharsetPost {
     public interface SetterForServerIndex <T> {
         PostRequest getInstance();
         T getBuilderAfterServerIndex(PostRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

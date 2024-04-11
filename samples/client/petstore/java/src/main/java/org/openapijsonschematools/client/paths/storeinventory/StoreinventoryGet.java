@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.storeinventory;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetSecurityInfo;
 import org.openapijsonschematools.client.paths.storeinventory.get.StoreinventoryGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -87,7 +87,7 @@ public class StoreinventoryGet {
     }
 
     public static class GetRequest {
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public StoreinventoryGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
@@ -95,7 +95,7 @@ public class StoreinventoryGet {
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
         T getBuilderAfterServerIndex(GetRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

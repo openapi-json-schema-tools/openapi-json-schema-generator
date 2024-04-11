@@ -36,7 +36,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutRequestBody;
 import org.openapijsonschematools.client.components.schemas.User;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutQueryParameters;
@@ -44,7 +44,7 @@ import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.responses.FakebodywithqueryparamsPutCode200Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.FakebodywithqueryparamsPut;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutResponses;
 
@@ -56,14 +56,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
 Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
@@ -167,7 +167,7 @@ a class that stores the final request inputs
 | ----------------- | --------------------- |
 | [FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
 | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) | queryParameters |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PutNullableRequest
@@ -180,7 +180,7 @@ a class that stores the initial request inputs
 | ----------------- | --------------------- |
 | [FakebodywithqueryparamsPutRequestBody.@Nullable SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
 | [FakebodywithqueryparamsPutQueryParameters.@Nullable FakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) | queryParameters |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
 ## Put00RequestBuilder
@@ -197,7 +197,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PutRequest](#putrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Put00RequestBuilder](#put00requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Put00RequestBuilder](#put00requestbuilder) | serverIndex([ServerInfo.ServerIndex](../../ServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Put00RequestBuilder](#put00requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## Put01RequestBuilder

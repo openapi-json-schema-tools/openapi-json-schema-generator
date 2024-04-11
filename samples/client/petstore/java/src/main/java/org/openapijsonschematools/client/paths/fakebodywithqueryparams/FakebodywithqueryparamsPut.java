@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakebodywithqueryparams;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutRequestBody;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutQueryParameters;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Parameters;
@@ -91,13 +91,13 @@ public class FakebodywithqueryparamsPut {
     public static class PutRequest {
         public FakebodywithqueryparamsPutRequestBody.SealedRequestBody requestBody;
         public FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
             FakebodywithqueryparamsPutRequestBody.SealedRequestBody requestBody,
             FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.requestBody = requestBody;
@@ -110,14 +110,14 @@ public class FakebodywithqueryparamsPut {
     public static class PutNullableRequest {
         public FakebodywithqueryparamsPutRequestBody.@Nullable SealedRequestBody requestBody;
         public FakebodywithqueryparamsPutQueryParameters.@Nullable FakebodywithqueryparamsPutQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterServerIndex(PutNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

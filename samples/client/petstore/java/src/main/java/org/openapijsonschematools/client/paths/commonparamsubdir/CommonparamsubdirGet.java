@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.commonparamsubdir;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetQueryParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetPathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetResponses;
@@ -89,13 +89,13 @@ public class CommonparamsubdirGet {
     public static class GetRequest {
         public CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap pathParameters;
         public CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
             CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap pathParameters,
             CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap queryParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.pathParameters = pathParameters;
@@ -108,7 +108,7 @@ public class CommonparamsubdirGet {
     public static class GetNullableRequest {
         public CommonparamsubdirGetPathParameters.@Nullable CommonparamsubdirGetPathParametersMap pathParameters;
         public CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
@@ -125,7 +125,7 @@ public class CommonparamsubdirGet {
     public interface SetterForServerIndex <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(GetNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

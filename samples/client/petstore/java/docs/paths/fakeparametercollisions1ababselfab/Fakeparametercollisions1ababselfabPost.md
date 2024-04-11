@@ -38,13 +38,13 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostHeaderParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostQueryParameters;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostCookieParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.responses.Fakeparametercollisions1ababselfabPostCode200Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.Fakeparametercollisions1ababselfabPost;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.Fakeparametercollisions1ababselfabPostResponses;
 
@@ -56,14 +56,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
 Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
@@ -153,7 +153,7 @@ a class that stores the final request inputs
 | [Fakeparametercollisions1ababselfabPostHeaderParameters.@Nullable Fakeparametercollisions1ababselfabPostHeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostHeaderParameters.md#fakeparametercollisions1ababselfabpostheaderparametersmap) | headerParameters<br>optional |
 | [Fakeparametercollisions1ababselfabPostQueryParameters.@Nullable Fakeparametercollisions1ababselfabPostQueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostQueryParameters.md#fakeparametercollisions1ababselfabpostqueryparametersmap) | queryParameters<br>optional |
 | [Fakeparametercollisions1ababselfabPostCookieParameters.@Nullable Fakeparametercollisions1ababselfabPostCookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostCookieParameters.md#fakeparametercollisions1ababselfabpostcookieparametersmap) | cookieParameters<br>optional |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## PostNullableRequest
@@ -169,7 +169,7 @@ a class that stores the initial request inputs
 | [Fakeparametercollisions1ababselfabPostHeaderParameters.@Nullable Fakeparametercollisions1ababselfabPostHeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostHeaderParameters.md#fakeparametercollisions1ababselfabpostheaderparametersmap) | headerParameters |
 | [Fakeparametercollisions1ababselfabPostQueryParameters.@Nullable Fakeparametercollisions1ababselfabPostQueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostQueryParameters.md#fakeparametercollisions1ababselfabpostqueryparametersmap) | queryParameters |
 | [Fakeparametercollisions1ababselfabPostCookieParameters.@Nullable Fakeparametercollisions1ababselfabPostCookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostCookieParameters.md#fakeparametercollisions1ababselfabpostcookieparametersmap) | cookieParameters |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
+| [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
 ## Post0RequestBuilder
@@ -190,7 +190,7 @@ a builder for request inputs
 | [Post0RequestBuilder](#post0requestbuilder) | headerParameters([Fakeparametercollisions1ababselfabPostHeaderParametersFakeparametercollisions1ababselfabPostHeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostHeaderParameters.md#fakeparametercollisions1ababselfabpostheaderparametersmap) headerParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | queryParameters([Fakeparametercollisions1ababselfabPostQueryParametersFakeparametercollisions1ababselfabPostQueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostQueryParameters.md#fakeparametercollisions1ababselfabpostqueryparametersmap) queryParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([Fakeparametercollisions1ababselfabPostCookieParametersFakeparametercollisions1ababselfabPostCookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostCookieParameters.md#fakeparametercollisions1ababselfabpostcookieparametersmap) cookieParameters)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [Post0RequestBuilder](#post0requestbuilder) | serverIndex([ServerInfo.ServerIndex](../../ServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 ## PostRequestBuilder

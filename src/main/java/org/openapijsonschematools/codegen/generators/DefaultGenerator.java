@@ -4112,7 +4112,9 @@ public class DefaultGenerator implements Generator {
     }
 
     protected void updateServersFilepath(String[] pathPieces) {
-        String jsonPath = String.join("/", pathPieces);
+        String[] copiedPathPieces = pathPieces.clone();
+        copiedPathPieces[0] = "#";
+        String jsonPath = String.join("/", copiedPathPieces);
         if (pathPieces.length == 2) {
             // #/servers
         } else if (pathPieces.length == 3) {

@@ -29,27 +29,27 @@ import org.openapijsonschematools.client.schemas.validation.StringSchemaValidato
 import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
-public class Variables {
+public class Server1Variables {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class Server1Variables9 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable AdditionalProperties instance = null;
-        public static AdditionalProperties getInstance() {
+        private static @Nullable Server1Variables9 instance = null;
+        public static Server1Variables9 getInstance() {
             if (instance == null) {
-                instance = new AdditionalProperties();
+                instance = new Server1Variables9();
             }
             return instance;
         }
     }
     
-    public enum StringVersionEnums implements StringValueMethod {
+    public enum StringServer1Variables6 implements StringValueMethod {
         V1("v1"),
         V2("v2");
         private final String value;
     
-        StringVersionEnums(String value) {
+        StringServer1Variables6(String value) {
             this.value = value;
         }
         public String value() {
@@ -58,11 +58,11 @@ public class Variables {
     }
     
     
-    public sealed interface VersionBoxed permits VersionBoxedString {
+    public sealed interface Server1Variables4Boxed permits Server1Variables4BoxedString {
         @Nullable Object getData();
     }
     
-    public record VersionBoxedString(String data) implements VersionBoxed {
+    public record Server1Variables4BoxedString(String data) implements Server1Variables4Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -71,10 +71,10 @@ public class Variables {
     
     
     
-    public static class Version extends JsonSchema<VersionBoxed> implements StringSchemaValidator<VersionBoxedString>, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
-        private static @Nullable Version instance = null;
+    public static class Server1Variables4 extends JsonSchema<Server1Variables4Boxed> implements StringSchemaValidator<Server1Variables4BoxedString>, StringEnumValidator<StringServer1Variables6>, DefaultValueMethod<String> {
+        private static @Nullable Server1Variables4 instance = null;
     
-        protected Version() {
+        protected Server1Variables4() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
@@ -87,9 +87,9 @@ public class Variables {
             );
         }
     
-        public static Version getInstance() {
+        public static Server1Variables4 getInstance() {
             if (instance == null) {
-                instance = new Version();
+                instance = new Server1Variables4();
             }
             return instance;
         }
@@ -106,7 +106,7 @@ public class Variables {
         }
         
         @Override
-        public String validate(StringVersionEnums arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringServer1Variables6 arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -131,11 +131,11 @@ public class Variables {
             throw new ValidationException("Invalid type stored in defaultValue");
         }
         @Override
-        public VersionBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new VersionBoxedString(validate(arg, configuration));
+        public Server1Variables4BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new Server1Variables4BoxedString(validate(arg, configuration));
         }
         @Override
-        public VersionBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public Server1Variables4Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
@@ -143,16 +143,16 @@ public class Variables {
         }
     }    
     
-    public static class VariablesMap extends FrozenMap<String> {
-        protected VariablesMap(FrozenMap<String> m) {
+    public static class Server1Variables16 extends FrozenMap<String> {
+        protected Server1Variables16(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "version"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static VariablesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Variables1.getInstance().validate(arg, configuration);
+        public static Server1Variables16 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+            return Server1Variables1.getInstance().validate(arg, configuration);
         }
         
         public String version() {
@@ -164,24 +164,24 @@ public class Variables {
         }
     }
     
-    public interface SetterForVersion <T> {
+    public interface SetterForServer1Variables4 <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterVersion(Map<String, String> instance);
+        T getBuilderAfterServer1Variables4(Map<String, String> instance);
         
         default T version(String value) {
             var instance = getInstance();
             instance.put("version", value);
-            return getBuilderAfterVersion(instance);
+            return getBuilderAfterServer1Variables4(instance);
         }
         
-        default T version(StringVersionEnums value) {
+        default T version(StringServer1Variables6 value) {
             var instance = getInstance();
             instance.put("version", value.value());
-            return getBuilderAfterVersion(instance);
+            return getBuilderAfterServer1Variables4(instance);
         }
     }
     
-    public static class VariablesMap0Builder implements GenericBuilder<Map<String, String>> {
+    public static class Server1Variables17 implements GenericBuilder<Map<String, String>> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "version"
@@ -189,7 +189,7 @@ public class Variables {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public VariablesMap0Builder(Map<String, String> instance) {
+        public Server1Variables17(Map<String, String> instance) {
             this.instance = instance;
         }
         public Map<String, String> build() {
@@ -197,25 +197,25 @@ public class Variables {
         }
     }
     
-    public static class VariablesMapBuilder implements SetterForVersion<VariablesMap0Builder> {
+    public static class Server1Variables15 implements SetterForServer1Variables4<Server1Variables17> {
         private final Map<String, String> instance;
-        public VariablesMapBuilder() {
+        public Server1Variables15() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> getInstance() {
             return instance;
         }
-        public VariablesMap0Builder getBuilderAfterVersion(Map<String, String> instance) {
-            return new VariablesMap0Builder(instance);
+        public Server1Variables17 getBuilderAfterServer1Variables4(Map<String, String> instance) {
+            return new Server1Variables17(instance);
         }
     }
     
     
-    public sealed interface Variables1Boxed permits Variables1BoxedMap {
+    public sealed interface Server1Variables1Boxed permits Server1Variables1BoxedMap {
         @Nullable Object getData();
     }
     
-    public record Variables1BoxedMap(VariablesMap data) implements Variables1Boxed {
+    public record Server1Variables1BoxedMap(Server1Variables16 data) implements Server1Variables1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -223,30 +223,30 @@ public class Variables {
     }
     
     
-    public static class Variables1 extends JsonSchema<Variables1Boxed> implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
-        private static @Nullable Variables1 instance = null;
+    public static class Server1Variables1 extends JsonSchema<Server1Variables1Boxed> implements MapSchemaValidator<Server1Variables16, Server1Variables1BoxedMap> {
+        private static @Nullable Server1Variables1 instance = null;
     
-        protected Variables1() {
+        protected Server1Variables1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("version", Version.class)
+                    new PropertyEntry("version", Server1Variables4.class)
                 ))
                 .required(Set.of(
                     "version"
                 ))
-                .additionalProperties(AdditionalProperties.class)
+                .additionalProperties(Server1Variables9.class)
             );
         }
     
-        public static Variables1 getInstance() {
+        public static Server1Variables1 getInstance() {
             if (instance == null) {
-                instance = new Variables1();
+                instance = new Server1Variables1();
             }
             return instance;
         }
         
-        public VariablesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public Server1Variables16 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -269,10 +269,10 @@ public class Variables {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new VariablesMap(castProperties);
+            return new Server1Variables16(castProperties);
         }
         
-        public VariablesMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public Server1Variables16 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -298,11 +298,11 @@ public class Variables {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new Variables1BoxedMap(validate(arg, configuration));
+        public Server1Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new Server1Variables1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public Variables1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public Server1Variables1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }

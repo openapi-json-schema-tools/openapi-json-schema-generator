@@ -9,13 +9,13 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Objects;
 
-public class RootServerInfo {
-    public static class RootServerInfo1 implements ServerProvider<ServerIndex> {
+public class ServerInfo {
+    public static class ServerInfo1 implements ServerProvider<ServerIndex> {
         private final Server0 server0;
         private final Server1 server1;
         private final Server2 server2;
 
-        RootServerInfo1(
+        ServerInfo1(
             @Nullable Server0 server0,
             @Nullable Server1 server1,
             @Nullable Server2 server2
@@ -38,30 +38,30 @@ public class RootServerInfo {
         }
     }
 
-    public static class RootServerInfoBuilder {
+    public static class ServerInfoBuilder {
         private @Nullable Server0 server0;
         private @Nullable Server1 server1;
         private @Nullable Server2 server2;
 
-        public RootServerInfoBuilder() {}
+        public ServerInfoBuilder() {}
 
-        public RootServerInfoBuilder server0(Server0 server0) {
+        public ServerInfoBuilder server0(Server0 server0) {
             this.server0 = server0;
             return this;
         }
 
-        public RootServerInfoBuilder server1(Server1 server1) {
+        public ServerInfoBuilder server1(Server1 server1) {
             this.server1 = server1;
             return this;
         }
 
-        public RootServerInfoBuilder server2(Server2 server2) {
+        public ServerInfoBuilder server2(Server2 server2) {
             this.server2 = server2;
             return this;
         }
 
-        public RootServerInfo1 build() {
-            return new RootServerInfo1(
+        public ServerInfo1 build() {
+            return new ServerInfo1(
                 server0,
                 server1,
                 server2

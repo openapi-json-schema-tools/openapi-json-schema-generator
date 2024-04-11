@@ -46,13 +46,13 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteHeaderParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeletePathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.responses.CommonparamsubdirDeleteCode200Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.apis.paths.Commonparamsubdir;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteResponses;
 
@@ -64,14 +64,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
 Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator//java"));
@@ -146,13 +146,13 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetQueryParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.responses.CommonparamsubdirGetCode200Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.apis.paths.Commonparamsubdir;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.CommonparamsubdirGetResponses;
 
@@ -164,14 +164,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
 Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator//java"));
@@ -246,13 +246,13 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostHeaderParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostPathParameters;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.responses.CommonparamsubdirPostCode200Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.apis.paths.Commonparamsubdir;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostResponses;
 
@@ -264,14 +264,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
 Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator//java"));

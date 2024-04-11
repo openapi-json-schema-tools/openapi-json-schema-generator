@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.pet;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.pet.post.PetPostSecurityInfo;
 import org.openapijsonschematools.client.paths.pet.post.PetPostRequestBody;
 import org.openapijsonschematools.client.paths.pet.post.PetPostResponses;
@@ -97,13 +97,13 @@ public class PetPost {
 
     public static class PostRequest {
         public PetPostRequestBody.SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
             PetPostRequestBody.SealedRequestBody requestBody,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             PetPostSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
         ) {
@@ -116,7 +116,7 @@ public class PetPost {
 
     public static class PostNullableRequest {
         public PetPostRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
@@ -124,7 +124,7 @@ public class PetPost {
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(PostNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

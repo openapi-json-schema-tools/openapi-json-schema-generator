@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.petpetiduploadimage;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostRequestBody;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostPathParameters;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Parameters;
@@ -107,14 +107,14 @@ public class PetpetiduploadimagePost {
     public static class PostRequest {
         public PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters;
         public PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
             PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters,
             PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody requestBody,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
         ) {
@@ -129,7 +129,7 @@ public class PetpetiduploadimagePost {
     public static class PostNullableRequest {
         public PetpetiduploadimagePostPathParameters.@Nullable PetpetiduploadimagePostPathParametersMap pathParameters;
         public PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
@@ -147,7 +147,7 @@ public class PetpetiduploadimagePost {
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(PostNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

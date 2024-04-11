@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fake;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteHeaderParameters;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteQueryParameters;
@@ -100,14 +100,14 @@ public class FakeDelete {
     public static class DeleteRequest {
         public FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters;
         public FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
             FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters,
             FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
         ) {
@@ -122,7 +122,7 @@ public class FakeDelete {
     public static class DeleteNullableRequest {
         public FakeDeleteHeaderParameters.@Nullable FakeDeleteHeaderParametersMap headerParameters;
         public FakeDeleteQueryParameters.@Nullable FakeDeleteQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
@@ -130,7 +130,7 @@ public class FakeDelete {
     public interface SetterForServerIndex <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterServerIndex(DeleteNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

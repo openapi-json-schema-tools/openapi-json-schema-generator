@@ -41,7 +41,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetSecurityInfo;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetQueryParameters;
 import org.openapijsonschematools.client.servers.Server0;
@@ -52,7 +52,7 @@ import org.openapijsonschematools.client.components.securityschemes.HttpSignatur
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.petfindbytags.get.responses.PetfindbytagsGetCode200Response;
 import org.openapijsonschematools.client.paths.petfindbytags.get.responses.PetfindbytagsGetCode400Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.apis.paths.Petfindbytags;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetResponses;
 
@@ -64,14 +64,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()

@@ -47,7 +47,7 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteHeaderParameters;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteQueryParameters;
@@ -57,7 +57,7 @@ import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.BearerTest;
 import org.openapijsonschematools.client.paths.fake.delete.responses.FakeDeleteCode200Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.apis.paths.Fake;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteResponses;
 
@@ -69,14 +69,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(
@@ -184,13 +184,13 @@ import org.openapijsonschematools.client.paths.fake.get.FakeGetRequestBody;
 import org.openapijsonschematools.client.paths.fake.get.requestbody.content.applicationxwwwformurlencoded.ApplicationxwwwformurlencodedSchema;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetHeaderParameters;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetQueryParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fake.get.responses.FakeGetCode200Response;
 import org.openapijsonschematools.client.paths.fake.get.responses.FakeGetCode404Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.apis.paths.Fake;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetResponses;
 
@@ -202,14 +202,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
 Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator//java"));
@@ -276,14 +276,14 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fake.patch.FakePatchRequestBody;
 import org.openapijsonschematools.client.components.schemas.Client;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fake.patch.responses.FakePatchCode200Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.apis.paths.Fake;
 import org.openapijsonschematools.client.paths.fake.patch.FakePatchResponses;
 
@@ -295,14 +295,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
 Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator//java"));
@@ -382,7 +382,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.fake.post.FakePostRequestBody;
 import org.openapijsonschematools.client.paths.fake.post.requestbody.content.applicationxwwwformurlencoded.ApplicationxwwwformurlencodedSchema;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fake.post.FakePostSecurityInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
@@ -391,7 +391,7 @@ import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.HttpBasicTest;
 import org.openapijsonschematools.client.paths.fake.post.responses.FakePostCode200Response;
 import org.openapijsonschematools.client.paths.fake.post.responses.FakePostCode404Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.apis.paths.Fake;
 import org.openapijsonschematools.client.paths.fake.post.FakePostResponses;
 
@@ -403,14 +403,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 List<SecurityScheme> securitySchemes = new ArrayList();
 securitySchemes.add(

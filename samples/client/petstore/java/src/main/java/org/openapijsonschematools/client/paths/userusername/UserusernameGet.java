@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.userusername;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.userusername.get.UserusernameGetPathParameters;
 import org.openapijsonschematools.client.paths.userusername.get.Parameters;
 import org.openapijsonschematools.client.paths.userusername.get.UserusernameGetResponses;
@@ -80,12 +80,12 @@ public class UserusernameGet {
 
     public static class GetRequest {
         public UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
             UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.pathParameters = pathParameters;
@@ -96,14 +96,14 @@ public class UserusernameGet {
 
     public static class GetNullableRequest {
         public UserusernameGetPathParameters.@Nullable UserusernameGetPathParametersMap pathParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(GetNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.userlogin;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetQueryParameters;
 import org.openapijsonschematools.client.paths.userlogin.get.Parameters;
 import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetResponses;
@@ -81,12 +81,12 @@ public class UserloginGet {
 
     public static class GetRequest {
         public UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
             UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.queryParameters = queryParameters;
@@ -97,14 +97,14 @@ public class UserloginGet {
 
     public static class GetNullableRequest {
         public UserloginGetQueryParameters.@Nullable UserloginGetQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(GetNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

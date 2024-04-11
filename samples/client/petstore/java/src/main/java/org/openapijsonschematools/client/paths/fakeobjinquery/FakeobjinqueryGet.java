@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakeobjinquery;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.FakeobjinqueryGetQueryParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.Parameters;
 import org.openapijsonschematools.client.paths.fakeobjinquery.get.FakeobjinqueryGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -84,7 +84,7 @@ public class FakeobjinqueryGet {
 
     public static class GetRequest {
         public FakeobjinqueryGetQueryParameters.@Nullable FakeobjinqueryGetQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
@@ -101,7 +101,7 @@ public class FakeobjinqueryGet {
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
         T getBuilderAfterServerIndex(GetRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

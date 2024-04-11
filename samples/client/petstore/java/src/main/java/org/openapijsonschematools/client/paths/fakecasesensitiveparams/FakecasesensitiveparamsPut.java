@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakecasesensitiveparams;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.FakecasesensitiveparamsPutQueryParameters;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.Parameters;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.FakecasesensitiveparamsPutResponses;
@@ -81,12 +81,12 @@ public class FakecasesensitiveparamsPut {
 
     public static class PutRequest {
         public FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
             FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParametersMap queryParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.queryParameters = queryParameters;
@@ -97,14 +97,14 @@ public class FakecasesensitiveparamsPut {
 
     public static class PutNullableRequest {
         public FakecasesensitiveparamsPutQueryParameters.@Nullable FakecasesensitiveparamsPutQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterServerIndex(PutNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

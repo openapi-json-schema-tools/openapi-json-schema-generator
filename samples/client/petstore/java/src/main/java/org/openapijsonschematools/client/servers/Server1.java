@@ -4,19 +4,19 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.servers.server1.Variables;
+import org.openapijsonschematools.client.servers.server1.Server1Variables;
 
 import java.util.AbstractMap;
 
-public class Server1 extends ServerWithVariables<Variables.VariablesMap> {
+public class Server1 extends ServerWithVariables<Server1Variables.Server1Variables16> {
     /*
     The local server
     */
-    private static Variables.VariablesMap getVariables() {
+    private static Server1Variables.Server1Variables16 getVariables() {
         try {
-            return Variables.Variables1.getInstance().validate(
+            return Server1Variables.Server1Variables1.getInstance().validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>("version", Variables.Version.getInstance().defaultValue())
+                    new AbstractMap.SimpleEntry<>("version", Server1Variables.Server1Variables4.getInstance().defaultValue())
                 ),
                 new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build())
             );
@@ -31,7 +31,7 @@ public class Server1 extends ServerWithVariables<Variables.VariablesMap> {
             getVariables()
         );
     }
-    public Server1(Variables.VariablesMap variables) {
+    public Server1(Server1Variables.Server1Variables16 variables) {
         super("https://localhost:8080/{version}", variables);
     }
 }

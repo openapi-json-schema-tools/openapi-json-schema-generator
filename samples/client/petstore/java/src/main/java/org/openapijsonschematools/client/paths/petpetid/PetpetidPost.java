@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.petpetid;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostRequestBody;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostPathParameters;
 import org.openapijsonschematools.client.paths.petpetid.post.Parameters;
@@ -106,14 +106,14 @@ public class PetpetidPost {
     public static class PostRequest {
         public PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters;
         public PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
             PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters,
             PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
         ) {
@@ -128,7 +128,7 @@ public class PetpetidPost {
     public static class PostNullableRequest {
         public PetpetidPostPathParameters.@Nullable PetpetidPostPathParametersMap pathParameters;
         public PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
@@ -146,7 +146,7 @@ public class PetpetidPost {
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(PostNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

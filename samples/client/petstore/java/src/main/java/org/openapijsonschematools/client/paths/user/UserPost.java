@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.user;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.user.post.UserPostRequestBody;
 import org.openapijsonschematools.client.paths.user.post.UserPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -84,12 +84,12 @@ public class UserPost {
 
     public static class PostRequest {
         public UserPostRequestBody.SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
             UserPostRequestBody.SealedRequestBody requestBody,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.requestBody = requestBody;
@@ -100,14 +100,14 @@ public class UserPost {
 
     public static class PostNullableRequest {
         public UserPostRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(PostNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

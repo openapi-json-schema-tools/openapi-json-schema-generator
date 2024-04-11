@@ -4,7 +4,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetRequestBody;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetHeaderParameters;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetQueryParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fake.get.Parameters;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -106,7 +106,7 @@ public class FakeGet {
         public FakeGetRequestBody.@Nullable SealedRequestBody requestBody;
         public FakeGetHeaderParameters.@Nullable FakeGetHeaderParametersMap headerParameters;
         public FakeGetQueryParameters.@Nullable FakeGetQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
@@ -143,7 +143,7 @@ public class FakeGet {
     public interface SetterForServerIndex <T> {
         GetRequest getInstance();
         T getBuilderAfterServerIndex(GetRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

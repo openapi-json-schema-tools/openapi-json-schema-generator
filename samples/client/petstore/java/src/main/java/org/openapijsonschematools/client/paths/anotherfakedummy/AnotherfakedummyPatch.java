@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.anotherfakedummy;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.AnotherfakedummyPatchRequestBody;
 import org.openapijsonschematools.client.paths.anotherfakedummy.patch.AnotherfakedummyPatchResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -84,12 +84,12 @@ public class AnotherfakedummyPatch {
 
     public static class PatchRequest {
         public AnotherfakedummyPatchRequestBody.SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PatchRequest(
             AnotherfakedummyPatchRequestBody.SealedRequestBody requestBody,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.requestBody = requestBody;
@@ -100,14 +100,14 @@ public class AnotherfakedummyPatch {
 
     public static class PatchNullableRequest {
         public AnotherfakedummyPatchRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
         PatchNullableRequest getInstance();
         T getBuilderAfterServerIndex(PatchNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

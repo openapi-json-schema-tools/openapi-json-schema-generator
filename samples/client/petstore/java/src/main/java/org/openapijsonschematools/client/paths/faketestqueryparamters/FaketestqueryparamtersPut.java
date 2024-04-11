@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.faketestqueryparamters;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.FaketestqueryparamtersPutQueryParameters;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.Parameters;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.FaketestqueryparamtersPutResponses;
@@ -81,12 +81,12 @@ public class FaketestqueryparamtersPut {
 
     public static class PutRequest {
         public FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
             FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap queryParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.queryParameters = queryParameters;
@@ -97,14 +97,14 @@ public class FaketestqueryparamtersPut {
 
     public static class PutNullableRequest {
         public FaketestqueryparamtersPutQueryParameters.@Nullable FaketestqueryparamtersPutQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterServerIndex(PutNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

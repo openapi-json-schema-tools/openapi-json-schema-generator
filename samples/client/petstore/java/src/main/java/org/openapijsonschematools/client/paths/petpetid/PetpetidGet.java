@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.petpetid;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetPathParameters;
 import org.openapijsonschematools.client.paths.petpetid.get.Parameters;
@@ -93,13 +93,13 @@ public class PetpetidGet {
 
     public static class GetRequest {
         public PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
             PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
         ) {
@@ -112,7 +112,7 @@ public class PetpetidGet {
 
     public static class GetNullableRequest {
         public PetpetidGetPathParameters.@Nullable PetpetidGetPathParametersMap pathParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
@@ -120,7 +120,7 @@ public class PetpetidGet {
     public interface SetterForServerIndex <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterServerIndex(GetNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

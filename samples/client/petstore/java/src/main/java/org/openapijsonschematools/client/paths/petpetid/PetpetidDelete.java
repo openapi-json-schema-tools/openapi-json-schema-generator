@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.petpetid;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteHeaderParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeletePathParameters;
 import org.openapijsonschematools.client.paths.petpetid.delete.Parameters;
@@ -100,14 +100,14 @@ public class PetpetidDelete {
     public static class DeleteRequest {
         public PetpetidDeletePathParameters.PetpetidDeletePathParametersMap pathParameters;
         public PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParametersMap headerParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
             PetpetidDeletePathParameters.PetpetidDeletePathParametersMap pathParameters,
             PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParametersMap headerParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
         ) {
@@ -122,7 +122,7 @@ public class PetpetidDelete {
     public static class DeleteNullableRequest {
         public PetpetidDeletePathParameters.@Nullable PetpetidDeletePathParametersMap pathParameters;
         public PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParametersMap headerParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
@@ -140,7 +140,7 @@ public class PetpetidDelete {
     public interface SetterForServerIndex <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterServerIndex(DeleteNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

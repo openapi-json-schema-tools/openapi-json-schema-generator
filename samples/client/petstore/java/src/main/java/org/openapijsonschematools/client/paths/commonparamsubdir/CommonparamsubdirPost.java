@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.commonparamsubdir;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostHeaderParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostPathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostResponses;
@@ -88,13 +88,13 @@ public class CommonparamsubdirPost {
     public static class PostRequest {
         public CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap pathParameters;
         public CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap headerParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
             CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap pathParameters,
             CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap headerParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.pathParameters = pathParameters;
@@ -107,7 +107,7 @@ public class CommonparamsubdirPost {
     public static class PostNullableRequest {
         public CommonparamsubdirPostPathParameters.@Nullable CommonparamsubdirPostPathParametersMap pathParameters;
         public CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap headerParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
@@ -124,7 +124,7 @@ public class CommonparamsubdirPost {
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(PostNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

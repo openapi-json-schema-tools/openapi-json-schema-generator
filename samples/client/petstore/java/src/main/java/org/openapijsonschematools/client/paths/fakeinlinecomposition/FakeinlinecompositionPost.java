@@ -3,7 +3,7 @@ package org.openapijsonschematools.client.paths.fakeinlinecomposition;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.FakeinlinecompositionPostRequestBody;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.FakeinlinecompositionPostQueryParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Parameters;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.FakeinlinecompositionPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -98,7 +98,7 @@ public class FakeinlinecompositionPost {
     public static class PostRequest {
         public FakeinlinecompositionPostRequestBody.@Nullable SealedRequestBody requestBody;
         public FakeinlinecompositionPostQueryParameters.@Nullable FakeinlinecompositionPostQueryParametersMap queryParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
@@ -125,7 +125,7 @@ public class FakeinlinecompositionPost {
     public interface SetterForServerIndex <T> {
         PostRequest getInstance();
         T getBuilderAfterServerIndex(PostRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

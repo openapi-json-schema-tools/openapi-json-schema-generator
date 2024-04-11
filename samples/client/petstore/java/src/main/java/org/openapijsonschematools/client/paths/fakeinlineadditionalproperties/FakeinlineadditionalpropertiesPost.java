@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakeinlineadditionalproperties;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.post.FakeinlineadditionalpropertiesPostRequestBody;
 import org.openapijsonschematools.client.paths.fakeinlineadditionalproperties.post.FakeinlineadditionalpropertiesPostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -84,12 +84,12 @@ public class FakeinlineadditionalpropertiesPost {
 
     public static class PostRequest {
         public FakeinlineadditionalpropertiesPostRequestBody.SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
             FakeinlineadditionalpropertiesPostRequestBody.SealedRequestBody requestBody,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.requestBody = requestBody;
@@ -100,14 +100,14 @@ public class FakeinlineadditionalpropertiesPost {
 
     public static class PostNullableRequest {
         public FakeinlineadditionalpropertiesPostRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
     public interface SetterForServerIndex <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterServerIndex(PostNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

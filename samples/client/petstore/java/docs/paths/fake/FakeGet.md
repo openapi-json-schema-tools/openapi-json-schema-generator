@@ -36,13 +36,13 @@ import org.openapijsonschematools.client.paths.fake.get.FakeGetRequestBody;
 import org.openapijsonschematools.client.paths.fake.get.requestbody.content.applicationxwwwformurlencoded.ApplicationxwwwformurlencodedSchema;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetHeaderParameters;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetQueryParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
 import org.openapijsonschematools.client.paths.fake.get.responses.FakeGetCode200Response;
 import org.openapijsonschematools.client.paths.fake.get.responses.FakeGetCode404Response;
-import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.servers.ServerInfo;
 import org.openapijsonschematools.client.paths.fake.FakeGet;
 import org.openapijsonschematools.client.paths.fake.get.FakeGetResponses;
 
@@ -54,14 +54,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .rootServerInfo(
-        new RootServerInfo.RootServerInfoBuilder()
+    .serverInfo(
+        new ServerInfo.ServerInfoBuilder()
             .server0(new Server0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
 Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
@@ -130,7 +130,7 @@ a class that stores the final request inputs
 | [FakeGetRequestBody.@Nullable SealedRequestBody](../../paths/fake/get/FakeGetRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [FakeGetHeaderParameters.@Nullable FakeGetHeaderParametersMap](../../paths/fake/get/FakeGetHeaderParameters.md#fakegetheaderparametersmap) | headerParameters<br>optional |
 | [FakeGetQueryParameters.@Nullable FakeGetQueryParametersMap](../../paths/fake/get/FakeGetQueryParameters.md#fakegetqueryparametersmap) | queryParameters<br>optional |
-| [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
+| [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
 ## GetRequestBuilder
@@ -150,7 +150,7 @@ a builder for request inputs
 | [GetRequestBuilder](#getrequestbuilder) | requestBody([FakeGetRequestBody.SealedRequestBody](../../paths/fake/get/FakeGetRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | headerParameters([FakeGetHeaderParametersFakeGetHeaderParametersMap](../../paths/fake/get/FakeGetHeaderParameters.md#fakegetheaderparametersmap) headerParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | queryParameters([FakeGetQueryParametersFakeGetQueryParametersMap](../../paths/fake/get/FakeGetQueryParameters.md#fakegetqueryparametersmap) queryParameters)<br>sets the optional property |
-| [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
+| [GetRequestBuilder](#getrequestbuilder) | serverIndex([ServerInfo.ServerIndex](../../ServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

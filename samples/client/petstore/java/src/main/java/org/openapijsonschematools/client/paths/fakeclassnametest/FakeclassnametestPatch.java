@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.paths.fakeclassnametest;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchSecurityInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchRequestBody;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchResponses;
@@ -97,13 +97,13 @@ public class FakeclassnametestPatch {
 
     public static class PatchRequest {
         public FakeclassnametestPatchRequestBody.SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PatchRequest(
             FakeclassnametestPatchRequestBody.SealedRequestBody requestBody,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
         ) {
@@ -116,7 +116,7 @@ public class FakeclassnametestPatch {
 
     public static class PatchNullableRequest {
         public FakeclassnametestPatchRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public FakeclassnametestPatchSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
@@ -124,7 +124,7 @@ public class FakeclassnametestPatch {
     public interface SetterForServerIndex <T> {
         PatchNullableRequest getInstance();
         T getBuilderAfterServerIndex(PatchNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

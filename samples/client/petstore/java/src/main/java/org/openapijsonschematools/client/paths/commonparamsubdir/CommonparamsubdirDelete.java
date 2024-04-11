@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.commonparamsubdir;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteHeaderParameters;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeletePathParameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Parameters;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteResponses;
@@ -88,13 +88,13 @@ public class CommonparamsubdirDelete {
     public static class DeleteRequest {
         public CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters;
         public CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap headerParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
             CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters,
             CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap headerParameters,
-            RootServerInfo.@Nullable ServerIndex serverIndex,
+            ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
             this.pathParameters = pathParameters;
@@ -107,7 +107,7 @@ public class CommonparamsubdirDelete {
     public static class DeleteNullableRequest {
         public CommonparamsubdirDeletePathParameters.@Nullable CommonparamsubdirDeletePathParametersMap pathParameters;
         public CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap headerParameters;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
 
@@ -124,7 +124,7 @@ public class CommonparamsubdirDelete {
     public interface SetterForServerIndex <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterServerIndex(DeleteNullableRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);

@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fake;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.paths.fake.post.FakePostRequestBody;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.openapijsonschematools.client.paths.fake.post.FakePostSecurityInfo;
 import org.openapijsonschematools.client.paths.fake.post.FakePostResponses;
 import org.openapijsonschematools.client.apiclient.ApiClient;
@@ -101,7 +101,7 @@ public class FakePost {
 
     public static class PostRequest {
         public FakePostRequestBody.@Nullable SealedRequestBody requestBody;
-        public RootServerInfo.@Nullable ServerIndex serverIndex;
+        public ServerInfo.@Nullable ServerIndex serverIndex;
         public FakePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
     }
@@ -119,7 +119,7 @@ public class FakePost {
     public interface SetterForServerIndex <T> {
         PostRequest getInstance();
         T getBuilderAfterServerIndex(PostRequest instance);
-        default T serverIndex(RootServerInfo.ServerIndex serverIndex) {
+        default T serverIndex(ServerInfo.ServerIndex serverIndex) {
             var instance = getInstance();
             instance.serverIndex = serverIndex;
             return getBuilderAfterServerIndex(instance);
