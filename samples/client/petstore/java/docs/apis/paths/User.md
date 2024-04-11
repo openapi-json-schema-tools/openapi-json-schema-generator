@@ -3,17 +3,17 @@
 public class User extends extends ApiClient implements
 [UserPost.PostOperation](../../paths/user/UserPost.md#postoperation)
 
-an api client class which contains all the routes for path="/user"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserPostResponses.EndpointResponse](../../paths/user/post/UserPostResponses.md#endpointresponse) | [post](#post)([UserPost.PostRequest](../../paths/user/UserPost#postrequest) request)<br>This can only be done by the logged in user. |
+| [UserPostResponses.EndpointResponse](../../paths/user/post/UserPostResponses.md#endpointresponse) | [post](#post)([UserPost.PostRequest](../../paths/user/UserPost.md#postrequest) request)<br>This can only be done by the logged in user. |
 
 ## Method Detail
 
 ### post
-public [UserPostResponses.EndpointResponse](../../paths/user/post/UserPostResponses.md#endpointresponse) post([UserPost.PostRequest](../../paths/user/UserPost#postrequest) request)
+public [UserPostResponses.EndpointResponse](../../paths/user/post/UserPostResponses.md#endpointresponse) post([UserPost.PostRequest](../../paths/user/UserPost.md#postrequest) request)
 
 This can only be done by the logged in user.
 

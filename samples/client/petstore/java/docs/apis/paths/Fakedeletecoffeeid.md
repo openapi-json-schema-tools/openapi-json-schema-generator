@@ -3,17 +3,17 @@
 public class Fakedeletecoffeeid extends extends ApiClient implements
 [FakedeletecoffeeidDelete.DeleteOperation](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete.md#deleteoperation)
 
-an api client class which contains all the routes for path="/fake/deleteCoffee/{id}"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) | [delete](#delete)([FakedeletecoffeeidDelete.DeleteRequest](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete#deleterequest) request)<br>Delete the coffee identified by the given id, (delete without request body) |
+| [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) | [delete](#delete)([FakedeletecoffeeidDelete.DeleteRequest](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete.md#deleterequest) request)<br>Delete the coffee identified by the given id, (delete without request body) |
 
 ## Method Detail
 
 ### delete
-public [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) delete([FakedeletecoffeeidDelete.DeleteRequest](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete#deleterequest) request)
+public [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) delete([FakedeletecoffeeidDelete.DeleteRequest](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete.md#deleterequest) request)
 
 Delete the coffee identified by the given id, (delete without request body)
 

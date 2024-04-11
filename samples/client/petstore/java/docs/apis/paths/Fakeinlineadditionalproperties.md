@@ -3,17 +3,17 @@
 public class Fakeinlineadditionalproperties extends extends ApiClient implements
 [FakeinlineadditionalpropertiesPost.PostOperation](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/inline-additionalProperties"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeinlineadditionalpropertiesPostResponses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/FakeinlineadditionalpropertiesPostResponses.md#endpointresponse) | [post](#post)([FakeinlineadditionalpropertiesPost.PostRequest](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost#postrequest) request)<br> |
+| [FakeinlineadditionalpropertiesPostResponses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/FakeinlineadditionalpropertiesPostResponses.md#endpointresponse) | [post](#post)([FakeinlineadditionalpropertiesPost.PostRequest](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### post
-public [FakeinlineadditionalpropertiesPostResponses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/FakeinlineadditionalpropertiesPostResponses.md#endpointresponse) post([FakeinlineadditionalpropertiesPost.PostRequest](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost#postrequest) request)
+public [FakeinlineadditionalpropertiesPostResponses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/FakeinlineadditionalpropertiesPostResponses.md#endpointresponse) post([FakeinlineadditionalpropertiesPost.PostRequest](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#postrequest) request)
 
 
 

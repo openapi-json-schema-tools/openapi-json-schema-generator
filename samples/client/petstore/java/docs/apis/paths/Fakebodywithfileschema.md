@@ -3,17 +3,17 @@
 public class Fakebodywithfileschema extends extends ApiClient implements
 [FakebodywithfileschemaPut.PutOperation](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut.md#putoperation)
 
-an api client class which contains all the routes for path="/fake/body-with-file-schema"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) | [put](#put)([FakebodywithfileschemaPut.PutRequest](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut#putrequest) request)<br>For this test, the body for this request much reference a schema named &#x60;File&#x60;. |
+| [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) | [put](#put)([FakebodywithfileschemaPut.PutRequest](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut.md#putrequest) request)<br>For this test, the body for this request much reference a schema named &#x60;File&#x60;. |
 
 ## Method Detail
 
 ### put
-public [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) put([FakebodywithfileschemaPut.PutRequest](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut#putrequest) request)
+public [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) put([FakebodywithfileschemaPut.PutRequest](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut.md#putrequest) request)
 
 For this test, the body for this request much reference a schema named &#x60;File&#x60;.
 

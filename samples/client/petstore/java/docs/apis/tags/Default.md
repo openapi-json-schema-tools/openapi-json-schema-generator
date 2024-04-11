@@ -3,17 +3,18 @@
 public class Default extends extends ApiClient implements
 [FooGet.FooGetOperation](../../paths/foo/FooGet.md#foogetoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for tag="default"
+operations that lack tags are assigned this default tag
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FooGetResponses.EndpointResponse](../../paths/foo/get/FooGetResponses.md#endpointresponse) | [fooGet](#fooget)([FooGet.GetRequest](../../paths/foo/FooGet#getrequest) request) |
+| [FooGetResponses.EndpointResponse](../../paths/foo/get/FooGetResponses.md#endpointresponse) | [fooGet](#fooget)([FooGet.GetRequest](../../paths/foo/FooGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### fooGet
-public [FooGetResponses.EndpointResponse](../../paths/foo/get/FooGetResponses.md#endpointresponse) fooGet([FooGet.GetRequest](../../paths/foo/FooGet#getrequest) request)
+public [FooGetResponses.EndpointResponse](../../paths/foo/get/FooGetResponses.md#endpointresponse) fooGet([FooGet.GetRequest](../../paths/foo/FooGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

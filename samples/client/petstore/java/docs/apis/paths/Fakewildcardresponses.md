@@ -3,17 +3,17 @@
 public class Fakewildcardresponses extends extends ApiClient implements
 [FakewildcardresponsesGet.GetOperation](../../paths/fakewildcardresponses/FakewildcardresponsesGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/wildCardResponses"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakewildcardresponsesGetResponses.EndpointResponse](../../paths/fakewildcardresponses/get/FakewildcardresponsesGetResponses.md#endpointresponse) | [get](#get)([FakewildcardresponsesGet.GetRequest](../../paths/fakewildcardresponses/FakewildcardresponsesGet#getrequest) request) |
+| [FakewildcardresponsesGetResponses.EndpointResponse](../../paths/fakewildcardresponses/get/FakewildcardresponsesGetResponses.md#endpointresponse) | [get](#get)([FakewildcardresponsesGet.GetRequest](../../paths/fakewildcardresponses/FakewildcardresponsesGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakewildcardresponsesGetResponses.EndpointResponse](../../paths/fakewildcardresponses/get/FakewildcardresponsesGetResponses.md#endpointresponse) get([FakewildcardresponsesGet.GetRequest](../../paths/fakewildcardresponses/FakewildcardresponsesGet#getrequest) request)
+public [FakewildcardresponsesGetResponses.EndpointResponse](../../paths/fakewildcardresponses/get/FakewildcardresponsesGetResponses.md#endpointresponse) get([FakewildcardresponsesGet.GetRequest](../../paths/fakewildcardresponses/FakewildcardresponsesGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

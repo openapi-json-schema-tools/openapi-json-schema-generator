@@ -3,17 +3,17 @@
 public class Fakerefsboolean extends extends ApiClient implements
 [FakerefsbooleanPost.PostOperation](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/refs/boolean"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) | [post](#post)([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost#postrequest) request)<br>Test serialization of outer boolean types |
+| [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) | [post](#post)([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postrequest) request)<br>Test serialization of outer boolean types |
 
 ## Method Detail
 
 ### post
-public [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) post([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost#postrequest) request)
+public [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) post([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postrequest) request)
 
 Test serialization of outer boolean types
 

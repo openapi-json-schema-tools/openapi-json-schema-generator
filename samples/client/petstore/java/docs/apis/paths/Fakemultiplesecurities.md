@@ -3,17 +3,17 @@
 public class Fakemultiplesecurities extends extends ApiClient implements
 [FakemultiplesecuritiesGet.GetOperation](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/multipleSecurities"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) | [get](#get)([FakemultiplesecuritiesGet.GetRequest](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet#getrequest) request) |
+| [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) | [get](#get)([FakemultiplesecuritiesGet.GetRequest](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) get([FakemultiplesecuritiesGet.GetRequest](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet#getrequest) request)
+public [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) get([FakemultiplesecuritiesGet.GetRequest](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

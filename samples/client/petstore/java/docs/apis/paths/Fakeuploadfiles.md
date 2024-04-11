@@ -3,17 +3,17 @@
 public class Fakeuploadfiles extends extends ApiClient implements
 [FakeuploadfilesPost.PostOperation](../../paths/fakeuploadfiles/FakeuploadfilesPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/uploadFiles"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeuploadfilesPostResponses.EndpointResponse](../../paths/fakeuploadfiles/post/FakeuploadfilesPostResponses.md#endpointresponse) | [post](#post)([FakeuploadfilesPost.PostRequest](../../paths/fakeuploadfiles/FakeuploadfilesPost#postrequest) request)<br> |
+| [FakeuploadfilesPostResponses.EndpointResponse](../../paths/fakeuploadfiles/post/FakeuploadfilesPostResponses.md#endpointresponse) | [post](#post)([FakeuploadfilesPost.PostRequest](../../paths/fakeuploadfiles/FakeuploadfilesPost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### post
-public [FakeuploadfilesPostResponses.EndpointResponse](../../paths/fakeuploadfiles/post/FakeuploadfilesPostResponses.md#endpointresponse) post([FakeuploadfilesPost.PostRequest](../../paths/fakeuploadfiles/FakeuploadfilesPost#postrequest) request)
+public [FakeuploadfilesPostResponses.EndpointResponse](../../paths/fakeuploadfiles/post/FakeuploadfilesPostResponses.md#endpointresponse) post([FakeuploadfilesPost.PostRequest](../../paths/fakeuploadfiles/FakeuploadfilesPost.md#postrequest) request)
 
 
 

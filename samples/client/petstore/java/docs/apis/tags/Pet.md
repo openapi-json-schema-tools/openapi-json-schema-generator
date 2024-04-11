@@ -11,25 +11,26 @@ public class Pet extends extends ApiClient implements
 [PetpetidGet.GetPetByIdOperation](../../paths/petpetid/PetpetidGet.md#getpetbyidoperation),
 [PetpetidPost.UpdatePetWithFormOperation](../../paths/petpetid/PetpetidPost.md#updatepetwithformoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for tag="pet"
+Everything about your Pets
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostResponses.md#endpointresponse) | [uploadFileWithRequiredFile](#uploadfilewithrequiredfile)([FakepetiduploadimagewithrequiredfilePost.PostRequest](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost#postrequest) request)<br> |
-| [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) | [addPet](#addpet)([PetPost.PostRequest](../../paths/pet/PetPost#postrequest) request)<br>Add a new pet to the store |
-| Void | [updatePet](#updatepet)([PetPut.PutRequest](../../paths/pet/PetPut#putrequest) request)<br> |
-| [PetfindbytagsGetResponses.EndpointResponse](../../paths/petfindbytags/get/PetfindbytagsGetResponses.md#endpointresponse) | [findPetsByTags](#findpetsbytags)([PetfindbytagsGet.GetRequest](../../paths/petfindbytags/PetfindbytagsGet#getrequest) request)<br>Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing. |
-| [PetfindbystatusGetResponses.EndpointResponse](../../paths/petfindbystatus/get/PetfindbystatusGetResponses.md#endpointresponse) | [findPetsByStatus](#findpetsbystatus)([PetfindbystatusGet.GetRequest](../../paths/petfindbystatus/PetfindbystatusGet#getrequest) request)<br>Multiple status values can be provided with comma separated strings |
-| [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) | [uploadImage](#uploadimage)([PetpetiduploadimagePost.PostRequest](../../paths/petpetiduploadimage/PetpetiduploadimagePost#postrequest) request)<br> |
-| Void | [deletePet](#deletepet)([PetpetidDelete.DeleteRequest](../../paths/petpetid/PetpetidDelete#deleterequest) request)<br> |
-| [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) | [getPetById](#getpetbyid)([PetpetidGet.GetRequest](../../paths/petpetid/PetpetidGet#getrequest) request)<br>Returns a single pet |
-| Void | [updatePetWithForm](#updatepetwithform)([PetpetidPost.PostRequest](../../paths/petpetid/PetpetidPost#postrequest) request)<br> |
+| [FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostResponses.md#endpointresponse) | [uploadFileWithRequiredFile](#uploadfilewithrequiredfile)([FakepetiduploadimagewithrequiredfilePost.PostRequest](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost.md#postrequest) request)<br> |
+| [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) | [addPet](#addpet)([PetPost.PostRequest](../../paths/pet/PetPost.md#postrequest) request)<br>Add a new pet to the store |
+| Void | [updatePet](#updatepet)([PetPut.PutRequest](../../paths/pet/PetPut.md#putrequest) request)<br> |
+| [PetfindbytagsGetResponses.EndpointResponse](../../paths/petfindbytags/get/PetfindbytagsGetResponses.md#endpointresponse) | [findPetsByTags](#findpetsbytags)([PetfindbytagsGet.GetRequest](../../paths/petfindbytags/PetfindbytagsGet.md#getrequest) request)<br>Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing. |
+| [PetfindbystatusGetResponses.EndpointResponse](../../paths/petfindbystatus/get/PetfindbystatusGetResponses.md#endpointresponse) | [findPetsByStatus](#findpetsbystatus)([PetfindbystatusGet.GetRequest](../../paths/petfindbystatus/PetfindbystatusGet.md#getrequest) request)<br>Multiple status values can be provided with comma separated strings |
+| [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) | [uploadImage](#uploadimage)([PetpetiduploadimagePost.PostRequest](../../paths/petpetiduploadimage/PetpetiduploadimagePost.md#postrequest) request)<br> |
+| Void | [deletePet](#deletepet)([PetpetidDelete.DeleteRequest](../../paths/petpetid/PetpetidDelete.md#deleterequest) request)<br> |
+| [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) | [getPetById](#getpetbyid)([PetpetidGet.GetRequest](../../paths/petpetid/PetpetidGet.md#getrequest) request)<br>Returns a single pet |
+| Void | [updatePetWithForm](#updatepetwithform)([PetpetidPost.PostRequest](../../paths/petpetid/PetpetidPost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### uploadFileWithRequiredFile
-public [FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostResponses.md#endpointresponse) uploadFileWithRequiredFile([FakepetiduploadimagewithrequiredfilePost.PostRequest](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost#postrequest) request)
+public [FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostResponses.md#endpointresponse) uploadFileWithRequiredFile([FakepetiduploadimagewithrequiredfilePost.PostRequest](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost.md#postrequest) request)
 
 
 
@@ -139,7 +140,7 @@ FakepetiduploadimagewithrequiredfilePostCode200Response.ApplicationjsonResponseB
 // handle deserialized body here
 ```
 ### addPet
-public [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) addPet([PetPost.PostRequest](../../paths/pet/PetPost#postrequest) request)
+public [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) addPet([PetPost.PostRequest](../../paths/pet/PetPost.md#postrequest) request)
 
 Add a new pet to the store
 
@@ -287,7 +288,7 @@ try {
 PetPostResponses.EndpointPetPostCode200Response castResponse = (PetPostResponses.EndpointPetPostCode200Response) response;
 ```
 ### updatePet
-public Void updatePet([PetPut.PutRequest](../../paths/pet/PetPut#putrequest) request)
+public Void updatePet([PetPut.PutRequest](../../paths/pet/PetPut.md#putrequest) request)
 
 
 
@@ -431,7 +432,7 @@ try {
 }
 ```
 ### findPetsByTags
-public [PetfindbytagsGetResponses.EndpointResponse](../../paths/petfindbytags/get/PetfindbytagsGetResponses.md#endpointresponse) findPetsByTags([PetfindbytagsGet.GetRequest](../../paths/petfindbytags/PetfindbytagsGet#getrequest) request)
+public [PetfindbytagsGetResponses.EndpointResponse](../../paths/petfindbytags/get/PetfindbytagsGetResponses.md#endpointresponse) findPetsByTags([PetfindbytagsGet.GetRequest](../../paths/petfindbytags/PetfindbytagsGet.md#getrequest) request)
 
 Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
 
@@ -547,7 +548,7 @@ PetfindbytagsGetResponses.EndpointPetfindbytagsGetCode200Response castResponse =
 }
 ```
 ### findPetsByStatus
-public [PetfindbystatusGetResponses.EndpointResponse](../../paths/petfindbystatus/get/PetfindbystatusGetResponses.md#endpointresponse) findPetsByStatus([PetfindbystatusGet.GetRequest](../../paths/petfindbystatus/PetfindbystatusGet#getrequest) request)
+public [PetfindbystatusGetResponses.EndpointResponse](../../paths/petfindbystatus/get/PetfindbystatusGetResponses.md#endpointresponse) findPetsByStatus([PetfindbystatusGet.GetRequest](../../paths/petfindbystatus/PetfindbystatusGet.md#getrequest) request)
 
 Multiple status values can be provided with comma separated strings
 
@@ -666,7 +667,7 @@ PetfindbystatusGetResponses.EndpointPetfindbystatusGetCode200Response castRespon
 }
 ```
 ### uploadImage
-public [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) uploadImage([PetpetiduploadimagePost.PostRequest](../../paths/petpetiduploadimage/PetpetiduploadimagePost#postrequest) request)
+public [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) uploadImage([PetpetiduploadimagePost.PostRequest](../../paths/petpetiduploadimage/PetpetiduploadimagePost.md#postrequest) request)
 
 
 
@@ -776,7 +777,7 @@ PetpetiduploadimagePostResponses.EndpointPetpetiduploadimagePostCode200Response 
 }
 ```
 ### deletePet
-public Void deletePet([PetpetidDelete.DeleteRequest](../../paths/petpetid/PetpetidDelete#deleterequest) request)
+public Void deletePet([PetpetidDelete.DeleteRequest](../../paths/petpetid/PetpetidDelete.md#deleterequest) request)
 
 
 
@@ -890,7 +891,7 @@ try {
 }
 ```
 ### getPetById
-public [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) getPetById([PetpetidGet.GetRequest](../../paths/petpetid/PetpetidGet#getrequest) request)
+public [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) getPetById([PetpetidGet.GetRequest](../../paths/petpetid/PetpetidGet.md#getrequest) request)
 
 Returns a single pet
 
@@ -1011,7 +1012,7 @@ if (castResponse.body instanceof PetpetidGetCode200Response.ApplicationxmlRespon
 }
 ```
 ### updatePetWithForm
-public Void updatePetWithForm([PetpetidPost.PostRequest](../../paths/petpetid/PetpetidPost#postrequest) request)
+public Void updatePetWithForm([PetpetidPost.PostRequest](../../paths/petpetid/PetpetidPost.md#postrequest) request)
 
 
 

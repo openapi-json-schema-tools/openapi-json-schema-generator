@@ -5,19 +5,19 @@ public class Petpetid extends extends ApiClient implements
 [PetpetidGet.GetOperation](../../paths/petpetid/PetpetidGet.md#getoperation),
 [PetpetidPost.PostOperation](../../paths/petpetid/PetpetidPost.md#postoperation)
 
-an api client class which contains all the routes for path="/pet/{petId}"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | [delete](#delete)([PetpetidDelete.DeleteRequest](../../paths/petpetid/PetpetidDelete#deleterequest) request)<br> |
-| [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) | [get](#get)([PetpetidGet.GetRequest](../../paths/petpetid/PetpetidGet#getrequest) request)<br>Returns a single pet |
-| Void | [post](#post)([PetpetidPost.PostRequest](../../paths/petpetid/PetpetidPost#postrequest) request)<br> |
+| Void | [delete](#delete)([PetpetidDelete.DeleteRequest](../../paths/petpetid/PetpetidDelete.md#deleterequest) request)<br> |
+| [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) | [get](#get)([PetpetidGet.GetRequest](../../paths/petpetid/PetpetidGet.md#getrequest) request)<br>Returns a single pet |
+| Void | [post](#post)([PetpetidPost.PostRequest](../../paths/petpetid/PetpetidPost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### delete
-public Void delete([PetpetidDelete.DeleteRequest](../../paths/petpetid/PetpetidDelete#deleterequest) request)
+public Void delete([PetpetidDelete.DeleteRequest](../../paths/petpetid/PetpetidDelete.md#deleterequest) request)
 
 
 
@@ -131,7 +131,7 @@ try {
 }
 ```
 ### get
-public [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) get([PetpetidGet.GetRequest](../../paths/petpetid/PetpetidGet#getrequest) request)
+public [PetpetidGetResponses.EndpointResponse](../../paths/petpetid/get/PetpetidGetResponses.md#endpointresponse) get([PetpetidGet.GetRequest](../../paths/petpetid/PetpetidGet.md#getrequest) request)
 
 Returns a single pet
 
@@ -252,7 +252,7 @@ if (castResponse.body instanceof PetpetidGetCode200Response.ApplicationxmlRespon
 }
 ```
 ### post
-public Void post([PetpetidPost.PostRequest](../../paths/petpetid/PetpetidPost#postrequest) request)
+public Void post([PetpetidPost.PostRequest](../../paths/petpetid/PetpetidPost.md#postrequest) request)
 
 
 

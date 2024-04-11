@@ -3,17 +3,17 @@
 public class Userlogin extends extends ApiClient implements
 [UserloginGet.GetOperation](../../paths/userlogin/UserloginGet.md#getoperation)
 
-an api client class which contains all the routes for path="/user/login"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) | [get](#get)([UserloginGet.GetRequest](../../paths/userlogin/UserloginGet#getrequest) request)<br> |
+| [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) | [get](#get)([UserloginGet.GetRequest](../../paths/userlogin/UserloginGet.md#getrequest) request)<br> |
 
 ## Method Detail
 
 ### get
-public [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) get([UserloginGet.GetRequest](../../paths/userlogin/UserloginGet#getrequest) request)
+public [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) get([UserloginGet.GetRequest](../../paths/userlogin/UserloginGet.md#getrequest) request)
 
 
 

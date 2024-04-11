@@ -3,17 +3,17 @@
 public class Fakerefsenum extends extends ApiClient implements
 [FakerefsenumPost.PostOperation](../../paths/fakerefsenum/FakerefsenumPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/refs/enum"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsenumPostResponses.EndpointResponse](../../paths/fakerefsenum/post/FakerefsenumPostResponses.md#endpointresponse) | [post](#post)([FakerefsenumPost.PostRequest](../../paths/fakerefsenum/FakerefsenumPost#postrequest) request)<br>Test serialization of outer enum |
+| [FakerefsenumPostResponses.EndpointResponse](../../paths/fakerefsenum/post/FakerefsenumPostResponses.md#endpointresponse) | [post](#post)([FakerefsenumPost.PostRequest](../../paths/fakerefsenum/FakerefsenumPost.md#postrequest) request)<br>Test serialization of outer enum |
 
 ## Method Detail
 
 ### post
-public [FakerefsenumPostResponses.EndpointResponse](../../paths/fakerefsenum/post/FakerefsenumPostResponses.md#endpointresponse) post([FakerefsenumPost.PostRequest](../../paths/fakerefsenum/FakerefsenumPost#postrequest) request)
+public [FakerefsenumPostResponses.EndpointResponse](../../paths/fakerefsenum/post/FakerefsenumPostResponses.md#endpointresponse) post([FakerefsenumPost.PostRequest](../../paths/fakerefsenum/FakerefsenumPost.md#postrequest) request)
 
 Test serialization of outer enum
 

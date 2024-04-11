@@ -3,17 +3,17 @@
 public class Fakepetiduploadimagewithrequiredfile extends extends ApiClient implements
 [FakepetiduploadimagewithrequiredfilePost.PostOperation](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/{petId}/uploadImageWithRequiredFile"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostResponses.md#endpointresponse) | [post](#post)([FakepetiduploadimagewithrequiredfilePost.PostRequest](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost#postrequest) request)<br> |
+| [FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostResponses.md#endpointresponse) | [post](#post)([FakepetiduploadimagewithrequiredfilePost.PostRequest](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### post
-public [FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostResponses.md#endpointresponse) post([FakepetiduploadimagewithrequiredfilePost.PostRequest](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost#postrequest) request)
+public [FakepetiduploadimagewithrequiredfilePostResponses.EndpointResponse](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostResponses.md#endpointresponse) post([FakepetiduploadimagewithrequiredfilePost.PostRequest](../../paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost.md#postrequest) request)
 
 
 

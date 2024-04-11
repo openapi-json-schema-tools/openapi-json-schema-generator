@@ -3,17 +3,17 @@
 public class Faketestqueryparamters extends extends ApiClient implements
 [FaketestqueryparamtersPut.PutOperation](../../paths/faketestqueryparamters/FaketestqueryparamtersPut.md#putoperation)
 
-an api client class which contains all the routes for path="/fake/test-query-paramters"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) | [put](#put)([FaketestqueryparamtersPut.PutRequest](../../paths/faketestqueryparamters/FaketestqueryparamtersPut#putrequest) request)<br>To test the collection format in query parameters |
+| [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) | [put](#put)([FaketestqueryparamtersPut.PutRequest](../../paths/faketestqueryparamters/FaketestqueryparamtersPut.md#putrequest) request)<br>To test the collection format in query parameters |
 
 ## Method Detail
 
 ### put
-public [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) put([FaketestqueryparamtersPut.PutRequest](../../paths/faketestqueryparamters/FaketestqueryparamtersPut#putrequest) request)
+public [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) put([FaketestqueryparamtersPut.PutRequest](../../paths/faketestqueryparamters/FaketestqueryparamtersPut.md#putrequest) request)
 
 To test the collection format in query parameters
 

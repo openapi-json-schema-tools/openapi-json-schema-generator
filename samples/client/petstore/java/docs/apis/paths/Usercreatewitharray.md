@@ -3,17 +3,17 @@
 public class Usercreatewitharray extends extends ApiClient implements
 [UsercreatewitharrayPost.PostOperation](../../paths/usercreatewitharray/UsercreatewitharrayPost.md#postoperation)
 
-an api client class which contains all the routes for path="/user/createWithArray"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UsercreatewitharrayPostResponses.EndpointResponse](../../paths/usercreatewitharray/post/UsercreatewitharrayPostResponses.md#endpointresponse) | [post](#post)([UsercreatewitharrayPost.PostRequest](../../paths/usercreatewitharray/UsercreatewitharrayPost#postrequest) request)<br> |
+| [UsercreatewitharrayPostResponses.EndpointResponse](../../paths/usercreatewitharray/post/UsercreatewitharrayPostResponses.md#endpointresponse) | [post](#post)([UsercreatewitharrayPost.PostRequest](../../paths/usercreatewitharray/UsercreatewitharrayPost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### post
-public [UsercreatewitharrayPostResponses.EndpointResponse](../../paths/usercreatewitharray/post/UsercreatewitharrayPostResponses.md#endpointresponse) post([UsercreatewitharrayPost.PostRequest](../../paths/usercreatewitharray/UsercreatewitharrayPost#postrequest) request)
+public [UsercreatewitharrayPostResponses.EndpointResponse](../../paths/usercreatewitharray/post/UsercreatewitharrayPostResponses.md#endpointresponse) post([UsercreatewitharrayPost.PostRequest](../../paths/usercreatewitharray/UsercreatewitharrayPost.md#postrequest) request)
 
 
 

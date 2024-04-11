@@ -3,17 +3,17 @@
 public class Solidus extends extends ApiClient implements
 [SolidusGet.GetOperation](../../paths/solidus/SolidusGet.md#getoperation)
 
-an api client class which contains all the routes for path="/"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) | [get](#get)([SolidusGet.GetRequest](../../paths/solidus/SolidusGet#getrequest) request) |
+| [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) | [get](#get)([SolidusGet.GetRequest](../../paths/solidus/SolidusGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) get([SolidusGet.GetRequest](../../paths/solidus/SolidusGet#getrequest) request)
+public [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) get([SolidusGet.GetRequest](../../paths/solidus/SolidusGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

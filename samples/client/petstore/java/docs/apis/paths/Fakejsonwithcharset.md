@@ -3,17 +3,17 @@
 public class Fakejsonwithcharset extends extends ApiClient implements
 [FakejsonwithcharsetPost.PostOperation](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/jsonWithCharset"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakejsonwithcharsetPostResponses.EndpointResponse](../../paths/fakejsonwithcharset/post/FakejsonwithcharsetPostResponses.md#endpointresponse) | [post](#post)([FakejsonwithcharsetPost.PostRequest](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost#postrequest) request) |
+| [FakejsonwithcharsetPostResponses.EndpointResponse](../../paths/fakejsonwithcharset/post/FakejsonwithcharsetPostResponses.md#endpointresponse) | [post](#post)([FakejsonwithcharsetPost.PostRequest](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost.md#postrequest) request) |
 
 ## Method Detail
 
 ### post
-public [FakejsonwithcharsetPostResponses.EndpointResponse](../../paths/fakejsonwithcharset/post/FakejsonwithcharsetPostResponses.md#endpointresponse) post([FakejsonwithcharsetPost.PostRequest](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost#postrequest) request)
+public [FakejsonwithcharsetPostResponses.EndpointResponse](../../paths/fakejsonwithcharset/post/FakejsonwithcharsetPostResponses.md#endpointresponse) post([FakejsonwithcharsetPost.PostRequest](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost.md#postrequest) request)
 
 **Parameters:**<br>
 request - the input request

@@ -3,17 +3,17 @@
 public class Fakejsonpatch extends extends ApiClient implements
 [FakejsonpatchPatch.PatchOperation](../../paths/fakejsonpatch/FakejsonpatchPatch.md#patchoperation)
 
-an api client class which contains all the routes for path="/fake/jsonPatch"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) | [patch](#patch)([FakejsonpatchPatch.PatchRequest](../../paths/fakejsonpatch/FakejsonpatchPatch#patchrequest) request)<br>json patch route with a requestBody |
+| [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) | [patch](#patch)([FakejsonpatchPatch.PatchRequest](../../paths/fakejsonpatch/FakejsonpatchPatch.md#patchrequest) request)<br>json patch route with a requestBody |
 
 ## Method Detail
 
 ### patch
-public [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) patch([FakejsonpatchPatch.PatchRequest](../../paths/fakejsonpatch/FakejsonpatchPatch#patchrequest) request)
+public [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) patch([FakejsonpatchPatch.PatchRequest](../../paths/fakejsonpatch/FakejsonpatchPatch.md#patchrequest) request)
 
 json patch route with a requestBody
 

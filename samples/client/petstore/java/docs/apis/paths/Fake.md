@@ -6,20 +6,20 @@ public class Fake extends extends ApiClient implements
 [FakePatch.PatchOperation](../../paths/fake/FakePatch.md#patchoperation),
 [FakePost.PostOperation](../../paths/fake/FakePost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) | [delete](#delete)([FakeDelete.DeleteRequest](../../paths/fake/FakeDelete#deleterequest) request)<br>Fake endpoint to test group parameters (optional) |
-| [FakeGetResponses.EndpointResponse](../../paths/fake/get/FakeGetResponses.md#endpointresponse) | [get](#get)([FakeGet.GetRequest](../../paths/fake/FakeGet#getrequest) request)<br>To test enum parameters |
-| [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) | [patch](#patch)([FakePatch.PatchRequest](../../paths/fake/FakePatch#patchrequest) request)<br>To test &quot;client&quot; model |
-| [FakePostResponses.EndpointResponse](../../paths/fake/post/FakePostResponses.md#endpointresponse) | [post](#post)([FakePost.PostRequest](../../paths/fake/FakePost#postrequest) request)<br>Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br> |
+| [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) | [delete](#delete)([FakeDelete.DeleteRequest](../../paths/fake/FakeDelete.md#deleterequest) request)<br>Fake endpoint to test group parameters (optional) |
+| [FakeGetResponses.EndpointResponse](../../paths/fake/get/FakeGetResponses.md#endpointresponse) | [get](#get)([FakeGet.GetRequest](../../paths/fake/FakeGet.md#getrequest) request)<br>To test enum parameters |
+| [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) | [patch](#patch)([FakePatch.PatchRequest](../../paths/fake/FakePatch.md#patchrequest) request)<br>To test &quot;client&quot; model |
+| [FakePostResponses.EndpointResponse](../../paths/fake/post/FakePostResponses.md#endpointresponse) | [post](#post)([FakePost.PostRequest](../../paths/fake/FakePost.md#postrequest) request)<br>Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br> |
 
 ## Method Detail
 
 ### delete
-public [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) delete([FakeDelete.DeleteRequest](../../paths/fake/FakeDelete#deleterequest) request)
+public [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) delete([FakeDelete.DeleteRequest](../../paths/fake/FakeDelete.md#deleterequest) request)
 
 Fake endpoint to test group parameters (optional)
 
@@ -149,7 +149,7 @@ try {
 FakeDeleteResponses.EndpointFakeDeleteCode200Response castResponse = (FakeDeleteResponses.EndpointFakeDeleteCode200Response) response;
 ```
 ### get
-public [FakeGetResponses.EndpointResponse](../../paths/fake/get/FakeGetResponses.md#endpointresponse) get([FakeGet.GetRequest](../../paths/fake/FakeGet#getrequest) request)
+public [FakeGetResponses.EndpointResponse](../../paths/fake/get/FakeGetResponses.md#endpointresponse) get([FakeGet.GetRequest](../../paths/fake/FakeGet.md#getrequest) request)
 
 To test enum parameters
 
@@ -242,7 +242,7 @@ try {
 FakeGetResponses.EndpointFakeGetCode200Response castResponse = (FakeGetResponses.EndpointFakeGetCode200Response) response;
 ```
 ### patch
-public [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) patch([FakePatch.PatchRequest](../../paths/fake/FakePatch#patchrequest) request)
+public [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) patch([FakePatch.PatchRequest](../../paths/fake/FakePatch.md#patchrequest) request)
 
 To test &quot;client&quot; model
 
@@ -343,7 +343,7 @@ FakePatchCode200Response.ApplicationjsonResponseBody deserializedBody = (FakePat
 // handle deserialized body here
 ```
 ### post
-public [FakePostResponses.EndpointResponse](../../paths/fake/post/FakePostResponses.md#endpointresponse) post([FakePost.PostRequest](../../paths/fake/FakePost#postrequest) request)
+public [FakePostResponses.EndpointResponse](../../paths/fake/post/FakePostResponses.md#endpointresponse) post([FakePost.PostRequest](../../paths/fake/FakePost.md#postrequest) request)
 
 Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br>
 

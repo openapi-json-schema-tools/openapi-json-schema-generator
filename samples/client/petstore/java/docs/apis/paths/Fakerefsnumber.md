@@ -3,17 +3,17 @@
 public class Fakerefsnumber extends extends ApiClient implements
 [FakerefsnumberPost.PostOperation](../../paths/fakerefsnumber/FakerefsnumberPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/refs/number"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) | [post](#post)([FakerefsnumberPost.PostRequest](../../paths/fakerefsnumber/FakerefsnumberPost#postrequest) request)<br>Test serialization of outer number types |
+| [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) | [post](#post)([FakerefsnumberPost.PostRequest](../../paths/fakerefsnumber/FakerefsnumberPost.md#postrequest) request)<br>Test serialization of outer number types |
 
 ## Method Detail
 
 ### post
-public [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) post([FakerefsnumberPost.PostRequest](../../paths/fakerefsnumber/FakerefsnumberPost#postrequest) request)
+public [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) post([FakerefsnumberPost.PostRequest](../../paths/fakerefsnumber/FakerefsnumberPost.md#postrequest) request)
 
 Test serialization of outer number types
 

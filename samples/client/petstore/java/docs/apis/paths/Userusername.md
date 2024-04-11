@@ -5,19 +5,19 @@ public class Userusername extends extends ApiClient implements
 [UserusernameGet.GetOperation](../../paths/userusername/UserusernameGet.md#getoperation),
 [UserusernamePut.PutOperation](../../paths/userusername/UserusernamePut.md#putoperation)
 
-an api client class which contains all the routes for path="/user/{username}"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) | [delete](#delete)([UserusernameDelete.DeleteRequest](../../paths/userusername/UserusernameDelete#deleterequest) request)<br>This can only be done by the logged in user. |
-| [UserusernameGetResponses.EndpointResponse](../../paths/userusername/get/UserusernameGetResponses.md#endpointresponse) | [get](#get)([UserusernameGet.GetRequest](../../paths/userusername/UserusernameGet#getrequest) request)<br> |
-| Void | [put](#put)([UserusernamePut.PutRequest](../../paths/userusername/UserusernamePut#putrequest) request)<br>This can only be done by the logged in user. |
+| [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) | [delete](#delete)([UserusernameDelete.DeleteRequest](../../paths/userusername/UserusernameDelete.md#deleterequest) request)<br>This can only be done by the logged in user. |
+| [UserusernameGetResponses.EndpointResponse](../../paths/userusername/get/UserusernameGetResponses.md#endpointresponse) | [get](#get)([UserusernameGet.GetRequest](../../paths/userusername/UserusernameGet.md#getrequest) request)<br> |
+| Void | [put](#put)([UserusernamePut.PutRequest](../../paths/userusername/UserusernamePut.md#putrequest) request)<br>This can only be done by the logged in user. |
 
 ## Method Detail
 
 ### delete
-public [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) delete([UserusernameDelete.DeleteRequest](../../paths/userusername/UserusernameDelete#deleterequest) request)
+public [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) delete([UserusernameDelete.DeleteRequest](../../paths/userusername/UserusernameDelete.md#deleterequest) request)
 
 This can only be done by the logged in user.
 
@@ -119,7 +119,7 @@ try {
 UserusernameDeleteResponses.EndpointUserusernameDeleteCode200Response castResponse = (UserusernameDeleteResponses.EndpointUserusernameDeleteCode200Response) response;
 ```
 ### get
-public [UserusernameGetResponses.EndpointResponse](../../paths/userusername/get/UserusernameGetResponses.md#endpointresponse) get([UserusernameGet.GetRequest](../../paths/userusername/UserusernameGet#getrequest) request)
+public [UserusernameGetResponses.EndpointResponse](../../paths/userusername/get/UserusernameGetResponses.md#endpointresponse) get([UserusernameGet.GetRequest](../../paths/userusername/UserusernameGet.md#getrequest) request)
 
 
 
@@ -228,7 +228,7 @@ if (castResponse.body instanceof UserusernameGetCode200Response.ApplicationxmlRe
 }
 ```
 ### put
-public Void put([UserusernamePut.PutRequest](../../paths/userusername/UserusernamePut#putrequest) request)
+public Void put([UserusernamePut.PutRequest](../../paths/userusername/UserusernamePut.md#putrequest) request)
 
 This can only be done by the logged in user.
 

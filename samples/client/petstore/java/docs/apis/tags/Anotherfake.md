@@ -3,17 +3,17 @@
 public class Anotherfake extends extends ApiClient implements
 [AnotherfakedummyPatch.Model123TestSpecialTagsOperation](../../paths/anotherfakedummy/AnotherfakedummyPatch.md#model123testspecialtagsoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for tag="$another-fake?"
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnotherfakedummyPatchResponses.EndpointResponse](../../paths/anotherfakedummy/patch/AnotherfakedummyPatchResponses.md#endpointresponse) | [model123TestSpecialTags](#model123testspecialtags)([AnotherfakedummyPatch.PatchRequest](../../paths/anotherfakedummy/AnotherfakedummyPatch#patchrequest) request)<br>To test special tags and operation ID starting with number |
+| [AnotherfakedummyPatchResponses.EndpointResponse](../../paths/anotherfakedummy/patch/AnotherfakedummyPatchResponses.md#endpointresponse) | [model123TestSpecialTags](#model123testspecialtags)([AnotherfakedummyPatch.PatchRequest](../../paths/anotherfakedummy/AnotherfakedummyPatch.md#patchrequest) request)<br>To test special tags and operation ID starting with number |
 
 ## Method Detail
 
 ### model123TestSpecialTags
-public [AnotherfakedummyPatchResponses.EndpointResponse](../../paths/anotherfakedummy/patch/AnotherfakedummyPatchResponses.md#endpointresponse) model123TestSpecialTags([AnotherfakedummyPatch.PatchRequest](../../paths/anotherfakedummy/AnotherfakedummyPatch#patchrequest) request)
+public [AnotherfakedummyPatchResponses.EndpointResponse](../../paths/anotherfakedummy/patch/AnotherfakedummyPatchResponses.md#endpointresponse) model123TestSpecialTags([AnotherfakedummyPatch.PatchRequest](../../paths/anotherfakedummy/AnotherfakedummyPatch.md#patchrequest) request)
 
 To test special tags and operation ID starting with number
 

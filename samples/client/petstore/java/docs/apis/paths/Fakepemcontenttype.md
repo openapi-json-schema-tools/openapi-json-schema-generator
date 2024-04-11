@@ -3,17 +3,17 @@
 public class Fakepemcontenttype extends extends ApiClient implements
 [FakepemcontenttypeGet.GetOperation](../../paths/fakepemcontenttype/FakepemcontenttypeGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/pemContentType"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) | [get](#get)([FakepemcontenttypeGet.GetRequest](../../paths/fakepemcontenttype/FakepemcontenttypeGet#getrequest) request) |
+| [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) | [get](#get)([FakepemcontenttypeGet.GetRequest](../../paths/fakepemcontenttype/FakepemcontenttypeGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) get([FakepemcontenttypeGet.GetRequest](../../paths/fakepemcontenttype/FakepemcontenttypeGet#getrequest) request)
+public [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) get([FakepemcontenttypeGet.GetRequest](../../paths/fakepemcontenttype/FakepemcontenttypeGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

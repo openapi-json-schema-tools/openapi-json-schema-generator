@@ -3,17 +3,17 @@
 public class Fakerefsmammal extends extends ApiClient implements
 [FakerefsmammalPost.PostOperation](../../paths/fakerefsmammal/FakerefsmammalPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/refs/mammal"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) | [post](#post)([FakerefsmammalPost.PostRequest](../../paths/fakerefsmammal/FakerefsmammalPost#postrequest) request)<br>Test serialization of mammals |
+| [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) | [post](#post)([FakerefsmammalPost.PostRequest](../../paths/fakerefsmammal/FakerefsmammalPost.md#postrequest) request)<br>Test serialization of mammals |
 
 ## Method Detail
 
 ### post
-public [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) post([FakerefsmammalPost.PostRequest](../../paths/fakerefsmammal/FakerefsmammalPost#postrequest) request)
+public [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) post([FakerefsmammalPost.PostRequest](../../paths/fakerefsmammal/FakerefsmammalPost.md#postrequest) request)
 
 Test serialization of mammals
 

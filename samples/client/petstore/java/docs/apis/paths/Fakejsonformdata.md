@@ -3,17 +3,17 @@
 public class Fakejsonformdata extends extends ApiClient implements
 [FakejsonformdataGet.GetOperation](../../paths/fakejsonformdata/FakejsonformdataGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/jsonFormData"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) | [get](#get)([FakejsonformdataGet.GetRequest](../../paths/fakejsonformdata/FakejsonformdataGet#getrequest) request)<br> |
+| [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) | [get](#get)([FakejsonformdataGet.GetRequest](../../paths/fakejsonformdata/FakejsonformdataGet.md#getrequest) request)<br> |
 
 ## Method Detail
 
 ### get
-public [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) get([FakejsonformdataGet.GetRequest](../../paths/fakejsonformdata/FakejsonformdataGet#getrequest) request)
+public [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) get([FakejsonformdataGet.GetRequest](../../paths/fakejsonformdata/FakejsonformdataGet.md#getrequest) request)
 
 
 

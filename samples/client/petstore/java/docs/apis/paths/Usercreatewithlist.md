@@ -3,17 +3,17 @@
 public class Usercreatewithlist extends extends ApiClient implements
 [UsercreatewithlistPost.PostOperation](../../paths/usercreatewithlist/UsercreatewithlistPost.md#postoperation)
 
-an api client class which contains all the routes for path="/user/createWithList"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UsercreatewithlistPostResponses.EndpointResponse](../../paths/usercreatewithlist/post/UsercreatewithlistPostResponses.md#endpointresponse) | [post](#post)([UsercreatewithlistPost.PostRequest](../../paths/usercreatewithlist/UsercreatewithlistPost#postrequest) request)<br> |
+| [UsercreatewithlistPostResponses.EndpointResponse](../../paths/usercreatewithlist/post/UsercreatewithlistPostResponses.md#endpointresponse) | [post](#post)([UsercreatewithlistPost.PostRequest](../../paths/usercreatewithlist/UsercreatewithlistPost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### post
-public [UsercreatewithlistPostResponses.EndpointResponse](../../paths/usercreatewithlist/post/UsercreatewithlistPostResponses.md#endpointresponse) post([UsercreatewithlistPost.PostRequest](../../paths/usercreatewithlist/UsercreatewithlistPost#postrequest) request)
+public [UsercreatewithlistPostResponses.EndpointResponse](../../paths/usercreatewithlist/post/UsercreatewithlistPostResponses.md#endpointresponse) post([UsercreatewithlistPost.PostRequest](../../paths/usercreatewithlist/UsercreatewithlistPost.md#postrequest) request)
 
 
 

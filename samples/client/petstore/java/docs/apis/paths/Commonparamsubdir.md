@@ -5,19 +5,19 @@ public class Commonparamsubdir extends extends ApiClient implements
 [CommonparamsubdirGet.GetOperation](../../paths/commonparamsubdir/CommonparamsubdirGet.md#getoperation),
 [CommonparamsubdirPost.PostOperation](../../paths/commonparamsubdir/CommonparamsubdirPost.md#postoperation)
 
-an api client class which contains all the routes for path="/commonParam/{subDir}/"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirDeleteResponses.EndpointResponse](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteResponses.md#endpointresponse) | [delete](#delete)([CommonparamsubdirDelete.DeleteRequest](../../paths/commonparamsubdir/CommonparamsubdirDelete#deleterequest) request)<br>common param is overwritten |
-| [CommonparamsubdirGetResponses.EndpointResponse](../../paths/commonparamsubdir/get/CommonparamsubdirGetResponses.md#endpointresponse) | [get](#get)([CommonparamsubdirGet.GetRequest](../../paths/commonparamsubdir/CommonparamsubdirGet#getrequest) request) |
-| [CommonparamsubdirPostResponses.EndpointResponse](../../paths/commonparamsubdir/post/CommonparamsubdirPostResponses.md#endpointresponse) | [post](#post)([CommonparamsubdirPost.PostRequest](../../paths/commonparamsubdir/CommonparamsubdirPost#postrequest) request) |
+| [CommonparamsubdirDeleteResponses.EndpointResponse](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteResponses.md#endpointresponse) | [delete](#delete)([CommonparamsubdirDelete.DeleteRequest](../../paths/commonparamsubdir/CommonparamsubdirDelete.md#deleterequest) request)<br>common param is overwritten |
+| [CommonparamsubdirGetResponses.EndpointResponse](../../paths/commonparamsubdir/get/CommonparamsubdirGetResponses.md#endpointresponse) | [get](#get)([CommonparamsubdirGet.GetRequest](../../paths/commonparamsubdir/CommonparamsubdirGet.md#getrequest) request) |
+| [CommonparamsubdirPostResponses.EndpointResponse](../../paths/commonparamsubdir/post/CommonparamsubdirPostResponses.md#endpointresponse) | [post](#post)([CommonparamsubdirPost.PostRequest](../../paths/commonparamsubdir/CommonparamsubdirPost.md#postrequest) request) |
 
 ## Method Detail
 
 ### delete
-public [CommonparamsubdirDeleteResponses.EndpointResponse](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteResponses.md#endpointresponse) delete([CommonparamsubdirDelete.DeleteRequest](../../paths/commonparamsubdir/CommonparamsubdirDelete#deleterequest) request)
+public [CommonparamsubdirDeleteResponses.EndpointResponse](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteResponses.md#endpointresponse) delete([CommonparamsubdirDelete.DeleteRequest](../../paths/commonparamsubdir/CommonparamsubdirDelete.md#deleterequest) request)
 
 common param is overwritten
 
@@ -116,7 +116,7 @@ try {
 CommonparamsubdirDeleteResponses.EndpointCommonparamsubdirDeleteCode200Response castResponse = (CommonparamsubdirDeleteResponses.EndpointCommonparamsubdirDeleteCode200Response) response;
 ```
 ### get
-public [CommonparamsubdirGetResponses.EndpointResponse](../../paths/commonparamsubdir/get/CommonparamsubdirGetResponses.md#endpointresponse) get([CommonparamsubdirGet.GetRequest](../../paths/commonparamsubdir/CommonparamsubdirGet#getrequest) request)
+public [CommonparamsubdirGetResponses.EndpointResponse](../../paths/commonparamsubdir/get/CommonparamsubdirGetResponses.md#endpointresponse) get([CommonparamsubdirGet.GetRequest](../../paths/commonparamsubdir/CommonparamsubdirGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -213,7 +213,7 @@ try {
 CommonparamsubdirGetResponses.EndpointCommonparamsubdirGetCode200Response castResponse = (CommonparamsubdirGetResponses.EndpointCommonparamsubdirGetCode200Response) response;
 ```
 ### post
-public [CommonparamsubdirPostResponses.EndpointResponse](../../paths/commonparamsubdir/post/CommonparamsubdirPostResponses.md#endpointresponse) post([CommonparamsubdirPost.PostRequest](../../paths/commonparamsubdir/CommonparamsubdirPost#postrequest) request)
+public [CommonparamsubdirPostResponses.EndpointResponse](../../paths/commonparamsubdir/post/CommonparamsubdirPostResponses.md#endpointresponse) post([CommonparamsubdirPost.PostRequest](../../paths/commonparamsubdir/CommonparamsubdirPost.md#postrequest) request)
 
 **Parameters:**<br>
 request - the input request

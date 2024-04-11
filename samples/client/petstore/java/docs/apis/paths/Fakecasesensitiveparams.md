@@ -3,17 +3,17 @@
 public class Fakecasesensitiveparams extends extends ApiClient implements
 [FakecasesensitiveparamsPut.PutOperation](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut.md#putoperation)
 
-an api client class which contains all the routes for path="/fake/case-sensitive-params"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutResponses.EndpointResponse](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutResponses.md#endpointresponse) | [put](#put)([FakecasesensitiveparamsPut.PutRequest](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut#putrequest) request)<br>Ensures that original naming is used in endpoint params, that way we don&#x27;t have collisions |
+| [FakecasesensitiveparamsPutResponses.EndpointResponse](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutResponses.md#endpointresponse) | [put](#put)([FakecasesensitiveparamsPut.PutRequest](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut.md#putrequest) request)<br>Ensures that original naming is used in endpoint params, that way we don&#x27;t have collisions |
 
 ## Method Detail
 
 ### put
-public [FakecasesensitiveparamsPutResponses.EndpointResponse](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutResponses.md#endpointresponse) put([FakecasesensitiveparamsPut.PutRequest](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut#putrequest) request)
+public [FakecasesensitiveparamsPutResponses.EndpointResponse](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutResponses.md#endpointresponse) put([FakecasesensitiveparamsPut.PutRequest](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut.md#putrequest) request)
 
 Ensures that original naming is used in endpoint params, that way we don&#x27;t have collisions
 

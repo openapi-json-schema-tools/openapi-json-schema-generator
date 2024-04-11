@@ -3,17 +3,17 @@
 public class Fakerefobjinquery extends extends ApiClient implements
 [FakerefobjinqueryGet.GetOperation](../../paths/fakerefobjinquery/FakerefobjinqueryGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/refObjInQuery"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefobjinqueryGetResponses.EndpointResponse](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetResponses.md#endpointresponse) | [get](#get)([FakerefobjinqueryGet.GetRequest](../../paths/fakerefobjinquery/FakerefobjinqueryGet#getrequest) request) |
+| [FakerefobjinqueryGetResponses.EndpointResponse](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetResponses.md#endpointresponse) | [get](#get)([FakerefobjinqueryGet.GetRequest](../../paths/fakerefobjinquery/FakerefobjinqueryGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakerefobjinqueryGetResponses.EndpointResponse](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetResponses.md#endpointresponse) get([FakerefobjinqueryGet.GetRequest](../../paths/fakerefobjinquery/FakerefobjinqueryGet#getrequest) request)
+public [FakerefobjinqueryGetResponses.EndpointResponse](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetResponses.md#endpointresponse) get([FakerefobjinqueryGet.GetRequest](../../paths/fakerefobjinquery/FakerefobjinqueryGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

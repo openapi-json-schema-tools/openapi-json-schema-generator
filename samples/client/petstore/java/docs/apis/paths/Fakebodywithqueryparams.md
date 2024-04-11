@@ -3,17 +3,17 @@
 public class Fakebodywithqueryparams extends extends ApiClient implements
 [FakebodywithqueryparamsPut.PutOperation](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut.md#putoperation)
 
-an api client class which contains all the routes for path="/fake/body-with-query-params"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) | [put](#put)([FakebodywithqueryparamsPut.PutRequest](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut#putrequest) request) |
+| [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) | [put](#put)([FakebodywithqueryparamsPut.PutRequest](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut.md#putrequest) request) |
 
 ## Method Detail
 
 ### put
-public [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) put([FakebodywithqueryparamsPut.PutRequest](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut#putrequest) request)
+public [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) put([FakebodywithqueryparamsPut.PutRequest](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut.md#putrequest) request)
 
 **Parameters:**<br>
 request - the input request

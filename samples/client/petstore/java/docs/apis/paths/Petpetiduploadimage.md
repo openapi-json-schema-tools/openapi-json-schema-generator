@@ -3,17 +3,17 @@
 public class Petpetiduploadimage extends extends ApiClient implements
 [PetpetiduploadimagePost.PostOperation](../../paths/petpetiduploadimage/PetpetiduploadimagePost.md#postoperation)
 
-an api client class which contains all the routes for path="/pet/{petId}/uploadImage"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) | [post](#post)([PetpetiduploadimagePost.PostRequest](../../paths/petpetiduploadimage/PetpetiduploadimagePost#postrequest) request)<br> |
+| [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) | [post](#post)([PetpetiduploadimagePost.PostRequest](../../paths/petpetiduploadimage/PetpetiduploadimagePost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### post
-public [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) post([PetpetiduploadimagePost.PostRequest](../../paths/petpetiduploadimage/PetpetiduploadimagePost#postrequest) request)
+public [PetpetiduploadimagePostResponses.EndpointResponse](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostResponses.md#endpointresponse) post([PetpetiduploadimagePost.PostRequest](../../paths/petpetiduploadimage/PetpetiduploadimagePost.md#postrequest) request)
 
 
 

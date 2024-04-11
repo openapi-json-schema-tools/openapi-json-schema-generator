@@ -3,17 +3,17 @@
 public class Fakerefsobjectmodelwithrefprops extends extends ApiClient implements
 [FakerefsobjectmodelwithrefpropsPost.PostOperation](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/refs/object_model_with_ref_props"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) | [post](#post)([FakerefsobjectmodelwithrefpropsPost.PostRequest](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost#postrequest) request)<br>Test serialization of object with $refed properties |
+| [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) | [post](#post)([FakerefsobjectmodelwithrefpropsPost.PostRequest](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#postrequest) request)<br>Test serialization of object with $refed properties |
 
 ## Method Detail
 
 ### post
-public [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) post([FakerefsobjectmodelwithrefpropsPost.PostRequest](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost#postrequest) request)
+public [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) post([FakerefsobjectmodelwithrefpropsPost.PostRequest](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#postrequest) request)
 
 Test serialization of object with $refed properties
 

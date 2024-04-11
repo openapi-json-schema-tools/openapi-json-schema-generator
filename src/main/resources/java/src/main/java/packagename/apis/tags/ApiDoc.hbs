@@ -5,20 +5,25 @@ public class {{tag.className}} extends extends ApiClient implements
 [{{jsonPathPiece.pascalCase}}.{{operationId.pascalCase}}Operation]({{docRoot}}{{pathFromDocRoot}}.md#{{operationId.kebabCase}}operation){{#unless @last}},{{/unless}}
 {{/each}}
 
-an api client class which contains all the routes for path="{{path.original}}"
+{{#with tag}}
+an api client class which contains all the routes for tag="{{name}}"
+    {{#if description}}
+{{description.originalWithBr}}
+    {{/if}}
+{{/with}}
 
 {{headerSize}}# Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 {{#each operations}}
-| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} | [{{operationId.camelCase}}](#{{operationId.kebabCase}})([{{jsonPathPiece.pascalCase}}.{{method.pascalCase}}Request]({{docRoot}}{{pathFromDocRoot}}#{{method.kebabCase}}request) request){{#if description}}<br>{{description.originalWithBr}}{{/if}} |
+| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} | [{{operationId.camelCase}}](#{{operationId.kebabCase}})([{{jsonPathPiece.pascalCase}}.{{method.pascalCase}}Request]({{docRoot}}{{pathFromDocRoot}}.md#{{method.kebabCase}}request) request){{#if description}}<br>{{description.originalWithBr}}{{/if}} |
 {{/each}}
 
 {{headerSize}}# Method Detail
 {{#each operations}}
 
 {{headerSize}}## {{operationId.camelCase}}
-public {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} {{operationId.camelCase}}([{{jsonPathPiece.pascalCase}}.{{method.pascalCase}}Request]({{docRoot}}{{pathFromDocRoot}}#{{method.kebabCase}}request) request)
+public {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Void{{/if}} {{operationId.camelCase}}([{{jsonPathPiece.pascalCase}}.{{method.pascalCase}}Request]({{docRoot}}{{pathFromDocRoot}}.md#{{method.kebabCase}}request) request)
 {{#if description}}
 
 {{description.originalWithBr}}

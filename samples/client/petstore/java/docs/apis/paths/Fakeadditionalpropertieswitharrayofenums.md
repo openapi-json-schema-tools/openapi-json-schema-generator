@@ -3,17 +3,17 @@
 public class Fakeadditionalpropertieswitharrayofenums extends extends ApiClient implements
 [FakeadditionalpropertieswitharrayofenumsGet.GetOperation](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/additional-properties-with-array-of-enums"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetResponses.md#endpointresponse) | [get](#get)([FakeadditionalpropertieswitharrayofenumsGet.GetRequest](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet#getrequest) request) |
+| [FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetResponses.md#endpointresponse) | [get](#get)([FakeadditionalpropertieswitharrayofenumsGet.GetRequest](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetResponses.md#endpointresponse) get([FakeadditionalpropertieswitharrayofenumsGet.GetRequest](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet#getrequest) request)
+public [FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetResponses.md#endpointresponse) get([FakeadditionalpropertieswitharrayofenumsGet.GetRequest](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

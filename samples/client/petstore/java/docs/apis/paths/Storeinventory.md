@@ -3,17 +3,17 @@
 public class Storeinventory extends extends ApiClient implements
 [StoreinventoryGet.GetOperation](../../paths/storeinventory/StoreinventoryGet.md#getoperation)
 
-an api client class which contains all the routes for path="/store/inventory"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [StoreinventoryGetResponses.EndpointResponse](../../paths/storeinventory/get/StoreinventoryGetResponses.md#endpointresponse) | [get](#get)([StoreinventoryGet.GetRequest](../../paths/storeinventory/StoreinventoryGet#getrequest) request)<br>Returns a map of status codes to quantities |
+| [StoreinventoryGetResponses.EndpointResponse](../../paths/storeinventory/get/StoreinventoryGetResponses.md#endpointresponse) | [get](#get)([StoreinventoryGet.GetRequest](../../paths/storeinventory/StoreinventoryGet.md#getrequest) request)<br>Returns a map of status codes to quantities |
 
 ## Method Detail
 
 ### get
-public [StoreinventoryGetResponses.EndpointResponse](../../paths/storeinventory/get/StoreinventoryGetResponses.md#endpointresponse) get([StoreinventoryGet.GetRequest](../../paths/storeinventory/StoreinventoryGet#getrequest) request)
+public [StoreinventoryGetResponses.EndpointResponse](../../paths/storeinventory/get/StoreinventoryGetResponses.md#endpointresponse) get([StoreinventoryGet.GetRequest](../../paths/storeinventory/StoreinventoryGet.md#getrequest) request)
 
 Returns a map of status codes to quantities
 

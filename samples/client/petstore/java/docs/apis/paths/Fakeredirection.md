@@ -3,17 +3,17 @@
 public class Fakeredirection extends extends ApiClient implements
 [FakeredirectionGet.GetOperation](../../paths/fakeredirection/FakeredirectionGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/redirection"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeredirectionGetResponses.EndpointResponse](../../paths/fakeredirection/get/FakeredirectionGetResponses.md#endpointresponse) | [get](#get)([FakeredirectionGet.GetRequest](../../paths/fakeredirection/FakeredirectionGet#getrequest) request) |
+| [FakeredirectionGetResponses.EndpointResponse](../../paths/fakeredirection/get/FakeredirectionGetResponses.md#endpointresponse) | [get](#get)([FakeredirectionGet.GetRequest](../../paths/fakeredirection/FakeredirectionGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakeredirectionGetResponses.EndpointResponse](../../paths/fakeredirection/get/FakeredirectionGetResponses.md#endpointresponse) get([FakeredirectionGet.GetRequest](../../paths/fakeredirection/FakeredirectionGet#getrequest) request)
+public [FakeredirectionGetResponses.EndpointResponse](../../paths/fakeredirection/get/FakeredirectionGetResponses.md#endpointresponse) get([FakeredirectionGet.GetRequest](../../paths/fakeredirection/FakeredirectionGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

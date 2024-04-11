@@ -3,17 +3,17 @@
 public class Fakehealth extends extends ApiClient implements
 [FakehealthGet.GetOperation](../../paths/fakehealth/FakehealthGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/health"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) | [get](#get)([FakehealthGet.GetRequest](../../paths/fakehealth/FakehealthGet#getrequest) request) |
+| [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) | [get](#get)([FakehealthGet.GetRequest](../../paths/fakehealth/FakehealthGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) get([FakehealthGet.GetRequest](../../paths/fakehealth/FakehealthGet#getrequest) request)
+public [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) get([FakehealthGet.GetRequest](../../paths/fakehealth/FakehealthGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

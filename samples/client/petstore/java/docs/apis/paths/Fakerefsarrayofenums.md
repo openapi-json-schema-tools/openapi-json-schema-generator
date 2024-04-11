@@ -3,17 +3,17 @@
 public class Fakerefsarrayofenums extends extends ApiClient implements
 [FakerefsarrayofenumsPost.PostOperation](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/refs/array-of-enums"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsarrayofenumsPostResponses.EndpointResponse](../../paths/fakerefsarrayofenums/post/FakerefsarrayofenumsPostResponses.md#endpointresponse) | [post](#post)([FakerefsarrayofenumsPost.PostRequest](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost#postrequest) request) |
+| [FakerefsarrayofenumsPostResponses.EndpointResponse](../../paths/fakerefsarrayofenums/post/FakerefsarrayofenumsPostResponses.md#endpointresponse) | [post](#post)([FakerefsarrayofenumsPost.PostRequest](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost.md#postrequest) request) |
 
 ## Method Detail
 
 ### post
-public [FakerefsarrayofenumsPostResponses.EndpointResponse](../../paths/fakerefsarrayofenums/post/FakerefsarrayofenumsPostResponses.md#endpointresponse) post([FakerefsarrayofenumsPost.PostRequest](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost#postrequest) request)
+public [FakerefsarrayofenumsPostResponses.EndpointResponse](../../paths/fakerefsarrayofenums/post/FakerefsarrayofenumsPostResponses.md#endpointresponse) post([FakerefsarrayofenumsPost.PostRequest](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost.md#postrequest) request)
 
 **Parameters:**<br>
 request - the input request

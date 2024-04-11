@@ -4,18 +4,18 @@ public class Pet extends extends ApiClient implements
 [PetPost.PostOperation](../../paths/pet/PetPost.md#postoperation),
 [PetPut.PutOperation](../../paths/pet/PetPut.md#putoperation)
 
-an api client class which contains all the routes for path="/pet"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) | [post](#post)([PetPost.PostRequest](../../paths/pet/PetPost#postrequest) request)<br>Add a new pet to the store |
-| Void | [put](#put)([PetPut.PutRequest](../../paths/pet/PetPut#putrequest) request)<br> |
+| [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) | [post](#post)([PetPost.PostRequest](../../paths/pet/PetPost.md#postrequest) request)<br>Add a new pet to the store |
+| Void | [put](#put)([PetPut.PutRequest](../../paths/pet/PetPut.md#putrequest) request)<br> |
 
 ## Method Detail
 
 ### post
-public [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) post([PetPost.PostRequest](../../paths/pet/PetPost#postrequest) request)
+public [PetPostResponses.EndpointResponse](../../paths/pet/post/PetPostResponses.md#endpointresponse) post([PetPost.PostRequest](../../paths/pet/PetPost.md#postrequest) request)
 
 Add a new pet to the store
 
@@ -163,7 +163,7 @@ try {
 PetPostResponses.EndpointPetPostCode200Response castResponse = (PetPostResponses.EndpointPetPostCode200Response) response;
 ```
 ### put
-public Void put([PetPut.PutRequest](../../paths/pet/PetPut#putrequest) request)
+public Void put([PetPut.PutRequest](../../paths/pet/PetPut.md#putrequest) request)
 
 
 

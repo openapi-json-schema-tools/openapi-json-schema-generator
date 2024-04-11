@@ -3,17 +3,17 @@
 public class Fakeinlinecomposition extends extends ApiClient implements
 [FakeinlinecompositionPost.PostOperation](../../paths/fakeinlinecomposition/FakeinlinecompositionPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/inlineComposition/"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeinlinecompositionPostResponses.EndpointResponse](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostResponses.md#endpointresponse) | [post](#post)([FakeinlinecompositionPost.PostRequest](../../paths/fakeinlinecomposition/FakeinlinecompositionPost#postrequest) request)<br>composed schemas at inline locations + multiple requestBody content types |
+| [FakeinlinecompositionPostResponses.EndpointResponse](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostResponses.md#endpointresponse) | [post](#post)([FakeinlinecompositionPost.PostRequest](../../paths/fakeinlinecomposition/FakeinlinecompositionPost.md#postrequest) request)<br>composed schemas at inline locations + multiple requestBody content types |
 
 ## Method Detail
 
 ### post
-public [FakeinlinecompositionPostResponses.EndpointResponse](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostResponses.md#endpointresponse) post([FakeinlinecompositionPost.PostRequest](../../paths/fakeinlinecomposition/FakeinlinecompositionPost#postrequest) request)
+public [FakeinlinecompositionPostResponses.EndpointResponse](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostResponses.md#endpointresponse) post([FakeinlinecompositionPost.PostRequest](../../paths/fakeinlinecomposition/FakeinlinecompositionPost.md#postrequest) request)
 
 composed schemas at inline locations + multiple requestBody content types
 

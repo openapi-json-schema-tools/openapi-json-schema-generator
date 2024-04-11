@@ -3,17 +3,17 @@
 public class Foo extends extends ApiClient implements
 [FooGet.GetOperation](../../paths/foo/FooGet.md#getoperation)
 
-an api client class which contains all the routes for path="/foo"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FooGetResponses.EndpointResponse](../../paths/foo/get/FooGetResponses.md#endpointresponse) | [get](#get)([FooGet.GetRequest](../../paths/foo/FooGet#getrequest) request) |
+| [FooGetResponses.EndpointResponse](../../paths/foo/get/FooGetResponses.md#endpointresponse) | [get](#get)([FooGet.GetRequest](../../paths/foo/FooGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FooGetResponses.EndpointResponse](../../paths/foo/get/FooGetResponses.md#endpointresponse) get([FooGet.GetRequest](../../paths/foo/FooGet#getrequest) request)
+public [FooGetResponses.EndpointResponse](../../paths/foo/get/FooGetResponses.md#endpointresponse) get([FooGet.GetRequest](../../paths/foo/FooGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

@@ -3,17 +3,17 @@
 public class Userlogout extends extends ApiClient implements
 [UserlogoutGet.GetOperation](../../paths/userlogout/UserlogoutGet.md#getoperation)
 
-an api client class which contains all the routes for path="/user/logout"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserlogoutGetResponses.EndpointResponse](../../paths/userlogout/get/UserlogoutGetResponses.md#endpointresponse) | [get](#get)([UserlogoutGet.GetRequest](../../paths/userlogout/UserlogoutGet#getrequest) request)<br> |
+| [UserlogoutGetResponses.EndpointResponse](../../paths/userlogout/get/UserlogoutGetResponses.md#endpointresponse) | [get](#get)([UserlogoutGet.GetRequest](../../paths/userlogout/UserlogoutGet.md#getrequest) request)<br> |
 
 ## Method Detail
 
 ### get
-public [UserlogoutGetResponses.EndpointResponse](../../paths/userlogout/get/UserlogoutGetResponses.md#endpointresponse) get([UserlogoutGet.GetRequest](../../paths/userlogout/UserlogoutGet#getrequest) request)
+public [UserlogoutGetResponses.EndpointResponse](../../paths/userlogout/get/UserlogoutGetResponses.md#endpointresponse) get([UserlogoutGet.GetRequest](../../paths/userlogout/UserlogoutGet.md#getrequest) request)
 
 
 

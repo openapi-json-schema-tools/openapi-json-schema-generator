@@ -3,17 +3,17 @@
 public class Fakemultiplerequestbodycontenttypes extends extends ApiClient implements
 [FakemultiplerequestbodycontenttypesPost.PostOperation](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/multipleRequestBodyContentTypes/"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse](../../paths/fakemultiplerequestbodycontenttypes/post/FakemultiplerequestbodycontenttypesPostResponses.md#endpointresponse) | [post](#post)([FakemultiplerequestbodycontenttypesPost.PostRequest](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost#postrequest) request)<br>composed schemas at inline locations + multiple requestBody content types |
+| [FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse](../../paths/fakemultiplerequestbodycontenttypes/post/FakemultiplerequestbodycontenttypesPostResponses.md#endpointresponse) | [post](#post)([FakemultiplerequestbodycontenttypesPost.PostRequest](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost.md#postrequest) request)<br>composed schemas at inline locations + multiple requestBody content types |
 
 ## Method Detail
 
 ### post
-public [FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse](../../paths/fakemultiplerequestbodycontenttypes/post/FakemultiplerequestbodycontenttypesPostResponses.md#endpointresponse) post([FakemultiplerequestbodycontenttypesPost.PostRequest](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost#postrequest) request)
+public [FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse](../../paths/fakemultiplerequestbodycontenttypes/post/FakemultiplerequestbodycontenttypesPostResponses.md#endpointresponse) post([FakemultiplerequestbodycontenttypesPost.PostRequest](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost.md#postrequest) request)
 
 composed schemas at inline locations + multiple requestBody content types
 

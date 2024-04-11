@@ -3,17 +3,17 @@
 public class Fakerefsstring extends extends ApiClient implements
 [FakerefsstringPost.PostOperation](../../paths/fakerefsstring/FakerefsstringPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/refs/string"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) | [post](#post)([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost#postrequest) request)<br>Test serialization of outer string types |
+| [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) | [post](#post)([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost.md#postrequest) request)<br>Test serialization of outer string types |
 
 ## Method Detail
 
 ### post
-public [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) post([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost#postrequest) request)
+public [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) post([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost.md#postrequest) request)
 
 Test serialization of outer string types
 

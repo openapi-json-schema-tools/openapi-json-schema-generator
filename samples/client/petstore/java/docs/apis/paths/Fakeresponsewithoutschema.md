@@ -3,17 +3,17 @@
 public class Fakeresponsewithoutschema extends extends ApiClient implements
 [FakeresponsewithoutschemaGet.GetOperation](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/responseWithoutSchema"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeresponsewithoutschemaGetResponses.EndpointResponse](../../paths/fakeresponsewithoutschema/get/FakeresponsewithoutschemaGetResponses.md#endpointresponse) | [get](#get)([FakeresponsewithoutschemaGet.GetRequest](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet#getrequest) request) |
+| [FakeresponsewithoutschemaGetResponses.EndpointResponse](../../paths/fakeresponsewithoutschema/get/FakeresponsewithoutschemaGetResponses.md#endpointresponse) | [get](#get)([FakeresponsewithoutschemaGet.GetRequest](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakeresponsewithoutschemaGetResponses.EndpointResponse](../../paths/fakeresponsewithoutschema/get/FakeresponsewithoutschemaGetResponses.md#endpointresponse) get([FakeresponsewithoutschemaGet.GetRequest](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet#getrequest) request)
+public [FakeresponsewithoutschemaGetResponses.EndpointResponse](../../paths/fakeresponsewithoutschema/get/FakeresponsewithoutschemaGetResponses.md#endpointresponse) get([FakeresponsewithoutschemaGet.GetRequest](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

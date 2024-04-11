@@ -6,20 +6,21 @@ public class Store extends extends ApiClient implements
 [StoreorderorderidGet.GetOrderByIdOperation](../../paths/storeorderorderid/StoreorderorderidGet.md#getorderbyidoperation),
 [StoreorderPost.PlaceOrderOperation](../../paths/storeorder/StoreorderPost.md#placeorderoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for tag="store"
+Access to Petstore orders
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [StoreinventoryGetResponses.EndpointResponse](../../paths/storeinventory/get/StoreinventoryGetResponses.md#endpointresponse) | [getInventory](#getinventory)([StoreinventoryGet.GetRequest](../../paths/storeinventory/StoreinventoryGet#getrequest) request)<br>Returns a map of status codes to quantities |
-| Void | [deleteOrder](#deleteorder)([StoreorderorderidDelete.DeleteRequest](../../paths/storeorderorderid/StoreorderorderidDelete#deleterequest) request)<br>For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors |
-| [StoreorderorderidGetResponses.EndpointResponse](../../paths/storeorderorderid/get/StoreorderorderidGetResponses.md#endpointresponse) | [getOrderById](#getorderbyid)([StoreorderorderidGet.GetRequest](../../paths/storeorderorderid/StoreorderorderidGet#getrequest) request)<br>For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions |
-| [StoreorderPostResponses.EndpointResponse](../../paths/storeorder/post/StoreorderPostResponses.md#endpointresponse) | [placeOrder](#placeorder)([StoreorderPost.PostRequest](../../paths/storeorder/StoreorderPost#postrequest) request)<br> |
+| [StoreinventoryGetResponses.EndpointResponse](../../paths/storeinventory/get/StoreinventoryGetResponses.md#endpointresponse) | [getInventory](#getinventory)([StoreinventoryGet.GetRequest](../../paths/storeinventory/StoreinventoryGet.md#getrequest) request)<br>Returns a map of status codes to quantities |
+| Void | [deleteOrder](#deleteorder)([StoreorderorderidDelete.DeleteRequest](../../paths/storeorderorderid/StoreorderorderidDelete.md#deleterequest) request)<br>For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors |
+| [StoreorderorderidGetResponses.EndpointResponse](../../paths/storeorderorderid/get/StoreorderorderidGetResponses.md#endpointresponse) | [getOrderById](#getorderbyid)([StoreorderorderidGet.GetRequest](../../paths/storeorderorderid/StoreorderorderidGet.md#getrequest) request)<br>For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions |
+| [StoreorderPostResponses.EndpointResponse](../../paths/storeorder/post/StoreorderPostResponses.md#endpointresponse) | [placeOrder](#placeorder)([StoreorderPost.PostRequest](../../paths/storeorder/StoreorderPost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### getInventory
-public [StoreinventoryGetResponses.EndpointResponse](../../paths/storeinventory/get/StoreinventoryGetResponses.md#endpointresponse) getInventory([StoreinventoryGet.GetRequest](../../paths/storeinventory/StoreinventoryGet#getrequest) request)
+public [StoreinventoryGetResponses.EndpointResponse](../../paths/storeinventory/get/StoreinventoryGetResponses.md#endpointresponse) getInventory([StoreinventoryGet.GetRequest](../../paths/storeinventory/StoreinventoryGet.md#getrequest) request)
 
 Returns a map of status codes to quantities
 
@@ -118,7 +119,7 @@ StoreinventoryGetResponses.EndpointStoreinventoryGetCode200Response castResponse
 }
 ```
 ### deleteOrder
-public Void deleteOrder([StoreorderorderidDelete.DeleteRequest](../../paths/storeorderorderid/StoreorderorderidDelete#deleterequest) request)
+public Void deleteOrder([StoreorderorderidDelete.DeleteRequest](../../paths/storeorderorderid/StoreorderorderidDelete.md#deleterequest) request)
 
 For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors
 
@@ -219,7 +220,7 @@ try {
 }
 ```
 ### getOrderById
-public [StoreorderorderidGetResponses.EndpointResponse](../../paths/storeorderorderid/get/StoreorderorderidGetResponses.md#endpointresponse) getOrderById([StoreorderorderidGet.GetRequest](../../paths/storeorderorderid/StoreorderorderidGet#getrequest) request)
+public [StoreorderorderidGetResponses.EndpointResponse](../../paths/storeorderorderid/get/StoreorderorderidGetResponses.md#endpointresponse) getOrderById([StoreorderorderidGet.GetRequest](../../paths/storeorderorderid/StoreorderorderidGet.md#getrequest) request)
 
 For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions
 
@@ -328,7 +329,7 @@ if (castResponse.body instanceof StoreorderorderidGetCode200Response.Application
 }
 ```
 ### placeOrder
-public [StoreorderPostResponses.EndpointResponse](../../paths/storeorder/post/StoreorderPostResponses.md#endpointresponse) placeOrder([StoreorderPost.PostRequest](../../paths/storeorder/StoreorderPost#postrequest) request)
+public [StoreorderPostResponses.EndpointResponse](../../paths/storeorder/post/StoreorderPostResponses.md#endpointresponse) placeOrder([StoreorderPost.PostRequest](../../paths/storeorder/StoreorderPost.md#postrequest) request)
 
 
 

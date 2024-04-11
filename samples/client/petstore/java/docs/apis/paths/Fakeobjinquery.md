@@ -3,17 +3,17 @@
 public class Fakeobjinquery extends extends ApiClient implements
 [FakeobjinqueryGet.GetOperation](../../paths/fakeobjinquery/FakeobjinqueryGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/objInQuery"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) | [get](#get)([FakeobjinqueryGet.GetRequest](../../paths/fakeobjinquery/FakeobjinqueryGet#getrequest) request) |
+| [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) | [get](#get)([FakeobjinqueryGet.GetRequest](../../paths/fakeobjinquery/FakeobjinqueryGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) get([FakeobjinqueryGet.GetRequest](../../paths/fakeobjinquery/FakeobjinqueryGet#getrequest) request)
+public [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) get([FakeobjinqueryGet.GetRequest](../../paths/fakeobjinquery/FakeobjinqueryGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

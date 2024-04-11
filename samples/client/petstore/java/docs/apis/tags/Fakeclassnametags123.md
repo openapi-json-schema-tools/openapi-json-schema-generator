@@ -3,17 +3,17 @@
 public class Fakeclassnametags123 extends extends ApiClient implements
 [FakeclassnametestPatch.ClassnameOperation](../../paths/fakeclassnametest/FakeclassnametestPatch.md#classnameoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for tag="fake_classname_tags 123#$%^"
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeclassnametestPatchResponses.EndpointResponse](../../paths/fakeclassnametest/patch/FakeclassnametestPatchResponses.md#endpointresponse) | [classname](#classname)([FakeclassnametestPatch.PatchRequest](../../paths/fakeclassnametest/FakeclassnametestPatch#patchrequest) request)<br>To test class name in snake case |
+| [FakeclassnametestPatchResponses.EndpointResponse](../../paths/fakeclassnametest/patch/FakeclassnametestPatchResponses.md#endpointresponse) | [classname](#classname)([FakeclassnametestPatch.PatchRequest](../../paths/fakeclassnametest/FakeclassnametestPatch.md#patchrequest) request)<br>To test class name in snake case |
 
 ## Method Detail
 
 ### classname
-public [FakeclassnametestPatchResponses.EndpointResponse](../../paths/fakeclassnametest/patch/FakeclassnametestPatchResponses.md#endpointresponse) classname([FakeclassnametestPatch.PatchRequest](../../paths/fakeclassnametest/FakeclassnametestPatch#patchrequest) request)
+public [FakeclassnametestPatchResponses.EndpointResponse](../../paths/fakeclassnametest/patch/FakeclassnametestPatchResponses.md#endpointresponse) classname([FakeclassnametestPatch.PatchRequest](../../paths/fakeclassnametest/FakeclassnametestPatch.md#patchrequest) request)
 
 To test class name in snake case
 

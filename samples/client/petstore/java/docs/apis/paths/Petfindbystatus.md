@@ -3,17 +3,17 @@
 public class Petfindbystatus extends extends ApiClient implements
 [PetfindbystatusGet.GetOperation](../../paths/petfindbystatus/PetfindbystatusGet.md#getoperation)
 
-an api client class which contains all the routes for path="/pet/findByStatus"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetfindbystatusGetResponses.EndpointResponse](../../paths/petfindbystatus/get/PetfindbystatusGetResponses.md#endpointresponse) | [get](#get)([PetfindbystatusGet.GetRequest](../../paths/petfindbystatus/PetfindbystatusGet#getrequest) request)<br>Multiple status values can be provided with comma separated strings |
+| [PetfindbystatusGetResponses.EndpointResponse](../../paths/petfindbystatus/get/PetfindbystatusGetResponses.md#endpointresponse) | [get](#get)([PetfindbystatusGet.GetRequest](../../paths/petfindbystatus/PetfindbystatusGet.md#getrequest) request)<br>Multiple status values can be provided with comma separated strings |
 
 ## Method Detail
 
 ### get
-public [PetfindbystatusGetResponses.EndpointResponse](../../paths/petfindbystatus/get/PetfindbystatusGetResponses.md#endpointresponse) get([PetfindbystatusGet.GetRequest](../../paths/petfindbystatus/PetfindbystatusGet#getrequest) request)
+public [PetfindbystatusGetResponses.EndpointResponse](../../paths/petfindbystatus/get/PetfindbystatusGetResponses.md#endpointresponse) get([PetfindbystatusGet.GetRequest](../../paths/petfindbystatus/PetfindbystatusGet.md#getrequest) request)
 
 Multiple status values can be provided with comma separated strings
 

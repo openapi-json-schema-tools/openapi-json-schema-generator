@@ -10,24 +10,25 @@ public class User extends extends ApiClient implements
 [UserusernamePut.UpdateUserOperation](../../paths/userusername/UserusernamePut.md#updateuseroperation),
 [UsercreatewithlistPost.CreateUsersWithListInputOperation](../../paths/usercreatewithlist/UsercreatewithlistPost.md#createuserswithlistinputoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for tag="user"
+Operations about user
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserlogoutGetResponses.EndpointResponse](../../paths/userlogout/get/UserlogoutGetResponses.md#endpointresponse) | [logoutUser](#logoutuser)([UserlogoutGet.GetRequest](../../paths/userlogout/UserlogoutGet#getrequest) request)<br> |
-| [UsercreatewitharrayPostResponses.EndpointResponse](../../paths/usercreatewitharray/post/UsercreatewitharrayPostResponses.md#endpointresponse) | [createUsersWithArrayInput](#createuserswitharrayinput)([UsercreatewitharrayPost.PostRequest](../../paths/usercreatewitharray/UsercreatewitharrayPost#postrequest) request)<br> |
-| [UserPostResponses.EndpointResponse](../../paths/user/post/UserPostResponses.md#endpointresponse) | [createUser](#createuser)([UserPost.PostRequest](../../paths/user/UserPost#postrequest) request)<br>This can only be done by the logged in user. |
-| [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) | [loginUser](#loginuser)([UserloginGet.GetRequest](../../paths/userlogin/UserloginGet#getrequest) request)<br> |
-| [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) | [deleteUser](#deleteuser)([UserusernameDelete.DeleteRequest](../../paths/userusername/UserusernameDelete#deleterequest) request)<br>This can only be done by the logged in user. |
-| [UserusernameGetResponses.EndpointResponse](../../paths/userusername/get/UserusernameGetResponses.md#endpointresponse) | [getUserByName](#getuserbyname)([UserusernameGet.GetRequest](../../paths/userusername/UserusernameGet#getrequest) request)<br> |
-| Void | [updateUser](#updateuser)([UserusernamePut.PutRequest](../../paths/userusername/UserusernamePut#putrequest) request)<br>This can only be done by the logged in user. |
-| [UsercreatewithlistPostResponses.EndpointResponse](../../paths/usercreatewithlist/post/UsercreatewithlistPostResponses.md#endpointresponse) | [createUsersWithListInput](#createuserswithlistinput)([UsercreatewithlistPost.PostRequest](../../paths/usercreatewithlist/UsercreatewithlistPost#postrequest) request)<br> |
+| [UserlogoutGetResponses.EndpointResponse](../../paths/userlogout/get/UserlogoutGetResponses.md#endpointresponse) | [logoutUser](#logoutuser)([UserlogoutGet.GetRequest](../../paths/userlogout/UserlogoutGet.md#getrequest) request)<br> |
+| [UsercreatewitharrayPostResponses.EndpointResponse](../../paths/usercreatewitharray/post/UsercreatewitharrayPostResponses.md#endpointresponse) | [createUsersWithArrayInput](#createuserswitharrayinput)([UsercreatewitharrayPost.PostRequest](../../paths/usercreatewitharray/UsercreatewitharrayPost.md#postrequest) request)<br> |
+| [UserPostResponses.EndpointResponse](../../paths/user/post/UserPostResponses.md#endpointresponse) | [createUser](#createuser)([UserPost.PostRequest](../../paths/user/UserPost.md#postrequest) request)<br>This can only be done by the logged in user. |
+| [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) | [loginUser](#loginuser)([UserloginGet.GetRequest](../../paths/userlogin/UserloginGet.md#getrequest) request)<br> |
+| [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) | [deleteUser](#deleteuser)([UserusernameDelete.DeleteRequest](../../paths/userusername/UserusernameDelete.md#deleterequest) request)<br>This can only be done by the logged in user. |
+| [UserusernameGetResponses.EndpointResponse](../../paths/userusername/get/UserusernameGetResponses.md#endpointresponse) | [getUserByName](#getuserbyname)([UserusernameGet.GetRequest](../../paths/userusername/UserusernameGet.md#getrequest) request)<br> |
+| Void | [updateUser](#updateuser)([UserusernamePut.PutRequest](../../paths/userusername/UserusernamePut.md#putrequest) request)<br>This can only be done by the logged in user. |
+| [UsercreatewithlistPostResponses.EndpointResponse](../../paths/usercreatewithlist/post/UsercreatewithlistPostResponses.md#endpointresponse) | [createUsersWithListInput](#createuserswithlistinput)([UsercreatewithlistPost.PostRequest](../../paths/usercreatewithlist/UsercreatewithlistPost.md#postrequest) request)<br> |
 
 ## Method Detail
 
 ### logoutUser
-public [UserlogoutGetResponses.EndpointResponse](../../paths/userlogout/get/UserlogoutGetResponses.md#endpointresponse) logoutUser([UserlogoutGet.GetRequest](../../paths/userlogout/UserlogoutGet#getrequest) request)
+public [UserlogoutGetResponses.EndpointResponse](../../paths/userlogout/get/UserlogoutGetResponses.md#endpointresponse) logoutUser([UserlogoutGet.GetRequest](../../paths/userlogout/UserlogoutGet.md#getrequest) request)
 
 
 
@@ -112,7 +113,7 @@ try {
 UserlogoutGetResponses.EndpointUserlogoutGetCodedefaultResponse castResponse = (UserlogoutGetResponses.EndpointUserlogoutGetCodedefaultResponse) response;
 ```
 ### createUsersWithArrayInput
-public [UsercreatewitharrayPostResponses.EndpointResponse](../../paths/usercreatewitharray/post/UsercreatewitharrayPostResponses.md#endpointresponse) createUsersWithArrayInput([UsercreatewitharrayPost.PostRequest](../../paths/usercreatewitharray/UsercreatewitharrayPost#postrequest) request)
+public [UsercreatewitharrayPostResponses.EndpointResponse](../../paths/usercreatewitharray/post/UsercreatewitharrayPostResponses.md#endpointresponse) createUsersWithArrayInput([UsercreatewitharrayPost.PostRequest](../../paths/usercreatewitharray/UsercreatewitharrayPost.md#postrequest) request)
 
 
 
@@ -249,7 +250,7 @@ try {
 UsercreatewitharrayPostResponses.EndpointUsercreatewitharrayPostCodedefaultResponse castResponse = (UsercreatewitharrayPostResponses.EndpointUsercreatewitharrayPostCodedefaultResponse) response;
 ```
 ### createUser
-public [UserPostResponses.EndpointResponse](../../paths/user/post/UserPostResponses.md#endpointresponse) createUser([UserPost.PostRequest](../../paths/user/UserPost#postrequest) request)
+public [UserPostResponses.EndpointResponse](../../paths/user/post/UserPostResponses.md#endpointresponse) createUser([UserPost.PostRequest](../../paths/user/UserPost.md#postrequest) request)
 
 This can only be done by the logged in user.
 
@@ -364,7 +365,7 @@ try {
 UserPostResponses.EndpointUserPostCodedefaultResponse castResponse = (UserPostResponses.EndpointUserPostCodedefaultResponse) response;
 ```
 ### loginUser
-public [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) loginUser([UserloginGet.GetRequest](../../paths/userlogin/UserloginGet#getrequest) request)
+public [UserloginGetResponses.EndpointResponse](../../paths/userlogin/get/UserloginGetResponses.md#endpointresponse) loginUser([UserloginGet.GetRequest](../../paths/userlogin/UserloginGet.md#getrequest) request)
 
 
 
@@ -475,7 +476,7 @@ if (castResponse.body instanceof UserloginGetCode200Response.ApplicationxmlRespo
 }
 ```
 ### deleteUser
-public [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) deleteUser([UserusernameDelete.DeleteRequest](../../paths/userusername/UserusernameDelete#deleterequest) request)
+public [UserusernameDeleteResponses.EndpointResponse](../../paths/userusername/delete/UserusernameDeleteResponses.md#endpointresponse) deleteUser([UserusernameDelete.DeleteRequest](../../paths/userusername/UserusernameDelete.md#deleterequest) request)
 
 This can only be done by the logged in user.
 
@@ -577,7 +578,7 @@ try {
 UserusernameDeleteResponses.EndpointUserusernameDeleteCode200Response castResponse = (UserusernameDeleteResponses.EndpointUserusernameDeleteCode200Response) response;
 ```
 ### getUserByName
-public [UserusernameGetResponses.EndpointResponse](../../paths/userusername/get/UserusernameGetResponses.md#endpointresponse) getUserByName([UserusernameGet.GetRequest](../../paths/userusername/UserusernameGet#getrequest) request)
+public [UserusernameGetResponses.EndpointResponse](../../paths/userusername/get/UserusernameGetResponses.md#endpointresponse) getUserByName([UserusernameGet.GetRequest](../../paths/userusername/UserusernameGet.md#getrequest) request)
 
 
 
@@ -686,7 +687,7 @@ if (castResponse.body instanceof UserusernameGetCode200Response.ApplicationxmlRe
 }
 ```
 ### updateUser
-public Void updateUser([UserusernamePut.PutRequest](../../paths/userusername/UserusernamePut#putrequest) request)
+public Void updateUser([UserusernamePut.PutRequest](../../paths/userusername/UserusernamePut.md#putrequest) request)
 
 This can only be done by the logged in user.
 
@@ -816,7 +817,7 @@ try {
 }
 ```
 ### createUsersWithListInput
-public [UsercreatewithlistPostResponses.EndpointResponse](../../paths/usercreatewithlist/post/UsercreatewithlistPostResponses.md#endpointresponse) createUsersWithListInput([UsercreatewithlistPost.PostRequest](../../paths/usercreatewithlist/UsercreatewithlistPost#postrequest) request)
+public [UsercreatewithlistPostResponses.EndpointResponse](../../paths/usercreatewithlist/post/UsercreatewithlistPostResponses.md#endpointresponse) createUsersWithListInput([UsercreatewithlistPost.PostRequest](../../paths/usercreatewithlist/UsercreatewithlistPost.md#postrequest) request)
 
 
 

@@ -4,18 +4,18 @@ public class Storeorderorderid extends extends ApiClient implements
 [StoreorderorderidDelete.DeleteOperation](../../paths/storeorderorderid/StoreorderorderidDelete.md#deleteoperation),
 [StoreorderorderidGet.GetOperation](../../paths/storeorderorderid/StoreorderorderidGet.md#getoperation)
 
-an api client class which contains all the routes for path="/store/order/{order_id}"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Void | [delete](#delete)([StoreorderorderidDelete.DeleteRequest](../../paths/storeorderorderid/StoreorderorderidDelete#deleterequest) request)<br>For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors |
-| [StoreorderorderidGetResponses.EndpointResponse](../../paths/storeorderorderid/get/StoreorderorderidGetResponses.md#endpointresponse) | [get](#get)([StoreorderorderidGet.GetRequest](../../paths/storeorderorderid/StoreorderorderidGet#getrequest) request)<br>For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions |
+| Void | [delete](#delete)([StoreorderorderidDelete.DeleteRequest](../../paths/storeorderorderid/StoreorderorderidDelete.md#deleterequest) request)<br>For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors |
+| [StoreorderorderidGetResponses.EndpointResponse](../../paths/storeorderorderid/get/StoreorderorderidGetResponses.md#endpointresponse) | [get](#get)([StoreorderorderidGet.GetRequest](../../paths/storeorderorderid/StoreorderorderidGet.md#getrequest) request)<br>For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions |
 
 ## Method Detail
 
 ### delete
-public Void delete([StoreorderorderidDelete.DeleteRequest](../../paths/storeorderorderid/StoreorderorderidDelete#deleterequest) request)
+public Void delete([StoreorderorderidDelete.DeleteRequest](../../paths/storeorderorderid/StoreorderorderidDelete.md#deleterequest) request)
 
 For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors
 
@@ -116,7 +116,7 @@ try {
 }
 ```
 ### get
-public [StoreorderorderidGetResponses.EndpointResponse](../../paths/storeorderorderid/get/StoreorderorderidGetResponses.md#endpointresponse) get([StoreorderorderidGet.GetRequest](../../paths/storeorderorderid/StoreorderorderidGet#getrequest) request)
+public [StoreorderorderidGetResponses.EndpointResponse](../../paths/storeorderorderid/get/StoreorderorderidGetResponses.md#endpointresponse) get([StoreorderorderidGet.GetRequest](../../paths/storeorderorderid/StoreorderorderidGet.md#getrequest) request)
 
 For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions
 

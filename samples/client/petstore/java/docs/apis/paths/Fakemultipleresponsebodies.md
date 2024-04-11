@@ -3,17 +3,17 @@
 public class Fakemultipleresponsebodies extends extends ApiClient implements
 [FakemultipleresponsebodiesGet.GetOperation](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/multipleResponseBodies"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakemultipleresponsebodiesGetResponses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/FakemultipleresponsebodiesGetResponses.md#endpointresponse) | [get](#get)([FakemultipleresponsebodiesGet.GetRequest](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet#getrequest) request) |
+| [FakemultipleresponsebodiesGetResponses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/FakemultipleresponsebodiesGetResponses.md#endpointresponse) | [get](#get)([FakemultipleresponsebodiesGet.GetRequest](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakemultipleresponsebodiesGetResponses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/FakemultipleresponsebodiesGetResponses.md#endpointresponse) get([FakemultipleresponsebodiesGet.GetRequest](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet#getrequest) request)
+public [FakemultipleresponsebodiesGetResponses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/FakemultipleresponsebodiesGetResponses.md#endpointresponse) get([FakemultipleresponsebodiesGet.GetRequest](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

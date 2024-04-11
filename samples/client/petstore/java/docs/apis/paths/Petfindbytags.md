@@ -3,17 +3,17 @@
 public class Petfindbytags extends extends ApiClient implements
 [PetfindbytagsGet.GetOperation](../../paths/petfindbytags/PetfindbytagsGet.md#getoperation)
 
-an api client class which contains all the routes for path="/pet/findByTags"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetfindbytagsGetResponses.EndpointResponse](../../paths/petfindbytags/get/PetfindbytagsGetResponses.md#endpointresponse) | [get](#get)([PetfindbytagsGet.GetRequest](../../paths/petfindbytags/PetfindbytagsGet#getrequest) request)<br>Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing. |
+| [PetfindbytagsGetResponses.EndpointResponse](../../paths/petfindbytags/get/PetfindbytagsGetResponses.md#endpointresponse) | [get](#get)([PetfindbytagsGet.GetRequest](../../paths/petfindbytags/PetfindbytagsGet.md#getrequest) request)<br>Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing. |
 
 ## Method Detail
 
 ### get
-public [PetfindbytagsGetResponses.EndpointResponse](../../paths/petfindbytags/get/PetfindbytagsGetResponses.md#endpointresponse) get([PetfindbytagsGet.GetRequest](../../paths/petfindbytags/PetfindbytagsGet#getrequest) request)
+public [PetfindbytagsGetResponses.EndpointResponse](../../paths/petfindbytags/get/PetfindbytagsGetResponses.md#endpointresponse) get([PetfindbytagsGet.GetRequest](../../paths/petfindbytags/PetfindbytagsGet.md#getrequest) request)
 
 Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
 

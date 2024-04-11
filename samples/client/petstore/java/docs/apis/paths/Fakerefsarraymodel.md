@@ -3,17 +3,17 @@
 public class Fakerefsarraymodel extends extends ApiClient implements
 [FakerefsarraymodelPost.PostOperation](../../paths/fakerefsarraymodel/FakerefsarraymodelPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/refs/arraymodel"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsarraymodelPostResponses.EndpointResponse](../../paths/fakerefsarraymodel/post/FakerefsarraymodelPostResponses.md#endpointresponse) | [post](#post)([FakerefsarraymodelPost.PostRequest](../../paths/fakerefsarraymodel/FakerefsarraymodelPost#postrequest) request)<br>Test serialization of ArrayModel |
+| [FakerefsarraymodelPostResponses.EndpointResponse](../../paths/fakerefsarraymodel/post/FakerefsarraymodelPostResponses.md#endpointresponse) | [post](#post)([FakerefsarraymodelPost.PostRequest](../../paths/fakerefsarraymodel/FakerefsarraymodelPost.md#postrequest) request)<br>Test serialization of ArrayModel |
 
 ## Method Detail
 
 ### post
-public [FakerefsarraymodelPostResponses.EndpointResponse](../../paths/fakerefsarraymodel/post/FakerefsarraymodelPostResponses.md#endpointresponse) post([FakerefsarraymodelPost.PostRequest](../../paths/fakerefsarraymodel/FakerefsarraymodelPost#postrequest) request)
+public [FakerefsarraymodelPostResponses.EndpointResponse](../../paths/fakerefsarraymodel/post/FakerefsarraymodelPostResponses.md#endpointresponse) post([FakerefsarraymodelPost.PostRequest](../../paths/fakerefsarraymodel/FakerefsarraymodelPost.md#postrequest) request)
 
 Test serialization of ArrayModel
 

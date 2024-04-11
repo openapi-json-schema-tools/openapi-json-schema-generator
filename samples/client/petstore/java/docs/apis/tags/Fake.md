@@ -45,59 +45,59 @@ public class Fake extends extends ApiClient implements
 [FakeadditionalpropertieswitharrayofenumsGet.AdditionalPropertiesWithArrayOfEnumsOperation](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet.md#additionalpropertieswitharrayofenumsoperation),
 [FakedeletecoffeeidDelete.DeleteCoffeeOperation](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete.md#deletecoffeeoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for tag="fake"
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) | [jsonPatch](#jsonpatch)([FakejsonpatchPatch.PatchRequest](../../paths/fakejsonpatch/FakejsonpatchPatch#patchrequest) request)<br>json patch route with a requestBody |
-| [FakerefsarrayofenumsPostResponses.EndpointResponse](../../paths/fakerefsarrayofenums/post/FakerefsarrayofenumsPostResponses.md#endpointresponse) | [arrayOfEnums](#arrayofenums)([FakerefsarrayofenumsPost.PostRequest](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost#postrequest) request) |
-| [CommonparamsubdirDeleteResponses.EndpointResponse](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteResponses.md#endpointresponse) | [deleteCommonParam](#deletecommonparam)([CommonparamsubdirDelete.DeleteRequest](../../paths/commonparamsubdir/CommonparamsubdirDelete#deleterequest) request)<br>common param is overwritten |
-| [CommonparamsubdirGetResponses.EndpointResponse](../../paths/commonparamsubdir/get/CommonparamsubdirGetResponses.md#endpointresponse) | [getCommonParam](#getcommonparam)([CommonparamsubdirGet.GetRequest](../../paths/commonparamsubdir/CommonparamsubdirGet#getrequest) request) |
-| [CommonparamsubdirPostResponses.EndpointResponse](../../paths/commonparamsubdir/post/CommonparamsubdirPostResponses.md#endpointresponse) | [postCommonParam](#postcommonparam)([CommonparamsubdirPost.PostRequest](../../paths/commonparamsubdir/CommonparamsubdirPost#postrequest) request) |
-| [FakecasesensitiveparamsPutResponses.EndpointResponse](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutResponses.md#endpointresponse) | [caseSensitiveParams](#casesensitiveparams)([FakecasesensitiveparamsPut.PutRequest](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut#putrequest) request)<br>Ensures that original naming is used in endpoint params, that way we don&#x27;t have collisions |
-| [FakewildcardresponsesGetResponses.EndpointResponse](../../paths/fakewildcardresponses/get/FakewildcardresponsesGetResponses.md#endpointresponse) | [wildCardResponses](#wildcardresponses)([FakewildcardresponsesGet.GetRequest](../../paths/fakewildcardresponses/FakewildcardresponsesGet#getrequest) request) |
-| [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) | [bodyWithQueryParams](#bodywithqueryparams)([FakebodywithqueryparamsPut.PutRequest](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut#putrequest) request) |
-| [FakejsonwithcharsetPostResponses.EndpointResponse](../../paths/fakejsonwithcharset/post/FakejsonwithcharsetPostResponses.md#endpointresponse) | [jsonWithCharset](#jsonwithcharset)([FakejsonwithcharsetPost.PostRequest](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost#postrequest) request) |
-| [FakerefsarraymodelPostResponses.EndpointResponse](../../paths/fakerefsarraymodel/post/FakerefsarraymodelPostResponses.md#endpointresponse) | [arrayModel](#arraymodel)([FakerefsarraymodelPost.PostRequest](../../paths/fakerefsarraymodel/FakerefsarraymodelPost#postrequest) request)<br>Test serialization of ArrayModel |
-| [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) | [fakeHealthGet](#fakehealthget)([FakehealthGet.GetRequest](../../paths/fakehealth/FakehealthGet#getrequest) request) |
-| [FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/FakerefscomposedoneofnumberwithvalidationsPostResponses.md#endpointresponse) | [composedOneOfDifferentTypes](#composedoneofdifferenttypes)([FakerefscomposedoneofnumberwithvalidationsPost.PostRequest](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost#postrequest) request)<br>Test serialization of object with $refed properties |
-| [FakerefobjinqueryGetResponses.EndpointResponse](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetResponses.md#endpointresponse) | [refObjectInQuery](#refobjectinquery)([FakerefobjinqueryGet.GetRequest](../../paths/fakerefobjinquery/FakerefobjinqueryGet#getrequest) request) |
-| [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) | [bodyWithFileSchema](#bodywithfileschema)([FakebodywithfileschemaPut.PutRequest](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut#putrequest) request)<br>For this test, the body for this request much reference a schema named &#x60;File&#x60;. |
-| [FakerefsenumPostResponses.EndpointResponse](../../paths/fakerefsenum/post/FakerefsenumPostResponses.md#endpointresponse) | [stringEnum](#stringenum)([FakerefsenumPost.PostRequest](../../paths/fakerefsenum/FakerefsenumPost#postrequest) request)<br>Test serialization of outer enum |
-| [FakeredirectionGetResponses.EndpointResponse](../../paths/fakeredirection/get/FakeredirectionGetResponses.md#endpointresponse) | [redirection](#redirection)([FakeredirectionGet.GetRequest](../../paths/fakeredirection/FakeredirectionGet#getrequest) request) |
-| [FakeuploadfilePostResponses.EndpointResponse](../../paths/fakeuploadfile/post/FakeuploadfilePostResponses.md#endpointresponse) | [uploadFile](#uploadfile)([FakeuploadfilePost.PostRequest](../../paths/fakeuploadfile/FakeuploadfilePost#postrequest) request)<br> |
-| [FakeinlinecompositionPostResponses.EndpointResponse](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostResponses.md#endpointresponse) | [inlineComposition](#inlinecomposition)([FakeinlinecompositionPost.PostRequest](../../paths/fakeinlinecomposition/FakeinlinecompositionPost#postrequest) request)<br>composed schemas at inline locations + multiple requestBody content types |
-| [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) | [groupParameters](#groupparameters)([FakeDelete.DeleteRequest](../../paths/fake/FakeDelete#deleterequest) request)<br>Fake endpoint to test group parameters (optional) |
-| [FakeGetResponses.EndpointResponse](../../paths/fake/get/FakeGetResponses.md#endpointresponse) | [enumParameters](#enumparameters)([FakeGet.GetRequest](../../paths/fake/FakeGet#getrequest) request)<br>To test enum parameters |
-| [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) | [clientModel](#clientmodel)([FakePatch.PatchRequest](../../paths/fake/FakePatch#patchrequest) request)<br>To test &quot;client&quot; model |
-| [FakePostResponses.EndpointResponse](../../paths/fake/post/FakePostResponses.md#endpointresponse) | [endpointParameters](#endpointparameters)([FakePost.PostRequest](../../paths/fake/FakePost#postrequest) request)<br>Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br> |
-| [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) | [objectModelWithRefProps](#objectmodelwithrefprops)([FakerefsobjectmodelwithrefpropsPost.PostRequest](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost#postrequest) request)<br>Test serialization of object with $refed properties |
-| [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) | [pemContentType](#pemcontenttype)([FakepemcontenttypeGet.GetRequest](../../paths/fakepemcontenttype/FakepemcontenttypeGet#getrequest) request) |
-| [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) | [numberWithValidations](#numberwithvalidations)([FakerefsnumberPost.PostRequest](../../paths/fakerefsnumber/FakerefsnumberPost#postrequest) request)<br>Test serialization of outer number types |
-| [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) | [modelString](#modelstring)([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost#postrequest) request)<br>Test serialization of outer string types |
-| [FakeinlineadditionalpropertiesPostResponses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/FakeinlineadditionalpropertiesPostResponses.md#endpointresponse) | [inlineAdditionalProperties](#inlineadditionalproperties)([FakeinlineadditionalpropertiesPost.PostRequest](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost#postrequest) request)<br> |
-| [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) | [mammal](#mammal)([FakerefsmammalPost.PostRequest](../../paths/fakerefsmammal/FakerefsmammalPost#postrequest) request)<br>Test serialization of mammals |
-| [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) | [slashRoute](#slashroute)([SolidusGet.GetRequest](../../paths/solidus/SolidusGet#getrequest) request) |
-| [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) | [modelBoolean](#modelboolean)([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost#postrequest) request)<br>Test serialization of outer boolean types |
-| [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) | [jsonFormData](#jsonformdata)([FakejsonformdataGet.GetRequest](../../paths/fakejsonformdata/FakejsonformdataGet#getrequest) request)<br> |
-| [Fakeparametercollisions1ababselfabPostResponses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostResponses.md#endpointresponse) | [parameterCollisions](#parametercollisions)([Fakeparametercollisions1ababselfabPost.PostRequest](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost#postrequest) request) |
-| [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) | [queryParamWithJsonContentType](#queryparamwithjsoncontenttype)([FakequeryparamwithjsoncontenttypeGet.GetRequest](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet#getrequest) request) |
-| [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) | [objectInQuery](#objectinquery)([FakeobjinqueryGet.GetRequest](../../paths/fakeobjinquery/FakeobjinqueryGet#getrequest) request) |
-| [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) | [multipleSecurities](#multiplesecurities)([FakemultiplesecuritiesGet.GetRequest](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet#getrequest) request) |
-| [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) | [queryParameterCollectionFormat](#queryparametercollectionformat)([FaketestqueryparamtersPut.PutRequest](../../paths/faketestqueryparamters/FaketestqueryparamtersPut#putrequest) request)<br>To test the collection format in query parameters |
-| [FakemultipleresponsebodiesGetResponses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/FakemultipleresponsebodiesGetResponses.md#endpointresponse) | [multipleResponseBodies](#multipleresponsebodies)([FakemultipleresponsebodiesGet.GetRequest](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet#getrequest) request) |
-| [FakeresponsewithoutschemaGetResponses.EndpointResponse](../../paths/fakeresponsewithoutschema/get/FakeresponsewithoutschemaGetResponses.md#endpointresponse) | [responseWithoutSchema](#responsewithoutschema)([FakeresponsewithoutschemaGet.GetRequest](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet#getrequest) request) |
-| [FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse](../../paths/fakemultiplerequestbodycontenttypes/post/FakemultiplerequestbodycontenttypesPostResponses.md#endpointresponse) | [multipleRequestBodyContentTypes](#multiplerequestbodycontenttypes)([FakemultiplerequestbodycontenttypesPost.PostRequest](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost#postrequest) request)<br>composed schemas at inline locations + multiple requestBody content types |
-| [FakeuploaddownloadfilePostResponses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/FakeuploaddownloadfilePostResponses.md#endpointresponse) | [uploadDownloadFile](#uploaddownloadfile)([FakeuploaddownloadfilePost.PostRequest](../../paths/fakeuploaddownloadfile/FakeuploaddownloadfilePost#postrequest) request)<br> |
-| [FakeuploadfilesPostResponses.EndpointResponse](../../paths/fakeuploadfiles/post/FakeuploadfilesPostResponses.md#endpointresponse) | [uploadFiles](#uploadfiles)([FakeuploadfilesPost.PostRequest](../../paths/fakeuploadfiles/FakeuploadfilesPost#postrequest) request)<br> |
-| [FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetResponses.md#endpointresponse) | [additionalPropertiesWithArrayOfEnums](#additionalpropertieswitharrayofenums)([FakeadditionalpropertieswitharrayofenumsGet.GetRequest](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet#getrequest) request) |
-| [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) | [deleteCoffee](#deletecoffee)([FakedeletecoffeeidDelete.DeleteRequest](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete#deleterequest) request)<br>Delete the coffee identified by the given id, (delete without request body) |
+| [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) | [jsonPatch](#jsonpatch)([FakejsonpatchPatch.PatchRequest](../../paths/fakejsonpatch/FakejsonpatchPatch.md#patchrequest) request)<br>json patch route with a requestBody |
+| [FakerefsarrayofenumsPostResponses.EndpointResponse](../../paths/fakerefsarrayofenums/post/FakerefsarrayofenumsPostResponses.md#endpointresponse) | [arrayOfEnums](#arrayofenums)([FakerefsarrayofenumsPost.PostRequest](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost.md#postrequest) request) |
+| [CommonparamsubdirDeleteResponses.EndpointResponse](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteResponses.md#endpointresponse) | [deleteCommonParam](#deletecommonparam)([CommonparamsubdirDelete.DeleteRequest](../../paths/commonparamsubdir/CommonparamsubdirDelete.md#deleterequest) request)<br>common param is overwritten |
+| [CommonparamsubdirGetResponses.EndpointResponse](../../paths/commonparamsubdir/get/CommonparamsubdirGetResponses.md#endpointresponse) | [getCommonParam](#getcommonparam)([CommonparamsubdirGet.GetRequest](../../paths/commonparamsubdir/CommonparamsubdirGet.md#getrequest) request) |
+| [CommonparamsubdirPostResponses.EndpointResponse](../../paths/commonparamsubdir/post/CommonparamsubdirPostResponses.md#endpointresponse) | [postCommonParam](#postcommonparam)([CommonparamsubdirPost.PostRequest](../../paths/commonparamsubdir/CommonparamsubdirPost.md#postrequest) request) |
+| [FakecasesensitiveparamsPutResponses.EndpointResponse](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutResponses.md#endpointresponse) | [caseSensitiveParams](#casesensitiveparams)([FakecasesensitiveparamsPut.PutRequest](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut.md#putrequest) request)<br>Ensures that original naming is used in endpoint params, that way we don&#x27;t have collisions |
+| [FakewildcardresponsesGetResponses.EndpointResponse](../../paths/fakewildcardresponses/get/FakewildcardresponsesGetResponses.md#endpointresponse) | [wildCardResponses](#wildcardresponses)([FakewildcardresponsesGet.GetRequest](../../paths/fakewildcardresponses/FakewildcardresponsesGet.md#getrequest) request) |
+| [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) | [bodyWithQueryParams](#bodywithqueryparams)([FakebodywithqueryparamsPut.PutRequest](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut.md#putrequest) request) |
+| [FakejsonwithcharsetPostResponses.EndpointResponse](../../paths/fakejsonwithcharset/post/FakejsonwithcharsetPostResponses.md#endpointresponse) | [jsonWithCharset](#jsonwithcharset)([FakejsonwithcharsetPost.PostRequest](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost.md#postrequest) request) |
+| [FakerefsarraymodelPostResponses.EndpointResponse](../../paths/fakerefsarraymodel/post/FakerefsarraymodelPostResponses.md#endpointresponse) | [arrayModel](#arraymodel)([FakerefsarraymodelPost.PostRequest](../../paths/fakerefsarraymodel/FakerefsarraymodelPost.md#postrequest) request)<br>Test serialization of ArrayModel |
+| [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) | [fakeHealthGet](#fakehealthget)([FakehealthGet.GetRequest](../../paths/fakehealth/FakehealthGet.md#getrequest) request) |
+| [FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/FakerefscomposedoneofnumberwithvalidationsPostResponses.md#endpointresponse) | [composedOneOfDifferentTypes](#composedoneofdifferenttypes)([FakerefscomposedoneofnumberwithvalidationsPost.PostRequest](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost.md#postrequest) request)<br>Test serialization of object with $refed properties |
+| [FakerefobjinqueryGetResponses.EndpointResponse](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetResponses.md#endpointresponse) | [refObjectInQuery](#refobjectinquery)([FakerefobjinqueryGet.GetRequest](../../paths/fakerefobjinquery/FakerefobjinqueryGet.md#getrequest) request) |
+| [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) | [bodyWithFileSchema](#bodywithfileschema)([FakebodywithfileschemaPut.PutRequest](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut.md#putrequest) request)<br>For this test, the body for this request much reference a schema named &#x60;File&#x60;. |
+| [FakerefsenumPostResponses.EndpointResponse](../../paths/fakerefsenum/post/FakerefsenumPostResponses.md#endpointresponse) | [stringEnum](#stringenum)([FakerefsenumPost.PostRequest](../../paths/fakerefsenum/FakerefsenumPost.md#postrequest) request)<br>Test serialization of outer enum |
+| [FakeredirectionGetResponses.EndpointResponse](../../paths/fakeredirection/get/FakeredirectionGetResponses.md#endpointresponse) | [redirection](#redirection)([FakeredirectionGet.GetRequest](../../paths/fakeredirection/FakeredirectionGet.md#getrequest) request) |
+| [FakeuploadfilePostResponses.EndpointResponse](../../paths/fakeuploadfile/post/FakeuploadfilePostResponses.md#endpointresponse) | [uploadFile](#uploadfile)([FakeuploadfilePost.PostRequest](../../paths/fakeuploadfile/FakeuploadfilePost.md#postrequest) request)<br> |
+| [FakeinlinecompositionPostResponses.EndpointResponse](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostResponses.md#endpointresponse) | [inlineComposition](#inlinecomposition)([FakeinlinecompositionPost.PostRequest](../../paths/fakeinlinecomposition/FakeinlinecompositionPost.md#postrequest) request)<br>composed schemas at inline locations + multiple requestBody content types |
+| [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) | [groupParameters](#groupparameters)([FakeDelete.DeleteRequest](../../paths/fake/FakeDelete.md#deleterequest) request)<br>Fake endpoint to test group parameters (optional) |
+| [FakeGetResponses.EndpointResponse](../../paths/fake/get/FakeGetResponses.md#endpointresponse) | [enumParameters](#enumparameters)([FakeGet.GetRequest](../../paths/fake/FakeGet.md#getrequest) request)<br>To test enum parameters |
+| [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) | [clientModel](#clientmodel)([FakePatch.PatchRequest](../../paths/fake/FakePatch.md#patchrequest) request)<br>To test &quot;client&quot; model |
+| [FakePostResponses.EndpointResponse](../../paths/fake/post/FakePostResponses.md#endpointresponse) | [endpointParameters](#endpointparameters)([FakePost.PostRequest](../../paths/fake/FakePost.md#postrequest) request)<br>Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br> |
+| [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) | [objectModelWithRefProps](#objectmodelwithrefprops)([FakerefsobjectmodelwithrefpropsPost.PostRequest](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#postrequest) request)<br>Test serialization of object with $refed properties |
+| [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) | [pemContentType](#pemcontenttype)([FakepemcontenttypeGet.GetRequest](../../paths/fakepemcontenttype/FakepemcontenttypeGet.md#getrequest) request) |
+| [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) | [numberWithValidations](#numberwithvalidations)([FakerefsnumberPost.PostRequest](../../paths/fakerefsnumber/FakerefsnumberPost.md#postrequest) request)<br>Test serialization of outer number types |
+| [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) | [modelString](#modelstring)([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost.md#postrequest) request)<br>Test serialization of outer string types |
+| [FakeinlineadditionalpropertiesPostResponses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/FakeinlineadditionalpropertiesPostResponses.md#endpointresponse) | [inlineAdditionalProperties](#inlineadditionalproperties)([FakeinlineadditionalpropertiesPost.PostRequest](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#postrequest) request)<br> |
+| [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) | [mammal](#mammal)([FakerefsmammalPost.PostRequest](../../paths/fakerefsmammal/FakerefsmammalPost.md#postrequest) request)<br>Test serialization of mammals |
+| [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) | [slashRoute](#slashroute)([SolidusGet.GetRequest](../../paths/solidus/SolidusGet.md#getrequest) request) |
+| [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) | [modelBoolean](#modelboolean)([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postrequest) request)<br>Test serialization of outer boolean types |
+| [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) | [jsonFormData](#jsonformdata)([FakejsonformdataGet.GetRequest](../../paths/fakejsonformdata/FakejsonformdataGet.md#getrequest) request)<br> |
+| [Fakeparametercollisions1ababselfabPostResponses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostResponses.md#endpointresponse) | [parameterCollisions](#parametercollisions)([Fakeparametercollisions1ababselfabPost.PostRequest](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#postrequest) request) |
+| [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) | [queryParamWithJsonContentType](#queryparamwithjsoncontenttype)([FakequeryparamwithjsoncontenttypeGet.GetRequest](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#getrequest) request) |
+| [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) | [objectInQuery](#objectinquery)([FakeobjinqueryGet.GetRequest](../../paths/fakeobjinquery/FakeobjinqueryGet.md#getrequest) request) |
+| [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) | [multipleSecurities](#multiplesecurities)([FakemultiplesecuritiesGet.GetRequest](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet.md#getrequest) request) |
+| [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) | [queryParameterCollectionFormat](#queryparametercollectionformat)([FaketestqueryparamtersPut.PutRequest](../../paths/faketestqueryparamters/FaketestqueryparamtersPut.md#putrequest) request)<br>To test the collection format in query parameters |
+| [FakemultipleresponsebodiesGetResponses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/FakemultipleresponsebodiesGetResponses.md#endpointresponse) | [multipleResponseBodies](#multipleresponsebodies)([FakemultipleresponsebodiesGet.GetRequest](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet.md#getrequest) request) |
+| [FakeresponsewithoutschemaGetResponses.EndpointResponse](../../paths/fakeresponsewithoutschema/get/FakeresponsewithoutschemaGetResponses.md#endpointresponse) | [responseWithoutSchema](#responsewithoutschema)([FakeresponsewithoutschemaGet.GetRequest](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet.md#getrequest) request) |
+| [FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse](../../paths/fakemultiplerequestbodycontenttypes/post/FakemultiplerequestbodycontenttypesPostResponses.md#endpointresponse) | [multipleRequestBodyContentTypes](#multiplerequestbodycontenttypes)([FakemultiplerequestbodycontenttypesPost.PostRequest](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost.md#postrequest) request)<br>composed schemas at inline locations + multiple requestBody content types |
+| [FakeuploaddownloadfilePostResponses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/FakeuploaddownloadfilePostResponses.md#endpointresponse) | [uploadDownloadFile](#uploaddownloadfile)([FakeuploaddownloadfilePost.PostRequest](../../paths/fakeuploaddownloadfile/FakeuploaddownloadfilePost.md#postrequest) request)<br> |
+| [FakeuploadfilesPostResponses.EndpointResponse](../../paths/fakeuploadfiles/post/FakeuploadfilesPostResponses.md#endpointresponse) | [uploadFiles](#uploadfiles)([FakeuploadfilesPost.PostRequest](../../paths/fakeuploadfiles/FakeuploadfilesPost.md#postrequest) request)<br> |
+| [FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetResponses.md#endpointresponse) | [additionalPropertiesWithArrayOfEnums](#additionalpropertieswitharrayofenums)([FakeadditionalpropertieswitharrayofenumsGet.GetRequest](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet.md#getrequest) request) |
+| [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) | [deleteCoffee](#deletecoffee)([FakedeletecoffeeidDelete.DeleteRequest](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete.md#deleterequest) request)<br>Delete the coffee identified by the given id, (delete without request body) |
 
 ## Method Detail
 
 ### jsonPatch
-public [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) jsonPatch([FakejsonpatchPatch.PatchRequest](../../paths/fakejsonpatch/FakejsonpatchPatch#patchrequest) request)
+public [FakejsonpatchPatchResponses.EndpointResponse](../../paths/fakejsonpatch/patch/FakejsonpatchPatchResponses.md#endpointresponse) jsonPatch([FakejsonpatchPatch.PatchRequest](../../paths/fakejsonpatch/FakejsonpatchPatch.md#patchrequest) request)
 
 json patch route with a requestBody
 
@@ -184,7 +184,7 @@ try {
 FakejsonpatchPatchResponses.EndpointFakejsonpatchPatchCode200Response castResponse = (FakejsonpatchPatchResponses.EndpointFakejsonpatchPatchCode200Response) response;
 ```
 ### arrayOfEnums
-public [FakerefsarrayofenumsPostResponses.EndpointResponse](../../paths/fakerefsarrayofenums/post/FakerefsarrayofenumsPostResponses.md#endpointresponse) arrayOfEnums([FakerefsarrayofenumsPost.PostRequest](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost#postrequest) request)
+public [FakerefsarrayofenumsPostResponses.EndpointResponse](../../paths/fakerefsarrayofenums/post/FakerefsarrayofenumsPostResponses.md#endpointresponse) arrayOfEnums([FakerefsarrayofenumsPost.PostRequest](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost.md#postrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -271,7 +271,7 @@ FakerefsarrayofenumsPostCode200Response.ApplicationjsonResponseBody deserialized
 // handle deserialized body here
 ```
 ### deleteCommonParam
-public [CommonparamsubdirDeleteResponses.EndpointResponse](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteResponses.md#endpointresponse) deleteCommonParam([CommonparamsubdirDelete.DeleteRequest](../../paths/commonparamsubdir/CommonparamsubdirDelete#deleterequest) request)
+public [CommonparamsubdirDeleteResponses.EndpointResponse](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteResponses.md#endpointresponse) deleteCommonParam([CommonparamsubdirDelete.DeleteRequest](../../paths/commonparamsubdir/CommonparamsubdirDelete.md#deleterequest) request)
 
 common param is overwritten
 
@@ -370,7 +370,7 @@ try {
 CommonparamsubdirDeleteResponses.EndpointCommonparamsubdirDeleteCode200Response castResponse = (CommonparamsubdirDeleteResponses.EndpointCommonparamsubdirDeleteCode200Response) response;
 ```
 ### getCommonParam
-public [CommonparamsubdirGetResponses.EndpointResponse](../../paths/commonparamsubdir/get/CommonparamsubdirGetResponses.md#endpointresponse) getCommonParam([CommonparamsubdirGet.GetRequest](../../paths/commonparamsubdir/CommonparamsubdirGet#getrequest) request)
+public [CommonparamsubdirGetResponses.EndpointResponse](../../paths/commonparamsubdir/get/CommonparamsubdirGetResponses.md#endpointresponse) getCommonParam([CommonparamsubdirGet.GetRequest](../../paths/commonparamsubdir/CommonparamsubdirGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -467,7 +467,7 @@ try {
 CommonparamsubdirGetResponses.EndpointCommonparamsubdirGetCode200Response castResponse = (CommonparamsubdirGetResponses.EndpointCommonparamsubdirGetCode200Response) response;
 ```
 ### postCommonParam
-public [CommonparamsubdirPostResponses.EndpointResponse](../../paths/commonparamsubdir/post/CommonparamsubdirPostResponses.md#endpointresponse) postCommonParam([CommonparamsubdirPost.PostRequest](../../paths/commonparamsubdir/CommonparamsubdirPost#postrequest) request)
+public [CommonparamsubdirPostResponses.EndpointResponse](../../paths/commonparamsubdir/post/CommonparamsubdirPostResponses.md#endpointresponse) postCommonParam([CommonparamsubdirPost.PostRequest](../../paths/commonparamsubdir/CommonparamsubdirPost.md#postrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -564,7 +564,7 @@ try {
 CommonparamsubdirPostResponses.EndpointCommonparamsubdirPostCode200Response castResponse = (CommonparamsubdirPostResponses.EndpointCommonparamsubdirPostCode200Response) response;
 ```
 ### caseSensitiveParams
-public [FakecasesensitiveparamsPutResponses.EndpointResponse](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutResponses.md#endpointresponse) caseSensitiveParams([FakecasesensitiveparamsPut.PutRequest](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut#putrequest) request)
+public [FakecasesensitiveparamsPutResponses.EndpointResponse](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutResponses.md#endpointresponse) caseSensitiveParams([FakecasesensitiveparamsPut.PutRequest](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut.md#putrequest) request)
 
 Ensures that original naming is used in endpoint params, that way we don&#x27;t have collisions
 
@@ -666,7 +666,7 @@ try {
 FakecasesensitiveparamsPutResponses.EndpointFakecasesensitiveparamsPutCode200Response castResponse = (FakecasesensitiveparamsPutResponses.EndpointFakecasesensitiveparamsPutCode200Response) response;
 ```
 ### wildCardResponses
-public [FakewildcardresponsesGetResponses.EndpointResponse](../../paths/fakewildcardresponses/get/FakewildcardresponsesGetResponses.md#endpointresponse) wildCardResponses([FakewildcardresponsesGet.GetRequest](../../paths/fakewildcardresponses/FakewildcardresponsesGet#getrequest) request)
+public [FakewildcardresponsesGetResponses.EndpointResponse](../../paths/fakewildcardresponses/get/FakewildcardresponsesGetResponses.md#endpointresponse) wildCardResponses([FakewildcardresponsesGet.GetRequest](../../paths/fakewildcardresponses/FakewildcardresponsesGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -770,7 +770,7 @@ FakewildcardresponsesGetCode3XXResponse.ApplicationjsonResponseBody deserialized
 }
 ```
 ### bodyWithQueryParams
-public [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) bodyWithQueryParams([FakebodywithqueryparamsPut.PutRequest](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut#putrequest) request)
+public [FakebodywithqueryparamsPutResponses.EndpointResponse](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutResponses.md#endpointresponse) bodyWithQueryParams([FakebodywithqueryparamsPut.PutRequest](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut.md#putrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -895,7 +895,7 @@ try {
 FakebodywithqueryparamsPutResponses.EndpointFakebodywithqueryparamsPutCode200Response castResponse = (FakebodywithqueryparamsPutResponses.EndpointFakebodywithqueryparamsPutCode200Response) response;
 ```
 ### jsonWithCharset
-public [FakejsonwithcharsetPostResponses.EndpointResponse](../../paths/fakejsonwithcharset/post/FakejsonwithcharsetPostResponses.md#endpointresponse) jsonWithCharset([FakejsonwithcharsetPost.PostRequest](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost#postrequest) request)
+public [FakejsonwithcharsetPostResponses.EndpointResponse](../../paths/fakejsonwithcharset/post/FakejsonwithcharsetPostResponses.md#endpointresponse) jsonWithCharset([FakejsonwithcharsetPost.PostRequest](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost.md#postrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -982,7 +982,7 @@ FakejsonwithcharsetPostCode200Response.Applicationjsoncharsetutf8ResponseBody de
 // handle deserialized body here
 ```
 ### arrayModel
-public [FakerefsarraymodelPostResponses.EndpointResponse](../../paths/fakerefsarraymodel/post/FakerefsarraymodelPostResponses.md#endpointresponse) arrayModel([FakerefsarraymodelPost.PostRequest](../../paths/fakerefsarraymodel/FakerefsarraymodelPost#postrequest) request)
+public [FakerefsarraymodelPostResponses.EndpointResponse](../../paths/fakerefsarraymodel/post/FakerefsarraymodelPostResponses.md#endpointresponse) arrayModel([FakerefsarraymodelPost.PostRequest](../../paths/fakerefsarraymodel/FakerefsarraymodelPost.md#postrequest) request)
 
 Test serialization of ArrayModel
 
@@ -1071,7 +1071,7 @@ FakerefsarraymodelPostCode200Response.ApplicationjsonResponseBody deserializedBo
 // handle deserialized body here
 ```
 ### fakeHealthGet
-public [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) fakeHealthGet([FakehealthGet.GetRequest](../../paths/fakehealth/FakehealthGet#getrequest) request)
+public [FakehealthGetResponses.EndpointResponse](../../paths/fakehealth/get/FakehealthGetResponses.md#endpointresponse) fakeHealthGet([FakehealthGet.GetRequest](../../paths/fakehealth/FakehealthGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -1156,7 +1156,7 @@ FakehealthGetCode200Response.ApplicationjsonResponseBody deserializedBody = (Fak
 // handle deserialized body here
 ```
 ### composedOneOfDifferentTypes
-public [FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/FakerefscomposedoneofnumberwithvalidationsPostResponses.md#endpointresponse) composedOneOfDifferentTypes([FakerefscomposedoneofnumberwithvalidationsPost.PostRequest](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost#postrequest) request)
+public [FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/FakerefscomposedoneofnumberwithvalidationsPostResponses.md#endpointresponse) composedOneOfDifferentTypes([FakerefscomposedoneofnumberwithvalidationsPost.PostRequest](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost.md#postrequest) request)
 
 Test serialization of object with $refed properties
 
@@ -1245,7 +1245,7 @@ FakerefscomposedoneofnumberwithvalidationsPostCode200Response.ApplicationjsonRes
 // handle deserialized body here
 ```
 ### refObjectInQuery
-public [FakerefobjinqueryGetResponses.EndpointResponse](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetResponses.md#endpointresponse) refObjectInQuery([FakerefobjinqueryGet.GetRequest](../../paths/fakerefobjinquery/FakerefobjinqueryGet#getrequest) request)
+public [FakerefobjinqueryGetResponses.EndpointResponse](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetResponses.md#endpointresponse) refObjectInQuery([FakerefobjinqueryGet.GetRequest](../../paths/fakerefobjinquery/FakerefobjinqueryGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -1329,7 +1329,7 @@ try {
 FakerefobjinqueryGetResponses.EndpointFakerefobjinqueryGetCode200Response castResponse = (FakerefobjinqueryGetResponses.EndpointFakerefobjinqueryGetCode200Response) response;
 ```
 ### bodyWithFileSchema
-public [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) bodyWithFileSchema([FakebodywithfileschemaPut.PutRequest](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut#putrequest) request)
+public [FakebodywithfileschemaPutResponses.EndpointResponse](../../paths/fakebodywithfileschema/put/FakebodywithfileschemaPutResponses.md#endpointresponse) bodyWithFileSchema([FakebodywithfileschemaPut.PutRequest](../../paths/fakebodywithfileschema/FakebodywithfileschemaPut.md#putrequest) request)
 
 For this test, the body for this request much reference a schema named &#x60;File&#x60;.
 
@@ -1430,7 +1430,7 @@ try {
 FakebodywithfileschemaPutResponses.EndpointFakebodywithfileschemaPutCode200Response castResponse = (FakebodywithfileschemaPutResponses.EndpointFakebodywithfileschemaPutCode200Response) response;
 ```
 ### stringEnum
-public [FakerefsenumPostResponses.EndpointResponse](../../paths/fakerefsenum/post/FakerefsenumPostResponses.md#endpointresponse) stringEnum([FakerefsenumPost.PostRequest](../../paths/fakerefsenum/FakerefsenumPost#postrequest) request)
+public [FakerefsenumPostResponses.EndpointResponse](../../paths/fakerefsenum/post/FakerefsenumPostResponses.md#endpointresponse) stringEnum([FakerefsenumPost.PostRequest](../../paths/fakerefsenum/FakerefsenumPost.md#postrequest) request)
 
 Test serialization of outer enum
 
@@ -1519,7 +1519,7 @@ FakerefsenumPostCode200Response.ApplicationjsonResponseBody deserializedBody = (
 // handle deserialized body here
 ```
 ### redirection
-public [FakeredirectionGetResponses.EndpointResponse](../../paths/fakeredirection/get/FakeredirectionGetResponses.md#endpointresponse) redirection([FakeredirectionGet.GetRequest](../../paths/fakeredirection/FakeredirectionGet#getrequest) request)
+public [FakeredirectionGetResponses.EndpointResponse](../../paths/fakeredirection/get/FakeredirectionGetResponses.md#endpointresponse) redirection([FakeredirectionGet.GetRequest](../../paths/fakeredirection/FakeredirectionGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -1606,7 +1606,7 @@ if (response instanceof FakeredirectionGetResponses.EndpointFakeredirectionGetCo
 }
 ```
 ### uploadFile
-public [FakeuploadfilePostResponses.EndpointResponse](../../paths/fakeuploadfile/post/FakeuploadfilePostResponses.md#endpointresponse) uploadFile([FakeuploadfilePost.PostRequest](../../paths/fakeuploadfile/FakeuploadfilePost#postrequest) request)
+public [FakeuploadfilePostResponses.EndpointResponse](../../paths/fakeuploadfile/post/FakeuploadfilePostResponses.md#endpointresponse) uploadFile([FakeuploadfilePost.PostRequest](../../paths/fakeuploadfile/FakeuploadfilePost.md#postrequest) request)
 
 
 
@@ -1695,7 +1695,7 @@ FakeuploadfilePostCode200Response.ApplicationjsonResponseBody deserializedBody =
 // handle deserialized body here
 ```
 ### inlineComposition
-public [FakeinlinecompositionPostResponses.EndpointResponse](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostResponses.md#endpointresponse) inlineComposition([FakeinlinecompositionPost.PostRequest](../../paths/fakeinlinecomposition/FakeinlinecompositionPost#postrequest) request)
+public [FakeinlinecompositionPostResponses.EndpointResponse](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostResponses.md#endpointresponse) inlineComposition([FakeinlinecompositionPost.PostRequest](../../paths/fakeinlinecomposition/FakeinlinecompositionPost.md#postrequest) request)
 
 composed schemas at inline locations + multiple requestBody content types
 
@@ -1789,7 +1789,7 @@ if (castResponse.body instanceof FakeinlinecompositionPostCode200Response.Applic
 }
 ```
 ### groupParameters
-public [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) groupParameters([FakeDelete.DeleteRequest](../../paths/fake/FakeDelete#deleterequest) request)
+public [FakeDeleteResponses.EndpointResponse](../../paths/fake/delete/FakeDeleteResponses.md#endpointresponse) groupParameters([FakeDelete.DeleteRequest](../../paths/fake/FakeDelete.md#deleterequest) request)
 
 Fake endpoint to test group parameters (optional)
 
@@ -1919,7 +1919,7 @@ try {
 FakeDeleteResponses.EndpointFakeDeleteCode200Response castResponse = (FakeDeleteResponses.EndpointFakeDeleteCode200Response) response;
 ```
 ### enumParameters
-public [FakeGetResponses.EndpointResponse](../../paths/fake/get/FakeGetResponses.md#endpointresponse) enumParameters([FakeGet.GetRequest](../../paths/fake/FakeGet#getrequest) request)
+public [FakeGetResponses.EndpointResponse](../../paths/fake/get/FakeGetResponses.md#endpointresponse) enumParameters([FakeGet.GetRequest](../../paths/fake/FakeGet.md#getrequest) request)
 
 To test enum parameters
 
@@ -2012,7 +2012,7 @@ try {
 FakeGetResponses.EndpointFakeGetCode200Response castResponse = (FakeGetResponses.EndpointFakeGetCode200Response) response;
 ```
 ### clientModel
-public [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) clientModel([FakePatch.PatchRequest](../../paths/fake/FakePatch#patchrequest) request)
+public [FakePatchResponses.EndpointResponse](../../paths/fake/patch/FakePatchResponses.md#endpointresponse) clientModel([FakePatch.PatchRequest](../../paths/fake/FakePatch.md#patchrequest) request)
 
 To test &quot;client&quot; model
 
@@ -2113,7 +2113,7 @@ FakePatchCode200Response.ApplicationjsonResponseBody deserializedBody = (FakePat
 // handle deserialized body here
 ```
 ### endpointParameters
-public [FakePostResponses.EndpointResponse](../../paths/fake/post/FakePostResponses.md#endpointresponse) endpointParameters([FakePost.PostRequest](../../paths/fake/FakePost#postrequest) request)
+public [FakePostResponses.EndpointResponse](../../paths/fake/post/FakePostResponses.md#endpointresponse) endpointParameters([FakePost.PostRequest](../../paths/fake/FakePost.md#postrequest) request)
 
 Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br>
 
@@ -2216,7 +2216,7 @@ try {
 FakePostResponses.EndpointFakePostCode200Response castResponse = (FakePostResponses.EndpointFakePostCode200Response) response;
 ```
 ### objectModelWithRefProps
-public [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) objectModelWithRefProps([FakerefsobjectmodelwithrefpropsPost.PostRequest](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost#postrequest) request)
+public [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) objectModelWithRefProps([FakerefsobjectmodelwithrefpropsPost.PostRequest](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#postrequest) request)
 
 Test serialization of object with $refed properties
 
@@ -2305,7 +2305,7 @@ FakerefsobjectmodelwithrefpropsPostCode200Response.ApplicationjsonResponseBody d
 // handle deserialized body here
 ```
 ### pemContentType
-public [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) pemContentType([FakepemcontenttypeGet.GetRequest](../../paths/fakepemcontenttype/FakepemcontenttypeGet#getrequest) request)
+public [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) pemContentType([FakepemcontenttypeGet.GetRequest](../../paths/fakepemcontenttype/FakepemcontenttypeGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -2392,7 +2392,7 @@ FakepemcontenttypeGetCode200Response.ApplicationxpemfileResponseBody deserialize
 // handle deserialized body here
 ```
 ### numberWithValidations
-public [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) numberWithValidations([FakerefsnumberPost.PostRequest](../../paths/fakerefsnumber/FakerefsnumberPost#postrequest) request)
+public [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) numberWithValidations([FakerefsnumberPost.PostRequest](../../paths/fakerefsnumber/FakerefsnumberPost.md#postrequest) request)
 
 Test serialization of outer number types
 
@@ -2481,7 +2481,7 @@ FakerefsnumberPostCode200Response.ApplicationjsonResponseBody deserializedBody =
 // handle deserialized body here
 ```
 ### modelString
-public [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) modelString([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost#postrequest) request)
+public [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) modelString([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost.md#postrequest) request)
 
 Test serialization of outer string types
 
@@ -2570,7 +2570,7 @@ FakerefsstringPostCode200Response.ApplicationjsonResponseBody deserializedBody =
 // handle deserialized body here
 ```
 ### inlineAdditionalProperties
-public [FakeinlineadditionalpropertiesPostResponses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/FakeinlineadditionalpropertiesPostResponses.md#endpointresponse) inlineAdditionalProperties([FakeinlineadditionalpropertiesPost.PostRequest](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost#postrequest) request)
+public [FakeinlineadditionalpropertiesPostResponses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/FakeinlineadditionalpropertiesPostResponses.md#endpointresponse) inlineAdditionalProperties([FakeinlineadditionalpropertiesPost.PostRequest](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#postrequest) request)
 
 
 
@@ -2669,7 +2669,7 @@ try {
 FakeinlineadditionalpropertiesPostResponses.EndpointFakeinlineadditionalpropertiesPostCode200Response castResponse = (FakeinlineadditionalpropertiesPostResponses.EndpointFakeinlineadditionalpropertiesPostCode200Response) response;
 ```
 ### mammal
-public [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) mammal([FakerefsmammalPost.PostRequest](../../paths/fakerefsmammal/FakerefsmammalPost#postrequest) request)
+public [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) mammal([FakerefsmammalPost.PostRequest](../../paths/fakerefsmammal/FakerefsmammalPost.md#postrequest) request)
 
 Test serialization of mammals
 
@@ -2761,7 +2761,7 @@ FakerefsmammalPostCode200Response.ApplicationjsonResponseBody deserializedBody =
 // handle deserialized body here
 ```
 ### slashRoute
-public [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) slashRoute([SolidusGet.GetRequest](../../paths/solidus/SolidusGet#getrequest) request)
+public [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) slashRoute([SolidusGet.GetRequest](../../paths/solidus/SolidusGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -2844,7 +2844,7 @@ try {
 SolidusGetResponses.EndpointSolidusGetCode200Response castResponse = (SolidusGetResponses.EndpointSolidusGetCode200Response) response;
 ```
 ### modelBoolean
-public [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) modelBoolean([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost#postrequest) request)
+public [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) modelBoolean([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postrequest) request)
 
 Test serialization of outer boolean types
 
@@ -2933,7 +2933,7 @@ FakerefsbooleanPostCode200Response.ApplicationjsonResponseBody deserializedBody 
 // handle deserialized body here
 ```
 ### jsonFormData
-public [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) jsonFormData([FakejsonformdataGet.GetRequest](../../paths/fakejsonformdata/FakejsonformdataGet#getrequest) request)
+public [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) jsonFormData([FakejsonformdataGet.GetRequest](../../paths/fakejsonformdata/FakejsonformdataGet.md#getrequest) request)
 
 
 
@@ -3020,7 +3020,7 @@ try {
 FakejsonformdataGetResponses.EndpointFakejsonformdataGetCode200Response castResponse = (FakejsonformdataGetResponses.EndpointFakejsonformdataGetCode200Response) response;
 ```
 ### parameterCollisions
-public [Fakeparametercollisions1ababselfabPostResponses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostResponses.md#endpointresponse) parameterCollisions([Fakeparametercollisions1ababselfabPost.PostRequest](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost#postrequest) request)
+public [Fakeparametercollisions1ababselfabPostResponses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostResponses.md#endpointresponse) parameterCollisions([Fakeparametercollisions1ababselfabPost.PostRequest](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#postrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -3130,7 +3130,7 @@ Fakeparametercollisions1ababselfabPostCode200Response.ApplicationjsonResponseBod
 // handle deserialized body here
 ```
 ### queryParamWithJsonContentType
-public [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) queryParamWithJsonContentType([FakequeryparamwithjsoncontenttypeGet.GetRequest](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet#getrequest) request)
+public [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) queryParamWithJsonContentType([FakequeryparamwithjsoncontenttypeGet.GetRequest](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -3226,7 +3226,7 @@ FakequeryparamwithjsoncontenttypeGetCode200Response.ApplicationjsonResponseBody 
 // handle deserialized body here
 ```
 ### objectInQuery
-public [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) objectInQuery([FakeobjinqueryGet.GetRequest](../../paths/fakeobjinquery/FakeobjinqueryGet#getrequest) request)
+public [FakeobjinqueryGetResponses.EndpointResponse](../../paths/fakeobjinquery/get/FakeobjinqueryGetResponses.md#endpointresponse) objectInQuery([FakeobjinqueryGet.GetRequest](../../paths/fakeobjinquery/FakeobjinqueryGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -3310,7 +3310,7 @@ try {
 FakeobjinqueryGetResponses.EndpointFakeobjinqueryGetCode200Response castResponse = (FakeobjinqueryGetResponses.EndpointFakeobjinqueryGetCode200Response) response;
 ```
 ### multipleSecurities
-public [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) multipleSecurities([FakemultiplesecuritiesGet.GetRequest](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet#getrequest) request)
+public [FakemultiplesecuritiesGetResponses.EndpointResponse](../../paths/fakemultiplesecurities/get/FakemultiplesecuritiesGetResponses.md#endpointresponse) multipleSecurities([FakemultiplesecuritiesGet.GetRequest](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -3412,7 +3412,7 @@ FakemultiplesecuritiesGetCode200Response.ApplicationjsonResponseBody deserialize
 // handle deserialized body here
 ```
 ### queryParameterCollectionFormat
-public [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) queryParameterCollectionFormat([FaketestqueryparamtersPut.PutRequest](../../paths/faketestqueryparamters/FaketestqueryparamtersPut#putrequest) request)
+public [FaketestqueryparamtersPutResponses.EndpointResponse](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutResponses.md#endpointresponse) queryParameterCollectionFormat([FaketestqueryparamtersPut.PutRequest](../../paths/faketestqueryparamters/FaketestqueryparamtersPut.md#putrequest) request)
 
 To test the collection format in query parameters
 
@@ -3535,7 +3535,7 @@ try {
 FaketestqueryparamtersPutResponses.EndpointFaketestqueryparamtersPutCode200Response castResponse = (FaketestqueryparamtersPutResponses.EndpointFaketestqueryparamtersPutCode200Response) response;
 ```
 ### multipleResponseBodies
-public [FakemultipleresponsebodiesGetResponses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/FakemultipleresponsebodiesGetResponses.md#endpointresponse) multipleResponseBodies([FakemultipleresponsebodiesGet.GetRequest](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet#getrequest) request)
+public [FakemultipleresponsebodiesGetResponses.EndpointResponse](../../paths/fakemultipleresponsebodies/get/FakemultipleresponsebodiesGetResponses.md#endpointresponse) multipleResponseBodies([FakemultipleresponsebodiesGet.GetRequest](../../paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -3626,7 +3626,7 @@ FakemultipleresponsebodiesGetCode202Response.ApplicationjsonResponseBody deseria
 }
 ```
 ### responseWithoutSchema
-public [FakeresponsewithoutschemaGetResponses.EndpointResponse](../../paths/fakeresponsewithoutschema/get/FakeresponsewithoutschemaGetResponses.md#endpointresponse) responseWithoutSchema([FakeresponsewithoutschemaGet.GetRequest](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet#getrequest) request)
+public [FakeresponsewithoutschemaGetResponses.EndpointResponse](../../paths/fakeresponsewithoutschema/get/FakeresponsewithoutschemaGetResponses.md#endpointresponse) responseWithoutSchema([FakeresponsewithoutschemaGet.GetRequest](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -3709,7 +3709,7 @@ try {
 FakeresponsewithoutschemaGetResponses.EndpointFakeresponsewithoutschemaGetCode200Response castResponse = (FakeresponsewithoutschemaGetResponses.EndpointFakeresponsewithoutschemaGetCode200Response) response;
 ```
 ### multipleRequestBodyContentTypes
-public [FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse](../../paths/fakemultiplerequestbodycontenttypes/post/FakemultiplerequestbodycontenttypesPostResponses.md#endpointresponse) multipleRequestBodyContentTypes([FakemultiplerequestbodycontenttypesPost.PostRequest](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost#postrequest) request)
+public [FakemultiplerequestbodycontenttypesPostResponses.EndpointResponse](../../paths/fakemultiplerequestbodycontenttypes/post/FakemultiplerequestbodycontenttypesPostResponses.md#endpointresponse) multipleRequestBodyContentTypes([FakemultiplerequestbodycontenttypesPost.PostRequest](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost.md#postrequest) request)
 
 composed schemas at inline locations + multiple requestBody content types
 
@@ -3798,7 +3798,7 @@ FakemultiplerequestbodycontenttypesPostCode200Response.ApplicationjsonResponseBo
 // handle deserialized body here
 ```
 ### uploadDownloadFile
-public [FakeuploaddownloadfilePostResponses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/FakeuploaddownloadfilePostResponses.md#endpointresponse) uploadDownloadFile([FakeuploaddownloadfilePost.PostRequest](../../paths/fakeuploaddownloadfile/FakeuploaddownloadfilePost#postrequest) request)
+public [FakeuploaddownloadfilePostResponses.EndpointResponse](../../paths/fakeuploaddownloadfile/post/FakeuploaddownloadfilePostResponses.md#endpointresponse) uploadDownloadFile([FakeuploaddownloadfilePost.PostRequest](../../paths/fakeuploaddownloadfile/FakeuploaddownloadfilePost.md#postrequest) request)
 
 
 
@@ -3895,7 +3895,7 @@ FakeuploaddownloadfilePostCode200Response.ApplicationoctetstreamResponseBody des
 // handle deserialized body here
 ```
 ### uploadFiles
-public [FakeuploadfilesPostResponses.EndpointResponse](../../paths/fakeuploadfiles/post/FakeuploadfilesPostResponses.md#endpointresponse) uploadFiles([FakeuploadfilesPost.PostRequest](../../paths/fakeuploadfiles/FakeuploadfilesPost#postrequest) request)
+public [FakeuploadfilesPostResponses.EndpointResponse](../../paths/fakeuploadfiles/post/FakeuploadfilesPostResponses.md#endpointresponse) uploadFiles([FakeuploadfilesPost.PostRequest](../../paths/fakeuploadfiles/FakeuploadfilesPost.md#postrequest) request)
 
 
 
@@ -3984,7 +3984,7 @@ FakeuploadfilesPostCode200Response.ApplicationjsonResponseBody deserializedBody 
 // handle deserialized body here
 ```
 ### additionalPropertiesWithArrayOfEnums
-public [FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetResponses.md#endpointresponse) additionalPropertiesWithArrayOfEnums([FakeadditionalpropertieswitharrayofenumsGet.GetRequest](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet#getrequest) request)
+public [FakeadditionalpropertieswitharrayofenumsGetResponses.EndpointResponse](../../paths/fakeadditionalpropertieswitharrayofenums/get/FakeadditionalpropertieswitharrayofenumsGetResponses.md#endpointresponse) additionalPropertiesWithArrayOfEnums([FakeadditionalpropertieswitharrayofenumsGet.GetRequest](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request
@@ -4071,7 +4071,7 @@ FakeadditionalpropertieswitharrayofenumsGetCode200Response.ApplicationjsonRespon
 // handle deserialized body here
 ```
 ### deleteCoffee
-public [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) deleteCoffee([FakedeletecoffeeidDelete.DeleteRequest](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete#deleterequest) request)
+public [FakedeletecoffeeidDeleteResponses.EndpointResponse](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeleteResponses.md#endpointresponse) deleteCoffee([FakedeletecoffeeidDelete.DeleteRequest](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete.md#deleterequest) request)
 
 Delete the coffee identified by the given id, (delete without request body)
 

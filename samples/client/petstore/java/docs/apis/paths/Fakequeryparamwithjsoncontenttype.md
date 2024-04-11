@@ -3,17 +3,17 @@
 public class Fakequeryparamwithjsoncontenttype extends extends ApiClient implements
 [FakequeryparamwithjsoncontenttypeGet.GetOperation](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#getoperation)
 
-an api client class which contains all the routes for path="/fake/queryParamWithJsonContentType"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) | [get](#get)([FakequeryparamwithjsoncontenttypeGet.GetRequest](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet#getrequest) request) |
+| [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) | [get](#get)([FakequeryparamwithjsoncontenttypeGet.GetRequest](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#getrequest) request) |
 
 ## Method Detail
 
 ### get
-public [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) get([FakequeryparamwithjsoncontenttypeGet.GetRequest](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet#getrequest) request)
+public [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) get([FakequeryparamwithjsoncontenttypeGet.GetRequest](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#getrequest) request)
 
 **Parameters:**<br>
 request - the input request

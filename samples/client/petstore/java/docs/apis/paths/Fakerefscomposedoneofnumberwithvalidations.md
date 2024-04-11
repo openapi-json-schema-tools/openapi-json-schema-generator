@@ -3,17 +3,17 @@
 public class Fakerefscomposedoneofnumberwithvalidations extends extends ApiClient implements
 [FakerefscomposedoneofnumberwithvalidationsPost.PostOperation](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/refs/composed_one_of_number_with_validations"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/FakerefscomposedoneofnumberwithvalidationsPostResponses.md#endpointresponse) | [post](#post)([FakerefscomposedoneofnumberwithvalidationsPost.PostRequest](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost#postrequest) request)<br>Test serialization of object with $refed properties |
+| [FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/FakerefscomposedoneofnumberwithvalidationsPostResponses.md#endpointresponse) | [post](#post)([FakerefscomposedoneofnumberwithvalidationsPost.PostRequest](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost.md#postrequest) request)<br>Test serialization of object with $refed properties |
 
 ## Method Detail
 
 ### post
-public [FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/FakerefscomposedoneofnumberwithvalidationsPostResponses.md#endpointresponse) post([FakerefscomposedoneofnumberwithvalidationsPost.PostRequest](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost#postrequest) request)
+public [FakerefscomposedoneofnumberwithvalidationsPostResponses.EndpointResponse](../../paths/fakerefscomposedoneofnumberwithvalidations/post/FakerefscomposedoneofnumberwithvalidationsPostResponses.md#endpointresponse) post([FakerefscomposedoneofnumberwithvalidationsPost.PostRequest](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost.md#postrequest) request)
 
 Test serialization of object with $refed properties
 

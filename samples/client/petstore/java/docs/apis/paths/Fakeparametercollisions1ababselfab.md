@@ -3,17 +3,17 @@
 public class Fakeparametercollisions1ababselfab extends extends ApiClient implements
 [Fakeparametercollisions1ababselfabPost.PostOperation](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#postoperation)
 
-an api client class which contains all the routes for path="/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/"
+an api client class which contains all the routes for path=""
 
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostResponses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostResponses.md#endpointresponse) | [post](#post)([Fakeparametercollisions1ababselfabPost.PostRequest](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost#postrequest) request) |
+| [Fakeparametercollisions1ababselfabPostResponses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostResponses.md#endpointresponse) | [post](#post)([Fakeparametercollisions1ababselfabPost.PostRequest](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#postrequest) request) |
 
 ## Method Detail
 
 ### post
-public [Fakeparametercollisions1ababselfabPostResponses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostResponses.md#endpointresponse) post([Fakeparametercollisions1ababselfabPost.PostRequest](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost#postrequest) request)
+public [Fakeparametercollisions1ababselfabPostResponses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostResponses.md#endpointresponse) post([Fakeparametercollisions1ababselfabPost.PostRequest](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#postrequest) request)
 
 **Parameters:**<br>
 request - the input request
