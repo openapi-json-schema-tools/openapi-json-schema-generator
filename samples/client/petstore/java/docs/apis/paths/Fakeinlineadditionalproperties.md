@@ -3,7 +3,7 @@
 public class Fakeinlineadditionalproperties extends extends ApiClient implements
 [FakeinlineadditionalpropertiesPost.PostOperation](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/inline-additionalProperties"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

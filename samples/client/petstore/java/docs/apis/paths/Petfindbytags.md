@@ -3,7 +3,7 @@
 public class Petfindbytags extends extends ApiClient implements
 [PetfindbytagsGet.GetOperation](../../paths/petfindbytags/PetfindbytagsGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/pet/findByTags"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

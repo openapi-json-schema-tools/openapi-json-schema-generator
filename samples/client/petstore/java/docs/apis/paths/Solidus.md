@@ -3,7 +3,7 @@
 public class Solidus extends extends ApiClient implements
 [SolidusGet.GetOperation](../../paths/solidus/SolidusGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

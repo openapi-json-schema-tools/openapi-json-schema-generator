@@ -4,7 +4,7 @@ public class Pet extends extends ApiClient implements
 [PetPost.PostOperation](../../paths/pet/PetPost.md#postoperation),
 [PetPut.PutOperation](../../paths/pet/PetPut.md#putoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/pet"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

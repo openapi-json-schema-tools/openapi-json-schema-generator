@@ -3,7 +3,7 @@
 public class Fakecasesensitiveparams extends extends ApiClient implements
 [FakecasesensitiveparamsPut.PutOperation](../../paths/fakecasesensitiveparams/FakecasesensitiveparamsPut.md#putoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/case-sensitive-params"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

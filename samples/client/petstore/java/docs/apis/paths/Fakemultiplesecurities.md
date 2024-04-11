@@ -3,7 +3,7 @@
 public class Fakemultiplesecurities extends extends ApiClient implements
 [FakemultiplesecuritiesGet.GetOperation](../../paths/fakemultiplesecurities/FakemultiplesecuritiesGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/multipleSecurities"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

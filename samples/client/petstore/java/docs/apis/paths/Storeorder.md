@@ -3,7 +3,7 @@
 public class Storeorder extends extends ApiClient implements
 [StoreorderPost.PostOperation](../../paths/storeorder/StoreorderPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/store/order"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

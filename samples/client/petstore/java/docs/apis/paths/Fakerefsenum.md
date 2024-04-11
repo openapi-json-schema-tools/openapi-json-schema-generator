@@ -3,7 +3,7 @@
 public class Fakerefsenum extends extends ApiClient implements
 [FakerefsenumPost.PostOperation](../../paths/fakerefsenum/FakerefsenumPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/refs/enum"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

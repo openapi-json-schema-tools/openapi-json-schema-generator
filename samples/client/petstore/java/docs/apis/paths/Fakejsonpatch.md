@@ -3,7 +3,7 @@
 public class Fakejsonpatch extends extends ApiClient implements
 [FakejsonpatchPatch.PatchOperation](../../paths/fakejsonpatch/FakejsonpatchPatch.md#patchoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/jsonPatch"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

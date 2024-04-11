@@ -3,7 +3,7 @@
 public class Fakeuploadfile extends extends ApiClient implements
 [FakeuploadfilePost.PostOperation](../../paths/fakeuploadfile/FakeuploadfilePost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/uploadFile"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

@@ -5,7 +5,7 @@ public class Petpetid extends extends ApiClient implements
 [PetpetidGet.GetOperation](../../paths/petpetid/PetpetidGet.md#getoperation),
 [PetpetidPost.PostOperation](../../paths/petpetid/PetpetidPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/pet/{petId}"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

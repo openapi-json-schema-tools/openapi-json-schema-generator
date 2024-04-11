@@ -3,7 +3,7 @@
 public class Fakebodywithqueryparams extends extends ApiClient implements
 [FakebodywithqueryparamsPut.PutOperation](../../paths/fakebodywithqueryparams/FakebodywithqueryparamsPut.md#putoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/body-with-query-params"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

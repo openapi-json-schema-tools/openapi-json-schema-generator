@@ -3,7 +3,7 @@
 public class Faketestqueryparamters extends extends ApiClient implements
 [FaketestqueryparamtersPut.PutOperation](../../paths/faketestqueryparamters/FaketestqueryparamtersPut.md#putoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/test-query-paramters"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

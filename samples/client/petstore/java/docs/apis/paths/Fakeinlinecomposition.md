@@ -3,7 +3,7 @@
 public class Fakeinlinecomposition extends extends ApiClient implements
 [FakeinlinecompositionPost.PostOperation](../../paths/fakeinlinecomposition/FakeinlinecompositionPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/inlineComposition/"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

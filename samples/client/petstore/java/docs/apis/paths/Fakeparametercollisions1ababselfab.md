@@ -3,7 +3,7 @@
 public class Fakeparametercollisions1ababselfab extends extends ApiClient implements
 [Fakeparametercollisions1ababselfabPost.PostOperation](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

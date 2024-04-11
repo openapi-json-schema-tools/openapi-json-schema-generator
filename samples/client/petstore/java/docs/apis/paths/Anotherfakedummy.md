@@ -3,7 +3,7 @@
 public class Anotherfakedummy extends extends ApiClient implements
 [AnotherfakedummyPatch.PatchOperation](../../paths/anotherfakedummy/AnotherfakedummyPatch.md#patchoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/another-fake/dummy"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

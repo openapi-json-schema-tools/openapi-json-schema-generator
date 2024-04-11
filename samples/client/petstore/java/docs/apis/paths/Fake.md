@@ -6,7 +6,7 @@ public class Fake extends extends ApiClient implements
 [FakePatch.PatchOperation](../../paths/fake/FakePatch.md#patchoperation),
 [FakePost.PostOperation](../../paths/fake/FakePost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

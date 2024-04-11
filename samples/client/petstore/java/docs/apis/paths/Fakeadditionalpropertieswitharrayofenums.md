@@ -3,7 +3,7 @@
 public class Fakeadditionalpropertieswitharrayofenums extends extends ApiClient implements
 [FakeadditionalpropertieswitharrayofenumsGet.GetOperation](../../paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/additional-properties-with-array-of-enums"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

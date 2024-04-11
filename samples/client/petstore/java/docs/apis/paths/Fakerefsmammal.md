@@ -3,7 +3,7 @@
 public class Fakerefsmammal extends extends ApiClient implements
 [FakerefsmammalPost.PostOperation](../../paths/fakerefsmammal/FakerefsmammalPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/refs/mammal"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

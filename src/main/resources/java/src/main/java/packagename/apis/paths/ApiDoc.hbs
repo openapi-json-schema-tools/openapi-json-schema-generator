@@ -6,7 +6,7 @@ public class {{pathItem.jsonPathPiece.pascalCase}} extends extends ApiClient imp
 {{/each}}
 
 {{#with pathItem}}
-an api client class which contains all the routes for path="{{original}}"
+an api client class which contains all the routes for path="{{jsonPathPiece.original}}"
     {{#if description}}
 {{description.originalWithBr}}
     {{/if}}

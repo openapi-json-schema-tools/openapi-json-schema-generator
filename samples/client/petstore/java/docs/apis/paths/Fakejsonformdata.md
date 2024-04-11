@@ -3,7 +3,7 @@
 public class Fakejsonformdata extends extends ApiClient implements
 [FakejsonformdataGet.GetOperation](../../paths/fakejsonformdata/FakejsonformdataGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/jsonFormData"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

@@ -3,7 +3,7 @@
 public class Fakerefsnumber extends extends ApiClient implements
 [FakerefsnumberPost.PostOperation](../../paths/fakerefsnumber/FakerefsnumberPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/refs/number"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

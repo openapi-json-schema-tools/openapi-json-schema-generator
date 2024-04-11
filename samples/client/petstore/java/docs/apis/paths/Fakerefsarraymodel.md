@@ -3,7 +3,7 @@
 public class Fakerefsarraymodel extends extends ApiClient implements
 [FakerefsarraymodelPost.PostOperation](../../paths/fakerefsarraymodel/FakerefsarraymodelPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/refs/arraymodel"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

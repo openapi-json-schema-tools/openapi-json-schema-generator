@@ -3,7 +3,7 @@
 public class Storeinventory extends extends ApiClient implements
 [StoreinventoryGet.GetOperation](../../paths/storeinventory/StoreinventoryGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/store/inventory"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

@@ -3,7 +3,7 @@
 public class Usercreatewithlist extends extends ApiClient implements
 [UsercreatewithlistPost.PostOperation](../../paths/usercreatewithlist/UsercreatewithlistPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/user/createWithList"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

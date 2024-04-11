@@ -3,7 +3,7 @@
 public class Fakejsonwithcharset extends extends ApiClient implements
 [FakejsonwithcharsetPost.PostOperation](../../paths/fakejsonwithcharset/FakejsonwithcharsetPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/jsonWithCharset"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

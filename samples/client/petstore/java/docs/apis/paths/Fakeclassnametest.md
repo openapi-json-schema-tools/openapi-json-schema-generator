@@ -3,7 +3,7 @@
 public class Fakeclassnametest extends extends ApiClient implements
 [FakeclassnametestPatch.PatchOperation](../../paths/fakeclassnametest/FakeclassnametestPatch.md#patchoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake_classname_test"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

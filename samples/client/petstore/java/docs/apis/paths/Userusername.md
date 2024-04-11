@@ -5,7 +5,7 @@ public class Userusername extends extends ApiClient implements
 [UserusernameGet.GetOperation](../../paths/userusername/UserusernameGet.md#getoperation),
 [UserusernamePut.PutOperation](../../paths/userusername/UserusernamePut.md#putoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/user/{username}"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

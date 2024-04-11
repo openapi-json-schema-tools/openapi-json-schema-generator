@@ -4,7 +4,7 @@ public class Storeorderorderid extends extends ApiClient implements
 [StoreorderorderidDelete.DeleteOperation](../../paths/storeorderorderid/StoreorderorderidDelete.md#deleteoperation),
 [StoreorderorderidGet.GetOperation](../../paths/storeorderorderid/StoreorderorderidGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/store/order/{order_id}"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

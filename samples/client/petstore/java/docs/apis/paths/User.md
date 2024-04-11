@@ -3,7 +3,7 @@
 public class User extends extends ApiClient implements
 [UserPost.PostOperation](../../paths/user/UserPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/user"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

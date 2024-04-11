@@ -3,7 +3,7 @@
 public class Userlogout extends extends ApiClient implements
 [UserlogoutGet.GetOperation](../../paths/userlogout/UserlogoutGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/user/logout"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

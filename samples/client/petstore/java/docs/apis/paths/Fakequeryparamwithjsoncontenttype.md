@@ -3,7 +3,7 @@
 public class Fakequeryparamwithjsoncontenttype extends extends ApiClient implements
 [FakequeryparamwithjsoncontenttypeGet.GetOperation](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/queryParamWithJsonContentType"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

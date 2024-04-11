@@ -3,7 +3,7 @@
 public class Fakepemcontenttype extends extends ApiClient implements
 [FakepemcontenttypeGet.GetOperation](../../paths/fakepemcontenttype/FakepemcontenttypeGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/pemContentType"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

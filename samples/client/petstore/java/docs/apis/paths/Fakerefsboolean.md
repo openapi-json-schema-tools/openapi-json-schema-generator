@@ -3,7 +3,7 @@
 public class Fakerefsboolean extends extends ApiClient implements
 [FakerefsbooleanPost.PostOperation](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/refs/boolean"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

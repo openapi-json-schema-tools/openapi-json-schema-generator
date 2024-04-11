@@ -3,7 +3,7 @@
 public class Fakerefscomposedoneofnumberwithvalidations extends extends ApiClient implements
 [FakerefscomposedoneofnumberwithvalidationsPost.PostOperation](../../paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/refs/composed_one_of_number_with_validations"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

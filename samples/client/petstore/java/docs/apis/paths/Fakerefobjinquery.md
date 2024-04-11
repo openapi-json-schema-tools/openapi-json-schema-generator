@@ -3,7 +3,7 @@
 public class Fakerefobjinquery extends extends ApiClient implements
 [FakerefobjinqueryGet.GetOperation](../../paths/fakerefobjinquery/FakerefobjinqueryGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/refObjInQuery"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

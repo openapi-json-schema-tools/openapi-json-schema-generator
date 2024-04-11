@@ -3,7 +3,7 @@
 public class Fakeresponsewithoutschema extends extends ApiClient implements
 [FakeresponsewithoutschemaGet.GetOperation](../../paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/responseWithoutSchema"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

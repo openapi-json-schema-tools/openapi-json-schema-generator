@@ -3,7 +3,7 @@
 public class Fakedeletecoffeeid extends extends ApiClient implements
 [FakedeletecoffeeidDelete.DeleteOperation](../../paths/fakedeletecoffeeid/FakedeletecoffeeidDelete.md#deleteoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/deleteCoffee/{id}"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

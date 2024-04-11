@@ -3,7 +3,7 @@
 public class Fakeredirection extends extends ApiClient implements
 [FakeredirectionGet.GetOperation](../../paths/fakeredirection/FakeredirectionGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/redirection"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

@@ -3,7 +3,7 @@
 public class Fakehealth extends extends ApiClient implements
 [FakehealthGet.GetOperation](../../paths/fakehealth/FakehealthGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/health"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

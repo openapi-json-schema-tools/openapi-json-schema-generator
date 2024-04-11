@@ -3,7 +3,7 @@
 public class Foo extends extends ApiClient implements
 [FooGet.GetOperation](../../paths/foo/FooGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/foo"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

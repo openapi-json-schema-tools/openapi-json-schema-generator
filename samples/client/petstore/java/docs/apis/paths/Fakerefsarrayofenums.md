@@ -3,7 +3,7 @@
 public class Fakerefsarrayofenums extends extends ApiClient implements
 [FakerefsarrayofenumsPost.PostOperation](../../paths/fakerefsarrayofenums/FakerefsarrayofenumsPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/refs/array-of-enums"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

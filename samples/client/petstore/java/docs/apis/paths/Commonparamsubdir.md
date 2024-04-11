@@ -5,7 +5,7 @@ public class Commonparamsubdir extends extends ApiClient implements
 [CommonparamsubdirGet.GetOperation](../../paths/commonparamsubdir/CommonparamsubdirGet.md#getoperation),
 [CommonparamsubdirPost.PostOperation](../../paths/commonparamsubdir/CommonparamsubdirPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/commonParam/{subDir}/"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

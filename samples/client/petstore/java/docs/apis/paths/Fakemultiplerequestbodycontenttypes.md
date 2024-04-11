@@ -3,7 +3,7 @@
 public class Fakemultiplerequestbodycontenttypes extends extends ApiClient implements
 [FakemultiplerequestbodycontenttypesPost.PostOperation](../../paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/multipleRequestBodyContentTypes/"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

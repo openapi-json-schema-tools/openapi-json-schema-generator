@@ -3,7 +3,7 @@
 public class Usercreatewitharray extends extends ApiClient implements
 [UsercreatewitharrayPost.PostOperation](../../paths/usercreatewitharray/UsercreatewitharrayPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/user/createWithArray"
 
 ## Method Summary
 | Modifier and Type | Method and Description |

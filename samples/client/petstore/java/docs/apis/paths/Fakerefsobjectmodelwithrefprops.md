@@ -3,7 +3,7 @@
 public class Fakerefsobjectmodelwithrefprops extends extends ApiClient implements
 [FakerefsobjectmodelwithrefpropsPost.PostOperation](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#postoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/fake/refs/object_model_with_ref_props"
 
 ## Method Summary
 | Modifier and Type | Method and Description |
