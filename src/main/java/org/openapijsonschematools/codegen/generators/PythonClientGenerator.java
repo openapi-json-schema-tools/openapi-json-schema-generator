@@ -2169,6 +2169,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                 return toModelName(lastJsonPathFragment, null);
             case SECURITY:
                 return "Security";
+            case SERVER:
+                return "Server" + lastJsonPathFragment;
             default:
                 return null;
         }
