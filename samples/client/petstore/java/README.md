@@ -65,8 +65,8 @@ Here is the mapping from json schema types to Java types:
 
 | Json Schema Type | Java Base Class |
 | ---------------- | --------------- |
-| object           | FrozenMap (HashMap) |
-| array            | FrozenList (ArrayList) |
+| object           | FrozenMap (Map) |
+| array            | FrozenList (List) |
 | string           | String |
 | number           | Number (int, long, float, double) |
 | integer          | int, long, float, double (with values equal to integers) |
@@ -102,7 +102,7 @@ invalid Java variable names. Names like:
 - " "
 - "from"
 
-To allow these use cases to work, FrozenMap (which extends HashMap) is used as the base class of type object schemas.
+To allow these use cases to work, FrozenMap (which extends AbstractMap) is used as the base class of type object schemas.
 This means that one can use normal Map methods on instances of these classes.
 
 <details>
@@ -118,8 +118,6 @@ This means that one can use normal Map methods on instances of these classes.
 N schemas can be validated on the same payload.
 To allow multiple schemas to validate, the data must be stored using one base class whether or not
 a json schema format constraint exists in the schema.
-See the below accessors for string data:
-- type string + format: See schemas.as_date, schemas.as_datetime, schemas.as_decimal, schemas.as_uuid
 
 In json schema, type: number with no format validates both integers and floats,
 so int and float values are stored for type number.
@@ -137,7 +135,7 @@ For example the string payload '2023-12-20' is validates to both of these schema
 - type: string
   format: date
 ```
-Because of use cases like this, a datetime.date is allowed as an input to this schema, but the data
+Because of use cases like this, a LocalDate is allowed as an input to this schema, but the data
 is stored as a string.
 </details>
 
@@ -148,6 +146,73 @@ org.openapijsonschematools.client.components.schemas to validate input payloads 
 output classes. Json schemas allow multiple types for one schema, so a schema's validate method can have
 allowed input and output types.
 
+## Code Sample
+```
+import org.openapijsonschematools.client.configurations.ApiConfiguration;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.exceptions.ApiException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server1;
+import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.paths.solidus.get.responses.SolidusGetCode200Response;
+import org.openapijsonschematools.client.servers.RootServerInfo;
+import org.openapijsonschematools.client.apis.tags.Fake;
+import org.openapijsonschematools.client.paths.solidus.get.SolidusGetResponses;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .rootServerInfo(
+        new RootServerInfo.RootServerInfoBuilder()
+            .server0(new Server0())
+            .build()
+    )
+    .build();
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
+    .build();
+Duration timeout = Duration.ofSeconds(1L);
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    timeout
+);
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
+
+
+var request = new SolidusGet.GetRequestBuilder().build();
+
+SolidusGetResponses.EndpointResponse response;
+try {
+    response = apiClient.get(request);
+} catch (ApiException e) {
+    // server returned a response/contentType not defined in the openapi document
+    throw e;
+} catch (ValidationException e) {
+    // the returned response body or header values do not conform the the schema validation requirements
+    throw e;
+} catch (IOException | InterruptedException e) {
+    // an exception happened when making the request
+    throw e;
+} catch (NotImplementedException e) {
+    // the request body serialization or deserialization has not yet been implemented
+    // or the header content type deserialization has not yet been implemented for this contentType
+    throw e;
+}
+SolidusGetResponses.EndpointSolidusGetCode200Response castResponse = (SolidusGetResponses.EndpointSolidusGetCode200Response) response;
+```
 ## Servers
 | server_index | Class | Description |
 | ------------ | ----- | ----------- |
@@ -155,8 +220,94 @@ allowed input and output types.
 | 1 | [Server1](docs/servers/Server1.md) | The local server |
 | 2 | [Server2](docs/servers/Server2.md) | staging server with no variables |
 
-## Component Schemas
+## Component SecuritySchemes
+| Class | Description |
+| ----- | ----------- |
+| [ApiKey](docs/components/securityschemes/ApiKey.md) | apiKey in header |
+| [ApiKeyQuery](docs/components/securityschemes/ApiKeyQuery.md) | apiKey in query |
+| [BearerTest](docs/components/securityschemes/BearerTest.md) | http bearer with JWT bearer format |
+| [HttpBasicTest](docs/components/securityschemes/HttpBasicTest.md) | http basic |
+| [HttpSignatureTest](docs/components/securityschemes/HttpSignatureTest.md) | http + signature |
+| [OpenIdConnectTest](docs/components/securityschemes/OpenIdConnectTest.md) | openIdConnect |
+| [PetstoreAuth](docs/components/securityschemes/PetstoreAuth.md) | oauth2 implicit flow with two scopes |
 
+## Endpoints
+All URIs are relative to the selected server
+- The server is selected by passing in serverInfo + serverIndexInfo into configurations.ApiConfiguration
+- The security info is selected by passing in securityInfo + securityIndexInfo into configurations.ApiConfiguration
+- serverIndex + securityIndex can also be passed in to endpoint calls, see endpoint documentation
+
+| HTTP request | Methods | Description |
+| ------------ | ------- | ----------- |
+| / **get** | [Fake.slashRoute](docs/apis/tags/Fake.md#slashroute)  [Solidus.get](docs/paths/Solidus.md#get) [SolidusGet.get](paths/solidus/SolidusGet#get) | slash route |
+| /another-fake/dummy **patch** | [Anotherfake.model123TestSpecialTags](docs/apis/tags/Anotherfake.md#model123testspecialtags)  [Anotherfakedummy.patch](docs/paths/Anotherfakedummy.md#patch) [AnotherfakedummyPatch.patch](paths/anotherfakedummy/AnotherfakedummyPatch#patch) | To test special tags |
+| /commonParam/{subDir}/ **delete** | [Fake.deleteCommonParam](docs/apis/tags/Fake.md#deletecommonparam)  [Commonparamsubdir.delete](docs/paths/Commonparamsubdir.md#delete) [CommonparamsubdirDelete.delete](paths/commonparamsubdir/CommonparamsubdirDelete#delete) | |
+| /commonParam/{subDir}/ **get** | [Fake.getCommonParam](docs/apis/tags/Fake.md#getcommonparam)  [Commonparamsubdir.get](docs/paths/Commonparamsubdir.md#get) [CommonparamsubdirGet.get](paths/commonparamsubdir/CommonparamsubdirGet#get) | |
+| /commonParam/{subDir}/ **post** | [Fake.postCommonParam](docs/apis/tags/Fake.md#postcommonparam)  [Commonparamsubdir.post](docs/paths/Commonparamsubdir.md#post) [CommonparamsubdirPost.post](paths/commonparamsubdir/CommonparamsubdirPost#post) | |
+| /fake **delete** | [Fake.groupParameters](docs/apis/tags/Fake.md#groupparameters)  [Fake.delete](docs/paths/Fake.md#delete) [FakeDelete.delete](paths/fake/FakeDelete#delete) | Fake endpoint to test group parameters (optional) |
+| /fake **get** | [Fake.enumParameters](docs/apis/tags/Fake.md#enumparameters)  [Fake.get](docs/paths/Fake.md#get) [FakeGet.get](paths/fake/FakeGet#get) | To test enum parameters |
+| /fake **patch** | [Fake.clientModel](docs/apis/tags/Fake.md#clientmodel)  [Fake.patch](docs/paths/Fake.md#patch) [FakePatch.patch](paths/fake/FakePatch#patch) | To test &quot;client&quot; model |
+| /fake **post** | [Fake.endpointParameters](docs/apis/tags/Fake.md#endpointparameters)  [Fake.post](docs/paths/Fake.md#post) [FakePost.post](paths/fake/FakePost#post) | Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br> |
+| /fake/additional-properties-with-array-of-enums **get** | [Fake.additionalPropertiesWithArrayOfEnums](docs/apis/tags/Fake.md#additionalpropertieswitharrayofenums)  [Fakeadditionalpropertieswitharrayofenums.get](docs/paths/Fakeadditionalpropertieswitharrayofenums.md#get) [FakeadditionalpropertieswitharrayofenumsGet.get](paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet#get) | Additional Properties with Array of Enums |
+| /fake/body-with-file-schema **put** | [Fake.bodyWithFileSchema](docs/apis/tags/Fake.md#bodywithfileschema)  [Fakebodywithfileschema.put](docs/paths/Fakebodywithfileschema.md#put) [FakebodywithfileschemaPut.put](paths/fakebodywithfileschema/FakebodywithfileschemaPut#put) | |
+| /fake/body-with-query-params **put** | [Fake.bodyWithQueryParams](docs/apis/tags/Fake.md#bodywithqueryparams)  [Fakebodywithqueryparams.put](docs/paths/Fakebodywithqueryparams.md#put) [FakebodywithqueryparamsPut.put](paths/fakebodywithqueryparams/FakebodywithqueryparamsPut#put) | |
+| /fake/case-sensitive-params **put** | [Fake.caseSensitiveParams](docs/apis/tags/Fake.md#casesensitiveparams)  [Fakecasesensitiveparams.put](docs/paths/Fakecasesensitiveparams.md#put) [FakecasesensitiveparamsPut.put](paths/fakecasesensitiveparams/FakecasesensitiveparamsPut#put) | |
+| /fake/deleteCoffee/{id} **delete** | [Fake.deleteCoffee](docs/apis/tags/Fake.md#deletecoffee)  [Fakedeletecoffeeid.delete](docs/paths/Fakedeletecoffeeid.md#delete) [FakedeletecoffeeidDelete.delete](paths/fakedeletecoffeeid/FakedeletecoffeeidDelete#delete) | Delete coffee |
+| /fake/health **get** | [Fake.fakeHealthGet](docs/apis/tags/Fake.md#fakehealthget)  [Fakehealth.get](docs/paths/Fakehealth.md#get) [FakehealthGet.get](paths/fakehealth/FakehealthGet#get) | Health check endpoint |
+| /fake/inline-additionalProperties **post** | [Fake.inlineAdditionalProperties](docs/apis/tags/Fake.md#inlineadditionalproperties)  [Fakeinlineadditionalproperties.post](docs/paths/Fakeinlineadditionalproperties.md#post) [FakeinlineadditionalpropertiesPost.post](paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost#post) | test inline additionalProperties |
+| /fake/inlineComposition/ **post** | [Fake.inlineComposition](docs/apis/tags/Fake.md#inlinecomposition)  [Fakeinlinecomposition.post](docs/paths/Fakeinlinecomposition.md#post) [FakeinlinecompositionPost.post](paths/fakeinlinecomposition/FakeinlinecompositionPost#post) | testing composed schemas at inline locations |
+| /fake/jsonFormData **get** | [Fake.jsonFormData](docs/apis/tags/Fake.md#jsonformdata)  [Fakejsonformdata.get](docs/paths/Fakejsonformdata.md#get) [FakejsonformdataGet.get](paths/fakejsonformdata/FakejsonformdataGet#get) | test json serialization of form data |
+| /fake/jsonPatch **patch** | [Fake.jsonPatch](docs/apis/tags/Fake.md#jsonpatch)  [Fakejsonpatch.patch](docs/paths/Fakejsonpatch.md#patch) [FakejsonpatchPatch.patch](paths/fakejsonpatch/FakejsonpatchPatch#patch) | json patch |
+| /fake/jsonWithCharset **post** | [Fake.jsonWithCharset](docs/apis/tags/Fake.md#jsonwithcharset)  [Fakejsonwithcharset.post](docs/paths/Fakejsonwithcharset.md#post) [FakejsonwithcharsetPost.post](paths/fakejsonwithcharset/FakejsonwithcharsetPost#post) | json with charset tx and rx |
+| /fake/multipleRequestBodyContentTypes/ **post** | [Fake.multipleRequestBodyContentTypes](docs/apis/tags/Fake.md#multiplerequestbodycontenttypes)  [Fakemultiplerequestbodycontenttypes.post](docs/paths/Fakemultiplerequestbodycontenttypes.md#post) [FakemultiplerequestbodycontenttypesPost.post](paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost#post) | testing composed schemas at inline locations |
+| /fake/multipleResponseBodies **get** | [Fake.multipleResponseBodies](docs/apis/tags/Fake.md#multipleresponsebodies)  [Fakemultipleresponsebodies.get](docs/paths/Fakemultipleresponsebodies.md#get) [FakemultipleresponsebodiesGet.get](paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet#get) | multiple responses have response bodies |
+| /fake/multipleSecurities **get** | [Fake.multipleSecurities](docs/apis/tags/Fake.md#multiplesecurities)  [Fakemultiplesecurities.get](docs/paths/Fakemultiplesecurities.md#get) [FakemultiplesecuritiesGet.get](paths/fakemultiplesecurities/FakemultiplesecuritiesGet#get) | multiple security requirements |
+| /fake/objInQuery **get** | [Fake.objectInQuery](docs/apis/tags/Fake.md#objectinquery)  [Fakeobjinquery.get](docs/paths/Fakeobjinquery.md#get) [FakeobjinqueryGet.get](paths/fakeobjinquery/FakeobjinqueryGet#get) | user list |
+| /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ **post** | [Fake.parameterCollisions](docs/apis/tags/Fake.md#parametercollisions)  [Fakeparametercollisions1ababselfab.post](docs/paths/Fakeparametercollisions1ababselfab.md#post) [Fakeparametercollisions1ababselfabPost.post](paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost#post) | parameter collision case |
+| /fake/pemContentType **get** | [Fake.pemContentType](docs/apis/tags/Fake.md#pemcontenttype)  [Fakepemcontenttype.get](docs/paths/Fakepemcontenttype.md#get) [FakepemcontenttypeGet.get](paths/fakepemcontenttype/FakepemcontenttypeGet#get) | route with tx and rx pem content type |
+| /fake/queryParamWithJsonContentType **get** | [Fake.queryParamWithJsonContentType](docs/apis/tags/Fake.md#queryparamwithjsoncontenttype)  [Fakequeryparamwithjsoncontenttype.get](docs/paths/Fakequeryparamwithjsoncontenttype.md#get) [FakequeryparamwithjsoncontenttypeGet.get](paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet#get) | query param with json content-type |
+| /fake/redirection **get** | [Fake.redirection](docs/apis/tags/Fake.md#redirection)  [Fakeredirection.get](docs/paths/Fakeredirection.md#get) [FakeredirectionGet.get](paths/fakeredirection/FakeredirectionGet#get) | operation with redirection responses |
+| /fake/refObjInQuery **get** | [Fake.refObjectInQuery](docs/apis/tags/Fake.md#refobjectinquery)  [Fakerefobjinquery.get](docs/paths/Fakerefobjinquery.md#get) [FakerefobjinqueryGet.get](paths/fakerefobjinquery/FakerefobjinqueryGet#get) | user list |
+| /fake/refs/array-of-enums **post** | [Fake.arrayOfEnums](docs/apis/tags/Fake.md#arrayofenums)  [Fakerefsarrayofenums.post](docs/paths/Fakerefsarrayofenums.md#post) [FakerefsarrayofenumsPost.post](paths/fakerefsarrayofenums/FakerefsarrayofenumsPost#post) | Array of Enums |
+| /fake/refs/arraymodel **post** | [Fake.arrayModel](docs/apis/tags/Fake.md#arraymodel)  [Fakerefsarraymodel.post](docs/paths/Fakerefsarraymodel.md#post) [FakerefsarraymodelPost.post](paths/fakerefsarraymodel/FakerefsarraymodelPost#post) | |
+| /fake/refs/boolean **post** | [Fake.modelBoolean](docs/apis/tags/Fake.md#modelboolean)  [Fakerefsboolean.post](docs/paths/Fakerefsboolean.md#post) [FakerefsbooleanPost.post](paths/fakerefsboolean/FakerefsbooleanPost#post) | |
+| /fake/refs/composed_one_of_number_with_validations **post** | [Fake.composedOneOfDifferentTypes](docs/apis/tags/Fake.md#composedoneofdifferenttypes)  [Fakerefscomposedoneofnumberwithvalidations.post](docs/paths/Fakerefscomposedoneofnumberwithvalidations.md#post) [FakerefscomposedoneofnumberwithvalidationsPost.post](paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost#post) | |
+| /fake/refs/enum **post** | [Fake.stringEnum](docs/apis/tags/Fake.md#stringenum)  [Fakerefsenum.post](docs/paths/Fakerefsenum.md#post) [FakerefsenumPost.post](paths/fakerefsenum/FakerefsenumPost#post) | |
+| /fake/refs/mammal **post** | [Fake.mammal](docs/apis/tags/Fake.md#mammal)  [Fakerefsmammal.post](docs/paths/Fakerefsmammal.md#post) [FakerefsmammalPost.post](paths/fakerefsmammal/FakerefsmammalPost#post) | |
+| /fake/refs/number **post** | [Fake.numberWithValidations](docs/apis/tags/Fake.md#numberwithvalidations)  [Fakerefsnumber.post](docs/paths/Fakerefsnumber.md#post) [FakerefsnumberPost.post](paths/fakerefsnumber/FakerefsnumberPost#post) | |
+| /fake/refs/object_model_with_ref_props **post** | [Fake.objectModelWithRefProps](docs/apis/tags/Fake.md#objectmodelwithrefprops)  [Fakerefsobjectmodelwithrefprops.post](docs/paths/Fakerefsobjectmodelwithrefprops.md#post) [FakerefsobjectmodelwithrefpropsPost.post](paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost#post) | |
+| /fake/refs/string **post** | [Fake.modelString](docs/apis/tags/Fake.md#modelstring)  [Fakerefsstring.post](docs/paths/Fakerefsstring.md#post) [FakerefsstringPost.post](paths/fakerefsstring/FakerefsstringPost#post) | |
+| /fake/responseWithoutSchema **get** | [Fake.responseWithoutSchema](docs/apis/tags/Fake.md#responsewithoutschema)  [Fakeresponsewithoutschema.get](docs/paths/Fakeresponsewithoutschema.md#get) [FakeresponsewithoutschemaGet.get](paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet#get) | receives a response without schema |
+| /fake/test-query-paramters **put** | [Fake.queryParameterCollectionFormat](docs/apis/tags/Fake.md#queryparametercollectionformat)  [Faketestqueryparamters.put](docs/paths/Faketestqueryparamters.md#put) [FaketestqueryparamtersPut.put](paths/faketestqueryparamters/FaketestqueryparamtersPut#put) | |
+| /fake/uploadDownloadFile **post** | [Fake.uploadDownloadFile](docs/apis/tags/Fake.md#uploaddownloadfile)  [Fakeuploaddownloadfile.post](docs/paths/Fakeuploaddownloadfile.md#post) [FakeuploaddownloadfilePost.post](paths/fakeuploaddownloadfile/FakeuploaddownloadfilePost#post) | uploads a file and downloads a file using application/octet-stream |
+| /fake/uploadFile **post** | [Fake.uploadFile](docs/apis/tags/Fake.md#uploadfile)  [Fakeuploadfile.post](docs/paths/Fakeuploadfile.md#post) [FakeuploadfilePost.post](paths/fakeuploadfile/FakeuploadfilePost#post) | uploads a file using multipart/form-data |
+| /fake/uploadFiles **post** | [Fake.uploadFiles](docs/apis/tags/Fake.md#uploadfiles)  [Fakeuploadfiles.post](docs/paths/Fakeuploadfiles.md#post) [FakeuploadfilesPost.post](paths/fakeuploadfiles/FakeuploadfilesPost#post) | uploads files using multipart/form-data |
+| /fake/wildCardResponses **get** | [Fake.wildCardResponses](docs/apis/tags/Fake.md#wildcardresponses)  [Fakewildcardresponses.get](docs/paths/Fakewildcardresponses.md#get) [FakewildcardresponsesGet.get](paths/fakewildcardresponses/FakewildcardresponsesGet#get) | operation with wildcard responses |
+| /fake/{petId}/uploadImageWithRequiredFile **post** | [Pet.uploadFileWithRequiredFile](docs/apis/tags/Pet.md#uploadfilewithrequiredfile)  [Fakepetiduploadimagewithrequiredfile.post](docs/paths/Fakepetiduploadimagewithrequiredfile.md#post) [FakepetiduploadimagewithrequiredfilePost.post](paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost#post) | uploads an image (required) |
+| /fake_classname_test **patch** | [Fakeclassnametags123.classname](docs/apis/tags/Fakeclassnametags123.md#classname)  [Fakeclassnametest.patch](docs/paths/Fakeclassnametest.md#patch) [FakeclassnametestPatch.patch](paths/fakeclassnametest/FakeclassnametestPatch#patch) | To test class name in snake case |
+| /foo **get** | [Default.fooGet](docs/apis/tags/Default.md#fooget)  [Foo.get](docs/paths/Foo.md#get) [FooGet.get](paths/foo/FooGet#get) | |
+| /pet **post** | [Pet.addPet](docs/apis/tags/Pet.md#addpet)  [Pet.post](docs/paths/Pet.md#post) [PetPost.post](paths/pet/PetPost#post) | Add a new pet to the store |
+| /pet **put** | [Pet.updatePet](docs/apis/tags/Pet.md#updatepet)  [Pet.put](docs/paths/Pet.md#put) [PetPut.put](paths/pet/PetPut#put) | Update an existing pet |
+| /pet/findByStatus **get** | [Pet.findPetsByStatus](docs/apis/tags/Pet.md#findpetsbystatus)  [Petfindbystatus.get](docs/paths/Petfindbystatus.md#get) [PetfindbystatusGet.get](paths/petfindbystatus/PetfindbystatusGet#get) | Finds Pets by status |
+| /pet/findByTags **get** | [Pet.findPetsByTags](docs/apis/tags/Pet.md#findpetsbytags)  [Petfindbytags.get](docs/paths/Petfindbytags.md#get) [PetfindbytagsGet.get](paths/petfindbytags/PetfindbytagsGet#get) | Finds Pets by tags |
+| /pet/{petId} **delete** | [Pet.deletePet](docs/apis/tags/Pet.md#deletepet)  [Petpetid.delete](docs/paths/Petpetid.md#delete) [PetpetidDelete.delete](paths/petpetid/PetpetidDelete#delete) | Deletes a pet |
+| /pet/{petId} **get** | [Pet.getPetById](docs/apis/tags/Pet.md#getpetbyid)  [Petpetid.get](docs/paths/Petpetid.md#get) [PetpetidGet.get](paths/petpetid/PetpetidGet#get) | Find pet by ID |
+| /pet/{petId} **post** | [Pet.updatePetWithForm](docs/apis/tags/Pet.md#updatepetwithform)  [Petpetid.post](docs/paths/Petpetid.md#post) [PetpetidPost.post](paths/petpetid/PetpetidPost#post) | Updates a pet in the store with form data |
+| /pet/{petId}/uploadImage **post** | [Pet.uploadImage](docs/apis/tags/Pet.md#uploadimage)  [Petpetiduploadimage.post](docs/paths/Petpetiduploadimage.md#post) [PetpetiduploadimagePost.post](paths/petpetiduploadimage/PetpetiduploadimagePost#post) | uploads an image |
+| /store/inventory **get** | [Store.getInventory](docs/apis/tags/Store.md#getinventory)  [Storeinventory.get](docs/paths/Storeinventory.md#get) [StoreinventoryGet.get](paths/storeinventory/StoreinventoryGet#get) | Returns pet inventories by status |
+| /store/order **post** | [Store.placeOrder](docs/apis/tags/Store.md#placeorder)  [Storeorder.post](docs/paths/Storeorder.md#post) [StoreorderPost.post](paths/storeorder/StoreorderPost#post) | Place an order for a pet |
+| /store/order/{order_id} **delete** | [Store.deleteOrder](docs/apis/tags/Store.md#deleteorder)  [Storeorderorderid.delete](docs/paths/Storeorderorderid.md#delete) [StoreorderorderidDelete.delete](paths/storeorderorderid/StoreorderorderidDelete#delete) | Delete purchase order by ID |
+| /store/order/{order_id} **get** | [Store.getOrderById](docs/apis/tags/Store.md#getorderbyid)  [Storeorderorderid.get](docs/paths/Storeorderorderid.md#get) [StoreorderorderidGet.get](paths/storeorderorderid/StoreorderorderidGet#get) | Find purchase order by ID |
+| /user **post** | [User.createUser](docs/apis/tags/User.md#createuser)  [User.post](docs/paths/User.md#post) [UserPost.post](paths/user/UserPost#post) | Create user |
+| /user/createWithArray **post** | [User.createUsersWithArrayInput](docs/apis/tags/User.md#createuserswitharrayinput)  [Usercreatewitharray.post](docs/paths/Usercreatewitharray.md#post) [UsercreatewitharrayPost.post](paths/usercreatewitharray/UsercreatewitharrayPost#post) | Creates list of users with given input array |
+| /user/createWithList **post** | [User.createUsersWithListInput](docs/apis/tags/User.md#createuserswithlistinput)  [Usercreatewithlist.post](docs/paths/Usercreatewithlist.md#post) [UsercreatewithlistPost.post](paths/usercreatewithlist/UsercreatewithlistPost#post) | Creates list of users with given input array |
+| /user/login **get** | [User.loginUser](docs/apis/tags/User.md#loginuser)  [Userlogin.get](docs/paths/Userlogin.md#get) [UserloginGet.get](paths/userlogin/UserloginGet#get) | Logs user into the system |
+| /user/logout **get** | [User.logoutUser](docs/apis/tags/User.md#logoutuser)  [Userlogout.get](docs/paths/Userlogout.md#get) [UserlogoutGet.get](paths/userlogout/UserlogoutGet#get) | Logs out current logged in user session |
+| /user/{username} **delete** | [User.deleteUser](docs/apis/tags/User.md#deleteuser)  [Userusername.delete](docs/paths/Userusername.md#delete) [UserusernameDelete.delete](paths/userusername/UserusernameDelete#delete) | Delete user |
+| /user/{username} **get** | [User.getUserByName](docs/apis/tags/User.md#getuserbyname)  [Userusername.get](docs/paths/Userusername.md#get) [UserusernameGet.get](paths/userusername/UserusernameGet#get) | Get user by user name |
+| /user/{username} **put** | [User.updateUser](docs/apis/tags/User.md#updateuser)  [Userusername.put](docs/paths/Userusername.md#put) [UserusernamePut.put](paths/userusername/UserusernamePut#put) | Updated user |
+
+## Component Schemas
 | Class | Description |
 | ----- | ----------- |
 | [Schema200Response.Schema200Response1](docs/components/schemas/Schema200Response.md#schema200response1) | model with an invalid class name for python, starts with a number |
@@ -301,86 +452,7 @@ allowed input and output types.
 | [Whale.Whale1](docs/components/schemas/Whale.md#whale1) | |
 | [Zebra.Zebra1](docs/components/schemas/Zebra.md#zebra1) | |
 
-## Endpoints
-
-All URIs are relative to the selected server
-- The server is selected by passing in serverInfo into configurations.ApiConfiguration
-- The security info is selected by passing in securityInfo into configurations.ApiConfiguration
-- TODO Code samples in endpoints documents show how to do this
-- serverIndex + securityIndex can also be passed in to endpoint calls, see endpoint documentation
-
-| HTTP request | Method | Description |
-| ------------ | ------ | ----------- |
-| / **get** | [SolidusGet1.get](docs/paths/solidus/SolidusGet.md#solidusget1) | slash route |
-| /another-fake/dummy **patch** | [AnotherfakedummyPatch1.patch](docs/paths/anotherfakedummy/AnotherfakedummyPatch.md#anotherfakedummypatch1) | To test special tags |
-| /commonParam/{subDir}/ **delete** | [CommonparamsubdirDelete1.delete](docs/paths/commonparamsubdir/CommonparamsubdirDelete.md#commonparamsubdirdelete1) | |
-| /commonParam/{subDir}/ **get** | [CommonparamsubdirGet1.get](docs/paths/commonparamsubdir/CommonparamsubdirGet.md#commonparamsubdirget1) | |
-| /commonParam/{subDir}/ **post** | [CommonparamsubdirPost1.post](docs/paths/commonparamsubdir/CommonparamsubdirPost.md#commonparamsubdirpost1) | |
-| /fake **delete** | [FakeDelete1.delete](docs/paths/fake/FakeDelete.md#fakedelete1) | Fake endpoint to test group parameters (optional) |
-| /fake **get** | [FakeGet1.get](docs/paths/fake/FakeGet.md#fakeget1) | To test enum parameters |
-| /fake **patch** | [FakePatch1.patch](docs/paths/fake/FakePatch.md#fakepatch1) | To test &quot;client&quot; model |
-| /fake **post** | [FakePost1.post](docs/paths/fake/FakePost.md#fakepost1) | Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br> |
-| /fake/additional-properties-with-array-of-enums **get** | [FakeadditionalpropertieswitharrayofenumsGet1.get](docs/paths/fakeadditionalpropertieswitharrayofenums/FakeadditionalpropertieswitharrayofenumsGet.md#fakeadditionalpropertieswitharrayofenumsget1) | Additional Properties with Array of Enums |
-| /fake/body-with-file-schema **put** | [FakebodywithfileschemaPut1.put](docs/paths/fakebodywithfileschema/FakebodywithfileschemaPut.md#fakebodywithfileschemaput1) | |
-| /fake/body-with-query-params **put** | [FakebodywithqueryparamsPut1.put](docs/paths/fakebodywithqueryparams/FakebodywithqueryparamsPut.md#fakebodywithqueryparamsput1) | |
-| /fake/case-sensitive-params **put** | [FakecasesensitiveparamsPut1.put](docs/paths/fakecasesensitiveparams/FakecasesensitiveparamsPut.md#fakecasesensitiveparamsput1) | |
-| /fake/deleteCoffee/{id} **delete** | [FakedeletecoffeeidDelete1.delete](docs/paths/fakedeletecoffeeid/FakedeletecoffeeidDelete.md#fakedeletecoffeeiddelete1) | Delete coffee |
-| /fake/health **get** | [FakehealthGet1.get](docs/paths/fakehealth/FakehealthGet.md#fakehealthget1) | Health check endpoint |
-| /fake/inline-additionalProperties **post** | [FakeinlineadditionalpropertiesPost1.post](docs/paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#fakeinlineadditionalpropertiespost1) | test inline additionalProperties |
-| /fake/inlineComposition/ **post** | [FakeinlinecompositionPost1.post](docs/paths/fakeinlinecomposition/FakeinlinecompositionPost.md#fakeinlinecompositionpost1) | testing composed schemas at inline locations |
-| /fake/jsonFormData **get** | [FakejsonformdataGet1.get](docs/paths/fakejsonformdata/FakejsonformdataGet.md#fakejsonformdataget1) | test json serialization of form data |
-| /fake/jsonPatch **patch** | [FakejsonpatchPatch1.patch](docs/paths/fakejsonpatch/FakejsonpatchPatch.md#fakejsonpatchpatch1) | json patch |
-| /fake/jsonWithCharset **post** | [FakejsonwithcharsetPost1.post](docs/paths/fakejsonwithcharset/FakejsonwithcharsetPost.md#fakejsonwithcharsetpost1) | json with charset tx and rx |
-| /fake/multipleRequestBodyContentTypes/ **post** | [FakemultiplerequestbodycontenttypesPost1.post](docs/paths/fakemultiplerequestbodycontenttypes/FakemultiplerequestbodycontenttypesPost.md#fakemultiplerequestbodycontenttypespost1) | testing composed schemas at inline locations |
-| /fake/multipleResponseBodies **get** | [FakemultipleresponsebodiesGet1.get](docs/paths/fakemultipleresponsebodies/FakemultipleresponsebodiesGet.md#fakemultipleresponsebodiesget1) | multiple responses have response bodies |
-| /fake/multipleSecurities **get** | [FakemultiplesecuritiesGet1.get](docs/paths/fakemultiplesecurities/FakemultiplesecuritiesGet.md#fakemultiplesecuritiesget1) | multiple security requirements |
-| /fake/objInQuery **get** | [FakeobjinqueryGet1.get](docs/paths/fakeobjinquery/FakeobjinqueryGet.md#fakeobjinqueryget1) | user list |
-| /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ **post** | [Fakeparametercollisions1ababselfabPost1.post](docs/paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#fakeparametercollisions1ababselfabpost1) | parameter collision case |
-| /fake/pemContentType **get** | [FakepemcontenttypeGet1.get](docs/paths/fakepemcontenttype/FakepemcontenttypeGet.md#fakepemcontenttypeget1) | route with tx and rx pem content type |
-| /fake/queryParamWithJsonContentType **get** | [FakequeryparamwithjsoncontenttypeGet1.get](docs/paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#fakequeryparamwithjsoncontenttypeget1) | query param with json content-type |
-| /fake/redirection **get** | [FakeredirectionGet1.get](docs/paths/fakeredirection/FakeredirectionGet.md#fakeredirectionget1) | operation with redirection responses |
-| /fake/refObjInQuery **get** | [FakerefobjinqueryGet1.get](docs/paths/fakerefobjinquery/FakerefobjinqueryGet.md#fakerefobjinqueryget1) | user list |
-| /fake/refs/array-of-enums **post** | [FakerefsarrayofenumsPost1.post](docs/paths/fakerefsarrayofenums/FakerefsarrayofenumsPost.md#fakerefsarrayofenumspost1) | Array of Enums |
-| /fake/refs/arraymodel **post** | [FakerefsarraymodelPost1.post](docs/paths/fakerefsarraymodel/FakerefsarraymodelPost.md#fakerefsarraymodelpost1) | |
-| /fake/refs/boolean **post** | [FakerefsbooleanPost1.post](docs/paths/fakerefsboolean/FakerefsbooleanPost.md#fakerefsbooleanpost1) | |
-| /fake/refs/composed_one_of_number_with_validations **post** | [FakerefscomposedoneofnumberwithvalidationsPost1.post](docs/paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost.md#fakerefscomposedoneofnumberwithvalidationspost1) | |
-| /fake/refs/enum **post** | [FakerefsenumPost1.post](docs/paths/fakerefsenum/FakerefsenumPost.md#fakerefsenumpost1) | |
-| /fake/refs/mammal **post** | [FakerefsmammalPost1.post](docs/paths/fakerefsmammal/FakerefsmammalPost.md#fakerefsmammalpost1) | |
-| /fake/refs/number **post** | [FakerefsnumberPost1.post](docs/paths/fakerefsnumber/FakerefsnumberPost.md#fakerefsnumberpost1) | |
-| /fake/refs/object_model_with_ref_props **post** | [FakerefsobjectmodelwithrefpropsPost1.post](docs/paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#fakerefsobjectmodelwithrefpropspost1) | |
-| /fake/refs/string **post** | [FakerefsstringPost1.post](docs/paths/fakerefsstring/FakerefsstringPost.md#fakerefsstringpost1) | |
-| /fake/responseWithoutSchema **get** | [FakeresponsewithoutschemaGet1.get](docs/paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet.md#fakeresponsewithoutschemaget1) | receives a response without schema |
-| /fake/test-query-paramters **put** | [FaketestqueryparamtersPut1.put](docs/paths/faketestqueryparamters/FaketestqueryparamtersPut.md#faketestqueryparamtersput1) | |
-| /fake/uploadDownloadFile **post** | [FakeuploaddownloadfilePost1.post](docs/paths/fakeuploaddownloadfile/FakeuploaddownloadfilePost.md#fakeuploaddownloadfilepost1) | uploads a file and downloads a file using application/octet-stream |
-| /fake/uploadFile **post** | [FakeuploadfilePost1.post](docs/paths/fakeuploadfile/FakeuploadfilePost.md#fakeuploadfilepost1) | uploads a file using multipart/form-data |
-| /fake/uploadFiles **post** | [FakeuploadfilesPost1.post](docs/paths/fakeuploadfiles/FakeuploadfilesPost.md#fakeuploadfilespost1) | uploads files using multipart/form-data |
-| /fake/wildCardResponses **get** | [FakewildcardresponsesGet1.get](docs/paths/fakewildcardresponses/FakewildcardresponsesGet.md#fakewildcardresponsesget1) | operation with wildcard responses |
-| /fake/{petId}/uploadImageWithRequiredFile **post** | [FakepetiduploadimagewithrequiredfilePost1.post](docs/paths/fakepetiduploadimagewithrequiredfile/FakepetiduploadimagewithrequiredfilePost.md#fakepetiduploadimagewithrequiredfilepost1) | uploads an image (required) |
-| /fake_classname_test **patch** | [FakeclassnametestPatch1.patch](docs/paths/fakeclassnametest/FakeclassnametestPatch.md#fakeclassnametestpatch1) | To test class name in snake case |
-| /foo **get** | [FooGet1.get](docs/paths/foo/FooGet.md#fooget1) | |
-| /pet **post** | [PetPost1.post](docs/paths/pet/PetPost.md#petpost1) | Add a new pet to the store |
-| /pet **put** | [PetPut1.put](docs/paths/pet/PetPut.md#petput1) | Update an existing pet |
-| /pet/findByStatus **get** | [PetfindbystatusGet1.get](docs/paths/petfindbystatus/PetfindbystatusGet.md#petfindbystatusget1) | Finds Pets by status |
-| /pet/findByTags **get** | [PetfindbytagsGet1.get](docs/paths/petfindbytags/PetfindbytagsGet.md#petfindbytagsget1) | Finds Pets by tags |
-| /pet/{petId} **delete** | [PetpetidDelete1.delete](docs/paths/petpetid/PetpetidDelete.md#petpetiddelete1) | Deletes a pet |
-| /pet/{petId} **get** | [PetpetidGet1.get](docs/paths/petpetid/PetpetidGet.md#petpetidget1) | Find pet by ID |
-| /pet/{petId} **post** | [PetpetidPost1.post](docs/paths/petpetid/PetpetidPost.md#petpetidpost1) | Updates a pet in the store with form data |
-| /pet/{petId}/uploadImage **post** | [PetpetiduploadimagePost1.post](docs/paths/petpetiduploadimage/PetpetiduploadimagePost.md#petpetiduploadimagepost1) | uploads an image |
-| /store/inventory **get** | [StoreinventoryGet1.get](docs/paths/storeinventory/StoreinventoryGet.md#storeinventoryget1) | Returns pet inventories by status |
-| /store/order **post** | [StoreorderPost1.post](docs/paths/storeorder/StoreorderPost.md#storeorderpost1) | Place an order for a pet |
-| /store/order/{order_id} **delete** | [StoreorderorderidDelete1.delete](docs/paths/storeorderorderid/StoreorderorderidDelete.md#storeorderorderiddelete1) | Delete purchase order by ID |
-| /store/order/{order_id} **get** | [StoreorderorderidGet1.get](docs/paths/storeorderorderid/StoreorderorderidGet.md#storeorderorderidget1) | Find purchase order by ID |
-| /user **post** | [UserPost1.post](docs/paths/user/UserPost.md#userpost1) | Create user |
-| /user/createWithArray **post** | [UsercreatewitharrayPost1.post](docs/paths/usercreatewitharray/UsercreatewitharrayPost.md#usercreatewitharraypost1) | Creates list of users with given input array |
-| /user/createWithList **post** | [UsercreatewithlistPost1.post](docs/paths/usercreatewithlist/UsercreatewithlistPost.md#usercreatewithlistpost1) | Creates list of users with given input array |
-| /user/login **get** | [UserloginGet1.get](docs/paths/userlogin/UserloginGet.md#userloginget1) | Logs user into the system |
-| /user/logout **get** | [UserlogoutGet1.get](docs/paths/userlogout/UserlogoutGet.md#userlogoutget1) | Logs out current logged in user session |
-| /user/{username} **delete** | [UserusernameDelete1.delete](docs/paths/userusername/UserusernameDelete.md#userusernamedelete1) | Delete user |
-| /user/{username} **get** | [UserusernameGet1.get](docs/paths/userusername/UserusernameGet.md#userusernameget1) | Get user by user name |
-| /user/{username} **put** | [UserusernamePut1.put](docs/paths/userusername/UserusernamePut.md#userusernameput1) | Updated user |
-
 ## Component RequestBodies
-
 | Class | Description |
 | ----- | ----------- |
 | [Client.Client1](docs/components/requestbodies/Client.md#client1) | client model |
@@ -389,7 +461,6 @@ All URIs are relative to the selected server
 | [UserArray.UserArray1](docs/components/requestbodies/UserArray.md#userarray1) | List of user object |
 
 ## Component Responses
-
 | Class | Description |
 | ----- | ----------- |
 | [HeadersWithNoBody.HeadersWithNoBody1](docs/components/responses/HeadersWithNoBody.md#headerswithnobody1) | A response that contains headers but no body<br>|
@@ -401,7 +472,6 @@ All URIs are relative to the selected server
 | [SuccessfulXmlAndJsonArrayOfPet.SuccessfulXmlAndJsonArrayOfPet1](docs/components/responses/SuccessfulXmlAndJsonArrayOfPet.md#successfulxmlandjsonarrayofpet1) | successful operation, multiple content types|
 
 ## Component Headers
-
 | Class | Description |
 | ----- | ----------- |
 | [Int32JsonContentTypeHeader.Int32JsonContentTypeHeader1](docs/components/headers/Int32JsonContentTypeHeader.md#int32jsoncontenttypeheader1) | int32 JSON content-type header |
@@ -412,22 +482,9 @@ All URIs are relative to the selected server
 | [StringHeader.StringHeader1](docs/components/headers/StringHeader.md#stringheader1) | string header description |
 
 ## Component Parameters
-
 | Class | Description |
 | ----- | ----------- |
 | [ComponentRefSchemaStringWithValidation.ComponentRefSchemaStringWithValidation1](docs/components/parameters/ComponentRefSchemaStringWithValidation.md#componentrefschemastringwithvalidation1) | a path string with validation |
 | [PathUserName.PathUserName1](docs/components/parameters/PathUserName.md#pathusername1) | the use name to use |
 | [RefPathUserName.RefPathUserName1](docs/components/parameters/RefPathUserName.md#refpathusername1) | |
 | [RefSchemaStringWithValidation.RefSchemaStringWithValidation1](docs/components/parameters/RefSchemaStringWithValidation.md#refschemastringwithvalidation1) | a path string with validation |
-
-## Component SecuritySchemes
-
-| Class | Description |
-| ----- | ----------- |
-| [ApiKey](docs/components/securityschemes/ApiKey.md) | apiKey in header |
-| [ApiKeyQuery](docs/components/securityschemes/ApiKeyQuery.md) | apiKey in query |
-| [BearerTest](docs/components/securityschemes/BearerTest.md) | http bearer with JWT bearer format |
-| [HttpBasicTest](docs/components/securityschemes/HttpBasicTest.md) | http basic |
-| [HttpSignatureTest](docs/components/securityschemes/HttpSignatureTest.md) | http + signature |
-| [OpenIdConnectTest](docs/components/securityschemes/OpenIdConnectTest.md) | openIdConnect |
-| [PetstoreAuth](docs/components/securityschemes/PetstoreAuth.md) | oauth2 implicit flow with two scopes |
