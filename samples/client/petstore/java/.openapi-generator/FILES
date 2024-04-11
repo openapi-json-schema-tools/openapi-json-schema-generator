@@ -56,6 +56,13 @@ docs/apis/paths/Usercreatewithlist.md
 docs/apis/paths/Userlogin.md
 docs/apis/paths/Userlogout.md
 docs/apis/paths/Userusername.md
+docs/apis/tags/Anotherfake.md
+docs/apis/tags/Default.md
+docs/apis/tags/Fake.md
+docs/apis/tags/Fakeclassnametags123.md
+docs/apis/tags/Pet.md
+docs/apis/tags/Store.md
+docs/apis/tags/User.md
 docs/components/headers/Int32JsonContentTypeHeader.md
 docs/components/headers/NumberHeader.md
 docs/components/headers/RefContentSchemaHeader.md
