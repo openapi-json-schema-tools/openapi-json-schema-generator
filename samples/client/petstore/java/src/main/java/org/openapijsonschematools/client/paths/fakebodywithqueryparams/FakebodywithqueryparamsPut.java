@@ -90,13 +90,13 @@ public class FakebodywithqueryparamsPut {
 
     public static class PutRequest {
         public FakebodywithqueryparamsPutRequestBody.SealedRequestBody requestBody;
-        public FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters9 queryParameters;
+        public FakebodywithqueryparamsPutQueryParameters.QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
             FakebodywithqueryparamsPutRequestBody.SealedRequestBody requestBody,
-            FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters9 queryParameters,
+            FakebodywithqueryparamsPutQueryParameters.QueryParametersMap queryParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -109,7 +109,7 @@ public class FakebodywithqueryparamsPut {
 
     public static class PutNullableRequest {
         public FakebodywithqueryparamsPutRequestBody.@Nullable SealedRequestBody requestBody;
-        public FakebodywithqueryparamsPutQueryParameters.@Nullable FakebodywithqueryparamsPutQueryParameters9 queryParameters;
+        public FakebodywithqueryparamsPutQueryParameters.@Nullable QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -147,7 +147,7 @@ public class FakebodywithqueryparamsPut {
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PutNullableRequest instance);
-        default T queryParameters(FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters9 queryParameters) {
+        default T queryParameters(FakebodywithqueryparamsPutQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

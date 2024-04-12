@@ -86,9 +86,9 @@ Commonparamsubdir apiClient = new Commonparamsubdir(apiConfiguration, schemaConf
 
 
 // Map validation
-CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters9 pathParameters =
+CommonparamsubdirDeletePathParameters.PathParametersMap pathParameters =
     CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters1.validate(
-    new CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters8()
+    new CommonparamsubdirDeletePathParameters.PathParametersMapBuilder()
         .subDir("c")
 
     .build(),
@@ -186,9 +186,9 @@ Commonparamsubdir apiClient = new Commonparamsubdir(apiConfiguration, schemaConf
 
 
 // Map validation
-CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParameters9 pathParameters =
+CommonparamsubdirGetPathParameters.PathParametersMap pathParameters =
     CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParameters1.validate(
-    new CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParameters8()
+    new CommonparamsubdirGetPathParameters.PathParametersMapBuilder()
         .subDir("a")
 
     .build(),
@@ -286,9 +286,9 @@ Commonparamsubdir apiClient = new Commonparamsubdir(apiConfiguration, schemaConf
 
 
 // Map validation
-CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9 pathParameters =
+CommonparamsubdirPostPathParameters.PathParametersMap pathParameters =
     CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters1.validate(
-    new CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters8()
+    new CommonparamsubdirPostPathParameters.PathParametersMapBuilder()
         .subDir("a")
 
     .build(),

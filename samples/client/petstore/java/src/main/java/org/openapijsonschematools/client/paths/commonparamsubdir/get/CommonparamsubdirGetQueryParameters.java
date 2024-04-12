@@ -29,27 +29,27 @@ public class CommonparamsubdirGetQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class CommonparamsubdirGetQueryParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable CommonparamsubdirGetQueryParameters4 instance = null;
-        public static CommonparamsubdirGetQueryParameters4 getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new CommonparamsubdirGetQueryParameters4();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class CommonparamsubdirGetQueryParameters9 extends FrozenMap<String> {
-        protected CommonparamsubdirGetQueryParameters9(FrozenMap<String> m) {
+    public static class QueryParametersMap extends FrozenMap<String> {
+        protected QueryParametersMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "searchStr"
         );
-        public static CommonparamsubdirGetQueryParameters9 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return CommonparamsubdirGetQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -58,18 +58,18 @@ public class CommonparamsubdirGetQueryParameters {
         }
     }
     
-    public interface SetterForCommonparamsubdirGetQueryParameters2 <T> {
+    public interface SetterForSearchStr <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterCommonparamsubdirGetQueryParameters2(Map<String, String> instance);
+        T getBuilderAfterSearchStr(Map<String, String> instance);
         
         default T searchStr(String value) {
             var instance = getInstance();
             instance.put("searchStr", value);
-            return getBuilderAfterCommonparamsubdirGetQueryParameters2(instance);
+            return getBuilderAfterSearchStr(instance);
         }
     }
     
-    public static class CommonparamsubdirGetQueryParameters8 implements GenericBuilder<Map<String, String>>, SetterForCommonparamsubdirGetQueryParameters2<CommonparamsubdirGetQueryParameters8> {
+    public static class QueryParametersMapBuilder implements GenericBuilder<Map<String, String>>, SetterForSearchStr<QueryParametersMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "searchStr"
@@ -77,7 +77,7 @@ public class CommonparamsubdirGetQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public CommonparamsubdirGetQueryParameters8() {
+        public QueryParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> build() {
@@ -86,7 +86,7 @@ public class CommonparamsubdirGetQueryParameters {
         public Map<String, String> getInstance() {
             return instance;
         }
-        public CommonparamsubdirGetQueryParameters8 getBuilderAfterCommonparamsubdirGetQueryParameters2(Map<String, String> instance) {
+        public QueryParametersMapBuilder getBuilderAfterSearchStr(Map<String, String> instance) {
             return this;
         }
     }
@@ -96,7 +96,7 @@ public class CommonparamsubdirGetQueryParameters {
         @Nullable Object getData();
     }
     
-    public record CommonparamsubdirGetQueryParameters1BoxedMap(CommonparamsubdirGetQueryParameters9 data) implements CommonparamsubdirGetQueryParameters1Boxed {
+    public record CommonparamsubdirGetQueryParameters1BoxedMap(QueryParametersMap data) implements CommonparamsubdirGetQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -104,7 +104,7 @@ public class CommonparamsubdirGetQueryParameters {
     }
     
     
-    public static class CommonparamsubdirGetQueryParameters1 extends JsonSchema<CommonparamsubdirGetQueryParameters1Boxed> implements MapSchemaValidator<CommonparamsubdirGetQueryParameters9, CommonparamsubdirGetQueryParameters1BoxedMap> {
+    public static class CommonparamsubdirGetQueryParameters1 extends JsonSchema<CommonparamsubdirGetQueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, CommonparamsubdirGetQueryParameters1BoxedMap> {
         private static @Nullable CommonparamsubdirGetQueryParameters1 instance = null;
     
         protected CommonparamsubdirGetQueryParameters1() {
@@ -113,7 +113,7 @@ public class CommonparamsubdirGetQueryParameters {
                 .properties(Map.ofEntries(
                     new PropertyEntry("searchStr", Schema0.Schema01.class)
                 ))
-                .additionalProperties(CommonparamsubdirGetQueryParameters4.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -124,7 +124,7 @@ public class CommonparamsubdirGetQueryParameters {
             return instance;
         }
         
-        public CommonparamsubdirGetQueryParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -147,10 +147,10 @@ public class CommonparamsubdirGetQueryParameters {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new CommonparamsubdirGetQueryParameters9(castProperties);
+            return new QueryParametersMap(castProperties);
         }
         
-        public CommonparamsubdirGetQueryParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public QueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

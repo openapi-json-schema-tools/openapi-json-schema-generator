@@ -78,12 +78,12 @@ public class StoreorderorderidDelete {
     }
 
     public static class DeleteRequest {
-        public StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters9 pathParameters;
+        public StoreorderorderidDeletePathParameters.PathParametersMap pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters9 pathParameters,
+            StoreorderorderidDeletePathParameters.PathParametersMap pathParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -94,7 +94,7 @@ public class StoreorderorderidDelete {
     }
 
     public static class DeleteNullableRequest {
-        public StoreorderorderidDeletePathParameters.@Nullable StoreorderorderidDeletePathParameters9 pathParameters;
+        public StoreorderorderidDeletePathParameters.@Nullable PathParametersMap pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -122,7 +122,7 @@ public class StoreorderorderidDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters9 pathParameters) {
+        default T pathParameters(StoreorderorderidDeletePathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

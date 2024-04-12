@@ -76,9 +76,9 @@ UserusernameGet.Get apiClient = new UserusernameGet.Get(apiConfiguration, schema
 
 
 // Map validation
-UserusernameGetPathParameters.UserusernameGetPathParameters9 pathParameters =
+UserusernameGetPathParameters.PathParametersMap pathParameters =
     UserusernameGetPathParameters.UserusernameGetPathParameters1.validate(
-    new UserusernameGetPathParameters.UserusernameGetPathParameters8()
+    new UserusernameGetPathParameters.PathParametersMapBuilder()
         .username("a")
 
     .build(),
@@ -145,7 +145,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserusernameGetPathParameters.UserusernameGetPathParameters9](../../paths/userusername/get/UserusernameGetPathParameters.md#userusernamegetpathparameters9) | pathParameters |
+| [UserusernameGetPathParameters.PathParametersMap](../../paths/userusername/get/UserusernameGetPathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -157,7 +157,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserusernameGetPathParameters.@Nullable UserusernameGetPathParameters9](../../paths/userusername/get/UserusernameGetPathParameters.md#userusernamegetpathparameters9) | pathParameters |
+| [UserusernameGetPathParameters.@Nullable PathParametersMap](../../paths/userusername/get/UserusernameGetPathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -191,6 +191,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([UserusernameGetPathParametersUserusernameGetPathParameters9](../../paths/userusername/get/UserusernameGetPathParameters.md#userusernamegetpathparameters9) pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([UserusernameGetPathParametersPathParametersMap](../../paths/userusername/get/UserusernameGetPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

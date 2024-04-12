@@ -81,9 +81,9 @@ Fakecasesensitiveparams apiClient = new Fakecasesensitiveparams(apiConfiguration
 
 
 // Map validation
-FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters11 queryParameters =
+FakecasesensitiveparamsPutQueryParameters.QueryParametersMap queryParameters =
     FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters1.validate(
-    new FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters10()
+    new FakecasesensitiveparamsPutQueryParameters.QueryParametersMapBuilder()
         .SomeVar("a")
 
         .someVar("a")

@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters1Boxed](#commonparamsubdirpostpathparameters1boxed)<br> sealed interface for validated payloads |
 | record | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters1BoxedMap](#commonparamsubdirpostpathparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters1](#commonparamsubdirpostpathparameters1)<br> schema class |
-| static class | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters8](#commonparamsubdirpostpathparameters8)<br> builder for Map payloads |
-| static class | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9](#commonparamsubdirpostpathparameters9)<br> output class for Map payloads |
-| sealed interface | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters4Boxed](#commonparamsubdirpostpathparameters4boxed)<br> sealed interface for validated payloads |
-| record | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters4BoxedVoid](#commonparamsubdirpostpathparameters4boxedvoid)<br> boxed class to store validated null payloads |
-| record | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters4BoxedBoolean](#commonparamsubdirpostpathparameters4boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters4BoxedNumber](#commonparamsubdirpostpathparameters4boxednumber)<br> boxed class to store validated Number payloads |
-| record | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters4BoxedString](#commonparamsubdirpostpathparameters4boxedstring)<br> boxed class to store validated String payloads |
-| record | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters4BoxedList](#commonparamsubdirpostpathparameters4boxedlist)<br> boxed class to store validated List payloads |
-| record | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters4BoxedMap](#commonparamsubdirpostpathparameters4boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters4](#commonparamsubdirpostpathparameters4)<br> schema class |
+| static class | [CommonparamsubdirPostPathParameters.PathParametersMapBuilder](#pathparametersmapbuilder)<br> builder for Map payloads |
+| static class | [CommonparamsubdirPostPathParameters.PathParametersMap](#pathparametersmap)<br> output class for Map payloads |
+| sealed interface | [CommonparamsubdirPostPathParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [CommonparamsubdirPostPathParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [CommonparamsubdirPostPathParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [CommonparamsubdirPostPathParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [CommonparamsubdirPostPathParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [CommonparamsubdirPostPathParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [CommonparamsubdirPostPathParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [CommonparamsubdirPostPathParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## CommonparamsubdirPostPathParameters1Boxed
 public sealed interface CommonparamsubdirPostPathParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPostPathParameters1BoxedMap([CommonparamsubdirPostPathParameters9](#commonparamsubdirpostpathparameters9) data)<br>Creates an instance, private visibility |
+| CommonparamsubdirPostPathParameters1BoxedMap([PathParametersMap](#pathparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirPostPathParameters9](#commonparamsubdirpostpathparameters9) | data()<br>validated payload |
+| [PathParametersMap](#pathparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## CommonparamsubdirPostPathParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9 validatedPayload =
+CommonparamsubdirPostPathParameters.PathParametersMap validatedPayload =
     CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters1.validate(
-    new CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters8()
+    new CommonparamsubdirPostPathParameters.PathParametersMapBuilder()
         .subDir("a")
 
     .build(),
@@ -88,18 +88,18 @@ CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9 validat
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("subDir", [RouteParamSchema0.RouteParamSchema01.class](../../../paths/commonparamsubdir/parameters/routeparameter0/RouteParamSchema0.md#routeparamschema01))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"subDir"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [CommonparamsubdirPostPathParameters4.class](#commonparamsubdirpostpathparameters4) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirPostPathParameters9](#commonparamsubdirpostpathparameters9) | validate([Map&lt;?, ?&gt;](#commonparamsubdirpostpathparameters8) arg, SchemaConfiguration configuration) |
-| [CommonparamsubdirPostPathParameters1BoxedMap](#commonparamsubdirpostpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#commonparamsubdirpostpathparameters8) arg, SchemaConfiguration configuration) |
+| [PathParametersMap](#pathparametersmap) | validate([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [CommonparamsubdirPostPathParameters1BoxedMap](#commonparamsubdirpostpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [CommonparamsubdirPostPathParameters1Boxed](#commonparamsubdirpostpathparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## CommonparamsubdirPostPathParameters10
-public class CommonparamsubdirPostPathParameters10<br>
+## PathParametersMap0Builder
+public class PathParametersMap0Builder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -107,15 +107,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPostPathParameters10(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap0Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
-## CommonparamsubdirPostPathParameters8
-public class CommonparamsubdirPostPathParameters8<br>
+## PathParametersMapBuilder
+public class PathParametersMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -123,16 +123,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPostPathParameters8()<br>Creates a builder that contains an empty map |
+| PathParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirPostPathParameters10](#commonparamsubdirpostpathparameters10) | subDir(String value) |
-| [CommonparamsubdirPostPathParameters10](#commonparamsubdirpostpathparameters10) | subDir([RouteParamSchema0.StringRouteParamSchemaEnums0](../../../paths/commonparamsubdir/parameters/routeparameter0/RouteParamSchema0.md#stringrouteparamschemaenums0) value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | subDir(String value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | subDir([RouteParamSchema0.StringRouteParamSchemaEnums0](../../../paths/commonparamsubdir/parameters/routeparameter0/RouteParamSchema0.md#stringrouteparamschemaenums0) value) |
 
-## CommonparamsubdirPostPathParameters9
-public static class CommonparamsubdirPostPathParameters9<br>
+## PathParametersMap
+public static class PathParametersMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -140,31 +140,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CommonparamsubdirPostPathParameters9](#commonparamsubdirpostpathparameters9) | of([Map<String, String>](#commonparamsubdirpostpathparameters8) arg, SchemaConfiguration configuration) |
+| static [PathParametersMap](#pathparametersmap) | of([Map<String, String>](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | subDir()<br> |
 
-## CommonparamsubdirPostPathParameters4Boxed
-public sealed interface CommonparamsubdirPostPathParameters4Boxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[CommonparamsubdirPostPathParameters4BoxedVoid](#commonparamsubdirpostpathparameters4boxedvoid),
-[CommonparamsubdirPostPathParameters4BoxedBoolean](#commonparamsubdirpostpathparameters4boxedboolean),
-[CommonparamsubdirPostPathParameters4BoxedNumber](#commonparamsubdirpostpathparameters4boxednumber),
-[CommonparamsubdirPostPathParameters4BoxedString](#commonparamsubdirpostpathparameters4boxedstring),
-[CommonparamsubdirPostPathParameters4BoxedList](#commonparamsubdirpostpathparameters4boxedlist),
-[CommonparamsubdirPostPathParameters4BoxedMap](#commonparamsubdirpostpathparameters4boxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## CommonparamsubdirPostPathParameters4BoxedVoid
-public record CommonparamsubdirPostPathParameters4BoxedVoid<br>
-implements [CommonparamsubdirPostPathParameters4Boxed](#commonparamsubdirpostpathparameters4boxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPostPathParameters4BoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -172,16 +172,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirPostPathParameters4BoxedBoolean
-public record CommonparamsubdirPostPathParameters4BoxedBoolean<br>
-implements [CommonparamsubdirPostPathParameters4Boxed](#commonparamsubdirpostpathparameters4boxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPostPathParameters4BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -189,16 +189,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirPostPathParameters4BoxedNumber
-public record CommonparamsubdirPostPathParameters4BoxedNumber<br>
-implements [CommonparamsubdirPostPathParameters4Boxed](#commonparamsubdirpostpathparameters4boxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPostPathParameters4BoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -206,16 +206,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirPostPathParameters4BoxedString
-public record CommonparamsubdirPostPathParameters4BoxedString<br>
-implements [CommonparamsubdirPostPathParameters4Boxed](#commonparamsubdirpostpathparameters4boxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPostPathParameters4BoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -223,16 +223,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirPostPathParameters4BoxedList
-public record CommonparamsubdirPostPathParameters4BoxedList<br>
-implements [CommonparamsubdirPostPathParameters4Boxed](#commonparamsubdirpostpathparameters4boxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPostPathParameters4BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -240,16 +240,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirPostPathParameters4BoxedMap
-public record CommonparamsubdirPostPathParameters4BoxedMap<br>
-implements [CommonparamsubdirPostPathParameters4Boxed](#commonparamsubdirpostpathparameters4boxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirPostPathParameters4BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -257,8 +257,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirPostPathParameters4
-public static class CommonparamsubdirPostPathParameters4<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

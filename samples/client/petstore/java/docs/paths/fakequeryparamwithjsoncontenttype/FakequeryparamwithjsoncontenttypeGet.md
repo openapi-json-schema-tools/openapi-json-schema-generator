@@ -74,9 +74,9 @@ FakequeryparamwithjsoncontenttypeGet.Get apiClient = new Fakequeryparamwithjsonc
 
 
 // Map validation
-FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters =
+FakequeryparamwithjsoncontenttypeGetQueryParameters.QueryParametersMap queryParameters =
     FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters1.validate(
-    new FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters8()
+    new FakequeryparamwithjsoncontenttypeGetQueryParameters.QueryParametersMapBuilder()
     .build(),
     schemaConfiguration
 );
@@ -134,7 +134,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetQueryParameters.md#fakequeryparamwithjsoncontenttypegetqueryparameters9) | queryParameters |
+| [FakequeryparamwithjsoncontenttypeGetQueryParameters.QueryParametersMap](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetQueryParameters.md#queryparametersmap) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -146,7 +146,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakequeryparamwithjsoncontenttypeGetQueryParameters.@Nullable FakequeryparamwithjsoncontenttypeGetQueryParameters9](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetQueryParameters.md#fakequeryparamwithjsoncontenttypegetqueryparameters9) | queryParameters |
+| [FakequeryparamwithjsoncontenttypeGetQueryParameters.@Nullable QueryParametersMap](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetQueryParameters.md#queryparametersmap) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -180,6 +180,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([FakequeryparamwithjsoncontenttypeGetQueryParametersFakequeryparamwithjsoncontenttypeGetQueryParameters9](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetQueryParameters.md#fakequeryparamwithjsoncontenttypegetqueryparameters9) queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([FakequeryparamwithjsoncontenttypeGetQueryParametersQueryParametersMap](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

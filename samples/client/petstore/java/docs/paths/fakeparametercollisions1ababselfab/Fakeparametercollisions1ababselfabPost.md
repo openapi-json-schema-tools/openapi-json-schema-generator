@@ -78,9 +78,9 @@ Fakeparametercollisions1ababselfabPost.Post apiClient = new Fakeparametercollisi
 
 
 // Map validation
-Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters13 pathParameters =
+Fakeparametercollisions1ababselfabPostPathParameters.PathParametersMap pathParameters =
     Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters1.validate(
-    new Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters12()
+    new Fakeparametercollisions1ababselfabPostPathParameters.PathParametersMapBuilder()
         .positive1("a")
 
         .aHyphenMinusB("a")
@@ -148,11 +148,11 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters13](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostPathParameters.md#fakeparametercollisions1ababselfabpostpathparameters13) | pathParameters |
+| [Fakeparametercollisions1ababselfabPostPathParameters.PathParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostPathParameters.md#pathparametersmap) | pathParameters |
 | [Fakeparametercollisions1ababselfabPostRequestBody.@Nullable SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
-| [Fakeparametercollisions1ababselfabPostHeaderParameters.@Nullable Fakeparametercollisions1ababselfabPostHeaderParameters12](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostHeaderParameters.md#fakeparametercollisions1ababselfabpostheaderparameters12) | headerParameters<br>optional |
-| [Fakeparametercollisions1ababselfabPostQueryParameters.@Nullable Fakeparametercollisions1ababselfabPostQueryParameters13](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostQueryParameters.md#fakeparametercollisions1ababselfabpostqueryparameters13) | queryParameters<br>optional |
-| [Fakeparametercollisions1ababselfabPostCookieParameters.@Nullable Fakeparametercollisions1ababselfabPostCookieParameters13](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostCookieParameters.md#fakeparametercollisions1ababselfabpostcookieparameters13) | cookieParameters<br>optional |
+| [Fakeparametercollisions1ababselfabPostHeaderParameters.@Nullable HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostHeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
+| [Fakeparametercollisions1ababselfabPostQueryParameters.@Nullable QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostQueryParameters.md#queryparametersmap) | queryParameters<br>optional |
+| [Fakeparametercollisions1ababselfabPostCookieParameters.@Nullable CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostCookieParameters.md#cookieparametersmap) | cookieParameters<br>optional |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -164,11 +164,11 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters.@Nullable Fakeparametercollisions1ababselfabPostPathParameters13](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostPathParameters.md#fakeparametercollisions1ababselfabpostpathparameters13) | pathParameters |
+| [Fakeparametercollisions1ababselfabPostPathParameters.@Nullable PathParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostPathParameters.md#pathparametersmap) | pathParameters |
 | [Fakeparametercollisions1ababselfabPostRequestBody.@Nullable SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostRequestBody.md#sealedrequestbody) | requestBody |
-| [Fakeparametercollisions1ababselfabPostHeaderParameters.@Nullable Fakeparametercollisions1ababselfabPostHeaderParameters12](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostHeaderParameters.md#fakeparametercollisions1ababselfabpostheaderparameters12) | headerParameters |
-| [Fakeparametercollisions1ababselfabPostQueryParameters.@Nullable Fakeparametercollisions1ababselfabPostQueryParameters13](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostQueryParameters.md#fakeparametercollisions1ababselfabpostqueryparameters13) | queryParameters |
-| [Fakeparametercollisions1ababselfabPostCookieParameters.@Nullable Fakeparametercollisions1ababselfabPostCookieParameters13](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostCookieParameters.md#fakeparametercollisions1ababselfabpostcookieparameters13) | cookieParameters |
+| [Fakeparametercollisions1ababselfabPostHeaderParameters.@Nullable HeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostHeaderParameters.md#headerparametersmap) | headerParameters |
+| [Fakeparametercollisions1ababselfabPostQueryParameters.@Nullable QueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostQueryParameters.md#queryparametersmap) | queryParameters |
+| [Fakeparametercollisions1ababselfabPostCookieParameters.@Nullable CookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostCookieParameters.md#cookieparametersmap) | cookieParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -187,9 +187,9 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [Post0RequestBuilder](#post0requestbuilder) | requestBody([Fakeparametercollisions1ababselfabPostRequestBody.SealedRequestBody](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([Fakeparametercollisions1ababselfabPostHeaderParametersFakeparametercollisions1ababselfabPostHeaderParameters12](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostHeaderParameters.md#fakeparametercollisions1ababselfabpostheaderparameters12) headerParameters)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | queryParameters([Fakeparametercollisions1ababselfabPostQueryParametersFakeparametercollisions1ababselfabPostQueryParameters13](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostQueryParameters.md#fakeparametercollisions1ababselfabpostqueryparameters13) queryParameters)<br>sets the optional property |
-| [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([Fakeparametercollisions1ababselfabPostCookieParametersFakeparametercollisions1ababselfabPostCookieParameters13](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostCookieParameters.md#fakeparametercollisions1ababselfabpostcookieparameters13) cookieParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([Fakeparametercollisions1ababselfabPostHeaderParametersHeaderParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostHeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | queryParameters([Fakeparametercollisions1ababselfabPostQueryParametersQueryParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostQueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | cookieParameters([Fakeparametercollisions1ababselfabPostCookieParametersCookieParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostCookieParameters.md#cookieparametersmap) cookieParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([ServerInfo.ServerIndex](../../ServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
@@ -206,6 +206,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([Fakeparametercollisions1ababselfabPostPathParametersFakeparametercollisions1ababselfabPostPathParameters13](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostPathParameters.md#fakeparametercollisions1ababselfabpostpathparameters13) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([Fakeparametercollisions1ababselfabPostPathParametersPathParametersMap](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

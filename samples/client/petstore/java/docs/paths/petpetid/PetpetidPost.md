@@ -88,9 +88,9 @@ PetpetidPost.Post apiClient = new PetpetidPost.Post(apiConfiguration, schemaConf
 
 
 // Map validation
-PetpetidPostPathParameters.PetpetidPostPathParameters9 pathParameters =
+PetpetidPostPathParameters.PathParametersMap pathParameters =
     PetpetidPostPathParameters.PetpetidPostPathParameters1.validate(
-    new PetpetidPostPathParameters.PetpetidPostPathParameters8()
+    new PetpetidPostPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -150,7 +150,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidPostPathParameters.PetpetidPostPathParameters9](../../paths/petpetid/post/PetpetidPostPathParameters.md#petpetidpostpathparameters9) | pathParameters |
+| [PetpetidPostPathParameters.PathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#pathparametersmap) | pathParameters |
 | [PetpetidPostRequestBody.@Nullable SealedRequestBody](../../paths/petpetid/post/PetpetidPostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetidPostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/post/PetpetidPostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
@@ -164,7 +164,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidPostPathParameters.@Nullable PetpetidPostPathParameters9](../../paths/petpetid/post/PetpetidPostPathParameters.md#petpetidpostpathparameters9) | pathParameters |
+| [PetpetidPostPathParameters.@Nullable PathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#pathparametersmap) | pathParameters |
 | [PetpetidPostRequestBody.@Nullable SealedRequestBody](../../paths/petpetid/post/PetpetidPostRequestBody.md#sealedrequestbody) | requestBody |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | [PetpetidPostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/post/PetpetidPostSecurityInfo.md#securityindex) | securityIndex |
@@ -202,6 +202,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetidPostPathParametersPetpetidPostPathParameters9](../../paths/petpetid/post/PetpetidPostPathParameters.md#petpetidpostpathparameters9) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetidPostPathParametersPathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -30,27 +30,27 @@ public class PetfindbytagsGetQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class PetfindbytagsGetQueryParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable PetfindbytagsGetQueryParameters4 instance = null;
-        public static PetfindbytagsGetQueryParameters4 getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new PetfindbytagsGetQueryParameters4();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class PetfindbytagsGetQueryParameters9 extends FrozenMap<Schema0.SchemaList0> {
-        protected PetfindbytagsGetQueryParameters9(FrozenMap<Schema0.SchemaList0> m) {
+    public static class QueryParametersMap extends FrozenMap<Schema0.SchemaList0> {
+        protected QueryParametersMap(FrozenMap<Schema0.SchemaList0> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "tags"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PetfindbytagsGetQueryParameters9 of(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return PetfindbytagsGetQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -63,18 +63,18 @@ public class PetfindbytagsGetQueryParameters {
         }
     }
     
-    public interface SetterForPetfindbytagsGetQueryParameters2 <T> {
+    public interface SetterForTags <T> {
         Map<String, List<String>> getInstance();
-        T getBuilderAfterPetfindbytagsGetQueryParameters2(Map<String, List<String>> instance);
+        T getBuilderAfterTags(Map<String, List<String>> instance);
         
         default T tags(List<String> value) {
             var instance = getInstance();
             instance.put("tags", value);
-            return getBuilderAfterPetfindbytagsGetQueryParameters2(instance);
+            return getBuilderAfterTags(instance);
         }
     }
     
-    public static class PetfindbytagsGetQueryParameters10 implements GenericBuilder<Map<String, List<String>>> {
+    public static class QueryParametersMap0Builder implements GenericBuilder<Map<String, List<String>>> {
         private final Map<String, List<String>> instance;
         private static final Set<String> knownKeys = Set.of(
             "tags"
@@ -82,7 +82,7 @@ public class PetfindbytagsGetQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public PetfindbytagsGetQueryParameters10(Map<String, List<String>> instance) {
+        public QueryParametersMap0Builder(Map<String, List<String>> instance) {
             this.instance = instance;
         }
         public Map<String, List<String>> build() {
@@ -90,16 +90,16 @@ public class PetfindbytagsGetQueryParameters {
         }
     }
     
-    public static class PetfindbytagsGetQueryParameters8 implements SetterForPetfindbytagsGetQueryParameters2<PetfindbytagsGetQueryParameters10> {
+    public static class QueryParametersMapBuilder implements SetterForTags<QueryParametersMap0Builder> {
         private final Map<String, List<String>> instance;
-        public PetfindbytagsGetQueryParameters8() {
+        public QueryParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, List<String>> getInstance() {
             return instance;
         }
-        public PetfindbytagsGetQueryParameters10 getBuilderAfterPetfindbytagsGetQueryParameters2(Map<String, List<String>> instance) {
-            return new PetfindbytagsGetQueryParameters10(instance);
+        public QueryParametersMap0Builder getBuilderAfterTags(Map<String, List<String>> instance) {
+            return new QueryParametersMap0Builder(instance);
         }
     }
     
@@ -108,7 +108,7 @@ public class PetfindbytagsGetQueryParameters {
         @Nullable Object getData();
     }
     
-    public record PetfindbytagsGetQueryParameters1BoxedMap(PetfindbytagsGetQueryParameters9 data) implements PetfindbytagsGetQueryParameters1Boxed {
+    public record PetfindbytagsGetQueryParameters1BoxedMap(QueryParametersMap data) implements PetfindbytagsGetQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -116,7 +116,7 @@ public class PetfindbytagsGetQueryParameters {
     }
     
     
-    public static class PetfindbytagsGetQueryParameters1 extends JsonSchema<PetfindbytagsGetQueryParameters1Boxed> implements MapSchemaValidator<PetfindbytagsGetQueryParameters9, PetfindbytagsGetQueryParameters1BoxedMap> {
+    public static class PetfindbytagsGetQueryParameters1 extends JsonSchema<PetfindbytagsGetQueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, PetfindbytagsGetQueryParameters1BoxedMap> {
         private static @Nullable PetfindbytagsGetQueryParameters1 instance = null;
     
         protected PetfindbytagsGetQueryParameters1() {
@@ -128,7 +128,7 @@ public class PetfindbytagsGetQueryParameters {
                 .required(Set.of(
                     "tags"
                 ))
-                .additionalProperties(PetfindbytagsGetQueryParameters4.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -139,7 +139,7 @@ public class PetfindbytagsGetQueryParameters {
             return instance;
         }
         
-        public PetfindbytagsGetQueryParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Schema0.SchemaList0> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -162,10 +162,10 @@ public class PetfindbytagsGetQueryParameters {
                 properties.put(propertyName, (Schema0.SchemaList0) propertyInstance);
             }
             FrozenMap<Schema0.SchemaList0> castProperties = new FrozenMap<>(properties);
-            return new PetfindbytagsGetQueryParameters9(castProperties);
+            return new QueryParametersMap(castProperties);
         }
         
-        public PetfindbytagsGetQueryParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public QueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

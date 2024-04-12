@@ -80,12 +80,12 @@ public class FakecasesensitiveparamsPut {
     }
 
     public static class PutRequest {
-        public FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters11 queryParameters;
+        public FakecasesensitiveparamsPutQueryParameters.QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
-            FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters11 queryParameters,
+            FakecasesensitiveparamsPutQueryParameters.QueryParametersMap queryParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -96,7 +96,7 @@ public class FakecasesensitiveparamsPut {
     }
 
     public static class PutNullableRequest {
-        public FakecasesensitiveparamsPutQueryParameters.@Nullable FakecasesensitiveparamsPutQueryParameters11 queryParameters;
+        public FakecasesensitiveparamsPutQueryParameters.@Nullable QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -124,7 +124,7 @@ public class FakecasesensitiveparamsPut {
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PutNullableRequest instance);
-        default T queryParameters(FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters11 queryParameters) {
+        default T queryParameters(FakecasesensitiveparamsPutQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

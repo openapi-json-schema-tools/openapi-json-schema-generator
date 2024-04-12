@@ -92,9 +92,9 @@ Petpetiduploadimage apiClient = new Petpetiduploadimage(apiConfiguration, schema
 
 
 // Map validation
-PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9 pathParameters =
+PetpetiduploadimagePostPathParameters.PathParametersMap pathParameters =
     PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1.validate(
-    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters8()
+    new PetpetiduploadimagePostPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),

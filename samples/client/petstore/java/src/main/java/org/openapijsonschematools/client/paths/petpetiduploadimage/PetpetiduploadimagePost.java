@@ -105,14 +105,14 @@ public class PetpetiduploadimagePost {
     }
 
     public static class PostRequest {
-        public PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9 pathParameters;
+        public PetpetiduploadimagePostPathParameters.PathParametersMap pathParameters;
         public PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody requestBody;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9 pathParameters,
+            PetpetiduploadimagePostPathParameters.PathParametersMap pathParameters,
             PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody requestBody,
             ServerInfo.@Nullable ServerIndex serverIndex,
             PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex,
@@ -127,7 +127,7 @@ public class PetpetiduploadimagePost {
     }
 
     public static class PostNullableRequest {
-        public PetpetiduploadimagePostPathParameters.@Nullable PetpetiduploadimagePostPathParameters9 pathParameters;
+        public PetpetiduploadimagePostPathParameters.@Nullable PathParametersMap pathParameters;
         public PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody requestBody;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex securityIndex;
@@ -177,7 +177,7 @@ public class PetpetiduploadimagePost {
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9 pathParameters) {
+        default T pathParameters(PetpetiduploadimagePostPathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

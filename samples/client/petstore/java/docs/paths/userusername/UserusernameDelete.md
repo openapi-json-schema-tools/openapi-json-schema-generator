@@ -75,9 +75,9 @@ UserusernameDelete.Delete apiClient = new UserusernameDelete.Delete(apiConfigura
 
 
 // Map validation
-UserusernameDeletePathParameters.UserusernameDeletePathParameters9 pathParameters =
+UserusernameDeletePathParameters.PathParametersMap pathParameters =
     UserusernameDeletePathParameters.UserusernameDeletePathParameters1.validate(
-    new UserusernameDeletePathParameters.UserusernameDeletePathParameters8()
+    new UserusernameDeletePathParameters.PathParametersMapBuilder()
         .username("a")
 
     .build(),
@@ -138,7 +138,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserusernameDeletePathParameters.UserusernameDeletePathParameters9](../../paths/userusername/delete/UserusernameDeletePathParameters.md#userusernamedeletepathparameters9) | pathParameters |
+| [UserusernameDeletePathParameters.PathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -150,7 +150,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserusernameDeletePathParameters.@Nullable UserusernameDeletePathParameters9](../../paths/userusername/delete/UserusernameDeletePathParameters.md#userusernamedeletepathparameters9) | pathParameters |
+| [UserusernameDeletePathParameters.@Nullable PathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -184,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([UserusernameDeletePathParametersUserusernameDeletePathParameters9](../../paths/userusername/delete/UserusernameDeletePathParameters.md#userusernamedeletepathparameters9) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([UserusernameDeletePathParametersPathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -83,9 +83,9 @@ Userlogin apiClient = new Userlogin(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-UserloginGetQueryParameters.UserloginGetQueryParameters10 queryParameters =
+UserloginGetQueryParameters.QueryParametersMap queryParameters =
     UserloginGetQueryParameters.UserloginGetQueryParameters1.validate(
-    new UserloginGetQueryParameters.UserloginGetQueryParameters9()
+    new UserloginGetQueryParameters.QueryParametersMapBuilder()
         .password("a")
 
         .username("a")

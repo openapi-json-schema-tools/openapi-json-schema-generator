@@ -32,20 +32,20 @@ public class FakeDeleteQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakeDeleteQueryParameters7 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakeDeleteQueryParameters7 instance = null;
-        public static FakeDeleteQueryParameters7 getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FakeDeleteQueryParameters7();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FakeDeleteQueryParameters14 extends FrozenMap<@Nullable Object> {
-        protected FakeDeleteQueryParameters14(FrozenMap<@Nullable Object> m) {
+    public static class QueryParametersMap extends FrozenMap<@Nullable Object> {
+        protected QueryParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -56,7 +56,7 @@ public class FakeDeleteQueryParameters {
             "int64_group",
             "string_group"
         );
-        public static FakeDeleteQueryParameters14 of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakeDeleteQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -97,87 +97,87 @@ public class FakeDeleteQueryParameters {
         }
     }
     
-    public interface SetterForFakeDeleteQueryParameters5 <T> {
+    public interface SetterForRequiredInt64Group <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeDeleteQueryParameters5(Map<String, @Nullable Object> instance);
+        T getBuilderAfterRequiredInt64Group(Map<String, @Nullable Object> instance);
         
         default T required_int64_group(int value) {
             var instance = getInstance();
             instance.put("required_int64_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters5(instance);
+            return getBuilderAfterRequiredInt64Group(instance);
         }
         
         default T required_int64_group(float value) {
             var instance = getInstance();
             instance.put("required_int64_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters5(instance);
+            return getBuilderAfterRequiredInt64Group(instance);
         }
         
         default T required_int64_group(long value) {
             var instance = getInstance();
             instance.put("required_int64_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters5(instance);
+            return getBuilderAfterRequiredInt64Group(instance);
         }
         
         default T required_int64_group(double value) {
             var instance = getInstance();
             instance.put("required_int64_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters5(instance);
+            return getBuilderAfterRequiredInt64Group(instance);
         }
     }
     
-    public interface SetterForFakeDeleteQueryParameters2 <T> {
+    public interface SetterForRequiredStringGroup <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeDeleteQueryParameters2(Map<String, @Nullable Object> instance);
+        T getBuilderAfterRequiredStringGroup(Map<String, @Nullable Object> instance);
         
         default T required_string_group(String value) {
             var instance = getInstance();
             instance.put("required_string_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters2(instance);
+            return getBuilderAfterRequiredStringGroup(instance);
         }
     }
     
-    public interface SetterForFakeDeleteQueryParameters3 <T> {
+    public interface SetterForInt64Group <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeDeleteQueryParameters3(Map<String, @Nullable Object> instance);
+        T getBuilderAfterInt64Group(Map<String, @Nullable Object> instance);
         
         default T int64_group(int value) {
             var instance = getInstance();
             instance.put("int64_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters3(instance);
+            return getBuilderAfterInt64Group(instance);
         }
         
         default T int64_group(float value) {
             var instance = getInstance();
             instance.put("int64_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters3(instance);
+            return getBuilderAfterInt64Group(instance);
         }
         
         default T int64_group(long value) {
             var instance = getInstance();
             instance.put("int64_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters3(instance);
+            return getBuilderAfterInt64Group(instance);
         }
         
         default T int64_group(double value) {
             var instance = getInstance();
             instance.put("int64_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters3(instance);
+            return getBuilderAfterInt64Group(instance);
         }
     }
     
-    public interface SetterForFakeDeleteQueryParameters4 <T> {
+    public interface SetterForStringGroup <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeDeleteQueryParameters4(Map<String, @Nullable Object> instance);
+        T getBuilderAfterStringGroup(Map<String, @Nullable Object> instance);
         
         default T string_group(String value) {
             var instance = getInstance();
             instance.put("string_group", value);
-            return getBuilderAfterFakeDeleteQueryParameters4(instance);
+            return getBuilderAfterStringGroup(instance);
         }
     }
     
-    public static class FakeDeleteQueryParameters15 implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFakeDeleteQueryParameters3<FakeDeleteQueryParameters15>, SetterForFakeDeleteQueryParameters4<FakeDeleteQueryParameters15> {
+    public static class QueryParametersMap00Builder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForInt64Group<QueryParametersMap00Builder>, SetterForStringGroup<QueryParametersMap00Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "required_int64_group",
@@ -188,7 +188,7 @@ public class FakeDeleteQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakeDeleteQueryParameters15(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap00Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -197,53 +197,53 @@ public class FakeDeleteQueryParameters {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakeDeleteQueryParameters15 getBuilderAfterFakeDeleteQueryParameters3(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap00Builder getBuilderAfterInt64Group(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FakeDeleteQueryParameters15 getBuilderAfterFakeDeleteQueryParameters4(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap00Builder getBuilderAfterStringGroup(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class FakeDeleteQueryParameters16 implements SetterForFakeDeleteQueryParameters2<FakeDeleteQueryParameters15> {
+    public static class QueryParametersMap01Builder implements SetterForRequiredStringGroup<QueryParametersMap00Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakeDeleteQueryParameters16(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap01Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakeDeleteQueryParameters15 getBuilderAfterFakeDeleteQueryParameters2(Map<String, @Nullable Object> instance) {
-            return new FakeDeleteQueryParameters15(instance);
+        public QueryParametersMap00Builder getBuilderAfterRequiredStringGroup(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap00Builder(instance);
         }
     }
     
-    public static class FakeDeleteQueryParameters17 implements SetterForFakeDeleteQueryParameters5<FakeDeleteQueryParameters15> {
+    public static class QueryParametersMap10Builder implements SetterForRequiredInt64Group<QueryParametersMap00Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakeDeleteQueryParameters17(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap10Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakeDeleteQueryParameters15 getBuilderAfterFakeDeleteQueryParameters5(Map<String, @Nullable Object> instance) {
-            return new FakeDeleteQueryParameters15(instance);
+        public QueryParametersMap00Builder getBuilderAfterRequiredInt64Group(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap00Builder(instance);
         }
     }
     
-    public static class FakeDeleteQueryParameters13 implements SetterForFakeDeleteQueryParameters5<FakeDeleteQueryParameters16>, SetterForFakeDeleteQueryParameters2<FakeDeleteQueryParameters17> {
+    public static class QueryParametersMapBuilder implements SetterForRequiredInt64Group<QueryParametersMap01Builder>, SetterForRequiredStringGroup<QueryParametersMap10Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakeDeleteQueryParameters13() {
+        public QueryParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakeDeleteQueryParameters16 getBuilderAfterFakeDeleteQueryParameters5(Map<String, @Nullable Object> instance) {
-            return new FakeDeleteQueryParameters16(instance);
+        public QueryParametersMap01Builder getBuilderAfterRequiredInt64Group(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap01Builder(instance);
         }
-        public FakeDeleteQueryParameters17 getBuilderAfterFakeDeleteQueryParameters2(Map<String, @Nullable Object> instance) {
-            return new FakeDeleteQueryParameters17(instance);
+        public QueryParametersMap10Builder getBuilderAfterRequiredStringGroup(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap10Builder(instance);
         }
     }
     
@@ -252,7 +252,7 @@ public class FakeDeleteQueryParameters {
         @Nullable Object getData();
     }
     
-    public record FakeDeleteQueryParameters1BoxedMap(FakeDeleteQueryParameters14 data) implements FakeDeleteQueryParameters1Boxed {
+    public record FakeDeleteQueryParameters1BoxedMap(QueryParametersMap data) implements FakeDeleteQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -260,7 +260,7 @@ public class FakeDeleteQueryParameters {
     }
     
     
-    public static class FakeDeleteQueryParameters1 extends JsonSchema<FakeDeleteQueryParameters1Boxed> implements MapSchemaValidator<FakeDeleteQueryParameters14, FakeDeleteQueryParameters1BoxedMap> {
+    public static class FakeDeleteQueryParameters1 extends JsonSchema<FakeDeleteQueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, FakeDeleteQueryParameters1BoxedMap> {
         private static @Nullable FakeDeleteQueryParameters1 instance = null;
     
         protected FakeDeleteQueryParameters1() {
@@ -276,7 +276,7 @@ public class FakeDeleteQueryParameters {
                     "required_int64_group",
                     "required_string_group"
                 ))
-                .additionalProperties(FakeDeleteQueryParameters7.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -287,7 +287,7 @@ public class FakeDeleteQueryParameters {
             return instance;
         }
         
-        public FakeDeleteQueryParameters14 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -307,10 +307,10 @@ public class FakeDeleteQueryParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new FakeDeleteQueryParameters14(castProperties);
+            return new QueryParametersMap(castProperties);
         }
         
-        public FakeDeleteQueryParameters14 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public QueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters1Boxed](#fakecasesensitiveparamsputqueryparameters1boxed)<br> sealed interface for validated payloads |
 | record | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters1BoxedMap](#fakecasesensitiveparamsputqueryparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters1](#fakecasesensitiveparamsputqueryparameters1)<br> schema class |
-| static class | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters10](#fakecasesensitiveparamsputqueryparameters10)<br> builder for Map payloads |
-| static class | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters11](#fakecasesensitiveparamsputqueryparameters11)<br> output class for Map payloads |
-| sealed interface | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters6Boxed](#fakecasesensitiveparamsputqueryparameters6boxed)<br> sealed interface for validated payloads |
-| record | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters6BoxedVoid](#fakecasesensitiveparamsputqueryparameters6boxedvoid)<br> boxed class to store validated null payloads |
-| record | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters6BoxedBoolean](#fakecasesensitiveparamsputqueryparameters6boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters6BoxedNumber](#fakecasesensitiveparamsputqueryparameters6boxednumber)<br> boxed class to store validated Number payloads |
-| record | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters6BoxedString](#fakecasesensitiveparamsputqueryparameters6boxedstring)<br> boxed class to store validated String payloads |
-| record | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters6BoxedList](#fakecasesensitiveparamsputqueryparameters6boxedlist)<br> boxed class to store validated List payloads |
-| record | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters6BoxedMap](#fakecasesensitiveparamsputqueryparameters6boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters6](#fakecasesensitiveparamsputqueryparameters6)<br> schema class |
+| static class | [FakecasesensitiveparamsPutQueryParameters.QueryParametersMapBuilder](#queryparametersmapbuilder)<br> builder for Map payloads |
+| static class | [FakecasesensitiveparamsPutQueryParameters.QueryParametersMap](#queryparametersmap)<br> output class for Map payloads |
+| sealed interface | [FakecasesensitiveparamsPutQueryParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [FakecasesensitiveparamsPutQueryParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [FakecasesensitiveparamsPutQueryParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [FakecasesensitiveparamsPutQueryParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [FakecasesensitiveparamsPutQueryParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [FakecasesensitiveparamsPutQueryParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [FakecasesensitiveparamsPutQueryParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [FakecasesensitiveparamsPutQueryParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## FakecasesensitiveparamsPutQueryParameters1Boxed
 public sealed interface FakecasesensitiveparamsPutQueryParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters1BoxedMap([FakecasesensitiveparamsPutQueryParameters11](#fakecasesensitiveparamsputqueryparameters11) data)<br>Creates an instance, private visibility |
+| FakecasesensitiveparamsPutQueryParameters1BoxedMap([QueryParametersMap](#queryparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutQueryParameters11](#fakecasesensitiveparamsputqueryparameters11) | data()<br>validated payload |
+| [QueryParametersMap](#queryparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## FakecasesensitiveparamsPutQueryParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters11 validatedPayload =
+FakecasesensitiveparamsPutQueryParameters.QueryParametersMap validatedPayload =
     FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters1.validate(
-    new FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters10()
+    new FakecasesensitiveparamsPutQueryParameters.QueryParametersMapBuilder()
         .SomeVar("a")
 
         .someVar("a")
@@ -92,18 +92,18 @@ FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParamet
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("someVar", [Schema0.Schema01.class](../../../paths/fakecasesensitiveparams/put/parameters/parameter0/Schema0.md#schema01)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("some_var", [Schema2.Schema21.class](../../../paths/fakecasesensitiveparams/put/parameters/parameter2/Schema2.md#schema21)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("SomeVar", [Schema1.Schema11.class](../../../paths/fakecasesensitiveparams/put/parameters/parameter1/Schema1.md#schema11))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"SomeVar",<br>&nbsp;&nbsp;&nbsp;&nbsp;"someVar",<br>&nbsp;&nbsp;&nbsp;&nbsp;"some_var"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [FakecasesensitiveparamsPutQueryParameters6.class](#fakecasesensitiveparamsputqueryparameters6) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutQueryParameters11](#fakecasesensitiveparamsputqueryparameters11) | validate([Map&lt;?, ?&gt;](#fakecasesensitiveparamsputqueryparameters10) arg, SchemaConfiguration configuration) |
-| [FakecasesensitiveparamsPutQueryParameters1BoxedMap](#fakecasesensitiveparamsputqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakecasesensitiveparamsputqueryparameters10) arg, SchemaConfiguration configuration) |
+| [QueryParametersMap](#queryparametersmap) | validate([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [FakecasesensitiveparamsPutQueryParameters1BoxedMap](#fakecasesensitiveparamsputqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [FakecasesensitiveparamsPutQueryParameters1Boxed](#fakecasesensitiveparamsputqueryparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## FakecasesensitiveparamsPutQueryParameters12
-public class FakecasesensitiveparamsPutQueryParameters12<br>
+## QueryParametersMap000Builder
+public class QueryParametersMap000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -111,15 +111,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters12(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 
-## FakecasesensitiveparamsPutQueryParameters13
-public class FakecasesensitiveparamsPutQueryParameters13<br>
+## QueryParametersMap001Builder
+public class QueryParametersMap001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -127,15 +127,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters13(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutQueryParameters12](#fakecasesensitiveparamsputqueryparameters12) | some_var(String value) |
+| [QueryParametersMap000Builder](#queryparametersmap000builder) | some_var(String value) |
 
-## FakecasesensitiveparamsPutQueryParameters14
-public class FakecasesensitiveparamsPutQueryParameters14<br>
+## QueryParametersMap010Builder
+public class QueryParametersMap010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -143,15 +143,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters14(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutQueryParameters12](#fakecasesensitiveparamsputqueryparameters12) | someVar(String value) |
+| [QueryParametersMap000Builder](#queryparametersmap000builder) | someVar(String value) |
 
-## FakecasesensitiveparamsPutQueryParameters15
-public class FakecasesensitiveparamsPutQueryParameters15<br>
+## QueryParametersMap011Builder
+public class QueryParametersMap011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -159,16 +159,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters15(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutQueryParameters13](#fakecasesensitiveparamsputqueryparameters13) | someVar(String value) |
-| [FakecasesensitiveparamsPutQueryParameters14](#fakecasesensitiveparamsputqueryparameters14) | some_var(String value) |
+| [QueryParametersMap001Builder](#queryparametersmap001builder) | someVar(String value) |
+| [QueryParametersMap010Builder](#queryparametersmap010builder) | some_var(String value) |
 
-## FakecasesensitiveparamsPutQueryParameters16
-public class FakecasesensitiveparamsPutQueryParameters16<br>
+## QueryParametersMap100Builder
+public class QueryParametersMap100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -176,15 +176,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters16(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutQueryParameters12](#fakecasesensitiveparamsputqueryparameters12) | SomeVar(String value) |
+| [QueryParametersMap000Builder](#queryparametersmap000builder) | SomeVar(String value) |
 
-## FakecasesensitiveparamsPutQueryParameters17
-public class FakecasesensitiveparamsPutQueryParameters17<br>
+## QueryParametersMap101Builder
+public class QueryParametersMap101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -192,16 +192,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters17(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutQueryParameters13](#fakecasesensitiveparamsputqueryparameters13) | SomeVar(String value) |
-| [FakecasesensitiveparamsPutQueryParameters16](#fakecasesensitiveparamsputqueryparameters16) | some_var(String value) |
+| [QueryParametersMap001Builder](#queryparametersmap001builder) | SomeVar(String value) |
+| [QueryParametersMap100Builder](#queryparametersmap100builder) | some_var(String value) |
 
-## FakecasesensitiveparamsPutQueryParameters18
-public class FakecasesensitiveparamsPutQueryParameters18<br>
+## QueryParametersMap110Builder
+public class QueryParametersMap110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -209,16 +209,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters18(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutQueryParameters14](#fakecasesensitiveparamsputqueryparameters14) | SomeVar(String value) |
-| [FakecasesensitiveparamsPutQueryParameters16](#fakecasesensitiveparamsputqueryparameters16) | someVar(String value) |
+| [QueryParametersMap010Builder](#queryparametersmap010builder) | SomeVar(String value) |
+| [QueryParametersMap100Builder](#queryparametersmap100builder) | someVar(String value) |
 
-## FakecasesensitiveparamsPutQueryParameters10
-public class FakecasesensitiveparamsPutQueryParameters10<br>
+## QueryParametersMapBuilder
+public class QueryParametersMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -226,17 +226,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters10()<br>Creates a builder that contains an empty map |
+| QueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakecasesensitiveparamsPutQueryParameters15](#fakecasesensitiveparamsputqueryparameters15) | SomeVar(String value) |
-| [FakecasesensitiveparamsPutQueryParameters17](#fakecasesensitiveparamsputqueryparameters17) | someVar(String value) |
-| [FakecasesensitiveparamsPutQueryParameters18](#fakecasesensitiveparamsputqueryparameters18) | some_var(String value) |
+| [QueryParametersMap011Builder](#queryparametersmap011builder) | SomeVar(String value) |
+| [QueryParametersMap101Builder](#queryparametersmap101builder) | someVar(String value) |
+| [QueryParametersMap110Builder](#queryparametersmap110builder) | some_var(String value) |
 
-## FakecasesensitiveparamsPutQueryParameters11
-public static class FakecasesensitiveparamsPutQueryParameters11<br>
+## QueryParametersMap
+public static class QueryParametersMap<br>
 extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
@@ -244,33 +244,33 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FakecasesensitiveparamsPutQueryParameters11](#fakecasesensitiveparamsputqueryparameters11) | of([Map<String, ? extends @Nullable Object>](#fakecasesensitiveparamsputqueryparameters10) arg, SchemaConfiguration configuration) |
+| static [QueryParametersMap](#queryparametersmap) | of([Map<String, ? extends @Nullable Object>](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | SomeVar()<br> |
 | String | someVar()<br> |
 | String | some_var()<br> |
 
-## FakecasesensitiveparamsPutQueryParameters6Boxed
-public sealed interface FakecasesensitiveparamsPutQueryParameters6Boxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[FakecasesensitiveparamsPutQueryParameters6BoxedVoid](#fakecasesensitiveparamsputqueryparameters6boxedvoid),
-[FakecasesensitiveparamsPutQueryParameters6BoxedBoolean](#fakecasesensitiveparamsputqueryparameters6boxedboolean),
-[FakecasesensitiveparamsPutQueryParameters6BoxedNumber](#fakecasesensitiveparamsputqueryparameters6boxednumber),
-[FakecasesensitiveparamsPutQueryParameters6BoxedString](#fakecasesensitiveparamsputqueryparameters6boxedstring),
-[FakecasesensitiveparamsPutQueryParameters6BoxedList](#fakecasesensitiveparamsputqueryparameters6boxedlist),
-[FakecasesensitiveparamsPutQueryParameters6BoxedMap](#fakecasesensitiveparamsputqueryparameters6boxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## FakecasesensitiveparamsPutQueryParameters6BoxedVoid
-public record FakecasesensitiveparamsPutQueryParameters6BoxedVoid<br>
-implements [FakecasesensitiveparamsPutQueryParameters6Boxed](#fakecasesensitiveparamsputqueryparameters6boxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters6BoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -278,16 +278,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakecasesensitiveparamsPutQueryParameters6BoxedBoolean
-public record FakecasesensitiveparamsPutQueryParameters6BoxedBoolean<br>
-implements [FakecasesensitiveparamsPutQueryParameters6Boxed](#fakecasesensitiveparamsputqueryparameters6boxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters6BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -295,16 +295,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakecasesensitiveparamsPutQueryParameters6BoxedNumber
-public record FakecasesensitiveparamsPutQueryParameters6BoxedNumber<br>
-implements [FakecasesensitiveparamsPutQueryParameters6Boxed](#fakecasesensitiveparamsputqueryparameters6boxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters6BoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -312,16 +312,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakecasesensitiveparamsPutQueryParameters6BoxedString
-public record FakecasesensitiveparamsPutQueryParameters6BoxedString<br>
-implements [FakecasesensitiveparamsPutQueryParameters6Boxed](#fakecasesensitiveparamsputqueryparameters6boxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters6BoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -329,16 +329,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakecasesensitiveparamsPutQueryParameters6BoxedList
-public record FakecasesensitiveparamsPutQueryParameters6BoxedList<br>
-implements [FakecasesensitiveparamsPutQueryParameters6Boxed](#fakecasesensitiveparamsputqueryparameters6boxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters6BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -346,16 +346,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakecasesensitiveparamsPutQueryParameters6BoxedMap
-public record FakecasesensitiveparamsPutQueryParameters6BoxedMap<br>
-implements [FakecasesensitiveparamsPutQueryParameters6Boxed](#fakecasesensitiveparamsputqueryparameters6boxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakecasesensitiveparamsPutQueryParameters6BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -363,8 +363,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakecasesensitiveparamsPutQueryParameters6
-public static class FakecasesensitiveparamsPutQueryParameters6<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

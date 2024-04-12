@@ -92,9 +92,9 @@ Petfindbytags apiClient = new Petfindbytags(apiConfiguration, schemaConfiguratio
 
 
 // Map validation
-PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters9 queryParameters =
+PetfindbytagsGetQueryParameters.QueryParametersMap queryParameters =
     PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters1.validate(
-    new PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters8()
+    new PetfindbytagsGetQueryParameters.QueryParametersMapBuilder()
         .tags(
             Arrays.asList(
                 "a"

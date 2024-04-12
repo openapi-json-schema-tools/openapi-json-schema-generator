@@ -80,12 +80,12 @@ public class FaketestqueryparamtersPut {
     }
 
     public static class PutRequest {
-        public FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters14 queryParameters;
+        public FaketestqueryparamtersPutQueryParameters.QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
-            FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters14 queryParameters,
+            FaketestqueryparamtersPutQueryParameters.QueryParametersMap queryParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -96,7 +96,7 @@ public class FaketestqueryparamtersPut {
     }
 
     public static class PutNullableRequest {
-        public FaketestqueryparamtersPutQueryParameters.@Nullable FaketestqueryparamtersPutQueryParameters14 queryParameters;
+        public FaketestqueryparamtersPutQueryParameters.@Nullable QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -124,7 +124,7 @@ public class FaketestqueryparamtersPut {
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PutNullableRequest instance);
-        default T queryParameters(FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters14 queryParameters) {
+        default T queryParameters(FaketestqueryparamtersPutQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

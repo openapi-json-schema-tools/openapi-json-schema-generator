@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters1Boxed](#fakeparametercollisions1ababselfabpostpathparameters1boxed)<br> sealed interface for validated payloads |
 | record | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters1BoxedMap](#fakeparametercollisions1ababselfabpostpathparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters1](#fakeparametercollisions1ababselfabpostpathparameters1)<br> schema class |
-| static class | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters12](#fakeparametercollisions1ababselfabpostpathparameters12)<br> builder for Map payloads |
-| static class | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters13](#fakeparametercollisions1ababselfabpostpathparameters13)<br> output class for Map payloads |
-| sealed interface | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters8Boxed](#fakeparametercollisions1ababselfabpostpathparameters8boxed)<br> sealed interface for validated payloads |
-| record | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters8BoxedVoid](#fakeparametercollisions1ababselfabpostpathparameters8boxedvoid)<br> boxed class to store validated null payloads |
-| record | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters8BoxedBoolean](#fakeparametercollisions1ababselfabpostpathparameters8boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters8BoxedNumber](#fakeparametercollisions1ababselfabpostpathparameters8boxednumber)<br> boxed class to store validated Number payloads |
-| record | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters8BoxedString](#fakeparametercollisions1ababselfabpostpathparameters8boxedstring)<br> boxed class to store validated String payloads |
-| record | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters8BoxedList](#fakeparametercollisions1ababselfabpostpathparameters8boxedlist)<br> boxed class to store validated List payloads |
-| record | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters8BoxedMap](#fakeparametercollisions1ababselfabpostpathparameters8boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters8](#fakeparametercollisions1ababselfabpostpathparameters8)<br> schema class |
+| static class | [Fakeparametercollisions1ababselfabPostPathParameters.PathParametersMapBuilder](#pathparametersmapbuilder)<br> builder for Map payloads |
+| static class | [Fakeparametercollisions1ababselfabPostPathParameters.PathParametersMap](#pathparametersmap)<br> output class for Map payloads |
+| sealed interface | [Fakeparametercollisions1ababselfabPostPathParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [Fakeparametercollisions1ababselfabPostPathParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [Fakeparametercollisions1ababselfabPostPathParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Fakeparametercollisions1ababselfabPostPathParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [Fakeparametercollisions1ababselfabPostPathParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [Fakeparametercollisions1ababselfabPostPathParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [Fakeparametercollisions1ababselfabPostPathParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [Fakeparametercollisions1ababselfabPostPathParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Fakeparametercollisions1ababselfabPostPathParameters1Boxed
 public sealed interface Fakeparametercollisions1ababselfabPostPathParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters1BoxedMap([Fakeparametercollisions1ababselfabPostPathParameters13](#fakeparametercollisions1ababselfabpostpathparameters13) data)<br>Creates an instance, private visibility |
+| Fakeparametercollisions1ababselfabPostPathParameters1BoxedMap([PathParametersMap](#pathparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters13](#fakeparametercollisions1ababselfabpostpathparameters13) | data()<br>validated payload |
+| [PathParametersMap](#pathparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## Fakeparametercollisions1ababselfabPostPathParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters13 validatedPayload =
+Fakeparametercollisions1ababselfabPostPathParameters.PathParametersMap validatedPayload =
     Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters1.validate(
-    new Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters12()
+    new Fakeparametercollisions1ababselfabPostPathParameters.PathParametersMapBuilder()
         .positive1("a")
 
         .aHyphenMinusB("a")
@@ -96,18 +96,18 @@ Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1aba
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("1", [Schema9.Schema91.class](../../../paths/fakeparametercollisions1ababselfab/post/parameters/parameter9/Schema9.md#schema91)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("aB", [Schema10.Schema101.class](../../../paths/fakeparametercollisions1ababselfab/post/parameters/parameter10/Schema10.md#schema101)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("Ab", [Schema11.Schema111.class](../../../paths/fakeparametercollisions1ababselfab/post/parameters/parameter11/Schema11.md#schema111)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("A-B", [Schema13.Schema131.class](../../../paths/fakeparametercollisions1ababselfab/post/parameters/parameter13/Schema13.md#schema131)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("self", [Schema12.Schema121.class](../../../paths/fakeparametercollisions1ababselfab/post/parameters/parameter12/Schema12.md#schema121))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"1",<br>&nbsp;&nbsp;&nbsp;&nbsp;"A-B",<br>&nbsp;&nbsp;&nbsp;&nbsp;"Ab",<br>&nbsp;&nbsp;&nbsp;&nbsp;"aB",<br>&nbsp;&nbsp;&nbsp;&nbsp;"self"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [Fakeparametercollisions1ababselfabPostPathParameters8.class](#fakeparametercollisions1ababselfabpostpathparameters8) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters13](#fakeparametercollisions1ababselfabpostpathparameters13) | validate([Map&lt;?, ?&gt;](#fakeparametercollisions1ababselfabpostpathparameters12) arg, SchemaConfiguration configuration) |
-| [Fakeparametercollisions1ababselfabPostPathParameters1BoxedMap](#fakeparametercollisions1ababselfabpostpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakeparametercollisions1ababselfabpostpathparameters12) arg, SchemaConfiguration configuration) |
+| [PathParametersMap](#pathparametersmap) | validate([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [Fakeparametercollisions1ababselfabPostPathParameters1BoxedMap](#fakeparametercollisions1ababselfabpostpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [Fakeparametercollisions1ababselfabPostPathParameters1Boxed](#fakeparametercollisions1ababselfabpostpathparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters14
-public class Fakeparametercollisions1ababselfabPostPathParameters14<br>
+## PathParametersMap00000Builder
+public class PathParametersMap00000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -115,15 +115,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters14(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap00000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 
-## Fakeparametercollisions1ababselfabPostPathParameters15
-public class Fakeparametercollisions1ababselfabPostPathParameters15<br>
+## PathParametersMap00001Builder
+public class PathParametersMap00001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -131,15 +131,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters15(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap00001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters14](#fakeparametercollisions1ababselfabpostpathparameters14) | self(String value) |
+| [PathParametersMap00000Builder](#pathparametersmap00000builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters16
-public class Fakeparametercollisions1ababselfabPostPathParameters16<br>
+## PathParametersMap00010Builder
+public class PathParametersMap00010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -147,15 +147,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters16(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap00010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters14](#fakeparametercollisions1ababselfabpostpathparameters14) | aB(String value) |
+| [PathParametersMap00000Builder](#pathparametersmap00000builder) | aB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters17
-public class Fakeparametercollisions1ababselfabPostPathParameters17<br>
+## PathParametersMap00011Builder
+public class PathParametersMap00011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -163,16 +163,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters17(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap00011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters15](#fakeparametercollisions1ababselfabpostpathparameters15) | aB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters16](#fakeparametercollisions1ababselfabpostpathparameters16) | self(String value) |
+| [PathParametersMap00001Builder](#pathparametersmap00001builder) | aB(String value) |
+| [PathParametersMap00010Builder](#pathparametersmap00010builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters18
-public class Fakeparametercollisions1ababselfabPostPathParameters18<br>
+## PathParametersMap00100Builder
+public class PathParametersMap00100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -180,15 +180,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters18(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap00100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters14](#fakeparametercollisions1ababselfabpostpathparameters14) | Ab(String value) |
+| [PathParametersMap00000Builder](#pathparametersmap00000builder) | Ab(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters19
-public class Fakeparametercollisions1ababselfabPostPathParameters19<br>
+## PathParametersMap00101Builder
+public class PathParametersMap00101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -196,16 +196,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters19(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap00101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters15](#fakeparametercollisions1ababselfabpostpathparameters15) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters18](#fakeparametercollisions1ababselfabpostpathparameters18) | self(String value) |
+| [PathParametersMap00001Builder](#pathparametersmap00001builder) | Ab(String value) |
+| [PathParametersMap00100Builder](#pathparametersmap00100builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters20
-public class Fakeparametercollisions1ababselfabPostPathParameters20<br>
+## PathParametersMap00110Builder
+public class PathParametersMap00110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -213,16 +213,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters20(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap00110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters16](#fakeparametercollisions1ababselfabpostpathparameters16) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters18](#fakeparametercollisions1ababselfabpostpathparameters18) | aB(String value) |
+| [PathParametersMap00010Builder](#pathparametersmap00010builder) | Ab(String value) |
+| [PathParametersMap00100Builder](#pathparametersmap00100builder) | aB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters21
-public class Fakeparametercollisions1ababselfabPostPathParameters21<br>
+## PathParametersMap00111Builder
+public class PathParametersMap00111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -230,17 +230,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters21(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap00111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters17](#fakeparametercollisions1ababselfabpostpathparameters17) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters19](#fakeparametercollisions1ababselfabpostpathparameters19) | aB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters20](#fakeparametercollisions1ababselfabpostpathparameters20) | self(String value) |
+| [PathParametersMap00011Builder](#pathparametersmap00011builder) | Ab(String value) |
+| [PathParametersMap00101Builder](#pathparametersmap00101builder) | aB(String value) |
+| [PathParametersMap00110Builder](#pathparametersmap00110builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters22
-public class Fakeparametercollisions1ababselfabPostPathParameters22<br>
+## PathParametersMap01000Builder
+public class PathParametersMap01000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -248,15 +248,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters22(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap01000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters14](#fakeparametercollisions1ababselfabpostpathparameters14) | aHyphenMinusB(String value) |
+| [PathParametersMap00000Builder](#pathparametersmap00000builder) | aHyphenMinusB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters23
-public class Fakeparametercollisions1ababselfabPostPathParameters23<br>
+## PathParametersMap01001Builder
+public class PathParametersMap01001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -264,16 +264,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters23(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap01001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters15](#fakeparametercollisions1ababselfabpostpathparameters15) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters22](#fakeparametercollisions1ababselfabpostpathparameters22) | self(String value) |
+| [PathParametersMap00001Builder](#pathparametersmap00001builder) | aHyphenMinusB(String value) |
+| [PathParametersMap01000Builder](#pathparametersmap01000builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters24
-public class Fakeparametercollisions1ababselfabPostPathParameters24<br>
+## PathParametersMap01010Builder
+public class PathParametersMap01010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -281,16 +281,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters24(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap01010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters16](#fakeparametercollisions1ababselfabpostpathparameters16) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters22](#fakeparametercollisions1ababselfabpostpathparameters22) | aB(String value) |
+| [PathParametersMap00010Builder](#pathparametersmap00010builder) | aHyphenMinusB(String value) |
+| [PathParametersMap01000Builder](#pathparametersmap01000builder) | aB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters25
-public class Fakeparametercollisions1ababselfabPostPathParameters25<br>
+## PathParametersMap01011Builder
+public class PathParametersMap01011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -298,17 +298,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters25(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap01011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters17](#fakeparametercollisions1ababselfabpostpathparameters17) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters23](#fakeparametercollisions1ababselfabpostpathparameters23) | aB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters24](#fakeparametercollisions1ababselfabpostpathparameters24) | self(String value) |
+| [PathParametersMap00011Builder](#pathparametersmap00011builder) | aHyphenMinusB(String value) |
+| [PathParametersMap01001Builder](#pathparametersmap01001builder) | aB(String value) |
+| [PathParametersMap01010Builder](#pathparametersmap01010builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters26
-public class Fakeparametercollisions1ababselfabPostPathParameters26<br>
+## PathParametersMap01100Builder
+public class PathParametersMap01100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -316,16 +316,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters26(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap01100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters18](#fakeparametercollisions1ababselfabpostpathparameters18) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters22](#fakeparametercollisions1ababselfabpostpathparameters22) | Ab(String value) |
+| [PathParametersMap00100Builder](#pathparametersmap00100builder) | aHyphenMinusB(String value) |
+| [PathParametersMap01000Builder](#pathparametersmap01000builder) | Ab(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters27
-public class Fakeparametercollisions1ababselfabPostPathParameters27<br>
+## PathParametersMap01101Builder
+public class PathParametersMap01101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -333,17 +333,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters27(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap01101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters19](#fakeparametercollisions1ababselfabpostpathparameters19) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters23](#fakeparametercollisions1ababselfabpostpathparameters23) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters26](#fakeparametercollisions1ababselfabpostpathparameters26) | self(String value) |
+| [PathParametersMap00101Builder](#pathparametersmap00101builder) | aHyphenMinusB(String value) |
+| [PathParametersMap01001Builder](#pathparametersmap01001builder) | Ab(String value) |
+| [PathParametersMap01100Builder](#pathparametersmap01100builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters28
-public class Fakeparametercollisions1ababselfabPostPathParameters28<br>
+## PathParametersMap01110Builder
+public class PathParametersMap01110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -351,17 +351,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters28(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap01110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters20](#fakeparametercollisions1ababselfabpostpathparameters20) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters24](#fakeparametercollisions1ababselfabpostpathparameters24) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters26](#fakeparametercollisions1ababselfabpostpathparameters26) | aB(String value) |
+| [PathParametersMap00110Builder](#pathparametersmap00110builder) | aHyphenMinusB(String value) |
+| [PathParametersMap01010Builder](#pathparametersmap01010builder) | Ab(String value) |
+| [PathParametersMap01100Builder](#pathparametersmap01100builder) | aB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters29
-public class Fakeparametercollisions1ababselfabPostPathParameters29<br>
+## PathParametersMap01111Builder
+public class PathParametersMap01111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -369,18 +369,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters29(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap01111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters21](#fakeparametercollisions1ababselfabpostpathparameters21) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters25](#fakeparametercollisions1ababselfabpostpathparameters25) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters27](#fakeparametercollisions1ababselfabpostpathparameters27) | aB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters28](#fakeparametercollisions1ababselfabpostpathparameters28) | self(String value) |
+| [PathParametersMap00111Builder](#pathparametersmap00111builder) | aHyphenMinusB(String value) |
+| [PathParametersMap01011Builder](#pathparametersmap01011builder) | Ab(String value) |
+| [PathParametersMap01101Builder](#pathparametersmap01101builder) | aB(String value) |
+| [PathParametersMap01110Builder](#pathparametersmap01110builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters30
-public class Fakeparametercollisions1ababselfabPostPathParameters30<br>
+## PathParametersMap10000Builder
+public class PathParametersMap10000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -388,15 +388,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters30(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap10000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters14](#fakeparametercollisions1ababselfabpostpathparameters14) | positive1(String value) |
+| [PathParametersMap00000Builder](#pathparametersmap00000builder) | positive1(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters31
-public class Fakeparametercollisions1ababselfabPostPathParameters31<br>
+## PathParametersMap10001Builder
+public class PathParametersMap10001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -404,16 +404,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters31(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap10001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters15](#fakeparametercollisions1ababselfabpostpathparameters15) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters30](#fakeparametercollisions1ababselfabpostpathparameters30) | self(String value) |
+| [PathParametersMap00001Builder](#pathparametersmap00001builder) | positive1(String value) |
+| [PathParametersMap10000Builder](#pathparametersmap10000builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters32
-public class Fakeparametercollisions1ababselfabPostPathParameters32<br>
+## PathParametersMap10010Builder
+public class PathParametersMap10010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -421,16 +421,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters32(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap10010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters16](#fakeparametercollisions1ababselfabpostpathparameters16) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters30](#fakeparametercollisions1ababselfabpostpathparameters30) | aB(String value) |
+| [PathParametersMap00010Builder](#pathparametersmap00010builder) | positive1(String value) |
+| [PathParametersMap10000Builder](#pathparametersmap10000builder) | aB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters33
-public class Fakeparametercollisions1ababselfabPostPathParameters33<br>
+## PathParametersMap10011Builder
+public class PathParametersMap10011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -438,17 +438,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters33(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap10011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters17](#fakeparametercollisions1ababselfabpostpathparameters17) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters31](#fakeparametercollisions1ababselfabpostpathparameters31) | aB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters32](#fakeparametercollisions1ababselfabpostpathparameters32) | self(String value) |
+| [PathParametersMap00011Builder](#pathparametersmap00011builder) | positive1(String value) |
+| [PathParametersMap10001Builder](#pathparametersmap10001builder) | aB(String value) |
+| [PathParametersMap10010Builder](#pathparametersmap10010builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters34
-public class Fakeparametercollisions1ababselfabPostPathParameters34<br>
+## PathParametersMap10100Builder
+public class PathParametersMap10100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -456,16 +456,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters34(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap10100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters18](#fakeparametercollisions1ababselfabpostpathparameters18) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters30](#fakeparametercollisions1ababselfabpostpathparameters30) | Ab(String value) |
+| [PathParametersMap00100Builder](#pathparametersmap00100builder) | positive1(String value) |
+| [PathParametersMap10000Builder](#pathparametersmap10000builder) | Ab(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters35
-public class Fakeparametercollisions1ababselfabPostPathParameters35<br>
+## PathParametersMap10101Builder
+public class PathParametersMap10101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -473,17 +473,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters35(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap10101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters19](#fakeparametercollisions1ababselfabpostpathparameters19) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters31](#fakeparametercollisions1ababselfabpostpathparameters31) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters34](#fakeparametercollisions1ababselfabpostpathparameters34) | self(String value) |
+| [PathParametersMap00101Builder](#pathparametersmap00101builder) | positive1(String value) |
+| [PathParametersMap10001Builder](#pathparametersmap10001builder) | Ab(String value) |
+| [PathParametersMap10100Builder](#pathparametersmap10100builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters36
-public class Fakeparametercollisions1ababselfabPostPathParameters36<br>
+## PathParametersMap10110Builder
+public class PathParametersMap10110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -491,17 +491,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters36(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap10110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters20](#fakeparametercollisions1ababselfabpostpathparameters20) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters32](#fakeparametercollisions1ababselfabpostpathparameters32) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters34](#fakeparametercollisions1ababselfabpostpathparameters34) | aB(String value) |
+| [PathParametersMap00110Builder](#pathparametersmap00110builder) | positive1(String value) |
+| [PathParametersMap10010Builder](#pathparametersmap10010builder) | Ab(String value) |
+| [PathParametersMap10100Builder](#pathparametersmap10100builder) | aB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters37
-public class Fakeparametercollisions1ababselfabPostPathParameters37<br>
+## PathParametersMap10111Builder
+public class PathParametersMap10111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -509,18 +509,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters37(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap10111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters21](#fakeparametercollisions1ababselfabpostpathparameters21) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters33](#fakeparametercollisions1ababselfabpostpathparameters33) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters35](#fakeparametercollisions1ababselfabpostpathparameters35) | aB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters36](#fakeparametercollisions1ababselfabpostpathparameters36) | self(String value) |
+| [PathParametersMap00111Builder](#pathparametersmap00111builder) | positive1(String value) |
+| [PathParametersMap10011Builder](#pathparametersmap10011builder) | Ab(String value) |
+| [PathParametersMap10101Builder](#pathparametersmap10101builder) | aB(String value) |
+| [PathParametersMap10110Builder](#pathparametersmap10110builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters38
-public class Fakeparametercollisions1ababselfabPostPathParameters38<br>
+## PathParametersMap11000Builder
+public class PathParametersMap11000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -528,16 +528,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters38(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap11000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters22](#fakeparametercollisions1ababselfabpostpathparameters22) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters30](#fakeparametercollisions1ababselfabpostpathparameters30) | aHyphenMinusB(String value) |
+| [PathParametersMap01000Builder](#pathparametersmap01000builder) | positive1(String value) |
+| [PathParametersMap10000Builder](#pathparametersmap10000builder) | aHyphenMinusB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters39
-public class Fakeparametercollisions1ababselfabPostPathParameters39<br>
+## PathParametersMap11001Builder
+public class PathParametersMap11001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -545,17 +545,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters39(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap11001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters23](#fakeparametercollisions1ababselfabpostpathparameters23) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters31](#fakeparametercollisions1ababselfabpostpathparameters31) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters38](#fakeparametercollisions1ababselfabpostpathparameters38) | self(String value) |
+| [PathParametersMap01001Builder](#pathparametersmap01001builder) | positive1(String value) |
+| [PathParametersMap10001Builder](#pathparametersmap10001builder) | aHyphenMinusB(String value) |
+| [PathParametersMap11000Builder](#pathparametersmap11000builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters40
-public class Fakeparametercollisions1ababselfabPostPathParameters40<br>
+## PathParametersMap11010Builder
+public class PathParametersMap11010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -563,17 +563,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters40(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap11010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters24](#fakeparametercollisions1ababselfabpostpathparameters24) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters32](#fakeparametercollisions1ababselfabpostpathparameters32) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters38](#fakeparametercollisions1ababselfabpostpathparameters38) | aB(String value) |
+| [PathParametersMap01010Builder](#pathparametersmap01010builder) | positive1(String value) |
+| [PathParametersMap10010Builder](#pathparametersmap10010builder) | aHyphenMinusB(String value) |
+| [PathParametersMap11000Builder](#pathparametersmap11000builder) | aB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters41
-public class Fakeparametercollisions1ababselfabPostPathParameters41<br>
+## PathParametersMap11011Builder
+public class PathParametersMap11011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -581,18 +581,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters41(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap11011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters25](#fakeparametercollisions1ababselfabpostpathparameters25) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters33](#fakeparametercollisions1ababselfabpostpathparameters33) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters39](#fakeparametercollisions1ababselfabpostpathparameters39) | aB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters40](#fakeparametercollisions1ababselfabpostpathparameters40) | self(String value) |
+| [PathParametersMap01011Builder](#pathparametersmap01011builder) | positive1(String value) |
+| [PathParametersMap10011Builder](#pathparametersmap10011builder) | aHyphenMinusB(String value) |
+| [PathParametersMap11001Builder](#pathparametersmap11001builder) | aB(String value) |
+| [PathParametersMap11010Builder](#pathparametersmap11010builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters42
-public class Fakeparametercollisions1ababselfabPostPathParameters42<br>
+## PathParametersMap11100Builder
+public class PathParametersMap11100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -600,17 +600,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters42(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap11100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters26](#fakeparametercollisions1ababselfabpostpathparameters26) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters34](#fakeparametercollisions1ababselfabpostpathparameters34) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters38](#fakeparametercollisions1ababselfabpostpathparameters38) | Ab(String value) |
+| [PathParametersMap01100Builder](#pathparametersmap01100builder) | positive1(String value) |
+| [PathParametersMap10100Builder](#pathparametersmap10100builder) | aHyphenMinusB(String value) |
+| [PathParametersMap11000Builder](#pathparametersmap11000builder) | Ab(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters43
-public class Fakeparametercollisions1ababselfabPostPathParameters43<br>
+## PathParametersMap11101Builder
+public class PathParametersMap11101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -618,18 +618,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters43(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap11101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters27](#fakeparametercollisions1ababselfabpostpathparameters27) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters35](#fakeparametercollisions1ababselfabpostpathparameters35) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters39](#fakeparametercollisions1ababselfabpostpathparameters39) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters42](#fakeparametercollisions1ababselfabpostpathparameters42) | self(String value) |
+| [PathParametersMap01101Builder](#pathparametersmap01101builder) | positive1(String value) |
+| [PathParametersMap10101Builder](#pathparametersmap10101builder) | aHyphenMinusB(String value) |
+| [PathParametersMap11001Builder](#pathparametersmap11001builder) | Ab(String value) |
+| [PathParametersMap11100Builder](#pathparametersmap11100builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters44
-public class Fakeparametercollisions1ababselfabPostPathParameters44<br>
+## PathParametersMap11110Builder
+public class PathParametersMap11110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -637,18 +637,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters44(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap11110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters28](#fakeparametercollisions1ababselfabpostpathparameters28) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters36](#fakeparametercollisions1ababselfabpostpathparameters36) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters40](#fakeparametercollisions1ababselfabpostpathparameters40) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters42](#fakeparametercollisions1ababselfabpostpathparameters42) | aB(String value) |
+| [PathParametersMap01110Builder](#pathparametersmap01110builder) | positive1(String value) |
+| [PathParametersMap10110Builder](#pathparametersmap10110builder) | aHyphenMinusB(String value) |
+| [PathParametersMap11010Builder](#pathparametersmap11010builder) | Ab(String value) |
+| [PathParametersMap11100Builder](#pathparametersmap11100builder) | aB(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters12
-public class Fakeparametercollisions1ababselfabPostPathParameters12<br>
+## PathParametersMapBuilder
+public class PathParametersMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -656,19 +656,19 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters12()<br>Creates a builder that contains an empty map |
+| PathParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostPathParameters29](#fakeparametercollisions1ababselfabpostpathparameters29) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters37](#fakeparametercollisions1ababselfabpostpathparameters37) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters41](#fakeparametercollisions1ababselfabpostpathparameters41) | Ab(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters43](#fakeparametercollisions1ababselfabpostpathparameters43) | aB(String value) |
-| [Fakeparametercollisions1ababselfabPostPathParameters44](#fakeparametercollisions1ababselfabpostpathparameters44) | self(String value) |
+| [PathParametersMap01111Builder](#pathparametersmap01111builder) | positive1(String value) |
+| [PathParametersMap10111Builder](#pathparametersmap10111builder) | aHyphenMinusB(String value) |
+| [PathParametersMap11011Builder](#pathparametersmap11011builder) | Ab(String value) |
+| [PathParametersMap11101Builder](#pathparametersmap11101builder) | aB(String value) |
+| [PathParametersMap11110Builder](#pathparametersmap11110builder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostPathParameters13
-public static class Fakeparametercollisions1ababselfabPostPathParameters13<br>
+## PathParametersMap
+public static class PathParametersMap<br>
 extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
@@ -676,34 +676,34 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Fakeparametercollisions1ababselfabPostPathParameters13](#fakeparametercollisions1ababselfabpostpathparameters13) | of([Map<String, ? extends @Nullable Object>](#fakeparametercollisions1ababselfabpostpathparameters12) arg, SchemaConfiguration configuration) |
+| static [PathParametersMap](#pathparametersmap) | of([Map<String, ? extends @Nullable Object>](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | Ab()<br> |
 | String | aB()<br> |
 | String | self()<br> |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["1"], instance["A-B"],  |
 
-## Fakeparametercollisions1ababselfabPostPathParameters8Boxed
-public sealed interface Fakeparametercollisions1ababselfabPostPathParameters8Boxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[Fakeparametercollisions1ababselfabPostPathParameters8BoxedVoid](#fakeparametercollisions1ababselfabpostpathparameters8boxedvoid),
-[Fakeparametercollisions1ababselfabPostPathParameters8BoxedBoolean](#fakeparametercollisions1ababselfabpostpathparameters8boxedboolean),
-[Fakeparametercollisions1ababselfabPostPathParameters8BoxedNumber](#fakeparametercollisions1ababselfabpostpathparameters8boxednumber),
-[Fakeparametercollisions1ababselfabPostPathParameters8BoxedString](#fakeparametercollisions1ababselfabpostpathparameters8boxedstring),
-[Fakeparametercollisions1ababselfabPostPathParameters8BoxedList](#fakeparametercollisions1ababselfabpostpathparameters8boxedlist),
-[Fakeparametercollisions1ababselfabPostPathParameters8BoxedMap](#fakeparametercollisions1ababselfabpostpathparameters8boxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## Fakeparametercollisions1ababselfabPostPathParameters8BoxedVoid
-public record Fakeparametercollisions1ababselfabPostPathParameters8BoxedVoid<br>
-implements [Fakeparametercollisions1ababselfabPostPathParameters8Boxed](#fakeparametercollisions1ababselfabpostpathparameters8boxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters8BoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -711,16 +711,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostPathParameters8BoxedBoolean
-public record Fakeparametercollisions1ababselfabPostPathParameters8BoxedBoolean<br>
-implements [Fakeparametercollisions1ababselfabPostPathParameters8Boxed](#fakeparametercollisions1ababselfabpostpathparameters8boxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters8BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -728,16 +728,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostPathParameters8BoxedNumber
-public record Fakeparametercollisions1ababselfabPostPathParameters8BoxedNumber<br>
-implements [Fakeparametercollisions1ababselfabPostPathParameters8Boxed](#fakeparametercollisions1ababselfabpostpathparameters8boxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters8BoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -745,16 +745,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostPathParameters8BoxedString
-public record Fakeparametercollisions1ababselfabPostPathParameters8BoxedString<br>
-implements [Fakeparametercollisions1ababselfabPostPathParameters8Boxed](#fakeparametercollisions1ababselfabpostpathparameters8boxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters8BoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -762,16 +762,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostPathParameters8BoxedList
-public record Fakeparametercollisions1ababselfabPostPathParameters8BoxedList<br>
-implements [Fakeparametercollisions1ababselfabPostPathParameters8Boxed](#fakeparametercollisions1ababselfabpostpathparameters8boxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters8BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -779,16 +779,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostPathParameters8BoxedMap
-public record Fakeparametercollisions1ababselfabPostPathParameters8BoxedMap<br>
-implements [Fakeparametercollisions1ababselfabPostPathParameters8Boxed](#fakeparametercollisions1ababselfabpostpathparameters8boxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostPathParameters8BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -796,8 +796,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostPathParameters8
-public static class Fakeparametercollisions1ababselfabPostPathParameters8<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

@@ -93,13 +93,13 @@ public class PetfindbytagsGet {
     }
 
     public static class GetRequest {
-        public PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters9 queryParameters;
+        public PetfindbytagsGetQueryParameters.QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters9 queryParameters,
+            PetfindbytagsGetQueryParameters.QueryParametersMap queryParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -112,7 +112,7 @@ public class PetfindbytagsGet {
     }
 
     public static class GetNullableRequest {
-        public PetfindbytagsGetQueryParameters.@Nullable PetfindbytagsGetQueryParameters9 queryParameters;
+        public PetfindbytagsGetQueryParameters.@Nullable QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -151,7 +151,7 @@ public class PetfindbytagsGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters9 queryParameters) {
+        default T queryParameters(PetfindbytagsGetQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

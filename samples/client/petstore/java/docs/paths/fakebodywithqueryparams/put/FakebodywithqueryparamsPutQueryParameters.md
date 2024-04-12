@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters1Boxed](#fakebodywithqueryparamsputqueryparameters1boxed)<br> sealed interface for validated payloads |
 | record | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters1BoxedMap](#fakebodywithqueryparamsputqueryparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters1](#fakebodywithqueryparamsputqueryparameters1)<br> schema class |
-| static class | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters8](#fakebodywithqueryparamsputqueryparameters8)<br> builder for Map payloads |
-| static class | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters9](#fakebodywithqueryparamsputqueryparameters9)<br> output class for Map payloads |
-| sealed interface | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters4Boxed](#fakebodywithqueryparamsputqueryparameters4boxed)<br> sealed interface for validated payloads |
-| record | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters4BoxedVoid](#fakebodywithqueryparamsputqueryparameters4boxedvoid)<br> boxed class to store validated null payloads |
-| record | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters4BoxedBoolean](#fakebodywithqueryparamsputqueryparameters4boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters4BoxedNumber](#fakebodywithqueryparamsputqueryparameters4boxednumber)<br> boxed class to store validated Number payloads |
-| record | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters4BoxedString](#fakebodywithqueryparamsputqueryparameters4boxedstring)<br> boxed class to store validated String payloads |
-| record | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters4BoxedList](#fakebodywithqueryparamsputqueryparameters4boxedlist)<br> boxed class to store validated List payloads |
-| record | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters4BoxedMap](#fakebodywithqueryparamsputqueryparameters4boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters4](#fakebodywithqueryparamsputqueryparameters4)<br> schema class |
+| static class | [FakebodywithqueryparamsPutQueryParameters.QueryParametersMapBuilder](#queryparametersmapbuilder)<br> builder for Map payloads |
+| static class | [FakebodywithqueryparamsPutQueryParameters.QueryParametersMap](#queryparametersmap)<br> output class for Map payloads |
+| sealed interface | [FakebodywithqueryparamsPutQueryParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [FakebodywithqueryparamsPutQueryParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [FakebodywithqueryparamsPutQueryParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [FakebodywithqueryparamsPutQueryParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [FakebodywithqueryparamsPutQueryParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [FakebodywithqueryparamsPutQueryParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [FakebodywithqueryparamsPutQueryParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [FakebodywithqueryparamsPutQueryParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## FakebodywithqueryparamsPutQueryParameters1Boxed
 public sealed interface FakebodywithqueryparamsPutQueryParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPutQueryParameters1BoxedMap([FakebodywithqueryparamsPutQueryParameters9](#fakebodywithqueryparamsputqueryparameters9) data)<br>Creates an instance, private visibility |
+| FakebodywithqueryparamsPutQueryParameters1BoxedMap([QueryParametersMap](#queryparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakebodywithqueryparamsPutQueryParameters9](#fakebodywithqueryparamsputqueryparameters9) | data()<br>validated payload |
+| [QueryParametersMap](#queryparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## FakebodywithqueryparamsPutQueryParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters9 validatedPayload =
+FakebodywithqueryparamsPutQueryParameters.QueryParametersMap validatedPayload =
     FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters1.validate(
-    new FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters8()
+    new FakebodywithqueryparamsPutQueryParameters.QueryParametersMapBuilder()
         .query("a")
 
     .build(),
@@ -88,18 +88,18 @@ FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParamet
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("query", [Schema0.Schema01.class](../../../paths/fakebodywithqueryparams/put/parameters/parameter0/Schema0.md#schema01))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"query"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [FakebodywithqueryparamsPutQueryParameters4.class](#fakebodywithqueryparamsputqueryparameters4) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakebodywithqueryparamsPutQueryParameters9](#fakebodywithqueryparamsputqueryparameters9) | validate([Map&lt;?, ?&gt;](#fakebodywithqueryparamsputqueryparameters8) arg, SchemaConfiguration configuration) |
-| [FakebodywithqueryparamsPutQueryParameters1BoxedMap](#fakebodywithqueryparamsputqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakebodywithqueryparamsputqueryparameters8) arg, SchemaConfiguration configuration) |
+| [QueryParametersMap](#queryparametersmap) | validate([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [FakebodywithqueryparamsPutQueryParameters1BoxedMap](#fakebodywithqueryparamsputqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [FakebodywithqueryparamsPutQueryParameters1Boxed](#fakebodywithqueryparamsputqueryparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## FakebodywithqueryparamsPutQueryParameters10
-public class FakebodywithqueryparamsPutQueryParameters10<br>
+## QueryParametersMap0Builder
+public class QueryParametersMap0Builder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -107,15 +107,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPutQueryParameters10(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap0Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
-## FakebodywithqueryparamsPutQueryParameters8
-public class FakebodywithqueryparamsPutQueryParameters8<br>
+## QueryParametersMapBuilder
+public class QueryParametersMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -123,15 +123,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPutQueryParameters8()<br>Creates a builder that contains an empty map |
+| QueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakebodywithqueryparamsPutQueryParameters10](#fakebodywithqueryparamsputqueryparameters10) | query(String value) |
+| [QueryParametersMap0Builder](#queryparametersmap0builder) | query(String value) |
 
-## FakebodywithqueryparamsPutQueryParameters9
-public static class FakebodywithqueryparamsPutQueryParameters9<br>
+## QueryParametersMap
+public static class QueryParametersMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -139,31 +139,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FakebodywithqueryparamsPutQueryParameters9](#fakebodywithqueryparamsputqueryparameters9) | of([Map<String, String>](#fakebodywithqueryparamsputqueryparameters8) arg, SchemaConfiguration configuration) |
+| static [QueryParametersMap](#queryparametersmap) | of([Map<String, String>](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | query()<br> |
 
-## FakebodywithqueryparamsPutQueryParameters4Boxed
-public sealed interface FakebodywithqueryparamsPutQueryParameters4Boxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[FakebodywithqueryparamsPutQueryParameters4BoxedVoid](#fakebodywithqueryparamsputqueryparameters4boxedvoid),
-[FakebodywithqueryparamsPutQueryParameters4BoxedBoolean](#fakebodywithqueryparamsputqueryparameters4boxedboolean),
-[FakebodywithqueryparamsPutQueryParameters4BoxedNumber](#fakebodywithqueryparamsputqueryparameters4boxednumber),
-[FakebodywithqueryparamsPutQueryParameters4BoxedString](#fakebodywithqueryparamsputqueryparameters4boxedstring),
-[FakebodywithqueryparamsPutQueryParameters4BoxedList](#fakebodywithqueryparamsputqueryparameters4boxedlist),
-[FakebodywithqueryparamsPutQueryParameters4BoxedMap](#fakebodywithqueryparamsputqueryparameters4boxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## FakebodywithqueryparamsPutQueryParameters4BoxedVoid
-public record FakebodywithqueryparamsPutQueryParameters4BoxedVoid<br>
-implements [FakebodywithqueryparamsPutQueryParameters4Boxed](#fakebodywithqueryparamsputqueryparameters4boxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPutQueryParameters4BoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -171,16 +171,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakebodywithqueryparamsPutQueryParameters4BoxedBoolean
-public record FakebodywithqueryparamsPutQueryParameters4BoxedBoolean<br>
-implements [FakebodywithqueryparamsPutQueryParameters4Boxed](#fakebodywithqueryparamsputqueryparameters4boxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPutQueryParameters4BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -188,16 +188,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakebodywithqueryparamsPutQueryParameters4BoxedNumber
-public record FakebodywithqueryparamsPutQueryParameters4BoxedNumber<br>
-implements [FakebodywithqueryparamsPutQueryParameters4Boxed](#fakebodywithqueryparamsputqueryparameters4boxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPutQueryParameters4BoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -205,16 +205,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakebodywithqueryparamsPutQueryParameters4BoxedString
-public record FakebodywithqueryparamsPutQueryParameters4BoxedString<br>
-implements [FakebodywithqueryparamsPutQueryParameters4Boxed](#fakebodywithqueryparamsputqueryparameters4boxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPutQueryParameters4BoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -222,16 +222,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakebodywithqueryparamsPutQueryParameters4BoxedList
-public record FakebodywithqueryparamsPutQueryParameters4BoxedList<br>
-implements [FakebodywithqueryparamsPutQueryParameters4Boxed](#fakebodywithqueryparamsputqueryparameters4boxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPutQueryParameters4BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -239,16 +239,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakebodywithqueryparamsPutQueryParameters4BoxedMap
-public record FakebodywithqueryparamsPutQueryParameters4BoxedMap<br>
-implements [FakebodywithqueryparamsPutQueryParameters4Boxed](#fakebodywithqueryparamsputqueryparameters4boxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakebodywithqueryparamsPutQueryParameters4BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -256,8 +256,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakebodywithqueryparamsPutQueryParameters4
-public static class FakebodywithqueryparamsPutQueryParameters4<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

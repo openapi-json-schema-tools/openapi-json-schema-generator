@@ -105,14 +105,14 @@ public class FakepetiduploadimagewithrequiredfilePost {
     }
 
     public static class PostRequest {
-        public FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters9 pathParameters;
+        public FakepetiduploadimagewithrequiredfilePostPathParameters.PathParametersMap pathParameters;
         public FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody requestBody;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters9 pathParameters,
+            FakepetiduploadimagewithrequiredfilePostPathParameters.PathParametersMap pathParameters,
             FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody requestBody,
             ServerInfo.@Nullable ServerIndex serverIndex,
             FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex,
@@ -127,7 +127,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
     }
 
     public static class PostNullableRequest {
-        public FakepetiduploadimagewithrequiredfilePostPathParameters.@Nullable FakepetiduploadimagewithrequiredfilePostPathParameters9 pathParameters;
+        public FakepetiduploadimagewithrequiredfilePostPathParameters.@Nullable PathParametersMap pathParameters;
         public FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody requestBody;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex securityIndex;
@@ -177,7 +177,7 @@ public class FakepetiduploadimagewithrequiredfilePost {
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters9 pathParameters) {
+        default T pathParameters(FakepetiduploadimagewithrequiredfilePostPathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

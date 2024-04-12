@@ -97,7 +97,7 @@ public class FakeinlinecompositionPost {
 
     public static class PostRequest {
         public FakeinlinecompositionPostRequestBody.@Nullable SealedRequestBody requestBody;
-        public FakeinlinecompositionPostQueryParameters.@Nullable FakeinlinecompositionPostQueryParameters10 queryParameters;
+        public FakeinlinecompositionPostQueryParameters.@Nullable QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -115,7 +115,7 @@ public class FakeinlinecompositionPost {
     public interface SetterForQueryParameters <T> {
         PostRequest getInstance();
         T getBuilderAfterQueryParameters(PostRequest instance);
-        default T queryParameters(FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters10 queryParameters) {
+        default T queryParameters(FakeinlinecompositionPostQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

@@ -31,20 +31,20 @@ public class FakecasesensitiveparamsPutQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakecasesensitiveparamsPutQueryParameters6 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakecasesensitiveparamsPutQueryParameters6 instance = null;
-        public static FakecasesensitiveparamsPutQueryParameters6 getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FakecasesensitiveparamsPutQueryParameters6();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FakecasesensitiveparamsPutQueryParameters11 extends FrozenMap<@Nullable Object> {
-        protected FakecasesensitiveparamsPutQueryParameters11(FrozenMap<@Nullable Object> m) {
+    public static class QueryParametersMap extends FrozenMap<@Nullable Object> {
+        protected QueryParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -53,7 +53,7 @@ public class FakecasesensitiveparamsPutQueryParameters {
             "some_var"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static FakecasesensitiveparamsPutQueryParameters11 of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakecasesensitiveparamsPutQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -82,40 +82,40 @@ public class FakecasesensitiveparamsPutQueryParameters {
         }
     }
     
-    public interface SetterForFakecasesensitiveparamsPutQueryParameters4 <T> {
+    public interface SetterForSomeVar2 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakecasesensitiveparamsPutQueryParameters4(Map<String, @Nullable Object> instance);
+        T getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance);
         
         default T SomeVar(String value) {
             var instance = getInstance();
             instance.put("SomeVar", value);
-            return getBuilderAfterFakecasesensitiveparamsPutQueryParameters4(instance);
+            return getBuilderAfterSomeVar2(instance);
         }
     }
     
-    public interface SetterForFakecasesensitiveparamsPutQueryParameters2 <T> {
+    public interface SetterForSomeVar <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakecasesensitiveparamsPutQueryParameters2(Map<String, @Nullable Object> instance);
+        T getBuilderAfterSomeVar(Map<String, @Nullable Object> instance);
         
         default T someVar(String value) {
             var instance = getInstance();
             instance.put("someVar", value);
-            return getBuilderAfterFakecasesensitiveparamsPutQueryParameters2(instance);
+            return getBuilderAfterSomeVar(instance);
         }
     }
     
-    public interface SetterForFakecasesensitiveparamsPutQueryParameters3 <T> {
+    public interface SetterForSomeVar1 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakecasesensitiveparamsPutQueryParameters3(Map<String, @Nullable Object> instance);
+        T getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance);
         
         default T some_var(String value) {
             var instance = getInstance();
             instance.put("some_var", value);
-            return getBuilderAfterFakecasesensitiveparamsPutQueryParameters3(instance);
+            return getBuilderAfterSomeVar1(instance);
         }
     }
     
-    public static class FakecasesensitiveparamsPutQueryParameters12 implements GenericBuilder<Map<String, @Nullable Object>> {
+    public static class QueryParametersMap000Builder implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "SomeVar",
@@ -125,7 +125,7 @@ public class FakecasesensitiveparamsPutQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakecasesensitiveparamsPutQueryParameters12(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -133,109 +133,109 @@ public class FakecasesensitiveparamsPutQueryParameters {
         }
     }
     
-    public static class FakecasesensitiveparamsPutQueryParameters13 implements SetterForFakecasesensitiveparamsPutQueryParameters3<FakecasesensitiveparamsPutQueryParameters12> {
+    public static class QueryParametersMap001Builder implements SetterForSomeVar1<QueryParametersMap000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakecasesensitiveparamsPutQueryParameters13(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakecasesensitiveparamsPutQueryParameters12 getBuilderAfterFakecasesensitiveparamsPutQueryParameters3(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters12(instance);
+        public QueryParametersMap000Builder getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000Builder(instance);
         }
     }
     
-    public static class FakecasesensitiveparamsPutQueryParameters14 implements SetterForFakecasesensitiveparamsPutQueryParameters2<FakecasesensitiveparamsPutQueryParameters12> {
+    public static class QueryParametersMap010Builder implements SetterForSomeVar<QueryParametersMap000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakecasesensitiveparamsPutQueryParameters14(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakecasesensitiveparamsPutQueryParameters12 getBuilderAfterFakecasesensitiveparamsPutQueryParameters2(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters12(instance);
+        public QueryParametersMap000Builder getBuilderAfterSomeVar(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000Builder(instance);
         }
     }
     
-    public static class FakecasesensitiveparamsPutQueryParameters15 implements SetterForFakecasesensitiveparamsPutQueryParameters2<FakecasesensitiveparamsPutQueryParameters13>, SetterForFakecasesensitiveparamsPutQueryParameters3<FakecasesensitiveparamsPutQueryParameters14> {
+    public static class QueryParametersMap011Builder implements SetterForSomeVar<QueryParametersMap001Builder>, SetterForSomeVar1<QueryParametersMap010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakecasesensitiveparamsPutQueryParameters15(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakecasesensitiveparamsPutQueryParameters13 getBuilderAfterFakecasesensitiveparamsPutQueryParameters2(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters13(instance);
+        public QueryParametersMap001Builder getBuilderAfterSomeVar(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001Builder(instance);
         }
-        public FakecasesensitiveparamsPutQueryParameters14 getBuilderAfterFakecasesensitiveparamsPutQueryParameters3(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters14(instance);
+        public QueryParametersMap010Builder getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010Builder(instance);
         }
     }
     
-    public static class FakecasesensitiveparamsPutQueryParameters16 implements SetterForFakecasesensitiveparamsPutQueryParameters4<FakecasesensitiveparamsPutQueryParameters12> {
+    public static class QueryParametersMap100Builder implements SetterForSomeVar2<QueryParametersMap000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakecasesensitiveparamsPutQueryParameters16(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakecasesensitiveparamsPutQueryParameters12 getBuilderAfterFakecasesensitiveparamsPutQueryParameters4(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters12(instance);
+        public QueryParametersMap000Builder getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000Builder(instance);
         }
     }
     
-    public static class FakecasesensitiveparamsPutQueryParameters17 implements SetterForFakecasesensitiveparamsPutQueryParameters4<FakecasesensitiveparamsPutQueryParameters13>, SetterForFakecasesensitiveparamsPutQueryParameters3<FakecasesensitiveparamsPutQueryParameters16> {
+    public static class QueryParametersMap101Builder implements SetterForSomeVar2<QueryParametersMap001Builder>, SetterForSomeVar1<QueryParametersMap100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakecasesensitiveparamsPutQueryParameters17(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakecasesensitiveparamsPutQueryParameters13 getBuilderAfterFakecasesensitiveparamsPutQueryParameters4(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters13(instance);
+        public QueryParametersMap001Builder getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001Builder(instance);
         }
-        public FakecasesensitiveparamsPutQueryParameters16 getBuilderAfterFakecasesensitiveparamsPutQueryParameters3(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters16(instance);
+        public QueryParametersMap100Builder getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100Builder(instance);
         }
     }
     
-    public static class FakecasesensitiveparamsPutQueryParameters18 implements SetterForFakecasesensitiveparamsPutQueryParameters4<FakecasesensitiveparamsPutQueryParameters14>, SetterForFakecasesensitiveparamsPutQueryParameters2<FakecasesensitiveparamsPutQueryParameters16> {
+    public static class QueryParametersMap110Builder implements SetterForSomeVar2<QueryParametersMap010Builder>, SetterForSomeVar<QueryParametersMap100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakecasesensitiveparamsPutQueryParameters18(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakecasesensitiveparamsPutQueryParameters14 getBuilderAfterFakecasesensitiveparamsPutQueryParameters4(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters14(instance);
+        public QueryParametersMap010Builder getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010Builder(instance);
         }
-        public FakecasesensitiveparamsPutQueryParameters16 getBuilderAfterFakecasesensitiveparamsPutQueryParameters2(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters16(instance);
+        public QueryParametersMap100Builder getBuilderAfterSomeVar(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100Builder(instance);
         }
     }
     
-    public static class FakecasesensitiveparamsPutQueryParameters10 implements SetterForFakecasesensitiveparamsPutQueryParameters4<FakecasesensitiveparamsPutQueryParameters15>, SetterForFakecasesensitiveparamsPutQueryParameters2<FakecasesensitiveparamsPutQueryParameters17>, SetterForFakecasesensitiveparamsPutQueryParameters3<FakecasesensitiveparamsPutQueryParameters18> {
+    public static class QueryParametersMapBuilder implements SetterForSomeVar2<QueryParametersMap011Builder>, SetterForSomeVar<QueryParametersMap101Builder>, SetterForSomeVar1<QueryParametersMap110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakecasesensitiveparamsPutQueryParameters10() {
+        public QueryParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakecasesensitiveparamsPutQueryParameters15 getBuilderAfterFakecasesensitiveparamsPutQueryParameters4(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters15(instance);
+        public QueryParametersMap011Builder getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011Builder(instance);
         }
-        public FakecasesensitiveparamsPutQueryParameters17 getBuilderAfterFakecasesensitiveparamsPutQueryParameters2(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters17(instance);
+        public QueryParametersMap101Builder getBuilderAfterSomeVar(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101Builder(instance);
         }
-        public FakecasesensitiveparamsPutQueryParameters18 getBuilderAfterFakecasesensitiveparamsPutQueryParameters3(Map<String, @Nullable Object> instance) {
-            return new FakecasesensitiveparamsPutQueryParameters18(instance);
+        public QueryParametersMap110Builder getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110Builder(instance);
         }
     }
     
@@ -244,7 +244,7 @@ public class FakecasesensitiveparamsPutQueryParameters {
         @Nullable Object getData();
     }
     
-    public record FakecasesensitiveparamsPutQueryParameters1BoxedMap(FakecasesensitiveparamsPutQueryParameters11 data) implements FakecasesensitiveparamsPutQueryParameters1Boxed {
+    public record FakecasesensitiveparamsPutQueryParameters1BoxedMap(QueryParametersMap data) implements FakecasesensitiveparamsPutQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -252,7 +252,7 @@ public class FakecasesensitiveparamsPutQueryParameters {
     }
     
     
-    public static class FakecasesensitiveparamsPutQueryParameters1 extends JsonSchema<FakecasesensitiveparamsPutQueryParameters1Boxed> implements MapSchemaValidator<FakecasesensitiveparamsPutQueryParameters11, FakecasesensitiveparamsPutQueryParameters1BoxedMap> {
+    public static class FakecasesensitiveparamsPutQueryParameters1 extends JsonSchema<FakecasesensitiveparamsPutQueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, FakecasesensitiveparamsPutQueryParameters1BoxedMap> {
         private static @Nullable FakecasesensitiveparamsPutQueryParameters1 instance = null;
     
         protected FakecasesensitiveparamsPutQueryParameters1() {
@@ -268,7 +268,7 @@ public class FakecasesensitiveparamsPutQueryParameters {
                     "someVar",
                     "some_var"
                 ))
-                .additionalProperties(FakecasesensitiveparamsPutQueryParameters6.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -279,7 +279,7 @@ public class FakecasesensitiveparamsPutQueryParameters {
             return instance;
         }
         
-        public FakecasesensitiveparamsPutQueryParameters11 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -299,10 +299,10 @@ public class FakecasesensitiveparamsPutQueryParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new FakecasesensitiveparamsPutQueryParameters11(castProperties);
+            return new QueryParametersMap(castProperties);
         }
         
-        public FakecasesensitiveparamsPutQueryParameters11 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public QueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

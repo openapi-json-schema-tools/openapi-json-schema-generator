@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters1Boxed](#faketestqueryparamtersputqueryparameters1boxed)<br> sealed interface for validated payloads |
 | record | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters1BoxedMap](#faketestqueryparamtersputqueryparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters1](#faketestqueryparamtersputqueryparameters1)<br> schema class |
-| static class | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters13](#faketestqueryparamtersputqueryparameters13)<br> builder for Map payloads |
-| static class | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters14](#faketestqueryparamtersputqueryparameters14)<br> output class for Map payloads |
-| sealed interface | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters9Boxed](#faketestqueryparamtersputqueryparameters9boxed)<br> sealed interface for validated payloads |
-| record | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters9BoxedVoid](#faketestqueryparamtersputqueryparameters9boxedvoid)<br> boxed class to store validated null payloads |
-| record | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters9BoxedBoolean](#faketestqueryparamtersputqueryparameters9boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters9BoxedNumber](#faketestqueryparamtersputqueryparameters9boxednumber)<br> boxed class to store validated Number payloads |
-| record | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters9BoxedString](#faketestqueryparamtersputqueryparameters9boxedstring)<br> boxed class to store validated String payloads |
-| record | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters9BoxedList](#faketestqueryparamtersputqueryparameters9boxedlist)<br> boxed class to store validated List payloads |
-| record | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters9BoxedMap](#faketestqueryparamtersputqueryparameters9boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters9](#faketestqueryparamtersputqueryparameters9)<br> schema class |
+| static class | [FaketestqueryparamtersPutQueryParameters.QueryParametersMapBuilder](#queryparametersmapbuilder)<br> builder for Map payloads |
+| static class | [FaketestqueryparamtersPutQueryParameters.QueryParametersMap](#queryparametersmap)<br> output class for Map payloads |
+| sealed interface | [FaketestqueryparamtersPutQueryParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [FaketestqueryparamtersPutQueryParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [FaketestqueryparamtersPutQueryParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [FaketestqueryparamtersPutQueryParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [FaketestqueryparamtersPutQueryParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [FaketestqueryparamtersPutQueryParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [FaketestqueryparamtersPutQueryParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [FaketestqueryparamtersPutQueryParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## FaketestqueryparamtersPutQueryParameters1Boxed
 public sealed interface FaketestqueryparamtersPutQueryParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters1BoxedMap([FaketestqueryparamtersPutQueryParameters14](#faketestqueryparamtersputqueryparameters14) data)<br>Creates an instance, private visibility |
+| FaketestqueryparamtersPutQueryParameters1BoxedMap([QueryParametersMap](#queryparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters14](#faketestqueryparamtersputqueryparameters14) | data()<br>validated payload |
+| [QueryParametersMap](#queryparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## FaketestqueryparamtersPutQueryParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters14 validatedPayload =
+FaketestqueryparamtersPutQueryParameters.QueryParametersMap validatedPayload =
     FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters1.validate(
-    new FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters13()
+    new FaketestqueryparamtersPutQueryParameters.QueryParametersMapBuilder()
         .context(
             Arrays.asList(
                 "a"
@@ -113,18 +113,18 @@ FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameter
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("refParam", [StringWithValidation.StringWithValidation1.class](../../../components/schemas/StringWithValidation.md#stringwithvalidation1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("ioutil", [Schema1.Schema11.class](../../../paths/faketestqueryparamters/put/parameters/parameter1/Schema1.md#schema11)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("context", [Schema4.Schema41.class](../../../paths/faketestqueryparamters/put/parameters/parameter4/Schema4.md#schema41)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("http", [Schema2.Schema21.class](../../../paths/faketestqueryparamters/put/parameters/parameter2/Schema2.md#schema21)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("pipe", [Schema0.Schema01.class](../../../paths/faketestqueryparamters/put/parameters/parameter0/Schema0.md#schema01)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("url", [Schema3.Schema31.class](../../../paths/faketestqueryparamters/put/parameters/parameter3/Schema3.md#schema31))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"context",<br>&nbsp;&nbsp;&nbsp;&nbsp;"http",<br>&nbsp;&nbsp;&nbsp;&nbsp;"ioutil",<br>&nbsp;&nbsp;&nbsp;&nbsp;"pipe",<br>&nbsp;&nbsp;&nbsp;&nbsp;"refParam",<br>&nbsp;&nbsp;&nbsp;&nbsp;"url"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [FaketestqueryparamtersPutQueryParameters9.class](#faketestqueryparamtersputqueryparameters9) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters14](#faketestqueryparamtersputqueryparameters14) | validate([Map&lt;?, ?&gt;](#faketestqueryparamtersputqueryparameters13) arg, SchemaConfiguration configuration) |
-| [FaketestqueryparamtersPutQueryParameters1BoxedMap](#faketestqueryparamtersputqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#faketestqueryparamtersputqueryparameters13) arg, SchemaConfiguration configuration) |
+| [QueryParametersMap](#queryparametersmap) | validate([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [FaketestqueryparamtersPutQueryParameters1BoxedMap](#faketestqueryparamtersputqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [FaketestqueryparamtersPutQueryParameters1Boxed](#faketestqueryparamtersputqueryparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## FaketestqueryparamtersPutQueryParameters15
-public class FaketestqueryparamtersPutQueryParameters15<br>
+## QueryParametersMap000000Builder
+public class QueryParametersMap000000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -132,15 +132,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters15(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap000000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 
-## FaketestqueryparamtersPutQueryParameters16
-public class FaketestqueryparamtersPutQueryParameters16<br>
+## QueryParametersMap000001Builder
+public class QueryParametersMap000001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -148,15 +148,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters16(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap000001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters15](#faketestqueryparamtersputqueryparameters15) | url(List<String> value) |
+| [QueryParametersMap000000Builder](#queryparametersmap000000builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters17
-public class FaketestqueryparamtersPutQueryParameters17<br>
+## QueryParametersMap000010Builder
+public class QueryParametersMap000010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -164,15 +164,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters17(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap000010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters15](#faketestqueryparamtersputqueryparameters15) | refParam(String value) |
+| [QueryParametersMap000000Builder](#queryparametersmap000000builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters18
-public class FaketestqueryparamtersPutQueryParameters18<br>
+## QueryParametersMap000011Builder
+public class QueryParametersMap000011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -180,16 +180,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters18(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap000011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters16](#faketestqueryparamtersputqueryparameters16) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters17](#faketestqueryparamtersputqueryparameters17) | url(List<String> value) |
+| [QueryParametersMap000001Builder](#queryparametersmap000001builder) | refParam(String value) |
+| [QueryParametersMap000010Builder](#queryparametersmap000010builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters19
-public class FaketestqueryparamtersPutQueryParameters19<br>
+## QueryParametersMap000100Builder
+public class QueryParametersMap000100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -197,15 +197,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters19(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap000100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters15](#faketestqueryparamtersputqueryparameters15) | pipe(List<String> value) |
+| [QueryParametersMap000000Builder](#queryparametersmap000000builder) | pipe(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters20
-public class FaketestqueryparamtersPutQueryParameters20<br>
+## QueryParametersMap000101Builder
+public class QueryParametersMap000101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -213,16 +213,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters20(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap000101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters16](#faketestqueryparamtersputqueryparameters16) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters19](#faketestqueryparamtersputqueryparameters19) | url(List<String> value) |
+| [QueryParametersMap000001Builder](#queryparametersmap000001builder) | pipe(List<String> value) |
+| [QueryParametersMap000100Builder](#queryparametersmap000100builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters21
-public class FaketestqueryparamtersPutQueryParameters21<br>
+## QueryParametersMap000110Builder
+public class QueryParametersMap000110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -230,16 +230,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters21(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap000110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters17](#faketestqueryparamtersputqueryparameters17) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters19](#faketestqueryparamtersputqueryparameters19) | refParam(String value) |
+| [QueryParametersMap000010Builder](#queryparametersmap000010builder) | pipe(List<String> value) |
+| [QueryParametersMap000100Builder](#queryparametersmap000100builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters22
-public class FaketestqueryparamtersPutQueryParameters22<br>
+## QueryParametersMap000111Builder
+public class QueryParametersMap000111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -247,17 +247,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters22(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap000111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters18](#faketestqueryparamtersputqueryparameters18) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters20](#faketestqueryparamtersputqueryparameters20) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters21](#faketestqueryparamtersputqueryparameters21) | url(List<String> value) |
+| [QueryParametersMap000011Builder](#queryparametersmap000011builder) | pipe(List<String> value) |
+| [QueryParametersMap000101Builder](#queryparametersmap000101builder) | refParam(String value) |
+| [QueryParametersMap000110Builder](#queryparametersmap000110builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters23
-public class FaketestqueryparamtersPutQueryParameters23<br>
+## QueryParametersMap001000Builder
+public class QueryParametersMap001000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -265,15 +265,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters23(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap001000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters15](#faketestqueryparamtersputqueryparameters15) | ioutil(List<String> value) |
+| [QueryParametersMap000000Builder](#queryparametersmap000000builder) | ioutil(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters24
-public class FaketestqueryparamtersPutQueryParameters24<br>
+## QueryParametersMap001001Builder
+public class QueryParametersMap001001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -281,16 +281,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters24(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap001001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters16](#faketestqueryparamtersputqueryparameters16) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters23](#faketestqueryparamtersputqueryparameters23) | url(List<String> value) |
+| [QueryParametersMap000001Builder](#queryparametersmap000001builder) | ioutil(List<String> value) |
+| [QueryParametersMap001000Builder](#queryparametersmap001000builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters25
-public class FaketestqueryparamtersPutQueryParameters25<br>
+## QueryParametersMap001010Builder
+public class QueryParametersMap001010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -298,16 +298,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters25(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap001010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters17](#faketestqueryparamtersputqueryparameters17) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters23](#faketestqueryparamtersputqueryparameters23) | refParam(String value) |
+| [QueryParametersMap000010Builder](#queryparametersmap000010builder) | ioutil(List<String> value) |
+| [QueryParametersMap001000Builder](#queryparametersmap001000builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters26
-public class FaketestqueryparamtersPutQueryParameters26<br>
+## QueryParametersMap001011Builder
+public class QueryParametersMap001011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -315,17 +315,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters26(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap001011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters18](#faketestqueryparamtersputqueryparameters18) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters24](#faketestqueryparamtersputqueryparameters24) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters25](#faketestqueryparamtersputqueryparameters25) | url(List<String> value) |
+| [QueryParametersMap000011Builder](#queryparametersmap000011builder) | ioutil(List<String> value) |
+| [QueryParametersMap001001Builder](#queryparametersmap001001builder) | refParam(String value) |
+| [QueryParametersMap001010Builder](#queryparametersmap001010builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters27
-public class FaketestqueryparamtersPutQueryParameters27<br>
+## QueryParametersMap001100Builder
+public class QueryParametersMap001100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -333,16 +333,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters27(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap001100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters19](#faketestqueryparamtersputqueryparameters19) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters23](#faketestqueryparamtersputqueryparameters23) | pipe(List<String> value) |
+| [QueryParametersMap000100Builder](#queryparametersmap000100builder) | ioutil(List<String> value) |
+| [QueryParametersMap001000Builder](#queryparametersmap001000builder) | pipe(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters28
-public class FaketestqueryparamtersPutQueryParameters28<br>
+## QueryParametersMap001101Builder
+public class QueryParametersMap001101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -350,17 +350,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters28(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap001101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters20](#faketestqueryparamtersputqueryparameters20) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters24](#faketestqueryparamtersputqueryparameters24) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters27](#faketestqueryparamtersputqueryparameters27) | url(List<String> value) |
+| [QueryParametersMap000101Builder](#queryparametersmap000101builder) | ioutil(List<String> value) |
+| [QueryParametersMap001001Builder](#queryparametersmap001001builder) | pipe(List<String> value) |
+| [QueryParametersMap001100Builder](#queryparametersmap001100builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters29
-public class FaketestqueryparamtersPutQueryParameters29<br>
+## QueryParametersMap001110Builder
+public class QueryParametersMap001110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -368,17 +368,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters29(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap001110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters21](#faketestqueryparamtersputqueryparameters21) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters25](#faketestqueryparamtersputqueryparameters25) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters27](#faketestqueryparamtersputqueryparameters27) | refParam(String value) |
+| [QueryParametersMap000110Builder](#queryparametersmap000110builder) | ioutil(List<String> value) |
+| [QueryParametersMap001010Builder](#queryparametersmap001010builder) | pipe(List<String> value) |
+| [QueryParametersMap001100Builder](#queryparametersmap001100builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters30
-public class FaketestqueryparamtersPutQueryParameters30<br>
+## QueryParametersMap001111Builder
+public class QueryParametersMap001111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -386,18 +386,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters30(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap001111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters22](#faketestqueryparamtersputqueryparameters22) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters26](#faketestqueryparamtersputqueryparameters26) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters28](#faketestqueryparamtersputqueryparameters28) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters29](#faketestqueryparamtersputqueryparameters29) | url(List<String> value) |
+| [QueryParametersMap000111Builder](#queryparametersmap000111builder) | ioutil(List<String> value) |
+| [QueryParametersMap001011Builder](#queryparametersmap001011builder) | pipe(List<String> value) |
+| [QueryParametersMap001101Builder](#queryparametersmap001101builder) | refParam(String value) |
+| [QueryParametersMap001110Builder](#queryparametersmap001110builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters31
-public class FaketestqueryparamtersPutQueryParameters31<br>
+## QueryParametersMap010000Builder
+public class QueryParametersMap010000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -405,15 +405,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters31(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap010000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters15](#faketestqueryparamtersputqueryparameters15) | http(List<String> value) |
+| [QueryParametersMap000000Builder](#queryparametersmap000000builder) | http(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters32
-public class FaketestqueryparamtersPutQueryParameters32<br>
+## QueryParametersMap010001Builder
+public class QueryParametersMap010001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -421,16 +421,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters32(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap010001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters16](#faketestqueryparamtersputqueryparameters16) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters31](#faketestqueryparamtersputqueryparameters31) | url(List<String> value) |
+| [QueryParametersMap000001Builder](#queryparametersmap000001builder) | http(List<String> value) |
+| [QueryParametersMap010000Builder](#queryparametersmap010000builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters33
-public class FaketestqueryparamtersPutQueryParameters33<br>
+## QueryParametersMap010010Builder
+public class QueryParametersMap010010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -438,16 +438,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters33(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap010010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters17](#faketestqueryparamtersputqueryparameters17) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters31](#faketestqueryparamtersputqueryparameters31) | refParam(String value) |
+| [QueryParametersMap000010Builder](#queryparametersmap000010builder) | http(List<String> value) |
+| [QueryParametersMap010000Builder](#queryparametersmap010000builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters34
-public class FaketestqueryparamtersPutQueryParameters34<br>
+## QueryParametersMap010011Builder
+public class QueryParametersMap010011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -455,17 +455,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters34(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap010011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters18](#faketestqueryparamtersputqueryparameters18) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters32](#faketestqueryparamtersputqueryparameters32) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters33](#faketestqueryparamtersputqueryparameters33) | url(List<String> value) |
+| [QueryParametersMap000011Builder](#queryparametersmap000011builder) | http(List<String> value) |
+| [QueryParametersMap010001Builder](#queryparametersmap010001builder) | refParam(String value) |
+| [QueryParametersMap010010Builder](#queryparametersmap010010builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters35
-public class FaketestqueryparamtersPutQueryParameters35<br>
+## QueryParametersMap010100Builder
+public class QueryParametersMap010100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -473,16 +473,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters35(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap010100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters19](#faketestqueryparamtersputqueryparameters19) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters31](#faketestqueryparamtersputqueryparameters31) | pipe(List<String> value) |
+| [QueryParametersMap000100Builder](#queryparametersmap000100builder) | http(List<String> value) |
+| [QueryParametersMap010000Builder](#queryparametersmap010000builder) | pipe(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters36
-public class FaketestqueryparamtersPutQueryParameters36<br>
+## QueryParametersMap010101Builder
+public class QueryParametersMap010101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -490,17 +490,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters36(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap010101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters20](#faketestqueryparamtersputqueryparameters20) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters32](#faketestqueryparamtersputqueryparameters32) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters35](#faketestqueryparamtersputqueryparameters35) | url(List<String> value) |
+| [QueryParametersMap000101Builder](#queryparametersmap000101builder) | http(List<String> value) |
+| [QueryParametersMap010001Builder](#queryparametersmap010001builder) | pipe(List<String> value) |
+| [QueryParametersMap010100Builder](#queryparametersmap010100builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters37
-public class FaketestqueryparamtersPutQueryParameters37<br>
+## QueryParametersMap010110Builder
+public class QueryParametersMap010110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -508,17 +508,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters37(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap010110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters21](#faketestqueryparamtersputqueryparameters21) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters33](#faketestqueryparamtersputqueryparameters33) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters35](#faketestqueryparamtersputqueryparameters35) | refParam(String value) |
+| [QueryParametersMap000110Builder](#queryparametersmap000110builder) | http(List<String> value) |
+| [QueryParametersMap010010Builder](#queryparametersmap010010builder) | pipe(List<String> value) |
+| [QueryParametersMap010100Builder](#queryparametersmap010100builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters38
-public class FaketestqueryparamtersPutQueryParameters38<br>
+## QueryParametersMap010111Builder
+public class QueryParametersMap010111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -526,18 +526,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters38(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap010111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters22](#faketestqueryparamtersputqueryparameters22) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters34](#faketestqueryparamtersputqueryparameters34) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters36](#faketestqueryparamtersputqueryparameters36) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters37](#faketestqueryparamtersputqueryparameters37) | url(List<String> value) |
+| [QueryParametersMap000111Builder](#queryparametersmap000111builder) | http(List<String> value) |
+| [QueryParametersMap010011Builder](#queryparametersmap010011builder) | pipe(List<String> value) |
+| [QueryParametersMap010101Builder](#queryparametersmap010101builder) | refParam(String value) |
+| [QueryParametersMap010110Builder](#queryparametersmap010110builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters39
-public class FaketestqueryparamtersPutQueryParameters39<br>
+## QueryParametersMap011000Builder
+public class QueryParametersMap011000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -545,16 +545,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters39(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap011000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters23](#faketestqueryparamtersputqueryparameters23) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters31](#faketestqueryparamtersputqueryparameters31) | ioutil(List<String> value) |
+| [QueryParametersMap001000Builder](#queryparametersmap001000builder) | http(List<String> value) |
+| [QueryParametersMap010000Builder](#queryparametersmap010000builder) | ioutil(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters40
-public class FaketestqueryparamtersPutQueryParameters40<br>
+## QueryParametersMap011001Builder
+public class QueryParametersMap011001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -562,17 +562,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters40(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap011001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters24](#faketestqueryparamtersputqueryparameters24) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters32](#faketestqueryparamtersputqueryparameters32) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters39](#faketestqueryparamtersputqueryparameters39) | url(List<String> value) |
+| [QueryParametersMap001001Builder](#queryparametersmap001001builder) | http(List<String> value) |
+| [QueryParametersMap010001Builder](#queryparametersmap010001builder) | ioutil(List<String> value) |
+| [QueryParametersMap011000Builder](#queryparametersmap011000builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters41
-public class FaketestqueryparamtersPutQueryParameters41<br>
+## QueryParametersMap011010Builder
+public class QueryParametersMap011010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -580,17 +580,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters41(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap011010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters25](#faketestqueryparamtersputqueryparameters25) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters33](#faketestqueryparamtersputqueryparameters33) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters39](#faketestqueryparamtersputqueryparameters39) | refParam(String value) |
+| [QueryParametersMap001010Builder](#queryparametersmap001010builder) | http(List<String> value) |
+| [QueryParametersMap010010Builder](#queryparametersmap010010builder) | ioutil(List<String> value) |
+| [QueryParametersMap011000Builder](#queryparametersmap011000builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters42
-public class FaketestqueryparamtersPutQueryParameters42<br>
+## QueryParametersMap011011Builder
+public class QueryParametersMap011011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -598,18 +598,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters42(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap011011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters26](#faketestqueryparamtersputqueryparameters26) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters34](#faketestqueryparamtersputqueryparameters34) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters40](#faketestqueryparamtersputqueryparameters40) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters41](#faketestqueryparamtersputqueryparameters41) | url(List<String> value) |
+| [QueryParametersMap001011Builder](#queryparametersmap001011builder) | http(List<String> value) |
+| [QueryParametersMap010011Builder](#queryparametersmap010011builder) | ioutil(List<String> value) |
+| [QueryParametersMap011001Builder](#queryparametersmap011001builder) | refParam(String value) |
+| [QueryParametersMap011010Builder](#queryparametersmap011010builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters43
-public class FaketestqueryparamtersPutQueryParameters43<br>
+## QueryParametersMap011100Builder
+public class QueryParametersMap011100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -617,17 +617,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters43(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap011100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters27](#faketestqueryparamtersputqueryparameters27) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters35](#faketestqueryparamtersputqueryparameters35) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters39](#faketestqueryparamtersputqueryparameters39) | pipe(List<String> value) |
+| [QueryParametersMap001100Builder](#queryparametersmap001100builder) | http(List<String> value) |
+| [QueryParametersMap010100Builder](#queryparametersmap010100builder) | ioutil(List<String> value) |
+| [QueryParametersMap011000Builder](#queryparametersmap011000builder) | pipe(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters44
-public class FaketestqueryparamtersPutQueryParameters44<br>
+## QueryParametersMap011101Builder
+public class QueryParametersMap011101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -635,18 +635,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters44(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap011101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters28](#faketestqueryparamtersputqueryparameters28) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters36](#faketestqueryparamtersputqueryparameters36) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters40](#faketestqueryparamtersputqueryparameters40) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters43](#faketestqueryparamtersputqueryparameters43) | url(List<String> value) |
+| [QueryParametersMap001101Builder](#queryparametersmap001101builder) | http(List<String> value) |
+| [QueryParametersMap010101Builder](#queryparametersmap010101builder) | ioutil(List<String> value) |
+| [QueryParametersMap011001Builder](#queryparametersmap011001builder) | pipe(List<String> value) |
+| [QueryParametersMap011100Builder](#queryparametersmap011100builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters45
-public class FaketestqueryparamtersPutQueryParameters45<br>
+## QueryParametersMap011110Builder
+public class QueryParametersMap011110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -654,18 +654,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters45(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap011110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters29](#faketestqueryparamtersputqueryparameters29) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters37](#faketestqueryparamtersputqueryparameters37) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters41](#faketestqueryparamtersputqueryparameters41) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters43](#faketestqueryparamtersputqueryparameters43) | refParam(String value) |
+| [QueryParametersMap001110Builder](#queryparametersmap001110builder) | http(List<String> value) |
+| [QueryParametersMap010110Builder](#queryparametersmap010110builder) | ioutil(List<String> value) |
+| [QueryParametersMap011010Builder](#queryparametersmap011010builder) | pipe(List<String> value) |
+| [QueryParametersMap011100Builder](#queryparametersmap011100builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters46
-public class FaketestqueryparamtersPutQueryParameters46<br>
+## QueryParametersMap011111Builder
+public class QueryParametersMap011111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -673,19 +673,19 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters46(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap011111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters30](#faketestqueryparamtersputqueryparameters30) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters38](#faketestqueryparamtersputqueryparameters38) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters42](#faketestqueryparamtersputqueryparameters42) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters44](#faketestqueryparamtersputqueryparameters44) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters45](#faketestqueryparamtersputqueryparameters45) | url(List<String> value) |
+| [QueryParametersMap001111Builder](#queryparametersmap001111builder) | http(List<String> value) |
+| [QueryParametersMap010111Builder](#queryparametersmap010111builder) | ioutil(List<String> value) |
+| [QueryParametersMap011011Builder](#queryparametersmap011011builder) | pipe(List<String> value) |
+| [QueryParametersMap011101Builder](#queryparametersmap011101builder) | refParam(String value) |
+| [QueryParametersMap011110Builder](#queryparametersmap011110builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters47
-public class FaketestqueryparamtersPutQueryParameters47<br>
+## QueryParametersMap100000Builder
+public class QueryParametersMap100000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -693,15 +693,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters47(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap100000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters15](#faketestqueryparamtersputqueryparameters15) | context(List<String> value) |
+| [QueryParametersMap000000Builder](#queryparametersmap000000builder) | context(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters48
-public class FaketestqueryparamtersPutQueryParameters48<br>
+## QueryParametersMap100001Builder
+public class QueryParametersMap100001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -709,16 +709,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters48(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap100001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters16](#faketestqueryparamtersputqueryparameters16) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters47](#faketestqueryparamtersputqueryparameters47) | url(List<String> value) |
+| [QueryParametersMap000001Builder](#queryparametersmap000001builder) | context(List<String> value) |
+| [QueryParametersMap100000Builder](#queryparametersmap100000builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters49
-public class FaketestqueryparamtersPutQueryParameters49<br>
+## QueryParametersMap100010Builder
+public class QueryParametersMap100010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -726,16 +726,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters49(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap100010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters17](#faketestqueryparamtersputqueryparameters17) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters47](#faketestqueryparamtersputqueryparameters47) | refParam(String value) |
+| [QueryParametersMap000010Builder](#queryparametersmap000010builder) | context(List<String> value) |
+| [QueryParametersMap100000Builder](#queryparametersmap100000builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters50
-public class FaketestqueryparamtersPutQueryParameters50<br>
+## QueryParametersMap100011Builder
+public class QueryParametersMap100011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -743,17 +743,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters50(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap100011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters18](#faketestqueryparamtersputqueryparameters18) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters48](#faketestqueryparamtersputqueryparameters48) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters49](#faketestqueryparamtersputqueryparameters49) | url(List<String> value) |
+| [QueryParametersMap000011Builder](#queryparametersmap000011builder) | context(List<String> value) |
+| [QueryParametersMap100001Builder](#queryparametersmap100001builder) | refParam(String value) |
+| [QueryParametersMap100010Builder](#queryparametersmap100010builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters51
-public class FaketestqueryparamtersPutQueryParameters51<br>
+## QueryParametersMap100100Builder
+public class QueryParametersMap100100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -761,16 +761,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters51(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap100100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters19](#faketestqueryparamtersputqueryparameters19) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters47](#faketestqueryparamtersputqueryparameters47) | pipe(List<String> value) |
+| [QueryParametersMap000100Builder](#queryparametersmap000100builder) | context(List<String> value) |
+| [QueryParametersMap100000Builder](#queryparametersmap100000builder) | pipe(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters52
-public class FaketestqueryparamtersPutQueryParameters52<br>
+## QueryParametersMap100101Builder
+public class QueryParametersMap100101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -778,17 +778,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters52(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap100101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters20](#faketestqueryparamtersputqueryparameters20) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters48](#faketestqueryparamtersputqueryparameters48) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters51](#faketestqueryparamtersputqueryparameters51) | url(List<String> value) |
+| [QueryParametersMap000101Builder](#queryparametersmap000101builder) | context(List<String> value) |
+| [QueryParametersMap100001Builder](#queryparametersmap100001builder) | pipe(List<String> value) |
+| [QueryParametersMap100100Builder](#queryparametersmap100100builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters53
-public class FaketestqueryparamtersPutQueryParameters53<br>
+## QueryParametersMap100110Builder
+public class QueryParametersMap100110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -796,17 +796,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters53(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap100110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters21](#faketestqueryparamtersputqueryparameters21) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters49](#faketestqueryparamtersputqueryparameters49) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters51](#faketestqueryparamtersputqueryparameters51) | refParam(String value) |
+| [QueryParametersMap000110Builder](#queryparametersmap000110builder) | context(List<String> value) |
+| [QueryParametersMap100010Builder](#queryparametersmap100010builder) | pipe(List<String> value) |
+| [QueryParametersMap100100Builder](#queryparametersmap100100builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters54
-public class FaketestqueryparamtersPutQueryParameters54<br>
+## QueryParametersMap100111Builder
+public class QueryParametersMap100111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -814,18 +814,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters54(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap100111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters22](#faketestqueryparamtersputqueryparameters22) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters50](#faketestqueryparamtersputqueryparameters50) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters52](#faketestqueryparamtersputqueryparameters52) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters53](#faketestqueryparamtersputqueryparameters53) | url(List<String> value) |
+| [QueryParametersMap000111Builder](#queryparametersmap000111builder) | context(List<String> value) |
+| [QueryParametersMap100011Builder](#queryparametersmap100011builder) | pipe(List<String> value) |
+| [QueryParametersMap100101Builder](#queryparametersmap100101builder) | refParam(String value) |
+| [QueryParametersMap100110Builder](#queryparametersmap100110builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters55
-public class FaketestqueryparamtersPutQueryParameters55<br>
+## QueryParametersMap101000Builder
+public class QueryParametersMap101000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -833,16 +833,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters55(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap101000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters23](#faketestqueryparamtersputqueryparameters23) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters47](#faketestqueryparamtersputqueryparameters47) | ioutil(List<String> value) |
+| [QueryParametersMap001000Builder](#queryparametersmap001000builder) | context(List<String> value) |
+| [QueryParametersMap100000Builder](#queryparametersmap100000builder) | ioutil(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters56
-public class FaketestqueryparamtersPutQueryParameters56<br>
+## QueryParametersMap101001Builder
+public class QueryParametersMap101001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -850,17 +850,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters56(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap101001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters24](#faketestqueryparamtersputqueryparameters24) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters48](#faketestqueryparamtersputqueryparameters48) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters55](#faketestqueryparamtersputqueryparameters55) | url(List<String> value) |
+| [QueryParametersMap001001Builder](#queryparametersmap001001builder) | context(List<String> value) |
+| [QueryParametersMap100001Builder](#queryparametersmap100001builder) | ioutil(List<String> value) |
+| [QueryParametersMap101000Builder](#queryparametersmap101000builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters57
-public class FaketestqueryparamtersPutQueryParameters57<br>
+## QueryParametersMap101010Builder
+public class QueryParametersMap101010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -868,17 +868,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters57(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap101010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters25](#faketestqueryparamtersputqueryparameters25) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters49](#faketestqueryparamtersputqueryparameters49) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters55](#faketestqueryparamtersputqueryparameters55) | refParam(String value) |
+| [QueryParametersMap001010Builder](#queryparametersmap001010builder) | context(List<String> value) |
+| [QueryParametersMap100010Builder](#queryparametersmap100010builder) | ioutil(List<String> value) |
+| [QueryParametersMap101000Builder](#queryparametersmap101000builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters58
-public class FaketestqueryparamtersPutQueryParameters58<br>
+## QueryParametersMap101011Builder
+public class QueryParametersMap101011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -886,18 +886,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters58(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap101011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters26](#faketestqueryparamtersputqueryparameters26) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters50](#faketestqueryparamtersputqueryparameters50) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters56](#faketestqueryparamtersputqueryparameters56) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters57](#faketestqueryparamtersputqueryparameters57) | url(List<String> value) |
+| [QueryParametersMap001011Builder](#queryparametersmap001011builder) | context(List<String> value) |
+| [QueryParametersMap100011Builder](#queryparametersmap100011builder) | ioutil(List<String> value) |
+| [QueryParametersMap101001Builder](#queryparametersmap101001builder) | refParam(String value) |
+| [QueryParametersMap101010Builder](#queryparametersmap101010builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters59
-public class FaketestqueryparamtersPutQueryParameters59<br>
+## QueryParametersMap101100Builder
+public class QueryParametersMap101100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -905,17 +905,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters59(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap101100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters27](#faketestqueryparamtersputqueryparameters27) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters51](#faketestqueryparamtersputqueryparameters51) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters55](#faketestqueryparamtersputqueryparameters55) | pipe(List<String> value) |
+| [QueryParametersMap001100Builder](#queryparametersmap001100builder) | context(List<String> value) |
+| [QueryParametersMap100100Builder](#queryparametersmap100100builder) | ioutil(List<String> value) |
+| [QueryParametersMap101000Builder](#queryparametersmap101000builder) | pipe(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters60
-public class FaketestqueryparamtersPutQueryParameters60<br>
+## QueryParametersMap101101Builder
+public class QueryParametersMap101101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -923,18 +923,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters60(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap101101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters28](#faketestqueryparamtersputqueryparameters28) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters52](#faketestqueryparamtersputqueryparameters52) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters56](#faketestqueryparamtersputqueryparameters56) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters59](#faketestqueryparamtersputqueryparameters59) | url(List<String> value) |
+| [QueryParametersMap001101Builder](#queryparametersmap001101builder) | context(List<String> value) |
+| [QueryParametersMap100101Builder](#queryparametersmap100101builder) | ioutil(List<String> value) |
+| [QueryParametersMap101001Builder](#queryparametersmap101001builder) | pipe(List<String> value) |
+| [QueryParametersMap101100Builder](#queryparametersmap101100builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters61
-public class FaketestqueryparamtersPutQueryParameters61<br>
+## QueryParametersMap101110Builder
+public class QueryParametersMap101110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -942,18 +942,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters61(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap101110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters29](#faketestqueryparamtersputqueryparameters29) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters53](#faketestqueryparamtersputqueryparameters53) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters57](#faketestqueryparamtersputqueryparameters57) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters59](#faketestqueryparamtersputqueryparameters59) | refParam(String value) |
+| [QueryParametersMap001110Builder](#queryparametersmap001110builder) | context(List<String> value) |
+| [QueryParametersMap100110Builder](#queryparametersmap100110builder) | ioutil(List<String> value) |
+| [QueryParametersMap101010Builder](#queryparametersmap101010builder) | pipe(List<String> value) |
+| [QueryParametersMap101100Builder](#queryparametersmap101100builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters62
-public class FaketestqueryparamtersPutQueryParameters62<br>
+## QueryParametersMap101111Builder
+public class QueryParametersMap101111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -961,19 +961,19 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters62(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap101111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters30](#faketestqueryparamtersputqueryparameters30) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters54](#faketestqueryparamtersputqueryparameters54) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters58](#faketestqueryparamtersputqueryparameters58) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters60](#faketestqueryparamtersputqueryparameters60) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters61](#faketestqueryparamtersputqueryparameters61) | url(List<String> value) |
+| [QueryParametersMap001111Builder](#queryparametersmap001111builder) | context(List<String> value) |
+| [QueryParametersMap100111Builder](#queryparametersmap100111builder) | ioutil(List<String> value) |
+| [QueryParametersMap101011Builder](#queryparametersmap101011builder) | pipe(List<String> value) |
+| [QueryParametersMap101101Builder](#queryparametersmap101101builder) | refParam(String value) |
+| [QueryParametersMap101110Builder](#queryparametersmap101110builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters63
-public class FaketestqueryparamtersPutQueryParameters63<br>
+## QueryParametersMap110000Builder
+public class QueryParametersMap110000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -981,16 +981,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters63(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap110000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters31](#faketestqueryparamtersputqueryparameters31) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters47](#faketestqueryparamtersputqueryparameters47) | http(List<String> value) |
+| [QueryParametersMap010000Builder](#queryparametersmap010000builder) | context(List<String> value) |
+| [QueryParametersMap100000Builder](#queryparametersmap100000builder) | http(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters64
-public class FaketestqueryparamtersPutQueryParameters64<br>
+## QueryParametersMap110001Builder
+public class QueryParametersMap110001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -998,17 +998,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters64(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap110001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters32](#faketestqueryparamtersputqueryparameters32) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters48](#faketestqueryparamtersputqueryparameters48) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters63](#faketestqueryparamtersputqueryparameters63) | url(List<String> value) |
+| [QueryParametersMap010001Builder](#queryparametersmap010001builder) | context(List<String> value) |
+| [QueryParametersMap100001Builder](#queryparametersmap100001builder) | http(List<String> value) |
+| [QueryParametersMap110000Builder](#queryparametersmap110000builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters65
-public class FaketestqueryparamtersPutQueryParameters65<br>
+## QueryParametersMap110010Builder
+public class QueryParametersMap110010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1016,17 +1016,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters65(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap110010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters33](#faketestqueryparamtersputqueryparameters33) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters49](#faketestqueryparamtersputqueryparameters49) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters63](#faketestqueryparamtersputqueryparameters63) | refParam(String value) |
+| [QueryParametersMap010010Builder](#queryparametersmap010010builder) | context(List<String> value) |
+| [QueryParametersMap100010Builder](#queryparametersmap100010builder) | http(List<String> value) |
+| [QueryParametersMap110000Builder](#queryparametersmap110000builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters66
-public class FaketestqueryparamtersPutQueryParameters66<br>
+## QueryParametersMap110011Builder
+public class QueryParametersMap110011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1034,18 +1034,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters66(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap110011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters34](#faketestqueryparamtersputqueryparameters34) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters50](#faketestqueryparamtersputqueryparameters50) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters64](#faketestqueryparamtersputqueryparameters64) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters65](#faketestqueryparamtersputqueryparameters65) | url(List<String> value) |
+| [QueryParametersMap010011Builder](#queryparametersmap010011builder) | context(List<String> value) |
+| [QueryParametersMap100011Builder](#queryparametersmap100011builder) | http(List<String> value) |
+| [QueryParametersMap110001Builder](#queryparametersmap110001builder) | refParam(String value) |
+| [QueryParametersMap110010Builder](#queryparametersmap110010builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters67
-public class FaketestqueryparamtersPutQueryParameters67<br>
+## QueryParametersMap110100Builder
+public class QueryParametersMap110100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1053,17 +1053,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters67(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap110100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters35](#faketestqueryparamtersputqueryparameters35) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters51](#faketestqueryparamtersputqueryparameters51) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters63](#faketestqueryparamtersputqueryparameters63) | pipe(List<String> value) |
+| [QueryParametersMap010100Builder](#queryparametersmap010100builder) | context(List<String> value) |
+| [QueryParametersMap100100Builder](#queryparametersmap100100builder) | http(List<String> value) |
+| [QueryParametersMap110000Builder](#queryparametersmap110000builder) | pipe(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters68
-public class FaketestqueryparamtersPutQueryParameters68<br>
+## QueryParametersMap110101Builder
+public class QueryParametersMap110101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1071,18 +1071,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters68(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap110101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters36](#faketestqueryparamtersputqueryparameters36) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters52](#faketestqueryparamtersputqueryparameters52) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters64](#faketestqueryparamtersputqueryparameters64) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters67](#faketestqueryparamtersputqueryparameters67) | url(List<String> value) |
+| [QueryParametersMap010101Builder](#queryparametersmap010101builder) | context(List<String> value) |
+| [QueryParametersMap100101Builder](#queryparametersmap100101builder) | http(List<String> value) |
+| [QueryParametersMap110001Builder](#queryparametersmap110001builder) | pipe(List<String> value) |
+| [QueryParametersMap110100Builder](#queryparametersmap110100builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters69
-public class FaketestqueryparamtersPutQueryParameters69<br>
+## QueryParametersMap110110Builder
+public class QueryParametersMap110110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1090,18 +1090,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters69(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap110110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters37](#faketestqueryparamtersputqueryparameters37) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters53](#faketestqueryparamtersputqueryparameters53) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters65](#faketestqueryparamtersputqueryparameters65) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters67](#faketestqueryparamtersputqueryparameters67) | refParam(String value) |
+| [QueryParametersMap010110Builder](#queryparametersmap010110builder) | context(List<String> value) |
+| [QueryParametersMap100110Builder](#queryparametersmap100110builder) | http(List<String> value) |
+| [QueryParametersMap110010Builder](#queryparametersmap110010builder) | pipe(List<String> value) |
+| [QueryParametersMap110100Builder](#queryparametersmap110100builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters70
-public class FaketestqueryparamtersPutQueryParameters70<br>
+## QueryParametersMap110111Builder
+public class QueryParametersMap110111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1109,19 +1109,19 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters70(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap110111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters38](#faketestqueryparamtersputqueryparameters38) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters54](#faketestqueryparamtersputqueryparameters54) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters66](#faketestqueryparamtersputqueryparameters66) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters68](#faketestqueryparamtersputqueryparameters68) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters69](#faketestqueryparamtersputqueryparameters69) | url(List<String> value) |
+| [QueryParametersMap010111Builder](#queryparametersmap010111builder) | context(List<String> value) |
+| [QueryParametersMap100111Builder](#queryparametersmap100111builder) | http(List<String> value) |
+| [QueryParametersMap110011Builder](#queryparametersmap110011builder) | pipe(List<String> value) |
+| [QueryParametersMap110101Builder](#queryparametersmap110101builder) | refParam(String value) |
+| [QueryParametersMap110110Builder](#queryparametersmap110110builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters71
-public class FaketestqueryparamtersPutQueryParameters71<br>
+## QueryParametersMap111000Builder
+public class QueryParametersMap111000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1129,17 +1129,17 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters71(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap111000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters39](#faketestqueryparamtersputqueryparameters39) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters55](#faketestqueryparamtersputqueryparameters55) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters63](#faketestqueryparamtersputqueryparameters63) | ioutil(List<String> value) |
+| [QueryParametersMap011000Builder](#queryparametersmap011000builder) | context(List<String> value) |
+| [QueryParametersMap101000Builder](#queryparametersmap101000builder) | http(List<String> value) |
+| [QueryParametersMap110000Builder](#queryparametersmap110000builder) | ioutil(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters72
-public class FaketestqueryparamtersPutQueryParameters72<br>
+## QueryParametersMap111001Builder
+public class QueryParametersMap111001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1147,18 +1147,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters72(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap111001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters40](#faketestqueryparamtersputqueryparameters40) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters56](#faketestqueryparamtersputqueryparameters56) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters64](#faketestqueryparamtersputqueryparameters64) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters71](#faketestqueryparamtersputqueryparameters71) | url(List<String> value) |
+| [QueryParametersMap011001Builder](#queryparametersmap011001builder) | context(List<String> value) |
+| [QueryParametersMap101001Builder](#queryparametersmap101001builder) | http(List<String> value) |
+| [QueryParametersMap110001Builder](#queryparametersmap110001builder) | ioutil(List<String> value) |
+| [QueryParametersMap111000Builder](#queryparametersmap111000builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters73
-public class FaketestqueryparamtersPutQueryParameters73<br>
+## QueryParametersMap111010Builder
+public class QueryParametersMap111010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1166,18 +1166,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters73(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap111010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters41](#faketestqueryparamtersputqueryparameters41) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters57](#faketestqueryparamtersputqueryparameters57) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters65](#faketestqueryparamtersputqueryparameters65) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters71](#faketestqueryparamtersputqueryparameters71) | refParam(String value) |
+| [QueryParametersMap011010Builder](#queryparametersmap011010builder) | context(List<String> value) |
+| [QueryParametersMap101010Builder](#queryparametersmap101010builder) | http(List<String> value) |
+| [QueryParametersMap110010Builder](#queryparametersmap110010builder) | ioutil(List<String> value) |
+| [QueryParametersMap111000Builder](#queryparametersmap111000builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters74
-public class FaketestqueryparamtersPutQueryParameters74<br>
+## QueryParametersMap111011Builder
+public class QueryParametersMap111011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1185,19 +1185,19 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters74(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap111011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters42](#faketestqueryparamtersputqueryparameters42) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters58](#faketestqueryparamtersputqueryparameters58) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters66](#faketestqueryparamtersputqueryparameters66) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters72](#faketestqueryparamtersputqueryparameters72) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters73](#faketestqueryparamtersputqueryparameters73) | url(List<String> value) |
+| [QueryParametersMap011011Builder](#queryparametersmap011011builder) | context(List<String> value) |
+| [QueryParametersMap101011Builder](#queryparametersmap101011builder) | http(List<String> value) |
+| [QueryParametersMap110011Builder](#queryparametersmap110011builder) | ioutil(List<String> value) |
+| [QueryParametersMap111001Builder](#queryparametersmap111001builder) | refParam(String value) |
+| [QueryParametersMap111010Builder](#queryparametersmap111010builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters75
-public class FaketestqueryparamtersPutQueryParameters75<br>
+## QueryParametersMap111100Builder
+public class QueryParametersMap111100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1205,18 +1205,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters75(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap111100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters43](#faketestqueryparamtersputqueryparameters43) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters59](#faketestqueryparamtersputqueryparameters59) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters67](#faketestqueryparamtersputqueryparameters67) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters71](#faketestqueryparamtersputqueryparameters71) | pipe(List<String> value) |
+| [QueryParametersMap011100Builder](#queryparametersmap011100builder) | context(List<String> value) |
+| [QueryParametersMap101100Builder](#queryparametersmap101100builder) | http(List<String> value) |
+| [QueryParametersMap110100Builder](#queryparametersmap110100builder) | ioutil(List<String> value) |
+| [QueryParametersMap111000Builder](#queryparametersmap111000builder) | pipe(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters76
-public class FaketestqueryparamtersPutQueryParameters76<br>
+## QueryParametersMap111101Builder
+public class QueryParametersMap111101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1224,19 +1224,19 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters76(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap111101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters44](#faketestqueryparamtersputqueryparameters44) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters60](#faketestqueryparamtersputqueryparameters60) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters68](#faketestqueryparamtersputqueryparameters68) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters72](#faketestqueryparamtersputqueryparameters72) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters75](#faketestqueryparamtersputqueryparameters75) | url(List<String> value) |
+| [QueryParametersMap011101Builder](#queryparametersmap011101builder) | context(List<String> value) |
+| [QueryParametersMap101101Builder](#queryparametersmap101101builder) | http(List<String> value) |
+| [QueryParametersMap110101Builder](#queryparametersmap110101builder) | ioutil(List<String> value) |
+| [QueryParametersMap111001Builder](#queryparametersmap111001builder) | pipe(List<String> value) |
+| [QueryParametersMap111100Builder](#queryparametersmap111100builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters77
-public class FaketestqueryparamtersPutQueryParameters77<br>
+## QueryParametersMap111110Builder
+public class QueryParametersMap111110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1244,19 +1244,19 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters77(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap111110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters45](#faketestqueryparamtersputqueryparameters45) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters61](#faketestqueryparamtersputqueryparameters61) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters69](#faketestqueryparamtersputqueryparameters69) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters73](#faketestqueryparamtersputqueryparameters73) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters75](#faketestqueryparamtersputqueryparameters75) | refParam(String value) |
+| [QueryParametersMap011110Builder](#queryparametersmap011110builder) | context(List<String> value) |
+| [QueryParametersMap101110Builder](#queryparametersmap101110builder) | http(List<String> value) |
+| [QueryParametersMap110110Builder](#queryparametersmap110110builder) | ioutil(List<String> value) |
+| [QueryParametersMap111010Builder](#queryparametersmap111010builder) | pipe(List<String> value) |
+| [QueryParametersMap111100Builder](#queryparametersmap111100builder) | refParam(String value) |
 
-## FaketestqueryparamtersPutQueryParameters13
-public class FaketestqueryparamtersPutQueryParameters13<br>
+## QueryParametersMapBuilder
+public class QueryParametersMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1264,20 +1264,20 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters13()<br>Creates a builder that contains an empty map |
+| QueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FaketestqueryparamtersPutQueryParameters46](#faketestqueryparamtersputqueryparameters46) | context(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters62](#faketestqueryparamtersputqueryparameters62) | http(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters70](#faketestqueryparamtersputqueryparameters70) | ioutil(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters74](#faketestqueryparamtersputqueryparameters74) | pipe(List<String> value) |
-| [FaketestqueryparamtersPutQueryParameters76](#faketestqueryparamtersputqueryparameters76) | refParam(String value) |
-| [FaketestqueryparamtersPutQueryParameters77](#faketestqueryparamtersputqueryparameters77) | url(List<String> value) |
+| [QueryParametersMap011111Builder](#queryparametersmap011111builder) | context(List<String> value) |
+| [QueryParametersMap101111Builder](#queryparametersmap101111builder) | http(List<String> value) |
+| [QueryParametersMap110111Builder](#queryparametersmap110111builder) | ioutil(List<String> value) |
+| [QueryParametersMap111011Builder](#queryparametersmap111011builder) | pipe(List<String> value) |
+| [QueryParametersMap111101Builder](#queryparametersmap111101builder) | refParam(String value) |
+| [QueryParametersMap111110Builder](#queryparametersmap111110builder) | url(List<String> value) |
 
-## FaketestqueryparamtersPutQueryParameters14
-public static class FaketestqueryparamtersPutQueryParameters14<br>
+## QueryParametersMap
+public static class QueryParametersMap<br>
 extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
@@ -1285,7 +1285,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FaketestqueryparamtersPutQueryParameters14](#faketestqueryparamtersputqueryparameters14) | of([Map<String, ? extends @Nullable Object>](#faketestqueryparamtersputqueryparameters13) arg, SchemaConfiguration configuration) |
+| static [QueryParametersMap](#queryparametersmap) | of([Map<String, ? extends @Nullable Object>](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [Schema4.SchemaList4](../../../paths/faketestqueryparamters/put/parameters/parameter4/Schema4.md#schemalist4) | context()<br> |
 | [Schema2.SchemaList2](../../../paths/faketestqueryparamters/put/parameters/parameter2/Schema2.md#schemalist2) | http()<br> |
 | [Schema1.SchemaList1](../../../paths/faketestqueryparamters/put/parameters/parameter1/Schema1.md#schemalist1) | ioutil()<br> |
@@ -1293,28 +1293,28 @@ A class to store validated Map payloads
 | String | refParam()<br> |
 | [Schema3.SchemaList3](../../../paths/faketestqueryparamters/put/parameters/parameter3/Schema3.md#schemalist3) | url()<br> |
 
-## FaketestqueryparamtersPutQueryParameters9Boxed
-public sealed interface FaketestqueryparamtersPutQueryParameters9Boxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[FaketestqueryparamtersPutQueryParameters9BoxedVoid](#faketestqueryparamtersputqueryparameters9boxedvoid),
-[FaketestqueryparamtersPutQueryParameters9BoxedBoolean](#faketestqueryparamtersputqueryparameters9boxedboolean),
-[FaketestqueryparamtersPutQueryParameters9BoxedNumber](#faketestqueryparamtersputqueryparameters9boxednumber),
-[FaketestqueryparamtersPutQueryParameters9BoxedString](#faketestqueryparamtersputqueryparameters9boxedstring),
-[FaketestqueryparamtersPutQueryParameters9BoxedList](#faketestqueryparamtersputqueryparameters9boxedlist),
-[FaketestqueryparamtersPutQueryParameters9BoxedMap](#faketestqueryparamtersputqueryparameters9boxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## FaketestqueryparamtersPutQueryParameters9BoxedVoid
-public record FaketestqueryparamtersPutQueryParameters9BoxedVoid<br>
-implements [FaketestqueryparamtersPutQueryParameters9Boxed](#faketestqueryparamtersputqueryparameters9boxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters9BoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1322,16 +1322,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FaketestqueryparamtersPutQueryParameters9BoxedBoolean
-public record FaketestqueryparamtersPutQueryParameters9BoxedBoolean<br>
-implements [FaketestqueryparamtersPutQueryParameters9Boxed](#faketestqueryparamtersputqueryparameters9boxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters9BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1339,16 +1339,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FaketestqueryparamtersPutQueryParameters9BoxedNumber
-public record FaketestqueryparamtersPutQueryParameters9BoxedNumber<br>
-implements [FaketestqueryparamtersPutQueryParameters9Boxed](#faketestqueryparamtersputqueryparameters9boxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters9BoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1356,16 +1356,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FaketestqueryparamtersPutQueryParameters9BoxedString
-public record FaketestqueryparamtersPutQueryParameters9BoxedString<br>
-implements [FaketestqueryparamtersPutQueryParameters9Boxed](#faketestqueryparamtersputqueryparameters9boxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters9BoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1373,16 +1373,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FaketestqueryparamtersPutQueryParameters9BoxedList
-public record FaketestqueryparamtersPutQueryParameters9BoxedList<br>
-implements [FaketestqueryparamtersPutQueryParameters9Boxed](#faketestqueryparamtersputqueryparameters9boxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters9BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1390,16 +1390,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FaketestqueryparamtersPutQueryParameters9BoxedMap
-public record FaketestqueryparamtersPutQueryParameters9BoxedMap<br>
-implements [FaketestqueryparamtersPutQueryParameters9Boxed](#faketestqueryparamtersputqueryparameters9boxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FaketestqueryparamtersPutQueryParameters9BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1407,8 +1407,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FaketestqueryparamtersPutQueryParameters9
-public static class FaketestqueryparamtersPutQueryParameters9<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

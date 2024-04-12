@@ -30,20 +30,20 @@ public class FakeDeleteHeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakeDeleteHeaderParameters5 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakeDeleteHeaderParameters5 instance = null;
-        public static FakeDeleteHeaderParameters5 getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FakeDeleteHeaderParameters5();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FakeDeleteHeaderParameters12 extends FrozenMap<@Nullable Object> {
-        protected FakeDeleteHeaderParameters12(FrozenMap<@Nullable Object> m) {
+    public static class HeaderParametersMap extends FrozenMap<@Nullable Object> {
+        protected HeaderParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -52,7 +52,7 @@ public class FakeDeleteHeaderParameters {
         public static final Set<String> optionalKeys = Set.of(
             "boolean_group"
         );
-        public static FakeDeleteHeaderParameters12 of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static HeaderParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakeDeleteHeaderParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -75,41 +75,41 @@ public class FakeDeleteHeaderParameters {
         }
     }
     
-    public interface SetterForFakeDeleteHeaderParameters2 <T> {
+    public interface SetterForRequiredBooleanGroup <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeDeleteHeaderParameters2(Map<String, @Nullable Object> instance);
+        T getBuilderAfterRequiredBooleanGroup(Map<String, @Nullable Object> instance);
         
         default T required_boolean_group(String value) {
             var instance = getInstance();
             instance.put("required_boolean_group", value);
-            return getBuilderAfterFakeDeleteHeaderParameters2(instance);
+            return getBuilderAfterRequiredBooleanGroup(instance);
         }
         
         default T required_boolean_group(Schema1.StringSchemaEnums1 value) {
             var instance = getInstance();
             instance.put("required_boolean_group", value.value());
-            return getBuilderAfterFakeDeleteHeaderParameters2(instance);
+            return getBuilderAfterRequiredBooleanGroup(instance);
         }
     }
     
-    public interface SetterForFakeDeleteHeaderParameters3 <T> {
+    public interface SetterForBooleanGroup <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeDeleteHeaderParameters3(Map<String, @Nullable Object> instance);
+        T getBuilderAfterBooleanGroup(Map<String, @Nullable Object> instance);
         
         default T boolean_group(String value) {
             var instance = getInstance();
             instance.put("boolean_group", value);
-            return getBuilderAfterFakeDeleteHeaderParameters3(instance);
+            return getBuilderAfterBooleanGroup(instance);
         }
         
         default T boolean_group(Schema4.StringSchemaEnums4 value) {
             var instance = getInstance();
             instance.put("boolean_group", value.value());
-            return getBuilderAfterFakeDeleteHeaderParameters3(instance);
+            return getBuilderAfterBooleanGroup(instance);
         }
     }
     
-    public static class FakeDeleteHeaderParameters13 implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFakeDeleteHeaderParameters3<FakeDeleteHeaderParameters13> {
+    public static class HeaderParametersMap0Builder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForBooleanGroup<HeaderParametersMap0Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "required_boolean_group",
@@ -118,7 +118,7 @@ public class FakeDeleteHeaderParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakeDeleteHeaderParameters13(Map<String, @Nullable Object> instance) {
+        public HeaderParametersMap0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -127,21 +127,21 @@ public class FakeDeleteHeaderParameters {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakeDeleteHeaderParameters13 getBuilderAfterFakeDeleteHeaderParameters3(Map<String, @Nullable Object> instance) {
+        public HeaderParametersMap0Builder getBuilderAfterBooleanGroup(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class FakeDeleteHeaderParameters11 implements SetterForFakeDeleteHeaderParameters2<FakeDeleteHeaderParameters13> {
+    public static class HeaderParametersMapBuilder implements SetterForRequiredBooleanGroup<HeaderParametersMap0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakeDeleteHeaderParameters11() {
+        public HeaderParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakeDeleteHeaderParameters13 getBuilderAfterFakeDeleteHeaderParameters2(Map<String, @Nullable Object> instance) {
-            return new FakeDeleteHeaderParameters13(instance);
+        public HeaderParametersMap0Builder getBuilderAfterRequiredBooleanGroup(Map<String, @Nullable Object> instance) {
+            return new HeaderParametersMap0Builder(instance);
         }
     }
     
@@ -150,7 +150,7 @@ public class FakeDeleteHeaderParameters {
         @Nullable Object getData();
     }
     
-    public record FakeDeleteHeaderParameters1BoxedMap(FakeDeleteHeaderParameters12 data) implements FakeDeleteHeaderParameters1Boxed {
+    public record FakeDeleteHeaderParameters1BoxedMap(HeaderParametersMap data) implements FakeDeleteHeaderParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -158,7 +158,7 @@ public class FakeDeleteHeaderParameters {
     }
     
     
-    public static class FakeDeleteHeaderParameters1 extends JsonSchema<FakeDeleteHeaderParameters1Boxed> implements MapSchemaValidator<FakeDeleteHeaderParameters12, FakeDeleteHeaderParameters1BoxedMap> {
+    public static class FakeDeleteHeaderParameters1 extends JsonSchema<FakeDeleteHeaderParameters1Boxed> implements MapSchemaValidator<HeaderParametersMap, FakeDeleteHeaderParameters1BoxedMap> {
         private static @Nullable FakeDeleteHeaderParameters1 instance = null;
     
         protected FakeDeleteHeaderParameters1() {
@@ -171,7 +171,7 @@ public class FakeDeleteHeaderParameters {
                 .required(Set.of(
                     "required_boolean_group"
                 ))
-                .additionalProperties(FakeDeleteHeaderParameters5.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -182,7 +182,7 @@ public class FakeDeleteHeaderParameters {
             return instance;
         }
         
-        public FakeDeleteHeaderParameters12 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public HeaderParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -202,10 +202,10 @@ public class FakeDeleteHeaderParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new FakeDeleteHeaderParameters12(castProperties);
+            return new HeaderParametersMap(castProperties);
         }
         
-        public FakeDeleteHeaderParameters12 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public HeaderParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

@@ -104,9 +104,9 @@ User1BoxedMap requestBodyPayload =
 FakebodywithqueryparamsPut.SealedRequestBody requestBody = new FakebodywithqueryparamsPut.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
-FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters9 queryParameters =
+FakebodywithqueryparamsPutQueryParameters.QueryParametersMap queryParameters =
     FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters1.validate(
-    new FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters8()
+    new FakebodywithqueryparamsPutQueryParameters.QueryParametersMapBuilder()
         .query("a")
 
     .build(),
@@ -166,7 +166,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
-| [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters9](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparameters9) | queryParameters |
+| [FakebodywithqueryparamsPutQueryParameters.QueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#queryparametersmap) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -179,7 +179,7 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [FakebodywithqueryparamsPutRequestBody.@Nullable SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
-| [FakebodywithqueryparamsPutQueryParameters.@Nullable FakebodywithqueryparamsPutQueryParameters9](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparameters9) | queryParameters |
+| [FakebodywithqueryparamsPutQueryParameters.@Nullable QueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#queryparametersmap) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -213,7 +213,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put00RequestBuilder](#put00requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersFakebodywithqueryparamsPutQueryParameters9](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparameters9) queryParameters)<br>sets the property |
+| [Put00RequestBuilder](#put00requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 ## Put10RequestBuilder
 public static class Put10RequestBuilder<br>
@@ -244,6 +244,6 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Put01RequestBuilder](#put01requestbuilder) | requestBody([FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [Put10RequestBuilder](#put10requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersFakebodywithqueryparamsPutQueryParameters9](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparameters9) queryParameters)<br>sets the property |
+| [Put10RequestBuilder](#put10requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

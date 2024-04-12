@@ -29,27 +29,27 @@ public class PetpetidDeleteHeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class PetpetidDeleteHeaderParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable PetpetidDeleteHeaderParameters4 instance = null;
-        public static PetpetidDeleteHeaderParameters4 getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new PetpetidDeleteHeaderParameters4();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class PetpetidDeleteHeaderParameters9 extends FrozenMap<String> {
-        protected PetpetidDeleteHeaderParameters9(FrozenMap<String> m) {
+    public static class HeaderParametersMap extends FrozenMap<String> {
+        protected HeaderParametersMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "api_key"
         );
-        public static PetpetidDeleteHeaderParameters9 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static HeaderParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return PetpetidDeleteHeaderParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -58,18 +58,18 @@ public class PetpetidDeleteHeaderParameters {
         }
     }
     
-    public interface SetterForPetpetidDeleteHeaderParameters2 <T> {
+    public interface SetterForApiKey <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterPetpetidDeleteHeaderParameters2(Map<String, String> instance);
+        T getBuilderAfterApiKey(Map<String, String> instance);
         
         default T api_key(String value) {
             var instance = getInstance();
             instance.put("api_key", value);
-            return getBuilderAfterPetpetidDeleteHeaderParameters2(instance);
+            return getBuilderAfterApiKey(instance);
         }
     }
     
-    public static class PetpetidDeleteHeaderParameters8 implements GenericBuilder<Map<String, String>>, SetterForPetpetidDeleteHeaderParameters2<PetpetidDeleteHeaderParameters8> {
+    public static class HeaderParametersMapBuilder implements GenericBuilder<Map<String, String>>, SetterForApiKey<HeaderParametersMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "api_key"
@@ -77,7 +77,7 @@ public class PetpetidDeleteHeaderParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public PetpetidDeleteHeaderParameters8() {
+        public HeaderParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> build() {
@@ -86,7 +86,7 @@ public class PetpetidDeleteHeaderParameters {
         public Map<String, String> getInstance() {
             return instance;
         }
-        public PetpetidDeleteHeaderParameters8 getBuilderAfterPetpetidDeleteHeaderParameters2(Map<String, String> instance) {
+        public HeaderParametersMapBuilder getBuilderAfterApiKey(Map<String, String> instance) {
             return this;
         }
     }
@@ -96,7 +96,7 @@ public class PetpetidDeleteHeaderParameters {
         @Nullable Object getData();
     }
     
-    public record PetpetidDeleteHeaderParameters1BoxedMap(PetpetidDeleteHeaderParameters9 data) implements PetpetidDeleteHeaderParameters1Boxed {
+    public record PetpetidDeleteHeaderParameters1BoxedMap(HeaderParametersMap data) implements PetpetidDeleteHeaderParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -104,7 +104,7 @@ public class PetpetidDeleteHeaderParameters {
     }
     
     
-    public static class PetpetidDeleteHeaderParameters1 extends JsonSchema<PetpetidDeleteHeaderParameters1Boxed> implements MapSchemaValidator<PetpetidDeleteHeaderParameters9, PetpetidDeleteHeaderParameters1BoxedMap> {
+    public static class PetpetidDeleteHeaderParameters1 extends JsonSchema<PetpetidDeleteHeaderParameters1Boxed> implements MapSchemaValidator<HeaderParametersMap, PetpetidDeleteHeaderParameters1BoxedMap> {
         private static @Nullable PetpetidDeleteHeaderParameters1 instance = null;
     
         protected PetpetidDeleteHeaderParameters1() {
@@ -113,7 +113,7 @@ public class PetpetidDeleteHeaderParameters {
                 .properties(Map.ofEntries(
                     new PropertyEntry("api_key", Schema0.Schema01.class)
                 ))
-                .additionalProperties(PetpetidDeleteHeaderParameters4.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -124,7 +124,7 @@ public class PetpetidDeleteHeaderParameters {
             return instance;
         }
         
-        public PetpetidDeleteHeaderParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public HeaderParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -147,10 +147,10 @@ public class PetpetidDeleteHeaderParameters {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new PetpetidDeleteHeaderParameters9(castProperties);
+            return new HeaderParametersMap(castProperties);
         }
         
-        public PetpetidDeleteHeaderParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public HeaderParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

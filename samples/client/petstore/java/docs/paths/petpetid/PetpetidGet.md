@@ -88,9 +88,9 @@ PetpetidGet.Get apiClient = new PetpetidGet.Get(apiConfiguration, schemaConfigur
 
 
 // Map validation
-PetpetidGetPathParameters.PetpetidGetPathParameters9 pathParameters =
+PetpetidGetPathParameters.PathParametersMap pathParameters =
     PetpetidGetPathParameters.PetpetidGetPathParameters1.validate(
-    new PetpetidGetPathParameters.PetpetidGetPathParameters8()
+    new PetpetidGetPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -157,7 +157,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidGetPathParameters.PetpetidGetPathParameters9](../../paths/petpetid/get/PetpetidGetPathParameters.md#petpetidgetpathparameters9) | pathParameters |
+| [PetpetidGetPathParameters.PathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetidGetSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/get/PetpetidGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -170,7 +170,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidGetPathParameters.@Nullable PetpetidGetPathParameters9](../../paths/petpetid/get/PetpetidGetPathParameters.md#petpetidgetpathparameters9) | pathParameters |
+| [PetpetidGetPathParameters.@Nullable PathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | [PetpetidGetSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/get/PetpetidGetSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -206,6 +206,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PetpetidGetPathParametersPetpetidGetPathParameters9](../../paths/petpetid/get/PetpetidGetPathParameters.md#petpetidgetpathparameters9) pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PetpetidGetPathParametersPathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -76,9 +76,9 @@ StoreorderorderidGet.Get apiClient = new StoreorderorderidGet.Get(apiConfigurati
 
 
 // Map validation
-StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters9 pathParameters =
+StoreorderorderidGetPathParameters.PathParametersMap pathParameters =
     StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters1.validate(
-    new StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters8()
+    new StoreorderorderidGetPathParameters.PathParametersMapBuilder()
         .order_id(1L)
 
     .build(),
@@ -145,7 +145,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters9](../../paths/storeorderorderid/get/StoreorderorderidGetPathParameters.md#storeorderorderidgetpathparameters9) | pathParameters |
+| [StoreorderorderidGetPathParameters.PathParametersMap](../../paths/storeorderorderid/get/StoreorderorderidGetPathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -157,7 +157,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [StoreorderorderidGetPathParameters.@Nullable StoreorderorderidGetPathParameters9](../../paths/storeorderorderid/get/StoreorderorderidGetPathParameters.md#storeorderorderidgetpathparameters9) | pathParameters |
+| [StoreorderorderidGetPathParameters.@Nullable PathParametersMap](../../paths/storeorderorderid/get/StoreorderorderidGetPathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -191,6 +191,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([StoreorderorderidGetPathParametersStoreorderorderidGetPathParameters9](../../paths/storeorderorderid/get/StoreorderorderidGetPathParameters.md#storeorderorderidgetpathparameters9) pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([StoreorderorderidGetPathParametersPathParametersMap](../../paths/storeorderorderid/get/StoreorderorderidGetPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

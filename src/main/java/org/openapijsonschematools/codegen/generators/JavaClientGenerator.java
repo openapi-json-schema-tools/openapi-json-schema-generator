@@ -1268,8 +1268,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
 
         String lastFragment = pathPieces[pathPieces.length-1];
-        boolean operationParametersSchema = sourceJsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment);
-        boolean serverVariables = (lastFragment.equals("variables") && Set.of(4,6,7).contains(pathPieces.length));
+        boolean operationParametersSchema = (sourceJsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment) && xParameters.contains(name));
+        boolean serverVariables = (lastFragment.equals("variables") && Set.of(4,6,7).contains(pathPieces.length) && name.equals("variables"));
         if (sourceJsonPath.endsWith("/schema")) {
             if (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/parameters/")) {
                 if (pathPieces[3].equals("parameters")) {
@@ -1291,7 +1291,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 } else if (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/")) {
                     // #/components/responses/SomeResponse/headers/someHeader/schema
                     String headerFragment = pathPieces[5];
-                    usedKey =  camelize(headerFragment)+ camelize(usedKey);
+                    usedKey =  camelize(headerFragment) + camelize(usedKey);
                 } else {
                     // #/paths/path/verb/responses/SomeResponse/headers/someHeader/schema
                     String headerFragment = pathPieces[7];

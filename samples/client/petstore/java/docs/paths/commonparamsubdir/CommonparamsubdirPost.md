@@ -75,9 +75,9 @@ CommonparamsubdirPost.Post apiClient = new CommonparamsubdirPost.Post(apiConfigu
 
 
 // Map validation
-CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9 pathParameters =
+CommonparamsubdirPostPathParameters.PathParametersMap pathParameters =
     CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters1.validate(
-    new CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters8()
+    new CommonparamsubdirPostPathParameters.PathParametersMapBuilder()
         .subDir("a")
 
     .build(),
@@ -135,8 +135,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#commonparamsubdirpostpathparameters9) | pathParameters |
-| [CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParameters9](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#commonparamsubdirpostheaderparameters9) | headerParameters<br>optional |
+| [CommonparamsubdirPostPathParameters.PathParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#pathparametersmap) | pathParameters |
+| [CommonparamsubdirPostHeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -148,8 +148,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [CommonparamsubdirPostPathParameters.@Nullable CommonparamsubdirPostPathParameters9](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#commonparamsubdirpostpathparameters9) | pathParameters |
-| [CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParameters9](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#commonparamsubdirpostheaderparameters9) | headerParameters |
+| [CommonparamsubdirPostPathParameters.@Nullable PathParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#pathparametersmap) | pathParameters |
+| [CommonparamsubdirPostHeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#headerparametersmap) | headerParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -167,7 +167,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([CommonparamsubdirPostHeaderParametersCommonparamsubdirPostHeaderParameters9](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#commonparamsubdirpostheaderparameters9) headerParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([CommonparamsubdirPostHeaderParametersHeaderParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([ServerInfo.ServerIndex](../../ServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
@@ -184,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([CommonparamsubdirPostPathParametersCommonparamsubdirPostPathParameters9](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#commonparamsubdirpostpathparameters9) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([CommonparamsubdirPostPathParametersPathParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -98,15 +98,15 @@ public class PetpetidDelete {
     }
 
     public static class DeleteRequest {
-        public PetpetidDeletePathParameters.PetpetidDeletePathParameters9 pathParameters;
-        public PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParameters9 headerParameters;
+        public PetpetidDeletePathParameters.PathParametersMap pathParameters;
+        public PetpetidDeleteHeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            PetpetidDeletePathParameters.PetpetidDeletePathParameters9 pathParameters,
-            PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParameters9 headerParameters,
+            PetpetidDeletePathParameters.PathParametersMap pathParameters,
+            PetpetidDeleteHeaderParameters.@Nullable HeaderParametersMap headerParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -120,8 +120,8 @@ public class PetpetidDelete {
     }
 
     public static class DeleteNullableRequest {
-        public PetpetidDeletePathParameters.@Nullable PetpetidDeletePathParameters9 pathParameters;
-        public PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParameters9 headerParameters;
+        public PetpetidDeletePathParameters.@Nullable PathParametersMap pathParameters;
+        public PetpetidDeleteHeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -130,7 +130,7 @@ public class PetpetidDelete {
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(PetpetidDeleteHeaderParameters.PetpetidDeleteHeaderParameters9 headerParameters) {
+        default T headerParameters(PetpetidDeleteHeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -170,7 +170,7 @@ public class PetpetidDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(PetpetidDeletePathParameters.PetpetidDeletePathParameters9 pathParameters) {
+        default T pathParameters(PetpetidDeletePathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [UserloginGetQueryParameters.UserloginGetQueryParameters1Boxed](#userlogingetqueryparameters1boxed)<br> sealed interface for validated payloads |
 | record | [UserloginGetQueryParameters.UserloginGetQueryParameters1BoxedMap](#userlogingetqueryparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [UserloginGetQueryParameters.UserloginGetQueryParameters1](#userlogingetqueryparameters1)<br> schema class |
-| static class | [UserloginGetQueryParameters.UserloginGetQueryParameters9](#userlogingetqueryparameters9)<br> builder for Map payloads |
-| static class | [UserloginGetQueryParameters.UserloginGetQueryParameters10](#userlogingetqueryparameters10)<br> output class for Map payloads |
-| sealed interface | [UserloginGetQueryParameters.UserloginGetQueryParameters5Boxed](#userlogingetqueryparameters5boxed)<br> sealed interface for validated payloads |
-| record | [UserloginGetQueryParameters.UserloginGetQueryParameters5BoxedVoid](#userlogingetqueryparameters5boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UserloginGetQueryParameters.UserloginGetQueryParameters5BoxedBoolean](#userlogingetqueryparameters5boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UserloginGetQueryParameters.UserloginGetQueryParameters5BoxedNumber](#userlogingetqueryparameters5boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UserloginGetQueryParameters.UserloginGetQueryParameters5BoxedString](#userlogingetqueryparameters5boxedstring)<br> boxed class to store validated String payloads |
-| record | [UserloginGetQueryParameters.UserloginGetQueryParameters5BoxedList](#userlogingetqueryparameters5boxedlist)<br> boxed class to store validated List payloads |
-| record | [UserloginGetQueryParameters.UserloginGetQueryParameters5BoxedMap](#userlogingetqueryparameters5boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UserloginGetQueryParameters.UserloginGetQueryParameters5](#userlogingetqueryparameters5)<br> schema class |
+| static class | [UserloginGetQueryParameters.QueryParametersMapBuilder](#queryparametersmapbuilder)<br> builder for Map payloads |
+| static class | [UserloginGetQueryParameters.QueryParametersMap](#queryparametersmap)<br> output class for Map payloads |
+| sealed interface | [UserloginGetQueryParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [UserloginGetQueryParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [UserloginGetQueryParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [UserloginGetQueryParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [UserloginGetQueryParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [UserloginGetQueryParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [UserloginGetQueryParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [UserloginGetQueryParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## UserloginGetQueryParameters1Boxed
 public sealed interface UserloginGetQueryParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters1BoxedMap([UserloginGetQueryParameters10](#userlogingetqueryparameters10) data)<br>Creates an instance, private visibility |
+| UserloginGetQueryParameters1BoxedMap([QueryParametersMap](#queryparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserloginGetQueryParameters10](#userlogingetqueryparameters10) | data()<br>validated payload |
+| [QueryParametersMap](#queryparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## UserloginGetQueryParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-UserloginGetQueryParameters.UserloginGetQueryParameters10 validatedPayload =
+UserloginGetQueryParameters.QueryParametersMap validatedPayload =
     UserloginGetQueryParameters.UserloginGetQueryParameters1.validate(
-    new UserloginGetQueryParameters.UserloginGetQueryParameters9()
+    new UserloginGetQueryParameters.QueryParametersMapBuilder()
         .password("a")
 
         .username("a")
@@ -90,18 +90,18 @@ UserloginGetQueryParameters.UserloginGetQueryParameters10 validatedPayload =
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("password", [Schema1.Schema11.class](../../../paths/userlogin/get/parameters/parameter1/Schema1.md#schema11)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("username", [Schema0.Schema01.class](../../../paths/userlogin/get/parameters/parameter0/Schema0.md#schema01))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"password",<br>&nbsp;&nbsp;&nbsp;&nbsp;"username"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [UserloginGetQueryParameters5.class](#userlogingetqueryparameters5) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserloginGetQueryParameters10](#userlogingetqueryparameters10) | validate([Map&lt;?, ?&gt;](#userlogingetqueryparameters9) arg, SchemaConfiguration configuration) |
-| [UserloginGetQueryParameters1BoxedMap](#userlogingetqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#userlogingetqueryparameters9) arg, SchemaConfiguration configuration) |
+| [QueryParametersMap](#queryparametersmap) | validate([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [UserloginGetQueryParameters1BoxedMap](#userlogingetqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [UserloginGetQueryParameters1Boxed](#userlogingetqueryparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## UserloginGetQueryParameters11
-public class UserloginGetQueryParameters11<br>
+## QueryParametersMap00Builder
+public class QueryParametersMap00Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -109,15 +109,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters11(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 
-## UserloginGetQueryParameters12
-public class UserloginGetQueryParameters12<br>
+## QueryParametersMap01Builder
+public class QueryParametersMap01Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -125,15 +125,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters12(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserloginGetQueryParameters11](#userlogingetqueryparameters11) | username(String value) |
+| [QueryParametersMap00Builder](#queryparametersmap00builder) | username(String value) |
 
-## UserloginGetQueryParameters13
-public class UserloginGetQueryParameters13<br>
+## QueryParametersMap10Builder
+public class QueryParametersMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -141,15 +141,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters13(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserloginGetQueryParameters11](#userlogingetqueryparameters11) | password(String value) |
+| [QueryParametersMap00Builder](#queryparametersmap00builder) | password(String value) |
 
-## UserloginGetQueryParameters9
-public class UserloginGetQueryParameters9<br>
+## QueryParametersMapBuilder
+public class QueryParametersMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -157,16 +157,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters9()<br>Creates a builder that contains an empty map |
+| QueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserloginGetQueryParameters12](#userlogingetqueryparameters12) | password(String value) |
-| [UserloginGetQueryParameters13](#userlogingetqueryparameters13) | username(String value) |
+| [QueryParametersMap01Builder](#queryparametersmap01builder) | password(String value) |
+| [QueryParametersMap10Builder](#queryparametersmap10builder) | username(String value) |
 
-## UserloginGetQueryParameters10
-public static class UserloginGetQueryParameters10<br>
+## QueryParametersMap
+public static class QueryParametersMap<br>
 extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
@@ -174,32 +174,32 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserloginGetQueryParameters10](#userlogingetqueryparameters10) | of([Map<String, ? extends @Nullable Object>](#userlogingetqueryparameters9) arg, SchemaConfiguration configuration) |
+| static [QueryParametersMap](#queryparametersmap) | of([Map<String, ? extends @Nullable Object>](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | password()<br> |
 | String | username()<br> |
 
-## UserloginGetQueryParameters5Boxed
-public sealed interface UserloginGetQueryParameters5Boxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[UserloginGetQueryParameters5BoxedVoid](#userlogingetqueryparameters5boxedvoid),
-[UserloginGetQueryParameters5BoxedBoolean](#userlogingetqueryparameters5boxedboolean),
-[UserloginGetQueryParameters5BoxedNumber](#userlogingetqueryparameters5boxednumber),
-[UserloginGetQueryParameters5BoxedString](#userlogingetqueryparameters5boxedstring),
-[UserloginGetQueryParameters5BoxedList](#userlogingetqueryparameters5boxedlist),
-[UserloginGetQueryParameters5BoxedMap](#userlogingetqueryparameters5boxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## UserloginGetQueryParameters5BoxedVoid
-public record UserloginGetQueryParameters5BoxedVoid<br>
-implements [UserloginGetQueryParameters5Boxed](#userlogingetqueryparameters5boxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters5BoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -207,16 +207,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserloginGetQueryParameters5BoxedBoolean
-public record UserloginGetQueryParameters5BoxedBoolean<br>
-implements [UserloginGetQueryParameters5Boxed](#userlogingetqueryparameters5boxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters5BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -224,16 +224,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserloginGetQueryParameters5BoxedNumber
-public record UserloginGetQueryParameters5BoxedNumber<br>
-implements [UserloginGetQueryParameters5Boxed](#userlogingetqueryparameters5boxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters5BoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -241,16 +241,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserloginGetQueryParameters5BoxedString
-public record UserloginGetQueryParameters5BoxedString<br>
-implements [UserloginGetQueryParameters5Boxed](#userlogingetqueryparameters5boxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters5BoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -258,16 +258,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserloginGetQueryParameters5BoxedList
-public record UserloginGetQueryParameters5BoxedList<br>
-implements [UserloginGetQueryParameters5Boxed](#userlogingetqueryparameters5boxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters5BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -275,16 +275,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserloginGetQueryParameters5BoxedMap
-public record UserloginGetQueryParameters5BoxedMap<br>
-implements [UserloginGetQueryParameters5Boxed](#userlogingetqueryparameters5boxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserloginGetQueryParameters5BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -292,8 +292,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserloginGetQueryParameters5
-public static class UserloginGetQueryParameters5<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

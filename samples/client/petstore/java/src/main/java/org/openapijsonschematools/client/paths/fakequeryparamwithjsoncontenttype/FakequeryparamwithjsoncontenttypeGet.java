@@ -80,12 +80,12 @@ public class FakequeryparamwithjsoncontenttypeGet {
     }
 
     public static class GetRequest {
-        public FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters;
+        public FakequeryparamwithjsoncontenttypeGetQueryParameters.QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters,
+            FakequeryparamwithjsoncontenttypeGetQueryParameters.QueryParametersMap queryParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -96,7 +96,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
     }
 
     public static class GetNullableRequest {
-        public FakequeryparamwithjsoncontenttypeGetQueryParameters.@Nullable FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters;
+        public FakequeryparamwithjsoncontenttypeGetQueryParameters.@Nullable QueryParametersMap queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -124,7 +124,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters) {
+        default T queryParameters(FakequeryparamwithjsoncontenttypeGetQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

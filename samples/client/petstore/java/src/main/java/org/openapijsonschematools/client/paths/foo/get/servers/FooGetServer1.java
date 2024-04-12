@@ -9,12 +9,12 @@ import org.openapijsonschematools.client.paths.foo.get.servers.server1.FooGetSer
 
 import java.util.AbstractMap;
 
-public class FooGetServer1 extends ServerWithVariables<FooGetServer1Variables.FooGetServer1Variables11> {
-    private static FooGetServer1Variables.FooGetServer1Variables11 getVariables() {
+public class FooGetServer1 extends ServerWithVariables<FooGetServer1Variables.VariablesMap> {
+    private static FooGetServer1Variables.VariablesMap getVariables() {
         try {
             return FooGetServer1Variables.FooGetServer1Variables1.getInstance().validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>("version", FooGetServer1Variables.FooGetServer1Variables2.getInstance().defaultValue())
+                    new AbstractMap.SimpleEntry<>("version", FooGetServer1Variables.Version.getInstance().defaultValue())
                 ),
                 new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build())
             );
@@ -29,7 +29,7 @@ public class FooGetServer1 extends ServerWithVariables<FooGetServer1Variables.Fo
             getVariables()
         );
     }
-    public FooGetServer1(FooGetServer1Variables.FooGetServer1Variables11 variables) {
+    public FooGetServer1(FooGetServer1Variables.VariablesMap variables) {
         super("https://petstore.swagger.io/{version}", variables);
     }
 }

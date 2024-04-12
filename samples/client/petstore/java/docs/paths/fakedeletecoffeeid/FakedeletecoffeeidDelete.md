@@ -75,9 +75,9 @@ FakedeletecoffeeidDelete.Delete apiClient = new FakedeletecoffeeidDelete.Delete(
 
 
 // Map validation
-FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters9 pathParameters =
+FakedeletecoffeeidDeletePathParameters.PathParametersMap pathParameters =
     FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters1.validate(
-    new FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters8()
+    new FakedeletecoffeeidDeletePathParameters.PathParametersMapBuilder()
         .id("a")
 
     .build(),
@@ -138,7 +138,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters9](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeletePathParameters.md#fakedeletecoffeeiddeletepathparameters9) | pathParameters |
+| [FakedeletecoffeeidDeletePathParameters.PathParametersMap](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -150,7 +150,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakedeletecoffeeidDeletePathParameters.@Nullable FakedeletecoffeeidDeletePathParameters9](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeletePathParameters.md#fakedeletecoffeeiddeletepathparameters9) | pathParameters |
+| [FakedeletecoffeeidDeletePathParameters.@Nullable PathParametersMap](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -184,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([FakedeletecoffeeidDeletePathParametersFakedeletecoffeeidDeletePathParameters9](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeletePathParameters.md#fakedeletecoffeeiddeletepathparameters9) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([FakedeletecoffeeidDeletePathParametersPathParametersMap](../../paths/fakedeletecoffeeid/delete/FakedeletecoffeeidDeletePathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

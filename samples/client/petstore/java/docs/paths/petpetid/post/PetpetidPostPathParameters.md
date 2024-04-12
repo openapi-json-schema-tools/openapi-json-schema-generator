@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [PetpetidPostPathParameters.PetpetidPostPathParameters1Boxed](#petpetidpostpathparameters1boxed)<br> sealed interface for validated payloads |
 | record | [PetpetidPostPathParameters.PetpetidPostPathParameters1BoxedMap](#petpetidpostpathparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PetpetidPostPathParameters.PetpetidPostPathParameters1](#petpetidpostpathparameters1)<br> schema class |
-| static class | [PetpetidPostPathParameters.PetpetidPostPathParameters8](#petpetidpostpathparameters8)<br> builder for Map payloads |
-| static class | [PetpetidPostPathParameters.PetpetidPostPathParameters9](#petpetidpostpathparameters9)<br> output class for Map payloads |
-| sealed interface | [PetpetidPostPathParameters.PetpetidPostPathParameters4Boxed](#petpetidpostpathparameters4boxed)<br> sealed interface for validated payloads |
-| record | [PetpetidPostPathParameters.PetpetidPostPathParameters4BoxedVoid](#petpetidpostpathparameters4boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PetpetidPostPathParameters.PetpetidPostPathParameters4BoxedBoolean](#petpetidpostpathparameters4boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PetpetidPostPathParameters.PetpetidPostPathParameters4BoxedNumber](#petpetidpostpathparameters4boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PetpetidPostPathParameters.PetpetidPostPathParameters4BoxedString](#petpetidpostpathparameters4boxedstring)<br> boxed class to store validated String payloads |
-| record | [PetpetidPostPathParameters.PetpetidPostPathParameters4BoxedList](#petpetidpostpathparameters4boxedlist)<br> boxed class to store validated List payloads |
-| record | [PetpetidPostPathParameters.PetpetidPostPathParameters4BoxedMap](#petpetidpostpathparameters4boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PetpetidPostPathParameters.PetpetidPostPathParameters4](#petpetidpostpathparameters4)<br> schema class |
+| static class | [PetpetidPostPathParameters.PathParametersMapBuilder](#pathparametersmapbuilder)<br> builder for Map payloads |
+| static class | [PetpetidPostPathParameters.PathParametersMap](#pathparametersmap)<br> output class for Map payloads |
+| sealed interface | [PetpetidPostPathParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [PetpetidPostPathParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [PetpetidPostPathParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [PetpetidPostPathParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [PetpetidPostPathParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [PetpetidPostPathParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [PetpetidPostPathParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [PetpetidPostPathParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## PetpetidPostPathParameters1Boxed
 public sealed interface PetpetidPostPathParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostPathParameters1BoxedMap([PetpetidPostPathParameters9](#petpetidpostpathparameters9) data)<br>Creates an instance, private visibility |
+| PetpetidPostPathParameters1BoxedMap([PathParametersMap](#pathparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetpetidPostPathParameters9](#petpetidpostpathparameters9) | data()<br>validated payload |
+| [PathParametersMap](#pathparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## PetpetidPostPathParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-PetpetidPostPathParameters.PetpetidPostPathParameters9 validatedPayload =
+PetpetidPostPathParameters.PathParametersMap validatedPayload =
     PetpetidPostPathParameters.PetpetidPostPathParameters1.validate(
-    new PetpetidPostPathParameters.PetpetidPostPathParameters8()
+    new PetpetidPostPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -88,18 +88,18 @@ PetpetidPostPathParameters.PetpetidPostPathParameters9 validatedPayload =
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("petId", [Schema0.Schema01.class](../../../paths/petpetid/post/parameters/parameter0/Schema0.md#schema01))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"petId"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [PetpetidPostPathParameters4.class](#petpetidpostpathparameters4) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetpetidPostPathParameters9](#petpetidpostpathparameters9) | validate([Map&lt;?, ?&gt;](#petpetidpostpathparameters8) arg, SchemaConfiguration configuration) |
-| [PetpetidPostPathParameters1BoxedMap](#petpetidpostpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#petpetidpostpathparameters8) arg, SchemaConfiguration configuration) |
+| [PathParametersMap](#pathparametersmap) | validate([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [PetpetidPostPathParameters1BoxedMap](#petpetidpostpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [PetpetidPostPathParameters1Boxed](#petpetidpostpathparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## PetpetidPostPathParameters10
-public class PetpetidPostPathParameters10<br>
+## PathParametersMap0Builder
+public class PathParametersMap0Builder<br>
 builder for `Map<String, Number>`
 
 A class that builds the Map input type
@@ -107,15 +107,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostPathParameters10(Map<String, Number> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap0Builder(Map<String, Number> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Number> | build()<br>Returns map input that should be used with Schema.validate |
 
-## PetpetidPostPathParameters8
-public class PetpetidPostPathParameters8<br>
+## PathParametersMapBuilder
+public class PathParametersMapBuilder<br>
 builder for `Map<String, Number>`
 
 A class that builds the Map input type
@@ -123,18 +123,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostPathParameters8()<br>Creates a builder that contains an empty map |
+| PathParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetpetidPostPathParameters10](#petpetidpostpathparameters10) | petId(int value) |
-| [PetpetidPostPathParameters10](#petpetidpostpathparameters10) | petId(float value) |
-| [PetpetidPostPathParameters10](#petpetidpostpathparameters10) | petId(long value) |
-| [PetpetidPostPathParameters10](#petpetidpostpathparameters10) | petId(double value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | petId(int value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | petId(float value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | petId(long value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | petId(double value) |
 
-## PetpetidPostPathParameters9
-public static class PetpetidPostPathParameters9<br>
+## PathParametersMap
+public static class PathParametersMap<br>
 extends FrozenMap<String, Number>
 
 A class to store validated Map payloads
@@ -142,31 +142,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PetpetidPostPathParameters9](#petpetidpostpathparameters9) | of([Map<String, Number>](#petpetidpostpathparameters8) arg, SchemaConfiguration configuration) |
+| static [PathParametersMap](#pathparametersmap) | of([Map<String, Number>](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | Number | petId()<br> |
 
-## PetpetidPostPathParameters4Boxed
-public sealed interface PetpetidPostPathParameters4Boxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[PetpetidPostPathParameters4BoxedVoid](#petpetidpostpathparameters4boxedvoid),
-[PetpetidPostPathParameters4BoxedBoolean](#petpetidpostpathparameters4boxedboolean),
-[PetpetidPostPathParameters4BoxedNumber](#petpetidpostpathparameters4boxednumber),
-[PetpetidPostPathParameters4BoxedString](#petpetidpostpathparameters4boxedstring),
-[PetpetidPostPathParameters4BoxedList](#petpetidpostpathparameters4boxedlist),
-[PetpetidPostPathParameters4BoxedMap](#petpetidpostpathparameters4boxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## PetpetidPostPathParameters4BoxedVoid
-public record PetpetidPostPathParameters4BoxedVoid<br>
-implements [PetpetidPostPathParameters4Boxed](#petpetidpostpathparameters4boxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostPathParameters4BoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -174,16 +174,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetidPostPathParameters4BoxedBoolean
-public record PetpetidPostPathParameters4BoxedBoolean<br>
-implements [PetpetidPostPathParameters4Boxed](#petpetidpostpathparameters4boxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostPathParameters4BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -191,16 +191,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetidPostPathParameters4BoxedNumber
-public record PetpetidPostPathParameters4BoxedNumber<br>
-implements [PetpetidPostPathParameters4Boxed](#petpetidpostpathparameters4boxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostPathParameters4BoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -208,16 +208,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetidPostPathParameters4BoxedString
-public record PetpetidPostPathParameters4BoxedString<br>
-implements [PetpetidPostPathParameters4Boxed](#petpetidpostpathparameters4boxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostPathParameters4BoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -225,16 +225,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetidPostPathParameters4BoxedList
-public record PetpetidPostPathParameters4BoxedList<br>
-implements [PetpetidPostPathParameters4Boxed](#petpetidpostpathparameters4boxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostPathParameters4BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -242,16 +242,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetidPostPathParameters4BoxedMap
-public record PetpetidPostPathParameters4BoxedMap<br>
-implements [PetpetidPostPathParameters4Boxed](#petpetidpostpathparameters4boxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetidPostPathParameters4BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -259,8 +259,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetidPostPathParameters4
-public static class PetpetidPostPathParameters4<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

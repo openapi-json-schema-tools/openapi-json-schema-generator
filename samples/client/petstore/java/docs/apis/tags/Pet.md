@@ -108,9 +108,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters9 pathParameters =
+FakepetiduploadimagewithrequiredfilePostPathParameters.PathParametersMap pathParameters =
     FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters1.validate(
-    new FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters8()
+    new FakepetiduploadimagewithrequiredfilePostPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -520,9 +520,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters9 queryParameters =
+PetfindbytagsGetQueryParameters.QueryParametersMap queryParameters =
     PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters1.validate(
-    new PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters8()
+    new PetfindbytagsGetQueryParameters.QueryParametersMapBuilder()
         .tags(
             Arrays.asList(
                 "a"
@@ -642,9 +642,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters9 queryParameters =
+PetfindbystatusGetQueryParameters.QueryParametersMap queryParameters =
     PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1.validate(
-    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters8()
+    new PetfindbystatusGetQueryParameters.QueryParametersMapBuilder()
         .status(
             Arrays.asList(
                 "available"
@@ -761,9 +761,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9 pathParameters =
+PetpetiduploadimagePostPathParameters.PathParametersMap pathParameters =
     PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1.validate(
-    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters8()
+    new PetpetiduploadimagePostPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -877,9 +877,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidDeletePathParameters.PetpetidDeletePathParameters9 pathParameters =
+PetpetidDeletePathParameters.PathParametersMap pathParameters =
     PetpetidDeletePathParameters.PetpetidDeletePathParameters1.validate(
-    new PetpetidDeletePathParameters.PetpetidDeletePathParameters8()
+    new PetpetidDeletePathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -994,9 +994,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidGetPathParameters.PetpetidGetPathParameters9 pathParameters =
+PetpetidGetPathParameters.PathParametersMap pathParameters =
     PetpetidGetPathParameters.PetpetidGetPathParameters1.validate(
-    new PetpetidGetPathParameters.PetpetidGetPathParameters8()
+    new PetpetidGetPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -1118,9 +1118,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidPostPathParameters.PetpetidPostPathParameters9 pathParameters =
+PetpetidPostPathParameters.PathParametersMap pathParameters =
     PetpetidPostPathParameters.PetpetidPostPathParameters1.validate(
-    new PetpetidPostPathParameters.PetpetidPostPathParameters8()
+    new PetpetidPostPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),

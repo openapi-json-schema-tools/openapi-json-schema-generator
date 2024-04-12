@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters1Boxed](#fakeparametercollisions1ababselfabpostheaderparameters1boxed)<br> sealed interface for validated payloads |
 | record | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters1BoxedMap](#fakeparametercollisions1ababselfabpostheaderparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters1](#fakeparametercollisions1ababselfabpostheaderparameters1)<br> schema class |
-| static class | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters11](#fakeparametercollisions1ababselfabpostheaderparameters11)<br> builder for Map payloads |
-| static class | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters12](#fakeparametercollisions1ababselfabpostheaderparameters12)<br> output class for Map payloads |
-| sealed interface | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters7Boxed](#fakeparametercollisions1ababselfabpostheaderparameters7boxed)<br> sealed interface for validated payloads |
-| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedVoid](#fakeparametercollisions1ababselfabpostheaderparameters7boxedvoid)<br> boxed class to store validated null payloads |
-| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedBoolean](#fakeparametercollisions1ababselfabpostheaderparameters7boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedNumber](#fakeparametercollisions1ababselfabpostheaderparameters7boxednumber)<br> boxed class to store validated Number payloads |
-| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedString](#fakeparametercollisions1ababselfabpostheaderparameters7boxedstring)<br> boxed class to store validated String payloads |
-| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedList](#fakeparametercollisions1ababselfabpostheaderparameters7boxedlist)<br> boxed class to store validated List payloads |
-| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedMap](#fakeparametercollisions1ababselfabpostheaderparameters7boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters7](#fakeparametercollisions1ababselfabpostheaderparameters7)<br> schema class |
+| static class | [Fakeparametercollisions1ababselfabPostHeaderParameters.HeaderParametersMapBuilder](#headerparametersmapbuilder)<br> builder for Map payloads |
+| static class | [Fakeparametercollisions1ababselfabPostHeaderParameters.HeaderParametersMap](#headerparametersmap)<br> output class for Map payloads |
+| sealed interface | [Fakeparametercollisions1ababselfabPostHeaderParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [Fakeparametercollisions1ababselfabPostHeaderParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [Fakeparametercollisions1ababselfabPostHeaderParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Fakeparametercollisions1ababselfabPostHeaderParameters1Boxed
 public sealed interface Fakeparametercollisions1ababselfabPostHeaderParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostHeaderParameters1BoxedMap([Fakeparametercollisions1ababselfabPostHeaderParameters12](#fakeparametercollisions1ababselfabpostheaderparameters12) data)<br>Creates an instance, private visibility |
+| Fakeparametercollisions1ababselfabPostHeaderParameters1BoxedMap([HeaderParametersMap](#headerparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostHeaderParameters12](#fakeparametercollisions1ababselfabpostheaderparameters12) | data()<br>validated payload |
+| [HeaderParametersMap](#headerparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## Fakeparametercollisions1ababselfabPostHeaderParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters12 validatedPayload =
+Fakeparametercollisions1ababselfabPostHeaderParameters.HeaderParametersMap validatedPayload =
     Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters1.validate(
-    new Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1ababselfabPostHeaderParameters11()
+    new Fakeparametercollisions1ababselfabPostHeaderParameters.HeaderParametersMapBuilder()
         .positive1("a")
 
         .aB("a")
@@ -93,18 +93,18 @@ Fakeparametercollisions1ababselfabPostHeaderParameters.Fakeparametercollisions1a
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("1", [Schema5.Schema51.class](../../../paths/fakeparametercollisions1ababselfab/post/parameters/parameter5/Schema5.md#schema51)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("aB", [Schema6.Schema61.class](../../../paths/fakeparametercollisions1ababselfab/post/parameters/parameter6/Schema6.md#schema61)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("A-B", [Schema8.Schema81.class](../../../paths/fakeparametercollisions1ababselfab/post/parameters/parameter8/Schema8.md#schema81)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("self", [Schema7.Schema71.class](../../../paths/fakeparametercollisions1ababselfab/post/parameters/parameter7/Schema7.md#schema71))<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [Fakeparametercollisions1ababselfabPostHeaderParameters7.class](#fakeparametercollisions1ababselfabpostheaderparameters7) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Fakeparametercollisions1ababselfabPostHeaderParameters12](#fakeparametercollisions1ababselfabpostheaderparameters12) | validate([Map&lt;?, ?&gt;](#fakeparametercollisions1ababselfabpostheaderparameters11) arg, SchemaConfiguration configuration) |
-| [Fakeparametercollisions1ababselfabPostHeaderParameters1BoxedMap](#fakeparametercollisions1ababselfabpostheaderparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakeparametercollisions1ababselfabpostheaderparameters11) arg, SchemaConfiguration configuration) |
+| [HeaderParametersMap](#headerparametersmap) | validate([Map&lt;?, ?&gt;](#headerparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [Fakeparametercollisions1ababselfabPostHeaderParameters1BoxedMap](#fakeparametercollisions1ababselfabpostheaderparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#headerparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [Fakeparametercollisions1ababselfabPostHeaderParameters1Boxed](#fakeparametercollisions1ababselfabpostheaderparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters11
-public class Fakeparametercollisions1ababselfabPostHeaderParameters11<br>
+## HeaderParametersMapBuilder
+public class HeaderParametersMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -112,19 +112,19 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostHeaderParameters11()<br>Creates a builder that contains an empty map |
+| HeaderParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [Fakeparametercollisions1ababselfabPostHeaderParameters11](#fakeparametercollisions1ababselfabpostheaderparameters11) | positive1(String value) |
-| [Fakeparametercollisions1ababselfabPostHeaderParameters11](#fakeparametercollisions1ababselfabpostheaderparameters11) | aB(String value) |
-| [Fakeparametercollisions1ababselfabPostHeaderParameters11](#fakeparametercollisions1ababselfabpostheaderparameters11) | aHyphenMinusB(String value) |
-| [Fakeparametercollisions1ababselfabPostHeaderParameters11](#fakeparametercollisions1ababselfabpostheaderparameters11) | self(String value) |
+| [HeaderParametersMapBuilder](#headerparametersmapbuilder) | positive1(String value) |
+| [HeaderParametersMapBuilder](#headerparametersmapbuilder) | aB(String value) |
+| [HeaderParametersMapBuilder](#headerparametersmapbuilder) | aHyphenMinusB(String value) |
+| [HeaderParametersMapBuilder](#headerparametersmapbuilder) | self(String value) |
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters12
-public static class Fakeparametercollisions1ababselfabPostHeaderParameters12<br>
+## HeaderParametersMap
+public static class HeaderParametersMap<br>
 extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
@@ -132,33 +132,33 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Fakeparametercollisions1ababselfabPostHeaderParameters12](#fakeparametercollisions1ababselfabpostheaderparameters12) | of([Map<String, ? extends @Nullable Object>](#fakeparametercollisions1ababselfabpostheaderparameters11) arg, SchemaConfiguration configuration) |
+| static [HeaderParametersMap](#headerparametersmap) | of([Map<String, ? extends @Nullable Object>](#headerparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | aB()<br>[optional] |
 | String | self()<br>[optional] |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["1"], instance["A-B"],  |
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters7Boxed
-public sealed interface Fakeparametercollisions1ababselfabPostHeaderParameters7Boxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedVoid](#fakeparametercollisions1ababselfabpostheaderparameters7boxedvoid),
-[Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedBoolean](#fakeparametercollisions1ababselfabpostheaderparameters7boxedboolean),
-[Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedNumber](#fakeparametercollisions1ababselfabpostheaderparameters7boxednumber),
-[Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedString](#fakeparametercollisions1ababselfabpostheaderparameters7boxedstring),
-[Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedList](#fakeparametercollisions1ababselfabpostheaderparameters7boxedlist),
-[Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedMap](#fakeparametercollisions1ababselfabpostheaderparameters7boxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedVoid
-public record Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedVoid<br>
-implements [Fakeparametercollisions1ababselfabPostHeaderParameters7Boxed](#fakeparametercollisions1ababselfabpostheaderparameters7boxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -166,16 +166,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedBoolean
-public record Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedBoolean<br>
-implements [Fakeparametercollisions1ababselfabPostHeaderParameters7Boxed](#fakeparametercollisions1ababselfabpostheaderparameters7boxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -183,16 +183,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedNumber
-public record Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedNumber<br>
-implements [Fakeparametercollisions1ababselfabPostHeaderParameters7Boxed](#fakeparametercollisions1ababselfabpostheaderparameters7boxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -200,16 +200,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedString
-public record Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedString<br>
-implements [Fakeparametercollisions1ababselfabPostHeaderParameters7Boxed](#fakeparametercollisions1ababselfabpostheaderparameters7boxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -217,16 +217,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedList
-public record Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedList<br>
-implements [Fakeparametercollisions1ababselfabPostHeaderParameters7Boxed](#fakeparametercollisions1ababselfabpostheaderparameters7boxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -234,16 +234,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedMap
-public record Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedMap<br>
-implements [Fakeparametercollisions1ababselfabPostHeaderParameters7Boxed](#fakeparametercollisions1ababselfabpostheaderparameters7boxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fakeparametercollisions1ababselfabPostHeaderParameters7BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -251,8 +251,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Fakeparametercollisions1ababselfabPostHeaderParameters7
-public static class Fakeparametercollisions1ababselfabPostHeaderParameters7<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

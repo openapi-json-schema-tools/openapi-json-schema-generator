@@ -9,12 +9,12 @@ import org.openapijsonschematools.client.paths.petfindbystatus.servers.server1.P
 
 import java.util.AbstractMap;
 
-public class PetfindbystatusServer1 extends ServerWithVariables<PetfindbystatusServer1Variables.PetfindbystatusServer1Variables11> {
-    private static PetfindbystatusServer1Variables.PetfindbystatusServer1Variables11 getVariables() {
+public class PetfindbystatusServer1 extends ServerWithVariables<PetfindbystatusServer1Variables.VariablesMap> {
+    private static PetfindbystatusServer1Variables.VariablesMap getVariables() {
         try {
             return PetfindbystatusServer1Variables.PetfindbystatusServer1Variables1.getInstance().validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>("version", PetfindbystatusServer1Variables.PetfindbystatusServer1Variables2.getInstance().defaultValue())
+                    new AbstractMap.SimpleEntry<>("version", PetfindbystatusServer1Variables.Version.getInstance().defaultValue())
                 ),
                 new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build())
             );
@@ -29,7 +29,7 @@ public class PetfindbystatusServer1 extends ServerWithVariables<PetfindbystatusS
             getVariables()
         );
     }
-    public PetfindbystatusServer1(PetfindbystatusServer1Variables.PetfindbystatusServer1Variables11 variables) {
+    public PetfindbystatusServer1(PetfindbystatusServer1Variables.VariablesMap variables) {
         super("https://petstore.swagger.io/{version}", variables);
     }
 }

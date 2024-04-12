@@ -75,9 +75,9 @@ StoreorderorderidDelete.Delete apiClient = new StoreorderorderidDelete.Delete(ap
 
 
 // Map validation
-StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters9 pathParameters =
+StoreorderorderidDeletePathParameters.PathParametersMap pathParameters =
     StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters1.validate(
-    new StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters8()
+    new StoreorderorderidDeletePathParameters.PathParametersMapBuilder()
         .order_id("a")
 
     .build(),
@@ -137,7 +137,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters9](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#storeorderorderiddeletepathparameters9) | pathParameters |
+| [StoreorderorderidDeletePathParameters.PathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -149,7 +149,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [StoreorderorderidDeletePathParameters.@Nullable StoreorderorderidDeletePathParameters9](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#storeorderorderiddeletepathparameters9) | pathParameters |
+| [StoreorderorderidDeletePathParameters.@Nullable PathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -183,6 +183,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([StoreorderorderidDeletePathParametersStoreorderorderidDeletePathParameters9](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#storeorderorderiddeletepathparameters9) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([StoreorderorderidDeletePathParametersPathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

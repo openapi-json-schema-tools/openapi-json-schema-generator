@@ -33,23 +33,23 @@ public class PetfindbystatusServer1Variables {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class PetfindbystatusServer1Variables6 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable PetfindbystatusServer1Variables6 instance = null;
-        public static PetfindbystatusServer1Variables6 getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new PetfindbystatusServer1Variables6();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
-    public enum StringPetfindbystatusServer1Variables3 implements StringValueMethod {
+    public enum StringVersionEnums implements StringValueMethod {
         V1("v1"),
         V2("v2");
         private final String value;
     
-        StringPetfindbystatusServer1Variables3(String value) {
+        StringVersionEnums(String value) {
             this.value = value;
         }
         public String value() {
@@ -58,11 +58,11 @@ public class PetfindbystatusServer1Variables {
     }
     
     
-    public sealed interface PetfindbystatusServer1Variables2Boxed permits PetfindbystatusServer1Variables2BoxedString {
+    public sealed interface VersionBoxed permits VersionBoxedString {
         @Nullable Object getData();
     }
     
-    public record PetfindbystatusServer1Variables2BoxedString(String data) implements PetfindbystatusServer1Variables2Boxed {
+    public record VersionBoxedString(String data) implements VersionBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -71,10 +71,10 @@ public class PetfindbystatusServer1Variables {
     
     
     
-    public static class PetfindbystatusServer1Variables2 extends JsonSchema<PetfindbystatusServer1Variables2Boxed> implements StringSchemaValidator<PetfindbystatusServer1Variables2BoxedString>, StringEnumValidator<StringPetfindbystatusServer1Variables3>, DefaultValueMethod<String> {
-        private static @Nullable PetfindbystatusServer1Variables2 instance = null;
+    public static class Version extends JsonSchema<VersionBoxed> implements StringSchemaValidator<VersionBoxedString>, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
+        private static @Nullable Version instance = null;
     
-        protected PetfindbystatusServer1Variables2() {
+        protected Version() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
@@ -87,9 +87,9 @@ public class PetfindbystatusServer1Variables {
             );
         }
     
-        public static PetfindbystatusServer1Variables2 getInstance() {
+        public static Version getInstance() {
             if (instance == null) {
-                instance = new PetfindbystatusServer1Variables2();
+                instance = new Version();
             }
             return instance;
         }
@@ -106,7 +106,7 @@ public class PetfindbystatusServer1Variables {
         }
         
         @Override
-        public String validate(StringPetfindbystatusServer1Variables3 arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringVersionEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -131,11 +131,11 @@ public class PetfindbystatusServer1Variables {
             throw new ValidationException("Invalid type stored in defaultValue");
         }
         @Override
-        public PetfindbystatusServer1Variables2BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new PetfindbystatusServer1Variables2BoxedString(validate(arg, configuration));
+        public VersionBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new VersionBoxedString(validate(arg, configuration));
         }
         @Override
-        public PetfindbystatusServer1Variables2Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public VersionBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
@@ -143,15 +143,15 @@ public class PetfindbystatusServer1Variables {
         }
     }    
     
-    public static class PetfindbystatusServer1Variables11 extends FrozenMap<String> {
-        protected PetfindbystatusServer1Variables11(FrozenMap<String> m) {
+    public static class VariablesMap extends FrozenMap<String> {
+        protected VariablesMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "version"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PetfindbystatusServer1Variables11 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static VariablesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return PetfindbystatusServer1Variables1.getInstance().validate(arg, configuration);
         }
         
@@ -164,24 +164,24 @@ public class PetfindbystatusServer1Variables {
         }
     }
     
-    public interface SetterForPetfindbystatusServer1Variables2 <T> {
+    public interface SetterForVersion <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterPetfindbystatusServer1Variables2(Map<String, String> instance);
+        T getBuilderAfterVersion(Map<String, String> instance);
         
         default T version(String value) {
             var instance = getInstance();
             instance.put("version", value);
-            return getBuilderAfterPetfindbystatusServer1Variables2(instance);
+            return getBuilderAfterVersion(instance);
         }
         
-        default T version(StringPetfindbystatusServer1Variables3 value) {
+        default T version(StringVersionEnums value) {
             var instance = getInstance();
             instance.put("version", value.value());
-            return getBuilderAfterPetfindbystatusServer1Variables2(instance);
+            return getBuilderAfterVersion(instance);
         }
     }
     
-    public static class PetfindbystatusServer1Variables12 implements GenericBuilder<Map<String, String>> {
+    public static class VariablesMap0Builder implements GenericBuilder<Map<String, String>> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "version"
@@ -189,7 +189,7 @@ public class PetfindbystatusServer1Variables {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public PetfindbystatusServer1Variables12(Map<String, String> instance) {
+        public VariablesMap0Builder(Map<String, String> instance) {
             this.instance = instance;
         }
         public Map<String, String> build() {
@@ -197,16 +197,16 @@ public class PetfindbystatusServer1Variables {
         }
     }
     
-    public static class PetfindbystatusServer1Variables10 implements SetterForPetfindbystatusServer1Variables2<PetfindbystatusServer1Variables12> {
+    public static class VariablesMapBuilder implements SetterForVersion<VariablesMap0Builder> {
         private final Map<String, String> instance;
-        public PetfindbystatusServer1Variables10() {
+        public VariablesMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> getInstance() {
             return instance;
         }
-        public PetfindbystatusServer1Variables12 getBuilderAfterPetfindbystatusServer1Variables2(Map<String, String> instance) {
-            return new PetfindbystatusServer1Variables12(instance);
+        public VariablesMap0Builder getBuilderAfterVersion(Map<String, String> instance) {
+            return new VariablesMap0Builder(instance);
         }
     }
     
@@ -215,7 +215,7 @@ public class PetfindbystatusServer1Variables {
         @Nullable Object getData();
     }
     
-    public record PetfindbystatusServer1Variables1BoxedMap(PetfindbystatusServer1Variables11 data) implements PetfindbystatusServer1Variables1Boxed {
+    public record PetfindbystatusServer1Variables1BoxedMap(VariablesMap data) implements PetfindbystatusServer1Variables1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -223,19 +223,19 @@ public class PetfindbystatusServer1Variables {
     }
     
     
-    public static class PetfindbystatusServer1Variables1 extends JsonSchema<PetfindbystatusServer1Variables1Boxed> implements MapSchemaValidator<PetfindbystatusServer1Variables11, PetfindbystatusServer1Variables1BoxedMap> {
+    public static class PetfindbystatusServer1Variables1 extends JsonSchema<PetfindbystatusServer1Variables1Boxed> implements MapSchemaValidator<VariablesMap, PetfindbystatusServer1Variables1BoxedMap> {
         private static @Nullable PetfindbystatusServer1Variables1 instance = null;
     
         protected PetfindbystatusServer1Variables1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("version", PetfindbystatusServer1Variables2.class)
+                    new PropertyEntry("version", Version.class)
                 ))
                 .required(Set.of(
                     "version"
                 ))
-                .additionalProperties(PetfindbystatusServer1Variables6.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -246,7 +246,7 @@ public class PetfindbystatusServer1Variables {
             return instance;
         }
         
-        public PetfindbystatusServer1Variables11 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public VariablesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -269,10 +269,10 @@ public class PetfindbystatusServer1Variables {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new PetfindbystatusServer1Variables11(castProperties);
+            return new VariablesMap(castProperties);
         }
         
-        public PetfindbystatusServer1Variables11 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public VariablesMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

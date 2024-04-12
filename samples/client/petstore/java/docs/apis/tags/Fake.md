@@ -346,9 +346,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters9 pathParameters =
+CommonparamsubdirDeletePathParameters.PathParametersMap pathParameters =
     CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters1.validate(
-    new CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters8()
+    new CommonparamsubdirDeletePathParameters.PathParametersMapBuilder()
         .subDir("c")
 
     .build(),
@@ -446,9 +446,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParameters9 pathParameters =
+CommonparamsubdirGetPathParameters.PathParametersMap pathParameters =
     CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParameters1.validate(
-    new CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParameters8()
+    new CommonparamsubdirGetPathParameters.PathParametersMapBuilder()
         .subDir("a")
 
     .build(),
@@ -546,9 +546,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9 pathParameters =
+CommonparamsubdirPostPathParameters.PathParametersMap pathParameters =
     CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters1.validate(
-    new CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters8()
+    new CommonparamsubdirPostPathParameters.PathParametersMapBuilder()
         .subDir("a")
 
     .build(),
@@ -647,9 +647,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters11 queryParameters =
+FakecasesensitiveparamsPutQueryParameters.QueryParametersMap queryParameters =
     FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters1.validate(
-    new FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters10()
+    new FakecasesensitiveparamsPutQueryParameters.QueryParametersMapBuilder()
         .SomeVar("a")
 
         .someVar("a")
@@ -885,9 +885,9 @@ User1BoxedMap requestBodyPayload =
 FakebodywithqueryparamsPut.SealedRequestBody requestBody = new FakebodywithqueryparamsPut.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
-FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters9 queryParameters =
+FakebodywithqueryparamsPutQueryParameters.QueryParametersMap queryParameters =
     FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters1.validate(
-    new FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters8()
+    new FakebodywithqueryparamsPutQueryParameters.QueryParametersMapBuilder()
         .query("a")
 
     .build(),
@@ -1924,9 +1924,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FakeDeleteHeaderParameters.FakeDeleteHeaderParameters12 headerParameters =
+FakeDeleteHeaderParameters.HeaderParametersMap headerParameters =
     FakeDeleteHeaderParameters.FakeDeleteHeaderParameters1.validate(
-    new FakeDeleteHeaderParameters.FakeDeleteHeaderParameters11()
+    new FakeDeleteHeaderParameters.HeaderParametersMapBuilder()
         .required_boolean_group("true")
 
         .boolean_group("true")
@@ -1936,9 +1936,9 @@ FakeDeleteHeaderParameters.FakeDeleteHeaderParameters12 headerParameters =
 );
 
 // Map validation
-FakeDeleteQueryParameters.FakeDeleteQueryParameters14 queryParameters =
+FakeDeleteQueryParameters.QueryParametersMap queryParameters =
     FakeDeleteQueryParameters.FakeDeleteQueryParameters1.validate(
-    new FakeDeleteQueryParameters.FakeDeleteQueryParameters13()
+    new FakeDeleteQueryParameters.QueryParametersMapBuilder()
         .required_int64_group(1L)
 
         .required_string_group("a")
@@ -3183,9 +3183,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters13 pathParameters =
+Fakeparametercollisions1ababselfabPostPathParameters.PathParametersMap pathParameters =
     Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters1.validate(
-    new Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters12()
+    new Fakeparametercollisions1ababselfabPostPathParameters.PathParametersMapBuilder()
         .positive1("a")
 
         .aHyphenMinusB("a")
@@ -3292,9 +3292,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters =
+FakequeryparamwithjsoncontenttypeGetQueryParameters.QueryParametersMap queryParameters =
     FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters1.validate(
-    new FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters8()
+    new FakequeryparamwithjsoncontenttypeGetQueryParameters.QueryParametersMapBuilder()
     .build(),
     schemaConfiguration
 );
@@ -3585,9 +3585,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters14 queryParameters =
+FaketestqueryparamtersPutQueryParameters.QueryParametersMap queryParameters =
     FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters1.validate(
-    new FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters13()
+    new FaketestqueryparamtersPutQueryParameters.QueryParametersMapBuilder()
         .context(
             Arrays.asList(
                 "a"
@@ -4266,9 +4266,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters9 pathParameters =
+FakedeletecoffeeidDeletePathParameters.PathParametersMap pathParameters =
     FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters1.validate(
-    new FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters8()
+    new FakedeletecoffeeidDeletePathParameters.PathParametersMapBuilder()
         .id("a")
 
     .build(),
