@@ -91,12 +91,12 @@ try {
     throw e;
 }
 if (response instanceof FakemultipleresponsebodiesGetResponses.EndpointFakemultipleresponsebodiesGetCode200Response castResponse) {
-FakemultipleresponsebodiesGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakemultipleresponsebodiesGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
-// handle deserialized body here
+    FakemultipleresponsebodiesGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakemultipleresponsebodiesGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
+    // handle deserialized body here
 } else {
     FakemultipleresponsebodiesGetResponses.EndpointFakemultipleresponsebodiesGetCode202Response castResponse = (FakemultipleresponsebodiesGetResponses.EndpointFakemultipleresponsebodiesGetCode202Response) response;
-FakemultipleresponsebodiesGetCode202Response.ApplicationjsonResponseBody deserializedBody = (FakemultipleresponsebodiesGetCode202Response.ApplicationjsonResponseBody) castResponse.body;
-// handle deserialized body here
+    FakemultipleresponsebodiesGetCode202Response.ApplicationjsonResponseBody deserializedBody = (FakemultipleresponsebodiesGetCode202Response.ApplicationjsonResponseBody) castResponse.body;
+    // handle deserialized body here
 }
 ```
 ### Constructor Summary
