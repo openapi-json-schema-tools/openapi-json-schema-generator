@@ -405,7 +405,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             "- Generated interfaces are largely consistent with the python code",
             "- Openapi spec inline schemas supported at any depth in any location",
             "- Format support for: int32, int64, float, double, date, datetime, uuid",
-            "- Payload values are not coerced when validated, so a ZonedDateTime/LocalDate value can pass other validations that describe the payload only as type string",
+            "- Payload values are not coerced when validated, so a date/date-time value can pass other validations that describe the payload only as type string",
             "- enum types are generated for enums of type string/integer/number/boolean/null",
             "- String transmission of numbers supported with type: string, format: number"
         );
