@@ -149,7 +149,7 @@ allowed input and output types.
 ## Servers
 | server_index | Class | Description |
 | ------------ | ----- | ----------- |
-| 0 | [Server0](docs/servers/Server0.md) | |
+| 0 | [RootServer0](docs/servers/RootServer0.md) | |
 
 ## Endpoints
 All URIs are relative to the selected server

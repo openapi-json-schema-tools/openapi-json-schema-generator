@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.configurations;
 
 import org.openapijsonschematools.client.servers.Server;
-import org.openapijsonschematools.client.ServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.Duration;
@@ -31,68 +31,68 @@ public class ApiConfiguration {
     }
 
     public static class ServerInfo {
-        final ServerInfo.ServerInfo1 serverInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
 
         ServerInfo(
-            ServerInfo. @Nullable ServerInfo1 serverInfo
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo
         ) {
-            this.serverInfo = Objects.requireNonNullElse(serverInfo, new ServerInfo.ServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElse(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
         }
     }
 
     public static class ServerInfoBuilder {
-        private ServerInfo. @Nullable ServerInfo1 serverInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
         public ServerInfoBuilder() {}
 
-        public ServerInfoBuilder serverInfo(ServerInfo.ServerInfo1 serverInfo) {
-            this.serverInfo = serverInfo;
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
             return this;
         }
 
         public ServerInfo build() {
             return new ServerInfo(
-                serverInfo
+                rootServerInfo
             );
         }
     }
 
     public static class ServerIndexInfo {
-        final ServerInfo.ServerIndex serverInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
 
         ServerIndexInfo(
-            ServerInfo. @Nullable ServerIndex serverInfoServerIndex
+            RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex
         ) {
-            this.serverInfoServerIndex = Objects.requireNonNullElse(serverInfoServerIndex, ServerInfo.ServerIndex.SERVER_0);
+            this.rootServerInfoServerIndex = Objects.requireNonNullElse(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);
         }
     }
 
     public static class ServerIndexInfoBuilder {
-        private ServerInfo. @Nullable ServerIndex serverInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
         public ServerIndexInfoBuilder() {}
 
-        public ServerIndexInfoBuilder serverInfoServerIndex(ServerInfo.ServerIndex serverIndex) {
-            this.serverInfoServerIndex = serverIndex;
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
             return this;
         }
 
         public ServerIndexInfo build() {
             return new ServerIndexInfo(
-                serverInfoServerIndex
+                rootServerInfoServerIndex
             );
         }
     }
 
-    public Server getServer(ServerInfo. @Nullable ServerIndex serverIndex) {
-        var serverProvider = serverInfo.serverInfo;
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
         if (serverIndex == null) {
-            ServerInfo.ServerIndex configServerIndex = serverIndexInfo.serverInfoServerIndex;
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);
     }
 
     public Map<String, List< String>> getDefaultHeaders() {
-        return new HashMap<>();
+        return defaultHeaders;
     }
 
     public @Nullable Duration getTimeout() {
