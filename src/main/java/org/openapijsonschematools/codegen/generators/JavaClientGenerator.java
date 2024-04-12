@@ -117,7 +117,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     private final Map<String, String> schemaKeyToModelNameCache = new HashMap<>();
 
     protected Stability getStability() {
-        return Stability.EXPERIMENTAL;
+        return Stability.STABLE;
     }
 
     @Override
@@ -259,87 +259,89 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         instantiationTypes.put("null", "Void (null)");
 
         modifyFeatureSet(features -> features
-                .includeDocumentationFeatures(
-                        DocumentationFeature.Readme,
-                        DocumentationFeature.Servers,
-                        DocumentationFeature.ComponentSchemas,
-                        DocumentationFeature.ComponentSecuritySchemes,
-                        DocumentationFeature.ComponentRequestBodies,
-                        DocumentationFeature.ComponentResponses,
-                        DocumentationFeature.ComponentHeaders,
-                        DocumentationFeature.ComponentParameters
-                )
-                .includeGlobalFeatures(
-                        GlobalFeature.Components,
-                        GlobalFeature.Servers,
-                        GlobalFeature.Security,
-                        GlobalFeature.Paths
-                )
-                .includeComponentsFeatures(
-                        ComponentsFeature.schemas,
-                        ComponentsFeature.securitySchemes,
-                        ComponentsFeature.requestBodies,
-                        ComponentsFeature.responses,
-                        ComponentsFeature.headers,
-                        ComponentsFeature.parameters
-                )
-                .includeSecurityFeatures(
-                        SecurityFeature.ApiKey,
-                        SecurityFeature.HTTP_Basic,
-                        SecurityFeature.HTTP_Bearer
-                )
-                .includeOperationFeatures(
-                        OperationFeature.Security,
-                        OperationFeature.Servers,
-                        OperationFeature.Responses_Default,
-                        OperationFeature.Responses_HttpStatusCode,
-                        OperationFeature.Responses_RangedResponseCodes,
-                        OperationFeature.Responses_RedirectionResponse
-                )
-                .includeSchemaFeatures(
-                        SchemaFeature.AdditionalProperties,
-                        SchemaFeature.AllOf,
-                        SchemaFeature.AnyOf,
-                        SchemaFeature.Const,
-                        SchemaFeature.Contains,
-                        SchemaFeature.Default,
-                        SchemaFeature.DependentRequired,
-                        SchemaFeature.DependentSchemas,
-                        // SchemaFeature.Discriminator,
-                        SchemaFeature.Else,
-                        SchemaFeature.Enum,
-                        SchemaFeature.ExclusiveMaximum,
-                        SchemaFeature.ExclusiveMinimum,
-                        SchemaFeature.Format,
-                        SchemaFeature.If,
-                        SchemaFeature.Items,
-                        SchemaFeature.MaxContains,
-                        SchemaFeature.MaxItems,
-                        SchemaFeature.MaxLength,
-                        SchemaFeature.MaxProperties,
-                        SchemaFeature.Maximum,
-                        SchemaFeature.MinContains,
-                        SchemaFeature.MinItems,
-                        SchemaFeature.MinLength,
-                        SchemaFeature.MinProperties,
-                        SchemaFeature.Minimum,
-                        SchemaFeature.MultipleOf,
-                        SchemaFeature.Not,
-                        SchemaFeature.Nullable,
-                        SchemaFeature.OneOf,
-                        SchemaFeature.Pattern,
-                        SchemaFeature.PatternProperties,
-                        SchemaFeature.PrefixItems,
-                        SchemaFeature.Properties,
-                        SchemaFeature.PropertyNames,
-                        SchemaFeature.Ref,
-                        SchemaFeature.Required,
-                        SchemaFeature.Then,
-                        SchemaFeature.Type,
-                        SchemaFeature.UnevaluatedItems,
-                        SchemaFeature.UnevaluatedProperties,
-                        SchemaFeature.UniqueItems
-                )
+            .includeDocumentationFeatures(
+                DocumentationFeature.Readme,
+                DocumentationFeature.Servers,
+                DocumentationFeature.Security,
+                DocumentationFeature.ComponentSchemas,
+                DocumentationFeature.ComponentSecuritySchemes,
+                DocumentationFeature.ComponentRequestBodies,
+                DocumentationFeature.ComponentResponses,
+                DocumentationFeature.ComponentHeaders,
+                DocumentationFeature.ComponentParameters,
+                DocumentationFeature.Api
+            )
+            .includeGlobalFeatures(
+                GlobalFeature.Components,
+                GlobalFeature.Servers,
+                GlobalFeature.Security,
+                GlobalFeature.Paths
+            )
+            .includeComponentsFeatures(
+                ComponentsFeature.schemas,
+                ComponentsFeature.securitySchemes,
+                ComponentsFeature.requestBodies,
+                ComponentsFeature.responses,
+                ComponentsFeature.headers,
+                ComponentsFeature.parameters
+            )
+            .includeSecurityFeatures(
+                SecurityFeature.ApiKey,
+                SecurityFeature.HTTP_Basic,
+                SecurityFeature.HTTP_Bearer
+            )
+            .includeOperationFeatures(
+                OperationFeature.Security,
+                OperationFeature.Servers,
+                OperationFeature.Responses_Default,
+                OperationFeature.Responses_HttpStatusCode,
+                OperationFeature.Responses_RangedResponseCodes,
+                OperationFeature.Responses_RedirectionResponse
+            )
+            .includeSchemaFeatures(
+                SchemaFeature.AdditionalProperties,
+                SchemaFeature.AllOf,
+                SchemaFeature.AnyOf,
+                SchemaFeature.Const,
+                SchemaFeature.Contains,
+                SchemaFeature.Default,
+                SchemaFeature.DependentRequired,
+                SchemaFeature.DependentSchemas,
+                // SchemaFeature.Discriminator,
+                SchemaFeature.Else,
+                SchemaFeature.Enum,
+                SchemaFeature.ExclusiveMaximum,
+                SchemaFeature.ExclusiveMinimum,
+                SchemaFeature.Format,
+                SchemaFeature.If,
+                SchemaFeature.Items,
+                SchemaFeature.MaxContains,
+                SchemaFeature.MaxItems,
+                SchemaFeature.MaxLength,
+                SchemaFeature.MaxProperties,
+                SchemaFeature.Maximum,
+                SchemaFeature.MinContains,
+                SchemaFeature.MinItems,
+                SchemaFeature.MinLength,
+                SchemaFeature.MinProperties,
+                SchemaFeature.Minimum,
+                SchemaFeature.MultipleOf,
+                SchemaFeature.Not,
+                SchemaFeature.Nullable,
+                SchemaFeature.OneOf,
+                SchemaFeature.Pattern,
+                SchemaFeature.PatternProperties,
+                SchemaFeature.PrefixItems,
+                SchemaFeature.Properties,
+                SchemaFeature.PropertyNames,
+                SchemaFeature.Ref,
+                SchemaFeature.Required,
+                SchemaFeature.Then,
+                SchemaFeature.Type,
+                SchemaFeature.UnevaluatedItems,
+                SchemaFeature.UnevaluatedProperties,
+                SchemaFeature.UniqueItems
+            )
         );
 
         outputFolder = "generated-code" + File.separator + "java";
@@ -378,8 +380,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             "Generates a Java client library",
             "",
             "Features in this generator:",
-            "- v3.0.0 - [v3.0.3](#schema-feature) OpenAPI Specification support for component schemas",
-            "- Very [thorough documentation generated in the style of javadocs, includes code samples](samples/client/petstore/java/docs/components/schemas/Money.md#money)",
+            "- v3.0.0 - [v3.1.0](#schema-feature) OpenAPI Specification support",
+            "- Very thorough documentation generated in the style of javadocs",
             "- Input types constrained for a Schema in SomeSchema.validate",
             "  - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data",
             "- Immutable List output classes generated and returned by validate for List&lt;?&gt; input",
@@ -403,8 +405,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             "- Generated interfaces are largely consistent with the python code",
             "- Openapi spec inline schemas supported at any depth in any location",
             "- Format support for: int32, int64, float, double, date, datetime, uuid",
-            "- Payload values are not coerced when validated, so a datetime value can pass other validations that describe the payload only as type string",
-            "- types are generated for enums of type string/integer/boolean using typing.Literal",
+            "- Payload values are not coerced when validated, so a date/date-time value can pass other validations that describe the payload only as type string",
+            "- enum types are generated for enums of type string/integer/number/boolean/null",
             "- String transmission of numbers supported with type: string, format: number"
         );
     }
