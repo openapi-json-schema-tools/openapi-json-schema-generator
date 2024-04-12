@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.configurations;
 
 import org.openapijsonschematools.client.servers.Server;
-import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.ServerInfo;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.Duration;
@@ -14,75 +14,78 @@ public class ApiConfiguration {
     private final ServerInfo serverInfo;
     private final ServerIndexInfo serverIndexInfo;
     private final @Nullable Duration timeout;
+    private final Map<String, List< String>> defaultHeaders;
 
     public ApiConfiguration() {
         serverInfo = new ServerInfoBuilder().build();
         serverIndexInfo = new ServerIndexInfoBuilder().build();
         timeout = null;
+        defaultHeaders = new HashMap<>();
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, Duration timeout, Map<String, List< String>> defaultHeaders) {
         this.serverInfo = serverInfo;
         this.serverIndexInfo = serverIndexInfo;
         this.timeout = timeout;
+        this.defaultHeaders = defaultHeaders;
     }
 
     public static class ServerInfo {
-        final RootServerInfo.RootServerInfo1 rootServerInfo;
+        final ServerInfo.ServerInfo1 serverInfo;
 
         ServerInfo(
-            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo
+            ServerInfo. @Nullable ServerInfo1 serverInfo
         ) {
-            this.rootServerInfo = Objects.requireNonNullElse(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
+            this.serverInfo = Objects.requireNonNullElse(serverInfo, new ServerInfo.ServerInfoBuilder().build());
         }
     }
 
     public static class ServerInfoBuilder {
-        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
+        private ServerInfo. @Nullable ServerInfo1 serverInfo;
         public ServerInfoBuilder() {}
 
-        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
-            this.rootServerInfo = rootServerInfo;
+        public ServerInfoBuilder serverInfo(ServerInfo.ServerInfo1 serverInfo) {
+            this.serverInfo = serverInfo;
             return this;
         }
 
         public ServerInfo build() {
             return new ServerInfo(
-                rootServerInfo
+                serverInfo
             );
         }
     }
 
     public static class ServerIndexInfo {
-        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
+        final ServerInfo.ServerIndex serverInfoServerIndex;
 
         ServerIndexInfo(
-            RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex
+            ServerInfo. @Nullable ServerIndex serverInfoServerIndex
         ) {
-            this.rootServerInfoServerIndex = Objects.requireNonNullElse(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);
+            this.serverInfoServerIndex = Objects.requireNonNullElse(serverInfoServerIndex, ServerInfo.ServerIndex.SERVER_0);
         }
     }
 
     public static class ServerIndexInfoBuilder {
-        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
+        private ServerInfo. @Nullable ServerIndex serverInfoServerIndex;
         public ServerIndexInfoBuilder() {}
 
-        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
-            this.rootServerInfoServerIndex = serverIndex;
+        public ServerIndexInfoBuilder serverInfoServerIndex(ServerInfo.ServerIndex serverIndex) {
+            this.serverInfoServerIndex = serverIndex;
             return this;
         }
 
         public ServerIndexInfo build() {
             return new ServerIndexInfo(
-                rootServerInfoServerIndex
+                serverInfoServerIndex
             );
         }
     }
 
-    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
-        var serverProvider = serverInfo.rootServerInfo;
+    public Server getServer(ServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.serverInfo;
         if (serverIndex == null) {
-            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
+            ServerInfo.ServerIndex configServerIndex = serverIndexInfo.serverInfoServerIndex;
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);

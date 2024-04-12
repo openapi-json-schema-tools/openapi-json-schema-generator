@@ -1,5 +1,5 @@
 README.md
-docs/RootServerInfo.md
+docs/ServerInfo.md
 docs/components/schemas/ASchemaGivenForPrefixitems.md
 docs/components/schemas/AdditionalItemsAreAllowedByDefault.md
 docs/components/schemas/AdditionalpropertiesAreAllowedByDefault.md
@@ -145,7 +145,7 @@ docs/components/schemas/UuidFormat.md
 docs/components/schemas/ValidateAgainstCorrectBranchThenVsElse.md
 docs/servers/Server0.md
 pom.xml
-src/main/java/org/openapijsonschematools/client/RootServerInfo.java
+src/main/java/org/openapijsonschematools/client/ServerInfo.java
 src/main/java/org/openapijsonschematools/client/apiclient/ApiClient.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ASchemaGivenForPrefixitems.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AdditionalItemsAreAllowedByDefault.java
